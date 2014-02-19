@@ -1,0 +1,416 @@
+<HTML
+><HEAD
+><TITLE
+>Config_Container::searchPath</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Config"
+HREF="package.configuration.config.html"><LINK
+REL="PREVIOUS"
+TITLE="Config_Container::removeItem"
+HREF="package.configuration.config.config-container.removeitem.html"><LINK
+REL="NEXT"
+TITLE="Config_Container::setAttributes"
+HREF="package.configuration.config.config-container.setattributes.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.configuration.config.config-container.removeitem.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.configuration.config.config-container.setattributes.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.configuration.config.config-container.searchpath"><B
+CLASS="function"
+>Config_Container::searchPath()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN20207"
+></A
+><B
+CLASS="function"
+>Config_Container::searchPath()</B
+>&nbsp;--&nbsp;Finds a node using XPATH like format</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN20211"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN20212"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Config/Container.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>Config_Container::searchPath</B
+></CODE
+> (mixed $args)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.searchpath.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      This method tries to find an item by following a given path from the current container.
+     </P
+><P
+>&#13;      This method can only be called on an object of type
+      <TT
+CLASS="parameter"
+><I
+>'section'</I
+></TT
+>. Note that root is a section. 
+      This method is recursive.
+     </P
+><P
+>&#13;      This method takes as many parameters as is needed to define your path to the requested item.
+      The format is array (item1, item2, ..., itemN). Items can be strings or arrays. Strings will match 
+      the item <TT
+CLASS="parameter"
+><I
+>name</I
+></TT
+>, while arrays will match <TT
+CLASS="parameter"
+><I
+>'name'</I
+></TT
+> and/or <TT
+CLASS="parameter"
+><I
+>'attributes'</I
+></TT
+> properties of the requested item.
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.searchpath.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>mixed
+        <TT
+CLASS="parameter"
+><I
+>$args</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Strings or arrays of item to match in the order they will be matched, separated by commas
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.searchpath.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>mixed</I
+></TT
+> - reference to item found or <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> when not found
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.searchpath.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.searchpath.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN20248"><P
+><B
+>Example 31-1. Example for <B
+CLASS="function"
+>searchPath()</B
+> usage</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// Let's say our XML configuration looks like this:
+
+// &#60;config&#62;
+//   &#60;db&#62;
+//     &#60;user&#62;root&#60;/user&#62;
+//     &#60;password&#62;pass&#60;/user&#62;
+//     &#60;host&#62;localhost&#60;/host&#62;
+//   &#60;/db&#62;
+// &#60;/config&#62;
+
+$config = new Config();
+$root =&#38; $menuObj-&#62;parseConfig('db.xml', 'xml');
+
+// Will return the password directive in db
+$passObj =&#38; $root-&#62;searchPath(array('config', 'db', 'password'));</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN20252"><P
+><B
+>Example 31-2. More complex example with attributes for <B
+CLASS="function"
+>searchPath()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// Let's say our XML configuration looks like this:
+
+// &#60;menu&#62;
+//   &#60;group id="company"&#62;
+//     &#60;page id="news"/&#62;
+//     &#60;page id="jobs"/&#62;
+//   &#60;/group&#62;
+//   &#60;group id="projects"&#62;
+//     &#60;page id="project1"/&#62;
+//     &#60;page id="project2"/&#62;
+//   &#60;/group&#62;
+// &#60;/menu&#62;
+
+$menuObj = new Config();
+$root =&#38; $menuObj-&#62;parseConfig('menu.xml', 'xml');
+
+// Will return the container in menu which 'id' is set to 'projects'
+$section =&#38; $root-&#62;searchPath(array('menu', array('group', array('id' =&#62; 'projects'))));
+
+// To get a page we could also use
+$page =&#38; $root-&#62;searchPath(array('menu',
+                                  array('group', array('id' =&#62; 'projects')), 
+                                  array('page',  array('id' =&#62; 'project2'))));</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.configuration.config.config-container.removeitem.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.configuration.config.config-container.setattributes.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>Config_Container::removeItem()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.configuration.config.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Config_Container::setAttributes()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

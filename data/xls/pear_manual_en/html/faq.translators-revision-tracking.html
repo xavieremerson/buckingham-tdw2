@@ -1,0 +1,386 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;    Is there a tool to help PEAR manual translators to track files changes?
+   </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="FAQ - Frequently Asked Questions"
+HREF="faq.html"><LINK
+REL="PREVIOUS"
+TITLE="
+   go-pear.php or bundled packages in the windows build of PHP 4.3.x is out of date!
+  "
+HREF="faq.windows-build-out-of-date.html"><LINK
+REL="NEXT"
+TITLE="
+    Why does my browser show strange warnings when logging in to the website?
+   "
+HREF="faq.ssl-certificate.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="faq.windows-build-out-of-date.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 6. FAQ - Frequently Asked Questions</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="faq.ssl-certificate.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="faq.translators-revision-tracking">Is there a tool to help PEAR manual translators to track files changes?</H1
+><P
+>&#13;    Working on the translations is not just translating an English file 
+    and commiting the results. Much of the work is needed to update 
+    the already translated ones, to get in sync with the content of 
+    the English files. To follow the modifications in the English tree, 
+    you should <A
+HREF="mailto:pear-doc-subscribe@lists.php.net"
+TARGET="_top"
+>subscribe to the PEAR
+     documentation mailing list</A
+>
+    to get CVS commit messages, or read the archives. If you never update your
+    files, the translations can get useless.  
+   </P
+><P
+>&#13;    Updating a foreign language file can get difficult, as you may not 
+    know when and who translated that file, so you may not know where 
+    you should look for the updates needed. We have one system 
+    for tracking the revisions and modification dates of the files in <TT
+CLASS="literal"
+>peardoc</TT
+>. 
+   </P
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="faq.translators.revcheck-comments">The Revision Comments</H2
+><P
+>&#13;     Instead of storing all responsibilities in a central file, the revision
+     comment system stores them in the files they provide information about. 
+     Information about translator, revision numbers, and status information 
+     is stored in the revision comment. 
+     Let's see what would be in the header of the example file 
+     <TT
+CLASS="filename"
+>bookinfo.xml</TT
+> file in this case: 
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#60;!-- EN-Revision: 1.16 Maintainer: jane Status: ready --&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;     We can see the revision number for the last english file used to 
+     update the translation (EN-Revision: 1.16), the translator cvs account 
+     name.
+     But we can also add some other status information in the case it is 
+     needed (eg. "partial" for incomplete translations). This revision
+     comment system is basically about storing the information in
+     the XML files, and not in a central place. This is extremely
+     convenient now, as there are more than 2400 files in the
+     English tree.
+    </P
+><P
+>&#13;     Currently, all three fields (English revision, Maintainer, Status)
+     are needed. Maintainer is intended to be a CVS user name, or some
+     nickname without a space, status can be anything without a space.
+     Note, that this header is not updated by CVS (in contrast with 
+     <TT
+CLASS="literal"
+>$Revision</TT
+>, which is updated automatically).
+     This is only updated when you edit the contents of the comment
+     yourself.
+    </P
+><P
+>&#13;     You may see this as a good thing, but using these comments,
+     you lose the quick look on the whole list of your
+     files. 
+     No, you do not lose this, but get much more! 
+     If you would like to build a full list of you files, you
+     can go to the /peardoc/ directory and run:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>./scripts/revcheck_pear.php xx &#62; revcheck.html</PRE
+></TD
+></TR
+></TABLE
+>
+     Here <TT
+CLASS="literal"
+>xx</TT
+> is the imaginary language code.
+     After running this script you'll get a
+     <TT
+CLASS="filename"
+>revcheck.html</TT
+> in the same directory.
+     You can find revision comparisions and links to diffs
+     for all the files in this language. 
+     You can also add a further restriction parameter, the maintainer name,
+     so the script will only list the files corresponding to
+     the given maintainer. 
+    </P
+><P
+>&#13;     There are some optional extensions introduced for this script,
+     to be available in this generated HTML page. 
+     This is why the <TT
+CLASS="filename"
+>translation.xml</TT
+> files are
+     introduced. 
+     Here comes a simple <TT
+CLASS="filename"
+>translation.xml</TT
+> file
+     for the imaginary xx language :
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#60;?xml version="1.0" encoding="iso-8859-1" ?&#62;
+&#60;!DOCTYPE translation SYSTEM "../dtds/translation.dtd"&#62;
+
+&#60;translation&#62;
+
+ &#60;intro&#62;
+  This is some introductory text for the xx language translators
+  about who is the manager of the translation, and where to find
+  more information. This paragraph is printed on the top of the
+  generated revcheck.html page.
+ &#60;/intro&#62;
+ 
+ &#60;translators&#62;
+  &#60;person name="Joe Doe"     email="joe@hotmail.com"
+   nick="joedoe" cvs="yes" editor="yes"/&#62;
+  &#60;person name="Jane Smith"  email="jsmith@yahoo.com"
+   nick="jane"   cvs="yes"/&#62;
+  &#60;person name="Joe Forever" email="joe@forever.net"
+   nick="joefo"  cvs="no"/&#62;
+ &#60;/translators&#62;
+ 
+ &#60;work-in-progress&#62;
+  &#60;file name="appendices/aliases.xml" person="joedoe"
+   type="working"/&#62;
+  &#60;file name="functions/dbx.xml"      person="joefo"
+   type="working"/&#62;
+ &#60;/work-in-progress&#62;
+
+&#60;/translation&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+     In this file, you can add users without a CVS account, and can
+     assign ready documents or work-in-progress files to them. 
+     The biggest advantage of using this addon is that all this information
+     is used to generate dynamic tables of translators and files in
+     the <TT
+CLASS="filename"
+>revcheck.html</TT
+> file. 
+     All translators are linked to from the individual files they are assigned
+     to, and there is a nice table showing the state of files for
+     all the translators. 
+     Assigning ready files may be needed if a time consuming update is 
+     in progress on that file.
+    </P
+><P
+>&#13;     There are two optional parameters you can add to a &#60;file&#62;,
+     if you would like to record it: the <TT
+CLASS="literal"
+>date</TT
+>
+     and <TT
+CLASS="literal"
+>revision</TT
+>. 
+     Date is assumed to be the date when the work was started, revision 
+     is the checked out revision of the English file used to start the work 
+     (denoted as CO-Revision in the generated table). 
+     There is currently no fixed format for the <TT
+CLASS="literal"
+>date</TT
+> 
+     parameter.
+    </P
+><P
+>&#13;     Another addon to this system is just to give credit to all people
+     who worked on one file, and not just the current maintainer. To achieve
+     this goal, we added the credit comments. One credit comment in
+     eg. <TT
+CLASS="filename"
+>history.xml</TT
+> may look like this (in case
+     Joe Doe translated the file initially, but Jane followed him to
+     be the maintainer):
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#60;!-- CREDITS: joedoe --&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+     The credits comment can contain a comma-separated list. These
+     comments only affect the display of the translators table in
+     <TT
+CLASS="filename"
+>revcheck.html</TT
+>.
+    </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="faq.windows-build-out-of-date.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="faq.ssl-certificate.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>go-pear.php or bundled packages in the windows build of PHP 4.3.x is out of date!</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="faq.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Why does my browser show strange warnings when logging in to the website?</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

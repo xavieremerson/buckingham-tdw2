@@ -1,0 +1,229 @@
+<HTML
+><HEAD
+><TITLE
+>Example</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_RDDL"
+HREF="package.xml.xml-rddl.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.xml.xml-rddl.intro.html"><LINK
+REL="NEXT"
+TITLE="XML_RDDL::XML_RDDL"
+HREF="package.xml.xml-rddl.xml-rddl.xml-rddl.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-rddl.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-rddl.xml-rddl.xml-rddl.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.xml.xml-rddl.example">Example</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN102735"
+></A
+>Example&nbsp;--&nbsp;Example for the usage of XML_RDDL</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-rddl.example.example1"
+></A
+><H2
+>Usage example</H2
+><P
+>&#13;    As the RDDL website contains RDDL resources embedded in the XHMTL code of the home page,
+    it can be used in the following example.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN102741"><P
+><B
+>Example 61-1. Fetching resources from www.rddl.org</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "XML/RDDL.php";
+
+// create new RDDL parser
+$rddl   = &#38;new XML_RDDL();
+
+// parse a document that contains RDDL resources
+$result = $rddl-&#62;parseRDDL('http://www.rddl.org');
+// check for error
+if (PEAR::isError($result)) {
+echo	sprintf( "ERROR: %s (code %d)", $result-&#62;getMessage(), $result-&#62;getCode());
+exit;
+}
+
+// get all resources
+$resources = $rddl-&#62;getAllResources();
+echo	"&#60;pre&#62;";
+print_r($resources);
+echo	"&#60;/pre&#62;";
+
+//	get one resource by its Id
+$test = $rddl-&#62;getResourceById('CSS');
+echo	"&#60;pre&#62;";
+print_r($test);
+echo	"&#60;/pre&#62;";
+
+// get all stylesheets
+$test = $rddl-&#62;getResourcesByNature('http://www.w3.org/1999/XSL/Transform');
+echo	"&#60;pre&#62;";
+print_r($test);
+echo	"&#60;/pre&#62;";
+
+// get all normative references
+$test = $rddl-&#62;getResourcesByPurpose('http://www.rddl.org/purposes#normative-reference');
+echo	"&#60;pre&#62;";
+print_r($test);
+echo	"&#60;/pre&#62;";</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-rddl.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-rddl.xml-rddl.xml-rddl.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.xml-rddl.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>XML_RDDL::XML_RDDL()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

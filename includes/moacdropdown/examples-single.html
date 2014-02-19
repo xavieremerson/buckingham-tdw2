@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>
+			autocomplete
+		</title>
+		<style>
+			@import url( css/dropdown.css );
+		</style>
+<script src="js/mobrowser.js"></script>
+<script src="js/modomevent3.js"></script>
+<script src="js/modomt.js"></script>
+<script src="js/modomext.js"></script>
+<script src="js/getobject2.js"></script>
+<script src="js/xmlextras.js"></script>
+<script src="js/acdropdown.js"></script>
+<script src="js/ieselect.js"></script>
+		<!-- syntax highlight -->
+<script language="javascript" src="js/shCore.js" ></script >
+<script language="javascript" src="js/shBrushXML.js" ></script >
+<!-- syntax highlight -->
+<script language="javascript">
+var emails = new Array( 'mircho.mirev@hotmail.com', 'michael.jordan@chicago.com', 'vin.diesel@paramaunt.com', 'steven.spielberg@darkside.com', 'family@pord.net', 'friends@hell.com', 'pizza@health.com', 'mc.donalds@mc-donalds.com', 'large.land.mass@finally.com' )
+
+var semails = 'mm,mircho.mirev@hotmail.com|mj,michael.jordan@chicago.com|vd,vin.diesel@paramaunt.com|ss,steven.spielberg@darkside.com|fa,family@pord.net|fr,friends@hell.com|pz,pizza@health.com|mc,mc.donalds@mc-donalds.com|llm,large.land.mass@finally.com'
+
+var Food = new Array( 'Appolo', 'Arabella', 'Eggs', 'Meat', 'Chop', 'Salad', 'Pizza', 'Burger', 'Buratino', 'Beroka', 'Momoral', 'Momoral-1', 'Momoral-2' )
+var months = new Array( 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' )
+var days = new Array( 'Monday', 'Tuesday', 'Wendsday', 'Thursday', 'Fryday', 'Saturday', 'Sunday' )
+var aCountries = new Array( 'United States', 'Afghanistan', 'Albania', 'Algeria', 'American Samoa', 'Andorra', 'Angola', 'Antigua', 'Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria', 'Azerbaijan', 'Azores', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Barbuda', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bermuda [U.K.]', 'Bhutan', 'Bolivia', 'Bosnia/Herzegovina', 'Botswana', 'Brazil', 'Brunei Darussalam', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Caicos', 'Cambodia', 'Cameroon', 'Canada', 'Canary Islands', 'Cape Verde islands', 'Cayman Islands', 'Central Africa', 'Chad', 'Chile', 'China', 'Christmas Island', 'Colombia', 'Comoros', 'Congo', 'Congo [Zaire]', 'Cook Island', 'Costa Rica', 'Cote dIvoire (Ivory Coast)', 'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'East Timor', 'Ecuador', 'Egypt', 'El Salvador', 'England', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Ethiopia', 'Falkland Islands', 'Faroe Island', 'Fiji', 'Finland', 'France', 'French Guiana', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Gibraltar', 'Greece', 'Greenland', 'Grenada', 'Grenadines', 'Guadeloupe', 'Guam', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Holland', 'Honduras', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Korea [North]', 'Korea [South]', 'Kuwait', 'Kyrgyzstan', 'Lao [Laos]', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Lybia', 'Macao', 'Macendonia', 'Madagascar', 'Madeira', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Mariana Islands', 'Marshall Islands', 'Martinique [France]', 'Mauritania', 'Mauritius', 'Mayotte', 'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montserrat [U.K.]', 'Morocco', 'Mozambique', 'Myanmar [Burma],', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'Netherlands Antilles', 'Nevis', 'New Caledonia', 'New Hebrides', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'Niue', 'North Ireland', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Pitcairn', 'Poland', 'Portugal', 'Principe', 'Puerto Rico [U.S.]', 'Qatar', 'Reunion Island', 'Romania', 'Russia', 'Rwanda', 'Ryukyu Islands', 'Samoa', 'San Marino', 'Sa~o Tome', 'Saudi Arabia', 'Scotland', 'Senegal', 'Serbia/Montenegro', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovak Republic', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'Spain', 'Sri Lanka', 'St. Helena', 'St. Kitts', 'St. Lucia', 'St. Vincent', 'Sudan', 'Suriname', 'Swaziland', 'Sweden', 'Switzerland', 'Syrian Arab', 'Tahiti', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Tobago', 'Togo', 'Tokelau', 'Tonga', 'Trinidad', 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United States', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Venezuela', 'Vietnam', 'Virgin Islands', 'Wake Island', 'Wales', 'Wallis', 'Yemen', 'Yugoslavia', 'Zaire', 'Zambia', 'Zimbabwe' )
+function formatCountries( sText )
+{
+return sText.substr( 0, sText.toLowerCase().indexOf( this.sActiveValue.toLowerCase() ) ) + sText.substr( sText.toLowerCase().indexOf( this.sActiveValue.toLowerCase() ), this.sActiveValue.length ).bold().fontcolor( '#ff0000' ) + sText.substr( sText.toLowerCase().indexOf( this.sActiveValue.toLowerCase() ) + this.sActiveValue.length )
+}
+function alertSelected()
+{
+  document.getElementById( 'selectedCountry' ).innerHTML = this.sActiveValue
+}
+
+initIESelect = function( hEvent )
+{
+	replaceAllIESelects()
+}
+
+cDomEvent.addEvent2( window, 'load', initIESelect )
+/* TOGGLE CODE */
+</script>
+</head>
+<body>
+
+<form>
+					Gmail like autocomplete. You can separate the items by comma. The option autocomplete_forcecorrect="true" is used so if a text typed does not match any item the last typed characters (those which after adding them the list with suggestions was empty) are marked
+					<br/>
+					<br/>
+
+<textarea id="foo" name="emailOfPeople" class="dropdown" cols="70" style="width:100%" autocomplte="off" acdropdown="true" autocomplete_list="array:emails" autocomplete_matchsubstring="true" autocomplete_forcecorrect="true" autocomplete_complete="true"></textarea>
+
+<select id="ie_dummy_select">
+	<option>one</option>
+	<option>one</option>
+	<option>one</option>
+	<option>one</option>
+	<option>one</option>
+	<option>one</option>
+</select>
+	
+<br/><br/>
+remote list of countries (load this html file from a php enabled web server)
+<input class="" id="autocomplete_remote" acdropdown="true" autocomplete_list="url:get.php?s=[S]&l=10" autocomplete_complete="true" tabindex="2" name="testURL">
+
+<br/><br/>
+
+	</body>
+</html>

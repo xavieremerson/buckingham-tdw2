@@ -1,0 +1,262 @@
+<HTML
+><HEAD
+><TITLE
+>Proxy Authorization</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTTP_Request"
+HREF="package.http.http-request.html"><LINK
+REL="PREVIOUS"
+TITLE="Request headers"
+HREF="package.http.http-request.headers.html"><LINK
+REL="NEXT"
+TITLE="Response Evaluation"
+HREF="package.http.http-request.response-eval.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.http.http-request.headers.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.http.http-request.response-eval.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.http.http-request.proxy-auth">Proxy Authorization</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN75685"
+></A
+>Proxy Authorization&nbsp;--&nbsp;
+   Making use of a HTTP proxy
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-request.proxy-auth.usage"
+></A
+><H2
+>How to use Proxy Authorization</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN75690"><P
+><B
+>Example 42-1. Using a proxy server with anonymous access</B
+></P
+><P
+>&#13;    In this example it is assumed that one wants to use the machine with
+    the hostname <TT
+CLASS="literal"
+>proxy.example.com</TT
+>, where a proxy
+    server is listening on port <TT
+CLASS="literal"
+>8080</TT
+>, to proxy the
+    outgoing connection to example.com.
+   </P
+><P
+>&#13;    The second parameter of <B
+CLASS="function"
+>setProxy()</B
+> is optional
+    and defaults to <TT
+CLASS="literal"
+>8080</TT
+>.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "HTTP/Request.php";
+
+$req =&#38; new HTTP_Request("http://example.com/");
+$req-&#62;setProxy("proxy.example.com", 8080);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN75699"><P
+><B
+>Example 42-2. Using proxy authorization</B
+></P
+><P
+>&#13;    This is the same example as above, except that a username/password
+    tuple is provided, which authorizes the user at the proxy server:
+    The username is <TT
+CLASS="literal"
+>johndoe</TT
+> and the appendant
+    password is <TT
+CLASS="literal"
+>foo</TT
+>.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "HTTP/Request.php";
+
+$req =&#38; new HTTP_Request("http://example.com/");
+$req-&#62;setProxy("proxy.example.com", 8080, "johndoe", "foo");</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.http.http-request.headers.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.http.http-request.response-eval.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Request headers</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.http.http-request.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Response Evaluation</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

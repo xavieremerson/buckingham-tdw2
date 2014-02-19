@@ -1,0 +1,583 @@
+<HTML
+><HEAD
+><TITLE
+>VersionControl_SVN</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Tools and Utilities"
+HREF="package.tools.html"><LINK
+REL="PREVIOUS"
+TITLE="Tools and Utilities"
+HREF="package.tools.html"><LINK
+REL="NEXT"
+TITLE="Validate"
+HREF="package.validate.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.tools.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 58. Tools and Utilities</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.validate.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.tools.versioncontrol-svn">VersionControl_SVN</H1
+><P
+>&#13;  VersionControl_SVN is a simple Object-Oriented interface for the
+  <B
+CLASS="command"
+>svn</B
+> command-line application that makes up the core
+  of <A
+HREF="http://subversion.tigris.org/"
+TARGET="_top"
+>Subversion</A
+>, a
+  free/open-source version control system.
+ </P
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.tools.versioncontrol-svn.intro">Introduction</H2
+><P
+>&#13;   Subversion can be used to manage trees of source code, text files,
+   image files --  just about <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>any</I
+></SPAN
+> collection of
+   files.
+  </P
+><P
+>&#13;   VersionControl_SVN's features include:
+   <P
+></P
+><UL
+><LI
+><P
+>&#13;      Full support of <TT
+CLASS="literal"
+>svn</TT
+> subcommands.
+     </P
+></LI
+><LI
+><P
+>&#13;      Flexible error reporting provided by <A
+HREF="core.pear.pear-errorstack.html"
+>PEAR_ErrorStack</A
+>.
+     </P
+></LI
+><LI
+><P
+>&#13;      Multi-object factory design.
+     </P
+></LI
+><LI
+><P
+>&#13;      Fully documented source code
+     </P
+></LI
+></UL
+>
+   The power of a version control system like Subversion, when accessed
+   through VersionControl_SVN, can be extended far beyond typical
+   <SPAN
+CLASS="QUOTE"
+>"source code"</SPAN
+> repositories.
+  </P
+><P
+>&#13;   For example, what content management system (CMS) couldn't benefit
+   from version control functionality? For many non-programmers,
+   version control is a confusing subject to get a firm grasp on. With
+   VersionControl_SVN, developers are now able to customize the
+   interface to Subversion with the ease-of-use goals of their
+   particular audience in mind. VersionControl_SVN lets you leverage
+   the strengths of version control without burdening end-users with
+   the learning curve of change control fundamentals.
+  </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.tools.versioncontrol-svn.example">A Simple Example</H2
+><P
+>&#13;   So you've got Subversion repository set up somewhere, and you want
+   to take a look at what's inside with a PHP script. With the
+   VersionControl_SVN::VersionControl_SVN_List() command, you're just a
+   few steps away.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN98902"><P
+><B
+>Example 58-1. 
+    Reading the content of a Subversion repository
+   </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'VersionControl/SVN.php';
+    
+// Setup error handling -- always a good idea!
+$svnstack = &#38;PEAR_ErrorStack::singleton('VersionControl_SVN');
+
+// Set up runtime options. 
+$options = array('fetchmode' =&#62; VERSIONCONTROL_SVN_FETCHMODE_ARRAY);
+// Request list class from factory
+$svn = VersionControl_SVN::factory('list', $options);
+
+// Define any switches and aguments we may need
+$switches = array('username' =&#62; 'user', 'password' =&#62; 'pass');
+$args = array('svn://svn.example.com/repos/TestProject');
+
+// Run command
+if ($output = $svn-&#62;run($args, $switches)) {
+    print_r($output);
+} else {
+    if (count($errs = $svnstack-&#62;getErrors())) { 
+        foreach ($errs as $err) {
+            echo '&#60;br /&#62;'.$err['message']."&#60;br /&#62;\n";
+            echo "Command used: " . $err['params']['cmd'];
+        }
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   If your example repository above happened to have the
+   VersionControl_SVN source in it, your output would be something like
+   this:
+  </P
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>Array
+(
+    [0] =&#62; Array
+        (
+            [name] =&#62; docs
+            [type] =&#62; D
+        )
+
+    [1] =&#62; Array
+        (
+            [name] =&#62; package.xml
+            [type] =&#62; F
+        )
+
+    [2] =&#62; Array
+        (
+            [name] =&#62; SVN.php
+            [type] =&#62; F
+        )
+
+    [3] =&#62; Array
+        (
+            [name] =&#62; SVN
+            [type] =&#62; D
+        )
+
+    [4] =&#62; Array
+        (
+            [name] =&#62; tests
+            [type] =&#62; D
+        )
+
+)</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><P
+>&#13;   Note that in the above output, directories are flagged as type
+   <TT
+CLASS="literal"
+>D</TT
+>, and files are flagged as type
+   <TT
+CLASS="literal"
+>F</TT
+>.
+  </P
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+    For additional information in the output, try setting
+    <TT
+CLASS="literal"
+>verbose</TT
+> to <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> in your
+    <TT
+CLASS="varname"
+>$options</TT
+> array.
+   </P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.tools.versioncontrol.example1">One Factory To Rule Them All</H2
+><P
+>&#13;   Have a script that needs to utilize several VersionControl_SVN
+   subclasses? At the expense of a little overhead, you can be sure
+   your <TT
+CLASS="literal"
+>$svn</TT
+> objects are fully-loaded by using the
+   VersionControl_SVN::factory() command keyword
+   <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+><TT
+CLASS="literal"
+>__ALL__</TT
+></I
+></SPAN
+>.
+  </P
+><P
+>&#13;   For example, in a basic script to get the list of current files in a
+   repository, you just need the
+   VersionControl_SVN::VersionControl_SVN_List() subclass.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN98923"><P
+><B
+>Example 58-2. Getting the list of current files in a repository</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'VersionControl/SVN.php';
+
+// Setup error handling -- always a good idea!
+$svnstack = &#38;PEAR_ErrorStack::singleton('VersionControl_SVN');
+
+// Set up runtime options. 
+$options = array('fetchmode' =&#62; VERSIONCONTROL_SVN_FETCHMODE_ARRAY);
+
+// Request list class from factory
+$svn = VersionControl_SVN::factory('list', $options);
+
+// Define any switches and aguments we may need
+$switches = array('username' =&#62; 'user', 'password' =&#62; 'pass');
+$args = array('svn://svn.example.com/repos/TestProject');
+
+// Run command
+if ($output = $svn-&#62;run($args, $switches)) {
+    print_r($output);
+} else {
+    if (count($errs = $svnstack-&#62;getErrors())) { 
+        foreach ($errs as $err) {
+            echo '&#60;br /&#62;'.$err['message']."&#60;br /&#62;\n";
+            echo "Command used: " . $err['params']['cmd'];
+        }
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   However, if you need to get a recursive list of files in a
+   repository, look up the recent log activity for those files, and
+   view the annotated source for those files, you've got two options.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN98927"><P
+><B
+>Example 58-3. Recursively getting the list of current files in a repository</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'VersionControl/SVN.php';
+
+// Setup error handling -- always a good idea!
+$svnstack = &#38;PEAR_ErrorStack::singleton('VersionControl_SVN');
+
+// Set up runtime options. 
+$options = array('fetchmode' =&#62; VERSIONCONTROL_SVN_FETCHMODE_RAW);
+
+// METHOD ONE: Lowest Overhead
+// Create svn object with subcommands we need listed out individually
+$svn = VersionControl_SVN::factory(array('list', 'log', 'blame'), $options);
+
+// Define any switches and aguments we may need
+$switches = array('username' =&#62; 'user', 'password' =&#62; 'pass');
+$args = array('svn://svn.example.com/repos/TestProject');
+
+print_r($svn-&#62;list-&#62;run($args, $switches));
+
+// Pick files out of the above output, and see who did what
+$args = array('svn://svn.example.com/repos/TestProject/trunk/index.php');
+
+echo "&#60;pre&#62;" . $svn-&#62;blame-&#62;run($args) . "&#60;/pre&#62;";
+
+// METHOD TWO: Put all available commands at your disposal
+// Load up all subcommands - higher overhead, but convenient for certain occasions
+$svn = VersionControl_SVN::factory('__ALL__', $options);
+
+// Now you may run whatever you need to ...
+$svn-&#62;cat-&#62;run($args, $switches);
+$svn-&#62;info-&#62;run($args, $switches);
+// ... and so on.</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.tools.versioncontrol-svn.reading">Further Reading</H2
+><P
+>&#13;   If you are interested in learning more about Subversion, see the following:
+   <P
+></P
+><UL
+><LI
+><P
+>&#13;      <A
+HREF="http://svnbook.red-bean.com/"
+TARGET="_top"
+>Version Control with
+       Subversion</A
+> - The primary reference manual for all things
+      related to Subversion, from general use to repository
+      administration.
+     </P
+></LI
+><LI
+><P
+>&#13;      <A
+HREF="http://subversion.tigris.org/"
+TARGET="_top"
+>Subversion Website</A
+> - The
+      official Subversion website offers a FAQ, mailing list, and of
+      course, the Subversion source code. Also included are links to GUI
+      Subversion applications.
+     </P
+></LI
+></UL
+>
+  </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.tools.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.validate.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Tools and Utilities</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.tools.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Validate</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

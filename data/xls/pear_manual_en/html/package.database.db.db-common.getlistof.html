@@ -1,0 +1,392 @@
+<HTML
+><HEAD
+><TITLE
+>DB_common::getListOf()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="DB_common::getCol()"
+HREF="package.database.db.db-common.getcol.html"><LINK
+REL="NEXT"
+TITLE="DB_common::getOne()"
+HREF="package.database.db.db-common.getone.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.getcol.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.getone.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.db-common.getlistof">DB_common::getListOf()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN23605"
+></A
+>DB_common::getListOf()&nbsp;--&nbsp;Views database system information</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN23608"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN23609"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>getListOf</B
+></CODE
+> (string $type)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.getlistof.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Retrieves information about database users, avaible databases,
+   views and functions.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.getlistof.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+      <TT
+CLASS="parameter"
+><I
+>$type</I
+></TT
+></DT
+><DD
+><P
+>&#13;       type of requested info,
+       valid values for <TT
+CLASS="parameter"
+><I
+>$type</I
+></TT
+>
+       are database dependent, ie:
+       <TT
+CLASS="literal"
+>tables</TT
+>,
+       <TT
+CLASS="literal"
+>databases</TT
+>, <TT
+CLASS="literal"
+>users</TT
+>,
+       <TT
+CLASS="literal"
+>view</TT
+>, <TT
+CLASS="literal"
+>functions</TT
+>
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.getlistof.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   array - an ordered array containing the requested data
+   or a <A
+HREF="package.database.db.db-error.html"
+><B
+CLASS="classname"
+>DB_Error</B
+></A
+> object on failure
+ </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.getlistof.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <DIV
+CLASS="table"
+><A
+NAME="AEN23643"><P
+><B
+>Table 33-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_UNSUPPORTED</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        not supported
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        The requested information is not avaible.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check your user permissions and the database system for
+        support quering the requested information.
+       </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.getlistof.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.getListOf.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23664"><P
+><B
+>Example 33-1. Using <B
+CLASS="function"
+>getListOf()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data = $db-&#62;getListOf('tables');
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+
+echo implode("\n", $data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.getcol.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.getone.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>DB_common::getCol()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>DB_common::getOne()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

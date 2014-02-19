@@ -1,0 +1,861 @@
+<HTML
+><HEAD
+><TITLE
+>Calendar</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Date and Time"
+HREF="package.datetime.html"><LINK
+REL="PREVIOUS"
+TITLE="Date and Time"
+HREF="package.datetime.html"><LINK
+REL="NEXT"
+TITLE="Introduction"
+HREF="package.datetime.calendar.intro-purpose.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.datetime.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 34. Date and Time</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.datetime.calendar.intro-purpose.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.datetime.calendar">Calendar</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.datetime.calendar.intro-purpose.html"
+>Introduction</A
+>&nbsp;--&nbsp;
+        What <B
+CLASS="classname"
+>Calendar</B
+> can do
+      </DT
+><DT
+><A
+HREF="package.datetime.calendar.intro-installing.html"
+>Installing</A
+>&nbsp;--&nbsp;How to install PEAR::Calendar</DT
+><DT
+><A
+HREF="package.datetime.calendar.intro-inahurry.html"
+>In A Hurry</A
+>&nbsp;--&nbsp;
+        Just add hot water...
+      </DT
+><DT
+><A
+HREF="package.datetime.calendar.intro-overview.html"
+>Package Overview</A
+>&nbsp;--&nbsp;
+        Summary of Calendar Classes
+      </DT
+><DT
+><A
+HREF="package.datetime.calendar.intro-overview-methods.html"
+>Method Overview</A
+>&nbsp;--&nbsp;
+        Summary of Calendar API
+      </DT
+><DT
+><A
+HREF="package.datetime.calendar.intro-decorators.html"
+>Calendar Decorators</A
+>&nbsp;--&nbsp;
+        What <B
+CLASS="classname"
+>Calendar_Decorator</B
+> is for
+      </DT
+><DT
+><A
+HREF="package.datetime.calendar.faq.html"
+>FAQ</A
+>&nbsp;--&nbsp;
+        Frequently Asked Questions
+      </DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.html"
+>Calendar</A
+>&nbsp;--&nbsp;Calendar base class</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.calendar.html"
+>constructor <B
+CLASS="function"
+>Calendar::Calendar()</B
+></A
+>&nbsp;--&nbsp;Constructs the Calendar</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.adjust.html"
+><B
+CLASS="function"
+>Calendar::adjust()</B
+></A
+>&nbsp;--&nbsp;Adjusts the date (helper method)</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.build.html"
+><B
+CLASS="function"
+>Calendar::build()</B
+></A
+>&nbsp;--&nbsp;Abstract method for building the children of a calendar object.</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.fetch.html"
+><B
+CLASS="function"
+>Calendar::fetch()</B
+></A
+>&nbsp;--&nbsp;Iterator method for fetching child Calendar subclass objects  (e.g. a
+minute from an hour object). On reaching the end of  the collection,
+returns false and resets the collection for  further iteratations.</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.fetchall.html"
+><B
+CLASS="function"
+>Calendar::fetchAll()</B
+></A
+>&nbsp;--&nbsp;Fetches all child from the current collection of children</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.gettimestamp.html"
+><B
+CLASS="function"
+>Calendar::getTimestamp()</B
+></A
+>&nbsp;--&nbsp;Returns a timestamp from the current date / time values</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.getvalidator.html"
+><B
+CLASS="function"
+>Calendar::getValidator()</B
+></A
+>&nbsp;--&nbsp;Returns an instance of Calendar_Validator</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.isselected.html"
+><B
+CLASS="function"
+>Calendar::isSelected()</B
+></A
+>&nbsp;--&nbsp;True if the calendar subclass object is selected (e.g. today)</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.isvalid.html"
+><B
+CLASS="function"
+>Calendar::isValid()</B
+></A
+>&nbsp;--&nbsp;Determine whether this date is valid</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.nextday.html"
+><B
+CLASS="function"
+>Calendar::nextDay()</B
+></A
+>&nbsp;--&nbsp;Returns the value for the next day</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.nexthour.html"
+><B
+CLASS="function"
+>Calendar::nextHour()</B
+></A
+>&nbsp;--&nbsp;Returns the value for the next hour</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.nextminute.html"
+><B
+CLASS="function"
+>Calendar::nextMinute()</B
+></A
+>&nbsp;--&nbsp;Returns the value for the next minute</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.nextmonth.html"
+><B
+CLASS="function"
+>Calendar::nextMonth()</B
+></A
+>&nbsp;--&nbsp;Returns the value for next month</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.nextsecond.html"
+><B
+CLASS="function"
+>Calendar::nextSecond()</B
+></A
+>&nbsp;--&nbsp;Returns the value for the next second</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.nextyear.html"
+><B
+CLASS="function"
+>Calendar::nextYear()</B
+></A
+>&nbsp;--&nbsp;Returns the value for next year</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.prevday.html"
+><B
+CLASS="function"
+>Calendar::prevDay()</B
+></A
+>&nbsp;--&nbsp;Returns the value for the previous day</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.prevhour.html"
+><B
+CLASS="function"
+>Calendar::prevHour()</B
+></A
+>&nbsp;--&nbsp;Returns the value for the previous hour</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.prevminute.html"
+><B
+CLASS="function"
+>Calendar::prevMinute()</B
+></A
+>&nbsp;--&nbsp;Returns the value for the previous minute</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.prevmonth.html"
+><B
+CLASS="function"
+>Calendar::prevMonth()</B
+></A
+>&nbsp;--&nbsp;Returns the value for the previous month</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.prevsecond.html"
+><B
+CLASS="function"
+>Calendar::prevSecond()</B
+></A
+>&nbsp;--&nbsp;Returns the value for the previous second</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.prevyear.html"
+><B
+CLASS="function"
+>Calendar::prevYear()</B
+></A
+>&nbsp;--&nbsp;Returns the value for the previous year</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.setselected.html"
+><B
+CLASS="function"
+>Calendar::setSelected()</B
+></A
+>&nbsp;--&nbsp;Defines calendar object as selected (e.g. for today)</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.setselection.html"
+><B
+CLASS="function"
+>Calendar::setSelection()</B
+></A
+>&nbsp;--&nbsp;Abstract method for selected data objects called from build</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.settimestamp.html"
+><B
+CLASS="function"
+>Calendar::setTimestamp()</B
+></A
+>&nbsp;--&nbsp;Defines the calendar by a Unix timestamp</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.size.html"
+><B
+CLASS="function"
+>Calendar::size()</B
+></A
+>&nbsp;--&nbsp;Get the number Calendar subclass objects stored in the internal 
+collection.</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.thisday.html"
+><B
+CLASS="function"
+>Calendar::thisDay()</B
+></A
+>&nbsp;--&nbsp;Returns the value for this day</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.thishour.html"
+><B
+CLASS="function"
+>Calendar::thisHour()</B
+></A
+>&nbsp;--&nbsp;Returns the value for this hour</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.thisminute.html"
+><B
+CLASS="function"
+>Calendar::thisMinute()</B
+></A
+>&nbsp;--&nbsp;Returns the value for this minute</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.thismonth.html"
+><B
+CLASS="function"
+>Calendar::thisMonth()</B
+></A
+>&nbsp;--&nbsp;Returns the value for this month</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.thissecond.html"
+><B
+CLASS="function"
+>Calendar::thisSecond()</B
+></A
+>&nbsp;--&nbsp;Returns the value for this second</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar.thisyear.html"
+><B
+CLASS="function"
+>Calendar::thisYear()</B
+></A
+>&nbsp;--&nbsp;Returns the value for this year</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-year.html"
+>Calendar_Year</A
+>&nbsp;--&nbsp;Calendar_Year API</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-year.calendar-year.html"
+>constructor <B
+CLASS="function"
+>Calendar_Year::Calendar_Year()</B
+></A
+>&nbsp;--&nbsp;Constructs Calendar_Year</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-year.build.html"
+><B
+CLASS="function"
+>Calendar_Year::build()</B
+></A
+>&nbsp;--&nbsp;Builds the Months of the Year.</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-month.html"
+>Calendar_Month</A
+>&nbsp;--&nbsp;Calendar_Month API</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-month.calendar-month.html"
+>constructor <B
+CLASS="function"
+>Calendar_Month::Calendar_Month()</B
+></A
+>&nbsp;--&nbsp;Constructs Calendar_Month</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-month.build.html"
+><B
+CLASS="function"
+>Calendar_Month::build()</B
+></A
+>&nbsp;--&nbsp;Builds Day objects for this Month. Creates as many Calendar_Day objects</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-month-weekdays.html"
+>Calendar_Month_Weekdays</A
+>&nbsp;--&nbsp;Calendar_Month_Weekdays API</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-month-weekdays.calendar-month-weekdays.html"
+>constructor <B
+CLASS="function"
+>Calendar_Month_Weekdays::Calendar_Month_Weekdays()</B
+></A
+>&nbsp;--&nbsp;Constructs Calendar_Month_Weekdays</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-month-weekdays.build.html"
+><B
+CLASS="function"
+>Calendar_Month_Weekdays::build()</B
+></A
+>&nbsp;--&nbsp;Builds Day objects in tabular form, to allow display of calendar month 
+with empty cells if the first day of the week does not fall on the first 
+day of the month.</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-month-weeks.html"
+>Calendar_Month_Weeks</A
+>&nbsp;--&nbsp;Calendar_Month_Weeks API</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-month-weeks.calendar-month-weeks.html"
+>constructor <B
+CLASS="function"
+>Calendar_Month_Weeks::Calendar_Month_Weeks()</B
+></A
+>&nbsp;--&nbsp;Constructs Calendar_Month_Weeks</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-month-weeks.build.html"
+><B
+CLASS="function"
+>Calendar_Month_Weeks::build()</B
+></A
+>&nbsp;--&nbsp;Builds Calendar_Week objects for the Month. Note that Calendar_Week</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-week.html"
+>Calendar_Week</A
+>&nbsp;--&nbsp;Calendar_Week API</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-week.calendar-week.html"
+>constructor <B
+CLASS="function"
+>Calendar_Week::Calendar_Week()</B
+></A
+>&nbsp;--&nbsp;Constructs Week</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-week.build.html"
+><B
+CLASS="function"
+>Calendar_Week::build()</B
+></A
+>&nbsp;--&nbsp;Builds Calendar_Day objects for this Week</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-week.nextweek.html"
+><B
+CLASS="function"
+>Calendar_Week::nextWeek()</B
+></A
+>&nbsp;--&nbsp;Gets the value of the following week, according to the requested format</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-week.prevweek.html"
+><B
+CLASS="function"
+>Calendar_Week::prevWeek()</B
+></A
+>&nbsp;--&nbsp;Gets the value of the previous week, according to the requested format</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-week.thisweek.html"
+><B
+CLASS="function"
+>Calendar_Week::thisWeek()</B
+></A
+>&nbsp;--&nbsp;Gets the value of the current week, according to the requested format</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-day.html"
+>Calendar_Day</A
+>&nbsp;--&nbsp;<B
+CLASS="classname"
+>Calendar_Day</B
+> API</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-day.calendar-day.html"
+>constructor <B
+CLASS="function"
+>Calendar_Day::Calendar_Day()</B
+></A
+>&nbsp;--&nbsp;Constructs Calendar_Day</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-day.build.html"
+><B
+CLASS="function"
+>Calendar_Day::build()</B
+></A
+>&nbsp;--&nbsp;Builds the Hours of the Day</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-day.isempty.html"
+><B
+CLASS="function"
+>Calendar_Day::isEmpty()</B
+></A
+>&nbsp;--&nbsp;</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-day.isfirst.html"
+><B
+CLASS="function"
+>Calendar_Day::isFirst()</B
+></A
+>&nbsp;--&nbsp;Returns true if Day object is first in a Week</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-day.islast.html"
+><B
+CLASS="function"
+>Calendar_Day::isLast()</B
+></A
+>&nbsp;--&nbsp;Returns true if Day object is last in a Week</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-hour.html"
+>Calendar_Hour</A
+>&nbsp;--&nbsp;Calendar_Hour API</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-hour.calendar-hour.html"
+>constructor <B
+CLASS="function"
+>Calendar_Hour::Calendar_Hour()</B
+></A
+>&nbsp;--&nbsp;Constructs Calendar_Hour</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-hour.build.html"
+><B
+CLASS="function"
+>Calendar_Hour::build()</B
+></A
+>&nbsp;--&nbsp;Builds the Minutes in the Hour</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-minute.html"
+>Calendar_Minute</A
+>&nbsp;--&nbsp;Calendar_Minute API</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-minute.calendar-minute.html"
+>constructor <B
+CLASS="function"
+>Calendar_Minute::Calendar_Minute()</B
+></A
+>&nbsp;--&nbsp;Constructs Minute</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-minute.build.html"
+><B
+CLASS="function"
+>Calendar_Minute::build()</B
+></A
+>&nbsp;--&nbsp;Builds the Calendar_Second objects</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-second.html"
+>Calendar_Second</A
+>&nbsp;--&nbsp;Calendar_Second API</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-second.calendar-second.html"
+>constructor <B
+CLASS="function"
+>Calendar_Second::Calendar_Second()</B
+></A
+>&nbsp;--&nbsp;Constructs Second</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-second.build.html"
+><B
+CLASS="function"
+>Calendar_Second::build()</B
+></A
+>&nbsp;--&nbsp;Overwrite build</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-second.fetch.html"
+><B
+CLASS="function"
+>Calendar_Second::fetch()</B
+></A
+>&nbsp;--&nbsp;Overwrite fetch</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-second.fetchall.html"
+><B
+CLASS="function"
+>Calendar_Second::fetchAll()</B
+></A
+>&nbsp;--&nbsp;Overwrite fetchAll</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-second.size.html"
+><B
+CLASS="function"
+>Calendar_Second::size()</B
+></A
+>&nbsp;--&nbsp;Overwrite size</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-validation-error.html"
+>Calendar_Validation_Error</A
+>&nbsp;--&nbsp;Calendar_Validation_Error API</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-validation-error.calendar-validation-error.html"
+>constructor <B
+CLASS="function"
+>Calendar_Validation_Error::Calendar_Validation_Error()</B
+></A
+>&nbsp;--&nbsp;Constructs Calendar_Validation_Error</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-validation-error.getmessage.html"
+><B
+CLASS="function"
+>Calendar_Validation_Error::getMessage()</B
+></A
+>&nbsp;--&nbsp;Returns the validation error message</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-validation-error.getunit.html"
+><B
+CLASS="function"
+>Calendar_Validation_Error::getUnit()</B
+></A
+>&nbsp;--&nbsp;Returns the Date unit</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-validation-error.getvalue.html"
+><B
+CLASS="function"
+>Calendar_Validation_Error::getValue()</B
+></A
+>&nbsp;--&nbsp;Returns the value of the unit</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-validation-error.tostring.html"
+><B
+CLASS="function"
+>Calendar_Validation_Error::toString()</B
+></A
+>&nbsp;--&nbsp;Returns a string containing the unit, value and error message</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-validator.html"
+>Calendar_Validator</A
+>&nbsp;--&nbsp;Calendar_Validator API</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-validator.calendar-validator.html"
+>constructor <B
+CLASS="function"
+>Calendar_Validator::Calendar_Validator()</B
+></A
+>&nbsp;--&nbsp;Constructs Calendar_Validator</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-validator.fetch.html"
+><B
+CLASS="function"
+>Calendar_Validator::fetch()</B
+></A
+>&nbsp;--&nbsp;Iterates over any validation errors</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-validator.isvalid.html"
+><B
+CLASS="function"
+>Calendar_Validator::isValid()</B
+></A
+>&nbsp;--&nbsp;Calls all the other isValidXXX() methods in the validator</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-validator.isvalidday.html"
+><B
+CLASS="function"
+>Calendar_Validator::isValidDay()</B
+></A
+>&nbsp;--&nbsp;Check whether this is a valid day</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-validator.isvalidhour.html"
+><B
+CLASS="function"
+>Calendar_Validator::isValidHour()</B
+></A
+>&nbsp;--&nbsp;Check whether this is a valid hour</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-validator.isvalidminute.html"
+><B
+CLASS="function"
+>Calendar_Validator::isValidMinute()</B
+></A
+>&nbsp;--&nbsp;Check whether this is a valid minute</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-validator.isvalidmonth.html"
+><B
+CLASS="function"
+>Calendar_Validator::isValidMonth()</B
+></A
+>&nbsp;--&nbsp;Check whether this is a valid month</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-validator.isvalidsecond.html"
+><B
+CLASS="function"
+>Calendar_Validator::isValidSecond()</B
+></A
+>&nbsp;--&nbsp;Check whether this is a valid second</DT
+><DT
+><A
+HREF="package.datetime.calendar.calendar-validator.isvalidyear.html"
+><B
+CLASS="function"
+>Calendar_Validator::isValidYear()</B
+></A
+>&nbsp;--&nbsp;Check whether this is a valid year</DT
+><DT
+><A
+HREF="package.datetime.calendar.constants.html"
+>Package Calendar Constants</A
+>&nbsp;--&nbsp;Constants defined in and used by Calendar</DT
+></DL
+></DIV
+><P
+>&#13;  Calendar Data Structures
+ </P
+><P
+>&#13;  This chapter describes how to use PEAR::Calendar
+ </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.datetime.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.datetime.calendar.intro-purpose.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Date and Time</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.datetime.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

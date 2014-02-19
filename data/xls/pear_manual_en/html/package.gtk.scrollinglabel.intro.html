@@ -1,0 +1,247 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Gtk_ScrollingLabel"
+HREF="package.gtk.gtk-scrollinglabel.html"><LINK
+REL="PREVIOUS"
+TITLE="Gtk_ScrollingLabel"
+HREF="package.gtk.gtk-scrollinglabel.html"><LINK
+REL="NEXT"
+TITLE="Gtk_ScrollingLabel::getFullText"
+HREF="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.getfulltext.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.gtk.gtk-scrollinglabel.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.getfulltext.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.gtk.scrollinglabel.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN49447"
+></A
+>Introduction&nbsp;--&nbsp;
+   Getting started with Gtk_Scrollinglabel?
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="packages.gtk.scrollinglabel.intro.contrib"
+></A
+><H2
+>Contributors</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>Scott Mattocks</P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="packages.gtk.scrollinglabel.intro.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   <B
+CLASS="classname"
+>Gtk_ScrollingLabel</B
+> is a class that creates a
+   pseudo-widget which makes scrolling text within a label easy. The text
+   within the label can be set to scroll from left to right, right to left, or
+   bounce within the boundries of the label. The speed of the scrolling text
+   can also be controlled. There are also built in methods to make the text
+   pause or stop when the user moves the mouse over the label and start up
+   again when the mouse leaves the label space.   
+  </P
+><P
+>&#13;   Getting started with <B
+CLASS="classname"
+>Gtk_ScrollingLabel</B
+> is easy. All
+   you need to do is instantiate the class, add it to a window, and start the
+   scrolling. Take at look at the example below.
+   <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN49462"><P
+><B
+>Example 39-1. 
+     Simple Setup
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Create a Gtk_ScrollingLabel instance.
+require_once 'Gtk/ScrollingLabel.php';
+$sLabel =&#38; new Gtk_ScrollingLabel('Scrolling Labels Rule!');
+
+// Create a GtkWindow to put the label in.
+$gWin =&#38; new GtkWindow;
+$gWin-&#62;connect_object('destroy', array('gtk', 'main_quit'));
+$gWin-&#62;add($sLabel-&#62;getWidget());
+
+// Show everything.
+$gwin-&#62;show_all();
+
+// Start the label and the main loop.
+$sLabel-&#62;startScroll();
+gtk::main();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.gtk.gtk-scrollinglabel.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.getfulltext.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Gtk_ScrollingLabel</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.gtk.gtk-scrollinglabel.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Gtk_ScrollingLabel::getFullText</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

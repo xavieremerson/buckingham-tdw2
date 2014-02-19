@@ -1,0 +1,98 @@
+/*****************************************************************
+
+	ActiveWidgets 2.0.b3 (beta3)
+	Copyright (C) 2003-2005 ActiveWidgets Ltd. All Rights Reserved. 
+	http://www.activewidgets.com/
+
+	WARNING: This software program is protected by copyright law 
+	and international treaties. Unauthorized reproduction or
+	distribution of this program, or any portion of it, may result
+	in severe civil and criminal penalties, and will be prosecuted
+	to the maximum extent possible under the law.
+
+	FOR TESTING AND EVALUATION ONLY:
+	This software is not free and is licensed to you for testing 
+	and evaluation only. You are not allowed to distribute 
+	or use any parts of this software for any other purposes.
+
+*****************************************************************/
+
+.aw-ui-tabs .aw-list-template {
+	padding: 3px 0px 1px 0px;
+}
+
+.aw-strict .aw-ui-tabs .aw-list-template{
+	padding: 3px 0px 1px 0px;
+	margin: 0px -8px -4px 0px;
+}
+
+.aw-ui-tabs .aw-item-template {
+	border-left: 1px solid #fff;
+	border-right: 1px solid #000;
+	height: 100%;
+	padding-left: 1px;
+	margin: 0px 1px 0px 0px;
+	overflow: visible;
+	background: threedface;
+}
+
+.aw-strict .aw-ui-tabs .aw-item-template {
+	margin: 3px 1px 0px 0px;
+	padding: 0px 3px;
+}
+
+.aw-ui-tabs .aw-item-box {
+	top: -1px;
+	border-top: 1px solid #fff;
+	border-right: 1px solid threedshadow;
+	width: 100%;
+	overflow-y: hidden;
+}
+
+.aw-strict .aw-ui-tabs .aw-item-box {
+	top: 0px;
+	margin:  -1px -3px 0px -2px;
+	padding: 0px 2px 0px 3px;
+}
+
+.aw-gecko .aw-ui-tabs .aw-item-box {
+	display: -moz-inline-block;
+}
+
+.aw-ui-tabs .aw-items-selected {
+	top: -2px;
+	height: 200%;
+	-moz-box-align: start;
+}
+
+.aw-strict .aw-ui-tabs .aw-items-selected {
+	top: 0px;
+	height: 100%;
+	padding: 2px 3px 1px 3px;
+	margin: 1px 1px -1px 0px;
+}
+
+.aw-ui-tabs .aw-items-selected .aw-item-box {
+	padding-top: 3px;
+}
+
+.aw-strict .aw-ui-tabs .aw-items-selected .aw-item-box {
+	padding: 3px 2px 0px 3px;
+	margin: -3px -3px -1px -2px;
+}
+
+.aw-ui-tabs .aw-items-selected .aw-item-ruler {
+	height: 50%;
+}
+
+.aw-strict .aw-ui-tabs .aw-item-ruler {
+	padding: 0px;
+}
+
+.aw-unix .aw-ui-tabs .aw-list-item {
+	background: #eee;
+}
+
+.aw-unix .aw-ui-tabs .aw-item-box {
+	border-right-color: #bbb;
+}

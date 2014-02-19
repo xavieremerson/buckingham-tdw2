@@ -1,0 +1,284 @@
+<HTML
+><HEAD
+><TITLE
+>Choosing input</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_Parser"
+HREF="package.xml.xml-parser.html"><LINK
+REL="PREVIOUS"
+TITLE="Modes"
+HREF="package.xml.xml-parser.modes.html"><LINK
+REL="NEXT"
+TITLE="XML_Query2XML"
+HREF="package.xml.xml-query2xml.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-parser.modes.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-query2xml.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.xml.xml-parser.input">Choosing input</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN102644"
+></A
+>Choosing input&nbsp;--&nbsp;Explanation of different types of input data</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-parser.input.refsect1"
+></A
+><H2
+>Selecting the input for XML_Parser</H2
+><P
+>&#13;    XML_Parser is able to parse from several inputs:
+    <P
+></P
+><UL
+><LI
+><P
+>filesystem or anything that can be accessed via stream</P
+></LI
+><LI
+><P
+>strings</P
+></LI
+><LI
+><P
+>resources</P
+></LI
+></UL
+>
+   </P
+><P
+>&#13;    You will have to set the input using <B
+CLASS="function"
+>setInputFile()</B
+>,
+    <B
+CLASS="function"
+>setInputString()</B
+> or <B
+CLASS="function"
+>setInput()</B
+>
+    and then call <B
+CLASS="function"
+>parse()</B
+> to start the XML processing.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-parser.input.refsect2"
+></A
+><H2
+>Parsing from a file</H2
+><P
+>&#13;    To parse from a file or URL, you'll have to set the name or URI using
+    <B
+CLASS="function"
+>XML_Parser::setInputFile()</B
+>. You may not only use 
+    files located on the filesystem, but any location that can be opened using
+    <B
+CLASS="function"
+>fopen()</B
+>. You may combine this functionality with
+    the <A
+HREF="http://www.php.net/manual/en/ref.stream.php"
+TARGET="_top"
+>stream functions</A
+>
+    or PEAR's <A
+HREF="http://pear.php.net/packages.php?catpid=35&catname=Streams"
+TARGET="_top"
+>Streams packages</A
+>
+    to parse documents from shared memory, databases or anything else.
+   </P
+><P
+>&#13;    You may also use any of PHP's <A
+HREF="http://www.php.net/manual/en/wrappers.php"
+TARGET="_top"
+>built-in</A
+>
+    wrappers to open HTTP or FTP locations as well as STDIN.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-parser.input.refsect3"
+></A
+><H2
+>Parsing from a string</H2
+><P
+>&#13;    To parse an XML string, pass the string to XML_Parser (or your
+    subclass of XML_Parser) using <B
+CLASS="function"
+>XML_Parser::setInputString()</B
+>.
+    A big advantage of SAX-based parsing is that the parser does not have to read the
+    whole XML document to process it. If you are parsing very large documents, you should
+    aboid <B
+CLASS="function"
+>setInputString()</B
+> and use <B
+CLASS="function"
+>setInput()</B
+>
+    or <B
+CLASS="function"
+>setInputFile()</B
+> instead.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-parser.input.refsect4"
+></A
+><H2
+>Parsing from any resource</H2
+><P
+>&#13;    There's a third, but seldomly used way to specify XML_Parser's input. XML_Parser
+    allows you to pass a PHP resource, like a file pointer that has been returned by
+    <B
+CLASS="function"
+>fopen()</B
+>. This can be useful, if you are generating the document
+    on-the-fly and already opened it before. Instead of closing the file and passing its
+    name to XML_Parser, you may simply use <B
+CLASS="function"
+>XML_Parser::setInput()</B
+> to
+    pass the resource. Make sure that the file pointer is at the correct location in your
+    file using <B
+CLASS="function"
+>fseek()</B
+>.
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-parser.modes.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-query2xml.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Modes</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.xml-parser.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>XML_Query2XML</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

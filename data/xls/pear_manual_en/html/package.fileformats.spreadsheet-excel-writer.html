@@ -1,0 +1,584 @@
+<HTML
+><HEAD
+><TITLE
+>Spreadsheet_Excel_Writer</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File Formats"
+HREF="package.fileformats.html"><LINK
+REL="PREVIOUS"
+TITLE="MP3_Id::write"
+HREF="package.fileformats.mp3-id.mp3-id.write.html"><LINK
+REL="NEXT"
+TITLE="Introduction"
+HREF="package.fileformats.spreadsheet-excel-writer.intro.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.mp3-id.mp3-id.write.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 37. File Formats</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer">Spreadsheet_Excel_Writer</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.intro.html"
+>Introduction</A
+>&nbsp;--&nbsp;how to generate Excel files</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.intro-format.html"
+>Formatting Tutorial</A
+>&nbsp;--&nbsp;how to format cells in a spreadsheet</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-workbook.close.html"
+>Workbook::close</A
+>&nbsp;--&nbsp;Calls finalization methods for the workbook</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-workbook.addworksheet.html"
+>Workbook::&#38;addWorksheet</A
+>&nbsp;--&nbsp;Add a new worksheet to the Excel workbook.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-workbook.addformat.html"
+>Workbook::&#38;addFormat</A
+>&nbsp;--&nbsp;Add a new format to the Excel workbook.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-workbook.settempdir.html"
+>Workbook::&#38;setTempDir</A
+>&nbsp;--&nbsp;Sets the temp dir used for storing the OLE file.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-workbook.setcustomcolor.html"
+>Workbook::setCustomColor</A
+>&nbsp;--&nbsp;Change the RGB components of the elements in the colour palette.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.getname.html"
+>Worksheet::getName</A
+>&nbsp;--&nbsp;Retrieve the worksheet name. This is usefull when creating worksheets</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setinputencoding.html"
+>Worksheet::setInputEncoding</A
+>&nbsp;--&nbsp;Allow writing for different charsets.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.select.html"
+>Worksheet::select</A
+>&nbsp;--&nbsp;Set this worksheet as a selected worksheet, i.e. the worksheet has its tab</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.activate.html"
+>Worksheet::activate</A
+>&nbsp;--&nbsp;Set this worksheet as the active worksheet, i.e. the worksheet that is</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setfirstsheet.html"
+>Worksheet::setFirstSheet</A
+>&nbsp;--&nbsp;Set this worksheet as the first visible sheet. This is necessary</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.protect.html"
+>Worksheet::protect</A
+>&nbsp;--&nbsp;Set the worksheet protection flag</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setcolumn.html"
+>Worksheet::setColumn</A
+>&nbsp;--&nbsp;Set the width of a single column or a range of columns.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setselection.html"
+>Worksheet::setSelection</A
+>&nbsp;--&nbsp;Set which cell or cells are selected in a worksheet</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.worksheet.freezepanes.html"
+>Worksheet::freezePanes</A
+>&nbsp;--&nbsp;Set panes and mark them as frozen.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.thawpanes.html"
+>Worksheet::thawPanes</A
+>&nbsp;--&nbsp;Set panes and mark them as unfrozen.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setportrait.html"
+>Worksheet::setPortrait</A
+>&nbsp;--&nbsp;Set the page orientation as portrait.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setlandscape.html"
+>Worksheet::setLandscape</A
+>&nbsp;--&nbsp;Set the page orientation as landscape.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setpaper.html"
+>Worksheet::setPaper</A
+>&nbsp;--&nbsp;Set the paper type. Ex. 1 = US Letter, 9 = A4</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setheader.html"
+>Worksheet::setHeader</A
+>&nbsp;--&nbsp;Set the page header caption and optional margin.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setfooter.html"
+>Worksheet::setFooter</A
+>&nbsp;--&nbsp;Set the page footer caption and optional margin.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.centerhorizontally.html"
+>Worksheet::centerHorizontally</A
+>&nbsp;--&nbsp;Center the page horizontally.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.centervertically.html"
+>Worksheet::centerVertically</A
+>&nbsp;--&nbsp;Center the page vertically.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setmargins.html"
+>Worksheet::setMargins</A
+>&nbsp;--&nbsp;Set all the page margins to the same value in inches.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setmargins-lr.html"
+>Worksheet::setMargins_LR</A
+>&nbsp;--&nbsp;Set the left and right margins to the same value in inches.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setmargins-tb.html"
+>Worksheet::setMargins_TB</A
+>&nbsp;--&nbsp;Set the top and bottom margins to the same value in inches.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setmarginleft.html"
+>Worksheet::setMarginLeft</A
+>&nbsp;--&nbsp;Set the left margin in inches.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setmarginright.html"
+>Worksheet::setMarginRight</A
+>&nbsp;--&nbsp;Set the right margin in inches.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setmargintop.html"
+>Worksheet::setMarginTop</A
+>&nbsp;--&nbsp;Set the top margin in inches.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setmarginbottom.html"
+>Worksheet::setMarginBottom</A
+>&nbsp;--&nbsp;Set the bottom margin in inches.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.repeatrows.html"
+>Worksheet::repeatRows</A
+>&nbsp;--&nbsp;Set the rows to repeat at the top of each printed page.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.repeatcolumns.html"
+>Worksheet::repeatColumns</A
+>&nbsp;--&nbsp;Set the columns to repeat at the left hand side of each printed page.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.printarea.html"
+>Worksheet::printArea</A
+>&nbsp;--&nbsp;Set the area of each worksheet that will be printed.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.hidegridlines.html"
+>Worksheet::hideGridlines</A
+>&nbsp;--&nbsp;Set the option to hide gridlines on the printed page.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.printrowcolheaders.html"
+>Worksheet::printRowColHeaders</A
+>&nbsp;--&nbsp;Set the option to print the row and column headers on the printed page.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.fittopages.html"
+>Worksheet::fitToPages</A
+>&nbsp;--&nbsp;Store the vertical and horizontal number of pages that will define the</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.sethpagebreaks.html"
+>Worksheet::setHPagebreaks</A
+>&nbsp;--&nbsp;Store the horizontal page breaks on a worksheet (for printing).</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setvpagebreaks.html"
+>Worksheet::setVPagebreaks</A
+>&nbsp;--&nbsp;Store the vertical page breaks on a worksheet (for printing).</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setzoom.html"
+>Worksheet::setZoom</A
+>&nbsp;--&nbsp;Set the worksheet zoom factor.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setprintscale.html"
+>Worksheet::setPrintScale</A
+>&nbsp;--&nbsp;Set the scale factor for the printed page.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.write.html"
+>Worksheet::write</A
+>&nbsp;--&nbsp;Map to the appropriate write method acording to the token recieved.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.writenumber.html"
+>Worksheet::writeNumber</A
+>&nbsp;--&nbsp;Write a double to the specified row and column (zero indexed).</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.writestring.html"
+>Worksheet::writeString</A
+>&nbsp;--&nbsp;Write a string to the specified row and column (zero indexed).</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.writenote.html"
+>Worksheet::writeNote</A
+>&nbsp;--&nbsp;Writes a note associated with the cell given by the row and column.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.writeblank.html"
+>Worksheet::writeBlank</A
+>&nbsp;--&nbsp;Write a blank cell to the specified row and column (zero indexed).</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.writeformula.html"
+>Worksheet::writeFormula</A
+>&nbsp;--&nbsp;Write a formula to the specified row and column (zero indexed).</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.writeurl.html"
+>Worksheet::writeUrl</A
+>&nbsp;--&nbsp;Write a hyperlink. This is comprised of two elements: the visible label and</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setrow.html"
+>Worksheet::setRow</A
+>&nbsp;--&nbsp;This method is used to set the height and XF format for a row.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.mergecells.html"
+>Worksheet::mergeCells</A
+>&nbsp;--&nbsp;This is an Excel97/2000 method. It is required to perform more complicated</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.insertbitmap.html"
+>Worksheet::insertBitmap</A
+>&nbsp;--&nbsp;Insert a 24bit bitmap image in a worksheet. The main record required is</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setoutline.html"
+>Worksheet::setOutline</A
+>&nbsp;--&nbsp;This method sets the properties for outlining and grouping</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer.spreadsheet-excel-writer.html"
+>Spreadsheet_Excel_Writer::Spreadsheet_Excel_Writer</A
+>&nbsp;--&nbsp;The constructor. It just creates a Workbook</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer.send.html"
+>Spreadsheet_Excel_Writer::send</A
+>&nbsp;--&nbsp;Send HTTP headers for the Excel file.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer.rowcoltocell.html"
+>Spreadsheet_Excel_Writer::rowcolToCell</A
+>&nbsp;--&nbsp;Utility function for writing formulas.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setalign.html"
+>Format::setAlign</A
+>&nbsp;--&nbsp;Set cell alignment.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setvalign.html"
+>Format::setVAlign</A
+>&nbsp;--&nbsp;Set cell alignment.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.sethalign.html"
+>Format::setHAlign</A
+>&nbsp;--&nbsp;Set cell alignment.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setmerge.html"
+>Format::setMerge</A
+>&nbsp;--&nbsp;This is an alias for the unintuitive setAlign('merge')</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setbold.html"
+>Format::setBold</A
+>&nbsp;--&nbsp;Sets the boldness of the text.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setbottom.html"
+>Format::setBottom</A
+>&nbsp;--&nbsp;Sets the width for the bottom border of the cell</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.settop.html"
+>Format::setTop</A
+>&nbsp;--&nbsp;Sets the width for the top border of the cell</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setleft.html"
+>Format::setLeft</A
+>&nbsp;--&nbsp;Sets the width for the left border of the cell</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setright.html"
+>Format::setRight</A
+>&nbsp;--&nbsp;Sets the width for the right border of the cell</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setborder.html"
+>Format::setBorder</A
+>&nbsp;--&nbsp;Set cells borders to the same style</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setbordercolor.html"
+>Format::setBorderColor</A
+>&nbsp;--&nbsp;Sets all the cell's borders to the same color</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setbottomcolor.html"
+>Format::setBottomColor</A
+>&nbsp;--&nbsp;Sets the cell's bottom border color</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.settopcolor.html"
+>Format::setTopColor</A
+>&nbsp;--&nbsp;Sets the cell's top border color</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setleftcolor.html"
+>Format::setLeftColor</A
+>&nbsp;--&nbsp;Sets the cell's left border color</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setrightcolor.html"
+>Format::setRightColor</A
+>&nbsp;--&nbsp;Sets the cell's right border color</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setfgcolor.html"
+>Format::setFgColor</A
+>&nbsp;--&nbsp;Sets the cell's foreground color</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setbgcolor.html"
+>Format::setBgColor</A
+>&nbsp;--&nbsp;Sets the cell's background color</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setcolor.html"
+>Format::setColor</A
+>&nbsp;--&nbsp;Sets the color of a cell's content</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setpattern.html"
+>Format::setPattern</A
+>&nbsp;--&nbsp;Sets the fill pattern attribute of a cell</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setunderline.html"
+>Format::setUnderline</A
+>&nbsp;--&nbsp;Sets the underline of the text</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setitalic.html"
+>Format::setItalic</A
+>&nbsp;--&nbsp;Sets the font style as italic</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setsize.html"
+>Format::setSize</A
+>&nbsp;--&nbsp;Sets the font size</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.settextwrap.html"
+>Format::setTextWrap</A
+>&nbsp;--&nbsp;Sets text wrapping</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.settextrotation.html"
+>Format::setTextRotation</A
+>&nbsp;--&nbsp;Sets the orientation of the text</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setnumformat.html"
+>Format::setNumFormat</A
+>&nbsp;--&nbsp;Sets the numeric format.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setstrikeout.html"
+>Format::setStrikeOut</A
+>&nbsp;--&nbsp;Sets font as strikeout.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setoutline.html"
+>Format::setOutLine</A
+>&nbsp;--&nbsp;Sets outlining for a font.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setshadow.html"
+>Format::setShadow</A
+>&nbsp;--&nbsp;Sets font as shadow.</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setscript.html"
+>Format::setScript</A
+>&nbsp;--&nbsp;Sets the script type of the text</DT
+><DT
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setfontfamily.html"
+>Format::setFontFamily</A
+>&nbsp;--&nbsp;Sets the font family.</DT
+></DL
+></DIV
+><P
+>&#13;  Package for generating Excel spreadsheets
+ </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.fileformats.mp3-id.mp3-id.write.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>MP3_Id::write()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.fileformats.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

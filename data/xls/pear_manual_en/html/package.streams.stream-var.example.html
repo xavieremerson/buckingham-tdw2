@@ -1,0 +1,347 @@
+<HTML
+><HEAD
+><TITLE
+>Example</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Stream_Var"
+HREF="package.streams.stream-var.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.streams.stream-var.intro.html"><LINK
+REL="NEXT"
+TITLE="Structures"
+HREF="package.structures.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.streams.stream-var.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.structures.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.streams.stream-var.example">Example</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN93375"
+></A
+>Example&nbsp;--&nbsp;Example for the usage of Stream_Var</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.streams.stream-var.example.example1"
+></A
+><H2
+>Registering the wrapper</H2
+><P
+>&#13;	The following example shows you how to register
+	Stream_Var as a wrapper for the stream functions.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN93381"><P
+><B
+>Example 54-1. Registering Stream_Var</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "Stream/Var.php";
+stream_wrapper_register( "var", "Stream_Var" );</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.streams.stream-var.example.example2"
+></A
+><H2
+>Accessing scalar variables</H2
+><P
+>&#13;	The following example show you how to 
+	access scalar variables with <B
+CLASS="function"
+>fopen()</B
+>,
+	<B
+CLASS="function"
+>fread()</B
+>, <B
+CLASS="function"
+>frwite()</B
+>
+	and <B
+CLASS="function"
+>fclose()</B
+>.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN93391"><P
+><B
+>Example 54-2. Accessing scalar variables</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "Stream/Var.php";
+stream_wrapper_register( "var", "Stream_Var" );
+$foo = "I really like tomatoes.";
+
+echo "Content of foo: $foo&#60;br /&#62;";
+
+$fp = fopen('var://GLOBALS/foo','r+');
+
+$data = fread($fp, 9);
+echo "Read from stream: $data&#60;br /&#62;";
+
+fwrite($fp,"hate");
+   
+fclose($fp);
+
+echo "Content of foo: $foo&#60;br /&#62;";</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.streams.stream-var.example.example3"
+></A
+><H2
+>Accessing an array</H2
+><P
+>&#13;	The following example shows how to use
+	<B
+CLASS="function"
+>opendir()</B
+> to access an array.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN93398"><P
+><B
+>Example 54-3. Accessing an array</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "Stream/Var.php";
+stream_wrapper_register( "var", "Stream_Var" );
+$dirname = 'var://_SERVER';
+$dir = opendir($dirname);
+echo    "&#60;strong&#62;opening directory '$dirname'&#60;/strong&#62;&#60;br&#62;&#60;br&#62;";
+
+while ($entry = readdir($dir)) {
+    echo "opening file $dirname/$entry&#60;br /&#62;";
+    if (!$fp = @fopen($dirname."/".$entry,"r")) {
+        echo "seems to be a directory&#60;br /&#62;&#60;br /&#62;";
+        continue;
+    }
+       
+    echo "reading from $entry&#60;br /&#62;";
+    while (!feof($fp)) {
+        echo fread($fp, 16);
+    }
+    fclose($fp);
+    echo    "&#60;br /&#62;&#60;br /&#62;";
+}
+closedir($dir);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.streams.stream-var.example.more"
+></A
+><H2
+>More examples</H2
+><P
+>&#13;	If you want to take a look at some more examples,
+	just install the package and they will be installed
+	in the docs directory.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.streams.stream-var.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.structures.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.streams.stream-var.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Structures</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

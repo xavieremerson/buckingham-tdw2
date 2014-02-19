@@ -1,0 +1,311 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;   PEAR_Validate::_validPackageName
+  </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR_Validate"
+HREF="core.ppm.pear-validate.html"><LINK
+REL="PREVIOUS"
+TITLE="
+   PEAR_Validate::validVersion
+  "
+HREF="core.ppm.pear-validate.validversion.html"><LINK
+REL="NEXT"
+TITLE="Package PEAR Constants"
+HREF="core.ppm.pear-validate.constants.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-validate.validversion.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-validate.constants.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.ppm.pear-validate.-validpackagename"><B
+CLASS="function"
+>PEAR_Validate::_validPackageName()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN16072"
+></A
+>
+   <B
+CLASS="function"
+>PEAR_Validate::_validPackageName()</B
+>
+  &nbsp;--&nbsp;Override this method to handle validation of normal package names</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN16076"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN16077"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once '/Validate.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     bool
+     <B
+CLASS="function"
+>PEAR_Validate::_validPackageName</B
+>
+    </CODE
+> (string
+     $name)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-validate.-validpackagename.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   This protected method can be used to change the normal package validation scheme.
+   By default, all packages must begin with a letter and contain only letters, numbers
+   and underscores.  Using this method, it is possible to change this entirely to enforce
+   another scheme.
+  </P
+><P
+>&#13;   For instance, enforcing java-style com.blah.package package names can be done simply by this code:
+  </P
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'PEAR/Validate.php';
+class MyChannel_Validate extends PEAR_Validate
+{
+    function _validPackageName($name)
+    {
+        return preg_match('/[a-zA-Z][a-zA-Z0-9_]*(\.[a-zA-Z0-9_]+)*/', $name);
+    }
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><P
+>&#13;   Then, by using a <A
+HREF="core.ppm.pear-channelfile.setvalidationpackage.html"
+>customized channel validation package</A
+>,
+   the installer will enforce java-style package names for your channel.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-validate.-validpackagename.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+      <TT
+CLASS="parameter"
+><I
+>$name</I
+></TT
+></DT
+><DD
+><P
+>&#13;       package name string to test for validity.
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-validate.-validpackagename.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+>
+   no exceptions thrown
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-validate.-validpackagename.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-validate.validversion.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-validate.constants.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Validate::validVersion()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-validate.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Package PEAR Constants</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

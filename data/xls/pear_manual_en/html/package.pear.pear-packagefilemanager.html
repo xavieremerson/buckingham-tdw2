@@ -1,0 +1,369 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR_PackageFileManager</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR"
+HREF="package.pear.html"><LINK
+REL="PREVIOUS"
+TITLE="PEAR_Info::show"
+HREF="package.pear.pear-info.pear-info.show.html"><LINK
+REL="NEXT"
+TITLE="Class Summary PEAR_PackageFileManager"
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager-summary.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.pear.pear-info.pear-info.show.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 51. PEAR</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.pear.pear-packagefilemanager">PEAR_PackageFileManager</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager-summary.html"
+>Class Summary <B
+CLASS="classname"
+>PEAR_PackageFileManager</B
+></A
+>&nbsp;--&nbsp;PEAR :: PackageFileManager updates the &#60;filelist&#62;&#60;/filelist&#62;
+section  of a PEAR package.xml file to reflect the current files in 
+preparation for a release.</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.pear-packagefilemanager.html"
+>constructor <B
+CLASS="function"
+>PEAR_PackageFileManager::PEAR_PackageFileManager()</B
+></A
+>&nbsp;--&nbsp;Does nothing, use setOptions</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.addconfigureoption.html"
+><B
+CLASS="function"
+>PEAR_PackageFileManager::addConfigureOption()</B
+></A
+>&nbsp;--&nbsp;Add an install-time configuration option for building of source</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.adddependency.html"
+><B
+CLASS="function"
+>PEAR_PackageFileManager::addDependency()</B
+></A
+>&nbsp;--&nbsp;Add a dependency on another package, or an extension/php</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.addmaintainer.html"
+><B
+CLASS="function"
+>PEAR_PackageFileManager::addMaintainer()</B
+></A
+>&nbsp;--&nbsp;Add a maintainer to the list of maintainers.</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.addplatformexception.html"
+><B
+CLASS="function"
+>PEAR_PackageFileManager::addPlatformException()</B
+></A
+>&nbsp;--&nbsp;Add an install-time platform conditional install for a file</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.addglobalreplacement.html"
+><B
+CLASS="function"
+>PEAR_PackageFileManager::addGlobalReplacement()</B
+></A
+>&nbsp;--&nbsp;Add a replacement option for all files</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.addreplacement.html"
+><B
+CLASS="function"
+>PEAR_PackageFileManager::addReplacement()</B
+></A
+>&nbsp;--&nbsp;Add a replacement option for a file</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.addrole.html"
+><B
+CLASS="function"
+>PEAR_PackageFileManager::addRole()</B
+></A
+>&nbsp;--&nbsp;Add an extension/role mapping to the role mapping option</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.detectdependencies.html"
+><B
+CLASS="function"
+>PEAR_PackageFileManager::detectDependencies()</B
+></A
+>&nbsp;--&nbsp;use PHP_CompatInfo to auto-detect
+     PHP and extension dependencies.
+    </DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.debugpackagefile.html"
+><B
+CLASS="function"
+>PEAR_PackageFileManager::debugPackageFile()</B
+></A
+>&nbsp;--&nbsp;ALWAYS use this to test output before overwriting your package.xml!!</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.getwarnings.html"
+><B
+CLASS="function"
+>PEAR_PackageFileManager::getWarnings()</B
+></A
+>&nbsp;--&nbsp;Retrieve the list of warnings</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.isincludeable.html"
+><B
+CLASS="function"
+>PEAR_PackageFileManager::isIncludeable()</B
+></A
+>&nbsp;--&nbsp;calls <A
+HREF="http://www.php.net/file_exists"
+TARGET="_top"
+>http://www.php.net/file_exists</A
+>
+for each value in include_path,</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.pushwarning.html"
+><B
+CLASS="function"
+>PEAR_PackageFileManager::pushWarning()</B
+></A
+>&nbsp;--&nbsp;Store a warning on the warning stack</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.raiseerror.html"
+><B
+CLASS="function"
+>PEAR_PackageFileManager::raiseError()</B
+></A
+>&nbsp;--&nbsp;Utility function to shorten error generation code</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.setoptions.html"
+><B
+CLASS="function"
+>PEAR_PackageFileManager::setOptions()</B
+></A
+>&nbsp;--&nbsp;Set package.xml generation options</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.writepackagefile.html"
+><B
+CLASS="function"
+>PEAR_PackageFileManager::writePackageFile()</B
+></A
+>&nbsp;--&nbsp;Writes the package.xml file out with the newly created
+&#60;release&#62;&#60;/release&#62; tag</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager-cvs-summary.html"
+>Class Summary <B
+CLASS="classname"
+>PEAR_PackageFileManager_CVS</B
+></A
+>&nbsp;--&nbsp;Generate a file list from a CVS checkout</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager-cvs.dirlist.html"
+><B
+CLASS="function"
+>PEAR_PackageFileManager_CVS::dirList()</B
+></A
+>&nbsp;--&nbsp;Return a list of all files in the CVS repository</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager-file-summary.html"
+>Class Summary <B
+CLASS="classname"
+>PEAR_PackageFileManager_File</B
+></A
+>&nbsp;--&nbsp;Retrieve the files from a directory listing</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager-file.pear-packagefilemanager-file.html"
+>constructor <B
+CLASS="function"
+>PEAR_PackageFileManager_File::PEAR_PackageFileManager_File()</B
+></A
+>&nbsp;--&nbsp;Set up the File filelist generator</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager-file.dirlist.html"
+><B
+CLASS="function"
+>PEAR_PackageFileManager_File::dirList()</B
+></A
+>&nbsp;--&nbsp;Retrieve a listing of every file in $directory and  all subdirectories.</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager-file.getfilelist.html"
+><B
+CLASS="function"
+>PEAR_PackageFileManager_File::getFileList()</B
+></A
+>&nbsp;--&nbsp;Generate the &#60;filelist&#62;&#60;/filelist&#62; section  of the package
+file.</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager-xmloutput-summary.html"
+>Class Summary <B
+CLASS="classname"
+>PEAR_PackageFileManager_XMLOutput</B
+></A
+>&nbsp;--&nbsp;Class for XML output</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.constants.html"
+>Package PEAR_PackageFileManager Constants</A
+>&nbsp;--&nbsp;Constants defined in and used by PEAR_PackageFileManager</DT
+><DT
+><A
+HREF="package.pear.pear-packagefilemanager.globals.html"
+>Package PEAR_PackageFileManager Global Variables</A
+>&nbsp;--&nbsp;Global Variables defined in and used by PEAR_PackageFileManager</DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.pear.pear-info.pear-info.show.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>PEAR_Info::show</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.pear.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class Summary <B
+CLASS="classname"
+>PEAR_PackageFileManager</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

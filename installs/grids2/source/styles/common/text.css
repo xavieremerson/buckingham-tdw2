@@ -1,0 +1,161 @@
+/*****************************************************************
+
+	ActiveWidgets 2.0.b3 (beta3)
+	Copyright (C) 2003-2005 ActiveWidgets Ltd. All Rights Reserved. 
+	http://www.activewidgets.com/
+
+	WARNING: This software program is protected by copyright law 
+	and international treaties. Unauthorized reproduction or
+	distribution of this program, or any portion of it, may result
+	in severe civil and criminal penalties, and will be prosecuted
+	to the maximum extent possible under the law.
+
+	FOR TESTING AND EVALUATION ONLY:
+	This software is not free and is licensed to you for testing 
+	and evaluation only. You are not allowed to distribute 
+	or use any parts of this software for any other purposes.
+
+*****************************************************************/
+
+/* text expand */
+
+.aw-text-expand {
+	_overflow-x: visible; /* IE */
+	width: auto;
+	_width: 20px;
+	min-width: 20px;
+}
+
+.aw-strict .aw-text-expand {
+	width: auto;
+	_width: 12px;
+	min-width: 12px;
+}
+
+.aw-text-expand .aw-item-template {
+	_overflow-x: visible; /* IE */
+	width: auto;
+	_width: 20px;
+	min-width: 20px;
+}
+
+.aw-strict .aw-text-expand .aw-item-template {
+	width: auto;
+	_width: 12px;
+	min-width: 12px;
+}
+
+
+a.aw-text-expand,
+.aw-text-expand .aw-templates-link,
+.aw-text-expand .aw-templates-text,
+.aw-text-expand .aw-item-box {
+	_overflow-x: visible; /* IE */
+	white-space: nowrap;
+}
+
+.aw-gecko .aw-text-expand .aw-item-box {
+	overflow: visible; /* fixes hover jump bug */
+}
+
+.aw-opera .aw-text-expand .aw-item-box {
+	width: auto;
+}
+
+
+/* text wrap */
+
+.aw-text-wrap .aw-templates-text,
+.aw-text-wrap .aw-templates-link,
+.aw-text-wrap .aw-item-box {
+	white-space: normal;
+	word-wrap: break-word;
+}
+
+.aw-text-wrap .aw-item-image {
+	position: relative;
+	float: left;
+	top: 50%;
+}
+
+.aw-text-wrap .aw-item-marker {
+	position: relative;
+	float: left;
+	top: 50%;
+	margin-top: -6px;
+}
+
+.aw-gecko .aw-text-wrap .aw-item-image,
+.aw-opera .aw-text-wrap .aw-item-image {
+	left: 0px;
+	margin-right: -50px;
+}
+
+.aw-opera .aw-text-wrap .aw-item-ruler {
+	display: none;
+}
+
+.aw-gecko .aw-text-wrap .aw-item-ruler {
+	margin-right: -50px;
+}
+
+.aw-text-wrap .aw-item-text {
+	display: inline-block;
+	overflow-x: hidden;
+	width: 100%;
+	white-space: normal;
+	word-wrap: break-word;
+}
+
+.aw-strict .aw-text-wrap .aw-item-text {
+	width: auto;
+}
+
+.aw-gecko .aw-text-wrap .aw-item-text {
+	display: -moz-inline-block;
+	width: auto;
+	margin-left: 28px;
+}
+
+.aw-opera .aw-text-wrap .aw-item-text {
+	display: table;
+	margin-left: 28px;
+	height: 100%;
+	width: auto;
+	line-height: inherit;
+}
+
+.aw-text-wrap .aw-image-none+*+.aw-item-text {
+	margin-left: 5px;
+}
+
+.aw-safari .aw-text-wrap .aw-item-image {
+	position: absolute;
+	left: 0px;
+	top: 50%;
+	z-index: 1;
+}
+
+.aw-safari .aw-text-wrap .aw-item-text {
+	display: inline-table;
+	table-layout: fixed;
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	padding-left: 28px;
+	padding-right: 5px;
+	margin: 0px;
+}
+
+.aw-safari .aw-text-wrap .aw-image-none+*+.aw-item-text {
+	padding-left: 5px;
+}
+
+/* text normal */
+
+.aw-text-normal .aw-templates-text,
+.aw-text-normal .aw-templates-link,
+.aw-text-normal .aw-item-box {
+	white-space: nowrap;
+}
+

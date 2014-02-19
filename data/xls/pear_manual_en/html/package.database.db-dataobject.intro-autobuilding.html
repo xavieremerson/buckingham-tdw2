@@ -1,0 +1,522 @@
+<HTML
+><HEAD
+><TITLE
+>Auto Building and Database Schema</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB_DataObject"
+HREF="package.database.db-dataobject.html"><LINK
+REL="PREVIOUS"
+TITLE="Configuration Options"
+HREF="package.database.db-dataobject.intro-configuration.html"><LINK
+REL="NEXT"
+TITLE="DB_DataObject::factory()"
+HREF="package.database.db-dataobject.db-dataobject.factory.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.intro-configuration.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.factory.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db-dataobject.intro-autobuilding">Auto Building and Database Schema</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN25853"
+></A
+>Auto Building and Database Schema&nbsp;--&nbsp;
+      creating the base Classes and Database schema
+    </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN25856"
+></A
+><H2
+>What the Auto Builder (<B
+CLASS="command"
+>createTables.php</B
+>) does</H2
+><P
+>&#13;        One of the essential features of an SQL building tool is to to have some understanding of the
+        database structure, So that Integers can be checked, and strings can be escaped. There a few ways
+        that Querying the database for the table structure could be accomplished
+
+      <P
+></P
+><UL
+><LI
+><P
+>on every SQL query</P
+></LI
+><LI
+><P
+>At the initialization of every web page.</P
+></LI
+><LI
+><P
+>Once, while setting up the application, and store it in a file</P
+></LI
+></UL
+>
+      <B
+CLASS="classname"
+>DB_DataObject</B
+> uses the last of these normally (see the section below on Alternatives), it utilizes the 
+      <A
+HREF="http://www.php.net/manual-lookup.php?pattern=parse-ini-file"
+TARGET="_top"
+>parse_ini_file</A
+>
+      function to read the file, so it should be
+      reasonably fast. However this does involve a stage of setting up
+      <B
+CLASS="classname"
+>DB_DataObject</B
+> prior to use.
+    </P
+><P
+>&#13;     The other key concept of <B
+CLASS="classname"
+>DB_DataObject</B
+> is that you work with extended 
+     classes of <B
+CLASS="classname"
+>DB_DataObject</B
+>, which
+      do all the 'table' related work. Setting up these classes for a large database can be time consuming, so
+      the <B
+CLASS="command"
+>createTables.php</B
+> file will automatically build the skeletons for all these class files.
+    </P
+><P
+>&#13;     To start the auto builder simply go to the
+     <TT
+CLASS="parameter"
+><I
+>pear/DB/DataObject/</I
+></TT
+> directory, and type
+      <B
+CLASS="command"
+>c:\php4\php.exe createTables.php myconfig.ini</B
+> this will read your configuration file
+      and generate all the base classes, along with the data definition file.
+    </P
+><P
+>&#13;     As of Version 1.5, you can use the option "proxy = full", which will cause DataObjects
+     to create classes and schema on the fly, rather than using an ini file or prebuilt classes.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN25878"
+></A
+><H2
+>Default Class Definition</H2
+><P
+>&#13;      The default generated class looks like this.
+      <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN25881"><P
+><B
+>Example 33-1. an generated extended class</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>/*
+* Table Definition for group
+*/
+
+
+class DataObjects_Grp extends DB_DataObject {
+
+    ###START_AUTOCODE
+    /* the code below is auto generated do not remove the above tag */
+
+    var $__table='group';                             // table name
+    var $id;                              // int primary_key
+    var $name;                            // string
+    var $grp_owner;                       // int
+    var $official;                        // string
+    var $street;                          // string
+    var $postcode;                        // string
+    var $city;                            // string
+    var $homepage;                        // string
+    var $email;                           // string
+    var $extra;                           // blob
+
+    /* Static get */
+    function staticGet($k,$v=NULL) { return DB_DataObject::staticGet('DataObjects_Grp',$k,$v); }
+
+
+    /* the code above is auto generated do not remove the tag below */
+    ###END_AUTOCODE
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>&#13;
+        The class defines the table name, and comments some of table columns for your reference,
+        It also adds the <A
+HREF="package.database.db-dataobject.db-dataobject.staticget.html"
+>&#13;         <B
+CLASS="function"
+>staticGet()</B
+></A
+> method, which can be used to quickly get single rows as Objects.
+        You should add your table related code after the
+        <TT
+CLASS="constant"
+><B
+>###END_AUTOCODE</B
+></TT
+>.
+    </P
+><P
+>&#13;     Prior to version 1.6 a method __clone was created, since PHP5 changed to use $x = clone($y);, this method
+    has been removed. DataObjects now creates a dummy function clone (if necessary), to enable forward compatibilty
+
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN25889"
+></A
+><H2
+>Database Schema File</H2
+><P
+>&#13;        The default generated database definition file looks like this, it is located in the directory set by the
+        "schema_location" configuration option, and is named the same as the database.
+        
+    </P
+><P
+>&#13;        If you rename the database, you will either have to regenerate the file or copy it to match the same name.
+    </P
+><P
+>&#13;        If you change the database schema (eg. add a column or change the type), you will have to regenerate the schema file,
+        using createTables.php, At present, this is not done automatically (although this may be added in the future..)
+    </P
+><P
+>&#13;        You should not edit this file by hand (as any changes will be lost when regenerating it). You can override the 
+        keys of a table by using a configuration option "sequence_{table} = key", or by defining the sequenceKey() method in your extended class.
+      
+        
+         
+        
+      <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN25895"><P
+><B
+>Example 33-2. Database configuration file</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="ini"
+>[group]
+id = 129
+name = 130 
+grp_owner = 129 
+official = 130 
+street = 130 
+postcode = 130
+city = 130 
+homepage = 130 
+email = 130 
+extra = 130 
+
+[group__keys]
+id = N</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>&#13;
+        The blocks indicate either tables and the type of field with binary addition (1=integer,2=string,128=not null, so 129=integer and not null),
+        or a list of keys for each table.  You should not need to edit file.
+
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN25899"
+></A
+><H2
+>Alternatives to using a Schema File</H2
+><P
+>&#13;        It is possible to use DataObjects without a schema file, this can be achieved in 2 ways
+        
+      <P
+></P
+><UL
+><LI
+><P
+>by defining the table() and keys() methods in an extended class</P
+></LI
+><LI
+><P
+>by passing an array to table() and keys() when you have an instance of dataobjects</P
+></LI
+></UL
+>
+      
+      The second of this is demonstrated on the keys() and tables() page. 
+    </P
+><P
+>&#13;      Below is a hand coded class which  does not use a schema.ini file. 
+    </P
+><P
+>&#13;      It was designed to be a return value from a method, rather than an object variable, so that the output of 
+      print_r(), would not include extra information (and would be smaller when dumping a large result set.
+      
+    
+      <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN25909"><P
+><B
+>Example 33-3. A Hand Coded extended class</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>/*
+* Table Definition for group
+*/
+
+
+class DataObjects_Grp extends DB_DataObject {
+
+    // you can define these yourself
+    
+    var $__table='group';                             // table name
+    var $id;                              // int primary_key
+    var $name;                            // string
+    var $bday;                            // string
+    var $last;                            // datetime
+    var $active;                          // tinyint(1)
+    var $desc;                            // text
+    var $photo;                           // blob
+ 
+    // these are usefull to be consistant with a autogenerated file.
+    
+    /* Static get */
+    function staticGet($k,$v=NULL) { return DB_DataObject::staticGet('DataObjects_Grp',$k,$v); }
+
+  
+    // now define your table structure.
+    // key is column name, value is type
+    function table() {
+        return array(
+            'id'     =&#62; DB_DATAOBJECT_INT,
+            'name'   =&#62; DB_DATAOBJECT_STR,
+            'bday'   =&#62; DB_DATAOBJECT_STR + DB_DATAOBJECT_DATE,
+            'last'   =&#62; DB_DATAOBJECT_STR + DB_DATAOBJECT_DATE + DB_DATAOBJECT_TIME,
+            'active' =&#62; DB_DATAOBJECT_INT + DB_DATAOBJECT_BOOL,
+            'desc'   =&#62; DB_DATAOBJECT_STR + DB_DATAOBJECT_TXT,
+            'photo'  =&#62; DB_DATAOBJECT_STR + DB_DATAOBJECT_BLOB,
+        );
+    }
+    
+    // now define the keys.
+    function keys() {
+        return array('id');
+    }
+    
+    
+    
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.intro-configuration.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.factory.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Configuration Options</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>DB_DataObject::factory()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

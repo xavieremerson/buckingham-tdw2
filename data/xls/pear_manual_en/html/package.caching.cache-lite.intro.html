@@ -1,0 +1,566 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Cache_Lite"
+HREF="package.caching.cache-lite.html"><LINK
+REL="PREVIOUS"
+TITLE="Cache_Lite"
+HREF="package.caching.cache-lite.html"><LINK
+REL="NEXT"
+TITLE="constructor Cache_Lite::Cache_Lite"
+HREF="package.caching.cache-lite.cache-lite.cache-lite.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.caching.cache-lite.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.caching.cache-lite.cache-lite.cache-lite.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.caching.cache-lite.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN17666"
+></A
+>Introduction&nbsp;--&nbsp;Introduction to Cache_Lite</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.caching.cache-lite.intro.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   PEAR::Cache_Lite is a little cache system. It's optimized for high traffic
+   websites so it is really fast and safe (because it uses file locking and/or
+   anti-corruption tests).
+  </P
+><P
+>&#13;   Note : An independant documentation of Cache_Lite is available in chinese
+   <A
+HREF="http://rainx.phpmore.com/manual/cache_lite.html"
+TARGET="_top"
+>on this
+   page</A
+>.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.caching.cache-lite.intro.technical"
+></A
+><H2
+>Goals and technical details</H2
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.caching.cache-lite.intro.technical.speed"
+></A
+><H3
+>speed</H3
+><P
+>&#13;    Before all, PEAR::Cache_Lite has to be extremely fast. That returns the 
+    use of PEAR possible on sites with high traffic without falling in hi-level
+    hardware solutions.
+   </P
+><P
+>&#13;    You can find more details about cache_lite technical choices on the 
+    <A
+HREF="http://cvs.php.net/co.php/pear/Cache_Lite/docs/technical?r=1.1"
+TARGET="_top"
+>this document</A
+>. 
+    but the main idea is to include PEAR.php file <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>ONLY</I
+></SPAN
+> when 
+    an error occurs (very rare). 
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.caching.cache-lite.intro.technical.simplicity"
+></A
+><H3
+>simplicity</H3
+><P
+>&#13;    Because the cache system is often embedded in the application layer, 
+    PEAR::Cache_Lite kernel has to be small and flexible with an adapted licence (LGPL).
+    Advanced functionnalities can be found in files that extends the core.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN17685"
+></A
+><H3
+>security</H3
+><P
+>&#13;    On high traffic websites, the cache system has to be really protected against
+    cache files corruptions (because of concurrent accesses in read/write mode).
+    Very few cache systems offer a protection against this problem.
+   </P
+><P
+>&#13;    File locking is not a perfect solution because it is useless with NFS 
+    or multithreaded servers. So in addition to it, PEAR::Cache_Lite offers two
+    fully transparent mechanisms (based on hash keys) to guarantee the security
+    of the data in all circumstances. Just have a look at the link given in
+    the previous paragraph for more details.
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.caching.cache-lite.intro.usage"
+></A
+><H2
+>Usage</H2
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.caching.cache-lite.intro.usage.general"
+></A
+><H3
+>general usage</H3
+><P
+>&#13;    Every module of Cache_Lite follows the same philosophy.
+   </P
+><P
+>&#13;    Parameters (others than default ones) are passed to the constructor 
+    by using an associative array.
+   </P
+><P
+>&#13;    A cache file is identified by a cache ID (and eventually a group). 
+    For obvious flexibility reasons, the logic of IDs choice is left to the 
+    developer.
+   </P
+><P
+>&#13;    In the following, we will use the term "group" as a pool of cache files and
+    the term "block" as a piece of an HTML page.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.caching.cache-lite.intro.usage.core"
+></A
+><H3
+>core</H3
+><P
+>&#13;    Let's start with a simple example : the page is built then recovered in 
+    an unique variable (string):
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+// Include the package
+require_once('Cache/Lite.php');
+
+// Set a id for this cache
+$id = '123';
+
+// Set a few options
+$options = array(
+    'cacheDir' =&#62; '/tmp/',
+    'lifeTime' =&#62; 3600
+);
+
+// Create a Cache_Lite object
+$Cache_Lite = new Cache_Lite($options);
+
+// Test if thereis a valide cache for this id
+if ($data = $Cache_Lite-&#62;get($id)) {
+
+    // Cache hit !
+    // Content is in $data
+    // (...)
+
+} else { // No valid cache found (you have to make the page)
+
+    // Cache miss !
+    // Put in $data datas to put in cache
+    // (...)
+    $Cache_Lite-&#62;save($data);
+
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    If you wish use a cache per block and not a global cache, take as
+    example the following script:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once('Cache/Lite.php');
+
+$options = array(
+    'cacheDir' =&#62; '/tmp/',
+    'lifeTime' =&#62; 3600
+);
+
+// Create a Cache_Lite object
+$Cache_Lite = new Cache_Lite($options);
+
+if ($data = $Cache_Lite-&#62;get('block1')) {
+    echo($data);
+} else {
+    $data = 'Data of the block 1';
+    $Cache_Lite-&#62;save($data);
+}
+
+echo('&#60;br&#62;&#60;br&#62;Non cached line !&#60;br&#62;&#60;br&#62;');
+
+if ($data = $Cache_Lite-&#62;get('block2')) {
+    echo($data);
+} else {
+    $data = 'Data of the block 2';
+    $Cache_Lite-&#62;save($data);
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.caching.cache-lite.intro.usage.output"
+></A
+><H3
+>core</H3
+><P
+>&#13;    However, it is not always possible to recover all the contents of a page in
+    a single string variable. Thus Cache_Lite_Output comes to our help :
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+require_once('Cache/Lite/Output.php');
+
+$options = array(
+    'cacheDir' =&#62; '/tmp/',
+    'lifeTime' =&#62; 10
+);
+
+$cache = new Cache_Lite_Output($options);
+
+if (!($cache-&#62;start('123'))) {
+    // Cache missed...
+    for($i=0;$i&#60;1000;$i++) { // Making of the page...
+        echo('0123456789');
+    }
+    $cache-&#62;end();
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    The idea is the same for a per block usage :
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+require_once('Cache/Lite/Output.php');
+
+$options = array(
+    'cacheDir' =&#62; '/tmp/',
+    'lifeTime' =&#62; 10
+);
+
+$cache = new Cache_Lite_Output($options);
+
+if (!($cache-&#62;start('block1'))) {
+    // Cache missed...
+    echo('Data of the block 1 !');
+    $cache-&#62;end();
+}
+
+echo('Non cached line !');
+
+if (!($cache-&#62;start('block2'))) {
+    // Cache missed...
+    echo('Data of the block 2 !');
+    $cache-&#62;end();
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.caching.cache-lite.intro.usage.important"
+></A
+><H3
+>IMPORTANT NOTE</H3
+><P
+>&#13;    For a maximum efficiency with Cache_Lite, do not systematically include 
+    every package the page needs. <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>ONLY</I
+></SPAN
+> load the modules
+    you need when the page is not in the cache (and has 
+    to be recomputed) by using a conditionnal inclusion.
+   </P
+><P
+>&#13;    The <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>BAD</I
+></SPAN
+> way :
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+   require_once("Cache/Lite.php");
+   require_once("...")
+   require_once("...")
+   // (...)
+   $cache = new Cache_Lite();
+   if ($data = $Cache_Lite-&#62;get($id)) { // cache hit !
+       echo($data);
+   } else { // page has to be (re)constructed in $data
+       // (...)
+       $Cache_Lite-&#62;save($data);
+   }
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    Here is the good way (often more than twice faster) :
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+   require_once("Cache/Lite.php");
+   // (...)
+   $cache = new Cache_Lite();
+   if ($data = $Cache_Lite-&#62;get($id)) { // cache hit !
+       echo($data);
+   } else { // page has to be (re)constructed in $data
+       require_once("...")
+       require_once("...")
+       // (...)
+       $Cache_Lite-&#62;save($data);
+   }
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.caching.cache-lite.intro.conclusion"
+></A
+><H2
+>Conclusion</H2
+><P
+>&#13;   To go further with Cache_Lite, have a look at examples and technical 
+   details bundled with the package.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.caching.cache-lite.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.caching.cache-lite.cache-lite.cache-lite.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Cache_Lite</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.caching.cache-lite.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>constructor <B
+CLASS="function"
+>Cache_Lite::Cache_Lite()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

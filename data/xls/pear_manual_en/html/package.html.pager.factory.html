@@ -1,0 +1,910 @@
+<HTML
+><HEAD
+><TITLE
+>Pager::factory</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Pager"
+HREF="package.html.pager.html"><LINK
+REL="PREVIOUS"
+TITLE='Pager "Jumping" vs. "Sliding"'
+HREF="package.html.pager.compare.html"><LINK
+REL="NEXT"
+TITLE="Pager::getCurrentPageID"
+HREF="package.html.pager.getcurrentpageid.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.pager.compare.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.pager.getcurrentpageid.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.pager.factory"><B
+CLASS="function"
+>Pager::factory()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN72596"
+></A
+><B
+CLASS="function"
+>Pager::factory()</B
+>&nbsp;--&nbsp;Creates a pager instance</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN72600"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN72601"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Pager/Pager.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>object <B
+CLASS="function"
+>&#38;factory</B
+></CODE
+> (array $options)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager.factory.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <B
+CLASS="function"
+>Pager::factory()</B
+> method takes an associative array
+     of parameters as input values. This is the complete list of these options:
+    <P
+></P
+><UL
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>itemData</I
+></TT
+> [array]</P
+><P
+>&#13;       Array of items to page.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>totalItems</I
+></TT
+> [integer]</P
+><P
+>&#13;       Number of items to page (used only if <TT
+CLASS="parameter"
+><I
+>itemData</I
+></TT
+>
+       is not provided).
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>perPage</I
+></TT
+> [integer]</P
+><P
+>&#13;       Number of items to display on each page.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>delta</I
+></TT
+> [integer]</P
+><P
+>&#13;       Number of page numbers to display before and after the current one.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>mode</I
+></TT
+> [string]</P
+><P
+>&#13;       "Jumping" or "Sliding" -window - It determines pager behaviour.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>httpMethod</I
+></TT
+> [string]</P
+><P
+>&#13;       Specifies the HTTP method to use. Valid values are 'GET' or 'POST'.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>formID</I
+></TT
+> [string]</P
+><P
+>&#13;       Specifies which HTML form to use in POST mode.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>importQuery</I
+></TT
+> [boolean]</P
+><P
+>&#13;        if true (default behaviour), variables and values are imported from the
+        submitted data (query string) and used in the generated links,
+        otherwise they're ignored completely
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>currentPage</I
+></TT
+> [integer]</P
+><P
+>&#13;       Initial page number (if you want to show page #2 by default,
+       set <TT
+CLASS="parameter"
+><I
+>currentPage</I
+></TT
+> to 2)
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>expanded</I
+></TT
+> [boolean]</P
+><P
+>&#13;       if <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, window size is always 2*delta+1
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>linkClass</I
+></TT
+> [string]</P
+><P
+>&#13;       Name of CSS class used for link styling.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>urlVar</I
+></TT
+> [string]</P
+><P
+>&#13;       Name of URL var used to indicate the page number.
+       Default value is "pageID".
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>path</I
+></TT
+> [string]</P
+><P
+>&#13;       Complete path to the page (without the page name).
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>fileName</I
+></TT
+> [string]</P
+><P
+>&#13;       name of the page, with a "%d" if <TT
+CLASS="parameter"
+><I
+>append</I
+></TT
+> == <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>fixFileName</I
+></TT
+> [boolean]</P
+><P
+>&#13;       If set to <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>, the <TT
+CLASS="parameter"
+><I
+>fileName</I
+></TT
+> option is not overridden. Use at your own risk.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>append</I
+></TT
+> [boolean]</P
+><P
+>&#13;       If <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> pageID is appended as GET value to the URL.
+       If <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> it is embedded in the URL according to
+       <TT
+CLASS="parameter"
+><I
+>fileName</I
+></TT
+> specs.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>altFirst</I
+></TT
+> [string]</P
+><P
+>&#13;       Alt text to display on the link of the first page.
+       Default value is "first page"; if you want a string with the page number,
+       use "%d" as a placeholder (for instance "page %d")
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>altPrev</I
+></TT
+> [string]</P
+><P
+>&#13;       Alt text to display on the link of the previous page.
+       Default value is "previous page";
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>altNext</I
+></TT
+> [string]</P
+><P
+>&#13;       Alt text to display on the link of the next page.
+       Default value is "next page";
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>altLast</I
+></TT
+> [string]</P
+><P
+>&#13;       Alt text to display on the link of the last page.
+       Default value is "last page"; if you want a string with the page number,
+       use "%d" as a placeholder (for instance "page %d")
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>altPage</I
+></TT
+> [string]</P
+><P
+>&#13;       Alt text to display before the page number.
+       Default value is "page ".
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>prevImg</I
+></TT
+> [string]</P
+><P
+>&#13;       Something to display instead of "&#60;&#60;".
+       It can be text such as "&#60;&#60; PREV" or an &#60;img/&#62; as well.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>nextImg</I
+></TT
+> [string]</P
+><P
+>&#13;       Something to display instead of "&#62;&#62;".
+       It can be text such as "NEXT &#62;&#62;" or an &#60;img/&#62; as well.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>separator</I
+></TT
+> [string]</P
+><P
+>&#13;       What to use to separate numbers. It can be an &#60;img/&#62;, a comma,
+       an hyphen, or whatever.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>spacesBeforeSeparator</I
+></TT
+> [integer]</P
+><P
+>&#13;       Number of spaces before the separator.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>spacesAfterSeparator</I
+></TT
+> [integer]</P
+><P
+>&#13;       Number of spaces after the separator.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>curPageLinkClassName</I
+></TT
+> [string]</P
+><P
+>&#13;       CSS class name for the current page link.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>curPageSpanPre</I
+></TT
+> [string]</P
+><P
+>&#13;       Text before the current page link.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>curPageSpanPost</I
+></TT
+> [string]</P
+><P
+>&#13;       Text after the current page link.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>firstPagePre</I
+></TT
+> [string]</P
+><P
+>&#13;       String used before the first page number.
+       It can be an &#60;img/&#62;, a "{", an empty string, or whatever.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>firstPageText</I
+></TT
+> [string]</P
+><P
+>&#13;       String used in place of the first page number.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>firstPagePost</I
+></TT
+> [string]</P
+><P
+>&#13;       String used after the first page number.
+       It can be an &#60;img/&#62;, a "}", an empty string, or whatever.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>lastPagePre</I
+></TT
+> [string]</P
+><P
+>&#13;       Similar to <TT
+CLASS="parameter"
+><I
+>firstPagePre</I
+></TT
+>, but used for
+       last page number.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>lastPageText</I
+></TT
+> [string]</P
+><P
+>&#13;       Similar to <TT
+CLASS="parameter"
+><I
+>firstPageText</I
+></TT
+>, but used for
+       last page number.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>lastPagePost</I
+></TT
+> [string]</P
+><P
+>&#13;       Similar to <TT
+CLASS="parameter"
+><I
+>firstPagePost</I
+></TT
+>, but used for
+       last page number.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>clearIfVoid</I
+></TT
+> [boolean]</P
+><P
+>&#13;       if there's only one page, don't display pager links (returns an empty string).
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>extraVars</I
+></TT
+> [array]</P
+><P
+>&#13;       additional URL vars to be added to the querystring.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>excludeVars</I
+></TT
+> [array]</P
+><P
+>&#13;       URL vars to be excluded from the querystring.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>useSessions</I
+></TT
+> [boolean]</P
+><P
+>&#13;       if <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, number of items to display per page is stored in the
+       $_SESSION[$_sessionVar] var.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>closeSession</I
+></TT
+> [boolean]</P
+><P
+>&#13;       if <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, the session is closed just after R/W.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>sessionVar</I
+></TT
+> [string]</P
+><P
+>&#13;       Name of the session var for perPage value. A value different from default
+       can be useful when using more than one Pager istance in the page.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>showAllText</I
+></TT
+> [string]</P
+><P
+>&#13;       Text to be used for the 'show all' option in the select box
+       generated by <B
+CLASS="function"
+>getPerPageSelectBox()</B
+>
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>pearErrorMode</I
+></TT
+> [constant]</P
+><P
+>&#13;       PEAR_ERROR mode for raiseError(). Default is PEAR_ERROR_RETURN.
+      </P
+></LI
+></UL
+>
+    REQUIRED options are:
+    <P
+></P
+><UL
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>fileName</I
+></TT
+> IF
+       <TT
+CLASS="parameter"
+><I
+>append</I
+></TT
+>==<TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>
+      (default is <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>)
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>itemData</I
+></TT
+> OR <TT
+CLASS="parameter"
+><I
+>totalItems</I
+></TT
+>
+      (if itemData is set, totalItems is overwritten)
+      </P
+></LI
+></UL
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager.factory.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>object</I
+></TT
+> - a specific <B
+CLASS="classname"
+>Pager</B
+> instance
+     or a <A
+HREF="core.pear.pear-error.html"
+><B
+CLASS="classname"
+>PEAR_Error</B
+></A
+> object, if fails
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.pager.compare.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.pager.getcurrentpageid.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="classname"
+>Pager</B
+> "Jumping" vs. "Sliding"</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.pager.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Pager::getCurrentPageID()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

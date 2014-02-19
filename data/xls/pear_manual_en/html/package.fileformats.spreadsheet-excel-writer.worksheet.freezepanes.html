@@ -1,0 +1,326 @@
+<HTML
+><HEAD
+><TITLE
+>Worksheet::freezePanes</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Spreadsheet_Excel_Writer"
+HREF="package.fileformats.spreadsheet-excel-writer.html"><LINK
+REL="PREVIOUS"
+TITLE="Worksheet::setSelection"
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setselection.html"><LINK
+REL="NEXT"
+TITLE="Worksheet::thawPanes"
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.thawpanes.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setselection.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.thawpanes.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.worksheet.freezepanes">Worksheet::freezePanes</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN42569"
+></A
+>Worksheet::freezePanes&nbsp;--&nbsp;Set panes and mark them as frozen.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN42572"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN42573"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once "Spreadsheet/Excel/Writer.php";</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>Worksheet::freezePanes</B
+></CODE
+> (array $panes)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.worksheet.freezepanes.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Set panes and mark them as frozen.  One can use this method to mark
+     certain regions in the worksheet so that they are
+     <SPAN
+CLASS="QUOTE"
+>"frozen"</SPAN
+> in the sense that when scrolling through the
+     worksheet these regions are not affected by the scrolling and
+     remain where they are on the screen.  This is the same
+     functionality as provided by Microsoft Excel through the
+     <SPAN
+CLASS="guimenu"
+>Window</SPAN
+>+<SPAN
+CLASS="guimenu"
+>Freeze
+     Panes</SPAN
+> menu command.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.worksheet.freezepanes.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>array $panes</I
+></TT
+> -
+        This is the only parameter received and is composed of the following:
+                     0 =&#62; Vertical split position,
+                     1 =&#62; Horizontal split position
+                     2 =&#62; Top row visible
+                     3 =&#62; Leftmost column visible
+                     4 =&#62; Active pane
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.worksheet.freezepanes.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+></P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.worksheet.freezepanes.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN42600"><P
+><B
+>Example 37-1. Using <B
+CLASS="function"
+>freezePanes()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$worksheet =&#38; $workbook-&#62;addWorksheet("Some Worksheet");
+
+/* ... */
+
+/* This freezes the first six rows of the worksheet: */
+$worksheet-&#62;freezePanes(array(6, 0));
+
+/* To freeze the first column, one must use the following syntax: */
+$worksheet-&#62;freezePanes(array(0, 1));</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;       If one needs to further specify the scrolling region, the
+       following syntax can be used:
+     </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>/* Freeze the first six rows and start the scrollable region at row nine: */
+$worksheet-&#62;freezePanes(array(6, 0, 9, 0));</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setselection.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.thawpanes.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Worksheet::setSelection</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Worksheet::thawPanes</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

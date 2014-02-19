@@ -1,0 +1,223 @@
+<HTML
+><HEAD
+><TITLE
+>Example</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Date_Holidays"
+HREF="package.datetime.date-holidays.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.datetime.date-holidays.intro.html"><LINK
+REL="NEXT"
+TITLE="Encryption"
+HREF="package.encryption.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.datetime.date-holidays.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.encryption.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.datetime.date-holidays.example">Example</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN35504"
+></A
+>Example&nbsp;--&nbsp;Example for the usage of Date_Holidays</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.datetime.date-holidays.example.example1"
+></A
+><H2
+>Basic example</H2
+><P
+>&#13;	This example shows you, how to calculate the easter
+	date of 2005.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "Date/Holidays.php";
+$germany = &#38;Date_Holidays::factory('Germany', 2004, 'en_EN');
+if (Date_Holidays::isError($germany)) {
+    die('Factory was unable to produce driver-object');
+}
+$easter = &#38;$germany-&#62;getHoliday('easter', 'de_DE');
+if (!Date_Holidays::isError($easter)) {
+    print_r($easter-&#62;toArray());
+}</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    This will return an array in the following format:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>Array
+(
+    [internalName] =&#62; easter
+    [title] =&#62; Easter Sunday
+    [date] =&#62; date Object
+        (
+            [year] =&#62; 2004
+            [month] =&#62; 04
+            [day] =&#62; 11
+            [hour] =&#62; 0
+            [minute] =&#62; 0
+            [second] =&#62; 0
+            [tz] =&#62; date_timezone Object
+                (
+                    [id] =&#62; UTC
+                    [longname] =&#62; Coordinated Universal Time
+                    [shortname] =&#62; UTC
+                    [hasdst] =&#62;
+                    [dstlongname] =&#62; Coordinated Universal Time
+                    [dstshortname] =&#62; UTC
+                    [offset] =&#62; 0
+                    [default] =&#62;
+                )
+
+        )
+
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.datetime.date-holidays.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.encryption.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.datetime.date-holidays.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Encryption</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

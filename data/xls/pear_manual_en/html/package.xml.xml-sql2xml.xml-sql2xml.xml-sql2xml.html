@@ -1,0 +1,348 @@
+<HTML
+><HEAD
+><TITLE
+>XML_sql2xml::XML_sql2xml</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_sql2xml"
+HREF="package.xml.xml-sql2xml.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.xml.xml-sql2xml.intro-xpath.html"><LINK
+REL="NEXT"
+TITLE="XML_sql2xml::add"
+HREF="package.xml.xml-sql2xml.xml-sql2xml.add.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-sql2xml.intro-xpath.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.add.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.xml.xml-sql2xml.xml-sql2xml.xml-sql2xml">XML_sql2xml::XML_sql2xml</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN104117"
+></A
+>XML_sql2xml::XML_sql2xml&nbsp;--&nbsp;Constructor</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN104120"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN104121"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once "XML/sql2xml.php";</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>XML_sql2xml::XML_sql2xml</B
+></CODE
+> ([mixed $dsn = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> [, string $root="root"]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-sql2xml.xml-sql2xml.xml-sql2xml.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     The Constructor can take a Pear::DB <A
+HREF="package.database.db.intro-dsn.html"
+>Data Source Name (DSN)</A
+> and will then connect
+     to the database; or a PEAR::DB object handle, if you already connected the
+     database before. Providing sql-strings will not work. 
+    </P
+><P
+>&#13;     If you provide only a DSN, you have to <A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.add.html"
+>add</A
+>
+     a <A
+HREF="package.database.db.db-result.html"
+><B
+CLASS="classname"
+>DB_result</B
+></A
+> object, SQL statment or an array later.
+    </P
+><P
+>&#13;     The <TT
+CLASS="parameter"
+><I
+>$root</I
+></TT
+> parameter is used, if you want to provide another name for your
+     root-tag than &#60;root&#62;. If you give an empty string (""), there will be no   
+     root element created here, but only when you add a resultset, array or
+     SQL Statment.
+     And the first tag of this result is used as the root tag.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-sql2xml.xml-sql2xml.xml-sql2xml.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>mixed $dsn</I
+></TT
+> -
+        PEAR::DB "data source name" or <A
+HREF="package.database.db.db-common.html"
+><B
+CLASS="classname"
+>DB_common</B
+></A
+> object
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $root</I
+></TT
+> -
+        the name of the XML-root element.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-sql2xml.xml-sql2xml.xml-sql2xml.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can be called
+statically.</P
+><P
+></P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-sql2xml.xml-sql2xml.xml-sql2xml.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;    	<A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.add.html"
+><B
+CLASS="function"
+>XML_sql2xml::add()</B
+></A
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-sql2xml.xml-sql2xml.xml-sql2xml.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN104166"><P
+><B
+>Example 61-1. Using <B
+CLASS="function"
+>XML_sql2xml()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$sql2xml = new xml_sql2xml("mysql://root@localhost/xmltest");
+$sql2xml-&#62;Add("select * from bands");</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-sql2xml.intro-xpath.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.add.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.xml-sql2xml.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>XML_sql2xml::add</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

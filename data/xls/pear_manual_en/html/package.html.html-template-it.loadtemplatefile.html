@@ -1,0 +1,486 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_Template_IT::loadTemplatefile()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_IT"
+HREF="package.html.html-template-it.html"><LINK
+REL="PREVIOUS"
+TITLE="HTML_Template_IT::HTML_Template_IT()"
+HREF="package.html.html-template-it.html-template-it.html"><LINK
+REL="NEXT"
+TITLE="HTML_Template_IT::parse()"
+HREF="package.html.html-template-it.parse.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-it.html-template-it.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-it.parse.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-it.loadtemplatefile">HTML_Template_IT::loadTemplatefile()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN70062"
+></A
+>HTML_Template_IT::loadTemplatefile()&nbsp;--&nbsp;load a template file</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN70065"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN70066"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/Template/IT.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>boolean
+      <B
+CLASS="function"
+>HTML_Template_IT::loadTemplatefile</B
+>
+     </CODE
+> (string 
+      $filename, boolean 
+        [$removeUnknownVariables = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>], boolean 
+       [$removeEmptyBlocks = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.loadtemplatefile.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Loads a template from a file and generates internal lists for blocks and variables.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.loadtemplatefile.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $filename</I
+></TT
+> - 
+        file to load
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>boolean $removeUnknownVariables</I
+></TT
+> - 
+        if <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, not substituted placeholders in a block will 
+        be removed
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>boolean $removeEmptyBlocks</I
+></TT
+> - 
+        if <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, not touched blocks will be removed. Blocks can be touched with <B
+CLASS="function"
+>HTML_Template_IT::touchBlock()</B
+>.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.loadtemplatefile.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>boolean</I
+></TT
+> -
+     Returns <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> on success, <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> on failure.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.loadtemplatefile.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN70108"><P
+><B
+>Example 41-1. </B
+></P
+><P
+>Templatefile main.tpl.htm
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>&#60;html&#62;
+ &#60;body&#62;
+User {USERNAME} logged in successfull as {ROLE}.
+ &#60;/body&#62;
+&#60;/html&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>Script with <TT
+CLASS="parameter"
+><I
+>$removeUnknownVariables</I
+></TT
+> = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'HTML/Template/IT.php';
+
+$tpl = new HTML_Template_IT('.');
+$tpl-&#62;loadTemplatefile ('main.tpl.htm', false, false);
+
+$tpl-&#62;setVariable ('USERNAME', 'foo');
+// Placeholder ROLE is not set
+$tpl-&#62;show();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>Output
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>User foo logged in successfull as {ROLE}.</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>Script with <TT
+CLASS="parameter"
+><I
+>$removeUnknownVariables</I
+></TT
+> = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'HTML/Template/IT.php';
+
+$tpl = new HTML_Template_IT('.');
+$tpl-&#62;loadTemplatefile ('main.tpl.htm', true, true);
+
+$tpl-&#62;setVariable ('USERNAME', 'foo');
+// Placeholder ROLE is not set, but $removeUnknownVariables is set to true.
+$tpl-&#62;show();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>Output
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>User foo logged in successfull as .</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.loadtemplatefile.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.loadtemplatefile.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;     <A
+HREF="package.html.html-template-it.settemplate.html"
+>&#13;      <B
+CLASS="function"
+>HTML_Template_IT::setTemplate()</B
+></A
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-it.html-template-it.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-it.parse.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_Template_IT::HTML_Template_IT()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-it.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_Template_IT::parse()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

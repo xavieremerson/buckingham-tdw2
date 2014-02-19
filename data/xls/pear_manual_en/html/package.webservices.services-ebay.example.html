@@ -1,0 +1,299 @@
+<HTML
+><HEAD
+><TITLE
+>Example</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Services_Ebay"
+HREF="package.webservices.services-ebay.html"><LINK
+REL="PREVIOUS"
+TITLE="Architecture"
+HREF="package.webservices.services-ebay.architecture.html"><LINK
+REL="NEXT"
+TITLE="Services_Technorati"
+HREF="package.webservices.services-technorati.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.webservices.services-ebay.architecture.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.webservices.services-technorati.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.webservices.services-ebay.example">Example</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN100966"
+></A
+>Example&nbsp;--&nbsp;Basic example of Services_Ebay</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.services-ebay.example.refsect1"
+></A
+><H2
+>Basic example of Services_Ebay</H2
+><P
+>&#13;    The following examples show how to use some basic features
+    of Services_Ebay:
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN100972"><P
+><B
+>Example 60-1. Using a proxy object</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Services/Ebay.php';
+    
+// pass some authentication data
+$session = Services_Ebay::getSession($devId, $appId, $certId);
+$session-&#62;setToken($token);
+
+// create new proxy object
+$ebay = new Services_Ebay($session);
+
+// call a method
+echo $ebay-&#62;GeteBayOfficialTime();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN100975"><P
+><B
+>Example 60-2. Working directly with a Call object</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Services/Ebay.php';
+
+// pass some authentication data
+$session = Services_Ebay::getSession($devId, $appId, $certId);
+$session-&#62;setToken($token);
+
+$call = Services_Ebay::loadAPICall('GetEbayOfficialTime');
+$result = $call-&#62;call($session);
+
+echo $result;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN100978"><P
+><B
+>Example 60-3. Using the model classes</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Services/Ebay.php';
+
+// pass some authentication data
+$session = Services_Ebay::getSession($devId, $appId, $certId);
+$session-&#62;setToken($token);
+
+// get an eBay item
+$item = $ebay-&#62;GetItem(4501333179, 2);
+
+// The Seller property is an object as well
+echo 'User-Id of the seller: '.$item-&#62;Seller-&#62;UserId.'&#60;br /&#62;';
+
+// convert the item to an array 
+echo '&#60;pre&#62;';
+print_r($item-&#62;toArray());
+echo '&#60;/pre&#62;';
+
+// Use methods of the model
+$item-&#62;AddToDescription('I forgot some important information');
+
+// Change the item
+$item-&#62;Title = 'The new title of the item';
+
+$ebay-&#62;ReviseItem($item);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.webservices.services-ebay.architecture.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.webservices.services-technorati.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Architecture</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.webservices.services-ebay.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Services_Technorati</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

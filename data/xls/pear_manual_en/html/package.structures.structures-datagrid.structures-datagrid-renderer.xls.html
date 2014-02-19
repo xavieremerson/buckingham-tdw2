@@ -1,0 +1,622 @@
+<HTML
+><HEAD
+><TITLE
+>Structures_DataGrid_Renderer_XLS</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Renderer drivers"
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.structures-datagrid-renderer"><LINK
+REL="PREVIOUS"
+TITLE="Structures_DataGrid_Renderer_Smarty"
+HREF="package.structures.structures-datagrid.structures-datagrid-renderer.smarty.html"><LINK
+REL="NEXT"
+TITLE="Structures_DataGrid_Renderer_XML"
+HREF="package.structures.structures-datagrid.structures-datagrid-renderer.xml.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-renderer.smarty.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-renderer.xml.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid-renderer.xls">Structures_DataGrid_Renderer_XLS</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN96930"
+></A
+>Structures_DataGrid_Renderer_XLS&nbsp;--&nbsp;Excel Spreadsheet Rendering Driver</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid-renderer.xls.options"
+></A
+><H2
+>Options</H2
+><P
+>&#13;   This driver accepts the following options:
+  </P
+><DIV
+CLASS="table"
+><A
+NAME="AEN96936"><P
+><B
+>Table 55-1. Options for this driver</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Option</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Type</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Default Value</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>bodyFormat</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>mixed</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The format for body cells (either 0 or a
+       Spreadsheet_Excel_Writer_Format object) Please see the NOTE ABOUT
+       FORMATTING below.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>0 [= "no format"]</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>border</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>int</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Border drawn around the whole datagrid: 0 =&#62; none, 1 =&#62; thin, 2 =&#62;
+       thick (NOT IMPLEMENTED YET)</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>0</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>buildFooter</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>bool</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Whether to build the footer.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>true</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>buildHeader</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>bool</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Whether to build the header.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>true</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>defaultCellValue</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>What value to put by default into empty cells.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>null</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>defaultColumnValues</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Per-column default cell value. This is an array of the form:
+       array(fieldName =&#62; value, ...).</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array()</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>encoding</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The content encoding. If the mbstring extension is present the
+       default value is set from mb_internal_encoding(), otherwise it is
+       ISO-8859-1.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>excludeVars</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Variables to be removed from the generated HTTP queries.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array()</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>extraVars</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Variables to be added to the generated HTTP queries.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array()</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>filename</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The filename of the spreadsheet</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>'spreadsheet.xls'</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>fillWithEmptyRows</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>bool</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Ensures that all pages have the same number of rows.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>false</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>headerBorder</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>int</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Border between the header and body: 0 =&#62; none, 1 =&#62; thin, 2 =&#62;
+       thick (NOT IMPLEMENTED YET)</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>0</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>headerFormat</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>mixed</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The format for header cells (either 0 or a
+       Spreadsheet_Excel_Writer_Format object) Please see the NOTE ABOUT
+       FORMATTING below.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>0 [= "no format"]</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>hideColumnLinks</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>By default sorting links are enabled on all columns. With this
+       option it is possible to disable sorting links on specific columns. This
+       is an array of the form: array(fieldName, ...). This option only affects
+       drivers that support sorting.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array()</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>numberAlign</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>bool</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Whether to right-align numeric values.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>true</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>sendToBrowser</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>bool</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Should the spreadsheet be send to the browser? (true = send to
+       browser, false = write to a file)</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>true</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>startCol</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>int</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The Worksheet column number to start rendering at</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>0</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>startRow</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>int</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The Worksheet row number to start rendering at</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>0</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>worksheet</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>object</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Optional reference to a Spreadsheet_Excel_Writer_Worksheet object.
+       You can leave this to null except if your workbook contains several
+       worksheets and you want to fill a specific one.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>null</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid-renderer.xls.notes"
+></A
+><H2
+>General notes</H2
+><P
+>&#13;   This driver does not support the flatten() method. You can not retrieve
+   its output with DataGrid::getOutput(). You can either render it directly
+   to the browser or save it to a file. See the "sendToBrowser" and "filename"
+   options.
+  </P
+><P
+>   
+   This driver has container support. You can use Structures_DataGrid::fill()
+   with it; that's even recommended.
+  </P
+><P
+>   
+   NOTE ABOUT FORMATTING:
+  </P
+><P
+>   
+   You can specify some formatting with the 'headerFormat' and 'bodyFormat'
+   options, or with setBodyFormat() and setHeaderFormat().
+  </P
+><P
+>   
+   But beware of the following from the Spreadsheet_Excel_Writer manual:
+   "Formats can't be created directly by a new call. You have to create a
+   format using the addFormat() method from a Workbook, which associates your
+   Format with this Workbook (you can't use the Format with another Workbook)."
+  </P
+><P
+>   
+   What this means is that if you want to pass a format to this driver you
+   have to "derive" the Format object out of the workbook used in the driver.
+  </P
+><P
+>   
+   The easiest way to do this is:
+  </P
+><P
+>   
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>// Create a workbook
+   $workbook = new Spreadsheet_Excel_Writer();
+   
+   // Specify that spreadsheet must be sent the browser
+   $workbook-&#62;send('test.xls');
+   
+   // Create your format
+   $format_bold =&#38; $workbook-&#62;addFormat();
+   $format_bold-&#62;setBold();
+   
+   // Fill the workbook, passing the format as an option
+   $options = array('headerFormat' =&#62; &#38;$format_bold);
+   $datagrid-&#62;fill($workbook, $options);</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-renderer.smarty.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-renderer.xml.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Structures_DataGrid_Renderer_Smarty</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.structures-datagrid-renderer"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Structures_DataGrid_Renderer_XML</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

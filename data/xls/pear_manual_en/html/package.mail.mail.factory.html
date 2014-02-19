@@ -1,0 +1,652 @@
+<HTML
+><HEAD
+><TITLE
+>Mail::factory()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Mail"
+HREF="package.mail.mail.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.mail.mail.intro.html"><LINK
+REL="NEXT"
+TITLE="Mail::send()"
+HREF="package.mail.mail.send.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail.send.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.mail.mail.factory">Mail::factory()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN79571"
+></A
+>Mail::factory()&nbsp;--&nbsp;creates a mailer instance</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN79574"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN79575"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Mail.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>object <B
+CLASS="function"
+>&#38;factory</B
+></CODE
+> (string $backend [, array $params = array()])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail.factory.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Creates a instance of a backend-specific mailer class.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail.factory.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>string $backend</I
+></TT
+> - the name of the backend
+      <TT
+CLASS="parameter"
+><I
+>"mail"</I
+></TT
+>,<TT
+CLASS="parameter"
+><I
+>"smtp"</I
+></TT
+>,
+      <TT
+CLASS="parameter"
+><I
+>"sendmail"</I
+></TT
+>
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>array $params</I
+></TT
+> -
+      a array of backend specific parameters.
+     </P
+><P
+>&#13;      List of parameter for the backends
+      <P
+></P
+><UL
+><LI
+><P
+>&#13;         <TT
+CLASS="parameter"
+><I
+>mail</I
+></TT
+>
+         <P
+></P
+><UL
+><LI
+><P
+>&#13;            If safe mode is disabled, <TT
+CLASS="parameter"
+><I
+>$params</I
+></TT
+>
+            will be passed as the fifth argument to the PHP
+            <B
+CLASS="function"
+>mail()</B
+> function.  If
+            <TT
+CLASS="parameter"
+><I
+>$params</I
+></TT
+> is an array, its
+            elements will be joined as a space-delimited string.
+           </P
+></LI
+></UL
+>
+        </P
+></LI
+><LI
+><P
+>&#13;         <TT
+CLASS="parameter"
+><I
+>sendmail</I
+></TT
+>
+         <P
+></P
+><UL
+><LI
+><P
+>&#13;            <TT
+CLASS="parameter"
+><I
+>$params["sendmail_path"]</I
+></TT
+> -
+            The location of the sendmail program on the
+            filesystem. Default is <TT
+CLASS="parameter"
+><I
+>/usr/bin/sendmail</I
+></TT
+>
+           </P
+></LI
+><LI
+><P
+>&#13;            <TT
+CLASS="parameter"
+><I
+>$params["sendmail_args"]</I
+></TT
+> -
+            Additional parameters to pass to the sendmail. Default is
+            <TT
+CLASS="parameter"
+><I
+>-i</I
+></TT
+>
+           </P
+></LI
+></UL
+>
+        </P
+></LI
+><LI
+><P
+>&#13;         <TT
+CLASS="parameter"
+><I
+>smtp</I
+></TT
+>
+         <P
+></P
+><UL
+><LI
+><P
+>&#13;            <TT
+CLASS="parameter"
+><I
+>$params["host"]</I
+></TT
+> - The server to connect.
+            Default is <TT
+CLASS="parameter"
+><I
+>localhost</I
+></TT
+>
+           </P
+></LI
+><LI
+><P
+>&#13;            <TT
+CLASS="parameter"
+><I
+>$params["port"]</I
+></TT
+> - The port to connect.
+            Default is <TT
+CLASS="parameter"
+><I
+>25</I
+></TT
+>
+           </P
+></LI
+><LI
+><P
+>&#13;            <TT
+CLASS="parameter"
+><I
+>$params["auth"]</I
+></TT
+> - Whether or not to use
+            SMTP authentication.
+            Default is <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>
+           </P
+></LI
+><LI
+><P
+>&#13;            <TT
+CLASS="parameter"
+><I
+>$params["username"]</I
+></TT
+> - The username to use
+            for SMTP authentication.
+           </P
+></LI
+><LI
+><P
+>&#13;            <TT
+CLASS="parameter"
+><I
+>$params["password"]</I
+></TT
+> - The password to use
+            for SMTP authentication.
+           </P
+></LI
+><LI
+><P
+>&#13;            <TT
+CLASS="parameter"
+><I
+>$params["localhost"]</I
+></TT
+> - The value to give
+            when sending EHLO or HELO.
+            Default is <TT
+CLASS="parameter"
+><I
+>localhost</I
+></TT
+>
+           </P
+></LI
+><LI
+><P
+>&#13;            <TT
+CLASS="parameter"
+><I
+>$params["timeout"]</I
+></TT
+> - The SMTP connection
+            timeout. Default is <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> (no timeout)
+           </P
+></LI
+><LI
+><P
+>&#13;            <TT
+CLASS="parameter"
+><I
+>$params["verp"]</I
+></TT
+> - Whether to use VERP
+            or not. Default is <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>
+           </P
+></LI
+><LI
+><P
+>&#13;            <TT
+CLASS="parameter"
+><I
+>$params["debug"]</I
+></TT
+> - Whether to enable SMTP
+            debug mode or not. Default is <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>
+           </P
+></LI
+><LI
+><P
+>&#13;            <TT
+CLASS="parameter"
+><I
+>$params["persist"]</I
+></TT
+> - Indicates whether or
+            not the SMTP connection should persist over multiple calls to the
+            <B
+CLASS="function"
+>send()</B
+> method.
+           </P
+></LI
+></UL
+>
+        </P
+></LI
+></UL
+>
+     </P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail.factory.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   <TT
+CLASS="parameter"
+><I
+>object</I
+></TT
+> - a specific <A
+HREF="package.mail.mail.html"
+><B
+CLASS="classname"
+>Mail</B
+></A
+> instance
+   or a <A
+HREF="core.pear.pear-error.html"
+><B
+CLASS="classname"
+>PEAR_Error</B
+></A
+> object, if fails
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail.factory.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <DIV
+CLASS="table"
+><A
+NAME="AEN79677"><P
+><B
+>Table 46-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <SPAN
+CLASS="QUOTE"
+>"Unable to find class for driver
+        <TT
+CLASS="parameter"
+><I
+>xxx</I
+></TT
+>"</SPAN
+>
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Mailer backend class was not found.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check the <TT
+CLASS="parameter"
+><I
+>$backend</I
+></TT
+> parameter, if correct
+        reinstall and/or update your Mail package.
+       </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail.factory.note"
+></A
+><H2
+>Note</H2
+><P
+>This function should be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail.factory.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="package.mail.mail.intro.html#package.mail.mail.intro.backend"
+>&#13;    <SPAN
+CLASS="QUOTE"
+>"Introduction"</SPAN
+>
+   </A
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.mail.mail.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.mail.mail.send.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.mail.mail.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Mail::send()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

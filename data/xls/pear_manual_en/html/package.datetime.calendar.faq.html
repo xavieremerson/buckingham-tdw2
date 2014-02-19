@@ -1,0 +1,869 @@
+<HTML
+><HEAD
+><TITLE
+>FAQ</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Calendar"
+HREF="package.datetime.calendar.html"><LINK
+REL="PREVIOUS"
+TITLE="Calendar Decorators"
+HREF="package.datetime.calendar.intro-decorators.html"><LINK
+REL="NEXT"
+TITLE="Calendar"
+HREF="package.datetime.calendar.calendar.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.datetime.calendar.intro-decorators.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.datetime.calendar.calendar.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.datetime.calendar.faq">FAQ</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN32682"
+></A
+>FAQ&nbsp;--&nbsp;
+        Frequently Asked Questions
+      </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32685"
+></A
+><H2
+>Why doesn't it generate HTML?</H2
+><P
+>&#13;        What if you want WML, SOAP, PDF, GIF, command line, etc. etc.?
+        PEAR::<B
+CLASS="classname"
+>Calendar</B
+> can be used to generate any output
+        format you like (see the examples for SOAP and WML).
+        Tying it to a particular output content type will limit its use
+        (a problem that every public domain PHP Calendar library I've
+        looked at suffers from).
+        A PEAR::HTML_Calendar is likely to be developed using
+        PEAR::<B
+CLASS="classname"
+>Calendar</B
+>.
+       </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32690"
+></A
+><H2
+>There are too many objects, classes and files. It's bloated!</H2
+><P
+>&#13;        Running the examples on Sourceforge's servers (which are always overloaded),
+        example 3.php renders in under 0.1 seconds (usually half that).
+        The code is highly optimized and every "trick in the book" has been
+        applied to make sure PHP only parses / executes the subset of logic
+        you need for your specific problem.
+        If in doubt, use <B
+CLASS="classname"
+>Cache_Lite</B
+> to cache the output HTML.
+       </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32694"
+></A
+><H2
+>&#13;       You use Unix timestamps to calculate the Calendar,
+       which limits the range of years it can generate. Can this be changed?
+      </H2
+><P
+>&#13;        All calculations are handled by a class implementing the
+        <B
+CLASS="classname"
+>Calendar_Engine</B
+> interface.
+        The default implemention is based on PHP's <B
+CLASS="function"
+>date()</B
+>
+        and <B
+CLASS="function"
+>mktime()</B
+> functions (so Unix timestamps are required
+        for that engine).
+        A second engine exists which uses PEAR::<B
+CLASS="classname"
+>Date</B
+>.
+        It's a bit slower but overcomes the limit on the range of Unixstamps.
+        To switch between engines use the constant <TT
+CLASS="constant"
+><B
+>CALENDAR_ENGINE</B
+></TT
+> e.g.
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// The default Unix timestamp engine (this definition is not required)
+// define('CALENDAR_ENGINE', 'UnixTs');
+
+// Switch to PEAR::Date engine
+define('CALENDAR_ENGINE', 'PearDate');</PRE
+></TD
+></TR
+></TABLE
+>
+        Note that the <B
+CLASS="classname"
+>PearDate</B
+> engine is based on
+        PEAR::<B
+CLASS="classname"
+>Date</B
+> version 1.4 or newer.
+       </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32705"
+></A
+><H2
+>This examples use the English language for days and months. Can this be changed?</H2
+><P
+>&#13;        PEAR::<B
+CLASS="classname"
+>Calendar</B
+> only uses base 10 numbers for calculations
+        - the names of months and days of the week and generated as the calendar
+        is being rendered (by you).
+        You should only need to change PHP's locale with <B
+CLASS="function"
+>setlocale()</B
+>
+        and use the <B
+CLASS="function"
+>strftime()</B
+> function e.g.:
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$Day = &#38; new Calendar_Day(2003, 10, 23);
+
+setlocale (LC_TIME, 'de_DE'); // German
+
+echo strftime('%A %d %B %Y', $Day-&#62;getTimeStamp());</PRE
+></TD
+></TR
+></TABLE
+>
+        Note that <B
+CLASS="classname"
+>Calendar_Decorator_Textual</B
+> provides help in generating month and day of week names in a manner which is independent of the Calendar Engine you are using and can be modified with <B
+CLASS="function"
+>setlocale()</B
+>.
+       </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32714"
+></A
+><H2
+>What are empty days?</H2
+><P
+>&#13;        PEAR::<B
+CLASS="classname"
+>Calendar</B
+> makes it easy to render calendars
+        in tabular format (like humans are used to) such as:
+        <P
+CLASS="literallayout"
+><br>
+<br>
+October&nbsp;2003<br>
+M&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5<br>
+6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12<br>
+13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;19<br>
+20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;21&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;22&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;26<br>
+27&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;28&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;29&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;31<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</P
+>
+        Notice the top left and botton right of this example - these are "empty days".
+        Empty days are generated only by two calendar classes:
+        <B
+CLASS="classname"
+>Calendar_Month_Weekdays</B
+> and <B
+CLASS="classname"
+>Calendar_Week</B
+>.
+        For example using <B
+CLASS="classname"
+>Calendar_Month_Weekdays</B
+>;
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Calendar/Month/Weekdays.php';
+
+$Month = &#38; new Calendar_Month_Weekdays(2003, 10);
+$Month-&#62;build();
+
+while ($Day = &#38; $Month-&#62;fetch()) {
+    if ($Day-&#62;isFirst()) // Check for the start of a week
+        echo "\n";
+
+    if ($Day-&#62;isEmpty()) // Check to see if day is empty
+        echo "\t";
+    else
+        echo $Day-&#62;thisDay()."\t";
+
+    if ($Day-&#62;isLast()) // Check for the end of a week
+        echo "\n";
+}</PRE
+></TD
+></TR
+></TABLE
+>
+        An empty day can still return values, the date it represents being from
+        the previous or next month in the calendar.
+        You may get empty days for <B
+CLASS="classname"
+>Calendar_Month_Weekdays</B
+>
+        and <B
+CLASS="classname"
+>Calendar_Week</B
+>.
+        Using <B
+CLASS="classname"
+>Calendar_Week</B
+>, you will only build 7 days
+        (use <B
+CLASS="classname"
+>Calendar_Month_Weeks</B
+> to build
+        <B
+CLASS="classname"
+>Calendar_Week</B
+> objects), so the
+        <B
+CLASS="function"
+>isFirst()</B
+> and <B
+CLASS="function"
+>isLast()</B
+> methods are
+        not applicable.
+       </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32730"
+></A
+><H2
+>How do I select some dates?</H2
+><P
+>&#13;        All calendar objects (except <B
+CLASS="classname"
+>Calendar_Second</B
+>,
+        which has no "children") have the method <B
+CLASS="function"
+>build()</B
+>
+        to build the "children" of that object.
+        For example <B
+CLASS="classname"
+>Calendar_Year</B
+>::<B
+CLASS="function"
+>build()</B
+>
+        builds <B
+CLASS="classname"
+>Calendar_Month</B
+> objects while
+        <B
+CLASS="classname"
+>Calendar_Hour</B
+>::<B
+CLASS="function"
+>build()</B
+> builds
+        <B
+CLASS="classname"
+>Calendar_Minute</B
+> objects.
+        You have the option of passing this method an indexed array of Calendar objects
+        which will be used to "select" the matching built children. For example:
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$Month = &#38; new Calendar_Month(2003, 10); // Oct 2003
+
+$SelectedDay1 = &#38; new Calendar_Day(2003, 10, 5);  // Oct  5th 2003
+$SelectedDay2 = &#38; new Calendar_Day(2003, 10, 21); // Oct 21st 2003
+
+// Place in an array...
+$selection = array($SelectedDay1, $SelectedDay2);
+
+$Month-&#62;build($selection);
+
+while ($Day = &#38; $Month-&#62;fetch()) {
+    if ($Day-&#62;isSelected())
+        echo  $Day-&#62;thisYear().' '.$Day-&#62;thisMonth().' '.$Day-&#62;thisDay().' is selected'."\n";
+}</PRE
+></TD
+></TR
+></TABLE
+>
+        <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Note:</I
+></SPAN
+> the date objects you pass to a
+        <B
+CLASS="function"
+>build()</B
+> method replace the corresponding built
+        date objects, allowing you to do things like attach your own subclass
+        of <B
+CLASS="classname"
+>Calendar_Decorator</B
+> to them, then access
+        the decorating functionality inside the loop which renders the calendar.
+        You might display the contents from an "events database table" using this
+        approach.
+       </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32745"
+></A
+><H2
+>&#13;       Why do I have to call build() explicitly. Why can't children be
+       built automatically?
+      </H2
+><P
+>&#13;       First and foremost, for performance. Building the children has a
+       performance cost and you won't always need to have the children,
+       so it should be called explicitly, otherwise you might have $Year-&#62;build(),
+       expecting to get just months but behind the scenes, months built days,
+       which built hours, which build minutes etc.
+       Also calling <B
+CLASS="function"
+>build()</B
+> yourself give you a chance to
+       "select" some of the children.
+       </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32749"
+></A
+><H2
+>How do I validate a date?</H2
+><P
+>&#13;       Validity is determined by the <B
+CLASS="classname"
+>Calendar_Engine</B
+> being used
+       as well as the time the date object you're working with represents (e.g.
+       $Month = &#38; new Month(2003, 2, 29); is invalid, because Feb 2003 was
+       not a leap year). For quick validation, you can call the method
+       <B
+CLASS="function"
+>isValid()</B
+> on any date object, which will return <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>
+       if there's a problem. For more information of more detailed validation,
+       you can call the method <B
+CLASS="function"
+>getValidator()</B
+> on any date object,
+       which returns an instance of the class <B
+CLASS="classname"
+>Calendar_Validator</B
+>.
+       For example;
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$Month = &#38; new Month(2003, 2, 29); // 29th Feb 2003 (?!?)
+if (!$Month-&#62;isValid()) {
+    $Validator = &#38; $Month-&#62;getValidator();
+    while ($Error = $Validator-&#62;fetch()) {
+        echo $Error-&#62;toString();
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+>
+        You can also begin validation by calling <B
+CLASS="function"
+>getValidator()</B
+>
+        then either <B
+CLASS="function"
+>isValidYear()</B
+>, <B
+CLASS="function"
+>isValidMonth()</B
+>,
+        <B
+CLASS="function"
+>isValidDay()</B
+>, <B
+CLASS="function"
+>isValidHour()</B
+>,
+        <B
+CLASS="function"
+>isValidMinute()</B
+> and <B
+CLASS="function"
+>isValidSecond()</B
+>
+        (or just <B
+CLASS="function"
+>isValid()</B
+> which calls all of the isValidxxx methods).
+       </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32766"
+></A
+><H2
+>Can I adjust invalid dates?</H2
+><P
+>&#13;        If you're allowing end users to navigate your calendar via the URL,
+        were they to modify the URL to something like calendar.php?year=2003&#38;month=13,
+        instead of throwing a validation error at them, you could call the
+        <B
+CLASS="classname"
+>Calendar</B
+>::<B
+CLASS="function"
+>adjust()</B
+> method on the
+        calendar object you create with that URL. You should then end up with
+        January 2004 (in this example). This behaviour is possible thanks to
+        <B
+CLASS="function"
+>mktime()</B
+> for the Unix Timestamp engine, while being built
+        into the <B
+CLASS="classname"
+>PearDate</B
+> engine for you.
+      </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32773"
+></A
+><H2
+>&#13;      After calling <B
+CLASS="function"
+>build()</B
+>, I just want to get a single
+      child date object with looping through the lot. How?
+     </H2
+><P
+>&#13;        The method <B
+CLASS="function"
+>fetchAll()</B
+> can be called on any date object
+        to get an indexed array of all the children which have been built,
+        allowing you to reference them directly. Be careful with the first index
+        of this array - in some cases it will be [1] not [0], depending on the
+        type of date object built. For example;
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$Month = &#38; new Calendar_Month(2003, 10);
+$Month-&#62;build();
+
+$days = &#38; $Month-&#62;fetchAll(); // Now all in array
+echo $days[1]-&#62;thisDay(); // The first day has index 1
+
+$Hour = &#38; new Calendar_Hour(2003, 10, 25, 15); // Oct 25th 2003, 3pm
+$Hour-&#62;build();
+
+$hours = &#38; $Hour-&#62;fetchAll(); // Now all in array
+echo $hours[0]-&#62;thisHour(); // The first hour has index 0</PRE
+></TD
+></TR
+></TABLE
+>
+        The following classes are always built to have the first index as 1:
+        <B
+CLASS="classname"
+>Calendar_Month</B
+>,
+        <B
+CLASS="classname"
+>Calendar_Month_Weekdays</B
+>,
+        <B
+CLASS="classname"
+>Calendar_Month_Weeks</B
+>,
+        <B
+CLASS="classname"
+>Calendar_Week</B
+> and
+        <B
+CLASS="classname"
+>Calendar_Day</B
+>
+        The following classes are always built to have the first index as 0:
+        <B
+CLASS="classname"
+>Calendar_Hour</B
+>,
+        <B
+CLASS="classname"
+>Calendar_Minute</B
+> and
+        <B
+CLASS="classname"
+>Calendar_Second</B
+>
+
+        Note also the method <B
+CLASS="function"
+>size()</B
+> can be called on any
+        date object, after <B
+CLASS="function"
+>build()</B
+> has been called,
+        to get the number of children.
+      </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32789"
+></A
+><H2
+>What does a week actually represent in PEAR::<B
+CLASS="classname"
+>Calendar</B
+>?</H2
+><P
+>&#13;        Weeks are "pseudo" dates. They're useful for formatting the user
+        interface for end users. Weeks are instantiated with a year, a month
+        and a day of the month. You can then have the week tell you its timestamp
+        (which will be the same as the timestamp for the first day in the week),
+        its numeric position within the <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>tabular</I
+></SPAN
+> month (see
+        empty days above), its numeric position within the year (this is an ISO-8601
+        week number of year, weeks starting on Monday) or an array containing the
+        numeric year, month and the first day of the week (as a number within the month).
+        For example:
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$Week = &#38; new Calendar_Week(2003, 10, 15);
+
+$Week = new Calendar_Week(2003, 10, 15);
+
+echo $Week-&#62;thisWeek(); // Displays 2 (week num in month)
+echo $Week-&#62;thisWeek('n_in_month'); // Display 2 - same as above
+
+echo $Week-&#62;thisWeek('n_in_year');  // Displays 41 (week in year)
+
+echo $Week-&#62;thisWeek('timestamp');  // Displays unix timestamp or an ISO-8601 datetime
+                                    // (YYYY-MM-DD HH:MM:SS), depending on the engine.
+
+print_r $Week-&#62;thisWeek('array');   // [year] =&#62; 2003 [month] =&#62; 10 [day] =&#62; 12</PRE
+></TD
+></TR
+></TABLE
+>
+      </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32795"
+></A
+><H2
+>&#13;       How do I get a Calendar_Year to build Calendar_Month_Weekdays or
+       Calendar_Month_Weeks, instead of the default Calendar_Month objects?
+      </H2
+><P
+>&#13;        When working with a <B
+CLASS="classname"
+>Calendar_Year</B
+>, the constants
+        <TT
+CLASS="constant"
+><B
+>CALENDAR_MONTH_STATE</B
+></TT
+> controls what type of month
+        object is built. You can define <TT
+CLASS="constant"
+><B
+>CALENDAR_MONTH_STATE</B
+></TT
+>
+        to <TT
+CLASS="constant"
+><B
+>CALENDAR_USE_MONTH_WEEKDAYS</B
+></TT
+> or
+        <TT
+CLASS="constant"
+><B
+>CALENDAR_USE_MONTH_WEEKS</B
+></TT
+> for the
+        <B
+CLASS="classname"
+>Calendar_Month_Weekdays</B
+> and
+        <B
+CLASS="classname"
+>Calendar_Month_Week</B
+> classes, respectively.
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32805"
+></A
+><H2
+>You use Monday as the start of the week. Can I change that?</H2
+><P
+>&#13;        Yes. For the classes which are concerned with the notion of a "week",
+        you can can pass a value which defines the first day of the week.
+        For the default timestamp based Calendar engine, this is a number
+        from 0 to 6, 0 being Sunday through to 6 being Saturday.
+        This value can be passed to the following:
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$Year = new Calendar_Year(2003);
+$selection = array();
+$Year-&#62;build($selection, 0); // the second argument is the first day of the week (Sunday)
+
+$MonthWeekdays = new Calendar_Month_Weekdays(2003, 10, 6); // Third argument - Saturday
+
+$MonthWeeks = new Calendar_Month_Weekdays(2003, 10, 2); // Third argument - Tuesday
+
+$Week = new Calendar_Week(2003, 10, 15, 5) // Fourth argument - Friday</PRE
+></TD
+></TR
+></TABLE
+>
+      </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.datetime.calendar.intro-decorators.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.datetime.calendar.calendar.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Calendar Decorators</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.datetime.calendar.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Calendar</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

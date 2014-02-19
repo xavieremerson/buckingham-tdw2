@@ -1,0 +1,408 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_Template_IT::setTemplate()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_IT"
+HREF="package.html.html-template-it.html"><LINK
+REL="PREVIOUS"
+TITLE="HTML_Template_IT::setRoot()"
+HREF="package.html.html-template-it.setroot.html"><LINK
+REL="NEXT"
+TITLE="HTML_Template_IT::setVariable()"
+HREF="package.html.html-template-it.setvariable.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-it.setroot.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-it.setvariable.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-it.settemplate">HTML_Template_IT::setTemplate()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN70365"
+></A
+>HTML_Template_IT::setTemplate()&nbsp;--&nbsp;set a template</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN70368"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN70369"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/Template/IT.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>boolean
+       <B
+CLASS="function"
+>HTML_Template_IT::setTemplate</B
+></CODE
+> (string $template [, boolean 
+        $removeUnkownVariables = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> [, boolean 
+        $removeEmptyBlocks = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.settemplate.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Loads template from a string and controls the behavior in case of unused
+     variables and blocks
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.settemplate.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $template</I
+></TT
+> - 
+        The content of the template.
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>boolean $removeUnknowVariables</I
+></TT
+> - 
+        if <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, not substituted placeholders in a block will 
+        be removed
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>boolean $removeEmptyBlocks</I
+></TT
+> - 
+        if <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, not touched blocks will be removed
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.settemplate.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>boolean</I
+></TT
+> -
+     Returns <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> on success, <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> on failure.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.settemplate.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN70410"><P
+><B
+>Example 41-1. Script</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php 
+  require_once "HTML/Template/IT.php";
+
+  $data = array
+  (
+    "0" =&#62; array("Stig", "Bakken"),
+    "1" =&#62; array("Martin", "Jansen"),
+    "2" =&#62; array("Alexander", "Merz")
+  );
+ 
+  $templateString = &#60;&#60;&#60;EOD
+&#60;html&#62;
+ &#60;table&#62;
+&#60;!-- BEGIN row --&#62;
+  &#60;tr&#62;
+&#60;!-- BEGIN cell --&#62;
+   &#60;td&#62;
+    {DATA}
+   &#60;/td&#62;
+&#60;!-- END cell --&#62;
+  &#60;/tr&#62;
+&#60;!-- END row --&#62;
+ &#60;/table&#62;
+&#60;/html&#62;
+EOD;
+
+
+  $tpl = new HTML_Template_IT();
+  $tpl-&#62;setTemplate($templateString, true, true);
+
+  foreach($data as $name) {
+    foreach($name as $cell) {
+        // Assign data to the inner block
+        $tpl-&#62;setCurrentBlock("cell") ;
+        $tpl-&#62;setVariable("DATA", $cell) ;
+        $tpl-&#62;parseCurrentBlock("cell") ;
+    }
+
+     // parse outter block
+     $tpl-&#62;parse("row");
+  }
+  // show
+  $tpl-&#62;show();
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.settemplate.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.settemplate.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;     <A
+HREF="package.html.html-template-it.loadtemplatefile.html"
+>&#13;      <B
+CLASS="function"
+>HTML_Template_IT::setTemplatefile()</B
+></A
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-it.setroot.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-it.setvariable.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_Template_IT::setRoot()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-it.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_Template_IT::setVariable()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

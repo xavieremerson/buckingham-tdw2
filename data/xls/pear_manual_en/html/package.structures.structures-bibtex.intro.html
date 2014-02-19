@@ -1,0 +1,391 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Structures_BibTex"
+HREF="package.structures.structures-bibtex.html"><LINK
+REL="PREVIOUS"
+TITLE="Structures_BibTex"
+HREF="package.structures.structures-bibtex.html"><LINK
+REL="NEXT"
+TITLE="Warnings"
+HREF="package.structures.structures-bibtex.warnings.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-bibtex.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-bibtex.warnings.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.structures.structures-bibtex.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN93414"
+></A
+>Introduction&nbsp;--&nbsp;
+   Introduction to <B
+CLASS="classname"
+>Structures_BibTex</B
+>
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-bibtex.intro.overview"
+></A
+><H2
+>Overview</H2
+><P
+>&#13;  This package provides methods to access information stored in a BibTex file. During parsing it
+  is possible to let the data be validated. In addition. the creation of BibTex Strings as well 
+  as RTF Strings is also supported.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-bibtex.intro.examples"
+></A
+><H2
+>A few examples</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN93423"><P
+><B
+>Example 55-1. Loading a BibTex File and printing the parsed array</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Structures/BibTex.php';
+$bibtex = new Structures_BibTex();
+$ret    = $bibtex-&#62;loadFile('foo.bib');
+if (PEAR::isError($ret)) {
+    die($ret-&#62;getMessage());
+}
+$bibtex-&#62;parse();
+echo '&#60;pre&#62;';
+print_r($foo-&#62;data);
+echo '&#60;/pre&#62;';</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-bibtex.intro.storeddata"
+></A
+><H2
+>Stored Data</H2
+><P
+>&#13;            The data is stored in the class variable <TT
+CLASS="varname"
+>data</TT
+>. This is a
+            a list where each entry is a hash table representing one bibtex-entry. The keys
+            of the hash table correspond to the keys used in bibtex and the values are the
+            corresponding values. Some of these keys are:
+            <P
+></P
+><UL
+><LI
+><P
+>&#13;                        <TT
+CLASS="parameter"
+><I
+>cite</I
+></TT
+> - The key used in a LaTeX source to do the citing.
+                    </P
+></LI
+><LI
+><P
+>&#13;                        <TT
+CLASS="parameter"
+><I
+>type</I
+></TT
+> - The type of the entry, like techreport, book and so on.
+                    </P
+></LI
+><LI
+><P
+>&#13;                        <TT
+CLASS="parameter"
+><I
+>author</I
+></TT
+> - One or more authors of the entry. This entry is also a list with hash tables representing the authors as entries. The author has table is explained later.
+                    </P
+></LI
+><LI
+><P
+>&#13;                        <TT
+CLASS="parameter"
+><I
+>title</I
+></TT
+> - Title of the entry.
+                    </P
+></LI
+></UL
+>
+        </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-bibtex.intro.author"
+></A
+><H2
+>Author</H2
+><P
+>&#13;        As described before the authors are stored in a list. Every entry representing
+        one author as a has table. The hash table consits of four keys: first, von, last
+        and jr. The keys are explained in the following list:
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;                    <TT
+CLASS="parameter"
+><I
+>first</I
+></TT
+> - The first name of the author.
+                </P
+></LI
+><LI
+><P
+>&#13;                    <TT
+CLASS="parameter"
+><I
+>von</I
+></TT
+> - Some names have a 'von' part in their name. This is usually a sign of nobleness.
+                </P
+></LI
+><LI
+><P
+>&#13;                    <TT
+CLASS="parameter"
+><I
+>last</I
+></TT
+> - The last name of the author.
+                </P
+></LI
+><LI
+><P
+>&#13;                    <TT
+CLASS="parameter"
+><I
+>jr</I
+></TT
+> - Sometimes a author is the son of his father and has the same name, then the value would be jr. The same is true for the value sen but vice versa.
+                </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-bibtex.intro.adding"
+></A
+><H2
+>Adding an entry</H2
+><P
+>To add an entry simply create a hash table with the needed keys and values and call the method <B
+CLASS="function"
+>addEntry()</B
+>.
+        <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN93463"><P
+><B
+>Example 55-2. Adding an entry</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$bibtex                         = new Structures_BibTex();
+$addarray                       = array();
+$addarray['type']               = 'Article';
+$addarray['cite']               = 'art2';
+$addarray['title']              = 'Titel of the Article';
+$addarray['author'][0]['first'] = 'John';
+$addarray['author'][0]['last']  = 'Doe';
+$addarray['author'][1]['first'] = 'Jane';
+$addarray['author'][1]['last']  = 'Doe';
+$bibtex-&#62;addEntry($addarray);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.structures.structures-bibtex.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.structures.structures-bibtex.warnings.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Structures_BibTex</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.structures.structures-bibtex.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Warnings</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,363 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR_Autoloader::__call</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR_Autoload"
+HREF="core.ppm.html#core.ppm.pear-autoloader"><LINK
+REL="PREVIOUS"
+TITLE="PEAR_Autoloader::removeAutoload"
+HREF="core.ppm.pear-autoloader.removeautoload.html"><LINK
+REL="NEXT"
+TITLE="PEAR_Builder"
+HREF="core.ppm.pear-builder.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-autoloader.removeautoload.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-builder.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.ppm.pear-autoloader.--call"><B
+CLASS="function"
+>PEAR_Autoloader::__call()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN6832"
+></A
+><B
+CLASS="function"
+>PEAR_Autoloader::__call()</B
+>&nbsp;--&nbsp;Overloaded object call handler</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN6836"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN6837"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'PEAR/autoloader.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed       <B
+CLASS="function"
+>PEAR_Autoloader::__call</B
+></CODE
+> (string $method, string $args, mixed &#38;$retval)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-autoloader.--call.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Overloaded object call handler, called each time an
+     undefined/aggregated method is invoked. This method repeats
+     the call in the right aggregate object and passes on 
+     the return value.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-autoloader.--call.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+         <TT
+CLASS="parameter"
+><I
+>$method</I
+></TT
+></DT
+><DD
+><P
+>&#13;         which method that was called
+        </P
+></DD
+><DT
+>string
+         <TT
+CLASS="parameter"
+><I
+>$args</I
+></TT
+></DT
+><DD
+><P
+>&#13;         An array of the parameters passed in the     
+         original call
+        </P
+></DD
+><DT
+>mixed
+         <TT
+CLASS="parameter"
+><I
+>&#38;$retval</I
+></TT
+></DT
+><DD
+><P
+>&#13;        
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-autoloader.--call.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>mixed</I
+></TT
+> -
+     The return value from the aggregated method, or a 
+     <B
+CLASS="classname"
+>PEAR_Error</B
+> if the called method was unknown.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-autoloader.--call.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN6881"><P
+><B
+>Table 27-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error value</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Meaning</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>""</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-autoloader.--call.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-autoloader.removeautoload.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-builder.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Autoloader::removeAutoload()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.ppm.html#core.ppm.pear-autoloader"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>PEAR_Builder</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

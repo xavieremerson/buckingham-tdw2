@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+<Title>Icon Pie Chart (2)</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">Icon Pie Chart (2)</p>
+<hr class="separator">
+<div class="content">
+<img src="images/iconpie2.png">
+<br><br>
+This example extends the <a href="iconpie.htm">Icon Pie Chart</a> example to demonstrate using <a href="cdml.htm">CDML</a> to include icons and multiple fonts in chart title, sector labels and to draw logo.<br><br>
+<ul><li> The title containing multiple fonts and colors is written in <a href="cdml.htm">CDML</a> and added to the chart using <a href="BaseChart.addTitle.htm">BaseChart.addTitle</a>.<br><br>
+<li> The logo designed using <a href="cdml.htm">CDML</a> is added to the chart as another title using <a href="BaseChart.addTitle2.htm">BaseChart.addTitle2</a> with <a href="alignment.htm">BottomRight</a> alignment.<br><br>
+<li> The icons file names for sector labels are added to the chart as an extra field using <a href="PieChart.addExtraField.htm">PieChart.addExtraField</a>.<br><br>
+<li> The sector label format is designed to include the icon using <a href="cdml.htm">CDML</a> and <a href="paramsub.htm">parameter substitution</a>. It is then set into the pie chart using <a href="PieChart.setLabelFormat.htm">PieChart.setLabelFormat</a>.<br><br>
+<li> The search path to load the icon images is configured to be the same as the script directory using <a href="BaseChart.setSearchPath.htm">BaseChart.setSearchPath</a>. This is needed in IIS because the current directory in IIS is the directory of the IIS executable, not the script directory.</ul>
+</div>
+<p class="heading2">Source Code Listing</p>
+<div class="content">
+[File: phpdemo/iconpie2.php]<br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp><?php
+include("phpchartdir.php");
+
+#The data for the pie chart
+$data = array(28, 45, 5, 1, 12);
+
+#The labels for the pie chart
+$labels = array("Excellent", "Good", "Bad", "Very Bad", "Neutral");
+
+#The icons for the sectors
+$icons = array("laugh.png", "smile.png", "sad.png", "angry.png", "nocomment.png"
+    );
+
+#Create a PieChart object of size 560 x 300 pixels, using 0xe0e0ff as the
+#background color, 0xccccff as the border color, with 1 pixel 3D border effect
+$c = new PieChart(560, 300, 0xe0e0ff, 0xccccff, 1);
+
+#Set directory for loading images to current script directory
+#Need when running under Microsoft IIS
+$c->setSearchPath(dirname(__FILE__));
+
+#Set the center of the pie at (280, 140) and the radius to 100 pixels
+$c->setPieSize(280, 140, 120);
+
+#Add a title box with title written in CDML
+$titleObj = $c->addTitle(
+    "<*block,valign=absmiddle*><*img=doc.png*><*font=timesbi.ttf,size=15*> ".
+    "Customer Survey : <*font=timesi.ttf*>Do you like our <*block,valign=top*>".
+    "<*font=mtcorsva.ttf,color=dd0000,size=17*>Hyper<*block*>".
+    "<*font=arial.ttf,size=8*> TM<*/*><*/*> molecules?<*/*>");
+$titleObj->setBackground(0xccccff);
+
+#Add a logo to the chart written in CDML as the bottom title aligned to the
+#bottom right
+$c->addTitle2(BottomRight,
+    "<*block,valign=absmiddle*><*img=molecule.png*> <*block*><*color=FF*>".
+    "<*font=mtcorsva.ttf,size=15*>Molecular Engineering\n".
+    "<*font=verdana.ttf,size=9*>Creating better molecules<*/*>");
+
+#Set the pie data and the pie labels
+$c->setData($data, $labels);
+
+#Set 3D style
+$c->set3D();
+
+#Use the side label layout method
+$c->setLabelLayout(SideLayout);
+
+#Set the label background color to transparent
+$labelStyleObj = $c->setLabelStyle();
+$labelStyleObj->setBackground(Transparent);
+
+#Set the join line color to black
+$c->setJoinLine(0);
+
+#Add icons to the chart as a custom field
+$c->addExtraField($icons);
+
+#Configure the sector labels using CDML to include the icon images
+$c->setLabelFormat(
+    "<*block,valign=absmiddle*><*img={field0}*> {label} ({percent|0}%)");
+
+#Explode the 3rd and 4th sectors as a group (index = 2 and 3)
+$c->setExplodeGroup(2, 3);
+
+#Set the start angle to 135 degrees may improve layout when there are many small
+#sectors at the end of the data array (that is, data sorted in descending
+#order). It is because this makes the small sectors position near the horizontal
+#axis, where the text label has the least tendency to overlap. For data sorted
+#in ascending order, a start angle of 45 degrees can be used instead.
+$c->setStartAngle(135);
+
+#output the chart
+header("Content-type: image/png");
+print($c->makeChart2(PNG));
+?></xmp>
+</td></tr></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

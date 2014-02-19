@@ -1,0 +1,440 @@
+<HTML
+><HEAD
+><TITLE
+>DB_DataObject::staticGet()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB_DataObject"
+HREF="package.database.db-dataobject.html"><LINK
+REL="PREVIOUS"
+TITLE="->get()"
+HREF="package.database.db-dataobject.db-dataobject.get.html"><LINK
+REL="NEXT"
+TITLE="{Child Class}::staticGet()"
+HREF="package.database.db-dataobject.db-dataobject.staticget2.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.get.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.staticget2.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db-dataobject.db-dataobject.staticget">DB_DataObject::staticGet()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN26046"
+></A
+>DB_DataObject::staticGet()&nbsp;--&nbsp;Simple Get (Select) request, abbreviated and Autoload.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN26049"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN26050"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>DB_DataObject::staticGet</B
+></CODE
+> (string $class, mixed $key or $value [, mixed $value])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.staticget.desc"
+></A
+><H2
+>Description</H2
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;           This method is depreciated, it is recommended to use ::factory() and -&#62;get()
+          </P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>&#13;    The static method is a combination of factory and get().
+   
+     <B
+CLASS="function"
+>staticGet()</B
+> will cache the returned data in a global
+     variable for quick access within the same request (any data
+     modification query will clear the cache).
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.staticget.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $class</I
+></TT
+> -
+        class name
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $key</I
+></TT
+> - column (or value if only 2 paramaters are given)
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>mixed $value</I
+></TT
+> - value 
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.staticget.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>object mixed</I
+></TT
+> - <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> or the object
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.staticget.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN26088"><P
+><B
+>Table 33-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Meaning</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>DB_DATAOBJECT_ERROR_NOCLASS</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"could not autoload $class"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>DB_DATAOBJECT_ERROR_NOCLASS</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"Error creating $newclass"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>DB_DATAOBJECT_ERROR_NODATA</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"No Data return from get $key $value"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.staticget.note"
+></A
+><H2
+>Note</H2
+><P
+>This method must be called statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.staticget.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN26121"><P
+><B
+>Example 33-1. Simple fetch of data based on Primary Key</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$person = DB_DataObject::staticGet('DataObjects_Person',12);
+print_r($person);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.get.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.staticget2.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>-&#62;get()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>{Child Class}::staticGet()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

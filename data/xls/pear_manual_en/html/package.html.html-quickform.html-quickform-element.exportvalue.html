@@ -1,0 +1,330 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_QuickForm_element::exportValue()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Base classes"
+HREF="package.html.html-quickform.html#package.html.html-quickform.elements.base"><LINK
+REL="PREVIOUS"
+TITLE="HTML_QuickForm_element::apiVersion()"
+HREF="package.html.html-quickform.html-quickform-element.apiversion.html"><LINK
+REL="NEXT"
+TITLE="HTML_QuickForm_element::freeze()"
+HREF="package.html.html-quickform.html-quickform-element.freeze.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-element.apiversion.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-element.freeze.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.html-quickform-element.exportvalue">HTML_QuickForm_element::exportValue()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN53816"
+></A
+>HTML_QuickForm_element::exportValue()&nbsp;--&nbsp;Returns a 'safe' element's value (package developer related)</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN53819"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN53820"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/QuickForm/element.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed      <B
+CLASS="function"
+>HTML_QuickForm_element::exportValue</B
+></CODE
+> (array &#38;$submitValues [, bool $assoc = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-element.exportvalue.desc"
+></A
+><H2
+>Description</H2
+><P
+>This method is not intended to be called directly. It is called by 
+     <A
+HREF="package.html.html-quickform.html-quickform.exportvalue.html"
+><B
+CLASS="function"
+>HTML_QuickForm::exportValue()</B
+></A
+> and
+     <A
+HREF="package.html.html-quickform.html-quickform.exportvalues.html"
+><B
+CLASS="function"
+>HTML_QuickForm::exportValues()</B
+></A
+> methods.
+     </P
+><P
+>&#13;     The method first tries to find a value for itself in a passed array, if such a value is not found it takes the display value via <A
+HREF="package.html.html-quickform.html-quickform-element.getvalue.html"
+><B
+CLASS="function"
+>getValue()</B
+></A
+>. It then filters out the values that cannot possibly be submitted by this element and returns the result.
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-element.exportvalue.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array
+                 <TT
+CLASS="parameter"
+><I
+>&#38;$submitValues</I
+></TT
+></DT
+><DD
+><P
+>&#13;         array of submitted values to search
+        </P
+></DD
+><DT
+>boolean
+                 <TT
+CLASS="parameter"
+><I
+>$assoc</I
+></TT
+></DT
+><DD
+><P
+>&#13;         whether to return the value as associative array
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-element.exportvalue.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> no exceptions thrown
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-element.exportvalue.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>see</I
+></SPAN
+> <A
+HREF="package.html.html-quickform.html-quickform-element.getvalue.html"
+><B
+CLASS="function"
+>getValue()</B
+></A
+>, <A
+HREF="package.html.html-quickform.html-quickform.exportvalue.html"
+><B
+CLASS="function"
+>HTML_QuickForm::exportValue()</B
+></A
+>, <A
+HREF="package.html.html-quickform.html-quickform.exportvalues.html"
+><B
+CLASS="function"
+>HTML_QuickForm::exportValues()</B
+></A
+>.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-element.exportvalue.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-element.apiversion.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-element.freeze.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_QuickForm_element::apiVersion()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.elements.base"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_QuickForm_element::freeze()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,553 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_IT"
+HREF="package.html.html-template-it.html"><LINK
+REL="PREVIOUS"
+TITLE="HTML_Template_IT"
+HREF="package.html.html-template-it.html"><LINK
+REL="NEXT"
+TITLE="HTML_Template_IT::get()"
+HREF="package.html.html-template-it.get.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-it.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-it.get.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-it.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN69921"
+></A
+>Introduction&nbsp;--&nbsp;Creating and Parsing templates</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.intro.templates"
+></A
+><H2
+>Templates</H2
+><P
+>&#13;    A template consists of text and special labeled blocks and placeholders.
+    The content of blocks can be re-used and parsed multiple times with different
+    placeholder values.
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69927"><P
+><B
+>Example 41-1. A typical template</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>&#60;html&#62;
+ &#60;body&#62;
+  Userlist
+  &#60;table&#62;
+&#60;!-- BEGIN row --&#62;
+   &#60;tr&#62;
+    &#60;td&#62;{USERNAME}&#60;/td&#62;
+    &#60;td&#62;{EMAIL}&#60;/td&#62;
+   &#60;/tr&#62;
+&#60;!-- END row --&#62;
+  &#60;/table&#62;
+ &#60;/body&#62;
+&#60;/html&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.intro.placeholder"
+></A
+><H2
+>Placeholder</H2
+><P
+>&#13;    Placeholders can be defined in templates and are filled from 
+    PHP code with content.
+    The format of placeholder up to version (1.1.x) is
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>{[0-9A-Za-z_-]+}</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Since version 1.2.x dots are allowed, too.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>{[\.0-9A-Za-z_-]+}</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    This means, the name of the placeholder can consist of upper- and lowercase 
+    letters, underscores and hypens. The name must be placed between curly 
+    brackets without any spaces. 
+    Valid names are i.e.:    
+    </P
+><P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>{Placeholder}</TD
+></TR
+><TR
+><TD
+>{place2_holder}</TD
+></TR
+><TR
+><TD
+>{PLACEHOLDER1}</TD
+></TR
+><TR
+><TD
+>{Place-Holder}</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+><P
+>&#13;    Valid names since version 1.2.x
+    </P
+><P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>{Place.Holder}</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+><P
+>&#13;    Non-valid names are i.e.
+    </P
+><P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>{ Placeholder 3 } (spaces)</TD
+></TR
+><TR
+><TD
+>{place*holder} (char isn't permitted)</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.intro.block"
+></A
+><H2
+>Blocks</H2
+><P
+>&#13;    The format of a block is
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#60;!-- BEGIN [0-9A-Za-z_-]+ --&#62;
+... block content ...
+&#60;!-- END [0-9A-Za-z_-]+ --&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Since version 1.2.x dots are allowed in block definitions
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#60;!-- BEGIN [\.0-9A-Za-z_-]+ --&#62;
+... block content ...
+&#60;!-- END [\.0-9A-Za-z_-]+ --&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    The rules for the block name are the same like for placeholders. 
+    In contrast to placeholders the spaces in the block markup are 
+    required.
+   </P
+><P
+>&#13;    The nesting of blocks is permitted, but be careful while 
+    parsing. You have to set and parse the deepest inner block first
+    and then set and parse from inner to outer.
+   </P
+><P
+>&#13;    In IT the whole template file itself is nested in a meta block called
+    <SPAN
+CLASS="QUOTE"
+>"__global__"</SPAN
+>. Most block-related functions use this block
+    name as default.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.intro.example"
+></A
+><H2
+>Usage Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69961"><P
+><B
+>Example 41-2. The template</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#60;html&#62; 
+ &#60;table border&#62; 
+&#60;!-- BEGIN row --&#62; 
+  &#60;tr&#62;
+&#60;!-- BEGIN cell --&#62;  
+   &#60;td&#62;
+    {DATA}
+   &#60;/td&#62;
+&#60;!-- END cell --&#62;  
+  &#60;/tr&#62;
+&#60;!-- END row --&#62; 
+ &#60;/table&#62; 
+&#60;/html&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69964"><P
+><B
+>Example 41-3. The script</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+  require_once "HTML/Template/IT.php";
+
+  $data = array
+  (
+    "0" =&#62; array("Stig", "Bakken"),
+    "1" =&#62; array("Martin", "Jansen"),
+    "2" =&#62; array("Alexander", "Merz")
+  );
+
+  $tpl = new HTML_Template_IT("./templates");
+
+  $tpl-&#62;loadTemplatefile("main.tpl.htm", true, true);
+
+  foreach($data as $name) {
+    foreach($name as $cell) {
+        // Assign data to the inner block
+        $tpl-&#62;setCurrentBlock("cell") ;
+        $tpl-&#62;setVariable("DATA", $cell) ;
+        $tpl-&#62;parseCurrentBlock("cell") ;
+    }
+
+     // parse outter block
+     $tpl-&#62;parse("row");
+  }
+  // print the output
+  $tpl-&#62;show();
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69967"><P
+><B
+>Example 41-4. The output</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#60;html&#62;
+ &#60;table border&#62;
+  &#60;tr&#62;
+   &#60;td&#62;
+    Stig
+   &#60;/td&#62;
+   &#60;td&#62;
+    Bakken
+   &#60;/td&#62;
+  &#60;/tr&#62;
+  &#60;tr&#62;
+   &#60;td&#62;
+    Martin
+   &#60;/td&#62;
+   &#60;td&#62;
+    Jansen
+   &#60;/td&#62;
+  &#60;/tr&#62;
+  &#60;tr&#62;
+   &#60;td&#62;
+    Alexander
+   &#60;/td&#62;
+   &#60;td&#62;
+    Merz
+   &#60;/td&#62;
+  &#60;/tr&#62;
+ &#60;/table&#62;
+&#60;/html&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-it.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-it.get.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_Template_IT</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-it.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_Template_IT::get()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,236 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_RSS"
+HREF="package.xml.xml-rss.html"><LINK
+REL="PREVIOUS"
+TITLE="XML_RSS"
+HREF="package.xml.xml-rss.html"><LINK
+REL="NEXT"
+TITLE="Requirements"
+HREF="package.xml.xml-rss.requirements.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-rss.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-rss.requirements.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.xml.xml-rss.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN103005"
+></A
+>Introduction&nbsp;--&nbsp;Introduction to XML_RSS</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-rss.intro.refsect1"
+></A
+><H2
+>Introduction to XML_RSS</H2
+><P
+>&#13;    Resource Description Framework (RDF) Site Summary (RSS) documents
+    are XML documents, that provide a lightweight multipurpose
+    extensible metadata description and syndication format. RSS files
+    are often used to syndicate news or headlines from portal sites
+    (e.g. Slashdot or freshmeat.net) or weblogs.
+   </P
+><P
+>&#13;    For more information on RSS see the website of the RSS working
+    group (<A
+HREF="http://www.purl.org/rss/"
+TARGET="_top"
+>http://www.purl.org/rss/</A
+>).
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="packages.xml.xml-rss.intro.example_rss"><P
+><B
+>Example 61-1. RSS file</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;?xml version="1.0"?&#62;
+
+&#60;rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns="http://my.netscape.com/rdf/simple/0.9/"&#62;
+
+&#60;channel&#62;
+ &#60;title&#62;FooBar Inc.&#60;/title&#62;
+ &#60;link&#62;http://example.com/&#60;/link&#62;
+ &#60;description&#62;abcd, xyz, 123&#60;/description&#62;
+&#60;/channel&#62;
+
+&#60;image&#62;
+ &#60;title&#62;FooBar&#60;/title&#62;
+ &#60;url&#62;http://example.com/images/rssicon.gif&#60;/url&#62;
+ &#60;link&#62;http://example.com/&#60;/link&#62;
+&#60;/image&#62;
+
+&#60;item&#62;
+ &#60;title&#62;Headline 1&#60;/title&#62;
+ &#60;link&#62;http://example.com/news.php?h=1&#60;/link&#62;
+&#60;/item&#62;
+
+&#60;item&#62;
+ &#60;title&#62;Headline 2&#60;/title&#62;
+ &#60;link&#62;http://example.com/news.php?h=2&#60;/link&#62;
+&#60;/item&#62;
+
+&#60;textinput&#62;
+ &#60;title&#62;Search FooBar Inc.&#60;/title&#62;
+ &#60;description&#62;Search FooBar Inc. headlines&#60;/description&#62;
+ &#60;name&#62;q&#60;/name&#62;
+ &#60;link&#62;http://example.com/search.php&#60;/link&#62;
+&#60;/textinput&#62;
+
+&#60;/rdf:RDF&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-rss.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-rss.requirements.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>XML_RSS</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.xml-rss.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Requirements</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

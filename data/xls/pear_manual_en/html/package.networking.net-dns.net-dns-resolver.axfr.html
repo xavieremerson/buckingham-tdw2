@@ -1,0 +1,490 @@
+<HTML
+><HEAD
+><TITLE
+>Net_DNS_Resolver::axfr()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_DNS"
+HREF="package.networking.net-dns.html"><LINK
+REL="PREVIOUS"
+TITLE="Net_DNS_Resolver::rawQuery()"
+HREF="package.networking.net-dns.net-dns-resolver.rawquery.html"><LINK
+REL="NEXT"
+TITLE="
+     Class Summary Net_DNS_Packet
+    "
+HREF="package.networking.net-dns.net-dns-packet-summary.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-dns.net-dns-resolver.rawquery.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-dns.net-dns-packet-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-dns.net-dns-resolver.axfr">Net_DNS_Resolver::axfr()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN82047"
+></A
+>Net_DNS_Resolver::axfr()&nbsp;--&nbsp;Performs a zone transfer from a nameserver</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN82050"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN82051"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once('Net/DNS.php');</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>Net_DNS_Packet <B
+CLASS="function"
+>Net_DNS_Resolver::axfr</B
+></CODE
+> (string $dname [, string $class = 'IN' [, boolean $old = FALSE]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-dns.net-dns-resolver.axfr.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>dname</I
+></TT
+> - The domain name (zone name) to transfer</P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>class</I
+></TT
+> - The zone class to transfer</P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>old</I
+></TT
+> - Only used for backwards compatibility with previous version of Net_DNS</P
+></LI
+></UL
+>
+  </P
+><P
+>&#13;   axfr() attempts a zone transfer from the nameservers
+   specified in the Net_DNS_Resolver-&#62;nameservers array.
+   <B
+CLASS="function"
+>Net_DNS_Resolver::axfr()</B
+> uses the same
+   resolver configuration as the <A
+HREF="package.networking.net-dns.net-dns-resolver.query.html"
+>Net_DNS_Resolver::query()</A
+>
+   method.
+  </P
+><P
+>&#13;   Most public nameservers will not allow a zone transfer by
+   default.  A zone transfer will provide a full list of DNS
+   resource records inside of a zone file.  A zone transfer
+   will always use TCP instead of UDP queries.
+  </P
+><P
+>&#13;   For a description of the returned RR data object, see
+   <A
+HREF="package.networking.net-dns.net-dns-rr-intro.html"
+>Net_DNS_RR</A
+>.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="packages.networking.net-dns.net-dns-resolver.axfr.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN82085"><P
+><B
+>Example 48-1. Failed <B
+CLASS="function"
+>Net_DNS_Resolver::axfr()</B
+> query</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'Net/DNS.php';
+
+$resolver = new Net_DNS_Resolver();
+$resolver-&#62;debug = 1;
+$response = $resolver-&#62;axfr('example.com');
+print_r($response);
+if (count($response) == 0) {
+  echo "\n";
+  echo "AXFR Failed\n";
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Output:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>;; axfr_start(example.com, IN)
+;; query(example.com, AXFR, IN)
+;; axfr_start(192.168.0.254:53)
+;; sending 29 bytes
+;; read_tcp: expecting 2 bytes
+;; read_tcp: received 2 bytes
+;; read_tcp: expecting 29 bytes
+;; read_tcp: received 29 bytes
+;; received 29bytes
+;; HEADER SECTION
+;; id = 29190
+;; qr = 1    opcode = QUERY    aa = 0    tc = 0    rd = 1
+;; ra = 1    rcode  = NOTAUTH
+;; qdcount = 1  ancount = 0  nscount = 0  arcount = 0
+
+;; QUESTION SECTION (1 record)
+;;
+;example.com.   IN      AXFR
+
+;; ANSWER SECTION (0 records)
+
+;; AUTHORITY SECTION (0 records)
+
+;; ADDITIONAL SECTION (0 records)
+Array
+(
+)
+
+AXFR Failed</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   In the following example, debugging has been turned on
+   and the nameserver has been configured to allow zone
+   transfers.  The most important item of note in this
+   example is the SOA record at the beginning and end of the
+   returned records.  When a name server sends a zone
+   transfer, the first record sent is the SOA record.  The
+   zone transfer is considered complete when the name server
+   sends the SOA record again.  This behaviour can be seen
+   in the debug output.  The resulting array returned by
+   axfr() does not return the final SOA record.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN82092"><P
+><B
+>Example 48-2. Succesful <B
+CLASS="function"
+>Net_DNS_Resolver::axfr()</B
+> query</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'Net/DNS.php';
+
+$resolver = new Net_DNS_Resolver();
+$resolver-&#62;debug = 1;
+$response = $resolver-&#62;axfr('my.example.com');
+echo "\n\nThe following resource records were returned from the nameserver:\n";
+if (count($response)) {
+  foreach ($response as $rr) {
+    $rr-&#62;display();
+  }
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Output:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>;; axfr_start(my.example.com, IN)
+;; query(my.example.com, AXFR, IN)
+;; axfr_start(192.168.0.254:53)
+;; sending 32 bytes
+;; read_tcp: expecting 2 bytes
+;; read_tcp: received 2 bytes
+;; read_tcp: expecting 262 bytes
+;; read_tcp: received 262 bytes
+;; received 262bytes
+;; HEADER SECTION
+;; id = 21220
+;; qr = 1    opcode = QUERY    aa = 1    tc = 0    rd = 0
+;; ra = 1    rcode  = NOERROR
+;; qdcount = 1  ancount = 10  nscount = 0  arcount = 0
+
+;; QUESTION SECTION (1 record)
+;;
+;my.example.com.        IN      AXFR
+
+;; ANSWER SECTION (10 records)
+my.example.com.         300     IN      SOA     ns1.my.example.com. hostmaster.my.example.com. 103 3600 1800 2592000 300
+my.example.com.         300     IN      NS      ns1.my.example.com.
+my.example.com.         300     IN      MX      10 mx1.my.example.com.
+my.example.com.         300     IN      MX      20 mx2.my.example.com.
+my.example.com.         300     IN      A       192.168.0.1
+mx1.my.example.com.     300     IN      A       192.168.0.2
+mx2.my.example.com.     300     IN      A       192.168.0.3
+server.my.example.com.  300     IN      CNAME   www.my.example.com.
+www.my.example.com.     300     IN      A       192.168.0.1
+my.example.com.         300     IN      SOA     ns1.my.example.com. hostmaster.my.example.com. 103 3600 1800 2592000 300
+
+;; AUTHORITY SECTION (0 records)
+
+;; ADDITIONAL SECTION (0 records)
+
+
+The following resource records were returned from the nameserver:
+my.example.com.         300     IN      SOA     ns1.my.example.com. hostmaster.my.example.com. 103 3600 1800 2592000 300
+my.example.com.         300     IN      NS      ns1.my.example.com.
+my.example.com.         300     IN      MX      10 mx1.my.example.com.
+my.example.com.         300     IN      MX      20 mx2.my.example.com.
+my.example.com.         300     IN      A       192.168.0.1
+mx1.my.example.com.     300     IN      A       192.168.0.2
+mx2.my.example.com.     300     IN      A       192.168.0.3
+server.my.example.com.  300     IN      CNAME   www.my.example.com.
+www.my.example.com.     300     IN      A       192.168.0.1</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-dns.net-dns-resolver.axfr.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-dns.net-dns-resolver.rawquery.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-dns.net-dns-packet-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Net_DNS_Resolver::rawQuery()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-dns.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class Summary <B
+CLASS="classname"
+>Net_DNS_Packet</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

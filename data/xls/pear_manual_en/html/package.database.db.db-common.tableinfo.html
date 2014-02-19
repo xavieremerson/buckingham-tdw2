@@ -1,0 +1,892 @@
+<HTML
+><HEAD
+><TITLE
+>DB_common::tableInfo()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="DB_common::setOption()"
+HREF="package.database.db.db-common.setoption.html"><LINK
+REL="NEXT"
+TITLE="DB_result"
+HREF="package.database.db.db-result.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.setoption.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-result.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.db-common.tableinfo">DB_common::tableInfo()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN25036"
+></A
+>DB_common::tableInfo()&nbsp;--&nbsp;Gets info about columns in a table or a query result</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN25039"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN25040"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>tableInfo</B
+></CODE
+> (mixed $result [, integer $mode = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.tableinfo.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Get information about columns in a table or a query result.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.tableinfo.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>mixed
+      <TT
+CLASS="parameter"
+><I
+>$result</I
+></TT
+></DT
+><DD
+><P
+>&#13;       <A
+HREF="package.database.db.db-result.html"
+><B
+CLASS="classname"
+>DB_result</B
+></A
+> object from a query
+       or a string containing the name of a table
+      </P
+><P
+>&#13;       If the name of the table needs to be delimited (ie: the
+       name is a reserved word or has spaces in it), use the
+       <A
+HREF="package.database.db.db-common.quoteidentifier.html"
+>&#13;        <B
+CLASS="function"
+>quoteIdentifier()</B
+></A
+> method
+       on the table name when passing it.
+      </P
+><P
+>&#13;       This can also be a query result resource identifier,
+       but doing so is deprecated.
+      </P
+></DD
+><DT
+>integer
+      <TT
+CLASS="parameter"
+><I
+>$mode</I
+></TT
+></DT
+><DD
+><P
+>&#13;       one of the tableInfo mode constants
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.tableinfo.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   array - an associative array of the table's information
+   or a <A
+HREF="package.database.db.db-error.html"
+><B
+CLASS="classname"
+>DB_Error</B
+></A
+> object on failure
+  </P
+><P
+>&#13;   The array's contents depends on the <TT
+CLASS="parameter"
+><I
+>$mode</I
+></TT
+>
+   parameter.
+  </P
+><P
+>&#13;   The names of tables and columns will be lowercased if the
+   <TT
+CLASS="constant"
+><B
+>DB_PORTABILITY_LOWERCASE</B
+></TT
+>
+   <A
+HREF="package.database.db.intro-portability.html"
+>portability
+    mode</A
+> is enabled.
+  </P
+><P
+>&#13;   The <TT
+CLASS="varname"
+>flags</TT
+> element contains a space
+   separated list of extra information about the column.
+   If the DBMS is able to report a column's default value,
+   the value is passed through <B
+CLASS="function"
+>rawurlencode()</B
+>
+   to avoid problems caused by potential spaces in the value.
+  </P
+><P
+>&#13;   Most DBMS's only provide the <TT
+CLASS="varname"
+>table</TT
+> and
+   <TT
+CLASS="varname"
+>flags</TT
+> elements if <TT
+CLASS="parameter"
+><I
+>$result</I
+></TT
+>
+   is a table name.  Only fbsql and mysql provide full
+   information from queries.
+  </P
+><P
+>&#13;   The <TT
+CLASS="varname"
+>type</TT
+> element contains the type returned
+   by the DBMS. It varies from DBMS to DBMS.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.tableinfo.modes"
+></A
+><H2
+>tableInfo Modes</H2
+><P
+>&#13;   This section describes the format of the returned array and how
+   it varies depending on which <TT
+CLASS="parameter"
+><I
+>$mode</I
+></TT
+> was used
+   when the function was called.
+  </P
+><P
+>&#13;   The sample output below is based on this query:
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>SELECT tblFoo.fldID, tblFoo.fldPhone, tblBar.fldId
+  FROM tblFoo
+  JOIN tblBar ON tblFoo.fldId = tblBar.fldId;</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> or <TT
+CLASS="literal"
+>0</TT
+></DT
+><DD
+><P
+>&#13;      </P
+><P
+>&#13;       <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>[0] =&#62; Array (
+  [table] =&#62; tblFoo
+  [name] =&#62; fldId
+  [type] =&#62; int
+  [len] =&#62; 11
+  [flags] =&#62; primary_key not_null
+)
+[1] =&#62; Array (
+  [table] =&#62; tblFoo
+  [name] =&#62; fldPhone
+  [type] =&#62; string
+  [len] =&#62; 20
+  [flags] =&#62;
+)
+[2] =&#62; Array (
+  [table] =&#62; tblBar
+  [name] =&#62; fldId
+  [type] =&#62; int
+  [len] =&#62; 11
+  [flags] =&#62; primary_key not_null
+)</PRE
+></TD
+></TR
+></TABLE
+>
+      </P
+></DD
+><DT
+><TT
+CLASS="constant"
+><B
+>DB_TABLEINFO_ORDER</B
+></TT
+></DT
+><DD
+><P
+>&#13;       In addition to the information found in the default output,
+       a notation of the number of columns is provided by the
+       <TT
+CLASS="varname"
+>num_fields</TT
+> element while the
+       <TT
+CLASS="varname"
+>order</TT
+>
+       element provides an array with the column names as the keys and
+       their location index number (corresponding to the keys in the
+       default output) as the values.
+      </P
+><P
+>&#13;       If a result set has identical field names, the last one is
+       used.
+      </P
+><P
+>&#13;       <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>[num_fields] =&#62; 3
+[order] =&#62; Array (
+  [fldId] =&#62; 2
+  [fldTrans] =&#62; 1
+)</PRE
+></TD
+></TR
+></TABLE
+>
+      </P
+></DD
+><DT
+><TT
+CLASS="constant"
+><B
+>DB_TABLEINFO_ORDERTABLE</B
+></TT
+></DT
+><DD
+><P
+>&#13;       Similar to <TT
+CLASS="constant"
+><B
+>DB_TABLEINFO_ORDER</B
+></TT
+> but adds more
+       dimensions to the array in which the table names are keys and
+       the field names are sub-keys.  This is helpful for queries that
+       join tables which have identical field names.
+      </P
+><P
+>&#13;       <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>[num_fields] =&#62; 3
+[ordertable] =&#62; Array (
+  [tblFoo] =&#62; Array (
+      [fldId] =&#62; 0
+      [fldPhone] =&#62; 1
+  )
+  [tblBar] =&#62; Array (
+      [fldId] =&#62; 2
+  )
+)</PRE
+></TD
+></TR
+></TABLE
+>
+      </P
+></DD
+><DT
+><TT
+CLASS="constant"
+><B
+>DB_TABLEINFO_FULL</B
+></TT
+></DT
+><DD
+><P
+>&#13;       Contains the information from both
+       <TT
+CLASS="constant"
+><B
+>DB_TABLEINFO_ORDER</B
+></TT
+> and
+       <TT
+CLASS="constant"
+><B
+>DB_TABLEINFO_ORDERTABLE</B
+></TT
+>
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+><P
+>&#13;   The tableInfo mode constants are bitwised, so they can be
+   combined using <TT
+CLASS="literal"
+>|</TT
+>.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.tableinfo.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <DIV
+CLASS="table"
+><A
+NAME="AEN25141"><P
+><B
+>Table 33-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_NOT_CAPABLE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        DB backend not capable
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Driver doesn't support this feature.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Switch to another database system, if you really
+        need this feature.
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_NEED_MORE_DATA</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        insufficient data supplied
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        The data passed in the <TT
+CLASS="parameter"
+><I
+>$result</I
+></TT
+> parameter
+        was not a valid table name or result identifier.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check the table name for typographical errors or that the query
+        ran correctly.
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_NODBSELECTED</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        no database selected
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        No database was chosen.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check the <A
+HREF="package.database.db.intro-dsn.html"
+>DSN</A
+>
+        in <A
+HREF="package.database.db.db.connect.html"
+>&#13;         <B
+CLASS="function"
+>connect()</B
+></A
+>.
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <TT
+CLASS="computeroutput"
+>can't distinguish duplicate field names</TT
+>
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        The query result has multiple columns with the same name.
+        PHP's Informix extension deals with columns having the same names
+        by overwriting the prior columns information.  Therefore,
+        <B
+CLASS="function"
+>tableInfo()</B
+> is unable to properly represent
+        these result sets.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Use aliases for columns that have the same names.
+       </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.tableinfo.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+>&#13;   <B
+CLASS="function"
+>tableInfo()</B
+> is not portable because not all drivers
+   have this method, many DBMS's are unable to determine
+   table names from query results and the metadata returned
+   by each database system varies dramatically.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.tableinfo.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN25187"><P
+><B
+>Example 33-1. Finding information about a table</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$info = $db-&#62;tableInfo('tablename');
+print_r($info);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN25190"><P
+><B
+>Example 33-2. Finding information about a query result</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$res  =&#38; $db-&#62;query('SELECT * FROM tablename');
+$info =  $db-&#62;tableInfo($res);
+print_r($info);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    <DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;      Prior to version 1.6.0, <B
+CLASS="function"
+>tableInfo()</B
+>
+      was a part of the <A
+HREF="package.database.db.db-result.html"
+><B
+CLASS="classname"
+>DB_result</B
+></A
+> class, so had
+      to be called like this:
+     </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$res  =&#38; $db-&#62;query('SELECT * FROM tablename');
+$info =  $res-&#62;tableInfo();  // &#60;---- DEPRECATED
+print_r($info);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></TD
+></TR
+></TABLE
+></DIV
+>
+   </P
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.setoption.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.db-result.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>DB_common::setOption()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="classname"
+>DB_result</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

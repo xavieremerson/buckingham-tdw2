@@ -1,0 +1,465 @@
+<HTML
+><HEAD
+><TITLE
+>Archive_Tar::createModify()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Archive-Tar"
+HREF="package.filesystem.archive-tar.html"><LINK
+REL="PREVIOUS"
+TITLE="Archive_Tar::create()"
+HREF="package.filesystem.archive-tar.create.html"><LINK
+REL="NEXT"
+TITLE="Archive_Tar::extract()"
+HREF="package.filesystem.archive-tar.extract.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.archive-tar.create.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.archive-tar.extract.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.filesystem.archive-tar.createmodify">Archive_Tar::createModify()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN45502"
+></A
+>Archive_Tar::createModify()&nbsp;--&nbsp;create a new archive</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN45505"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN45506"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Archive/Tar.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>boolean <B
+CLASS="function"
+>createModify</B
+></CODE
+> (array $filelist, string
+      $add_dir [, string
+      $remove_dir = ''])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.archive-tar.createmodify.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;    This method creates the archive file and adds the listed files or
+    directories.
+   </P
+><P
+>&#13;    If the file already exists and is writable, it is replaced
+    by the new tar. It is a 'create' and not a 'add'. If the file exists
+    and is read-only or is a directory, it is not replaced.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.archive-tar.createmodify.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;    <P
+></P
+><UL
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>mixed $filelist</I
+></TT
+> - 
+       an array of filenames and directory
+       names, or a single string with names separated by a single blank space.
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>string $add_dir</I
+></TT
+> - contains a path to be
+       added to the memorized path of each element in the list.
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>string $remove_dir</I
+></TT
+> - contains a path to be
+       removed from the memorized path of each element in the list, when
+       relevant. Default is an empty string.
+      </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.archive-tar.createmodify.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>boolean</I
+></TT
+> - Returns <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> on success, <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> on failure.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.archive-tar.createmodify.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN45544"><P
+><B
+>Table 38-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"Invalid file list"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The argument for the function is not
+          correctly formatted or build.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Check for typing mistakes in the argument
+         </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+><P
+>&#13;    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.archive-tar.createmodify.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.archive-tar.createmodify.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN45567"><P
+><B
+>Example 38-1. Create a new compressed archive in a new directory</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$tar_object = new Archive_Tar("tarname.tgz", true);
+$tar_object-&#62;setErrorHandling(PEAR_ERROR_PRINT);
+$v_list[0]="dev/file.txt";
+$v_list[1]="dev/data/";
+$v_list[2]="log/file.log";
+$tar_object-&#62;createModify($v_list, "install", "dev");
+// files are stored in the archive as :
+//   install/file.txt
+//   install/data
+//   install/data/file1.txt
+//   install/data/... all the files and sub-dirs of data/
+//   install/log/file.log</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN45570"><P
+><B
+>Example 38-2. 
+     Create a new compressed archive in a new directory 
+     (especially for Windows)
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$tar_object = new Archive_Tar("tarname.tgz", true);
+$tar_object-&#62;setErrorHandling(PEAR_ERROR_PRINT);
+$v_list[0]="c:\\dev\\file.txt";
+$v_list[1]="c:\\dev\\data\\";
+$v_list[2]="c:\\log\\file.log";
+$tar_object-&#62;createModify($v_list, "install/temp", "c:\\dev");
+// files are stored in the archive as :
+//   install/temp/file.txt
+//   install/temp/data
+//   install/temp/data/file1.txt
+//   install/temp/data/... all the files and sub-dirs of data/
+//   install/temp/log/file.log</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.filesystem.archive-tar.create.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.filesystem.archive-tar.extract.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Archive_Tar::create()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.filesystem.archive-tar.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Archive_Tar::extract()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

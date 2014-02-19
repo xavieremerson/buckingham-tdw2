@@ -1,0 +1,385 @@
+<HTML
+><HEAD
+><TITLE
+>DB_DataObject::factory()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB_DataObject"
+HREF="package.database.db-dataobject.html"><LINK
+REL="PREVIOUS"
+TITLE="Auto Building and Database Schema"
+HREF="package.database.db-dataobject.intro-autobuilding.html"><LINK
+REL="NEXT"
+TITLE="->get()"
+HREF="package.database.db-dataobject.db-dataobject.get.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.intro-autobuilding.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.get.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db-dataobject.db-dataobject.factory">DB_DataObject::factory()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN25913"
+></A
+>DB_DataObject::factory()&nbsp;--&nbsp;Autoload and instantate class based on table name.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN25916"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN25917"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>DB_DataObject::factory</B
+></CODE
+> ([string $table])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.factory.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;    This is the recommended way to autoload a class, and instantate it. The class is loaded based on
+    the configuration settings (class_location and class_prefix) for table to class naming.
+
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.factory.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $table</I
+></TT
+> - the table you want to load 
+        ([From Version 1.7.2] if blank, and called on an an instance of a dataobject, it will create a new
+        instance of that object)
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.factory.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>object mixed</I
+></TT
+> - <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> or the object
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.factory.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN25942"><P
+><B
+>Table 33-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Meaning</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>DB_DATAOBJECT_ERROR_NOCLASS</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"could not autoload $class"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.factory.note"
+></A
+><H2
+>Note</H2
+><P
+>This method can be called statically or dynamically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.factory.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN25963"><P
+><B
+>Example 33-1. Simple fetch of data based on Primary Key</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// set up our options
+$opts = &#38;PEAR::getStaticProperty('DB_DataObject','options');
+$opts = array(
+    'class_location'  =&#62; '/home/me/Projects/myapplication/DataObjects',
+    'class_prefix'    =&#62; 'DataObjects_'
+);
+
+
+// loads the file: /home/me/Projects/myapplication/DataObjects/Person.php
+// and checks that the class DataObjects_Person exists, and returns an
+// instance of it.
+
+$person = DB_DataObject::factory('person');
+
+
+if ($person-&#62;get(12)) {
+  print_r($person);
+} else {
+  echo "NO person 12 exists";
+}
+
+
+
+// it can also be used in a dynamically
+class DataObjects_MyTable {
+    
+    function anExample() {
+        $person = $this-&#62;factory('person');
+        
+        
+        
+        // supported in version 1.7.2
+        $another_mytable = $this-&#62;factory();
+        
+        $another_person = $person-&#62;factory();
+        
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.intro-autobuilding.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.get.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Auto Building and Database Schema</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>-&#62;get()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

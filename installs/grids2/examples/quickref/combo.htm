@@ -1,0 +1,48 @@
+
+<html>
+<head>
+	<script src="../../runtime/lib/aw.js"></script>
+	<link href="../../runtime/styles/xp/aw.css" rel="stylesheet"></link>
+</head>
+<body>
+<style>
+
+/********************************************************************
+	Combo
+********************************************************************/
+
+	#myCombo {width: 100px; height: 22px}
+
+</style>
+
+<p style="font:menu">
+	see page source
+</p>
+
+
+
+<script>
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	Combo box object is not completed yet
+
+/////////////////////////////////////////////////////////////////////
+********************************************************************/
+
+	var obj = new AW.UI.Combo;
+
+	obj.setId("myCombo");
+	obj.setControlText("Some text");
+	obj.setControlImage("favorites");
+
+	obj.setItemText(["Home", "Favorites", "Font size", "Search"]);
+	obj.setItemImage(["home", "favorites", "fontsize", "search"]);
+	obj.setItemCount(4);
+
+	document.write(obj);
+
+</script>
+</body>
+</html>

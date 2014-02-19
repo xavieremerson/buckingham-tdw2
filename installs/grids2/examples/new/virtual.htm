@@ -1,0 +1,30 @@
+
+<html>
+<head>
+	<script src="../../runtime/lib/aw.js"></script>
+	<link href="../../runtime/styles/xp/aw.css" rel="stylesheet"></link>
+</head>
+<body>
+<style>
+
+	.aw-alternate-even {
+		background: #eeeeee;
+	}
+
+</style>
+<script>
+
+	var obj = new AW.UI.Grid;
+	obj.setSize(800, 250);
+	obj.setCellText(function(i, j){return j + "-" + i});
+	obj.setHeaderText("header");
+
+	obj.setColumnCount(10);
+	obj.setRowCount(1000);
+
+	document.write(obj);
+
+
+</script>
+</body>
+</html>

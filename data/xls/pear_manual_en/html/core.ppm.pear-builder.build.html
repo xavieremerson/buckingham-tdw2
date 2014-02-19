@@ -1,0 +1,383 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR_Builder::build</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR_Builder"
+HREF="core.ppm.pear-builder.html"><LINK
+REL="PREVIOUS"
+TITLE="PEAR_Builder::PEAR_Builder"
+HREF="core.ppm.pear-builder.pear-builder.html"><LINK
+REL="NEXT"
+TITLE="PEAR_Builder::log"
+HREF="core.ppm.pear-builder.log.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-builder.pear-builder.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-builder.log.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.ppm.pear-builder.build"><B
+CLASS="function"
+>PEAR_Builder::build()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN6943"
+></A
+><B
+CLASS="function"
+>PEAR_Builder::build()</B
+>&nbsp;--&nbsp;Build an extension from source</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN6947"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN6948"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'PEAR/builder.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array       <B
+CLASS="function"
+>PEAR_Builder::build</B
+></CODE
+> (string $descfile [, mixed $callback = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-builder.build.desc"
+></A
+><H2
+>Description</H2
+><P
+>Build an extension from source.  Runs <B
+CLASS="command"
+>phpize</B
+> in the source directory, 
+     but compiles in a temporary directory (/var/tmp/pear-build-USER/PACKAGE-VERSION).</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-builder.build.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+         <TT
+CLASS="parameter"
+><I
+>$descfile</I
+></TT
+></DT
+><DD
+><P
+>&#13;         path to XML package description file
+        </P
+></DD
+><DT
+>mixed
+         <TT
+CLASS="parameter"
+><I
+>$callback</I
+></TT
+></DT
+><DD
+><P
+>&#13;         callback function used to report output
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-builder.build.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>array</I
+></TT
+> -
+      an array of associative arrays with built files, format: 
+      <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>array( array( 'file' =&#62; '/path/to/ext.so',
+                    'php_api' =&#62; YYYYMMDD,
+                    'zend_mod_api' =&#62; YYYYMMDD,
+                    'zend_ext_api' =&#62;; YYYYMMDD ),
+       ... )</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-builder.build.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;      PEAR_Common::infoFromDescriptionFile
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-builder.build.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN6990"><P
+><B
+>Table 27-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error value</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Meaning</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>""</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-builder.build.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-builder.pear-builder.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-builder.log.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Builder::PEAR_Builder()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-builder.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Builder::log()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

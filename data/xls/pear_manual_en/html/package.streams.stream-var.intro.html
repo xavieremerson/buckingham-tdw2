@@ -1,0 +1,228 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Stream_Var"
+HREF="package.streams.stream-var.html"><LINK
+REL="PREVIOUS"
+TITLE="Stream_Var"
+HREF="package.streams.stream-var.html"><LINK
+REL="NEXT"
+TITLE="Example"
+HREF="package.streams.stream-var.example.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.streams.stream-var.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.streams.stream-var.example.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.streams.stream-var.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN93350"
+></A
+>Introduction&nbsp;--&nbsp;Introduction to Stream_Var</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.streams.stream-var.intro.refsect1"
+></A
+><H2
+>Introduction to Stream_Var</H2
+><P
+>&#13;	Stream_Var supplies a class that can be used as a wrapper
+	for PHP'' stream functions. This allows you to access variables
+	with <B
+CLASS="function"
+>fopen()</B
+>, <B
+CLASS="function"
+>fclose()</B
+>,
+	<B
+CLASS="function"
+>fwrite()</B
+>, <B
+CLASS="function"
+>fread()</B
+>,
+	<B
+CLASS="function"
+>opendir()</B
+> and all other filesystem functions.
+   </P
+><P
+>&#13;	You may use <B
+CLASS="function"
+>stream_wrapper_register()</B
+> to register
+	Stream_Var as a wrapper.
+   </P
+><P
+>&#13;	Scalar variables (strings, integers, floats) are treated as files,
+	while arrays represent directories.
+   </P
+><P
+>&#13;	Please see the <A
+HREF="http://www.php.net/manual/en/ref.stream.php"
+TARGET="_top"
+>PHP Manual</A
+>
+	or the <A
+HREF="package.streams.stream-var.example.html"
+>example</A
+>
+	for more information on how to register streams.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.streams.stream-var.intro.refsect2"
+></A
+><H2
+>Usage scenario</H2
+><P
+>&#13;	Stream_Var could be used in various scenarios. Imagine you are using a class
+	that reads data from a file but you are creating the data on-the-fly and do
+	not want to save the data before it can be processed by the class.
+   </P
+><P
+>&#13;   	This is, where Stream_Var can be used. Just register it as a wrapper
+	for <B
+CLASS="function"
+>fopen()</B
+> and pass <TT
+CLASS="parameter"
+><I
+>var://GLOBAL/yourVar</I
+></TT
+>
+	as a parameter to the class.
+   </P
+><P
+>&#13;   	It will read from the variable as if it was a file.
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.streams.stream-var.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.streams.stream-var.example.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Stream_Var</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.streams.stream-var.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Example</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<Title>Bar Gap</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">Bar Gap</p>
+<hr class="separator">
+<div class="content">
+<img src="images/gapbar0.png">&nbsp;&nbsp;<img src="images/gapbar1.png">&nbsp;&nbsp;<img src="images/gapbar2.png">&nbsp;&nbsp;<img src="images/gapbar3.png">&nbsp;&nbsp;<img src="images/gapbar4.png">&nbsp;&nbsp;<img src="images/gapbar5.png">
+<br><br>
+This example demonstrates the effects of different bar gaps configured using <a href="BarLayer.setBarGap.htm">BarLayer.setBarGap</a>.
+</div>
+<p class="heading2">Source Code Listing</p>
+<div class="content">
+[File: phpdemo/gapbar.php]<br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp><?php
+include("phpchartdir.php");
+
+$bargap = $HTTP_GET_VARS["img"] * 0.25 - 0.25;
+
+#The data for the bar chart
+$data = array(100, 125, 245, 147, 67);
+
+#The labels for the bar chart
+$labels = array("Mon", "Tue", "Wed", "Thu", "Fri");
+
+#Create a XYChart object of size 150 x 150 pixels
+$c = new XYChart(150, 150);
+
+#Set the plotarea at (27, 20) and of size 120 x 100 pixels
+$c->setPlotArea(27, 20, 120, 100);
+
+#Set the labels on the x axis
+$c->xAxis->setLabels($labels);
+
+if ($bargap >= 0) {
+    #Add a title to display to bar gap using 8 pts Arial font
+    $c->addTitle("      Bar Gap = $bargap", "arial.ttf", 8);
+} else {
+    #Use negative value to mean TouchBar
+    $c->addTitle("      Bar Gap = TouchBar", "arial.ttf", 8);
+    $bargap = TouchBar;
+}
+
+#Add a bar chart layer using the given data and set the bar gap
+$barLayerObj = $c->addBarLayer($data);
+$barLayerObj->setBarGap($bargap);
+
+#output the chart
+header("Content-type: image/png");
+print($c->makeChart2(PNG));
+?></xmp>
+</td></tr></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

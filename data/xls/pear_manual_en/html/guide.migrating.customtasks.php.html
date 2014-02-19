@@ -1,0 +1,909 @@
+<HTML
+><HEAD
+><TITLE
+>Creating customized tasks in PHP</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Custom File Tasks"
+HREF="guide.migrating.customtasks.html"><LINK
+REL="PREVIOUS"
+TITLE="Custom File Tasks"
+HREF="guide.migrating.customtasks.html"><LINK
+REL="NEXT"
+TITLE="Post-installation Scripts"
+HREF="guide.migrating.postinstall.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="guide.migrating.customtasks.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 24. Custom File Tasks</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="guide.migrating.postinstall.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="guide.migrating.customtasks.php">Creating customized tasks in PHP</H1
+><P
+>&#13;   Creating a custom task involves creating a class that validates xml, and performs the
+   task when called upon.  Tasks can be invoked in two situations: at package-time and
+   at install-time.  Each task can control whether it should be called at package-time,
+   install-time, or at both times.
+  </P
+><P
+>&#13;   There are two kinds of tasks: simple and multiple.  Most tasks are simple tasks.  Simple
+   tasks are self-contained: all customization is limited to that file.  Multiple tasks
+   are collected during installation and processed fully as a unit after files have been
+   committed to disk, allowing more complex processing.
+  </P
+><P
+>&#13;   All simple tasks must define 3 methods, all multiple task must define 4 methods.
+   These are:
+  </P
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      <A
+HREF="guide.migrating.customtasks.php.html#guide.migrating.customtasks.php.validatexml"
+><B
+CLASS="function"
+>validateXml()</B
+></A
+>
+     </P
+></LI
+><LI
+><P
+>&#13;      <A
+HREF="guide.migrating.customtasks.php.html#guide.migrating.customtasks.php.init"
+><B
+CLASS="function"
+>init()</B
+></A
+>
+     </P
+></LI
+><LI
+><P
+>&#13;      <A
+HREF="guide.migrating.customtasks.php.html#guide.migrating.customtasks.php.startsession"
+><B
+CLASS="function"
+>startSession()</B
+></A
+>
+     </P
+></LI
+><LI
+><P
+>&#13;      <A
+HREF="guide.migrating.customtasks.php.html#guide.migrating.customtasks.php.run"
+><B
+CLASS="function"
+>run()</B
+></A
+>
+      (multiple tasks only)
+     </P
+></LI
+></UL
+>
+  </P
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="guide.migrating.customtasks.php.validatexml"><B
+CLASS="function"
+>validateXml()</B
+></H2
+><P
+>&#13;    <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN3737"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>true|array <B
+CLASS="function"
+>validateXml</B
+></CODE
+> (PEAR_PackageFile_v2 $pkg, string|array $xml, PEAR_Config &#38;$config, array $fileAttributes)</CODE
+></P
+><P
+></P
+></DIV
+>
+   </P
+><P
+>&#13;    This method is called upon package.xml validation and should be used to validate
+    the task's xml content.  Upon error, a simple array of format
+    <TT
+CLASS="literal"
+>array(CODE, message)</TT
+> must be returned.  The code must be one
+    of the following constants, as defined in <TT
+CLASS="filename"
+>PEAR/Task/Common.php</TT
+>:
+   </P
+><P
+>&#13;    <P
+></P
+><UL
+><LI
+><P
+>&#13;       <TT
+CLASS="constant"
+><B
+>PEAR_TASK_ERROR_NOATTRIBS</B
+></TT
+> - Attributes were expected, but
+       none were present.
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="constant"
+><B
+>PEAR_TASK_ERROR_MISSING_ATTRIB</B
+></TT
+> - A specific attribute is not
+       present.
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="constant"
+><B
+>PEAR_TASK_ERROR_WRONG_ATTRIB_VALUE</B
+></TT
+> - The value of an attribute
+       is incorrect.
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="constant"
+><B
+>PEAR_TASK_ERROR_INVALID</B
+></TT
+> - Any other error in validation.
+      </P
+></LI
+></UL
+>
+   </P
+><P
+>&#13;    The error message should include the file name as defined by <TT
+CLASS="literal"
+>$fileAttributes['name']</TT
+>, and include as much useful information about the location
+    of the validation error as possible.
+   </P
+><P
+>&#13;    <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>PEAR_PackageFile_v2 <TT
+CLASS="parameter"
+><I
+>$pkg</I
+></TT
+></DT
+><DD
+><P
+>&#13;        This is the package.xml object that contains the task.
+       </P
+></DD
+><DT
+>string|array <TT
+CLASS="parameter"
+><I
+>$xml</I
+></TT
+></DT
+><DD
+><P
+>&#13;        The raw parsed content of the task's xml as parsed from package.xml.  Tags
+        like &#60;tasks:windowseol&#62; that have no attributes or child elements will
+        be passed an empty string <TT
+CLASS="literal"
+>''</TT
+>.  Otherwise, simple text content
+        will be a string, and nested tags/attributes will be passed in as an array.  Here
+        is a list of sample xml and their parsed values:
+       </P
+><P
+>&#13;        <P
+></P
+><UL
+><LI
+><P
+>&#13;           <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;tasks:blah/&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+          </P
+><P
+>&#13;           <TT
+CLASS="literal"
+>string("");</TT
+>
+          </P
+></LI
+><LI
+><P
+>&#13;           <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;tasks:blah&#62;hello
+&#60;/tasks:blah&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+          </P
+><P
+>&#13;           <TT
+CLASS="literal"
+>string("hello");</TT
+>
+          </P
+></LI
+><LI
+><P
+>&#13;           <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;tasks:blah&#62;hello
+ &#60;tasks:boo/&#62;
+&#60;/tasks:blah&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+          </P
+><P
+>&#13;           <TT
+CLASS="literal"
+>array('_content' =&#62; 'hello', 'tasks:boo' =&#62; string(''))</TT
+>
+          </P
+></LI
+><LI
+><P
+>&#13;           <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;tasks:blah foo="one"&#62;
+ &#60;tasks:boo/&#62;
+&#60;/tasks:blah&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+          </P
+><P
+>&#13;           <TT
+CLASS="literal"
+>&#13;array('attribs' =&#62; array('foo' =&#62; 'one'),
+      'tasks:boo' =&#62; string(''))</TT
+>
+          </P
+></LI
+></UL
+>
+       </P
+></DD
+><DT
+>PEAR_Config <TT
+CLASS="parameter"
+><I
+>$config</I
+></TT
+></DT
+><DD
+><P
+>&#13;        This is the current configuration object
+       </P
+></DD
+><DT
+>array <TT
+CLASS="parameter"
+><I
+>$fileAttributes</I
+></TT
+></DT
+><DD
+><P
+>&#13;        The parsed attributes of the &#60;file&#62; tag that encloses this tag.  This
+        is guaranteed to contain indices <TT
+CLASS="literal"
+>name</TT
+>, specifying the file name,
+        and <TT
+CLASS="literal"
+>role</TT
+>, specifying the file role.  Other attributes like
+        <TT
+CLASS="literal"
+>baseinstalldir</TT
+> may be present but are not required, and so will
+        not be guaranteed to be present for every file.
+       </P
+></DD
+></DL
+></DIV
+>
+   </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="guide.migrating.customtasks.php.init"><B
+CLASS="function"
+>init()</B
+></H2
+><P
+>&#13;    <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN3820"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>init</B
+></CODE
+> (string|array $xml, array $fileAttributes, string|null $lastVersion)</CODE
+></P
+><P
+></P
+></DIV
+>
+   </P
+><P
+>&#13;    The <B
+CLASS="function"
+>init()</B
+> function is called immediately prior to the
+    <B
+CLASS="function"
+>startSession()</B
+> method, and should be used for initialization
+    that is not directly related to file modification.  This method may move to another
+    location in the installation process at any time.  The logical separation of
+    initialization from task action is important and the order of execution can be
+    depended upon.
+   </P
+><P
+>&#13;    <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string|array <TT
+CLASS="parameter"
+><I
+>$xml</I
+></TT
+></DT
+><DD
+><P
+>&#13;        The raw parsed content of the task's xml as parsed from package.xml.  Tags
+        like &#60;tasks:windowseol&#62; that have no attributes or child elements will
+        be passed an empty string <TT
+CLASS="literal"
+>''</TT
+>.  Otherwise, simple text content
+        will be a string, and nested tags/attributes will be passed in as an array.  Here
+        is a list of sample xml and their parsed values:
+       </P
+><P
+>&#13;        <P
+></P
+><UL
+><LI
+><P
+>&#13;           <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;tasks:blah/&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+          </P
+><P
+>&#13;           <TT
+CLASS="literal"
+>string("");</TT
+>
+          </P
+></LI
+><LI
+><P
+>&#13;           <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;tasks:blah&#62;hello
+&#60;/tasks:blah&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+          </P
+><P
+>&#13;           <TT
+CLASS="literal"
+>string("hello");</TT
+>
+          </P
+></LI
+><LI
+><P
+>&#13;           <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;tasks:blah&#62;hello
+ &#60;tasks:boo/&#62;
+&#60;/tasks:blah&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+          </P
+><P
+>&#13;           <TT
+CLASS="literal"
+>array('_content' =&#62; 'hello', 'tasks:boo' =&#62; string(''))</TT
+>
+          </P
+></LI
+><LI
+><P
+>&#13;           <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;tasks:blah foo="one"&#62;
+ &#60;tasks:boo/&#62;
+&#60;/tasks:blah&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+          </P
+><P
+>&#13;           <TT
+CLASS="literal"
+>&#13;array('attribs' =&#62; array('foo' =&#62; 'one'),
+      'tasks:boo' =&#62; string(''))</TT
+>
+          </P
+></LI
+></UL
+>
+       </P
+></DD
+><DT
+>array <TT
+CLASS="parameter"
+><I
+>$fileAttributes</I
+></TT
+></DT
+><DD
+><P
+>&#13;        The parsed attributes of the &#60;file&#62; tag that encloses this tag.  This
+        is guaranteed to contain indices <TT
+CLASS="literal"
+>name</TT
+>, specifying the file name,
+        and <TT
+CLASS="literal"
+>role</TT
+>, specifying the file role.  Other attributes like
+        <TT
+CLASS="literal"
+>baseinstalldir</TT
+> may be present but are not required, and so will
+        not be guaranteed to be present for every file.
+       </P
+></DD
+><DT
+>string|null <TT
+CLASS="parameter"
+><I
+>$lastVersion</I
+></TT
+></DT
+><DD
+><P
+>&#13;        This will be set to the string representing the version of the last installed
+        version of this package.  This is useful for determining whether the package
+        is being upgraded or is a fresh installation.  If the package is being installed
+        for the first time, <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> will be passed in.
+       </P
+></DD
+></DL
+></DIV
+>
+   </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="guide.migrating.customtasks.php.startsession"><B
+CLASS="function"
+>startSession()</B
+></H2
+><P
+>&#13;    <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN3881"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>string|false|PEAR_Error <B
+CLASS="function"
+>startSession</B
+></CODE
+> (string $contents, string $dest)</CODE
+></P
+><P
+></P
+></DIV
+>
+   </P
+><P
+>&#13;    For non-script tasks, <B
+CLASS="function"
+>startSession()</B
+> is called to actually
+    execute a task.  The task should perform all needed operations on the file contents,
+    and on success return the file contents regardless of any modification.  These contents
+    will be written to disk, so it is imperative that they be the full, original file
+    contents if no modification is made to them.
+   </P
+><P
+>&#13;    For script tasks, <B
+CLASS="function"
+>startSession()</B
+> is called
+    to determine whether the script can be safely executed.  For both task types,
+    script and non-script, a return value of <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> will cause the task to be silently
+    skipped.  A return value of a PEAR_Error will cause processing of all operations
+    to stop, and an error message to be displayed by the installer prior to exiting.
+    Any other return value will cause the script to be processed normally by the frontend
+    as a post-installation script.
+   </P
+><P
+>&#13;    <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string <TT
+CLASS="parameter"
+><I
+>$contents</I
+></TT
+></DT
+><DD
+><P
+>&#13;        The original contents of the file whose &#60;file&#62; tag in package.xml
+        contains the task tag.
+       </P
+></DD
+><DT
+>string <TT
+CLASS="parameter"
+><I
+>$dest</I
+></TT
+></DT
+><DD
+><P
+>&#13;        The full path to the final installed file location.  This is strictly
+        informational, as the file does not yet exist, and should only be used
+        for error messages or other processing that does not attempt to modify
+        the file.
+       </P
+></DD
+></DL
+></DIV
+>
+   </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="guide.migrating.customtasks.php.run"><B
+CLASS="function"
+>run()</B
+></H2
+><P
+>&#13;    <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN3910"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>false|string <B
+CLASS="function"
+>run</B
+></CODE
+> (array $tasks)</CODE
+></P
+><P
+></P
+></DIV
+>
+   </P
+><P
+>&#13;    The <B
+CLASS="function"
+>run()</B
+> method should return <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> on success, and an
+    error message if there is a problem.  This method is called only for tasks
+    that define <TT
+CLASS="varname"
+>$this-&#62;type</TT
+> as <TT
+CLASS="literal"
+>multiple</TT
+>.
+    For each task within package.xml that has this task, the <B
+CLASS="function"
+>run()</B
+>
+    method will be called with an array containing all of the task objects from
+    the package.xml.
+   </P
+><P
+>&#13;    <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array <TT
+CLASS="parameter"
+><I
+>$tasks</I
+></TT
+></DT
+><DD
+><P
+>&#13;        An array of task objects.
+       </P
+></DD
+></DL
+></DIV
+>
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="guide.migrating.customtasks.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="guide.migrating.postinstall.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Custom File Tasks</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="guide.migrating.customtasks.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Post-installation Scripts</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

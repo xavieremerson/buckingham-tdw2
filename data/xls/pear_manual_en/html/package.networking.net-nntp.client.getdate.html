@@ -1,0 +1,389 @@
+<HTML
+><HEAD
+><TITLE
+>Net_NNTP_Client::getDate()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_NNTP_Client"
+HREF="package.networking.net-nntp.html#package.networking.net-nntp.client"><LINK
+REL="PREVIOUS"
+TITLE="Net_NNTP_Client::getBodyRaw()"
+HREF="package.networking.net-nntp.client.getbodyraw.html"><LINK
+REL="NEXT"
+TITLE="Net_NNTP_Client::getGroups()"
+HREF="package.networking.net-nntp.client.getgroups.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-nntp.client.getbodyraw.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-nntp.client.getgroups.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-nntp.client.getdate">Net_NNTP_Client::getDate()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN84767"
+></A
+>Net_NNTP_Client::getDate()&nbsp;--&nbsp;Get date from NNTP-server</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN84770"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN84771"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Net/NNTP/Client.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>Net_NNTP_Client::getDate</B
+></CODE
+> ([integer $format = 1])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.client.getDate.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Retrieves the date from the NNTP-server.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.client.getDate.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>$format</I
+></TT
+> - Tetermines which format to return.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.client.getdate.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN84792"><P
+><B
+>Table 48-1. </B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>$format</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>returns</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          0
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <TT
+CLASS="parameter"
+><I
+>timestamp</I
+></TT
+>
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          1
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <TT
+CLASS="parameter"
+><I
+>array</I
+></TT
+> - a hash with the date
+           <P
+></P
+><UL
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>$date['y']</I
+></TT
+> Year</P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>$date['m']</I
+></TT
+> Month</P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>$date['d']</I
+></TT
+> Day</P
+></LI
+></UL
+>
+         </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.client.getdate.note"
+></A
+><H2
+>Note</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>since</I
+></SPAN
+> 0.3
+    </P
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.client.getdate.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN84825"><P
+><B
+>Example 48-1. Using <B
+CLASS="function"
+>getDate()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>...
+$date = $nntp-&#62;getDate();
+echo "Date: ".$date['m']."-".$date['d']."-".$date['y'];</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-nntp.client.getbodyraw.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-nntp.client.getgroups.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Net_NNTP_Client::getBodyRaw()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-nntp.html#package.networking.net-nntp.client"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Net_NNTP_Client::getGroups()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

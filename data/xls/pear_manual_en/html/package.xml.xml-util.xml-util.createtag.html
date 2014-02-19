@@ -1,0 +1,316 @@
+<HTML
+><HEAD
+><TITLE
+>XML_Util::createTag</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_Util"
+HREF="package.xml.xml-util.html"><LINK
+REL="PREVIOUS"
+TITLE="XML_Util::collapseEmptyTags"
+HREF="package.xml.xml-util.xml-util.collapseemptytags.html"><LINK
+REL="NEXT"
+TITLE="XML_Util::createTagFromArray"
+HREF="package.xml.xml-util.xml-util.createtagfromarray.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-util.xml-util.collapseemptytags.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-util.xml-util.createtagfromarray.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.xml.xml-util.xml-util.createtag"><B
+CLASS="function"
+>XML_Util::createTag()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN105756"
+></A
+><B
+CLASS="function"
+>XML_Util::createTag()</B
+>&nbsp;--&nbsp;create a tag</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN105760"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN105761"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'XML/Util.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>string <B
+CLASS="function"
+>XML_Util::createTag</B
+></CODE
+> (string $qname [, array $attributes = array() [, string $content = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> [, string $namespaceUri = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> [, integer $replaceEntities = XML_UTIL_REPLACE_ENTITIES]]]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-util.xml-util.createtag.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      create a tag with attributes, namespace and adds 'xmlns' if needed.
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.default.xml-util.xml-util.createtag.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;    <P
+></P
+><UL
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>string $qname</I
+></TT
+> - qualified tag name
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>array $attributes</I
+></TT
+> - assoc array with attributes
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>string $content</I
+></TT
+> - string content of the tag
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>string $namespaceUri</I
+></TT
+> - URI of the namespace if xmlns attribute should be added
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>integer $replaceEntities</I
+></TT
+> - whether to replace XML entities in content, embedd it in a CData section or leave it untouched.
+       Possible values are <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>, XML_UTIL_REPLACE_ENTITIES or XML_UTIL_CDATA_SECTION.
+      </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-util.xml-util.createtag.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>string</I
+></SPAN
+> xml tag
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-util.xml-util.createtag.note"
+></A
+><H2
+>Note</H2
+><P
+>This function should be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-util.xml-util.collapseemptytags.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-util.xml-util.createtagfromarray.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>XML_Util::collapseEmptyTags()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.xml-util.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>XML_Util::createTagFromArray()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

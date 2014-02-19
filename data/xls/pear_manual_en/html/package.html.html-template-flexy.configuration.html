@@ -1,0 +1,676 @@
+<HTML
+><HEAD
+><TITLE
+>Configuration Options</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_Flexy"
+HREF="package.html.html-template-flexy.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.html.html-template-flexy.intro.html"><LINK
+REL="NEXT"
+TITLE="new HTML_Template_Flexy"
+HREF="package.html.html-template-flexy.html-template-flexy.html-template-flexy.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.html-template-flexy.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-flexy.configuration">Configuration Options</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN68547"
+></A
+>Configuration Options&nbsp;--&nbsp;
+       Setting the defaults for HTML_Template_Flexy
+      </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN68550"
+></A
+><H2
+>Configuration</H2
+><P
+>&#13;      HTML_Template_Flexy can either be configured globally or on each instance, using an associated array.  
+      The easiest way to configure HTML_Template_Flexy  is to use ini files (although you may also like to consider
+      the PEAR::Config class, or your own configuration system)
+      </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN68553"><P
+><B
+>Example 41-1.  This is a typical configuration file for <B
+CLASS="classname"
+>HTML_Template_Flexy</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="ini"
+>[HTML_Template_Flexy]
+
+templateDir = /home/me/Projects/myapplication/templates
+compileDir =  /home/me/Projects/myapplication/compiled_templates
+forceCompile = 0
+debug = 0
+locale = en
+compiler = Standard</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;        To use this ini file with HTML_Template_Flexy, (and Possibly any other classes that use options like this)
+      </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN68558"><P
+><B
+>Example 41-2.  Setting the default options</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+$config = parse_ini_file('example.ini',TRUE);
+foreach($config as $class=&#62;$values) {
+  $options = &#38;PEAR::getStaticProperty($class,'options');
+  $options = $values;
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;        Alternatively you can set (or override) the configuration when you instantate the class
+      </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN68562"><P
+><B
+>Example 41-3.  Setting the default options</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+  $options = array(
+      'templateDir'   =&#62; '/home/me/Projects/myapplication/templates',
+      'compileDir'    =&#62; '/home/me/Projects/myapplication/compiled_templates',
+      'forceCompile'  =&#62; 0,
+      'debug'         =&#62; 0,
+      'locale'        =&#62; 'en',
+      'compiler'      =&#62; 'Standard',
+  );
+  $template = new HTML_Template_Flexy($options);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN68565"
+></A
+><H2
+>Configuration Options</H2
+><P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+><TT
+CLASS="parameter"
+><I
+>templateDir</I
+></TT
+>
+            directory</DT
+><DD
+><P
+>&#13;            This is the directory where all your templates are located
+            </P
+></DD
+><DT
+><TT
+CLASS="parameter"
+><I
+>compileDir</I
+></TT
+>
+            directory</DT
+><DD
+><P
+>&#13;            The directory where the compiled templates will be stored, This directory should be writable by the web
+            server 
+            </P
+></DD
+><DT
+><TT
+CLASS="parameter"
+><I
+>forceCompile</I
+></TT
+>
+            boolean</DT
+><DD
+><P
+>&#13;            Normally 0, means that the template will only be compiled once (or if the template file is altered),
+            this is only really usefull if you are developing filters and need to test the result.
+            </P
+></DD
+><DT
+><TT
+CLASS="parameter"
+><I
+>debug</I
+></TT
+>
+            integer</DT
+><DD
+><P
+>&#13;            The default debugging level (default 0=off), 1= shows some debugging information
+            </P
+></DD
+><DT
+><TT
+CLASS="parameter"
+><I
+>locale</I
+></TT
+>
+            string</DT
+><DD
+><P
+>&#13;            Default is 'en' - english. The language use for reading/writing templates. 
+            Currently it is only used in the   compiled files filename = eg. originalname.html.en.php
+            </P
+><P
+>&#13;            Flexy uses get_text() internally if it is installed, and will replace all strings in a HTML page
+            with the return value of get_text(). - This enables the creation of multilanguage sites with a little less pain.
+            
+            </P
+><P
+>&#13;            A file {templatename}.strings.serial is created for each file that is parsed, you can use this with PHP's 
+            unserialize function to retrieve an array of all the strings in a file. (for translating), or just use
+            the tool xgettext.
+            
+            </P
+></DD
+><DT
+><TT
+CLASS="parameter"
+><I
+>compiler</I
+></TT
+>
+            string</DT
+><DD
+><P
+>&#13;            Default is 'Flexy' - The Flexy Tokenizer Driver engine. Other engines available are 
+            regex (similar to Xipe's engine), Raw (For plain PHP files with no replacement or compiling)
+            and Standard (depreciated). 
+            You can use this field to load your own engines, either based
+            Off the core code, or totally seperate..
+            
+            </P
+></DD
+><DT
+><TT
+CLASS="parameter"
+><I
+>multiSource</I
+></TT
+>
+            boolean</DT
+><DD
+><P
+>&#13;            Default is false - Allow the same template to exist in multiple places 
+            (eg. if you have theme's and want to fall back to a default template
+            if the themed version doesnt exist.)
+            
+            </P
+></DD
+><DT
+><TT
+CLASS="parameter"
+><I
+>templateDirOrder</I
+></TT
+>
+            string</DT
+><DD
+><P
+>&#13;            Default is '' - by default, the first matched template is used,
+            if you have multiple paths, and want the last in the list to be used,
+            then set this to 'reverse'
+            
+            </P
+></DD
+><DT
+><TT
+CLASS="parameter"
+><I
+>filters</I
+></TT
+>
+            array|string</DT
+><DD
+><P
+>&#13;            an array or comma seperated string of filters ONLY USED BY THE Regex backend,
+            available filters are: BodyOnly (strip everything before and after body tag), 
+            Mail (add an extra line break after php tags.), 
+            Php (removes php code, not very reliably),
+            SimpleTags (variable, method etc. replacement), 
+            XML (replace XML opening tag with echos.)
+            </P
+></DD
+><DT
+><TT
+CLASS="parameter"
+><I
+>nonHTML</I
+></TT
+>
+            boolean</DT
+><DD
+><P
+>&#13;            default is false - if you use the Flexy compiler, it turns off parsing of HTML, 
+            (not heavily tested)
+            </P
+></DD
+><DT
+><TT
+CLASS="parameter"
+><I
+>allowPHP</I
+></TT
+>
+            boolean|string</DT
+><DD
+><P
+>&#13;            default is false - allows php code in templates, normally off to help you 
+            reduce the chance of you shooting your self in the foot by forgetting to 
+            escape output.. (can be usefull for complex looping), but not normally recommended.
+            setting to true, enables PHP code, setting to 'delete' removes php code. (although it
+            doesnt prevent XSS attacks, so it is only suited to trusted users)
+            </P
+></DD
+><DT
+><TT
+CLASS="parameter"
+><I
+>flexyIgnore</I
+></TT
+>
+            boolean</DT
+><DD
+><P
+>&#13;            default is false - setting to true, will turn off the conversion of html form
+            elements into HTML_Template_Flexy_Element's
+            </P
+></DD
+><DT
+><TT
+CLASS="parameter"
+><I
+>numberFormat</I
+></TT
+>
+            string</DT
+><DD
+><P
+>&#13;            default is ",2,'.',','" - this is the piece of code that is appended 
+            to the output engine when using the :n modifier, eg. {xxxx:n} is replaced with 
+            number_format($t-&#62;xxxx,2,'.',','); seen the php manual page for number_format 
+            the default output would be: 1,200.00
+            </P
+></DD
+><DT
+><TT
+CLASS="parameter"
+><I
+>url_rewrite</I
+></TT
+>
+            string</DT
+><DD
+><P
+>&#13;            when compiling the template flexy can rewrite 
+            &#60;img src, 
+            &#60;script src, 
+            &#60;a href
+            and xul stylesheet urls. The format is 
+            "match/original:new/url, match/another/original:new/url"
+            each combo is seperated by a comma, and the colon seperates the pair.
+            This helps previewing templates without using the engine.
+            </P
+></DD
+><DT
+><TT
+CLASS="parameter"
+><I
+>compileToString</I
+></TT
+>
+            boolean</DT
+><DD
+><P
+>&#13;            default false - if set to true, the compile will return a string of the 
+            compiled template, rather than writing it to the cache file. eg.
+            {object._myvar}
+            </P
+></DD
+><DT
+><TT
+CLASS="parameter"
+><I
+>privates</I
+></TT
+>
+            boolean</DT
+><DD
+><P
+>&#13;            default false - if set to true, you can access variables prefixed with 
+            an underscore (normally private in PEAR's coding standards) 
+            eg. {someobject._myprivatevar} and {_myprivate}
+            
+            </P
+></DD
+><DT
+><TT
+CLASS="parameter"
+><I
+>globals</I
+></TT
+>
+            boolean</DT
+><DD
+><P
+>&#13;            default false - if set to true, you can access php's globals and superglobals,
+            eg. {_POST[myvar]}, {GLOBALS[somevalue]}
+            
+            </P
+></DD
+><DT
+><TT
+CLASS="parameter"
+><I
+>globalfunctions</I
+></TT
+>
+            boolean</DT
+><DD
+><P
+>&#13;            default false - if set to true, you can access any native php function using the GLOBALS. 
+            prefix eg. {GLOBALS.date(#d/m/Y#)} obviously you should trust your template authors, 
+            as they can easily run exec() if this is enabled.
+            </P
+></DD
+><DT
+><TT
+CLASS="parameter"
+><I
+>locale</I
+></TT
+>
+            string</DT
+><DD
+><P
+>&#13;            default 'en' - either used to search for language specific templates 
+            with {filename}.{locale}.{extension} or in conjunction with the Translation2
+            language translation toolkit, to set the language used to 
+            translate templates to at compile time.
+            
+            </P
+></DD
+><DT
+><TT
+CLASS="parameter"
+><I
+>Translation2</I
+></TT
+>
+            mixed</DT
+><DD
+><P
+>&#13;            default false - you can set this to an array or an existing Translation2 object
+            eg. Translation2 =&#62; array('driver'=&#62;'dataobjectsimple', options=&#62;array()));
+            
+            
+            </P
+></DD
+><DT
+><TT
+CLASS="parameter"
+><I
+>strict</I
+></TT
+>
+            boolean</DT
+><DD
+><P
+>&#13;            default false - By default warnings about undefined variabes are hidden,
+            this turns on all PHP warnings during the outputObject calls. Can be usefull 
+            for finding bugs hidden by method callbacks.
+            </P
+></DD
+><DT
+><TT
+CLASS="parameter"
+><I
+>fatalError</I
+></TT
+>
+            int</DT
+><DD
+><P
+>&#13;            default constant HTML_TEMPLATE_FLEXY_ERROR_DIE - this determines the behaviour
+            when compiling a template fails, normally flexy will die and report the error to 
+            the screen, you can change this to HTML_TEMPLATE_FLEXY_ERROR_RETURN, if you want 
+            to recieve a PEAR_Error object from compile().
+            </P
+></DD
+><DT
+><TT
+CLASS="parameter"
+><I
+>plugins</I
+></TT
+>
+            string|array</DT
+><DD
+><P
+>&#13;            loads plugin classes, (by default from the Plugin folder), these can be used either
+            via {plugin.nameofmethod} or as a modifier {outputstring:dateformat}, default formats 
+            are normally collected via configuration options plugin.dateformat, 
+            plugin.numberformat.decimals, plugin.numberformat.point, plugin.numberformat.thousands
+            </P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.html-template-flexy.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>new HTML_Template_Flexy</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

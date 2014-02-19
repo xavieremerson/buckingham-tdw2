@@ -1,0 +1,243 @@
+<HTML
+><HEAD
+><TITLE
+>XML_sql2xml</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML"
+HREF="package.xml.html"><LINK
+REL="PREVIOUS"
+TITLE="XML_Unserializer::resetOptions"
+HREF="package.xml.xml-serializer.xml-unserializer.resetoptions.html"><LINK
+REL="NEXT"
+TITLE="Introduction"
+HREF="package.xml.xml-sql2xml.intro-simple.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-serializer.xml-unserializer.resetoptions.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 61. XML</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-sql2xml.intro-simple.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.xml.xml-sql2xml">XML_sql2xml</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.xml.xml-sql2xml.intro-simple.html"
+>Introduction</A
+>&nbsp;--&nbsp;Simple transformations</DT
+><DT
+><A
+HREF="package.xml.xml-sql2xml.intro-passing.html"
+>Introduction</A
+>&nbsp;--&nbsp;Passing the data to transform</DT
+><DT
+><A
+HREF="package.xml.xml-sql2xml.intro-xpath.html"
+>Introduction</A
+>&nbsp;--&nbsp;Using XPath</DT
+><DT
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.xml-sql2xml.html"
+>XML_sql2xml::XML_sql2xml</A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.add.html"
+>XML_sql2xml::add</A
+>&nbsp;--&nbsp;General method for adding new result sets</DT
+><DT
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.addxmlfile.html"
+>XML_sql2xml::addXmlFile</A
+>&nbsp;--&nbsp;Adds a XML file</DT
+><DT
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.addxmlstring.html"
+>XML_sql2xml::addXmlString</A
+>&nbsp;--&nbsp;Adds XML string</DT
+><DT
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.addresult.html"
+>XML_sql2xml::addResult</A
+>&nbsp;--&nbsp;Adds an PEAR::DB result set </DT
+><DT
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.addsql.html"
+>XML_sql2xml::addSql</A
+>&nbsp;--&nbsp;Adds an result set from a SQL statement</DT
+><DT
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.addarray.html"
+>XML_sql2xml::addArray</A
+>&nbsp;--&nbsp;Adds an aditional result set from an array</DT
+><DT
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.getxml.html"
+>XML_sql2xml::getXML</A
+>&nbsp;--&nbsp;Returns a XML representation of the result set.</DT
+><DT
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.getxmlobject.html"
+>XML_sql2xml::getXMLObject</A
+>&nbsp;--&nbsp;return an XML DomDocument object</DT
+><DT
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.setoptions.html"
+>XML_sql2xml::setOptions</A
+>&nbsp;--&nbsp;set options for the instance</DT
+><DT
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.setencoding.html"
+>XML_sql2xml::setEncoding</A
+>&nbsp;--&nbsp;set encoding charset</DT
+><DT
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.getxpathvalue.html"
+>XML_sql2xml::getXpathValue</A
+>&nbsp;--&nbsp;return match of a XPath expression</DT
+><DT
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.getxpathchildvalues.html"
+>XML_sql2xml::getXpathChildValues</A
+>&nbsp;--&nbsp;return child tags from match of a XPath expression</DT
+></DL
+></DIV
+><P
+>&#13;  Translates SQL-Queries to XML-Resultsets. 
+ </P
+><P
+>&#13;  XML_sql2xml takes an existing result set or a SQL statment
+  and transforms it to an XML representation 
+ </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-serializer.xml-unserializer.resetoptions.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-sql2xml.intro-simple.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>XML_Unserializer::resetOptions()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

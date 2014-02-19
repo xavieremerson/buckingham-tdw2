@@ -1,0 +1,254 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Mail"
+HREF="package.mail.mail.html"><LINK
+REL="PREVIOUS"
+TITLE="Mail"
+HREF="package.mail.mail.html"><LINK
+REL="NEXT"
+TITLE="Mail::factory()"
+HREF="package.mail.mail.factory.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail.factory.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.mail.mail.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN79533"
+></A
+>Introduction&nbsp;--&nbsp;How to send a mail and the mailer backends</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail.intro.howto"
+></A
+><H2
+>How To send a mail</H2
+><P
+>&#13;     <B
+CLASS="classname"
+>Mail</B
+> supports different types of backends
+     to send email. So two steps are necessary to send an email.    
+    <P
+></P
+><UL
+><LI
+><P
+>Step 1</P
+><P
+>&#13;       Create a new instance of a specific <B
+CLASS="classname"
+>Mail</B
+>-Backend 
+       with the <A
+HREF="package.mail.mail.factory.html"
+>&#13;       <B
+CLASS="function"
+>factory()</B
+></A
+>-method.
+      </P
+></LI
+><LI
+><P
+>Step 2</P
+><P
+>&#13;       Send the mail using <A
+HREF="package.mail.mail.send.html"
+>&#13;       <B
+CLASS="function"
+>send()</B
+></A
+>.
+      </P
+></LI
+></UL
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail.intro.backend"
+></A
+><H2
+>The mailer backends</H2
+><P
+>&#13;    <B
+CLASS="classname"
+>Mail</B
+> supports three types of backends:
+    <P
+></P
+><UL
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>mail</I
+></TT
+></P
+><P
+>&#13;       Sends a mail using PHP's built-in <B
+CLASS="function"
+>mail()</B
+> function.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>sendmail</I
+></TT
+></P
+><P
+>&#13;       Sends a mail using a sendmail program.
+      </P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>smtp</I
+></TT
+></P
+><P
+>&#13;       Sends a mail directly connecting to a smtp server.       
+      </P
+></LI
+></UL
+>    
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.mail.mail.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.mail.mail.factory.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Mail</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.mail.mail.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Mail::factory()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

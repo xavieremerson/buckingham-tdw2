@@ -1,0 +1,259 @@
+<HTML
+><HEAD
+><TITLE
+>HTTP_Download::setContentDisposition</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTTP_Download"
+HREF="package.http.http-download.html"><LINK
+REL="PREVIOUS"
+TITLE="HTTP_Download::setLastModified"
+HREF="package.http.http-download.setlastmodified.html"><LINK
+REL="NEXT"
+TITLE="HTTP_Download::guessContentType"
+HREF="package.http.http-download.guesscontenttype.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.http.http-download.setlastmodified.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.http.http-download.guesscontenttype.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.http.http-download.setcontentdisposition"><B
+CLASS="function"
+>HTTP_Download::setContentDisposition()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN75310"
+></A
+><B
+CLASS="function"
+>HTTP_Download::setContentDisposition()</B
+>&nbsp;--&nbsp;
+   Set content disposition
+  </DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN75314"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN75315"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     void
+     <B
+CLASS="function"
+>HTTP_Download::setContentDisposition</B
+>
+    </CODE
+> (string 
+     [$disposition = HTTP_DOWNLOAD_ATTACHMENT], string
+     [$file_name = null])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.setcontentdisposition.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Set content disposition of the download.
+  </P
+><P
+>&#13;   "Content-Disposition" is not HTTP compliant, 
+   but most browsers follow this header,
+   so it was borrowed from MIME standard.
+   
+   It looks like this:
+   "Content-Disposition: attachment; filename=example.tgz".
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.setcontentdisposition.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      string 
+      <TT
+CLASS="parameter"
+><I
+>&#13;       [$disposition = HTTP_DOWNLOAD_ATTACHMENT]
+      </I
+></TT
+>
+      - the disposition of the download (either 'attachment' or 'inline')
+     </P
+></LI
+><LI
+><P
+>&#13;      string
+      <TT
+CLASS="parameter"
+><I
+>&#13;       [$file_name = null]
+      </I
+></TT
+>
+      - the file name the browser's download window should show
+     </P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.setcontentdisposition.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.http.http-download.setlastmodified.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.http.http-download.guesscontenttype.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>HTTP_Download::setLastModified()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.http.http-download.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>HTTP_Download::guessContentType()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

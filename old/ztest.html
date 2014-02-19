@@ -1,0 +1,562 @@
+ <html>
+<head>
+<link REL="SHORTCUT ICON" HREF="favicon.ico">
+<title>CompSys</title>
+<script language="JavaScript" type="text/JavaScript">
+var secs
+var timerID = null
+var timerRunning = false
+var delay = 1000
+
+function InitializeTimer()
+{
+    //secs = 9		secs = 2
+		
+    StopTheClock()
+    StartTheTimer()
+}
+
+function StopTheClock()
+{
+    if(timerRunning)
+        clearTimeout(timerID)
+    timerRunning = false
+}
+
+function StartTheTimer()
+{
+    if (secs==0)
+    {
+        StopTheClock()
+				alert("This is a test");
+				//Action statements here...
+				//document.xtest.submit();
+    }
+    else
+    {
+        //self.status = " "
+				alert("This is a test");
+				self.status = secs
+        secs = secs - 1
+        timerRunning = true
+        timerID = self.setTimeout("StartTheTimer()", delay)
+    }
+}
+</script>
+<link rel="stylesheet" type="text/css" href="includes/styles.css">
+</head>
+<body bgcolor="#F4F8FB" leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" onLoad="InitializeTimer()">
+<tr valign="top"> 
+  <td height="20"> <div id="dhtmltooltip"></div>
+    <script language='JavaScript' src='includes/tooltip.js'></script> 
+    <table width="100%"  border="0" cellpadding="0" cellspacing="0" bgcolor="#2155AD">
+      <tr> 
+        <!-- <td width="50" height="50"><img src="images/compliancelogo_v1.gif" ></td> -->
+        <td width="50" height="50"><img src="images/compliancelogo_bb.gif" ></td>
+        <td align="right" valign="top"> <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+            <tr> 
+              <td> <table width="100%"  border="0" cellspacing="1" cellpadding="1">
+                  <tr> 
+                    <!-- <td align="left" valign="top"><a class="CompanyName">&nbsp;&nbsp;Silvercrest Asset Management Group, LLC</a></td> -->
+                    <td align="left" valign="top"><a class="CompanyName">&nbsp;&nbsp;Needham 
+                      & Company, LLC</a></td>
+                    <td align="right" valign="top"><a class="links10top">User: Nadia 
+                      Fazhulina [Login expires on Dec 31st, 2005 at 5:00 PM] </a> 
+                      (<a href="logout.php" class="links10top">Logout</a>) </td>
+                  </tr>
+                </table></td>
+            </tr>
+            <tr> 
+              <td> <table width="100%">
+                  <tr> 
+                    <td align="left" nowrap><a class="AppName">&nbsp;&nbsp;&nbsp;&nbsp;CompSys 
+                      v 2.0</a></td>
+                    <td align="right" nowrap><a class="links10top">Demonstration Version 
+                      (Some features not available)</a></td>
+                  </tr>
+                </table></td>
+            </tr>
+          </table></td>
+      </tr>
+    </table>
+    <!-- Menu bar. -->
+    <div class="menuBar" style="width:100%;"> 
+      <!-- onclick="return buttonClick(event, 'homeMenu');"  -->
+      <!--onclick="return buttonClick(event, 'tradesMenu');" -->
+      <a class="menuButton"
+    href="main.php"
+    onmouseover="buttonMouseover(event, 'homeMenu');"> <img src="images/buttons/home.gif" border="0"> 
+      </a> <a class="menuButton"
+    href="actionitems.php"> <img src="images/buttons/tasks.gif" border="0"> </a> <a class="menuButton"
+    href=""
+    onclick="return buttonClick(event, 'tradesMenu');"
+    onmouseover="buttonMouseover(event, 'tradesMenu');"> <img src="images/buttons/trades.gif" border="0"> 
+      </a> <a class="menuButton"
+    href="view_trades_m.php"
+	onclick="return buttonClick(event, 'accountsMenu');" 
+    onmouseover="buttonMouseover(event, 'accountsMenu');"> <img src="images/buttons/accts.gif" border="0"> 
+      </a> <a class="menuButton"
+    href="" 
+    onclick="return buttonClick(event, 'stocklistMenu');"
+    onmouseover="buttonMouseover(event, 'stocklistMenu');"> <img src="images/buttons/lists.gif" border="0"> 
+      </a> <a class="menuButton"
+    href=""
+    onclick="return buttonClick(event, 'reportsMenu');"
+    onmouseover="buttonMouseover(event, 'reportsMenu');"> <img src="images/buttons/reports.gif" border="0"> 
+      </a> <a class="menuButton"
+    href=""
+    onclick="return buttonClick(event, 'documentsMenu');"
+    onmouseover="buttonMouseover(event, 'documentsMenu');"> <img src="images/buttons/documents.gif" border="0"> 
+      </a> <a class="menuButton"
+    href=""
+    onclick="return buttonClick(event, 'administrationMenu');"
+    onmouseover="buttonMouseover(event, 'administrationMenu');"> <img src="images/buttons/admin.gif" border="0"> 
+      </a> <a class="menuButton"
+    href=""
+    onclick="return buttonClick(event, 'helpMenu');"
+    onmouseover="buttonMouseover(event, 'helpMenu');"> <img src="images/buttons/help.gif" border="0"> 
+      </a> </div>
+    <!-- Main menus. -->
+    <!-- <div id="homeMenu" class="menu" onmouseover="menuMouseover(event)">
+<a class="menuItem" href="welc.php">Main Page</a>
+</div>
+ -->
+    <!-- <div id="tradesMenu" class="menu" onmouseover="menuMouseover(event)">
+<a class="menuItem" href="view_trades_m.php">View Trades</a>
+<a class="menuItem" href="view_trades.php" onMouseover="ddrivetip('This module is to be deactivated/removed. <BR> It contains trades downloaded from RBC Dain. Please use the <b><i>View Trades</i></b> menu instead.','yellow', 300)"; onMouseout="hideddrivetip()">View Trades (From RBC Dain)</a>
+</div>
+ -->
+    <div id="tradesMenu" class="menu"> <a class="menuItem" href="view_trades_mult.php">View 
+      Trades</a> <a class="menuItem" href="main.php" onClick="javascript:CreateWnd('pop_order_entry.php?user_id=85', 680, 340, false);">Order 
+      Entry</a> <a class="menuItem" href="piggyback.php">Front-running/Piggy-backing</a> 
+    </div>
+    <div id="accountsMenu" class="menu"> <a class="menuItem" href="accounts.php">View 
+      Accounts</a> <a class="menuItem" href="expempaccts_csv.php">Export Accounts 
+      <B>(Excel/CSV)</B></a> </div>
+    <div id="stocklistMenu" class="menu"> <a class="menuItem" href="lists.php?list_type=1">Morning 
+      Summary List</a> <a class="menuItem" href="lists.php?list_type=2">Gray List</a> 
+      <a class="menuItem" href="lists.php?list_type=3">Restricted List</a> 
+      <!-- <a class="menuItem" href="lists.php?list_type=watch">Watch List</a>
+<a class="menuItem" href="lists.php?list_type=gray">Gray List</a>
+ -->
+      <div class="menuItemSep"></div>
+      <a class="menuItem" href="lists_es.php?list_type=m">Marketmaker Stock List</a> 
+      <a class="menuItem" href="lists_es.php?list_type=b">Banker Stock List</a> <a class="menuItem" href="lists_es.php?list_type=a">Analyst 
+      Stock List</a> </div>
+    <div id="reportsMenu" class="menu"> <a class="menuItem" href="rep_srv.php?repfile=rep_cr.php">Current 
+      Compliance Report</a> <a class="menuItem" href="rep_srv.php?repfile=rep_tr.php">Current 
+      Trades Report</a> 
+      <div class="menuItemSep"></div>
+      <a class="menuItem" href="rep_srv.php?repfile=rep_hs.php">Historical Reports</a> 
+      <div class="menuItemSep"></div>
+      <a class="menuItem" href="rep_srv.php?repfile=rep_sl.php">Stock Lists</a> <a class="menuItem" href="rep_srv.php?repfile=rep_ea.php">Employee 
+      Accounts</a> 
+      <!-- <div class="menuItemSep"></div>
+<a class="menuItem" href="sysmsgmain.php?msgval=_tm_futurerelease&headingval=Info"><font color="#FF0000"><B>&Oslash; Report (Open)</B></font></a> 
+
+<a class="menuItem" href="trades_report_m_hist.php"><input class="Text" name="symbol_list" type="text" size="20" maxlength="60"></a>  -->
+    </div>
+    <div id="documentsMenu" class="menu"> <a class="menuItem" href="docs.php">Manage 
+      Documents & Forms</a> <a class="menuItem" href="expempaccts_csv.php">Export 
+      Accounts <B>(Excel/CSV)</B></a> </div>
+    <div id="administrationMenu" class="menu"> 
+      <!-- <a class="menuItem" href="trade_upload.php">Upload Trade File (.csv)</a>
+<div class="menuItemSep"></div>
+ -->
+      <a class="menuItem" href="myprofile.php">My Profile / Preferences</a> <a class="menuItem" href="javascript:CreateWnd('changepassword.php?ID=85', 350, 250, false);">Change 
+      Password</a> 
+      <div class="menuItemSep"></div>
+      <a class="menuItem" href="ad_hoc_rep.php">Custom Reports</a> 
+      <div class="menuItemSep"></div>
+      <a class="menuItem" href="user_lists.php?type=create">Create <B>My List</B></a> 
+    </div>
+    <div id="helpMenu" class="menu"> <a class="menuItem" href="trak/?do=newtask&project=1">Technical 
+      Support</a> <a class="menuItem" href="mailto:support@centersysgroup.com?Subject=Technical Support Request (Client: DEMO)&Body=Problem Description:%0D--------------------%0D%0D%0D%0DSeverity:%0D---------%0D%0D%0D%0DMy Contact Information:%0D-----------------------">Email 
+      Technical Support</a> 
+      <div class="menuItemSep"></div>
+      <a class="menuItem" href="trak/"><font color="#0000FF"><B>TrakSYS</B></font></a> 
+      <div class="menuItemSep"></div>
+      <a class="menuItem" href="http://nasd.complinet.com/nasd/display/index.html" target="_blank"><B>NASD 
+      Manual Online</B></a> <a class="menuItem" href="http://www.sec.gov/rules/final.shtml" target="_blank"><B>SEC 
+      Rules</B></a> 
+      <div class="menuItemSep"></div>
+      <a class="menuItem" href="about_ly.php">About CompSys</a> </div>
+    <!-- End Menu bar -->
+    <!--<br><br>-->
+  </td>
+</tr>
+<tr valign="top"> 
+  <td valign="top"> <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0"> 
+    <tr> 
+      <td valign="top"> 
+        <!-- START TABLE 1 --><table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td>
+            <!--Main Page<BR>User logged in: <B>nadia</B>-->
+          </td>
+        </tr> <tr valign="top"> 
+          <td valign="top" nowrap width="1050"> 
+            <!-- START TABLE 2 --><table width="100%" height="100%"  border="0" cellspacing="0" cellpadding="5"> 
+            <tr valign="top"> 
+              <td valign="top" width="330" height="100%" nowrap> 
+                <!-- 350 -->
+                <table width="320" border="0" cellpadding="0" cellspacing="0" class="test">
+                  <tr> 
+                    <td> <table width="318" border="0" cellpadding="0" cellspacing="0">
+                        <tr> 
+                          <td height="20" valign="middle" background="images/tables3/header_bk.jpg"> 
+                            &nbsp;&nbsp;<a class="table_heading_text">Trades in Lists</a> 
+                          </td>
+                        </tr>
+                        <tr> 
+                          <td valign="middle"> <div id="tableContainer1" class="tableContainer1"> 
+                              <!--TABLE 4 START-->
+                              <table class="scrollTable" width="100%" cellspacing="0">
+                                <tbody class="scrollContent1">
+                                </tbody>
+                              </table>
+                              <!-- TABLE 4 END -->
+                            </div></td>
+                        </tr>
+                      </table></td>
+                  </tr>
+                </table>
+                <br> 
+                <!-- Last 5 IPOs -->
+                <table width="320" border="0" cellpadding="0" cellspacing="0" class="test">
+                  <tr> 
+                    <td> <table width="318" border="0" cellpadding="0" cellspacing="0">
+                        <tr> 
+                          <td height="20" valign="middle" background="images/tables3/header_bk.jpg"> 
+                            &nbsp;&nbsp;<a class="table_heading_text">Last 5 IPOs</a> 
+                          </td>
+                        </tr>
+                        <tr> 
+                          <td valign="middle"> <div id="tableContainer9" class="tableContainer9"> 
+                              <table class="scrollTable"  width="100%"  cellspacing="0">
+                                <tbody class="scrollContent2">
+                                  <tr class="tablerow"> 
+                                    <td height="18" width="20"><a class="emptrades" href="javascript:CreateWnd('pop_quote.php?param_symbol=EPD', 500, 200, false);"><img src="images/lf_v1/goto_mktdata.jpg" border="0"></a>&nbsp;&nbsp;<a class="emptrades" href="javascript:CreateWnd('pop_quote.php?param_symbol=EPD', 500, 200, false);">EPD</a></td>
+                                    <td width="200"><a class="emptrades" href="javascript:CreateWnd('pop_quote.php?param_symbol=EPD', 500, 200, false);">Enterprise 
+                                      Products Partners LP</a></td>
+                                    <td width="100"><a class="emptrades">11/30/2005</a></td>
+                                  </tr>
+                                  <tr class="tablerow"> 
+                                    <td height="18" width="20"><a class="emptrades" href="javascript:CreateWnd('pop_quote.php?param_symbol=APL', 500, 200, false);"><img src="images/lf_v1/goto_mktdata.jpg" border="0"></a>&nbsp;&nbsp;<a class="emptrades" href="javascript:CreateWnd('pop_quote.php?param_symbol=APL', 500, 200, false);">APL</a></td>
+                                    <td width="200"><a class="emptrades" href="javascript:CreateWnd('pop_quote.php?param_symbol=APL', 500, 200, false);">Atlas 
+                                      Pipeline Partners L.P.</a></td>
+                                    <td width="100"><a class="emptrades">11/23/2005</a></td>
+                                  </tr>
+                                  <tr class="tablerow"> 
+                                    <td height="18" width="20"><a class="emptrades" href="javascript:CreateWnd('pop_quote.php?param_symbol=CHTR', 500, 200, false);"><img src="images/lf_v1/goto_mktdata.jpg" border="0"></a>&nbsp;&nbsp;<a class="emptrades" href="javascript:CreateWnd('pop_quote.php?param_symbol=CHTR', 500, 200, false);">CHTR</a></td>
+                                    <td width="200"><a class="emptrades" href="javascript:CreateWnd('pop_quote.php?param_symbol=CHTR', 500, 200, false);">Charter 
+                                      Communications Inc</a></td>
+                                    <td width="100"><a class="emptrades">11/23/2005</a></td>
+                                  </tr>
+                                  <tr class="tablerow"> 
+                                    <td height="18" width="20"><a class="emptrades" href="javascript:CreateWnd('pop_quote.php?param_symbol=POTP', 500, 200, false);"><img src="images/lf_v1/goto_mktdata.jpg" border="0"></a>&nbsp;&nbsp;<a class="emptrades" href="javascript:CreateWnd('pop_quote.php?param_symbol=POTP', 500, 200, false);">POTP</a></td>
+                                    <td width="200"><a class="emptrades" href="javascript:CreateWnd('pop_quote.php?param_symbol=POTP', 500, 200, false);">Point 
+                                      Therapeutics Inc.</a></td>
+                                    <td width="100"><a class="emptrades">11/23/2005</a></td>
+                                  </tr>
+                                  <tr class="tablerow"> 
+                                    <td height="18" width="20"><a class="emptrades" href="javascript:CreateWnd('pop_quote.php?param_symbol=BKD', 500, 200, false);"><img src="images/lf_v1/goto_mktdata.jpg" border="0"></a>&nbsp;&nbsp;<a class="emptrades" href="javascript:CreateWnd('pop_quote.php?param_symbol=BKD', 500, 200, false);">BKD</a></td>
+                                    <td width="200"><a class="emptrades" href="javascript:CreateWnd('pop_quote.php?param_symbol=BKD', 500, 200, false);">Brookdale 
+                                      Senior Living Inc.</a></td>
+                                    <td width="100"><a class="emptrades">11/22/2005</a></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div></td>
+                        </tr>
+                      </table></td>
+                  </tr>
+                </table>
+                <br> <table width="320" border="0" cellpadding="0" cellspacing="0" class="test">
+                  <tr> 
+                    <td> <table width="318" border="0" cellpadding="0" cellspacing="0">
+                        <tr> 
+                          <td height="20" valign="middle" background="images/tables3/header_bk.jpg"> 
+                            &nbsp;&nbsp;<a class="table_heading_text">Action Items</a> 
+                          </td>
+                        </tr>
+                        <tr> 
+                          <td valign="middle"> <div id="tableContainer2" class="tableContainer2"> 
+                              <!--START TABLE 6-->
+                              <table class="scrollTable"  width="100%"  cellspacing="0">
+                                <tbody class="scrollContent2">
+                                  <tr class="tablerow" onClick="javascript:parent.location.href='actionitems.php'"> 
+                                    <td height="20" width="50"><a class="emptrades" href="actionitems.php"><img src="images/lf_v1/tasks_todo.jpg" border="0"></a>&nbsp;&nbsp;<a class="emptrades" href="actionitems.php">Open</a></td>
+                                    <td width="30"><a class="emptrades">9</a></td>
+                                  </tr>
+                                  <tr class="tablerow" onClick="javascript:parent.location.href='actionitems_close.php'"> 
+                                    <td height="20"><a class="emptrades" href="actionitems_close.php"><img src="images/lf_v1/tasks_done.jpg" border="0"></a>&nbsp;&nbsp;<a class="emptrades" href="actionitems_close.php">Closed</a></td>
+                                    <td><a class="emptrades">6</a></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <!-- END TABLE 6 -->
+                            </div></td>
+                        </tr>
+                      </table></td>
+                  </tr>
+                </table>
+                <br> 
+                <!-- ALERTS -->
+                <table width="320" border="0" cellpadding="0" cellspacing="0" class="test">
+                  <tr> 
+                    <td> <table width="318" border="0" cellpadding="0" cellspacing="0">
+                        <tr> 
+                          <td height="20" valign="middle" background="images/tables3/header_bk.jpg"> 
+                            &nbsp;&nbsp;<a class="table_heading_text">Alerts</a> </td>
+                        </tr>
+                        <tr> 
+                          <td valign="middle"> <div id="tableContainer2a" class="tableContainer2a"> 
+                              <!--START TABLE 6-->
+                              <table class="scrollTable"  width="100%"  cellspacing="0">
+                                <tbody class="scrollContent2a">
+                                  <tr class="tablerow" onClick=""> 
+                                    <td  width="100%"><b>Intel</b> in <b>Large Cap. 
+                                      A</b> is above threshold.</td>
+                                  </tr>
+                                  <tr class="tablerow" onClick=""> 
+                                    <td  width="100%"><b>FD</b> in <b>Large Cap. B</b> 
+                                      is above threshold.</td>
+                                  </tr>
+                                  <tr class="tablerow" onClick=""> 
+                                    <td  width="100%"><b>CSCO</b> in <b>Large Cap 
+                                      C</b> is above threshold.</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <!-- END TABLE 6 -->
+                            </div></td>
+                        </tr>
+                      </table></td>
+                  </tr>
+                </table>
+                <br> 
+                <!-- ORDER AUTHORIZATION -->
+                <table width="320" border="0" cellpadding="0" cellspacing="0" class="test">
+                  <tr> 
+                    <td> <table width="318" border="0" cellpadding="0" cellspacing="0">
+                        <tr> 
+                          <td height="20" valign="middle" background="images/tables3/header_bk.jpg"> 
+                            &nbsp;&nbsp;<a class="table_heading_text">Order Pre-authorization</a> 
+                          </td>
+                        </tr>
+                        <tr> 
+                          <td valign="middle"> <div id="tableContainer2b" class="tableContainer2b"> 
+                              <!--START TABLE 6A -->
+                              <table class="scrollTable"  width="100%"  cellspacing="0">
+                                <tbody class="scrollContent2b">
+                                  <tr class="tablerow" onClick="javascript:CreateWnd('pop_order_authorize.php?id=18&user_id=85&flag=0>', 680, 430, false);"> 
+                                    <td> <b>Buy&nbsp;6000</b> of <b>GOOG</b> </td>
+                                    <td> <font color="#009900">Accepted</font> </td>
+                                  </tr>
+                                  <tr class="tablerow" onClick="javascript:CreateWnd('pop_order_authorize.php?id=19&user_id=85&flag=0>', 680, 430, false);"> 
+                                    <td> <b>Buy&nbsp;12000</b> of <b>YHOO</b> </td>
+                                    <td> <font color="#009900">Accepted</font> </td>
+                                  </tr>
+                                  <tr class="tablerow" onClick="javascript:CreateWnd('pop_order_authorize.php?id=20&user_id=85&flag=0>', 680, 430, false);"> 
+                                    <td> <b>Buy&nbsp;1500</b> of <b>ORCL</b> </td>
+                                    <td> <font color="#ff0000">Declined</font> </td>
+                                  </tr>
+                                  <tr class="tablerow" onClick="javascript:CreateWnd('pop_order_authorize.php?id=21&user_id=85&flag=0>', 680, 430, false);"> 
+                                    <td> <b>Buy&nbsp;10000</b> of <b>LCCI</b> </td>
+                                    <td> <font color="#000000">Pending</font> </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <!-- END TABLE 6A -->
+                            </div></td>
+                        </tr>
+                      </table></td>
+                  </tr>
+                </table></td>
+              <td valign="top" width="495" nowrap align="left"> 
+                <!-- 645 -->
+                <!-- START TABLE 8 -->
+                <table width="495" border="0" cellpadding="0" cellspacing="0">
+                  <tr> 
+                    <td> <table width="490" border="0" cellpadding="0" cellspacing="0" class="test">
+                        <tr> 
+                          <td> <table width="488" border="0" cellpadding="0" cellspacing="0">
+                              <tr> 
+                                <td height="20" valign="middle" background="images/tables3/header_bk.jpg"> 
+                                  &nbsp;&nbsp;<a class="table_heading_text">Trades 
+                                  by Type (Last 3 months)</a> </td>
+                              </tr>
+                              <tr> 
+                                <td valign="middle"> <img src="inc_graph_data.php" border="1"> 
+                                </td>
+                              </tr>
+                            </table></td>
+                        </tr>
+                      </table></td>
+                  </tr>
+                </table>
+                <br> <table>
+                  <tr> 
+                    <td> <table width="490" border="0" cellpadding="0" cellspacing="0" class="test">
+                        <tr> 
+                          <td> <table width="488" border="0" cellpadding="0" cellspacing="0">
+                              <tr> 
+                                <td height="20" valign="middle" background="images/tables3/header_bk.jpg"> 
+                                  &nbsp;&nbsp;<a class="table_heading_text">Top Buys/Sells</a> 
+                                </td>
+                              </tr>
+                              <tr> 
+                                <td valign="middle"> 
+                                  <!-- START TABLE 9 -->
+                                  <table>
+                                    <tr> 
+                                      <td> <img src="inc_pie_chart1.php" border="1"> 
+                                      </td>
+                                      <td> <img src="inc_pie_chart2.php" border="1"> 
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  <!-- END TABLE 9 -->
+                                </td>
+                              </tr>
+                            </table></td>
+                        </tr>
+                      </table></td>
+                  </tr>
+                </table>
+                <br> <table>
+                  <form name="port_frm" action="main.php" method="post">
+                    <tr> 
+                      <td> <table width="490" border="0" cellpadding="0" cellspacing="0" class="test">
+                          <tr> 
+                            <td> <table width="488" border="0" cellpadding="0" cellspacing="0">
+                                <tr> 
+                                  <td height="20" valign="middle" background="images/tables3/header_bk.jpg"> 
+                                    &nbsp;&nbsp;<a class="table_heading_text">Allocations</a> 
+                                  </td>
+                                </tr>
+                                <tr> 
+                                  <td valign="middle"> <table border="0" align="center" width="490" cellpadding="0" cellspacing="0">
+                                      <tr> 
+                                        <td width="100%"> <a class="appmytext">&nbsp;Select 
+                                          Portfolio :</a> &nbsp;&nbsp; <select class="Text" name="port_id">
+                                            <option value='1'selected>Large Cap. A</option>
+                                            <option value='2'>Large Cap. B</option>
+                                            <option value='3'>Large Cap C</option>
+                                            <option value='4'>Large Cap D</option>
+                                          </select> &nbsp;&nbsp; <input class="submit" type="submit" value=" Go "> 
+                                        </td>
+                                      </tr>
+                                      <tr> 
+                                        <td width="100%"> <fieldset style="BORDER-RIGHT: #9999ff 1px solid; 
+																				BORDER-TOP: #9999ff 1px solid; 
+																				BORDER-LEFT: #9999ff 1px solid;
+																				PADDING: 0px;
+																				WIDTH: 490px; 
+																				HEIGHT: 220px;
+																				COLOR: #555555; 
+																				BORDER-BOTTOM: #9999ff 1px solid">
+                                          <img src="inc_pie_chart3.php?pid=" border="0"> 
+                                          </fieldset></td>
+                                      </tr>
+                                    </table></td>
+                                </tr>
+                              </table></td>
+                          </tr>
+                        </table></td>
+                    </tr>
+                  </form>
+                </table>
+                <!-- END TABLE 8 -->
+              </td>
+              <!-- Third Column Begin -->
+              <td align="left"> <table>
+                <tr>
+                  <td> 
+                    <!-- emp/cust trades table here -->
+                    <table width="220" border="0" cellpadding="0" cellspacing="0" class="test">
+                      <tr> 
+                        <td> <table width="218" border="0" cellpadding="0" cellspacing="0">
+                            <tr> 
+                              <td height="20" valign="middle" background="images/tables3/header_bk.jpg"> 
+                                &nbsp;&nbsp;<a class="table_heading_text">Customer/Employee 
+                                Trades</a> </td>
+                            </tr>
+                            <tr> 
+                              <td valign="middle"> <div id="tableContainer3" class="tableContainer3"> 
+                                  <!-- START TABLE 7 -->
+                                  <table border="0" cellpadding="0" cellspacing="0" width="100%" class="scrollTable">
+                                    <tr> 
+                                      <td width="60">&nbsp;&nbsp;<a class="mainpage_tablehead">Symbol</a></td>
+                                      <td>&nbsp;&nbsp;<a class="mainpage_tablehead">Customer</a></td>
+                                      <td>&nbsp;&nbsp;<a class="mainpage_tablehead">Employee</a></td>
+                                    </tr>
+                                    <tbody class="scrollContent2">
+                                    </tbody>
+                                  </table>
+                                  <!-- END TABLE 7 -->
+                                </div></td>
+                            </tr>
+                          </table></td>
+                      </tr>
+                    </table></td>
+                </tr> <tr>
+                  <td> <br> <table width="220" border="0" cellpadding="0" cellspacing="0" class="test"> 
+                    <tr> 
+                      <td> <table width="218" border="0" cellpadding="0" cellspacing="0"> 
+                        <tr> 
+                          <td height="20" valign="middle" background="images/tables3/header_bk.jpg"> 
+                            &nbsp;&nbsp;<a class="table_heading_text">Messages</a> 
+                          </td>
+                        </tr> <tr> 
+                          <td valign="middle"> <div id="status_app"> <link rel="stylesheet" href="style.css" type="text/css"> <body> 
+                            <a class='system'>System Message: (1:56 PM 12/8/05)<br>
+                            </a><a class='message'>This can be a message containing 
+                            a request for preauthorization of trade.</a><br /><A name='m'>
+                            <hr size="1" color="#999999">
+                            <a class='system'>System Message: (1:55 PM 12/8/05)<br>
+                            </a><a class='message'>This test message is sent by a 
+                            message generator for demo.</a><br /><A name='m'>
+                            <hr size="1" color="#999999">
+                            <a class='employee'>Patrick Sizemore: (1:55 PM 12/8/05)<br>
+                            </a><a class='message'> This is a sample message for demonstations 
+                            purposes.</a><br /><A name='m'>
+                            <hr size="1" color="#999999">
+                            <a class='employee'>Bethany Mole: (1:54 PM 12/8/05)<br>
+                            </a><a class='message'> This can be a message containing 
+                            a request for preauthorization of trade.</a><br /><A name='m'>
+                            <hr size="1" color="#999999">
+                            <a class='system'>System Message: (1:54 PM 12/8/05)<br>
+                            </a><a class='message'>This test message is sent by a 
+                            message generator for demo.</a><br /><A name='m'>
+                            <hr size="1" color="#999999">
+                            <a class='employee'>Margaret Maples: (1:54 PM 12/8/05)<br>
+                            </a><a class='message'> This is a sample message for demonstations 
+                            purposes.</a><br /><A name='m'>
+                            <hr size="1" color="#999999"> <form name="xtest" action="/demo/needham/main.php">
+                            </form>
+</body>
+<!-- <iframe src="status_app/frame.php" width="219" height="400"></iframe> --></div> </td> </tr> </table> </td> </tr> </table>	</td></tr> </table> </td> 
+<!-- Third Column End --></tr>
+</table> 
+<!-- END TABLE 2 --></td>
+</tr> </table> 
+<!-- END TABLE 1 --></td>
+</tr> 
+<tr valign="bottom"> 
+  <td> <table width="100%" height="20">
+      <tr valign="top"> 
+        <td align="center" valign="bottom"> <table width="100%" height="20" border="0" cellpadding="0" cellspacing="0">
+            <tr valign="top"> 
+              <td align="center" valign="bottom"> <hr align="center" size="1" color="#CCCCCC" noshade> 
+                <center>
+                  <a class="centersys">&copy; 2002-2004 </a> <a class="centersys" href="http://www.centersysgroup.com" target="_blank">CenterSys 
+                  Group, Inc.</a></center> </td>
+            </tr>
+          </table> </td>
+      </tr>
+    </table> </td>
+</tr></table>
+</body> 
+</html>

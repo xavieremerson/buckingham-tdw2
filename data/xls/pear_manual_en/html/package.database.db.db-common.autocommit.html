@@ -1,0 +1,438 @@
+<HTML
+><HEAD
+><TITLE
+>DB_common::autoCommit()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="DB_common::affectedRows()"
+HREF="package.database.db.db-common.affectedrows.html"><LINK
+REL="NEXT"
+TITLE="DB_common::autoExecute()"
+HREF="package.database.db.db-common.autoexecute.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.affectedrows.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.autoexecute.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.db-common.autocommit">DB_common::autoCommit()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN21979"
+></A
+>DB_common::autoCommit()&nbsp;--&nbsp;Turns auto-commit on or off</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN21982"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN21983"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>autoCommit</B
+></CODE
+> ([boolean $onoff = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.autocommit.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Turns auto-commit on or off.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.autocommit.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>boolean
+      <TT
+CLASS="parameter"
+><I
+>$onoff</I
+></TT
+></DT
+><DD
+><P
+>&#13;       <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> to turn auto-commit on.  <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> to turn auto-commit off.
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.autocommit.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   integer - <A
+HREF="package.database.db.db-error.html"
+><TT
+CLASS="constant"
+><B
+>DB_OK</B
+></TT
+></A
+> on success
+   or a <A
+HREF="package.database.db.db-error.html"
+><B
+CLASS="classname"
+>DB_Error</B
+></A
+> object on failure
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.autocommit.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <DIV
+CLASS="table"
+><A
+NAME="AEN22017"><P
+><B
+>Table 33-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>every other error code</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Database specific error
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check the database related section of
+        <A
+HREF="http://www.php.net/manual/"
+TARGET="_top"
+>PHP-Manual</A
+>
+        to detect the reason for this error.
+       </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.autocommit.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+>&#13;   When using MySQL as your DBMS, transactions can only be used when the
+   tables in question use the InnoDB format.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.autocommit.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN22039"><P
+><B
+>Example 33-1. Using <B
+CLASS="function"
+>autocommit()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+$db =&#38; DB::connect('ibase(firebird)://user:pw@localhost/path/file');
+
+$db-&#62;autoCommit(false);
+
+$db-&#62;query('CREATE TABLE blah (a integer)');
+$db-&#62;query('CREATE TABLE blue (b integer)');
+$db-&#62;commit();
+
+$db-&#62;query('INSERT INTO blah (a) VALUES (11)');
+$db-&#62;query('INSERT INTO blah (a) VALUES (12)');
+
+$res1 =&#38; $db-&#62;query('SELECT a FROM blah');
+if (DB::isError($res1)) {
+    echo $res1-&#62;getMessage() . "\n";
+}
+$i = 1;
+while ($res1-&#62;fetchInto($row, DB_FETCHMODE_ORDERED)) {
+    echo "fetch data $row[0]\n";
+    echo "insert number $i...\n";
+    $res2 =&#38; $db-&#62;query("INSERT INTO blue (b) VALUES ($i)");
+    if (DB::isError($res2)) {
+        echo $res2-&#62;getMessage() . "\n";
+    }
+    $i++;
+}
+$res1-&#62;free();
+
+$db-&#62;query('DROP TABLE blah');
+$db-&#62;query('DROP TABLE blue');
+$db-&#62;commit();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.autocommit.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="package.database.db.db-common.commit.html"
+>&#13;    <B
+CLASS="function"
+>commit()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-common.rollback.html"
+>&#13;    <B
+CLASS="function"
+>rollback()</B
+></A
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.affectedrows.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.autoexecute.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>DB_common::affectedRows()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>DB_common::autoExecute()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

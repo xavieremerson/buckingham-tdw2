@@ -1,0 +1,543 @@
+<HTML
+><HEAD
+><TITLE
+>Format::setNumFormat</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Spreadsheet_Excel_Writer"
+HREF="package.fileformats.spreadsheet-excel-writer.html"><LINK
+REL="PREVIOUS"
+TITLE="Format::setTextRotation"
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.settextrotation.html"><LINK
+REL="NEXT"
+TITLE="Format::setStrikeOut"
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setstrikeout.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.settextrotation.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setstrikeout.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setnumformat">Format::setNumFormat</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN44995"
+></A
+>Format::setNumFormat&nbsp;--&nbsp;Sets the numeric format.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN44998"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN44999"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once "Spreadsheet/Excel/Writer.php";</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>Format::setNumFormat</B
+></CODE
+> (integer $num_format)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setnumformat.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Sets the numeric format.
+     It can be date, time, currency, etc...
+	 The following table lists possible values for <TT
+CLASS="parameter"
+><I
+>$num_format</I
+></TT
+>
+	 and the corresponding types that a numeric format expects as arguments.
+	 <DIV
+CLASS="table"
+><A
+NAME="AEN45010"><P
+><B
+>Table 37-1. Numeric formats and types </B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>0</TD
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Decimal</TD
+><TD
+WIDTH="100%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The amount of zeros specifies the amount of digits that will be shown</TD
+></TR
+><TR
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>0.00</TD
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Decimal</TD
+><TD
+WIDTH="100%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The amount of zeros after the decimal dot specifies the amount of decimal digits that will be shown</TD
+></TR
+><TR
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>#.##</TD
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Decimal</TD
+><TD
+WIDTH="100%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The amount of sharp signs after the decimal dot specifies the maximum amount of decimal digits that will be shown</TD
+></TR
+><TR
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>0%</TD
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Percent</TD
+><TD
+WIDTH="100%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The amount of zeros specifies the amount of digits that will be shown.</TD
+></TR
+><TR
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>0.000%</TD
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Percent</TD
+><TD
+WIDTH="100%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The amount of zeros after the decimal dot specifies the amount of decimal digits that will be shown.</TD
+></TR
+><TR
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>$#.#;[Red]($#.#)</TD
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Currency</TD
+><TD
+WIDTH="100%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Zeros and sharp signs have the same meaning as in other formats. </TD
+></TR
+><TR
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>??/??</TD
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Fraction</TD
+><TD
+WIDTH="100%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The amount of question signs in the denominator determines its precision
+		 (maximum amount of digits in the denominator).</TD
+></TR
+><TR
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+># ??/??</TD
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Fraction</TD
+><TD
+WIDTH="100%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>A fraction with an integer part. Zeros and sharp signs are used for defining the integer part,
+		 and they have the same meaning as in other formats.</TD
+></TR
+><TR
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>0.00E+#</TD
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Scientific</TD
+><TD
+WIDTH="100%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>In scientific notation base and exponent are formated according to the same rules applied to decimals.
+		 For scientific notation zeros and sharp signs appear to be equivalent.</TD
+></TR
+><TR
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>D-MMM-YY</TD
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Date</TD
+><TD
+WIDTH="100%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>A date represented in the given notation. Month can be a one or two digits month, or a three letter month.
+		 Year can have 2 or 4 digits. The argument to be formated as a date is considered to be the number of days since
+		 December 30 1899 (Excel's day zero). For dates preceding day zero, negative numbers can be used.</TD
+></TR
+><TR
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>D/M/YYYY h:mm:ss</TD
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Date/Time</TD
+><TD
+WIDTH="100%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>A date represented in the given notation. The argument to be formated as a date is considered to be the
+		 number of days since Excel's day zero.</TD
+></TR
+><TR
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>h:mm:ss AM/PM</TD
+><TD
+WIDTH="67"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Time</TD
+><TD
+WIDTH="100%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>A time represented in the given notation. Be careful, the argument to be formated as a time has to be given in days.
+		 For example an argument of 0.5 would be presented as '12:00:00 PM'.</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+	</P
+><P
+>&#13;	 The information here presented comes from OpenOffice.org's Documentation of the Microsoft Excel File Format (<A
+HREF="http://sc.openoffice.org/excelfileformat.pdf"
+TARGET="_top"
+>http://sc.openoffice.org/excelfileformat.pdf</A
+>).
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setnumformat.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>integer $num_format</I
+></TT
+> -
+        The numeric format.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setnumformat.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+></P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setnumformat.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN45080"><P
+><B
+>Example 37-1. Using <B
+CLASS="function"
+>setNumFormat()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Spreadsheet/Excel/Writer.php';
+
+$workbook = new Spreadsheet_Excel_Writer();
+$worksheet =&#38; $workbook-&#62;addWorksheet();
+
+// We'll show dates with a three letter month and four digit year format
+$date_format =&#38; $workbook-&#62;addFormat();
+$date_format-&#62;setNumFormat('D-MMM-YYYY');
+
+// number of seconds in a day
+$seconds_in_a_day = 86400;
+// Unix timestamp to Excel date difference in seconds
+$ut_to_ed_diff = $seconds_in_a_day * 25569;
+
+// show Excel's day zero date
+$worksheet-&#62;write(0, 0, "Excel's day zero");
+$worksheet-&#62;write(0, 1, 0, $date_format);
+
+// show today's date
+$now = time();
+$worksheet-&#62;write(1, 0, "Today's date:");
+$worksheet-&#62;write(1, 1, ($now + $ut_to_ed_diff) / $seconds_in_a_day, $date_format);
+
+$workbook-&#62;send('num_formatting.xls');
+$workbook-&#62;close();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.settextrotation.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setstrikeout.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Format::setTextRotation</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Format::setStrikeOut</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

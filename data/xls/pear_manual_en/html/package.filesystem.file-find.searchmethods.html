@@ -1,0 +1,391 @@
+<HTML
+><HEAD
+><TITLE
+>Search methods</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File_Find"
+HREF="package.filesystem.file-find.html"><LINK
+REL="PREVIOUS"
+TITLE="File_Find"
+HREF="package.filesystem.file-find.html"><LINK
+REL="NEXT"
+TITLE="File_Find::glob()"
+HREF="package.filesystem.file-find.glob.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-find.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-find.glob.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.filesystem.file-find.searchmethods">Search methods</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN47261"
+></A
+>Search methods&nbsp;--&nbsp;
+      Types of methods what can be used in search functions
+    </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN47264"
+></A
+><H2
+>Search methods and their patterns</H2
+><P
+>&#13;       All search functions use <TT
+CLASS="parameter"
+><I
+>$pattern</I
+></TT
+> parameter to
+       specify match for filenames. Format of the <TT
+CLASS="parameter"
+><I
+>$pattern</I
+></TT
+>
+       depends on value of another parameter - <TT
+CLASS="parameter"
+><I
+>$pattern_type</I
+></TT
+>.
+
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;       If value of <TT
+CLASS="parameter"
+><I
+>$pattern_type</I
+></TT
+> is 
+       <TT
+CLASS="parameter"
+><I
+>'php'</I
+></TT
+>, then the pattern is
+       case-sensitive string which follows the conventions of the
+       ereg_*-functions.
+            </P
+></LI
+><LI
+><P
+>&#13;       In case of <TT
+CLASS="parameter"
+><I
+>'perl'</I
+></TT
+> pattern type it must follow the 
+       preg_*-functions pattern format. It is recommended to use 
+       <TT
+CLASS="parameter"
+><I
+>'perl'</I
+></TT
+>, because it is faster. 
+            </P
+></LI
+><LI
+><P
+>&#13;       The last <TT
+CLASS="parameter"
+><I
+>'shell'</I
+></TT
+> mode is most simple and should
+       be familiar to everybody with basic computer skills. It is as easy as
+       windows approach, but has some additional concepts borrowed from the FAR
+       Manager software. The text of the following chapter is copy/paste from it's
+       documentation.
+            </P
+></LI
+></UL
+>
+      </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN47282"
+></A
+><H2
+>'shell' search mode file masks</H2
+><P
+>&#13;        File masks are used to select single files and folders or groups
+of them. Masks may contain common valid file name symbols, wildcards
+('*' and '?') and special expressions:
+
+        <P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>*</I
+></SPAN
+></TD
+><TD
+>any number of characters;</TD
+></TR
+><TR
+><TD
+><SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>?</I
+></SPAN
+></TD
+><TD
+>any single character;</TD
+></TR
+><TR
+><TD
+><SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>[c,x-z]</I
+></SPAN
+></TD
+><TD
+>any character enclosed by the brackets. Both separate
+                  characters and character intervals are allowed.
+          </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+
+    For example, files ftp.exe, fc.exe and f.ext may be selected
+using mask f*.ex?, mask *co* will select both color.ini and edit.com,
+mask [c-f,t]*.txt can select config.txt, demo.txt, faq.txt and tips.txt.
+      </P
+><P
+>&#13;    You may enter several file masks separated with commas or semicolons.
+For example, to select all the documents, you can specify *.doc,*.txt,*.wri
+in search pattern.
+      </P
+><P
+>&#13;    You may use <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>exclude masks</I
+></SPAN
+>. An exclude mask is one
+or multiple file masks that must not be matched by the files matching the
+mask. The exclude mask is delimited from the main mask by the character
+'<SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>|</I
+></SPAN
+>'.
+      </P
+><P
+>&#13;        Usage examples of exclude masks:
+        <P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>*.cpp</P
+><P
+>&#13;    All files with the extension <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>cpp</I
+></SPAN
+>.
+           </P
+></LI
+><LI
+><P
+>*.*|*.bak,*.tmp</P
+><P
+>&#13;    All files except for the files with extensions 
+    <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>bak</I
+></SPAN
+> and <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>tmp</I
+></SPAN
+>.
+           </P
+></LI
+><LI
+><P
+>*.*|</P
+><P
+>&#13;    This mask has an error - the character | is entered, but the
+    mask itself is not specified.
+           </P
+></LI
+><LI
+><P
+>*.*|*.bak|*.tmp</P
+><P
+>&#13;    Also an error - the character | may not be contained in the mask
+    more than once.
+           </P
+></LI
+><LI
+><P
+>|*.bak</P
+><P
+>&#13;    The same as *|*.bak
+           </P
+></LI
+></OL
+>
+
+    The comma (or semicolon) is used for separating file masks from each
+other, and the '|' character separates include masks from exclude masks.
+      </P
+><P
+>&#13;    'shell' match mode is available from version 1.2.0 of File_Find
+      </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-find.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-find.glob.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>File_Find</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-find.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>File_Find::glob()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,33 @@
+<TD CLASS="content" VALIGN="top" WIDTH="100%" align="left"><BR>
+<br>
+
+<center>
+<form action="stocks.php" method=post>
+<table border=1>
+<tr>
+ <td><FONT FACE="tahoma, verdana, arial, helvetica, sans-serif" SIZE=1 COLOR="black"> 
+ Symbol (Separate by a space ) </td><td><input type="text" value ="<?=$symbol?>" name=symbol></td>
+</tr>
+<tr>
+ <td>
+ <input type="radio" name="typeofview" value="basic">Basic View
+ <input type="radio" name="typeofview" value="detail">Detailed View
+ 
+ 
+ </td>
+<td><FONT FACE="tahoma, verdana, arial, helvetica, sans-serif" SIZE=1 COLOR="black"><b>
+Default = basic, (if no box is selected)</td>
+</tr>
+
+<tr>
+ <td><input type="submit"></td><td><input type="reset"></td>
+</tr>
+
+
+</table> 
+</center>
+ <!-- End of Content -->
+			</TD>
+		</TR>
+	</TBODY>
+</TABLE>

@@ -1,0 +1,774 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - autoPrepare &#38; autoExecute</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="MDB2"
+HREF="package.database.mdb2.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction - Modules"
+HREF="package.database.mdb2.intro-module.html"><LINK
+REL="NEXT"
+TITLE="Introduction - Portability"
+HREF="package.database.mdb2.intro-portability.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb2.intro-module.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb2.intro-portability.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.mdb2.intro-auto">Introduction - autoPrepare &#38; autoExecute</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN31706"
+></A
+>Introduction - autoPrepare &#38; autoExecute&nbsp;--&nbsp;Automatically prepare and execute SQL statements</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb2.intro-auto.desc"
+></A
+><H2
+>Description</H2
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN31711"
+></A
+><H3
+>Purpose</H3
+><P
+>&#13;    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Extended.html#methodautoPrepare"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>autoPrepare()</B
+></A
+> and
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Extended.html#methodautoexecute"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>autoExecute()</B
+></A
+>
+     reduce the need to write boring
+     <B
+CLASS="command"
+>INSERT</B
+>, <B
+CLASS="command"
+>UPDATE</B
+>, <B
+CLASS="command"
+>DELETE</B
+>
+     or <B
+CLASS="command"
+>SELECT</B
+>
+     SQL queries which are difficult to maintain when you
+     add a field for instance. It requires the
+     <A
+HREF="package.database.mdb2.intro-module.html"
+>use</A
+> of the
+     <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Extended.html"
+TARGET="_top"
+>&#13;       Extended</A
+> module
+   </P
+><P
+>&#13;    Imagine you have a 'user' table with 3 fields
+    (id, name and country).
+    You have to write sql queries like:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>INSERT INTO table (id, name, country) VALUES (?, ?, ?)
+UPDATE table SET id=?, name=?, country=? WHERE ...</PRE
+></TD
+></TR
+></TABLE
+>
+
+    If you add a field ('birthYear' for example), you have to rewrite your
+    queries which is boring and can lead to bugs (if you forget one query for
+    instance).
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN31726"
+></A
+><H3
+>autoPrepare</H3
+><P
+>&#13;    With <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Extended.html#methodautoPrepare"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>autoPrepare()</B
+></A
+>, you don't have to write your
+    insert, update, delete or select queries. For example:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$table_name   = 'user';
+$table_fields = array('id', 'name', 'country');
+$types = array('integer', 'text', 'text');
+
+$mdb2-&#62;loadModule('Extended');
+$sth = $mdb2-&#62;extended-&#62;autoPrepare($table_name, $table_fields,
+                        MDB2_AUTOQUERY_INSERT, null, $types);
+
+if (PEAR::isError($sth)) {
+    die($sth-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+
+    In this example, <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Extended.html#methodautoPrepare"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>autoPrepare()</B
+></A
+> will build the following SQL query:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>INSERT INTO user (id, name, country) VALUES (?, ?, ?)</PRE
+></TD
+></TR
+></TABLE
+>
+
+    And then, it will call <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodprepare"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>prepare()</B
+></A
+> with it.
+   </P
+><P
+>&#13;    To add records, you have
+    to use <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Extended.html#methodexecute"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>execute()</B
+></A
+> or <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Extended.html#methodexecuteMultiple"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>executeMultiple()</B
+></A
+> like:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// ... contining from the example above...
+$table_values = array(1, 'Fabien', 'France');
+
+$res =&#38; $mdb2-&#62;execute($sth, $table_values);
+
+if (PEAR::isError($res)) {
+    die($res-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+
+    So, you don't have to write any SQL <B
+CLASS="command"
+>INSERT</B
+>
+    queries! And it works with <B
+CLASS="command"
+>UPDATE</B
+> and <B
+CLASS="command"
+>DELETE</B
+>
+    queries too. For flexibility reasons, you have only to write
+    the <B
+CLASS="command"
+>WHERE</B
+> clause of the query. For instance:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$table_name   = 'user';
+
+$mdb2-&#62;loadModule('Extended');
+$sth = $mdb2-&#62;extended-&#62;autoPrepare($table_name, null,
+                        MDB2_AUTOQUERY_DELETE, 'id = '.$mdb2-&#62;quote(1, 'integer'));
+
+if (PEAR::isError($sth)) {
+    die($sth-&#62;getMessage());
+}
+
+$res =&#38; $mdb2-&#62;execute($sth, $table_values);
+
+if (PEAR::isError($res)) {
+    die($res-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Extended.html#methodautoPrepare"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>autoPrepare()</B
+></A
+> will build the following query:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>UPDATE user SET name=?, country=? WHERE id=1</PRE
+></TD
+></TR
+></TABLE
+>
+
+    Then, it will call <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodprepare"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>prepare()</B
+></A
+> with it.
+   </P
+><P
+>&#13;    Be careful, if you don't specify any <B
+CLASS="command"
+>WHERE</B
+>
+    clause, all the records
+    of the table will be updated.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN31755"
+></A
+><H3
+>autoExecute</H3
+><P
+>&#13;    Using <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Extended.html#methodautoexecute"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>autoExecute()</B
+></A
+> is the easiest way
+    to do insert, update, delete or select queries. It is a mix of <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Extended.html#methodautoprepare"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>autoPrepare()</B
+></A
+> and <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Extended.html#methodautoprepare"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>execute()</B
+></A
+>.
+   </P
+><P
+>&#13;    You only need an associative array (key =&#62; value) where keys are fields
+    names and values are corresponding values of these fields. This is only
+    relevant for insert and update queries.
+    For instance:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$table_name = 'user';
+
+$fields_values = array(
+    'id'      =&#62; 1,
+    'name'    =&#62; 'Fabien',
+    'country' =&#62; 'France'
+);
+$types = array('integer', 'text', 'text');
+
+$mdb2-&#62;loadModule('Extended');
+$affectedRows = $mdb2-&#62;extended-&#62;autoExecute($table_name, $fields_values,
+                        MDB2_AUTOQUERY_INSERT, null, $types);
+
+if (PEAR::isError($affectedRows)) {
+    die($affectedRows-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+
+    And that's all! The following query is built and executed:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>INSERT INTO user (id, name, country)
+  VALUES (1, 'Fabien', 'France')</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    And it's the same thing for <B
+CLASS="command"
+>UPDATE</B
+> queries:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$table_name = 'user';
+
+$fields_values = array(
+    'name'    =&#62; 'Fabien',
+    'country' =&#62; 'France'
+);
+$types = array('text', 'text');
+
+$mdb2-&#62;loadModule('Extended');
+$affectedRows = $mdb2-&#62;extended-&#62;autoExecute($table_name, $fields_values,
+                        MDB2_AUTOQUERY_UPDATE, 'id = '.$mdb2-&#62;quote(1, 'integer'), $types);
+
+if (PEAR::isError($affectedRows)) {
+    die($affectedRows-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+
+    which prepares and executes the following query:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>UPDATE user SET name='Fabien', country='France'
+  WHERE id = 1</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    Be careful, if you don't specify any <B
+CLASS="command"
+>WHERE</B
+>
+    statement, all the records
+    of the table will be updated.
+   </P
+><P
+>&#13;    Here is an example for a <B
+CLASS="command"
+>DELETE</B
+> queries:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$table_name = 'user';
+
+$mdb2-&#62;loadModule('Extended');
+$affectedRows = $mdb2-&#62;extended-&#62;autoExecute($table_name, null,
+                        MDB2_AUTOQUERY_DELETE, 'id = '.$mdb2-&#62;quote(1, 'integer'));
+
+if (PEAR::isError($affectedRows)) {
+    die($affectedRows-&#62;getMessage());
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+
+    which prepares and executes the following query:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>DELETE FROM user WHERE id = 1</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    Finally an example for a <B
+CLASS="command"
+>SELECT</B
+> queries:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$table_name = 'user';
+
+// if left as a non array all fields of the table will be fetched using '*'
+// in that case this variable can be set to true, to autodiscover the types
+$result_types = array(
+    'name'    =&#62; 'text',
+    'country' =&#62; 'text'
+);
+
+$mdb2-&#62;loadModule('Extended');
+$res = $mdb2-&#62;extended-&#62;autoExecute($table_name, null,
+                        MDB2_AUTOQUERY_SELECT, 'id = '.$mdb2-&#62;quote(1, 'integer'),
+                        null, true, $result_types);
+
+if (PEAR::isError($res)) {
+    die($res-&#62;getMessage());
+}
+
+$row = $res-&#62;fetchRow();
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+
+    which prepares and executes the following query:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>SELECT name, country FROM user WHERE id = 1</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;     The values passed in <TT
+CLASS="parameter"
+><I
+>$data</I
+></TT
+> must be literals.
+     Do not submit SQL functions (for example <TT
+CLASS="literal"
+>CURDATE()</TT
+>).
+     SQL functions that should be performed at execution time need
+     to be put in the prepared statement.
+    </P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb2.intro-auto.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="package.database.mdb2.intro-module.html"
+>&#13;    <SPAN
+CLASS="QUOTE"
+>"Intro - Modules"</SPAN
+></A
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.intro-module.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.intro-portability.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction - Modules</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction - Portability</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

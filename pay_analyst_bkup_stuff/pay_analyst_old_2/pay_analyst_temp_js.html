@@ -1,0 +1,38 @@
+				//=========================================================================
+				var rc = itemid[i].split("|");
+				var crow, ccol, ctotal, currid, nextid, totalid, totalanalystid;
+				crow = parseInt(rc[0]);
+				ccol = parseInt(rc[1]);
+				ctotal = 0;
+				
+		
+				//put total for analyst.
+				id_totalanalyst = "at|"+ crow;
+				id_coltotalval = "tot|" + ccol;
+		
+				var val_analyst_total=0;
+				var id_cfat; // cfat  coltotalval for analyst total
+				for (k=1; k<(ccount+1); k++) {
+					id_cur_item = crow + "|" + k;
+					id_cfat = "tot|" + k;
+					//alert(id_cur_item + " >> " + val_analyst_total + " >> " + parseInt(document.getElementById(id_cur_item).value) / 100 + " >> " +  parseFloat(document.getElementById(id_cfat).innerHTML.replace(",","")) );
+					val_analyst_total = val_analyst_total + ( ( parseInt(document.getElementById(id_cur_item).value) / 100 ) * parseFloat(document.getElementById(id_cfat).innerHTML.replace(",","")) );
+				}
+		
+				if (isNaN(val_analyst_total)) val_analyst_total = 'Error';  //on error the previous value is preserved.
+				document.getElementById(id_totalanalyst).innerHTML  = addCommas(val_analyst_total.toFixed(2));
+		
+				cursat_id = "sat|" + crow;
+				document.getElementById(cursat_id).innerHTML  = addCommas(val_analyst_total.toFixed(2));
+				
+
+				
+		
+				//put the calc val
+				curval_id = "curnum|" + itemid[i];
+				curval_val = addCommas((( parseInt(document.getElementById(itemid[i]).value) / 100 ) * parseFloat(document.getElementById(id_coltotalval).innerHTML.replace(",",""))).toFixed(2));
+				//alert(curval_id + "..." + curval_val);
+				document.getElementById(curval_id).innerHTML  = curval_val;
+				
+
+				//=========================================================================

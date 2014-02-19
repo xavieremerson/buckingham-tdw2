@@ -1,0 +1,94 @@
+<html>
+<head>
+	<title>ActiveWidgets Grid :: Examples</title>
+	<style> body, html {margin:0px; padding: 0px; overflow: hidden;} </style>
+
+	<!-- ActiveWidgets stylesheet and scripts -->
+	<link href="../../runtime/styles/xp/aw.css" rel="stylesheet" type="text/css" ></link>
+	<script src="../../runtime/lib/aw.js"></script>
+
+	<!-- grid format -->
+	<style>
+		.aw-grid-control {height: 100%; width: 100%; border: none; font: menu;}
+
+		.aw-column-0 {width:  80px;}
+		.aw-column-1 {width: 200px; background-color: threedlightshadow;}
+		.aw-column-2 {text-align: right;}
+		.aw-column-3 {text-align: right;}
+		.aw-column-4 {text-align: right;}
+		.aw-column-5 {text-align: right;}
+
+		.aw-grid-cell {border-right: 1px solid threedshadow;}
+		.aw-grid-row {border-bottom: 1px solid threedlightshadow;}
+	</style>
+</head>
+<body>
+	<script>
+
+	//	fix for format index bug
+	AW.XML.Table.prototype.getText = function(i, j){
+		var node = this.getNode(i, j);
+		var data = node ? node.text : "";
+		var format = this._formats[i];
+		return format ? format.dataToText(data) : data;
+	};
+
+	//	create data formats
+	var string = new AW.Formats.String;
+	var number1 = new AW.Formats.Number;
+	var number2 = new AW.Formats.Number;
+	var date = new AW.Formats.Date;
+
+	//	define formatting rule for text output
+	number1.setTextFormat("#,###.##");
+	number2.setTextFormat("");
+
+	date.setTextFormat("dd mmm yy");
+	date.setDataFormat("ISO8601");
+
+	//	create ActiveWidgets data model - XML-based table
+	var table = new AW.XML.Table;
+
+	//	provide data URL
+	table.setURL("../data/companies-dataset.xml");
+
+	//	set rows XPath
+	table.setRows("//NewDataSet/*");
+
+	//	set columns XPath
+	table.setColumns(["ticker", "name", "mktcap", "sales", "employees", "timestamp"]);
+
+	//	set column formatting
+	table.setFormats([string, string, number1, number1, number2, date]);
+
+	//	start asyncronous data retrieval
+	table.request();
+
+	//	define column labels
+	var columns = ["Ticker", "Company Name", "Market Cap.", "$ Sales", "Employees", "Date"];
+
+	//	create ActiveWidgets Grid javascript object
+	var obj = new AW.UI.Grid;
+
+	obj.setColumnCount(6);
+
+	//	provide column labels
+	obj.setHeaderText(columns);
+
+	//	enable row selectors
+	obj.setSelectorVisible(true);
+	obj.setSelectorText(function(i){return this.getRowPosition(i)});
+	obj.setSelectorWidth(25);
+
+	//	set row selection
+	obj.setSelectionMode("single-row");
+
+	//	provide external model as a grid data source
+	obj.setCellModel(table);
+
+	//	write grid html to the page
+	document.write(obj);
+
+	</script>
+</body>
+</html>

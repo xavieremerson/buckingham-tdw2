@@ -1,0 +1,975 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - Results</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction - Query"
+HREF="package.database.db.intro-query.html"><LINK
+REL="NEXT"
+TITLE="Introduction - Prepare & Execute"
+HREF="package.database.db.intro-execute.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.intro-query.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.intro-execute.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.intro-fetch">Introduction - Results</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN21303"
+></A
+>Introduction - Results&nbsp;--&nbsp;Obtaining data from query results</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.intro-fetch.desc"
+></A
+><H2
+>Description</H2
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.db.intro-fetch.desc.fetch"
+></A
+><H3
+>Fetching Individual Rows From Query Results</H3
+><P
+>&#13;    The <A
+HREF="package.database.db.db-result.html"
+><B
+CLASS="classname"
+>DB_result</B
+></A
+> object provides two
+    methods for fetching data from rows of a result set:
+    <A
+HREF="package.database.db.db-result.fetchrow.html"
+>&#13;     <B
+CLASS="function"
+>fetchRow()</B
+></A
+> and
+    <A
+HREF="package.database.db.db-result.fetchinto.html"
+>&#13;     <B
+CLASS="function"
+>fetchInto()</B
+></A
+>.
+   </P
+><P
+>&#13;    <B
+CLASS="function"
+>fetchRow()</B
+> returns the row's data.
+    <B
+CLASS="function"
+>fetchInto()</B
+> assigns the row's data
+    to a variable you provide and returns <A
+HREF="package.database.db.db-error.html"
+><TT
+CLASS="constant"
+><B
+>DB_OK</B
+></TT
+></A
+>.
+   </P
+><P
+>&#13;    The result pointer gets moved to the next row each
+    time these methods are called. <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> is returned
+    when the end of the result set is reached.
+   </P
+><P
+>&#13;    <A
+HREF="package.database.db.db-error.html"
+><B
+CLASS="classname"
+>DB_Error</B
+></A
+> is returned if an error is encountered.
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21327"><P
+><B
+>Example 33-1. Fetching a result set</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Create a valid DB object named $db
+// at the beginning of your program...
+require_once 'DB.php';
+
+$db =&#38; DB::connect('pgsql://usr:pw@localhost/dbnam');
+if (PEAR::isError($db)) {
+    die($db-&#62;getMessage());
+}
+
+// Proceed with getting some data...
+$res =&#38; $db-&#62;query('SELECT * FROM mytable');
+
+// Get each row of data on each iteration until
+// there are no more rows
+while ($res-&#62;fetchInto($row)) {
+    // Assuming DB's default fetchmode is DB_FETCHMODE_ORDERED
+    echo $row[0] . "\n";
+}
+
+// Or, you could have done the same thing using fetchRow()
+// while ($row =&#38; $res-&#62;fetchRow()) {
+//     // Assuming DB's default fetchmode is DB_FETCHMODE_ORDERED
+//     echo $row[0] . "\n";
+// }
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.db.intro-fetch.desc.format"
+></A
+><H3
+>Formats of Fetched Rows</H3
+><P
+>&#13;    The data from the row of a query result can be
+    placed into one of three constructs:
+    an ordered array (with column numbers as keys),
+    an associative array (with column names as keys) or
+    an object (with column names as properties).
+   </P
+><P
+>&#13;    <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ORDERED</B
+></TT
+> (default)
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [0] =&#62; 28
+    [1] =&#62; hi
+)</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ASSOC</B
+></TT
+>
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [a] =&#62; 28
+    [b] =&#62; hi
+)</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_OBJECT</B
+></TT
+>
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>stdClass Object
+(
+    [a] =&#62; 28
+    [b] =&#62; hi
+)</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    NOTE: When a query contains the same column name more
+    than once (such as when joining tables which have
+    duplicate column names) and the fetch mode is
+    <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ASSOC</B
+></TT
+> or
+    <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_OBJECT</B
+></TT
+>,
+    the data from the last column with a given name will
+    be the one returned. There are two immediate options
+    to work around this issue:
+    <P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>&#13;      Use aliases in your query, for example
+      <TT
+CLASS="userinput"
+><B
+>People.Name AS PersonName</B
+></TT
+>
+     </TD
+></TR
+><TR
+><TD
+>&#13;      Change the fetch mode to <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ORDERED</B
+></TT
+>
+     </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+   </P
+><P
+>&#13;    TIP: If you are running into this issue, it likely
+    indicates poor planning of the database schema. Either
+    data is needlessly being duplicated or the same names are
+    being used for different kinds of data.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.db.intro-fetch.desc.set"
+></A
+><H3
+>How to Set Formats</H3
+><P
+>&#13;    You can set the fetch mode each time you call a
+    fetch method and/or you can set the default fetch
+    mode for the whole DB instance by using the
+    <A
+HREF="package.database.db.db-common.setfetchmode.html"
+>&#13;     <B
+CLASS="function"
+>setFetchMode()</B
+></A
+> method.
+
+    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21356"><P
+><B
+>Example 33-2. Determining fetch mode per call</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$res =&#38; $db-&#62;query('SELECT * FROM users');
+
+while ($res-&#62;fetchInto($row, DB_FETCHMODE_ASSOC)) {
+    echo $row['id'] . "\n";
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21359"><P
+><B
+>Example 33-3. Changing default fetch mode</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$db-&#62;setFetchMode(DB_FETCHMODE_ASSOC);
+
+$res =&#38; $db-&#62;query('SELECT * FROM users');
+
+while ($res-&#62;fetchInto($row)) {
+    echo $row['id'] . "\n";
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.db.intro-fetch.desc.number"
+></A
+><H3
+>Fetch Rows by Number</H3
+><P
+>&#13;    The PEAR DB fetch system also supports an extra parameter
+    to the fetch statement. So you can fetch rows from a result
+    by number. This is especially helpful if you only want to show
+    sets of an entire result (for example in building paginated
+    HTML lists), fetch rows in an special order, etc.
+    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21365"><P
+><B
+>Example 33-4. Fetching by number</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+
+// the row to start fetching
+$from = 50;
+
+// how many results per page
+$resPage = 10;
+
+// the last row to fetch for this page
+$to = $from + $resPage;
+
+foreach (range($from, $to) as $rowNum) {
+    if (!$res-&#62;fetchInto($row, DB_FETCHMODE_ORDERED, $rowNum)) {
+        break;
+    }
+    echo $row[0] . "\n";
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.db.intro-fetch.desc.get"
+></A
+><H3
+>Getting Entire Result Sets</H3
+><P
+>&#13;    The <A
+HREF="package.database.db.db-common.html"
+><B
+CLASS="classname"
+>DB_common</B
+></A
+> object provides several
+    methods that make data retrieval easy by combining
+    the processes of running of the query string you provide,
+    putting the returned information into a PHP data
+    structure and freeing the results. These methods include
+    <A
+HREF="package.database.db.db-common.getone.html"
+>&#13;     <B
+CLASS="function"
+>getOne()</B
+></A
+>,
+    <A
+HREF="package.database.db.db-common.getrow.html"
+>&#13;     <B
+CLASS="function"
+>getRow()</B
+></A
+>,
+    <A
+HREF="package.database.db.db-common.getcol.html"
+>&#13;     <B
+CLASS="function"
+>getCol()</B
+></A
+>,
+    <A
+HREF="package.database.db.db-common.getassoc.html"
+>&#13;     <B
+CLASS="function"
+>getAssoc()</B
+></A
+> and
+    <A
+HREF="package.database.db.db-common.getall.html"
+>&#13;     <B
+CLASS="function"
+>getAll()</B
+></A
+>.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.db.intro-fetch.desc.free"
+></A
+><H3
+>Freeing Result Sets</H3
+><P
+>&#13;    Once you finish using a result set, if your script
+    continues for a while, it's a good idea to save
+    memory by freeing the result set via
+    Use <A
+HREF="package.database.db.db-result.free.html"
+>&#13;     <B
+CLASS="function"
+>free()</B
+></A
+>.
+    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21388"><P
+><B
+>Example 33-5. Freeing</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$res =&#38; $db-&#62;query('SELECT name, address FROM clients');
+while ($res-&#62;fetchInto($row)) {
+    echo $row['name'] . ', ' . $row['address'] . "\n";
+}
+$res-&#62;free();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.db.intro-fetch.desc.more"
+></A
+><H3
+>Getting More Information From Query Results</H3
+><P
+>&#13;    With <A
+HREF="package.database.db.html"
+><B
+CLASS="classname"
+>DB</B
+></A
+> there are four ways to retrieve useful
+    information about the query result sets themselves:
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21396"><P
+><B
+>Example 33-6. 
+     <A
+HREF="package.database.db.db-result.numrows.html"
+>&#13;      <B
+CLASS="function"
+>numRows()</B
+></A
+> tells how many
+     rows are in a <B
+CLASS="command"
+>SELECT</B
+> query result
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$res =&#38; $db-&#62;query('SELECT * FROM phptest');
+echo $res-&#62;numRows();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21402"><P
+><B
+>Example 33-7. 
+     <A
+HREF="package.database.db.db-result.numcols.html"
+>&#13;      <B
+CLASS="function"
+>numCols()</B
+></A
+> tells how many
+     columns are in a <B
+CLASS="command"
+>SELECT</B
+> query result
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$res =&#38; $db-&#62;query('SELECT * FROM phptest');
+echo $res-&#62;numCols();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21408"><P
+><B
+>Example 33-8. 
+     <A
+HREF="package.database.db.db-common.affectedrows.html"
+>&#13;      <B
+CLASS="function"
+>affectedRows()</B
+></A
+> tells how many rows
+     were altered by a data change query (<B
+CLASS="command"
+>INSERT</B
+>,
+     <B
+CLASS="command"
+>UPDATE</B
+> or <B
+CLASS="command"
+>DELETE</B
+>)
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// remember that this statement won't return a result object
+$db-&#62;query('DELETE * FROM clients');
+echo 'I have deleted ' . $db-&#62;affectedRows() . ' clients';
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21416"><P
+><B
+>Example 33-9. 
+     <A
+HREF="package.database.db.db-common.tableinfo.html"
+>&#13;      <B
+CLASS="function"
+>tableInfo()</B
+></A
+> returns an associative
+     array with information about the columns in a
+     <B
+CLASS="command"
+>SELECT</B
+> query result
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$res =&#38; $db-&#62;query('SELECT * FROM phptest');
+print_r($db-&#62;tableInfo($res));
+
+// That usage works for DB 1.6.0 or later.
+// Below is the syntax for earlier versions:
+print_r($res-&#62;tableInfo());
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.db.intro-fetch.desc.error"
+></A
+><H3
+>Checking for Errors</H3
+><P
+>&#13;    Don't forget to use
+    <A
+HREF="package.database.db.db.iserror.html"
+>&#13;     <B
+CLASS="function"
+>isError()</B
+></A
+> to check
+    if your actions return a <A
+HREF="package.database.db.db-error.html"
+><B
+CLASS="classname"
+>DB_Error</B
+></A
+> object.
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.intro-query.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.intro-execute.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction - Query</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction - Prepare &#38; Execute</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

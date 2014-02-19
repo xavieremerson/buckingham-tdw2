@@ -1,0 +1,399 @@
+<HTML
+><HEAD
+><TITLE
+>System::mktemp</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="System"
+HREF="core.pear.system.html"><LINK
+REL="PREVIOUS"
+TITLE="System::&cat"
+HREF="core.pear.system.cat.html"><LINK
+REL="NEXT"
+TITLE="System::tmpdir"
+HREF="core.pear.system.tmpdir.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.pear.system.cat.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.pear.system.tmpdir.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.pear.system.mktemp">System::mktemp</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN6544"
+></A
+>System::mktemp&nbsp;--&nbsp;Create temporary files or directories</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN6547"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN6548"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once "System.php";</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>System::mktemp</B
+></CODE
+> ([string $args = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.system.mktemp.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Creates temporary files or directories. 
+     This function will remove the created files when the scripts 
+     finish its execution.     
+
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.system.mktemp.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $args</I
+></TT
+> -
+        The arguments
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>prefix</I
+></TT
+> - 
+           The string that will be prepended to the temp name
+           (defaults to <TT
+CLASS="parameter"
+><I
+>tmp</I
+></TT
+>)
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>-d</I
+></TT
+> - 
+           A temporary dir will be created instead of a file.
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>-t</I
+></TT
+> - 
+           The target dir where the temporary file or directory 
+           will be created. If this parameter is missing, by default 
+           the enviroment vars <TT
+CLASS="parameter"
+><I
+>TMP</I
+></TT
+> on 
+           Windows or <TT
+CLASS="parameter"
+><I
+>TMPDIR</I
+></TT
+> on 
+           Unix will be used. If these vars are also missing
+           <TT
+CLASS="parameter"
+><I
+>c:\windows\temp</I
+></TT
+> or 
+           <TT
+CLASS="parameter"
+><I
+>/tmp</I
+></TT
+> will be used.
+          </P
+></LI
+></UL
+>
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.system.mktemp.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>mixed</I
+></TT
+> - 
+     the full path of the created file or dir, or <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.system.mktemp.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can be called
+statically.</P
+><P
+></P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.system.mktemp.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;     <A
+HREF="http://unixhelp.ed.ac.uk/CGI/man-cgi?mktemp"
+TARGET="_top"
+><B
+CLASS="command"
+>mktemp</B
+> man page</A
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.system.mktemp.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN6598"><P
+><B
+>Example 26-1. Using <B
+CLASS="function"
+>mktemp()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$tempfile = System::mktemp("prefix");       
+$tempdir  = System::mktemp("-d prefix");
+$tempfile = System::mktemp();
+$tempfile = System::mktemp("-t /var/tmp prefix");</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.pear.system.cat.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.pear.system.tmpdir.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>System::&#38;cat</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.pear.system.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>System::tmpdir</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

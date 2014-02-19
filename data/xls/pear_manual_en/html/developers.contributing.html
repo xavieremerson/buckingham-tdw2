@@ -1,0 +1,451 @@
+<HTML
+><HEAD
+><TITLE
+>Contributing your own code</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Developer Guide"
+HREF="guide-developers.html"><LINK
+REL="PREVIOUS"
+TITLE="Chance to release your own code"
+HREF="x1789.html"><LINK
+REL="NEXT"
+TITLE="How to contribute code in practice"
+HREF="developers.contributing.howto.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="chapter"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x1789.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="developers.contributing.howto.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="chapter"
+><H1
+><A
+NAME="developers.contributing"
+>Chapter 14. Contributing your own code</A
+></H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="developers.contributing.html#developers.contributing.requirements"
+>Requirements for contributing code</A
+></DT
+><DT
+><A
+HREF="developers.contributing.howto.html"
+>How to contribute code in practice</A
+></DT
+><DT
+><A
+HREF="developers.contributing.docs.html"
+>How to document code in practice</A
+></DT
+></DL
+></DIV
+><P
+>&#13;   PEAR is driven by an <A
+HREF="http://www.opensource.org/"
+TARGET="_top"
+>open
+   source</A
+> oriented developer community. Thus there is a chance
+   for everybody to contribute code (in form of a new package or as an
+   improvement for an existing package) to the project. However PEAR
+   aims to keep the quality of the packages at a very high
+   level. Because of that there are certain requirements for
+   contributions, which are listed below.
+  </P
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="developers.contributing.requirements">Requirements for contributing code</H1
+><P
+>&#13;    We are making certain demands on both the code and the maintainers
+    of packages:
+   </P
+><P
+>&#13;    <P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>&#13;       Code must conform to the Coding Standards.
+      </P
+><P
+>&#13;       If you want to contribute your code to PEAR in form of a new
+       package or as an addition to an existing package, it has to be
+       compliant to a set of <A
+HREF="standards.html"
+>Coding
+       Standards</A
+>. There have been numerous discussions about
+       whether those standards are good or not and the decision has
+       been made that they are absolutely necessary. There is no sense
+       in discussing about this.
+      </P
+></LI
+><LI
+><P
+>&#13;       Code must be appropriately licensed.
+      </P
+><P
+>&#13;       Each package has to be licensed under an accepted OpenSource
+       license.  If you are unsure about the license, you should opt for
+       the <A
+HREF="http://www.php.net/license/"
+TARGET="_top"
+>PHP License</A
+>. The PEAR
+       Group has issued a <A
+HREF="http://pear.php.net/group/docs/20040402-la.php"
+TARGET="_top"
+>License
+       Announcement</A
+>, which provides further details concerning
+       this topic.
+      </P
+></LI
+><LI
+><P
+>&#13;       Extensible and <SPAN
+CLASS="QUOTE"
+>"forward-compatible"</SPAN
+> code.
+      </P
+><P
+>&#13;       Always keep in mind that your code should be extensible and that
+       it has to be easy to add new features in the future. If it is
+       easily predictable for you that there is no clean way to add new
+       functionality to the codebase without breaking backwards
+       compatibility, you should consider to review the code and to
+       adapt it, <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>before</I
+></SPAN
+> contributing it to PEAR.
+      </P
+><P
+>&#13;       In this context it may be helpful to become familiar with the
+       basics of object oriented programming. Eventhough PHP 4 does not
+       come with full object oriented support yet, the knowledge will
+       possibly help you in maintaining an extensible state for your
+       package code. There are numerous resources about object oriented
+       programming all around the web and you will also find tons of
+       books available for your reading pleasure. However we can can
+       recommend <A
+HREF="http://java.sun.com/docs/books/tutorial/java/concepts/"
+TARGET="_top"
+>Object-Oriented Programming
+       Concepts</A
+> on <A
+HREF="http://java.sun.com/"
+TARGET="_top"
+>Sun's Java
+       Homepage</A
+> for a quick start.
+      </P
+></LI
+><LI
+><P
+>&#13;       Documentation in an appropriate format (plain text, docbook)
+      </P
+><P
+>&#13;       Your code <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>must</I
+></SPAN
+> come with appropriate documentation in one of
+       the following formats:
+       <P
+></P
+><UL
+><LI
+><P
+>&#13;          <A
+HREF="http://www.docbook.org/"
+TARGET="_top"
+>Docbook XML</A
+>
+         </P
+></LI
+><LI
+><P
+>&#13;          Plain Text
+         </P
+></LI
+></UL
+>
+
+       If you write the documentation in Docbook XML and if the markup
+       is valid, the documentation can be easily added to the official
+       <A
+HREF="http://pear.php.net/manual/"
+TARGET="_top"
+>PEAR Manual</A
+>,
+       which you are reading right now.
+      </P
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+        As of August 2003, <A
+HREF="http://www.phpdoc.org/"
+TARGET="_top"
+>phpDocumentor</A
+>
+        is fully capable of converting in-code API documentation and external
+        tutorials into Docbook XML. PhpDocumentor version 1.2.2 or
+        greater is required.  Install with <TT
+CLASS="literal"
+>pear install
+        phpDocumentor</TT
+>. Use the XML:DocBook/peardoc2:default
+        converter on your source code to generate output.  The output
+        should be generated directly into the
+        <TT
+CLASS="literal"
+>peardoc/lang/package</TT
+> directory, where lang is
+        en, or fr, etc.
+       </P
+><P
+>&#13;        Be aware though that only shipping the API documentation does
+        not suffice! Additionally your package has to come with usage
+        examples and (even better) tutorials about its usage. More
+        information can be found in the section describing
+        <A
+HREF="developers.contributing.docs.html"
+>how to write documentation</A
+>
+       </P
+></BLOCKQUOTE
+></DIV
+></LI
+><LI
+><P
+>&#13;       Regression tests in .phpt or <A
+HREF="package.php.phpunit.html"
+>PHPUnit</A
+>
+       format
+      </P
+><P
+>&#13;       All developers have experienced the frustration of bugs.  They are a fact
+       of life in programming, but fortunately there are a few systems that can
+       be used to catch them, kill them, and prevent their return.  Regression
+       tests should be included with every stable release, so that users can
+       run them if a bug occurs to help you debug the package.  Examples of
+       .phpt regression tests can be found as part of the PFC
+       <A
+HREF="package.database.db.html"
+>DB</A
+> package.  For examples of
+       PHPUnit tests, see the <A
+HREF="package.authentication.auth.html"
+>Auth</A
+>
+       package.
+      </P
+></LI
+><LI
+><P
+>&#13;       The contributor (<SPAN
+CLASS="QUOTE"
+>"you"</SPAN
+>) must be willing to provide support
+       for the package and must be willing to release future versions that at
+       the very least fix bugs.
+      </P
+><P
+>&#13;       If you are not willing to maintain your code over a long period
+       of time, it makes little sense to contribute it. PEAR is the
+       standard repository of PHP packages, and this comes with great
+       responsibility.  Maintaining means more than just providing
+       support via the various <A
+HREF="http://pear.php.net/support/"
+TARGET="_top"
+>mailing
+       lists</A
+>:
+      </P
+><P
+>&#13;       You must be willing to not only fix bugs, but also integrate useful
+       enhancements contributed by users of your packages, if they fit the
+       design specifications of your package.  You should expect to release
+       new versions of your package regularly with bug fixes.  If you will be
+       unable to maintain your package for an extended period of time, it is
+       expected that you will announce this to the PEAR developer mailing list,
+       and assign another temporary lead maintainer or publicly document the fact
+       that your package is temporarily unmaintained, and the approximate date
+       that users can expect to receive support and bug fixes, if possible.
+      </P
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;        Code can be removed from PEAR if the lead maintainers
+        are not willing to maintain the code anymore and if there
+        is no other person that is willing to take over the
+        maintainership.
+       </P
+></TD
+></TR
+></TABLE
+></DIV
+></LI
+></OL
+>
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x1789.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="developers.contributing.howto.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Chance to release your own code</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="guide-developers.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>How to contribute code in practice</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

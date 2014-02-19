@@ -1,0 +1,227 @@
+<HTML
+><HEAD
+><TITLE
+>Request headers</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTTP_Request"
+HREF="package.http.http-request.html"><LINK
+REL="PREVIOUS"
+TITLE="File uploads"
+HREF="package.http.http-request.file-upload.html"><LINK
+REL="NEXT"
+TITLE="Proxy Authorization"
+HREF="package.http.http-request.proxy-auth.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.http.http-request.file-upload.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.http.http-request.proxy-auth.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.http.http-request.headers">Request headers</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN75669"
+></A
+>Request headers&nbsp;--&nbsp;
+   Adding additional headers to the HTTP request.
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-request.headers.usage"
+></A
+><H2
+>How to add request headeres</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN75674"><P
+><B
+>Example 42-1. Adding a custom request header</B
+></P
+><P
+>&#13;    In this example a HTTP header <TT
+CLASS="literal"
+>X-PHP-Version</TT
+> is
+    added to the HTTP request. The value of this header is the version
+    string of the PHP interpreter that is running the instance of
+    <B
+CLASS="classname"
+>HTTP_Request</B
+>.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "HTTP/Request.php";
+
+$req =&#38; new HTTP_Request("http://example.com/");
+$req-&#62;addHeader("X-PHP-Version", phpversion());
+
+$response = $req-&#62;sendRequest();
+
+if (PEAR::isError($response)) {
+    echo $response-&#62;getMessage();
+} else {
+    echo $req-&#62;getResponseBody();
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   Headers that have been added to the
+   <B
+CLASS="classname"
+>HTTP_Request</B
+> object can be removed with the
+   method <B
+CLASS="function"
+>removeHeader()</B
+>, before
+   <B
+CLASS="function"
+>sendRequest()</B
+> has been called.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.http.http-request.file-upload.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.http.http-request.proxy-auth.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>File uploads</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.http.http-request.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Proxy Authorization</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

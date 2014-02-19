@@ -1,0 +1,389 @@
+<HTML
+><HEAD
+><TITLE
+>Config_Container::toArray</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Config"
+HREF="package.configuration.config.html"><LINK
+REL="PREVIOUS"
+TITLE="Config_Container::setType"
+HREF="package.configuration.config.config-container.settype.html"><LINK
+REL="NEXT"
+TITLE="Config_Container::toString"
+HREF="package.configuration.config.config-container.tostring.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.configuration.config.config-container.settype.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.configuration.config.config-container.tostring.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.configuration.config.config-container.toarray"><B
+CLASS="function"
+>Config_Container::toArray()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN20432"
+></A
+><B
+CLASS="function"
+>Config_Container::toArray()</B
+>&nbsp;--&nbsp;Return key/value pair array of container and its children</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN20436"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN20437"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Config/Container.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>Config_Container::toArray</B
+></CODE
+> (void)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.toarray.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      This method returns an array representation of the 
+      Config tree. The format is 
+      <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$section[directive][index] = value</PRE
+></TD
+></TR
+></TABLE
+>
+      If the container has attributes, it will use <TT
+CLASS="parameter"
+><I
+>'@'</I
+></TT
+> as key 
+      for attributes and <TT
+CLASS="parameter"
+><I
+>'#'</I
+></TT
+> for values. 
+      index is here because multiple directives and sections can have the same name, 
+      the <B
+CLASS="function"
+>toArray()</B
+> method takes care of that.
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.toarray.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>array</I
+></TT
+> - an array representation of 
+     the <B
+CLASS="classname"
+>Config_Container</B
+> tree
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.toarray.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.toarray.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN20460"><P
+><B
+>Example 31-1. Using <B
+CLASS="function"
+>toArray()()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$attributes = array('id' =&#62; 'db', 'language' =&#62; 'en');
+     $section =&#38; new Config_Container('section', 'main', null, $attributes);
+     $section-&#62;createDirective('authentication', 'one', array('type' =&#62; 'mysql'));
+     $section-&#62;createDirective('authentication', 'two', array('type' =&#62; 'oracle'));
+     $section-&#62;createDirective('permission', 'group');
+     var_dump($section-&#62;toArray());</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN20464"><P
+><B
+>Example 31-2. Resulting array with attributes and directives with same name or not</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>array(1) {
+  ["main"]=&#62;
+  array(3) {
+    ["@"]=&#62;
+    array(2) {
+      ["id"]=&#62;
+      string(2) "db"
+      ["language"]=&#62;
+      string(2) "en"
+    }
+    ["authentication"]=&#62;
+    array(2) {
+      [0]=&#62;
+      array(2) {
+        ["#"]=&#62;
+        string(3) "one"
+        ["@"]=&#62;
+        array(1) {
+          ["type"]=&#62;
+          string(5) "mysql"
+        }
+      }
+      [1]=&#62;
+      array(2) {
+        ["#"]=&#62;
+        string(3) "two"
+        ["@"]=&#62;
+        array(1) {
+          ["type"]=&#62;
+          string(6) "oracle"
+        }
+      }
+    }
+    ["permission"]=&#62;
+    string(5) "group"
+  }
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.configuration.config.config-container.settype.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.configuration.config.config-container.tostring.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>Config_Container::setType()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.configuration.config.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Config_Container::toString()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

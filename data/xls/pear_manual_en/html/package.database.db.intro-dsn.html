@@ -1,0 +1,713 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - DSN</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="NEXT"
+TITLE="Introduction - Connect"
+HREF="package.database.db.intro-connect.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.intro-connect.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.intro-dsn">Introduction - DSN</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN21134"
+></A
+>Introduction - DSN&nbsp;--&nbsp;The Data Source Name</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.intro-dsn.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   To connect to a database through PEAR::DB, you have to create a
+   valid <SPAN
+CLASS="acronym"
+>DSN - data source name</SPAN
+>. This DSN
+   consists in the following parts:
+  </P
+><P
+>&#13;   <P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>&#13;     <TT
+CLASS="varname"
+>phptype</TT
+>:
+     Database backend used in PHP (i.e. <TT
+CLASS="literal"
+>mysql</TT
+>
+     , <TT
+CLASS="literal"
+>odbc</TT
+> etc.)
+    </TD
+></TR
+><TR
+><TD
+>&#13;     <TT
+CLASS="varname"
+>dbsyntax</TT
+>:
+     Database used with regards to SQL syntax etc. When using ODBC as the
+     <TT
+CLASS="varname"
+>phptype</TT
+>, set this to the DBMS type the ODBC
+     driver is connecting to. Examples: <TT
+CLASS="literal"
+>access</TT
+>,
+     <TT
+CLASS="literal"
+>db2</TT
+>, <TT
+CLASS="literal"
+>mssql</TT
+>,
+     <TT
+CLASS="literal"
+>navision</TT
+>, <TT
+CLASS="literal"
+>solid</TT
+>, etc.
+    </TD
+></TR
+><TR
+><TD
+>&#13;     <TT
+CLASS="varname"
+>protocol</TT
+>:
+     Communication protocol to use ( i.e. <TT
+CLASS="literal"
+>tcp</TT
+>,
+     <TT
+CLASS="literal"
+>unix</TT
+> etc.)
+    </TD
+></TR
+><TR
+><TD
+>&#13;     <TT
+CLASS="varname"
+>hostspec</TT
+>:
+     Host specification (<TT
+CLASS="literal"
+>hostname[:port]</TT
+>)
+    </TD
+></TR
+><TR
+><TD
+>&#13;     <TT
+CLASS="varname"
+>database</TT
+>:
+     Database to use on the DBMS server
+    </TD
+></TR
+><TR
+><TD
+>&#13;     <TT
+CLASS="varname"
+>username</TT
+>:
+     User name for login
+    </TD
+></TR
+><TR
+><TD
+>&#13;     <TT
+CLASS="varname"
+>password</TT
+>:
+     Password for login
+    </TD
+></TR
+><TR
+><TD
+>&#13;     <TT
+CLASS="varname"
+>proto_opts</TT
+>:
+     Maybe used with <TT
+CLASS="varname"
+>protocol</TT
+>
+    </TD
+></TR
+><TR
+><TD
+>&#13;     <TT
+CLASS="varname"
+>option</TT
+>:
+     Additional connection options in URI query string format.
+     options get separated by &#38;
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+  </P
+><P
+>&#13;   The format of the supplied DSN is in its fullest form:
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="url"
+>phptype(dbsyntax)://username:password@protocol+hostspec/database?option=value</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><P
+>&#13;   Most variations are allowed:
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="url"
+>phptype://username:password@protocol+hostspec:110//usr/db_file.db
+phptype://username:password@hostspec/database
+phptype://username:password@hostspec
+phptype://username@hostspec
+phptype://hostspec/database
+phptype://hostspec
+phptype:///database
+phptype:///database?option=value&#38;anotheroption=anothervalue
+phptype(dbsyntax)
+phptype</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><P
+>&#13;   The currently supported database backends are:
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="configure"
+>dbase  -&#62; dBase
+fbsql  -&#62; FrontBase (functional since DB 1.7.0)
+ibase  -&#62; InterBase (functional since DB 1.7.0)
+ifx    -&#62; Informix
+msql   -&#62; Mini SQL (functional since DB 1.7.0)
+mssql  -&#62; Microsoft SQL Server (NOT for Sybase. Compile PHP --with-mssql)
+mysql  -&#62; MySQL (for MySQL &#60;= 4.0)
+mysqli -&#62; MySQL (for MySQL &#62;= 4.1) (requires PHP 5) (since DB 1.6.3)
+oci8   -&#62; Oracle 7/8/9
+odbc   -&#62; ODBC (Open Database Connectivity)
+pgsql  -&#62; PostgreSQL
+sqlite -&#62; SQLite
+sybase -&#62; Sybase</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><P
+>&#13;   With an up-to-date version of <A
+HREF="package.database.db.html"
+><B
+CLASS="classname"
+>DB</B
+></A
+>, you can use a
+   second DSN format
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="url"
+>phptype(syntax)://user:pass@protocol(proto_opts)/database</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><P
+>&#13;   If your <TT
+CLASS="varname"
+>database</TT
+>, <TT
+CLASS="varname"
+>option</TT
+> values,
+   <TT
+CLASS="varname"
+>username</TT
+> or <TT
+CLASS="varname"
+>password</TT
+>
+   contain characters used to delineate DSN parts, you
+   can escape them via URI hex encodings:
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="url"
+>: = %3a   / = %2f   @ = %40
++ = %2b   ( = %28   ) = %29
+? = %3f   = = %3d   &#38; = %26</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;    Please note, that some features may be not supported by all
+    database backends. Please refer to the PEAR DB extensions
+    status document located at:
+    <TT
+CLASS="filename"
+><TT
+CLASS="replaceable"
+><I
+>/pear/base/dir</I
+></TT
+>/DB/doc/STATUS</TT
+>
+    to get a detailed list about what features are supported by which
+    backend.
+   </P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.intro-dsn.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21195"><P
+><B
+>Example 33-1. Connect to database through a socket</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="url"
+>mysql://user@unix(/path/to/socket)/pear</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21198"><P
+><B
+>Example 33-2. Connect to database on a non standard port</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="url"
+>pgsql://user:pass@tcp(localhost:5555)/pear</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21201"><P
+><B
+>Example 33-3. Connect to SQLite on a Unix machine using options</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="url"
+>sqlite:////full/unix/path/to/file.db?mode=0666</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21204"><P
+><B
+>Example 33-4. Connect to SQLite on a Windows machine using options</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="url"
+>sqlite:///c:/full/windows/path/to/file.db?mode=0666</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21207"><P
+><B
+>Example 33-5. Connect to MySQLi using SSL</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="url"
+>mysqli://user:pass@localhost/pear?key=client-key.pem&#38;cert=client-cert.pem</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21210"><P
+><B
+>Example 33-6. Connecting to MS Access sometimes requires <TT
+CLASS="literal"
+>admin</TT
+> as the user name</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="url"
+>odbc(access)://admin@/datasourcename</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21214"><P
+><B
+>Example 33-7. Connecting to ODBC with a specific cursor</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="url"
+>odbc(access)://admin@/datasourcename?cursor=SQL_CUR_USE_ODBC</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.intro-connect.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>DB</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction - Connect</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

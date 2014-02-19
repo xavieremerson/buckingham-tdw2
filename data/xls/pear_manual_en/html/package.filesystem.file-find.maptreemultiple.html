@@ -1,0 +1,357 @@
+<HTML
+><HEAD
+><TITLE
+>File_Find::mapTreeMultiple()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File_Find"
+HREF="package.filesystem.file-find.html"><LINK
+REL="PREVIOUS"
+TITLE="File_Find::maptree()"
+HREF="package.filesystem.file-find.maptree.html"><LINK
+REL="NEXT"
+TITLE="File_Find::search()"
+HREF="package.filesystem.file-find.search.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-find.maptree.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-find.search.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.filesystem.file-find.maptreemultiple">File_Find::mapTreeMultiple()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN47429"
+></A
+>File_Find::mapTreeMultiple()&nbsp;--&nbsp;create a recursive view map for a directory</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN47432"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN47433"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'File/Find.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array
+     <B
+CLASS="function"
+>&#38;File_Find::mapTreeMultiple</B
+></CODE
+> (string $directory [, integer $maxrecursion = 0 [, integer $count = 0]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-find.maptreemultiple.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Map the directory tree given by the 
+     <TT
+CLASS="parameter"
+><I
+>directory_path</I
+></TT
+> parameter. 
+     Depending on <TT
+CLASS="parameter"
+><I
+>maxrecursion</I
+></TT
+> you get the
+     content of the directory and the content of the subdirectories 
+     too.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-find.maptreemultiple.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;    <P
+></P
+><UL
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>string $directory</I
+></TT
+> - contains the directory
+       path that you want to map
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>integer $maxrecursion</I
+></TT
+> - defines the
+       deep of recursive mapping of subdirectories
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>integer $count</I
+></TT
+> - can be ignored - 
+       internal parameter to track recursion level
+      </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-find.maptreemultiple.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>array</I
+></TT
+> - 
+     a multidimensional array containing all subdirectories
+     and their files     
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-find.maptreemultiple.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-find.maptreemultiple.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN47473"><P
+><B
+>Example 38-1. Get the content of a directory including the content 
+      of subdirectories</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>include "File/Find.php";
+
+$file = File_Find::mapTreemultiple('/usr/', 1);
+
+print_r($file);</PRE
+></TD
+></TR
+></TABLE
+><P
+>The above example will output something similar to:</P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+   [0] =&#62; file1.tmp
+   [1] =&#62; file2.tmp
+   ['bin'] =&#62; Array
+      (
+         [0] =&#62; readme.txt
+      )
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-find.maptree.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-find.search.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>File_Find::maptree()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-find.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>File_Find::search()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

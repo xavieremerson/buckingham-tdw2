@@ -1,0 +1,287 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR_Autoloader::addAutoload</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR_Autoload"
+HREF="core.ppm.html#core.ppm.pear-autoloader"><LINK
+REL="PREVIOUS"
+TITLE="PEAR_Autoloader::addAggregateObject"
+HREF="core.ppm.pear-autoloader.addaggregateobject.html"><LINK
+REL="NEXT"
+TITLE="PEAR_Autoloader::removeAggregateObject"
+HREF="core.ppm.pear-autoloader.removeaggregateobject.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-autoloader.addaggregateobject.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-autoloader.removeaggregateobject.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.ppm.pear-autoloader.addautoload"><B
+CLASS="function"
+>PEAR_Autoloader::addAutoload()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN6720"
+></A
+><B
+CLASS="function"
+>PEAR_Autoloader::addAutoload()</B
+>&nbsp;--&nbsp;Add one or more autoload entries</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN6724"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN6725"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'PEAR/autoloader.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="replaceable"
+><I
+>void</I
+></TT
+>       <B
+CLASS="function"
+>PEAR_Autoloader::addAutoload</B
+></CODE
+> (string $method, string ''[$classname = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-autoloader.addautoload.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      Add one or more autoload entries.
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-autoloader.addautoload.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+         <TT
+CLASS="parameter"
+><I
+>$method</I
+></TT
+></DT
+><DD
+><P
+>&#13;         which method to autoload
+        </P
+></DD
+><DT
+>string
+         <TT
+CLASS="parameter"
+><I
+>$classname</I
+></TT
+></DT
+><DD
+><P
+>&#13;                which class to find the method in. 
+                If the <TT
+CLASS="parameter"
+><I
+>$method</I
+></TT
+> parameter is an array, this 
+                parameter may be omitted (and will be ignored
+                if not), and the <TT
+CLASS="parameter"
+><I
+>$method</I
+></TT
+> parameter will be
+                treated as an associative array with method
+                names as keys and class names as values.
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-autoloader.addautoload.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-autoloader.addaggregateobject.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-autoloader.removeaggregateobject.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Autoloader::addAggregateObject()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.ppm.html#core.ppm.pear-autoloader"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Autoloader::removeAggregateObject()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,760 @@
+<HTML
+><HEAD
+><TITLE
+>List of available validations</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Validate_AU"
+HREF="package.validate.validate-au.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.validate.validate-au.intro.html"><LINK
+REL="NEXT"
+TITLE="Package Validate_AU Constants"
+HREF="package.validate.validate-au.constants.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.validate.validate-au.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.validate.validate-au.constants.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.validate.validate_au.validations">List of available validations</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN99578"
+></A
+>List of available validations&nbsp;--&nbsp;available validation in Validate_AU</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.validate.validate_au.validations.tfn"
+></A
+><H2
+>Validate a Australian TFN / SSN</H2
+><P
+>&#13;   Most Australian's will have a TFN (Tax File Number) however not all, it is
+   the closet equivalent we have to a Social Security Number. Note that this validation
+   routine can be accessed through both Validate_AU::tfn() and Valdiate::ssn() methods.
+  </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.validate.validate_au.validations.tfn.sample"
+></A
+><H3
+>sample</H3
+><P
+>&#13;    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+// Include the package
+require_once('Validate/AU.php');
+
+$badTFN = '23 456 782';
+$result = Validate_AU::tfn($badTFN);
+echo 'Test ' . $badTFN .' : &#60;br /&#62;';
+var_export($result);
+
+echo '&#60;br /&#62;&#60;br /&#62;';
+$goodTFN = '123 456 782';
+$result = Validate_AU::tfn($goodTFN);
+echo 'Test ' . $goodNationalId .' : &#60;br /&#62;';
+var_export($result);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    Output :
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="computeroutput"
+>&#13;Test 23 456 782 :
+false
+
+Test 123 456 782 :
+true
+     </TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.validate.validate_au.validations.postcode"
+></A
+><H2
+>Validate a Australian postcode</H2
+><P
+>Australian post code are 4 digit formed.</P
+><P
+>First parameter is the post code to validate.</P
+><P
+>&#13;   An optional parameter for activate strong
+   checks using a list of postcodes.
+  </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.validate.validate_au.validations.postcode.sample"
+></A
+><H3
+>sample</H3
+><P
+>&#13;    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+// Include the package
+require_once('Validate/AU.php');
+
+$badPostCode = 'ABCD';
+$result = Validate_AU::postalCode($badPostCode);
+echo 'Test ' . $badPostCode .' : &#60;br /&#62;';
+var_export($result);
+
+echo '&#60;br /&#62;&#60;br /&#62;';
+$goodPostCode = '3000';
+$result = Validate_AU::postalCode($goodPostCode);
+echo 'Test ' . $goodPostCode .' : &#60;br /&#62;';
+var_export($result);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    Output :
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="computeroutput"
+>&#13;Test ABCD :
+false
+
+Test 3000 :
+true
+     </TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.validate.validate_au.validations.postcode.sample.strong"
+></A
+><H3
+>sample using strong parameter</H3
+><P
+>&#13;    1234 appears to be a valid 4 digit postcode, however it does not appear in the
+    official list.
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+// Include the package
+require_once('Validate/AU.php');
+
+$badPostCode = '1234';
+$goodPostCode = '7930';
+
+$result = Validate_AU::postalCode($badPostCode);
+echo 'Test ' . $badPostCode .' : &#60;br /&#62;';
+var_export($result);
+
+$result = Validate_AU::postalCode($badPostCode, false);
+echo '&#60;br /&#62;&#60;br /&#62;Test ' . $badPostCode .' : &#60;br /&#62;';
+var_export($result);
+
+$result = Validate_AU::postalCode($badPostCode, true);
+echo '&#60;br /&#62;&#60;br /&#62;Test ' . $badPostCode .' : &#60;br /&#62;';
+var_export($result);
+
+$result = Validate_AU::postalCode($goodPostCode, true);
+echo '&#60;br /&#62;&#60;br /&#62;Test ' . $goodPostCode .' : &#60;br /&#62;';
+var_export($result);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    Output :
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="computeroutput"
+>&#13;Test 1234 :
+true
+
+Test 1234 :
+true
+
+Test 1234 :
+false
+
+Test 7930 :
+true
+     </TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.validate.validate_au.validations.abn"
+></A
+><H2
+>Validate an ABN</H2
+><P
+>Validate an Australian Business Number.</P
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.validate.validate_au.validations.abn.sample"
+></A
+><H3
+>sample</H3
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+// Include the package
+require_once('Validate/AU.php');
+
+$badABN = '00 043 145 470';
+$result = Validate_AU::abn($badABN);
+echo 'Test ' . $badRegion .' : &#60;br /&#62;';
+var_export($result);
+
+echo '&#60;br /&#62;&#60;br /&#62;';
+$goodABN = '28 043 145 470';
+$result = Validate_AU::abn($goodABN);
+echo 'Test ' . $goodRegion .' : &#60;br /&#62;';
+var_export($result);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    Output :
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="computeroutput"
+>&#13;Test 00 043 145 470 :
+false
+
+Test 28 043 145 470 :
+true
+     </TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.validate.validate_au.validations.region"
+></A
+><H2
+>Validate a Region / State</H2
+><P
+>Validates a 2/3 region (state) code.</P
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.validate.validate_au.validations.region.sample"
+></A
+><H3
+>sample</H3
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+// Include the package
+require_once('Validate/AU.php');
+
+$badRegion = 'asdf';
+$result = Validate_AU::region($badVAT);
+echo 'Test ' . $badRegion .' : &#60;br /&#62;';
+var_export($result);
+
+echo '&#60;br /&#62;&#60;br /&#62;';
+$goodRegion = 'VIC';
+$result = Validate_AU::region($goodRegion);
+echo 'Test ' . $goodRegion .' : &#60;br /&#62;';
+var_export($result);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    Output :
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="computeroutput"
+>&#13;Test asdf :
+false
+
+Test VIC :
+true
+     </TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.validate.validate_au.validations.phonenumber"
+></A
+><H2
+>Validate a phonenumber</H2
+><P
+>&#13;   Validate an Australian phone number passed as first param. Second parameter
+   can be used to specify flags that signify the type of number to be validated.
+  </P
+><P
+>&#13;   Flags can be any combination of the bitwise constants VALIDATE_AU_PHONENUMBER_* 
+   as follows:
+   <DIV
+CLASS="table"
+><A
+NAME="AEN99634"><P
+><B
+>Table 59-1. Validate_AU Phone Number Flags</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Flag</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"VALIDATE_AU_PHONENUMBER_STRICT"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        If supplied then no spaces, parenthesis or dashes (-) will be removed.
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"VALIDATE_AU_PHONENUMBER_NATIONAL"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        If supplied, then valid national numbers, both landline and mobile will
+        pass validation.
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"VALIDATE_AU_PHONENUMBER_INDIAL"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        If supplied, then valid indial (13/1300/1800/1900) numbers will pass
+        validation.
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"VALIDATE_AU_PHONENUMBER_INTERNATIONAL"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        If supplied, then valid international syntax will pass validation. EG. +61.3 9999 9999
+       </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.validate.validate_au.validations.phonenumber.sample"
+></A
+><H3
+>sample</H3
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+// Include the package
+require_once('Validate/AU.php');
+
+$nationalPhone       = '03 9999 9999';
+$nationalStrictPhone = '0399999999';
+$indialPhone         = '1300 131 121';
+$internationalSyntax = '+61.3 8779 7212';
+
+echo 'Test ' . $goodPhone .' : &#60;br /&#62;';
+$result = Validate_AU::phoneNumber($nationalPhone); // the flag VALIDATE_AU_PHONENUMBER_NATIONAL is default
+var_export($result) . '-';
+$result = Validate_AU::phoneNumber($nationalPhone, VALIDATE_AU_PHONENUMBER_NATIONAL | VALIDATE_AU_PHONENUMBER_STRICT);
+var_export($result) . '-';
+$result = Validate_AU::phoneNumber($nationalPhone, VALIDATE_AU_PHONENUMBER_INDIAL);
+var_export($result) . '-';
+$result = Validate_AU::phoneNumber($nationalPhone, VALIDATE_AU_PHONENUMBER_INTERNATIONAL);
+var_export($result) . '-';
+$result = Validate_AU::phoneNumber($nationalPhone, VALIDATE_AU_PHONENUMBER_NATIONAL | VALIDATE_AU_PHONENUMBER_INDIAL | VALIDATE_AU_PHONENUMBER_INTERNATIONAL);
+var_export($result);
+
+echo '&#60;br /&#62;&#60;br /&#62;';
+echo 'Test ' . $nationalStrictPhone .' : &#60;br /&#62;';
+$result = Validate_AU::phoneNumber($nationalStrictPhone);
+var_export($result) . '-';
+$result = Validate_AU::phoneNumber($nationalStrictPhone, VALIDATE_AU_PHONENUMBER_NATIONAL | VALIDATE_AU_PHONENUMBER_STRICT);
+var_export($result) . '-';
+$result = Validate_AU::phoneNumber($nationalStrictPhone, VALIDATE_AU_PHONENUMBER_INDIAL);
+var_export($result) . '-';
+$result = Validate_AU::phoneNumber($nationalStrictPhone, VALIDATE_AU_PHONENUMBER_INTERNATIONAL);
+var_export($result) . '-';
+$result = Validate_AU::phoneNumber($nationalStrictPhone, VALIDATE_AU_PHONENUMBER_NATIONAL | VALIDATE_AU_PHONENUMBER_INDIAL | VALIDATE_AU_PHONENUMBER_INTERNATIONAL);
+var_export($result) . '-';
+
+echo '&#60;br /&#62;&#60;br /&#62;';
+echo 'Test ' . $indialPhone .' : &#60;br /&#62;';
+$result = Validate_AU::phoneNumber($indialPhone);
+var_export($result) . '-';
+$result = Validate_AU::phoneNumber($indialPhone, VALIDATE_AU_PHONENUMBER_INDIAL | VALIDATE_AU_PHONENUMBER_STRICT);
+var_export($result) . '-';
+$result = Validate_AU::phoneNumber($indialPhone, VALIDATE_AU_PHONENUMBER_INDIAL);
+var_export($result) . '-';
+$result = Validate_AU::phoneNumber($indialPhone, VALIDATE_AU_PHONENUMBER_INTERNATIONAL);
+var_export($result) . '-';
+$result = Validate_AU::phoneNumber($indialPhone, VALIDATE_AU_PHONENUMBER_NATIONAL | VALIDATE_AU_PHONENUMBER_INDIAL | VALIDATE_AU_PHONENUMBER_INTERNATIONAL);
+var_export($result) . '-';
+echo '&#60;br /&#62;&#60;br /&#62;';
+
+echo 'Test ' . $internationalSyntax .' : &#60;br /&#62;';
+$result = Validate_AU::phoneNumber($internationalSyntax);
+var_export($result) . '-';
+$result = Validate_AU::phoneNumber($internationalSyntax, VALIDATE_AU_PHONENUMBER_INTERNATIONAL | VALIDATE_AU_PHONENUMBER_STRICT);
+var_export($result) . '-';
+$result = Validate_AU::phoneNumber($internationalSyntax, VALIDATE_AU_PHONENUMBER_INDIAL);
+var_export($result) . '-';
+$result = Validate_AU::phoneNumber($internationalSyntax, VALIDATE_AU_PHONENUMBER_INTERNATIONAL);
+var_export($result) . '-';
+$result = Validate_AU::phoneNumber($internationalSyntax, VALIDATE_AU_PHONENUMBER_NATIONAL | VALIDATE_AU_PHONENUMBER_INDIAL | VALIDATE_AU_PHONENUMBER_INTERNATIONAL);
+var_export($result) . '-';
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    Output :
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="computeroutput"
+>&#13;Test 03 9999 9999 :
+true - false - false - false - true
+
+Test 0399999999 :
+true - true - false - false - true
+
+Test 1300 131 121 :
+false - false - true - false - true
+
+Test +61.3 8779 7212 :
+false - false - true - true - true
+     </TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.validate.validate-au.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.validate.validate-au.constants.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.validate.validate-au.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Package Validate_AU Constants</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

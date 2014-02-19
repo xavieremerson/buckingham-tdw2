@@ -1,0 +1,319 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR_Common</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR Installer classes"
+HREF="core.ppm.html"><LINK
+REL="PREVIOUS"
+TITLE="PEAR_Command::registerCommands"
+HREF="core.ppm.pear-command.registercommands.html"><LINK
+REL="NEXT"
+TITLE="PEAR_Common::PEAR_Common"
+HREF="core.ppm.pear-common.pear-common.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-command.registercommands.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 27. PEAR Installer classes</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-common.pear-common.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="core.ppm.pear-common">PEAR_Common</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="core.ppm.pear-common.pear-common.html"
+><B
+CLASS="function"
+>PEAR_Common::PEAR_Common()</B
+></A
+>&nbsp;--&nbsp;PEAR_Common constructor</DT
+><DT
+><A
+HREF="core.ppm.pear-common.addtempfile.html"
+><B
+CLASS="function"
+>PEAR_Common::addTempFile()</B
+></A
+>&nbsp;--&nbsp;register a temporary file or directory</DT
+><DT
+><A
+HREF="core.ppm.pear-common.analyzesourcecode.html"
+><B
+CLASS="function"
+>PEAR_Common::analyzeSourceCode()</B
+></A
+>&nbsp;--&nbsp;analyze the source code of the given PHP file</DT
+><DT
+><A
+HREF="core.ppm.pear-common.buildprovidesarray.html"
+><B
+CLASS="function"
+>PEAR_Common::buildProvidesArray()</B
+></A
+>&nbsp;--&nbsp;Build a array</DT
+><DT
+><A
+HREF="core.ppm.pear-common.downloadhttp.html"
+><B
+CLASS="function"
+>PEAR_Common::downloadHttp()</B
+></A
+>&nbsp;--&nbsp;Download a file through HTTP</DT
+><DT
+><A
+HREF="core.ppm.pear-common.infofromany.html"
+><B
+CLASS="function"
+>PEAR_Common::infoFromAny()</B
+></A
+>&nbsp;--&nbsp;Returns package information from different sources</DT
+><DT
+><A
+HREF="core.ppm.pear-common.infofromdescriptionfile.html"
+><B
+CLASS="function"
+>PEAR_Common::infoFromDescriptionFile()</B
+></A
+>&nbsp;--&nbsp;Returns information about a package file</DT
+><DT
+><A
+HREF="core.ppm.pear-common.infofromstring.html"
+><B
+CLASS="function"
+>PEAR_Common::infoFromString()</B
+></A
+>&nbsp;--&nbsp;Returns information about a package file</DT
+><DT
+><A
+HREF="core.ppm.pear-common.infofromtgzfile.html"
+><B
+CLASS="function"
+>PEAR_Common::infoFromTgzFile()</B
+></A
+>&nbsp;--&nbsp;Returns information about a package file</DT
+><DT
+><A
+HREF="core.ppm.pear-common.log.html"
+><B
+CLASS="function"
+>PEAR_Common::log()</B
+></A
+>&nbsp;--&nbsp;Logging method</DT
+><DT
+><A
+HREF="core.ppm.pear-common.mkdirhier.html"
+><B
+CLASS="function"
+>PEAR_Common::mkDirHier()</B
+></A
+>&nbsp;--&nbsp;Create a directory and necessary parent directories</DT
+><DT
+><A
+HREF="core.ppm.pear-common.mktempdir.html"
+><B
+CLASS="function"
+>PEAR_Common::mkTempDir()</B
+></A
+>&nbsp;--&nbsp;Create and register a temporary directory.</DT
+><DT
+><A
+HREF="core.ppm.pear-common.setfrontendobject.html"
+><B
+CLASS="function"
+>PEAR_Common::setFrontendObject()</B
+></A
+>&nbsp;--&nbsp;Set object representing frontend to use.</DT
+><DT
+><A
+HREF="core.ppm.pear-common.validatepackageinfo.html"
+><B
+CLASS="function"
+>PEAR_Common::validatePackageInfo()</B
+></A
+>&nbsp;--&nbsp;Validate XML package definition file</DT
+><DT
+><A
+HREF="core.ppm.pear-common.validpackagename.html"
+><B
+CLASS="function"
+>PEAR_Common::validPackageName()</B
+></A
+>&nbsp;--&nbsp;Test whether a string is a valid package name</DT
+><DT
+><A
+HREF="core.ppm.pear-common.xmlfrominfo.html"
+><B
+CLASS="function"
+>PEAR_Common::xmlFromInfo()</B
+></A
+>&nbsp;--&nbsp;Return an XML document based on the package info</DT
+></DL
+></DIV
+><P
+>&#13;  Class providing common functionality for PEAR 
+  administration classes.
+ </P
+><P
+>&#13;  Class Trees for <B
+CLASS="function"
+>PEAR_Common()</B
+>
+ </P
+><P
+>&#13;  <P
+></P
+><UL
+><LI
+><P
+>&#13;     PEAR
+     <P
+></P
+><UL
+><LI
+><P
+>&#13;        PEAR_Common
+       </P
+></LI
+></UL
+>
+    </P
+></LI
+></UL
+>
+ </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-command.registercommands.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-common.pear-common.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Command::registerCommands()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.ppm.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Common::PEAR_Common()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

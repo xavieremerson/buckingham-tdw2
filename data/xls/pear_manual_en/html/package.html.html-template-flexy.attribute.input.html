@@ -1,0 +1,363 @@
+<HTML
+><HEAD
+><TITLE
+>&#60;INPUT NAME="name"&#62;</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_Flexy"
+HREF="package.html.html-template-flexy.html"><LINK
+REL="PREVIOUS"
+TITLE='<FORM NAME="name"'
+HREF="package.html.html-template-flexy.tag.form.html"><LINK
+REL="NEXT"
+TITLE='<TEXTAREA NAME="name">'
+HREF="package.html.html-template-flexy.attribute.textarea.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.tag.form.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.attribute.textarea.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-flexy.attribute.input">&#60;INPUT NAME="name"&#62;</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN69624"
+></A
+>&#60;INPUT NAME="name"&#62;&nbsp;--&nbsp;creates PHP variable for input values</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN69627"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN69628"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     <B
+CLASS="function"
+>Usage</B
+></CODE
+> (&#60;INPUT NAME="name"&#62;)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.attribute.input.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      fills in the form with values based on the form name and the tag name. If flexyignore is 
+      used, it is left alone (or if the body or form has a flexyignore tag it will be left alone).
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.attribute.input.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69639"><P
+><B
+>Example 41-1. Using an element to change a template.</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$form = new HTML_Template_Flexy();
+$form-&#62;compile('some_file_name');
+
+// create an instance (note you dont have to specify any details..)
+
+$elements['test'] = new HTML_Template_Flexy_Element;
+
+// change an attribute
+$elements['test']-&#62;attributes['class'] = 'bold';
+
+// sets the value
+$elements['test']-&#62;setValue('Fred');
+
+
+// wrap it with something
+$elements['test']-&#62;prefix = '******';
+$elements['test']-&#62;suffix = '!!!!!!';
+
+$form-&#62;outputObject(new StdClass, $elements);
+
+// in the example below, the new data you have added is to the existing attributes</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69642"><P
+><B
+>Example 41-2. template example</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>&#60;BODY&#62;
+  &#60;FORM name="XXXX" flexy:ignoreonly="yes"&#62;
+  
+    &#60;INPUT name="test" length="12"&#62;
+    
+    
+  &#60;/FORM&#62;
+&#60;/BODY&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69645"><P
+><B
+>Example 41-3. compiled template</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;BODY&#62;
+  &#60;FORM name="XXXX"&#62;
+  
+    &#60;?php echo $this-&#62;elements['test']-&#62;toHtml();?&#62;
+    
+    
+  &#60;/FORM&#62;
+&#60;/BODY&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69648"><P
+><B
+>Example 41-4. output from the Template</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>&#60;BODY&#62;
+  &#60;FORM name="XXXX"&#62;
+  
+    ******&#60;INPUT name="test"  length="12" class="bold" value="Fred"&#62;!!!!!!
+    
+     
+  &#60;/FORM&#62;
+&#60;/BODY&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.tag.form.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.attribute.textarea.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&#60;FORM NAME="name"</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>&#60;TEXTAREA NAME="name"&#62;</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

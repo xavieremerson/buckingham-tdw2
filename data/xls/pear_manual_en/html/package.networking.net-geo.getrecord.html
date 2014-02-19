@@ -1,0 +1,377 @@
+<HTML
+><HEAD
+><TITLE
+>Net_Geo::getRecord()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_Geo"
+HREF="package.networking.net-geo.html"><LINK
+REL="PREVIOUS"
+TITLE="Net_Geo::Net_Geo()"
+HREF="package.networking.net-geo.net-geo.html"><LINK
+REL="NEXT"
+TITLE="Net_GeoIP"
+HREF="package.networking.net-geoip.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-geo.net-geo.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-geoip.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-geo.getrecord">Net_Geo::getRecord()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN83435"
+></A
+>Net_Geo::getRecord()&nbsp;--&nbsp;get geographical information about IP</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN83438"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN83439"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once('Net/Geo.php');</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>getRecord()</B
+></CODE
+> (mixed $target)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-geo.getrecord.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Get geographical information about a list of targets or a single target.
+   Error messages or "OK" are written to element STATUS of the returned array.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-geo.getrecord.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>mixed $target</I
+></TT
+> - A single IP or an array of IPs.
+     </P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-geo.getrecord.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   <TT
+CLASS="parameter"
+><I
+>array</I
+></TT
+> - Informative array about geographical location of target(s)
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-geo.getrecord.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;    <DIV
+CLASS="table"
+><A
+NAME="AEN83463"><P
+><B
+>Table 48-1. STATUS Error Codes</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>string "OK"</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <SPAN
+CLASS="QUOTE"
+>"No error occured."</SPAN
+>
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Target was resolved properly.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>const INPUT_ERROR</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <SPAN
+CLASS="QUOTE"
+>"User input is unusable <TT
+CLASS="parameter"
+><I
+>target</I
+></TT
+>"</SPAN
+>
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        The target given cannot be used.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check target parameter: A string with a single domain or
+        IP, or a one-dimensional array with domain or IP in every element
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>const NETGEO_HTTP_ERROR</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <SPAN
+CLASS="QUOTE"
+>"Netgeo unreachable"</SPAN
+>
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        A connection to the Netgeo service could not be established.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check http://netgeo.caida.org/perl/netgeo.cgi (the default server URL used).
+        If the script moved, use the parameter $alternateServerUrl in Net_Geo().
+       </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-geo.getrecord.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-geo.net-geo.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-geoip.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Net_Geo::Net_Geo()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-geo.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Net_GeoIP</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

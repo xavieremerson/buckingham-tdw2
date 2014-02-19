@@ -1,0 +1,1832 @@
+//**************************************************************************
+//* File: OInfoP11.mof - Office Extension MOF File for MSInfo >= 5.0
+//**************************************************************************
+#pragma autorecover
+
+//*************************************************************
+//***	Creates namespace for MSAPPS
+//*************************************************************
+#pragma namespace ("\\\\.\\Root")
+ 
+instance of __Namespace
+{
+    Name = "MSAPPS11";
+	//should this remain MSAPPS?
+};
+
+//*************************************************************
+//***	Changes focus to new namespace
+//*************************************************************
+
+#pragma namespace ("\\\\.\\Root\\MSAPPS11")
+ 
+
+//**************************************************************************
+//* Declare an instance of the __Win32Provider so as to "register" the
+//* Office provider.
+//**************************************************************************
+instance of __Win32Provider as $P
+{
+	Name = "OffProv11";
+	// ClsId = "{D2BD7935-05FC-11D2-9059-00C04FD7A1BD}";
+	//this was define as class DECLSPEC_UUID("D2BD7935-05FC-11D2-9059-00C04FD7A1BD")
+	//OfficeObj;
+	// in Offprov.h
+	ClsId = "{F7107F37-C761-4748-B686-055F45889DCD}";
+	// We comment out the following line when installing on Win2K, so DO NOT
+	// remove the unique word we use to find this line easily
+	// W2KHOSTINGMODELTAG
+    HostingModel = "SelfHost";
+};
+
+instance of __InstanceProviderRegistration
+{
+	Provider = $P;
+	SupportsGet = TRUE;
+	SupportsPut = FALSE;
+	SupportsEnumeration = TRUE;
+	SupportsDelete = FALSE;
+	QuerySupportLevels = NULL;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11Summary
+//* Derived from:
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Word11Summary
+{
+	[read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Version;
+	[read: ToInstance ToSubClass] string Build;
+	[read: ToInstance ToSubClass] string ProductID;
+	[read: ToInstance ToSubClass] string Path;
+	[read: ToInstance ToSubClass] string Language;
+	[read: ToInstance ToSubClass] string SystemLanguage;
+	[read: ToInstance ToSubClass] string ActivePrinter;
+	[read: ToInstance ToSubClass] uint32 DocumentCount;
+	[read: ToInstance ToSubClass] uint32 TemplateCount;
+	[read: ToInstance ToSubClass] uint32 AddinCount;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11Document
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Word11Document
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Path;
+	[read: ToInstance ToSubClass] real32 Size;
+	[read: ToInstance ToSubClass] datetime CreateDate;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11Template
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Word11Template
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Path;
+	[read: ToInstance ToSubClass] string Type;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11Addin
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Word11Addin
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Path;
+	[read: ToInstance ToSubClass] boolean Loaded;
+	[read: ToInstance ToSubClass] boolean Autoloaded;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11ActiveDocument
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Word11ActiveDocument
+{
+	[read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Path;
+	[read: ToInstance ToSubClass] real32 Size;
+	[read: ToInstance ToSubClass] datetime CreateDate;
+	[read: ToInstance ToSubClass] string Author;
+	[read: ToInstance ToSubClass] datetime LastSavedDate;
+	[read: ToInstance ToSubClass] string LastAuthor;
+	[read: ToInstance ToSubClass] string Template;
+	[read: ToInstance ToSubClass] uint32 Chars;
+	[read: ToInstance ToSubClass] uint32 CharsWithSpaces;
+	[read: ToInstance ToSubClass] uint32 Words;
+	[read: ToInstance ToSubClass] uint32 Lines;
+	[read: ToInstance ToSubClass] uint32 Paragraphs;
+	[read: ToInstance ToSubClass] uint32 Pages;
+	[read: ToInstance ToSubClass] uint32 Sections;
+	[read: ToInstance ToSubClass] string View;
+	[read: ToInstance ToSubClass] uint32 ZoomPercentage;
+	[read: ToInstance ToSubClass] boolean AllowFastSaves;
+	[read: ToInstance ToSubClass] sint32 WindowPosLeft;
+	[read: ToInstance ToSubClass] sint32 WindowPosTop;
+	[read: ToInstance ToSubClass] string StoryTypes;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11ActiveDocumentNotable
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Word11ActiveDocumentNotable
+{
+	[key, read: ToInstance ToSubClass] string Text;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11Fields
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Word11Fields
+{
+	[read: ToInstance ToSubClass] uint32 FieldCount;
+	[read: ToInstance ToSubClass] boolean ShowFieldCodes;
+	[read: ToInstance ToSubClass] boolean UpdateFieldsAtPrint;
+	[read: ToInstance ToSubClass] boolean UpdateLinksAtOpen;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11Field
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Word11Field
+{
+	[key, read: ToInstance ToSubClass] uint32 Index;
+	[read: ToInstance ToSubClass] string Type;
+	[read: ToInstance ToSubClass] string Code;
+	[read: ToInstance ToSubClass] boolean Locked;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11FileConverters
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Word11FileConverters
+{
+	[read: ToInstance ToSubClass] string FileConverterCount;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11FileConverter
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Word11FileConverter
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] boolean CanOpen;
+	[read: ToInstance ToSubClass] boolean CanSave;
+	[read: ToInstance ToSubClass] string Extensions;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11Fonts
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Word11Fonts
+{
+	[read: ToInstance ToSubClass] boolean EmbedTrueTypeFonts;
+	[read: ToInstance ToSubClass] uint32 FontCount;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11Font
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Word11Font
+{
+	[key, read: ToInstance ToSubClass] string Name;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11Sections
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Word11Sections
+{
+	[read: ToInstance ToSubClass] uint32 SectionCount;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11HeaderAndFooter
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Word11HeaderAndFooter
+{
+	[key, read: ToInstance ToSubClass] uint32 Section;
+	[read: ToInstance ToSubClass] real32 HeaderDistance;
+	[read: ToInstance ToSubClass] real32 FooterDistance;
+	[read: ToInstance ToSubClass] uint32 HeaderChars;
+	[read: ToInstance ToSubClass] boolean HeaderLinkedToPrevious;
+	[read: ToInstance ToSubClass] string HeaderText;
+	[read: ToInstance ToSubClass] uint32 FooterChars;
+	[read: ToInstance ToSubClass] boolean FooterLinkedToPrevious;
+	[read: ToInstance ToSubClass] string FooterText;
+	[read: ToInstance ToSubClass] uint32 FirstHeaderChars;
+	[read: ToInstance ToSubClass] boolean FirstHeaderLinkedToPrevious;
+	[read: ToInstance ToSubClass] string FirstHeaderText;
+	[read: ToInstance ToSubClass] uint32 FirstFooterChars;
+	[read: ToInstance ToSubClass] boolean FirstFooterLinkedToPrevious;
+	[read: ToInstance ToSubClass] string FirstFooterText;
+	[read: ToInstance ToSubClass] uint32 EvenHeaderChars;
+	[read: ToInstance ToSubClass] boolean EvenHeaderLinkedToPrevious;
+	[read: ToInstance ToSubClass] string EvenHeaderText;
+	[read: ToInstance ToSubClass] uint32 EvenFooterChars;
+	[read: ToInstance ToSubClass] boolean EvenFooterLinkedToPrevious;
+	[read: ToInstance ToSubClass] string EvenFooterText;
+	[read: ToInstance ToSubClass] string Notables;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11Hyperlinks
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Word11Hyperlinks
+{
+	[read: ToInstance ToSubClass] uint32 HyperlinkCount;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11Hyperlink
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Word11Hyperlink
+{
+	[key, read: ToInstance ToSubClass] uint32 Index;
+	[read: ToInstance ToSubClass] string Target;
+	[read: ToInstance ToSubClass] string Address;
+	[read: ToInstance ToSubClass] string TextToDisplay;
+	[read: ToInstance ToSubClass] string Type;
+	[read: ToInstance ToSubClass] string Subaddress;
+	[read: ToInstance ToSubClass] string ScreenTip;
+	[read: ToInstance ToSubClass] string Name;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11MailMerge
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Word11MailMerge
+{
+	[read: ToInstance ToSubClass] string DocumentName;
+	[read: ToInstance ToSubClass] string DocumentType;
+	[read: ToInstance ToSubClass] string MergeTo;
+	[read: ToInstance ToSubClass] string State;
+	[read: ToInstance ToSubClass] boolean SuppressBlankLines;
+	[read: ToInstance ToSubClass] boolean ViewFieldCodes;
+	[read: ToInstance ToSubClass] uint32 FieldCount;
+	[read: ToInstance ToSubClass] string FieldCodes;
+	[read: ToInstance ToSubClass] string DataSourceName;
+	[read: ToInstance ToSubClass] string DataSourceType;
+	[read: ToInstance ToSubClass] string ActiveRecord;
+	[read: ToInstance ToSubClass] string FieldNames;
+	[read: ToInstance ToSubClass] string Notables;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11PageNumber
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Word11PageNumber
+{
+	[key, read: ToInstance ToSubClass] uint32 Section;
+	[read: ToInstance ToSubClass] uint32 PageNumbers;
+	[read: ToInstance ToSubClass] string PageNumbersIn;
+	[read: ToInstance ToSubClass] uint32 Start;
+	[read: ToInstance ToSubClass] boolean Restart;
+	[read: ToInstance ToSubClass] boolean ShowFirst;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11PageSetup
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Word11PageSetup
+{
+	[key, read: ToInstance ToSubClass] uint32 Section;
+	[read: ToInstance ToSubClass] real32 HeaderDistance;
+	[read: ToInstance ToSubClass] real32 FooterDistance;
+	[read: ToInstance ToSubClass] real32 TopMargin;
+	[read: ToInstance ToSubClass] real32 BottomMargin;
+	[read: ToInstance ToSubClass] real32 LeftMargin;
+	[read: ToInstance ToSubClass] real32 RightMargin;
+	[read: ToInstance ToSubClass] string PaperSize;
+	[read: ToInstance ToSubClass] real32 PageHeight;
+	[read: ToInstance ToSubClass] real32 PageWidth;
+	[read: ToInstance ToSubClass] string Orientation;
+	[read: ToInstance ToSubClass] string SectionStart;
+	[read: ToInstance ToSubClass] string VerticalAlignment;
+	[read: ToInstance ToSubClass] real32 CharsLine;
+	[read: ToInstance ToSubClass] real32 LinesPage;
+	[read: ToInstance ToSubClass] string Notables;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11Styles
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Word11Styles
+{
+	[read: ToInstance ToSubClass] boolean AutoFormatAsYouTypeDefineStyles;
+	[read: ToInstance ToSubClass] boolean AutoFormatPreserveStyles;
+	[read: ToInstance ToSubClass] uint32 ParagraphStyleCount;
+	[read: ToInstance ToSubClass] uint32 CharacterStyleCount;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11ParagraphStyle
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Word11ParagraphStyle
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Description;
+	[read: ToInstance ToSubClass] string BaseStyle;
+	[read: ToInstance ToSubClass] string NextStyle;
+	[read: ToInstance ToSubClass] boolean BuiltIn;
+	[read: ToInstance ToSubClass] boolean NoProofing;
+	[read: ToInstance ToSubClass] boolean AutomaticallyUpdate;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11CharacterStyle
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Word11CharacterStyle
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Description;
+	[read: ToInstance ToSubClass] string BaseStyle;
+	[read: ToInstance ToSubClass] boolean BuiltIn;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11Settings
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Word11Settings
+{
+	[read: ToInstance ToSubClass] boolean BackgroundSave;
+	[read: ToInstance ToSubClass] boolean AllowDragAndDrop;
+	[read: ToInstance ToSubClass] boolean CreateBackup;
+	[read: ToInstance ToSubClass] boolean AutoHyphenation;
+	[read: ToInstance ToSubClass] uint32 SaveInterval;
+	[read: ToInstance ToSubClass] boolean Pagination;
+	[read: ToInstance ToSubClass] boolean ConfirmConversions;
+	[read: ToInstance ToSubClass] string DefaultFilePath;
+	[read: ToInstance ToSubClass] string DefaultSaveFormat;
+	[read: ToInstance ToSubClass] boolean DisplayAutoCompleteTips;
+	[read: ToInstance ToSubClass] boolean DisplayHorizontalScrollBar;
+	[read: ToInstance ToSubClass] boolean DisplayRecentFiles;
+	[read: ToInstance ToSubClass] uint32 RecentFilesMaximum;
+	[read: ToInstance ToSubClass] boolean DisplayRulers;
+	[read: ToInstance ToSubClass] boolean DisplayScreenTips;
+	[read: ToInstance ToSubClass] boolean DisplayScrollBars;
+	[read: ToInstance ToSubClass] boolean DisplayStatusBar;
+	[read: ToInstance ToSubClass] string MeasurementUnits;
+	[read: ToInstance ToSubClass] uint32 MinimumFontSize;
+	[read: ToInstance ToSubClass] boolean Overtype;
+	[read: ToInstance ToSubClass] boolean PrintFormsData;
+	[read: ToInstance ToSubClass] boolean PrintPostScriptOverText;
+	[read: ToInstance ToSubClass] boolean PrintRevisions;
+	[read: ToInstance ToSubClass] boolean SavePropertiesPrompt;
+	[read: ToInstance ToSubClass] boolean SaveNormalPrompt;
+	[read: ToInstance ToSubClass] boolean EnableSound;
+	[read: ToInstance ToSubClass] boolean SaveFormsData;
+	[read: ToInstance ToSubClass] boolean ShowAll;
+	[read: ToInstance ToSubClass] boolean AnimateScreenMovements;
+	[read: ToInstance ToSubClass] boolean ShowAnimation;
+	[read: ToInstance ToSubClass] boolean BlueScreen;
+	[read: ToInstance ToSubClass] boolean ShowBookmarks;
+	[read: ToInstance ToSubClass] boolean ShowMainTextLayer;
+	[read: ToInstance ToSubClass] boolean ShowDrawings;
+	[read: ToInstance ToSubClass] boolean ShowFieldCodes;
+	[read: ToInstance ToSubClass] string FieldShading;
+	[read: ToInstance ToSubClass] boolean ShowHiddenText;
+	[read: ToInstance ToSubClass] boolean ShowHighlight;
+	[read: ToInstance ToSubClass] boolean ShowHyphens;
+	[read: ToInstance ToSubClass] boolean ShowObjectAnchors;
+	[read: ToInstance ToSubClass] boolean ShowParagraphs;
+	[read: ToInstance ToSubClass] boolean ShowRevisions;
+	[read: ToInstance ToSubClass] boolean ShowSpaces;
+	[read: ToInstance ToSubClass] boolean ShowSummary;
+	[read: ToInstance ToSubClass] boolean ShowTabs;
+	[read: ToInstance ToSubClass] boolean TableGridlines;
+	[read: ToInstance ToSubClass] boolean ShowTextBoundaries;
+	[read: ToInstance ToSubClass] boolean TabIndentKey;
+	[read: ToInstance ToSubClass] boolean TrackRevisions;
+	[read: ToInstance ToSubClass] boolean ReplaceSelection;
+	[read: ToInstance ToSubClass] boolean INSKeyForPaste;
+	[read: ToInstance ToSubClass] boolean SmartCutPaste;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11AlternateStartupFileLocation
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Word11AlternateStartupFileLocation
+{
+	[read: ToInstance ToSubClass] string Path;
+};
+
+
+//**************************************************************************
+//* Class: Win32_Word11StartupFileLocation
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Word11StartupFileLocation
+{
+	[read: ToInstance ToSubClass] string Path;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11DefaultFileLocation
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Word11DefaultFileLocation
+{
+	[read: ToInstance ToSubClass] string Path;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11Tables
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Word11Tables
+{
+	[read: ToInstance ToSubClass] uint32 TableCount;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11SelectedTable
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Word11SelectedTable
+{
+	[read: ToInstance ToSubClass] uint32 Page;
+	[read: ToInstance ToSubClass] uint32 Section;
+	[read: ToInstance ToSubClass] uint32 Rows;
+	[read: ToInstance ToSubClass] uint32 Columns;
+	[read: ToInstance ToSubClass] boolean AllowPageBreaks;
+	[read: ToInstance ToSubClass] string RowsAllowPageBreaks;
+	[read: ToInstance ToSubClass] boolean AllowAutoFit;
+	[read: ToInstance ToSubClass] string CellsAllowAutoFit;
+	[read: ToInstance ToSubClass] uint32 NestingLevel;
+	[read: ToInstance ToSubClass] uint32 Tables;
+	[read: ToInstance ToSubClass] string PreferredWidthType;
+	[read: ToInstance ToSubClass] real32 PreferredWidth;
+	[read: ToInstance ToSubClass] real32 Spacing;
+	[read: ToInstance ToSubClass] real32 TopMargin;
+	[read: ToInstance ToSubClass] real32 BottomMargin;
+	[read: ToInstance ToSubClass] real32 LeftMargin;
+	[read: ToInstance ToSubClass] real32 RightMargin;
+	[read: ToInstance ToSubClass] string RowAlignment;
+	[read: ToInstance ToSubClass] string RowHeightRule;
+	[read: ToInstance ToSubClass] real32 LeftIndent;
+	[read: ToInstance ToSubClass] boolean Uniform;
+};
+
+//**************************************************************************
+//* Class: Win32_Word11Table
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Word11Table
+{
+	[key, read: ToInstance ToSubClass] uint32 Index;
+	[read: ToInstance ToSubClass] uint32 Page;
+	[read: ToInstance ToSubClass] uint32 Section;
+	[read: ToInstance ToSubClass] uint32 Rows;
+	[read: ToInstance ToSubClass] uint32 Columns;
+	[read: ToInstance ToSubClass] boolean NestedTables;
+};
+
+
+//**************************************************************************
+//* Class: Win32_ExcelSummary
+//* Derived from:
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_ExcelSummary
+{
+	[read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Version;
+	[read: ToInstance ToSubClass] string Build;
+	[read: ToInstance ToSubClass] string ProductID;
+	[read: ToInstance ToSubClass] string Path;
+	[read: ToInstance ToSubClass] string Language;
+	[read: ToInstance ToSubClass] uint32 WorkbookCount;
+};
+
+//**************************************************************************
+//* Class: Win32_ExcelWorkbook
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_ExcelWorkbook
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Path;
+	[read: ToInstance ToSubClass] real32 Size;
+	[read: ToInstance ToSubClass] datetime CreateDate;
+};
+
+//**************************************************************************
+//* Class: Win32_ExcelActiveWorkbook
+//* Derived from:
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_ExcelActiveWorkbook
+{
+	[read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Path;
+	[read: ToInstance ToSubClass] real32 Size;
+	[read: ToInstance ToSubClass] string Format;
+	[read: ToInstance ToSubClass] datetime CreateDate;
+	[read: ToInstance ToSubClass] string Author;
+	[read: ToInstance ToSubClass] datetime LastSavedDate;
+	[read: ToInstance ToSubClass] string LastAuthor;
+	[read: ToInstance ToSubClass] string ActiveSheet;
+	[read: ToInstance ToSubClass] string ActiveWindowType;
+	[read: ToInstance ToSubClass] uint32 ActiveWindowZoom;
+	[read: ToInstance ToSubClass] uint32 SheetCount;
+};
+
+//**************************************************************************
+//* Class: Win32_ExcelActiveWorkbookNotable
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_ExcelActiveWorkbookNotable
+{
+	[key, read: ToInstance ToSubClass] string Text;
+};
+
+//**************************************************************************
+//* Class: Win32_ExcelSheet
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_ExcelSheet
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Type;
+	[read: ToInstance ToSubClass] uint32 Cells;
+	[read: ToInstance ToSubClass] uint32 Rows;
+	[read: ToInstance ToSubClass] uint32 Columns;
+};
+
+//**************************************************************************
+//* Class: Win32_ExcelAddIns
+//* Derived from:
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_ExcelAddIns
+{
+	[read: ToInstance ToSubClass] uint32 AddInCount;
+};
+
+//**************************************************************************
+//* Class: Win32_ExcelAddIn
+//* Derived from:
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_ExcelAddIn
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Path;
+	[read: ToInstance ToSubClass] boolean Installed;
+};
+
+//**************************************************************************
+//* Class: Win32_ExcelCharts
+//* Derived from:
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_ExcelCharts
+{
+	[read: ToInstance ToSubClass] string ActiveChart;
+	[read: ToInstance ToSubClass] uint32 ChartCount;
+};
+
+//**************************************************************************
+//* Class: Win32_ExcelChart
+//* Derived from:
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_ExcelChart
+{
+	[key, read: ToInstance ToSubClass] string Name;
+};
+
+//**************************************************************************
+//* Class: Win32_ExcelComAddins
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_ExcelComAddins
+{
+	[read: ToInstance ToSubClass] uint32 AddInCount;
+};
+
+//**************************************************************************
+//* Class: Win32_ExcelComAddin
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_ExcelComAddin
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Installed;
+	[read: ToInstance ToSubClass] string Creator;
+	[read: ToInstance ToSubClass] string Guid;
+	[read: ToInstance ToSubClass] string Path;
+};
+
+//**************************************************************************
+//* Class: Win32_WordComAddins
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_WordComAddins
+{
+	[read: ToInstance ToSubClass] uint32 AddInCount;
+};
+
+//**************************************************************************
+//* Class: Win32_WordComAddin
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_WordComAddin
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Installed;
+	[read: ToInstance ToSubClass] string Creator;
+	[read: ToInstance ToSubClass] string Guid;
+	[read: ToInstance ToSubClass] string Path;
+};
+
+//**************************************************************************
+//* Class: Win32_PowerPointSummary
+//* Derived from:
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_PowerPointSummary
+{
+	[read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Version;
+	[read: ToInstance ToSubClass] string Build;
+	[read: ToInstance ToSubClass] string ProductID;
+	[read: ToInstance ToSubClass] string Path;
+	[read: ToInstance ToSubClass] string Language;
+	[read: ToInstance ToSubClass] uint32 PresentationCount;
+};
+
+//**************************************************************************
+//* Class: Win32_PowerPointPresentation
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_PowerPointPresentation
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Path;
+	[read: ToInstance ToSubClass] real32 Size;
+	[read: ToInstance ToSubClass] datetime CreateDate;
+};
+
+//**************************************************************************
+//* Class: Win32_PowerPointActivePresentation
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_PowerPointActivePresentation
+{
+	[read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Path;
+	[read: ToInstance ToSubClass] real32 Size;
+	[read: ToInstance ToSubClass] datetime CreateDate;
+	[read: ToInstance ToSubClass] string Author;
+	[read: ToInstance ToSubClass] datetime LastSavedDate;
+	[read: ToInstance ToSubClass] string LastAuthor;
+	[read: ToInstance ToSubClass] string Template;
+	[read: ToInstance ToSubClass] uint32 Slides;
+	[read: ToInstance ToSubClass] uint32 Words;
+	[read: ToInstance ToSubClass] uint32 Paragraphs;
+	[read: ToInstance ToSubClass] string View;
+};
+
+//**************************************************************************
+//* Class: Win32_OutlookSummary
+//* Derived from:
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_OutlookSummary
+{
+	[read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Version;
+	[read: ToInstance ToSubClass] string Build;
+	[read: ToInstance ToSubClass] string ProductID;
+	[read: ToInstance ToSubClass] string Language;
+	[read: ToInstance ToSubClass] string User;
+	[read: ToInstance ToSubClass] string Folder;
+	[read: ToInstance ToSubClass] string Item;
+	[read: ToInstance ToSubClass] string Path;
+	[read: ToInstance ToSubClass] string SystemLanguage;
+	[read: ToInstance ToSubClass] string MailSupport;
+};
+
+//**************************************************************************
+//* Class: Win32_AccessSummary
+//* Derived from:
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_AccessSummary
+{
+	[read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Version;
+	[read: ToInstance ToSubClass] string Build;
+	[read: ToInstance ToSubClass] string ProductID;
+	[read: ToInstance ToSubClass] string Path;
+	[read: ToInstance ToSubClass] string Language;
+	[read: ToInstance ToSubClass] string ADOVersion;
+	[read: ToInstance ToSubClass] string VBAVersion;
+	[read: ToInstance ToSubClass] string References;
+};
+
+//**************************************************************************
+//* Class: Win32_AccessDatabase
+//* Derived from:
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_AccessDatabase
+{
+	[read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Path;
+	[read: ToInstance ToSubClass] real32 Size;
+	[read: ToInstance ToSubClass] datetime CreateDate;
+	[read: ToInstance ToSubClass] string User;
+	[read: ToInstance ToSubClass] string JetVersion;
+};
+
+//**************************************************************************
+//* Class: Win32_AccessProject
+//* Derived from:
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_AccessProject
+{
+	[read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Path;
+	[read: ToInstance ToSubClass] real32 Size;
+	[read: ToInstance ToSubClass] datetime CreateDate;
+	[read: ToInstance ToSubClass] string ServerName;
+	[read: ToInstance ToSubClass] string DatabaseName;
+	[read: ToInstance ToSubClass] string LoginName;
+	[read: ToInstance ToSubClass] string DBMSName;
+	[read: ToInstance ToSubClass] string DBMSVersion;
+	[read: ToInstance ToSubClass] string DSNName;
+};
+
+//**************************************************************************
+//* Class: Win32_PublisherSummary
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_PublisherSummary
+{
+	[read: ToInstance ToSubClass] string DisplayName;
+	[read: ToInstance ToSubClass] string RegOwner;
+	[read: ToInstance ToSubClass] string RegCompany;
+	[read: ToInstance ToSubClass] string ProductID;
+	[read: ToInstance ToSubClass] string LocalPackage;
+	[read: ToInstance ToSubClass] string DisplayVersion;
+	[read: ToInstance ToSubClass] string InstallDate;
+	[read: ToInstance ToSubClass] string InstallLocation;
+	[read: ToInstance ToSubClass] string InstallSource;
+	[read: ToInstance ToSubClass] string Language;
+	[read: ToInstance ToSubClass] string HelpLink;
+	[read: ToInstance ToSubClass] string URLInfoAbout;
+	[read: ToInstance ToSubClass] string URLUpdateInfo;
+	[read: ToInstance ToSubClass] string SystemLanguage;
+	[read: ToInstance ToSubClass] string ActivePrinter;
+
+};
+
+//**************************************************************************
+//* Class: Win32_FrontPageSummary
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_FrontPageSummary
+{
+	[read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Version;
+	[read: ToInstance ToSubClass] string Build;
+	[read: ToInstance ToSubClass] string ProductID;
+	[read: ToInstance ToSubClass] string Path;
+	[read: ToInstance ToSubClass] string Language;
+};
+
+//**************************************************************************
+//* Class: Win32_FrontPageActiveWeb
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_FrontPageActiveWeb
+{
+	[read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] uint32 PageCount;
+};
+
+//**************************************************************************
+//* Class: Win32_FrontPageWebProperty
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_FrontPageWebProperty
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Value;
+};
+
+//**************************************************************************
+//* Class: Win32_FrontPageActivePage
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_FrontPageActivePage
+{
+	[read: ToInstance ToSubClass] string Name;
+};
+
+//**************************************************************************
+//* Class: Win32_FrontPagePageProperty
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_FrontPagePageProperty
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Value;
+};
+
+//**************************************************************************
+//* Class: Win32_FrontPageAddIns
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_FrontPageAddIns
+{
+	[read: ToInstance ToSubClass] uint32 AddInCount;
+};
+
+//**************************************************************************
+//* Class: Win32_FrontPageAddIn
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_FrontPageAddIn
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Installed;
+	[read: ToInstance ToSubClass] string Creator;
+	[read: ToInstance ToSubClass] string Guid;
+};
+
+//**************************************************************************
+//* Class: Win32_FrontPageThemes
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_FrontPageThemes
+{
+	[read: ToInstance ToSubClass] uint32 ThemeCount;
+};
+
+//**************************************************************************
+//* Class: Win32_FrontPageTheme
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_FrontPageTheme
+{
+	[key, read: ToInstance ToSubClass] string Name;
+};
+
+//**************************************************************************
+//* Class: Win32_WebConnectionError
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_WebConnectionError
+{
+	[read: ToInstance ToSubClass] string MessageFirstLine;
+	[read: ToInstance ToSubClass] string Timestamp;
+};
+
+//**************************************************************************
+//* Class: Win32_WebConnectionErrorMessage
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_WebConnectionErrorMessage
+{
+	[key, read: ToInstance ToSubClass] string AdditionalLine;
+};
+
+//**************************************************************************
+//* Class: Win32_WebConnectionErrorText
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_WebConnectionErrorText
+{
+	[key, read: ToInstance ToSubClass] string Text;
+};
+
+//**************************************************************************
+//* Class: Win32_ServerExtension
+//* Derived from:
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_ServerExtension
+{
+	[read: ToInstance ToSubClass] string ServerType;
+	[key, read: ToInstance ToSubClass] string PortNumber;
+	[read: ToInstance ToSubClass] string Version;
+	[read: ToInstance ToSubClass] string Path;
+};
+
+
+//**************************************************************************
+//* Class: Win32_Language
+//* Derived from:
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Language
+{
+	[read: ToInstance ToSubClass]      uint32 UILang;
+	[read: ToInstance ToSubClass]      uint32 HelpLang;
+	[read: ToInstance ToSubClass]      uint32 InstallLang;
+	[key, read: ToInstance ToSubClass] uint32 SkuLang;
+	[read: ToInstance ToSubClass]      uint32 WebLocale;
+};
+
+
+
+//**************************************************************************
+//* Class: Win32_Transport
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Transport
+{
+	[read: ToInstance ToSubClass] boolean ProviderForInternetPublishing;
+	[read: ToInstance ToSubClass] boolean OfficeInternetPublishing;
+};
+
+//**************************************************************************
+//* Class: Win32_OdbcCoreComponent
+//* Derived from:
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_OdbcCoreComponent
+{
+	[key, read: ToInstance ToSubClass] string Description;
+	[read: ToInstance ToSubClass] string Version;
+	[read: ToInstance ToSubClass] string File;
+};
+
+//**************************************************************************
+//* Class: Win32_OdbcDriver
+//* Derived from:
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_OdbcDriver
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string File;
+	[read: ToInstance ToSubClass] datetime Date;
+	[read: ToInstance ToSubClass] string Version;
+};
+
+//**************************************************************************
+//* Class: Win32_OleDbProvider
+//* Derived from:
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_OleDbProvider
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Version;
+};
+
+
+
+//**************************************************************************
+//* Class: Win32_OfficeWatsonLog
+//* Derived from:
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_OfficeWatsonLog
+{
+	[key, read: ToInstance ToSubClass] string Event;
+	[read: ToInstance ToSubClass] string Category;
+	[read: ToInstance ToSubClass] string BucketID;
+	[read: ToInstance ToSubClass] string BucketTable;
+	[read: ToInstance ToSubClass] string AppName;
+	[read: ToInstance ToSubClass] string AppVersion;
+	[read: ToInstance ToSubClass] string AppStamp;
+	[read: ToInstance ToSubClass] string ModuleName;
+	[read: ToInstance ToSubClass] string ModuleVersion;
+	[read: ToInstance ToSubClass] string ModuleStamp;
+	[read: ToInstance ToSubClass] string Debug;
+	[read: ToInstance ToSubClass] string Offset;
+	[read: ToInstance ToSubClass] datetime Date;
+};
+
+//**************************************************************************
+//* Class: Win32_JetCoreComponents
+//* Derived from:
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_JetCoreComponents
+{
+	[key, read: ToInstance ToSubClass] string Description;
+	[read: ToInstance ToSubClass] string Path;
+	[read: ToInstance ToSubClass] string Version;
+};
+
+//**************************************************************************
+//* Class: Win32_ADOCoreComponents
+//* Derived from:
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_ADOCoreComponents
+{
+	[key, read: ToInstance ToSubClass] string Description;
+	[read: ToInstance ToSubClass] string Path;
+	[read: ToInstance ToSubClass] string Version;
+};
+
+//**************************************************************************
+//* Class: Win32_RDOCoreComponents
+//* Derived from:
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_RDOCoreComponents
+{
+	[key, read: ToInstance ToSubClass] string Description;
+	[read: ToInstance ToSubClass] string Path;
+	[read: ToInstance ToSubClass] string Version;
+};
+
+
+//**************************************************************************
+//* Class: Win32_Excel11AlternateStartupFileLoc
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Excel11AlternateStartupFileLoc
+{
+	[read: ToInstance ToSubClass] string Path;
+};
+
+
+//**************************************************************************
+//* Class: Win32_Excel11DefaultFileLoc
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Excel11DefaultFileLoc
+{
+	[read: ToInstance ToSubClass] string Path;
+};
+
+//**************************************************************************
+//* Class: Win32_Excel11StartupFolder
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Excel11StartupFolder
+{
+	[read: ToInstance ToSubClass] string Path;
+};
+
+//**************************************************************************
+//* Class: Win32_Access11AlternateStartupFileLoc
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Access11AlternateStartupFileLoc
+{
+	[read: ToInstance ToSubClass] string Path;
+};
+
+
+//**************************************************************************
+//* Class: Win32_Access11DefaultFileLoc
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Access11DefaultFileLoc
+{
+	[read: ToInstance ToSubClass] string Path;
+};
+
+//**************************************************************************
+//* Class: Win32_Access11StartupFolder
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Access11StartupFolder
+{
+	[read: ToInstance ToSubClass] string Path;
+};
+
+//**************************************************************************
+//* Class: Win32_Access11JetComponents
+//* Derived from:
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Access11JetComponents
+{
+	[key, read: ToInstance ToSubClass] string Description;
+	[read: ToInstance ToSubClass] string Path;
+	[read: ToInstance ToSubClass] string Version;
+};
+
+//**************************************************************************
+//* Class: Win32_PowerPoint11SelectedTable
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_PowerPoint11SelectedTable
+{
+	[read: ToInstance ToSubClass] uint32 Page;
+	[read: ToInstance ToSubClass] uint32 Section;
+	[read: ToInstance ToSubClass] uint32 Rows;
+	[read: ToInstance ToSubClass] uint32 Columns;
+	[read: ToInstance ToSubClass] boolean AllowPageBreaks;
+	[read: ToInstance ToSubClass] string RowsAllowPageBreaks;
+	[read: ToInstance ToSubClass] boolean AllowAutoFit;
+	[read: ToInstance ToSubClass] string CellsAllowAutoFit;
+	[read: ToInstance ToSubClass] uint32 NestingLevel;
+	[read: ToInstance ToSubClass] uint32 Tables;
+	[read: ToInstance ToSubClass] string PreferredWidthType;
+	[read: ToInstance ToSubClass] real32 PreferredWidth;
+	[read: ToInstance ToSubClass] real32 Spacing;
+	[read: ToInstance ToSubClass] real32 TopMargin;
+	[read: ToInstance ToSubClass] real32 BottomMargin;
+	[read: ToInstance ToSubClass] real32 LeftMargin;
+	[read: ToInstance ToSubClass] real32 RightMargin;
+	[read: ToInstance ToSubClass] string RowAlignment;
+	[read: ToInstance ToSubClass] string RowHeightRule;
+	[read: ToInstance ToSubClass] real32 LeftIndent;
+	[read: ToInstance ToSubClass] boolean Uniform;
+};
+
+//**************************************************************************
+//* Class: Win32_PowerPoint11Table
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_PowerPoint11Table
+{
+	[key, read: ToInstance ToSubClass] uint32 Index;
+	[read: ToInstance ToSubClass] uint32 Page;
+	[read: ToInstance ToSubClass] uint32 Section;
+	[read: ToInstance ToSubClass] uint32 Rows;
+	[read: ToInstance ToSubClass] uint32 Columns;
+	[read: ToInstance ToSubClass] boolean NestedTables;
+};
+
+
+
+
+
+//**************************************************************************
+//* Class: Win32_PowerPoint11Tables
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_PowerPoint11Tables
+{
+	[read: ToInstance ToSubClass] uint32 TableCount;
+};
+
+
+
+//**************************************************************************
+//* Class: Win32_PowerPoint11PageNumber
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_PowerPoint11PageNumber
+{
+	[key, read: ToInstance ToSubClass] uint32 Section;
+	[read: ToInstance ToSubClass] uint32 PageNumbers;
+	[read: ToInstance ToSubClass] string PageNumbersIn;
+	[read: ToInstance ToSubClass] uint32 Start;
+	[read: ToInstance ToSubClass] boolean Restart;
+	[read: ToInstance ToSubClass] boolean ShowFirst;
+};
+
+
+//**************************************************************************
+//* Class: Win32_PowerPoint11Hyperlinks
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_PowerPoint11Hyperlinks
+{
+	[read: ToInstance ToSubClass] uint32 HyperlinkCount;
+};
+
+//**************************************************************************
+//* Class: Win32_PowerPoint11Hyperlink
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_PowerPoint11Hyperlink
+{
+	[key, read: ToInstance ToSubClass] uint32 Index;
+	[read: ToInstance ToSubClass] string Target;
+	[read: ToInstance ToSubClass] string Address;
+	[read: ToInstance ToSubClass] string TextToDisplay;
+	[read: ToInstance ToSubClass] string Type;
+	[read: ToInstance ToSubClass] string Subaddress;
+	[read: ToInstance ToSubClass] string ScreenTip;
+	[read: ToInstance ToSubClass] string Name;
+};
+
+
+//**************************************************************************
+//* Class: Win32_PowerPoint11Fonts
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_PowerPoint11Fonts
+{
+	[read: ToInstance ToSubClass] boolean EmbedTrueTypeFonts;
+	[read: ToInstance ToSubClass] uint32 FontCount;
+};
+
+//**************************************************************************
+//* Class: Win32_PowerPoint11Font
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_PowerPoint11Font
+{
+	[key, read: ToInstance ToSubClass] string Name;
+};
+
+
+//**************************************************************************
+//* Class: Win32_PowerPoint11ComAddins
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_PowerPoint11ComAddins
+{
+	[read: ToInstance ToSubClass] uint32 AddInCount;
+};
+
+//**************************************************************************
+//* Class: Win32_PowerPoint11ComAddin
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_PowerPoint11ComAddin
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Installed;
+	[read: ToInstance ToSubClass] string Creator;
+	[read: ToInstance ToSubClass] string Guid;
+	[read: ToInstance ToSubClass] string Path;
+};
+
+
+//**************************************************************************
+//* Class: Win32_PowerPoint11AlternateStartupLoc
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_PowerPoint11AlternateStartupLoc
+{
+	[read: ToInstance ToSubClass] string Path;
+};
+
+
+//**************************************************************************
+//* Class: Win32_PowerPoint11DefaultFileLoc
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_PowerPoint11DefaultFileLoc
+{
+	[read: ToInstance ToSubClass] string Path;
+};
+
+//**************************************************************************
+//* Class: Win32_PowerPoint11StartupFolder
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_PowerPoint11StartupFolder
+{
+	[read: ToInstance ToSubClass] string Path;
+};
+
+//**************************************************************************
+//* Class: Win32_PowerPoint11PageSetup
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_PowerPoint11PageSetup
+{
+	[key, read: ToInstance ToSubClass] uint32 Section;
+	[read: ToInstance ToSubClass] real32 HeaderDistance;
+	[read: ToInstance ToSubClass] real32 FooterDistance;
+	[read: ToInstance ToSubClass] real32 TopMargin;
+	[read: ToInstance ToSubClass] real32 BottomMargin;
+	[read: ToInstance ToSubClass] real32 LeftMargin;
+	[read: ToInstance ToSubClass] real32 RightMargin;
+	[read: ToInstance ToSubClass] string PaperSize;
+	[read: ToInstance ToSubClass] real32 PageHeight;
+	[read: ToInstance ToSubClass] real32 PageWidth;
+	[read: ToInstance ToSubClass] string Orientation;
+	[read: ToInstance ToSubClass] string SectionStart;
+	[read: ToInstance ToSubClass] string VerticalAlignment;
+	[read: ToInstance ToSubClass] real32 CharsLine;
+	[read: ToInstance ToSubClass] real32 LinesPage;
+	[read: ToInstance ToSubClass] string Notables;
+};
+
+//**************************************************************************
+//* Class: Win32_Publisher11ActiveDocument
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Publisher11ActiveDocument
+{
+	[read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Path;
+	[read: ToInstance ToSubClass] real32 Size;
+	[read: ToInstance ToSubClass] datetime CreateDate;
+	[read: ToInstance ToSubClass] string Author;
+	[read: ToInstance ToSubClass] datetime LastSavedDate;
+	[read: ToInstance ToSubClass] string LastAuthor;
+	[read: ToInstance ToSubClass] string Template;
+	[read: ToInstance ToSubClass] uint32 Chars;
+	[read: ToInstance ToSubClass] uint32 CharsWithSpaces;
+	[read: ToInstance ToSubClass] uint32 Words;
+	[read: ToInstance ToSubClass] uint32 Lines;
+	[read: ToInstance ToSubClass] uint32 Paragraphs;
+	[read: ToInstance ToSubClass] uint32 Pages;
+	[read: ToInstance ToSubClass] uint32 Sections;
+	[read: ToInstance ToSubClass] string View;
+	[read: ToInstance ToSubClass] uint32 ZoomPercentage;
+	[read: ToInstance ToSubClass] boolean AllowFastSaves;
+	[read: ToInstance ToSubClass] sint32 WindowPosLeft;
+	[read: ToInstance ToSubClass] sint32 WindowPosTop;
+	[read: ToInstance ToSubClass] string StoryTypes;
+};
+
+//**************************************************************************
+//* Class: Win32_Publisher11ActiveDocumentNoTable
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Publisher11ActiveDocumentNoTable
+{
+	[key, read: ToInstance ToSubClass] string Text;
+};
+
+//**************************************************************************
+//* Class: Win32_Publisher11AlternateStartupFileLocation
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Publisher11AlternateStartupFileLocation
+{
+	[read: ToInstance ToSubClass] string Path;
+};
+
+//**************************************************************************
+//* Class: Win32_Publisher11COMAddIns
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Publisher11COMAddIns
+{
+	[read: ToInstance ToSubClass] uint32 AddInCount;
+};
+
+//**************************************************************************
+//* Class: Win32_Publisher11COMAddIn
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Publisher11COMAddIn
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Installed;
+	[read: ToInstance ToSubClass] string Creator;
+	[read: ToInstance ToSubClass] string Guid;
+	[read: ToInstance ToSubClass] string Path;
+};
+
+//**************************************************************************
+//* Class: Win32_Publisher11DefaultFileLocation
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Publisher11DefaultFileLocation
+{
+	[read: ToInstance ToSubClass] string Path;
+};
+
+//**************************************************************************
+//* Class: Win32_Publisher11Tables
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Publisher11Tables
+{
+	[read: ToInstance ToSubClass] uint32 TableCount;
+};	 
+	 
+//**************************************************************************
+//* Class: Win32_Publisher11SelectedTable
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Publisher11SelectedTable
+{
+	[read: ToInstance ToSubClass] uint32 Page;
+	[read: ToInstance ToSubClass] uint32 Section;
+	[read: ToInstance ToSubClass] uint32 Rows;
+	[read: ToInstance ToSubClass] uint32 Columns;
+	[read: ToInstance ToSubClass] boolean AllowPageBreaks;
+	[read: ToInstance ToSubClass] string RowsAllowPageBreaks;
+	[read: ToInstance ToSubClass] boolean AllowAutoFit;
+	[read: ToInstance ToSubClass] string CellsAllowAutoFit;
+	[read: ToInstance ToSubClass] uint32 NestingLevel;
+	[read: ToInstance ToSubClass] uint32 Tables;
+	[read: ToInstance ToSubClass] string PreferredWidthType;
+	[read: ToInstance ToSubClass] real32 PreferredWidth;
+	[read: ToInstance ToSubClass] real32 Spacing;
+	[read: ToInstance ToSubClass] real32 TopMargin;
+	[read: ToInstance ToSubClass] real32 BottomMargin;
+	[read: ToInstance ToSubClass] real32 LeftMargin;
+	[read: ToInstance ToSubClass] real32 RightMargin;
+	[read: ToInstance ToSubClass] string RowAlignment;
+	[read: ToInstance ToSubClass] string RowHeightRule;
+	[read: ToInstance ToSubClass] real32 LeftIndent;
+	[read: ToInstance ToSubClass] boolean Uniform;
+};	
+
+
+//**************************************************************************
+//* Class: Win32_Publisher11Table
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Publisher11Table
+{
+	[key, read: ToInstance ToSubClass] uint32 Index;
+	[read: ToInstance ToSubClass] uint32 Page;
+	[read: ToInstance ToSubClass] uint32 Section;
+	[read: ToInstance ToSubClass] uint32 Rows;
+	[read: ToInstance ToSubClass] uint32 Columns;
+	[read: ToInstance ToSubClass] boolean NestedTables;
+};
+	
+
+//**************************************************************************
+//* Class: Win32_Publisher11Fonts
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Publisher11Fonts
+{
+	[read: ToInstance ToSubClass] boolean EmbedTrueTypeFonts;
+	[read: ToInstance ToSubClass] uint32 FontCount;
+};
+
+//**************************************************************************
+//* Class: Win32_Publisher11Font
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Publisher11Font
+{
+	[key, read: ToInstance ToSubClass] string Name;
+};
+
+
+//**************************************************************************
+//* Class: Win32_Publisher11Hyperlinks
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Publisher11Hyperlinks
+{
+	[read: ToInstance ToSubClass] uint32 HyperlinkCount;
+};
+
+//**************************************************************************
+//* Class: Win32_Publisher11Hyperlink
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Publisher11Hyperlink
+{
+	[key, read: ToInstance ToSubClass] uint32 Index;
+	[read: ToInstance ToSubClass] string Target;
+	[read: ToInstance ToSubClass] string Address;
+	[read: ToInstance ToSubClass] string TextToDisplay;
+	[read: ToInstance ToSubClass] string Type;
+	[read: ToInstance ToSubClass] string Subaddress;
+	[read: ToInstance ToSubClass] string ScreenTip;
+	[read: ToInstance ToSubClass] string Name;
+};
+
+//**************************************************************************
+//* Class: Win32_Publisher11MailMerge
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Publisher11MailMerge
+{
+	[read: ToInstance ToSubClass] string DocumentName;
+	[read: ToInstance ToSubClass] string DocumentType;
+	[read: ToInstance ToSubClass] string MergeTo;
+	[read: ToInstance ToSubClass] string State;
+	[read: ToInstance ToSubClass] boolean SuppressBlankLines;
+	[read: ToInstance ToSubClass] boolean ViewFieldCodes;
+	[read: ToInstance ToSubClass] uint32 FieldCount;
+	[read: ToInstance ToSubClass] string FieldCodes;
+	[read: ToInstance ToSubClass] string DataSourceName;
+	[read: ToInstance ToSubClass] string DataSourceType;
+	[read: ToInstance ToSubClass] string ActiveRecord;
+	[read: ToInstance ToSubClass] string FieldNames;
+	[read: ToInstance ToSubClass] string Notables;
+};	
+	
+//**************************************************************************
+//* Class: Win32_Publisher11PageNumber
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Publisher11PageNumber
+{
+	[key, read: ToInstance ToSubClass] uint32 Section;
+	[read: ToInstance ToSubClass] uint32 PageNumbers;
+	[read: ToInstance ToSubClass] string PageNumbersIn;
+	[read: ToInstance ToSubClass] uint32 Start;
+	[read: ToInstance ToSubClass] boolean Restart;
+	[read: ToInstance ToSubClass] boolean ShowFirst;
+};	
+	
+//**************************************************************************
+//* Class: Win32_Publisher11PageSetup
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Publisher11PageSetup
+{
+	[key, read: ToInstance ToSubClass] uint32 Section;
+	[read: ToInstance ToSubClass] real32 HeaderDistance;
+	[read: ToInstance ToSubClass] real32 FooterDistance;
+	[read: ToInstance ToSubClass] real32 TopMargin;
+	[read: ToInstance ToSubClass] real32 BottomMargin;
+	[read: ToInstance ToSubClass] real32 LeftMargin;
+	[read: ToInstance ToSubClass] real32 RightMargin;
+	[read: ToInstance ToSubClass] string PaperSize;
+	[read: ToInstance ToSubClass] real32 PageHeight;
+	[read: ToInstance ToSubClass] real32 PageWidth;
+	[read: ToInstance ToSubClass] string Orientation;
+	[read: ToInstance ToSubClass] string SectionStart;
+	[read: ToInstance ToSubClass] string VerticalAlignment;
+	[read: ToInstance ToSubClass] real32 CharsLine;
+	[read: ToInstance ToSubClass] real32 LinesPage;
+	[read: ToInstance ToSubClass] string Notables;
+};
+
+	
+//	Win32_Publisher11PageNumbers
+	
+
+	//**************************************************************************
+//* Win32_Publisher11Styles
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Publisher11Styles
+{
+	[read: ToInstance ToSubClass] boolean AutoFormatAsYouTypeDefineStyles;
+	[read: ToInstance ToSubClass] boolean AutoFormatPreserveStyles;
+	[read: ToInstance ToSubClass] uint32 ParagraphStyleCount;
+	[read: ToInstance ToSubClass] uint32 CharacterStyleCount;
+};
+
+//**************************************************************************
+//* Class: Win32_Publisher11ParagraphStyle
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Publisher11ParagraphStyle
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Description;
+	[read: ToInstance ToSubClass] string BaseStyle;
+	[read: ToInstance ToSubClass] string NextStyle;
+	[read: ToInstance ToSubClass] boolean BuiltIn;
+	[read: ToInstance ToSubClass] boolean NoProofing;
+	[read: ToInstance ToSubClass] boolean AutomaticallyUpdate;
+};
+
+//**************************************************************************
+//* Class: Win32_Publisher11CharacterStyle
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Publisher11CharacterStyle
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Description;
+	[read: ToInstance ToSubClass] string BaseStyle;
+	[read: ToInstance ToSubClass] boolean BuiltIn;
+};
+	
+//**************************************************************************
+//* Class: Win32_Publisher11StartupFolder
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Publisher11StartupFolder
+{
+	[read: ToInstance ToSubClass] string Path;
+};
+	
+	
+//**************************************************************************
+//* Class: Win32_Publisher11Sections
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Publisher11Sections
+{
+	[read: ToInstance ToSubClass] uint32 SectionCount;
+};	
+
+//**************************************************************************
+//* Class: Win32_OutlookAlternateStartupFile
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_OutlookAlternateStartupFile
+{
+	[read: ToInstance ToSubClass] string Path;
+};
+
+
+//**************************************************************************
+//* Class:Win32_OutlookStartupFolder
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_OutlookStartupFolder
+{
+	[read: ToInstance ToSubClass] string Path;
+};
+
+//**************************************************************************
+//* Class: Win32_OutlookDefaultFileLocation
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_OutlookDefaultFileLocation
+{
+	[read: ToInstance ToSubClass] string Path;
+};
+
+
+
+
+
+
+//**************************************************************************
+//* Class: Win32_OutlookComAddins
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_OutlookComAddins
+{
+	[read: ToInstance ToSubClass] uint32 AddInCount;
+};
+
+//**************************************************************************
+//* Class: Win32_OutlookComAddin
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_OutlookComAddin
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Installed;
+	[read: ToInstance ToSubClass] string Creator;
+	[read: ToInstance ToSubClass] string Guid;
+	[read: ToInstance ToSubClass] string Path;
+};
+
+//**************************************************************************
+//* Class: Win32_OutlookComAddins
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_OutlookComAddins
+{
+	[read: ToInstance ToSubClass] uint32 AddInCount;
+};
+
+//**************************************************************************
+//* Class: Win32_OutlookComAddin
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_OutlookComAddin
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Installed;
+	[read: ToInstance ToSubClass] string Creator;
+	[read: ToInstance ToSubClass] string Guid;
+	[read: ToInstance ToSubClass] string Path;
+};
+
+
+//**************************************************************************
+//* Class: Win32_Access11ComAddins
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11"), Singleton: DisableOverride ToInstance ToSubClass]
+class Win32_Access11ComAddins
+{
+	[read: ToInstance ToSubClass] uint32 AddInCount;
+};
+
+//**************************************************************************
+//* Class: Win32_Access11ComAddin
+//* Derived from: 
+//**************************************************************************
+[dynamic: ToInstance, provider("OffProv11")]
+class Win32_Access11ComAddin
+{
+	[key, read: ToInstance ToSubClass] string Name;
+	[read: ToInstance ToSubClass] string Installed;
+	[read: ToInstance ToSubClass] string Creator;
+	[read: ToInstance ToSubClass] string Guid;
+	[read: ToInstance ToSubClass] string Path;
+};
+
+//* EOF OInfoP11.mof

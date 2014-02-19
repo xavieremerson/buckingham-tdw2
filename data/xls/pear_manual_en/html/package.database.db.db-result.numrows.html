@@ -1,0 +1,423 @@
+<HTML
+><HEAD
+><TITLE
+>DB_result::numRows()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="DB_result::numCols()"
+HREF="package.database.db.db-result.numcols.html"><LINK
+REL="NEXT"
+TITLE="DB_Error"
+HREF="package.database.db.db-error.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-result.numcols.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-error.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.db-result.numrows">DB_result::numRows()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN25466"
+></A
+>DB_result::numRows()&nbsp;--&nbsp;Gets number of rows in a result set</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN25469"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN25470"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>integer <B
+CLASS="function"
+>numRows</B
+></CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-result.numrows.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Get the number of rows in a result set.
+  </P
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;    For <TT
+CLASS="literal"
+>ibase</TT
+>, <TT
+CLASS="literal"
+>ifx</TT
+> and
+    <TT
+CLASS="literal"
+>oci8</TT
+>, this method only works if the
+    <TT
+CLASS="constant"
+><B
+>DB_PORTABILITY_NUMROWS</B
+></TT
+>
+    <A
+HREF="package.database.db.intro-portability.html"
+>&#13;     portability option</A
+> is enabled.
+    In addition, for <TT
+CLASS="literal"
+>ibase</TT
+> and
+    <TT
+CLASS="literal"
+>ifx</TT
+>, PEAR DB must be at version
+    1.7.0 or greater.
+   </P
+><P
+>&#13;    Does not work for Microsoft Access.
+   </P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-result.numrows.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   integer - number of rows
+   or a <A
+HREF="package.database.db.db-error.html"
+><B
+CLASS="classname"
+>DB_Error</B
+></A
+> object on failure
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-result.numrows.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <DIV
+CLASS="table"
+><A
+NAME="AEN25497"><P
+><B
+>Table 33-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_NOT_CAPABLE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        DB backend not capable
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Driver doesn't support this feature.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Either switch to another database system or enable the
+        <TT
+CLASS="constant"
+><B
+>DB_PORTABILITY_NUMROWS</B
+></TT
+>
+        <A
+HREF="package.database.db.intro-portability.html"
+>&#13;         portability option</A
+>.
+       </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-result.numrows.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-result.numrows.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN25520"><P
+><B
+>Example 33-1. Using <B
+CLASS="function"
+>numRows()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$res =&#38; $db-&#62;query('SELECT * FROM phptest');
+echo $res-&#62;numRows();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-result.numrows.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="package.database.db.db-result.numcols.html"
+>&#13;    <B
+CLASS="function"
+>numCols()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-common.affectedrows.html"
+>&#13;    <B
+CLASS="function"
+>affectedRows()</B
+></A
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.db-result.numcols.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.db-error.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>DB_result::numCols()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="classname"
+>DB_Error</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

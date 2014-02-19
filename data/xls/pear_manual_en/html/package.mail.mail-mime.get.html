@@ -1,0 +1,374 @@
+<HTML
+><HEAD
+><TITLE
+>Mail_Mime::get()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Mail_Mime"
+HREF="package.mail.mail-mime.html"><LINK
+REL="PREVIOUS"
+TITLE="Mail_Mime::addHTMLImage()"
+HREF="package.mail.mail-mime.addhtmlimage.html"><LINK
+REL="NEXT"
+TITLE="Mail_Mime::headers()"
+HREF="package.mail.mail-mime.headers.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-mime.addhtmlimage.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-mime.headers.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.mail.mail-mime.get">Mail_Mime::get()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN80690"
+></A
+>Mail_Mime::get()&nbsp;--&nbsp;build the message</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN80693"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN80694"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Mail/mime.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>string <B
+CLASS="function"
+>&#38;get</B
+></CODE
+> (array [$param = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mime.get.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     This function should be called once you have added the 
+     text/html/images/attachments. It builds the message and returns it. 
+     It does not send it. To send what this function returns (in conjunction 
+     with the <A
+HREF="package.mail.mail-mime.headers.html"
+><B
+CLASS="function"
+>headers()</B
+>
+      </A
+>-function) you would need to use the <A
+HREF="package.mail.mail.send.html"
+>&#13;      <B
+CLASS="function"
+>Mail::send()</B
+></A
+>-function
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mime.get.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>array $param</I
+></TT
+> - An associative array of parameters. 
+        These parameters affect the way the message is built.
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$param["text_encoding"]</I
+></TT
+> - Type of encoding to 
+           use for the plain text part of the email. Default is <SPAN
+CLASS="QUOTE"
+>"7bit"</SPAN
+>. 
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$param["html_encoding"]</I
+></TT
+> - Type of encoding for 
+           the HTML part of the email. Default is <SPAN
+CLASS="QUOTE"
+>"quoted-printable"</SPAN
+>. 
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$param["7bit_wrap"]</I
+></TT
+> - Number of characters after
+           which text is wrapped. SMTP stipulates maximum line length of 1000 characters
+           including CRLF. Default is 998 (CRLF is appended to make up to 1000). 
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$param["head_charset"]</I
+></TT
+> - The character set
+           to use for the headers. Default is <SPAN
+CLASS="QUOTE"
+>"iso-8859-1"</SPAN
+>.
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$param["text_charset"]</I
+></TT
+> - The character set
+           to use for the plain text part of the email. Default is <SPAN
+CLASS="QUOTE"
+>"iso-8859-1"</SPAN
+>. 
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$param["html_charset"]</I
+></TT
+> - The character set
+           to use for the HTML part of the email. Default is <SPAN
+CLASS="QUOTE"
+>"iso-8859-1"</SPAN
+>.            
+          </P
+></LI
+></UL
+>
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mime.get.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>string</I
+></TT
+> - the body of the message
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mime.get.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mime.get.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;     <A
+HREF="package.mail.mail-mime.headers.html"
+>&#13;      <B
+CLASS="function"
+>Mail_Mime::headers()</B
+>
+     </A
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mime.addhtmlimage.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mime.headers.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Mail_Mime::addHTMLImage()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mime.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Mail_Mime::headers()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

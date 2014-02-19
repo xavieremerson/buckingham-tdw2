@@ -1,0 +1,15 @@
+<PUBLIC:PROPERTY NAME="speed" />
+<PUBLIC:METHOD NAME="doBlink" />
+<PUBLIC:ATTACH event="oncontentready" handler="Init" />
+
+<SCRIPT>
+// Copyright 1999 InsideDHTML.com, LLC.
+function doBlink() {
+  this.style.visibility = this.style.visibility=="" ? "hidden" : ""
+}
+
+function Init() {
+  if (!speed) speed=1000
+  setInterval(uniqueID+".doBlink()",speed)
+}
+</SCRIPT>

@@ -1,0 +1,235 @@
+<HTML
+><HEAD
+><TITLE
+>Example</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="System_WinDrives"
+HREF="package.system.windrives.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.system.windrives.intro.html"><LINK
+REL="NEXT"
+TITLE="Constants"
+HREF="package.system.windrives.constants.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.system.windrives.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.system.windrives.constants.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.system.windrives.example">Example</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN98157"
+></A
+>Example&nbsp;--&nbsp;
+   How to use System_WinDrives
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN98160"
+></A
+><H2
+>Using System_WinDrives</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN98162"><P
+><B
+>Example 56-1. General usage</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'System/WinDrives.php';
+
+//if you want to read the names, pass "true" as first parameter
+//this may crash your php.exe, so it's disabled by default
+$wd = new System_WinDrives(false);
+
+echo 'API available: ';
+echo $wd-&#62;isApiAvailable() ? 'yes' : 'no';
+echo "\r\n";
+
+$arInfo = $wd-&#62;getDrivesInformation();
+foreach ($arInfo as $strDrive =&#62; $objInfo) {
+echo $strDrive . "\r\n";
+echo '   Type: ' . $objInfo-&#62;type . "\r\n";
+echo '   Type title: ' .  $objInfo-&#62;typetitle . "\r\n";
+echo '   Name: ' . $objInfo-&#62;name . "\r\n";
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    At first, you need to instantitiate a new
+    <B
+CLASS="classname"
+>System_WinDrives</B
+> object. You can pass
+    "true" as parameter to enable hard disk names, but that can
+    crash PHP and is disabled by default.
+   </P
+><P
+>&#13;    The next thing to do is checking if the class can be used.
+    That depends on the available extensions (win32api on PHP4,
+    and php_ffi on PHP5). If the <TT
+CLASS="literal"
+>isApiAvailable</TT
+>
+    method returns true, everything is ok.
+   </P
+><P
+>&#13;    Now that everything is ok, you can read the driver information
+    via <TT
+CLASS="literal"
+>getDrivesInformation</TT
+> and display the output.
+   </P
+><P
+>&#13;    In case the API is not available, the method tries to guess the
+    drive list by checking if the root directories exist.
+   </P
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.system.windrives.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.system.windrives.constants.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.system.windrives.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Constants</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

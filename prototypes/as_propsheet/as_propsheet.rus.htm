@@ -1,0 +1,254 @@
+<HTML>
+<HEAD><TITLE>as_propsheet: Классы для вывода Property Sheet-страниц</TITLE>
+<META http-equiv="Content-Type" Content="text/html; charset=windows-1251">
+<STYLE TYPE="text/css">
+<!--
+  body     { font-family:arial,helvetica;font-size:12px; }
+  pre { color:#0000FF; }
+  td   { font-family:arial,helvetica;font-size:12px;}
+  tr.head  { background-color: #D0D0FF; color:#000000; font-size:13px; font-weight:bold; }
+  tr.odd   { background-color: #F0F0F8; color:#000000; }
+  tr.even  { background-color: #E0E0F0; color:#000000; }
+  h4       { background-color: #E0E0F0; color:#000000;
+           text-align: left; }
+  h5       { background-color: #E0E0F0; color:#000000;
+           text-align: center; }
+  pre    { font-family:arial,helvetica;font-size:12px; color:#000080; font-weight:bold;}
+-->
+</STYLE>
+
+</head>
+<BODY>
+<H3>as_propsheet: Классы для вывода Property Sheet-страниц</H3>
+
+<div align=right><a href="as_propsheet.htm">English version</a><br><br></div>
+
+<p>
+Данный модуль служит для построения мульти-страничных экранов ввода данных,
+известных "в миру" как Property Sheet.
+<br>as_propsheet может выводить два типа многостраничных экранов: "TAB-style" экраны
+(для переключения страниц служат "закладки" в верхней части),
+ и "WIZARD-style" экраны (последовательный переход от страницы к странице, с помощью кнопок
+ "Следующий","предыдущий", и "Finish").
+
+<p><b>ВНИМАНИЕ</b>: для вывода используются JavaScript и возможности DHTML, так что нужно
+помнить о совместимости с предполагаемыми версиями браузеров,
+при развертывании финального проекта в интра- или интернет.
+
+<p>
+Ниже приводится описание работы с классами модуля as_propsheet.
+
+<br>
+<H4>Установка as_propsheet на Вашем сайте</H4>
+
+<ol>
+  <li>Загрузите дистрибутивный zip файл и распакуйте в любой каталог.
+  Если "движок" Property Sheet будет использоваться во многих файлах, целесообразно поместить
+  файл as_propsheet.php в одну из папок, перечисленных в файле PHP.ini, переменной "include_path".
+  В противном случае достаточно положить его в одну папку со своим проектом.
+  </li>
+  <li> В начале своего PHP-скрипта вставить строку полдключения модуля:<br>
+    <b>require_once('as_propsheet.php');</b>
+  </li>
+  <li>Подготовить несколько CSS-классов, используемых в as_propsheet для правильного отображения
+  элементов на экране (см.следующую часть)</li>
+</ol>
+
+<br>
+<H4>Подготовка CSS стилей для работы с Property sheet</H4>
+as_propsheet использует предопределенные и описанные вне самого модуля css-классы.
+Образец их может быть взят в рабочем примере - as_propsheet_sample.php.
+<br>Вы можете заменить имена классов "по умолчанию" на свои, добавив до вызова функции рисования (Draw())
+операторы вида <b>$as_cssclass['textfield']='mycssname';</b>
+<br>
+Список имен классов задается в глобальной переменной-массиве $as_cssclass:
+<ul>
+<li><b>$as_cssclass['textfield']</b> (по умолч. - 'ibox') - стиль для вывода текстовых полей ввода (input type=text|password|textarea)
+<li><b>$as_cssclass['button']</b>  (по умолч. - 'button') - стиль для вывода элемента "кнопка" (input type=submit, &ly;button..&gt;
+<li><b>$as_cssclass['tactive']</b> (по умолч. - 'tblactive') - стиль для "язычка" текущей активной страницы
+<li><b>$as_cssclass['tinactive']</b> (по умолч. - 'tblinactive') - стиль для неактивных язычков
+  Обратите внимание, эти два стиля должны иметь нулевую нижнюю границу (border-bottom), для обеспечения правильного вида.
+<li><b>$as_cssclass['pagebody']</b> (по умолч. - 'pagebody') - фоновый стиль для всех страниц (property pages).
+  У этого стиля не должно быть верхней границы (border-top), для обеспечения правильного вида.
+<li><b>$as_cssclass['pagebodywiz']</b> (по умолч. - 'pagebodywiz') - такой же как 'pagebody', за исключением
+ условия по верхней границе - ее здесь наоборот надо выводить, т.к. этот стиль используется в режиме WIZARD-style,
+  когда верхних "язычков" не будет.
+<li><b>$as_cssclass['row_header']</b> (по умолч. - 'head') - Этот стиль понадобится, если Вы используете заголовочные блоки
+внутри одной страницы (реализуются занесением в список полей псевдо-поля типа 'head')
+</ul>
+
+<H4>Создание TAB-style экрана</H4>
+<p>
+
+Создаем объект класса CPropertySheet:
+<pre>
+require_once('as_propsheet.php');
+$sheet = new CPropertySheet('mysheet',800,200);
+</pre>
+
+Теперь зарегистрируем в нем наши страницы свойств (property pages).<br>
+Для вывода содержимого страницы передается либо список полей, либо другой объект класса CPropertySheet,
+(вложенный мульти-страничный экран), либо наша собственная функция на PHP.
+
+<p><b>Пример 1</b>: регистрация страницы со списком полей
+<pre>
+$fd = array();
+$curvalue = isset($cfg['title'])? $cfg['title']: 'My nice site';
+$fd[] = new CFormField('title','text','Your site main title',$curvalue,0,100,300);
+
+$curvalue = isset($cfg['siteurl'])? $cfg['siteurl']: 'http://www.MyNiceSyte.net';
+$fd[] = new CFormField('siteurl','text','URL for your site',$curvalue,0,100,300);
+
+$curvalue = isset($cfg['shownews'])? $cfg['shownews']: 0;
+$fd[] = new CFormField('shownews','checkbox','Show news on main page',$curvalue);
+$sheet->AddPage('Page 1: basic parameters',$fd);
+</pre>
+
+<br><b>Пример 2</b>: Можно в внутри одной страницы выводить вложенный мульти-страничный блок:
+<pre>
+...
+$sheet2 = new CPropertySheet('nested2',600,100);
+$flds = array();
+$flds[] = new CFormField('f11','text','sub-field 1','initial value',0,100,200);
+$flds[] = new CFormField('f12','checkbox','check box 12',0);
+$sheet2->AddPage('sub-params-1',$flds);
+...
+$sheet->AddPage('nested property sheet...', $sheet2);
+</pre>
+
+<br><br>
+<b>Пример 3</b>: Следующую страницу будет рисовать наша функция (в нашем примере - <b>UdfvarPage()</b>).
+<pre>
+$sheet->AddPage('User defined parameters','UdfvarPage');
+</pre>
+
+Теперь можно сгенерировать и вывести HTML-код:
+<pre>
+$sheet->Draw();
+</pre>
+
+Ествественно, стартовый тег формы (&lt;FORM ...&gt;) нужно выводить до вызова Draw(),
+а закрывающий &lt;/FORM&gt; - после.
+
+<p>Переданные списки полей выводятся одно за одним, по полю на строке (заголовок слева, поле-справа),
+и если такой вид не подходит, надо использовать свою функцию вывода.
+
+<H4>Создание WIZARD-style экранов</H4>
+
+<p>
+Создание Визардов мало чем отличается - нужно лишь при создании объекта CPropertySheet
+использовать константу WIZARDSTYLE, а также вызвать функцию регистрации кнопки "Финиш":
+
+<pre>
+require_once('as_propsheet.php');
+$sheet = new CPropertySheet('mysheet',800,200,WIZARDSTYLE);
+
+$sheet->SetFinishButton('FinishWizard()','Финиш!',false);
+</pre>
+
+<H4>Описание классов и их методов модуля as_propsheet</H4>
+<p>
+Ниже приводится полный список классов и их методов.<br><br>
+<table border=0 _bgcolor='#5050E0' width='100%' cellspacing=1>
+<tr class='head'><td colspan=2>Класс: CPropertySheet</tr></tr>
+<tr class='odd'>
+ <td valign=top>constructor: CPropertySheet($id, $width='',$height='',$sheetstyle=TABSTYLE)</td>
+  <td><b>$id</b> - уникальный символьный идентификатор таблицы, (уникальность необходима, если на одной HTML странице
+  выводится более одного объекта CPropertySheet).
+  <br><b>$width</b> - "минимальная" ширина таблицы со списком страниц, 800 по умолчанию.
+  <br><b>$height</b> - "минимальная" высота таблицы со списком страниц, 120 по умолчанию.
+  <br><b>$sheetstyle</b> - тип таблицы, TABSTYLE (по умолчанию) или WIZARDSTYLE.
+  <br><br><b>Пример: $sheet = new CPropertySheet('mysheet',800,200);</b>
+</td></tr>
+<tr class='even'>
+ <td valign=top>AddPage($tabtitle,$drawobject, $jsfunc_next='')</td>
+  <td>Регистрирует в таблице одну страницу (Property Page).
+  <br><b>$tabtitle</b> - строка с заголовком, выводимым на "язычке" страницы
+  <br><b>$drawobject</b> - массив со списком полей (объектов класса CFormField), либо
+  другой объект класса CPropertySheet? либо имя своей функции отрисовки HTML-кода страницы.
+  (См. подробности вызовов в propsheet_sample.php)
+  <br><b>$jsfunc_next</b> - Эта javascript функция нужна в режиме WIZARDSTYLE и вызывается перед
+  переходом на следующую страницу (при нажатии на кнопку "следующий").
+  С ее помощью можно динамически обновить значения полей на следующих страницах в зависимости
+  от введенных ранее, либо проверить корректность заведенных данных и при необходимости блокировать уход со страницы
+  (в этом случае функция долджна вернуть значение <b>false</b>)
+  <br>См. <b>propsheet_sample.php</b> - переключитесь в режим WIZARDSTYLE, и попробуйте
+  попереключать кнопку 'Next'.
+  <br><br><b>Пример: $sheet->AddPage('basic parameters',$fieldlist);</b>
+</td></tr>
+<tr class='odd'>
+ <td valign=top>SetFinishButton($function,$caption='',$enabled=false)</td>
+  <td>Этот метод вызывается только в режиме WIZARDSTYLE, чтобы была сформирована кнопка FINISH.
+  <br><b>$function</b> - javascript функция, отрабатываемая при нажатии на финальную кнопку.
+  <br><b>$caption</b> - Текст на кнопке, "Finish" по умолч.
+  <br><b>$enabled</b> (по умолч. 0), если 0, кнопка Finish будет в выведена с атрибутом disabled.
+  Тогда в Ваших javascript функциях должен быть разблокирующий код (например, в функции перехода
+  с предпоследней на последнюю страницу).
+  <br><br><b>Пример: $sheet->SetFinishButton('FinishPressed()','Finish setup',true);</b>
+</td></tr>
+
+<tr class='head'><td colspan=2>Класс: CPropertyPage, описание одной страницы "property-page")</tr></tr>
+<tr class='odd'>
+ <td valign=top>constructor: CPropertyPage($title,$drawfunc,$evtnext='')</td>
+  <td><b>$title</b> - текст в закладке
+  <br><b>$drawfunc</b> - список полей|объект CPropertySheet|имя функции
+  <br><b>$evtnext</b> - имя javascript функции на событие "Next" (WIZARDSTYLE)
+  <br><br><b>конструктор вызывается автоматически при выполнении CPropertySheet::AddPage()</b>
+</td></tr>
+
+<tr class='head'><td colspan=2>Класс: CFormField, описание одного редактируемого поля</tr></tr>
+<tr class='even'>
+ <td valign=top>constructor: CFormField($name,$type='text',$prompt='',$initvalue='',$vlist='',
+            $maxlength=10,$width=0,$title='',$onchange='',$addprm='')</td>
+  <td>
+    <b>$type</b> - один из допустимых типов: <b>text|password|textarea|head|select|checkbox</b>
+  <br><b>$prompt</b> - сопроводительный текст перед полем (описание)
+  <br><b>$initvalue</b> - начальное значение
+  <br><b>$vlist</b> - список доступных значений для поля типа SELECT.
+  Может быть задан как ассоциативный массив - array('key'=>value,...)
+     или двумерный массив : $v[0]=array($key0,$value0); $v[1]=array($key1,$value1),...
+  <br><b>$maxlength</b> - значение тега MAXLENGTH для полей типа text/password
+  <br><b>$width</b> - если передан, в атрибутах поля будет вставлен дополнительный css-код : style='width:NNN'
+  <br><b>$title</b> - всплывающая подсказка (тело тега TITLE='...' )
+  <br><b>$onchange</b> - код для событий onChange/onClick для поля.
+  <br><b>$addprm</b> - прочий дополнительный HTML-код с атрибутами, вставляется в тело тега &lt;input...&gt;
+  <br><br><b>Пример: $fields[] = new CFormField('shownews','checkbox','Show news on main page',1);  </b>
+  <br>Если нужно задать style-атрибуты для ширины и высоты, ('width','height'), используйте последний параметр, $addprm
+  (например, для вывода поля TEXTAREA нужного размера):
+  <br><b>$addprm = "style='width:100%; height:120px;' ";</b>
+</td></tr>
+
+</table>
+
+<p>
+В конце - простой пример. Более полный см. в <b>propsheet_sample.php</b> file
+
+<pre>
+require_once('as_propsheet.php');
+$sheet = new CPropertySheet('mysheet',800,200);
+$fields = array();
+$fields[] = new CFormField('siteurl','text','URL for your site',$initvalue,0,100,300);
+$fields[] = new CFormField('shownews','checkbox','Show news on main page',1);
+$sheet->AddPage('main parameters', $fields);
+$sheet->AddPage('UDF parameters', 'DrawMyUDFPage');
+$sheet->Draw();
+</pre>
+
+<H4>Version History</H4>
+<b>1.0.001 (2006-10-24)</b>
+<ul>
+  <li>Первый публичный релиз на <a href='http://www.phpclasses.org' target='_blank'>phpclasses.org</a></li>
+</ul>
+
+<br>
+<!--
+<H4>Links</H4>
+<ul>
+  <li><a href="http://as-works.narod.ru/en/php/">as_propsheet and other PHP scripts collection on the author's homepage</a></li>
+</ul>
+<br><br><br><p>
+-->
+<hr>
+<div align=center><font size=-2>Copyright &copy; Alexander Selifonov, 2006<a href="http://as-works.narod.ru">as-works.narod.ru</a>
+</font></div>
+</HTML></BODY>

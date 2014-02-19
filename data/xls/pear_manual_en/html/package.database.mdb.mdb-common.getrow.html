@@ -1,0 +1,619 @@
+<HTML
+><HEAD
+><TITLE
+>MDB_Common::getRow()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="MDB"
+HREF="package.database.mdb.html"><LINK
+REL="PREVIOUS"
+TITLE="MDB_Common::getOne()"
+HREF="package.database.mdb.mdb-common.getone.html"><LINK
+REL="NEXT"
+TITLE="MDB_Common::getTextValue()"
+HREF="package.database.mdb.mdb-common.gettextvalue.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb.mdb-common.getone.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb.mdb-common.gettextvalue.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.mdb.mdb-common.getrow">MDB_Common::getRow()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN29758"
+></A
+>MDB_Common::getRow()&nbsp;--&nbsp;fetch the first row</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN29761"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN29762"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'MDB.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>&#38;getRow</B
+>
+    </CODE
+> (string $query, array [$types = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>], array [$params = array()], array [$param_types = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>], integer
+      [$fetchmode =
+        <TT
+CLASS="constant"
+><B
+>MDB_FETCHMODE_DEFAULT</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb.mdb-common.getrow.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Fetch the first row of data returned from a query. The function takes
+     care of doing the query and freeing the results when finished.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb.mdb-common.getrow.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$query</I
+></TT
+></DT
+><DD
+><P
+>&#13;         the SQL query
+        </P
+></DD
+><DT
+>array
+        <TT
+CLASS="parameter"
+><I
+>$types</I
+></TT
+></DT
+><DD
+><P
+>&#13;         if supplied, the types of the columns in the result set will be set for fetching
+        </P
+></DD
+><DT
+>array
+        <TT
+CLASS="parameter"
+><I
+>$params</I
+></TT
+></DT
+><DD
+><P
+>&#13;         if supplied,
+         <A
+HREF="package.database.mdb.intro-executequery.html"
+>&#13;        <B
+CLASS="function"
+>prepareQuery()</B
+>/
+          <B
+CLASS="function"
+>executeQuery()</B
+>
+       </A
+> will
+         be used with this array as
+         execute parameters
+        </P
+></DD
+><DT
+>array
+        <TT
+CLASS="parameter"
+><I
+>$param_types</I
+></TT
+></DT
+><DD
+><P
+>&#13;         if supplied, the values in $param will automatically set to the passed datatypes
+        </P
+></DD
+><DT
+>integer
+        <TT
+CLASS="parameter"
+><I
+>$fetchmode</I
+></TT
+></DT
+><DD
+><P
+>&#13;         the fetch mode to use,
+         default is <TT
+CLASS="constant"
+><B
+>MDB_FETCHMODE_DEFAULT</B
+></TT
+>
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb.mdb-common.getrow.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   <TT
+CLASS="parameter"
+><I
+>array</I
+></TT
+> - the first row of results as an array
+     indexed from 0 or a <A
+HREF="package.database.mdb.mdb-error.html"
+><B
+CLASS="classname"
+>MDB_Error</B
+></A
+>, if fail
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb.mdb-common.getrow.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <DIV
+CLASS="table"
+><A
+NAME="AEN29834"><P
+><B
+>Table 33-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <TT
+CLASS="constant"
+><B
+>MDB_ERROR_INVALID</B
+></TT
+>
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          SQL statment for preparing is not valid.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          See the <A
+HREF="package.database.mdb.mdb-common.preparequery.html"
+>&#13;         <B
+CLASS="function"
+>prepareQuery()</B
+> documentation</A
+>,
+          if you want to use a SQL statemt using wildcards.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <TT
+CLASS="constant"
+><B
+>MDB_ERROR_NEED_MORE_DATA</B
+></TT
+>
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          To less data for filling the prepared SQL statment.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Check the number of wild cards given in the SQL statment
+          <A
+HREF="package.database.mdb.mdb-common.preparequery.html"
+>&#13;         <B
+CLASS="function"
+>prepareQuery()</B
+>
+        </A
+>. Check the count of
+          entries in the array for <TT
+CLASS="parameter"
+><I
+>$params</I
+></TT
+>. The count
+          of entries have to be equal to the number of wild cards.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <TT
+CLASS="constant"
+><B
+>MDB_ERROR_NO_DB_SELECTED</B
+></TT
+>
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          No database was choosen.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Check the <A
+HREF="package.database.mdb.intro-dsn.html"
+>DSN</A
+>
+          in <A
+HREF="package.database.mdb.mdb.connect.html"
+>&#13;         <B
+CLASS="function"
+>connect()</B
+>
+        </A
+>.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>every other error code</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Database specific error
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Check the database related section of
+          <A
+HREF="www.php.net/manual/"
+TARGET="_top"
+>PHP-Manual</A
+>
+          to detect the reason for this error. In the most cases
+          a misformed SQL statment. Ie. using LIMIT in a SQL-Statment
+          for an Oracle database.
+         </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb.mdb-common.getrow.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb.mdb-common.getrow.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="package.database.mdb.mdb-common.query.html"
+>&#13;    <B
+CLASS="function"
+>query()</B
+>
+   </A
+>,
+     <A
+HREF="package.database.mdb.mdb-common.limitquery.html"
+>&#13;    <B
+CLASS="function"
+>limitQuery()</B
+>
+   </A
+>,
+     <A
+HREF="package.database.mdb.mdb-common.preparequery.html"
+>&#13;    <B
+CLASS="function"
+>prepareQuery()</B
+>
+   </A
+>
+   <A
+HREF="package.database.mdb.mdb-common.executequery.html"
+>&#13;    <B
+CLASS="function"
+>executeQuery()</B
+>
+   </A
+>,
+     <A
+HREF="package.database.mdb.mdb-common.getcol.html"
+>&#13;    <B
+CLASS="function"
+>getCol()</B
+>
+   </A
+>
+     ,<A
+HREF="package.database.mdb.mdb-common.getrow.html"
+>&#13;    <B
+CLASS="function"
+>getRow()</B
+>
+   </A
+>
+     ,<A
+HREF="package.database.mdb.mdb-common.getassoc.html"
+>&#13;    <B
+CLASS="function"
+>getAssoc()</B
+>
+   </A
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.mdb.mdb-common.getone.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.mdb.mdb-common.gettextvalue.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>MDB_Common::getOne()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.mdb.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>MDB_Common::getTextValue()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

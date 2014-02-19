@@ -1,0 +1,431 @@
+<HTML
+><HEAD
+><TITLE
+>Mail_Mime::setTxtBody()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Mail_Mime"
+HREF="package.mail.mail-mime.html"><LINK
+REL="PREVIOUS"
+TITLE="Mail_Mime::setHTMLBody()"
+HREF="package.mail.mail-mime.sethtmlbody.html"><LINK
+REL="NEXT"
+TITLE="Mail_Mime - Example"
+HREF="package.mail.mail-mime.example.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-mime.sethtmlbody.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-mime.example.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.mail.mail-mime.settxtbody">Mail_Mime::setTxtBody()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN80880"
+></A
+>Mail_Mime::setTxtBody()&nbsp;--&nbsp;set plain text part</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN80883"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN80884"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Mail/mime.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>boolean <B
+CLASS="function"
+>setTxtBody</B
+></CODE
+> (string $data [, boolean $isfile = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mime.settxtbody.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Sets the plain text part of a message
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mime.settxtbody.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $data</I
+></TT
+> - The text to set
+        or, if <TT
+CLASS="parameter"
+><I
+>$isfile</I
+></TT
+> is 
+         <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> a valid filename. An URL as argument
+        is not allowed.
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>boolean $isfile</I
+></TT
+> - If <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, the content of 
+        given file <TT
+CLASS="parameter"
+><I
+>$data</I
+></TT
+> is used as message text.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mime.settxtbody.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>boolean</I
+></TT
+> - Returns <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> on success,
+<B
+CLASS="classname"
+>PEAR_Error</B
+> on failure.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mime.settxtbody.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN80921"><P
+><B
+>Table 46-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"File is not readable <TT
+CLASS="parameter"
+><I
+>file_name</I
+></TT
+>"</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          The file was not found or the script has not enough rights to access the
+          file.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Check the file name and path. Check user and file permissions.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"Could not open <TT
+CLASS="parameter"
+><I
+>file_name</I
+></TT
+>"</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          The file is already opened and exclusivly locked by another application.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          In the most cases a programm opens the file for writing. <B
+CLASS="function"
+>&#13;           setTxtBody()</B
+> does no file locking, so this problem is
+          not caused by competitve callings of this function.
+         </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mime.settxtbody.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mime.settxtbody.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;     <A
+HREF="package.mail.mail-mime.sethtmlbody.html"
+>&#13;      <B
+CLASS="function"
+>Mail_Mime::setHTMLBody()</B
+>
+     </A
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mime.sethtmlbody.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mime.example.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Mail_Mime::setHTMLBody()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mime.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Mail_Mime - Example</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

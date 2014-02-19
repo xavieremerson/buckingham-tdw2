@@ -1,0 +1,347 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR_ErrorStack::getErrorMessage</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Intelligent Error Handling with PEAR_ErrorStack"
+HREF="core.pear.pear-errorstack.html"><LINK
+REL="PREVIOUS"
+TITLE="constructor PEAR_ErrorStack::PEAR_ErrorStack"
+HREF="core.pear.pear-errorstack.pear-errorstack.html"><LINK
+REL="NEXT"
+TITLE="PEAR_ErrorStack::getErrorMessageTemplate"
+HREF="core.pear.pear-errorstack.geterrormessagetemplate.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.pear.pear-errorstack.pear-errorstack.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.pear.pear-errorstack.geterrormessagetemplate.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.pear.pear-errorstack.geterrormessage"><B
+CLASS="function"
+>PEAR_ErrorStack::getErrorMessage()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN5170"
+></A
+><B
+CLASS="function"
+>PEAR_ErrorStack::getErrorMessage()</B
+>&nbsp;--&nbsp;Standard error message generation callback</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN5174"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN5175"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'PEAR/ErrorStack.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>string      <B
+CLASS="function"
+>PEAR_ErrorStack::getErrorMessage</B
+></CODE
+> (PEAR_ErrorStack &#38;$stack, array $err [, string|false$template = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear-errorstack.geterrormessage.desc"
+></A
+><H2
+>Description</H2
+><P
+>This method may also be called by a custom error message generator 
+      to fill in template values from the params array, simply  set the third
+      parameter to the error message template string to use
+     </P
+><P
+>&#13;      The special variable %__msg% is reserved: use it only to specify  where a message passed
+      in by the user should be placed in the template,  like so:
+     </P
+><P
+>Error message: %msg% - internal error</P
+><P
+>If the message passed like so:</P
+><P
+>&#13;      <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php-highlighted"
+>&#60;?php
+$stack-&#62;<A
+HREF="core.pear.pear-errorstack.push.html"
+>push</A
+>(ERROR_CODE, 'error', array(), 'server error 500');
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+     </P
+><P
+>The returned error message will be "Error message: server error 500 -  internal error"</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear-errorstack.geterrormessage.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>PEAR_ErrorStack
+        <TT
+CLASS="parameter"
+><I
+>&#38;$stack</I
+></TT
+></DT
+><DD
+><P
+>&#13;         
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array
+        <TT
+CLASS="parameter"
+><I
+>$err</I
+></TT
+></DT
+><DD
+><P
+>&#13;         
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string|false
+        <TT
+CLASS="parameter"
+><I
+>$template</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Pre-generated error message template
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear-errorstack.geterrormessage.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> no exceptions thrown
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear-errorstack.geterrormessage.note"
+></A
+><H2
+>Note</H2
+><P
+>This function should be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.pear.pear-errorstack.pear-errorstack.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.pear.pear-errorstack.geterrormessagetemplate.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>constructor <B
+CLASS="function"
+>PEAR_ErrorStack::PEAR_ErrorStack()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.pear.pear-errorstack.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_ErrorStack::getErrorMessageTemplate()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,294 @@
+<HTML
+><HEAD
+><TITLE
+>Error Handling</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Services_Ebay"
+HREF="package.webservices.services-ebay.html"><LINK
+REL="PREVIOUS"
+TITLE="XML encoding"
+HREF="package.webservices.services-ebay.encoding.html"><LINK
+REL="NEXT"
+TITLE="Architecture"
+HREF="package.webservices.services-ebay.architecture.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.webservices.services-ebay.encoding.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.webservices.services-ebay.architecture.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.webservices.services-ebay.error-handling">Error Handling</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN100861"
+></A
+>Error Handling&nbsp;--&nbsp;Error Handling in Services_Ebay</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.services-ebay.error-handling.refsect1"
+></A
+><H2
+>Exceptions in Services_Ebay</H2
+><P
+>&#13;    As Services_Ebay is a PHP 5 only package, it uses exception handling and
+    the PEAR_Exception class as base class for all exceptions. Exceptions can be
+    thrown, whenever you try to call any of the API calls provided by Services_Ebay, which
+    means you should always nest those in a try/catch-block:
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN100867"><P
+><B
+>Example 60-1. Exception handling</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Services/Ebay.php';
+    
+// pass some authentication data
+$session = Services_Ebay::getSession($devId, $appId, $certId);
+$session-&#62;setToken($token);
+
+// create new proxy object
+$ebay = new Services_Ebay($session);
+try {
+    // call a method
+    echo $ebay-&#62;GeteBayOfficialTime();
+} catch (Exception $e) {
+    echo "Something went wrong.";
+    echo $e;
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   When calling a non-existent API call or passing the wrong parameters to the API, eBay
+   will abort the API call and return an XML-document that contains error information.
+   Services_Ebay will automatically convert this into an exception that can be easily
+   handled by your PHP application.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.services-ebay.error-handling.refsect2"
+></A
+><H2
+>Warnings in Services_Ebay</H2
+><P
+>&#13;    In some cases, the eBay API will still process your request, even if you passed invalid
+    parameters and include error information in the resulting XML-document alongside the actual
+    response of your request.
+   </P
+><P
+>&#13;    In this case, the errors will be tagged as warnings, as they were not serious errors. Services_Ebay
+    will not convert these errors to exceptions, but only to instances of <B
+CLASS="classname"
+>Services_Ebay_Error</B
+>.
+    These objects will be stored in the <B
+CLASS="classname"
+>Services_Ebay_Session</B
+> and can be retrieved by your application
+    at a later point.
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN100877"><P
+><B
+>Example 60-2. Handling warnings</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Services/Ebay.php';
+    
+// pass some authentication data
+$session = Services_Ebay::getSession($devId, $appId, $certId);
+$session-&#62;setToken($token);
+
+// create new proxy object
+$ebay = new Services_Ebay($session);
+try {
+    // call a method
+    echo $ebay-&#62;GeteBayOfficialTime();
+} catch (Exception $e) {
+    // Just ignore the exception and handle them
+    // with any warnings, that might have occured.
+}
+
+$errors = $session-&#62;getErrors();
+if (count($errors) == 0) {
+    echo "No errors or warnings.\n";
+} else {
+    foreach ($errors as $error) {
+        printf("%s: %s (%d))\n", $error-&#62;getSeverity(), $error-&#62;getLongMessage(), $error-&#62;getCode());
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.webservices.services-ebay.encoding.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.webservices.services-ebay.architecture.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>XML encoding</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.webservices.services-ebay.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Architecture</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

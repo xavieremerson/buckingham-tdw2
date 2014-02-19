@@ -1,0 +1,420 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR::raiseError()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR"
+HREF="core.pear.html#core.pear.pear"><LINK
+REL="PREVIOUS"
+TITLE="PEAR::isError()"
+HREF="core.pear.pear.iserror.html"><LINK
+REL="NEXT"
+TITLE="PEAR::setErrorHandling()"
+HREF="core.pear.pear.seterrorhandling.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.pear.pear.iserror.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.pear.pear.seterrorhandling.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.pear.pear.raiseerror">PEAR::raiseError()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN4361"
+></A
+>PEAR::raiseError()&nbsp;--&nbsp;Create a new <A
+HREF="core.pear.pear-error.html"
+><B
+CLASS="classname"
+>PEAR_Error</B
+></A
+> object and optionally specify error-handling instructions</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN4366"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN4367"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'PEAR.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>PEAR_Error <B
+CLASS="function"
+>PEAR::raiseError</B
+></CODE
+> (mixed $message [, int $code [, int $mode [, int|array $options [, mixed $userinfo [, string $error_class [, boolean $skipmsg]]]]]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear.raiseerror.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     <B
+CLASS="function"
+>raiseError()</B
+>        
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear.raiseerror.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$message</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Error message string or PEAR_Error object.
+         The default message is <TT
+CLASS="literal"
+>unknown error</TT
+>
+         if left blank.
+        </P
+></DD
+><DT
+>integer
+        <TT
+CLASS="parameter"
+><I
+>$code</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Error code.  It is recommended to use an error code for even the simplest
+         errors, in order to simplify error handling and processing.
+        </P
+></DD
+><DT
+>integer
+        <TT
+CLASS="parameter"
+><I
+>$mode</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Error mode.  This is one of <TT
+CLASS="constant"
+><B
+>PEAR_ERROR_RETURN</B
+></TT
+>,
+         <TT
+CLASS="constant"
+><B
+>PEAR_ERROR_PRINT</B
+></TT
+>,
+         <TT
+CLASS="constant"
+><B
+>PEAR_ERROR_TRIGGER</B
+></TT
+>,
+         <TT
+CLASS="constant"
+><B
+>PEAR_ERROR_DIE</B
+></TT
+>,
+         <TT
+CLASS="constant"
+><B
+>PEAR_ERROR_CALLBACK</B
+></TT
+>, or
+         <TT
+CLASS="constant"
+><B
+>PEAR_ERROR_EXCEPTION</B
+></TT
+>.  See <A
+HREF="core.pear.pear.seterrorhandling.html"
+><B
+CLASS="function"
+>setErrorHandling()</B
+></A
+>
+         for detailed information and examples of the meaning of these constants.
+        </P
+></DD
+><DT
+>mixed
+        <TT
+CLASS="parameter"
+><I
+>$options</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Error options.  This depends on the value of <TT
+CLASS="parameter"
+><I
+>$mode</I
+></TT
+>,
+         and is documented in <A
+HREF="core.pear.pear.seterrorhandling.html"
+><B
+CLASS="function"
+>setErrorHandling()</B
+></A
+>.
+        </P
+></DD
+><DT
+>mixed
+        <TT
+CLASS="parameter"
+><I
+>$userinfo</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Optional user information.  This can be used to store any error-specific
+         information, and has an unspecified format.
+        </P
+></DD
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$error_class</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Error class name to use as the error object.  The default error class
+         is <A
+HREF="core.pear.pear-error.html"
+><B
+CLASS="classname"
+>PEAR_Error</B
+></A
+>.  Use this parameter to specify another class
+         to use, such as a custom class extending <A
+HREF="core.pear.pear-error.html"
+><B
+CLASS="classname"
+>PEAR_Error</B
+></A
+>
+        </P
+></DD
+><DT
+>boolean
+        <TT
+CLASS="parameter"
+><I
+>$skipmsg</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Use this parameter if you are using a custom class that does not
+         accept an error message in its constructor.  <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Never</I
+></SPAN
+>
+         use this parameter without the <TT
+CLASS="parameter"
+><I
+>$error_class</I
+></TT
+>
+         parameter - it will not work.
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear.raiseerror.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     A <A
+HREF="core.pear.pear-error.html"
+><B
+CLASS="classname"
+>PEAR_Error</B
+></A
+> object is returned, unless PEAR_ERROR_DIE terminates
+     execution or a PEAR_ERROR_EXCEPTION is never handled.
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.pear.pear.iserror.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.pear.pear.seterrorhandling.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>PEAR::isError()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.pear.html#core.pear.pear"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>PEAR::setErrorHandling()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

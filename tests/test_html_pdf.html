@@ -1,0 +1,1180 @@
+<html>
+<head>
+<!--Server: 192.168.20.63-->
+<!--Client: 192.168.20.78-->
+<!--Administrator Email: support@centersys.com-->
+<!--Page Process Time: Fri, 10/19/2007 03:51 pm-->
+<!--pstr: 1110000000000000000000000000000-->
+<!--dcar: 1-->
+<link rel="shortcut icon" href="favicon.ico"></link>
+<link rel="bookmark" href="favicon.ico"></link>
+<title>TDW v 1.8b @ BRG</title>
+
+<script>
+//Mute status bar texts
+function hidestatus(){
+  window.status=''
+  return true
+}
+if (document.layers)
+document.captureEvents(Event.MOUSEOVER | Event.MOUSEOUT)
+document.onmouseover=hidestatus
+document.onmouseout=hidestatus
+</script>
+
+<script language="JavaScript" src="includes/highlight_tables/tigra_tables.js"></script>
+<script language='JavaScript' src='includes/js/javascript.js'></script>
+<!--
+<script language='JavaScript' src='includes/js/timer.js'></script>
+<script language='JavaScript' src='includes/js/ajax.js'></script>
+-->
+<script language="JavaScript" src="includes/js/popup.js"></script>
+<script language="JavaScript" src="includes/js/tbl_sort.js"></script>
+<script language="JavaScript" src="includes/js/tblsort.js"></script>
+
+<script type="text/javascript" src="includes/about/common.js"></script>
+<script type="text/javascript" src="includes/about/subModal.js"></script>
+
+<script language="JavaScript" src="includes/menu/JSCookMenu.js" type="text/javascript"></script>
+<script language="JavaScript" src="includes/menu/js/ThemeOffice/theme.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="includes/menu/css/template_css.css" type="text/css" />
+<link rel="stylesheet" href="includes/menu/css/theme.css" type="text/css" />
+
+<!-- TEMP PPRA -->
+<!--<link href="includes/mainpage.css" rel="stylesheet" type="text/css">-->
+<!-- TEMP PPRA -->
+
+<link rel="stylesheet" type="text/css" href="includes/styles.css">
+<link rel="stylesheet" type="text/css" href="includes/about/subModal.css" />
+</head>
+<!-- <body background="images/bk1.jpg" leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0"> -->
+<!-- <body bgcolor="#F4F8FB" leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" onLoad="InitializeTimer()"> -->
+<body bgcolor="#F4F8FB" leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0">
+
+<!-- TOP LEVEL TABLE -->
+<!-- <table width="100%" height="100%" border="3" cellpadding="0" cellspacing="0" bordercolor="#333333" bordercolorlight="#999999" bordercolordark="#000000" background="images/bk1.jpg"> -->
+<table width="100%" height="100%" border="3" cellpadding="0" cellspacing="0" bordercolor="#333333" bordercolorlight="#999999" bordercolordark="#000000" bgcolor="#F4F8FB">
+	<tr valign="top">
+    <td height="20"> 
+<!-- This section not required
+<div id="dhtmltooltip"></div>
+<script language='JavaScript' src='includes/tooltip.js'></script> -->
+<!-- background="images/table_bkground_grey.jpg" -->
+<!-- <table width="100%"  border="0" cellpadding="0" cellspacing="0" background="images/bk2.jpg" > -->
+<table width="100%"  border="0" cellpadding="0" cellspacing="0" bgcolor="FFFFFF">
+  <tr> 
+    <!-- <td width="50" height="50"><img src="images/compliancelogo_v1.gif" ></td> -->
+	<td width="80"><img src="images/logow64h47.gif" ></td>
+    <td align="right" valign="top"> 
+			<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td> 
+						<table width="100%"  border="0" cellspacing="1" cellpadding="1">
+              <tr> 
+								<td align="left" valign="top"><img src="images/client_appw290h47.gif" border="0"></td>
+              </tr>
+            </table>
+					</td>
+        </tr>
+			</table>
+		</td>
+		<td valign="top">
+			<table width="100%" height="47">
+				<tr>
+					<td align="right" valign="top"><a class="links10top">User: Pravin Prasad <!--[Login expires on Dec 31st, 2008 at 12:00 AM]--> </a> [<a href="logout.php?logoutval=Pravin Prasad" class="links10top">Logout</a>] </td>
+				</tr>
+				<tr>
+					<td align="right" nowrap><a class="ghm"></a></td>
+				</tr>
+      </table>
+		</td>
+  </tr>
+</table>
+<!-- Menu bar. -->
+<div id="wrapper">
+</div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" background="images/themes/standard/menubarbkground.jpg" class="menubar">
+  <tr> 
+    <td class="menubackgr"> <div id="myMenuID"></div>
+      <script language="JavaScript" type="text/javascript">
+  var myMenu =
+  [
+   [null,'&#9658 Modules&nbsp;&nbsp;',null,null,'Modules',
+    //['<img src="./includes/menu/js/ThemeOffice/mgmt.png" />','<b>Mgmt : Sales Rep : </b> Business Summary <font color=blue>(v Beta)</font>','rep_bssrc_container.php',null,'Client Activity'],
+		['<img src="./includes/menu/js/ThemeOffice/mgmt.png" />','<b>Mgmt : Sales Rep : </b> Business Summary <font color=blue>(v Beta)</font>','buss_src_container.php',null,'Client Activity'],
+    //['<img src="./includes/menu/js/ThemeOffice/mgmt.png" />','<b>Mgmt : Sales Rep : </b>Commissions','rep_msrc2y_container.php',null,'Sales Rep. Commissions'],
+		['<img src="./includes/menu/js/ThemeOffice/mgmt.png" />','<b>Mgmt : Sales Rep : </b>Commissions','comm_m_src_container.php',null,'Sales Rep. Commissions'],
+    ['<img src="./includes/menu/js/ThemeOffice/mgmt.png" />','<b>Mgmt : Sales Rep : </b>Client Activity','rep_all_rep_ca_container.php',null,'Client Activity'],
+    _cmSplit,
+    ['<img src="./includes/menu/js/ThemeOffice/reports.png" />','<b>Mgmt : Trader : </b>Commissions','rep_mtrdr2y_container.php',null,'Client Activity'],
+    ['<img src="./includes/menu/js/ThemeOffice/reports.png" />','<b>Mgmt : Trader : </b>Client Activity','rep_all_trdr_ca_container.php',null,'Client Activity'],
+    _cmSplit,
+    ['<img src="./includes/menu/js/ThemeOffice/reports.png" />','<b>Analyst : </b>Commissions','clnt_if2y_src_container.php',null,'Client Commissions'],
+    //['<img src="./includes/menu/js/ThemeOffice/reports.png" />','<b>Analyst : </b>Client Activity','clnt_all_rep_ca_container.php',null,'Client Activity'],
+    _cmSplit,
+    ['<img src="./includes/menu/js/ThemeOffice/compliance.png" />','<b>Compliance :</b> Compliance Review Log','rep_viewed_mgmt.php',null,'Compliance Review Log'],
+    _cmSplit,
+    ['<img src="./includes/menu/js/ThemeOffice/operations.png" />','<b>Operations :</b> Reconcile Commissions','reconcile_comm_container.php',null,'Reconcile Commissions'],
+    ['<img src="./includes/menu/js/ThemeOffice/operations.png" />','<b>Operations :</b> Client Activity','rep_all_rep_ca_container.php',null,'Client Activity'],
+    ['<img src="./includes/menu/js/ThemeOffice/operations.png" />','<b>Operations :</b> Adjustments','rep_adj_all_rep_ca_container.php',null,'Client Activity'],
+    ['<img src="./includes/menu/js/ThemeOffice/operations.png" />','<b>Operations :</b> View Adjustments History','rep_adj_report.php',null,' View Adjustments History'],
+    ['<img src="./includes/menu/js/ThemeOffice/operations.png" />','<b>Operations :</b> Checks & Payments',null,null,'Checks & Payments',
+     ['<img src="./includes/menu/js/ThemeOffice/operations.png" />','Data Entry','pde_payment_entry_container.php',null,'Data Entry'],
+     ['<img src="./includes/menu/js/ThemeOffice/operations.png" />','Data Management','check_mgmt.php?type=manage',null,'Data Management'],
+    ],
+   _cmSplit,
+   ],
+   _cmSplit,
+   [null,'&#9658 Reports&nbsp;&nbsp;',null,null,'Reports',
+    _cmSplit,
+    ['<img src="./includes/menu/js/ThemeOffice/reports.png" />','<strong>Payout <font color="red">PLEASE DO NOT USE. BEING UPDATED.</font></strong>',null,null,'Payout Reports',
+     ['<img src="./includes/menu/js/ThemeOffice/excel_new.png" />','<b>Payout Detail</b> Payout Report','pay_payout_report_container.php',null,'Payout Report'],
+     ['<img src="./includes/menu/js/ThemeOffice/excel_new.png" />','<b>Payout Summary</b> Payout Report','pay_summ_container.php',null,'Payout Summary Report'],
+    ],
+	    ['<img src="./includes/menu/js/ThemeOffice/excel_new.png" />', 'Rolling 12 Months Data [~10 sec.]','xl_rep_rolling_12m.php',"_BLANK",'SEARCH: Accounts'],
+	    ['<img src="./includes/menu/js/ThemeOffice/excel_new.png" />', 'Client Payout % Data','cmgmt_export.php',"_BLANK",'Client Payout % Data'],
+   ],
+   _cmSplit,
+   [null,'&#9658 Administration&nbsp;&nbsp;',null,null,'System Administration',
+    ['<img src="./includes/menu/js/ThemeOffice/users_manage.png" />','<strong>Users</strong>',null,null,'Manage Users',
+     ['<img src="./includes/menu/js/ThemeOffice/users_add_new.png" />','<strong>Add</strong> User','javascript:CreateWnd("umgmt_add.php", 600, 500, false);',null,'Manage Users'],
+     ['<img src="./includes/menu/js/ThemeOffice/users_manage.png" />','<strong>Edit</strong> Users','umgmt.php?type=manage',null,'Edit Users'],
+    ],
+    _cmSplit,
+    ['<img src="./includes/menu/js/ThemeOffice/reps.png" />', '<strong>RR</strong> Maintenance','maint_rr.php',null,'RR Maintenance'],
+    ['<img src="./includes/menu/js/ThemeOffice/reps.png" />', '<strong>RR</strong> Create New','javascript:CreateWnd("maint_rr_add.php?user_id=79", 420, 170, false);',null,'Add RR'],
+    ['<img src="./includes/menu/js/ThemeOffice/print.png" />', '<strong>RR</strong> List (Print)','maint_rr_print.php',"_blank",'Print RR List'],
+    _cmSplit,
+    ['<img src="./includes/menu/js/ThemeOffice/accounts.png" />', '<strong>External</strong> Accounts','ext_accts_entry_container.php',null,'External Accounts'],
+    ['<img src="./includes/menu/js/ThemeOffice/trades.png" />', '<strong>External</strong> Trades (Data Entry)','ext_trades_entry_container.php',null,'Data Entry: Trades'],
+    ['<img src="./includes/menu/js/ThemeOffice/trades.png" />', '<strong>External</strong> Trades: Maintenance','mod_ext_trades_container.php',null,'Trades: Maintenance & Reporting'],
+    _cmSplit,
+    ['<img src="./includes/menu/js/ThemeOffice/maint.png" />', '<strong>Client</strong> Maintenance','cmgmt.php?type=manage',null,'Client Maintenance'],
+   _cmSplit,
+    ['<img src="./includes/menu/js/ThemeOffice/search.png" />', '<strong>SEARCH</strong>: Accounts','srch_a.php',null,'SEARCH: Accounts'],
+   ],
+   _cmSplit,
+   [null,'&#9658 My Prefs&nbsp;&nbsp;',null,null,'System Administration',
+    ['<img src="./includes/menu/js/ThemeOffice/profile.png" />','My Profile','myprofile.php',null,'View/Update My Profile'],
+    ['<img src="./includes/menu/js/ThemeOffice/password.png" />','Change Password','javascript:CreateWnd(\'passwdchange.php?ID=79\', 350, 250, false);',null,'Change my password'],
+    //['<img src="./includes/menu/js/ThemeOffice/about.png" onclick="showPopWin(\'passwdchange.php?ID=79\', 350, 250, null);" />', 'Change my password', 'javascript:showPopWin(\'passwdchange.php?ID=79\', 350, 250, null);', null, 'Change my password'],
+   ],
+   _cmSplit,
+   [null,'&#9658 Help&nbsp;&nbsp;',null,null,'Help',
+   //'<img src="./includes/menu/js/ThemeOffice/help_new.png" />'
+    ['<img src="./includes/menu/js/ThemeOffice/messaging_email.png" />', 'Email Technical Support', 'mailto:support@centersys.com?Subject=Technical Support Request [The Buckingham Research Group, Inc. : TDW v 1.8b : ID:6f71fa48c88e13e58e5a2409544f25f2]&Body=Problem Description:%0D--------------------%0D%0D%0D%0DSeverity:%0D---------%0D%0D%0D%0DMy Contact Information:%0D-----------------------', null,'Email Technical Support'],
+    _cmSplit,
+    //['<img src="./includes/menu/js/ThemeOffice/about.png" />', 'About TDW', 'about_ly.php', null, 'About TDW'],
+    ['<img src="./includes/menu/js/ThemeOffice/about.png" onclick="showPopWin(\'includes/about/about.php\', 400, 200, null);" />', 'About TDW', 'javascript:showPopWin(\'includes/about/about.php\', 400, 200, null);', null, 'About TDW'],
+   ]
+      ,
+   _cmSplit,
+   [null,'&#9658 CenterSys&nbsp;&nbsp;',null,null,'CenterSys Menu',
+    ['<img src="./images/centersys.png" />', 'Help Entries', 'help_entry_container.php', null,'Help Entries'],
+    ['<img src="./images/centersys.png" />', 'Build/Populate Memory', 'javascript:CreateWnd(\'sproc_populate_memory.php\', 404, 216, false)', null,'Open'],
+    ['<img src="./images/centersys.png" />', 'Open', '', null,'Open'],
+    ['<img src="./images/centersys.png" />', 'Open', '', null,'Open'],
+    ['<img src="./images/centersys.png" />', 'Open', '', null,'Open'],
+    ['<img src="./images/centersys.png" />', 'Open', '', null,'Open'],
+    ['<img src="./images/centersys.png" />', 'Open', '', null,'Open'],
+    ['<img src="./images/centersys.png" />', 'Open', '', null,'Open'],
+    ['<img src="./images/centersys.png" />', 'Open', '', null,'Open'],
+    ['<img src="./images/centersys.png" />', 'Open', '', null,'Open'],
+    _cmSplit,
+    ['<img src="./images/centersys.png" onclick="CreateWnd(\'help.php?item=24\', 404, 216, false)" />', 'About CenterSys Menu', 'javascript:CreateWnd(\'help.php?item=24\', 404, 216, false)', null, 'About CenterSys Menu'],
+   ]
+     ];
+  cmDraw ('myMenuID', myMenu, 'hbr', cmThemeOffice, 'ThemeOffice');
+  </script> </td>
+  </tr>
+</table>
+
+
+<!-- End Menu bar -->
+<!--<br><br>-->
+	</td>
+</tr>
+
+<tr valign="top">
+	<td valign="top">
+		<table width="100%" height="100%" border="0" cellpadding="3" cellspacing="0">
+			<tr>	
+				<td valign="top">
+		<!-- START TABLE 1 -->
+		<table width="100%" height="100%" border="0" cellspacing="1" cellpadding="0">
+			<tr> 
+				<td valign="top">
+				
+<table width="100%" cellpadding="0" cellspacing="0" bgcolor="#F7F7F7" class="tblcont">
+				<tr>
+					<td>
+						<table border="0" CELLPADDING="0" CELLSPACING="0">
+							<tr>
+								<td align="left" nowrap class="tblconthead">&nbsp;&nbsp;&#9658; CLIENT ACTIVITY &nbsp;&nbsp;</td>
+								<td nowrap valign=top ><img src="images/tables4/r_angle.png"></td>
+								<td width="100%">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+				<td valign="top">
+					<table width="100%" border="0" cellpadding="4" cellspacing="0">
+						<tr>
+							<td valign="top"> 		
+								<!-- START TABLE 4 -->
+								<!-- class="tablewithdata" -->
+												<table width="100%" bgcolor="#FFFFFF">
+													<tr>
+														<td>
+														<table width="100%" cellpadding="0" cellspacing="0">
+														<form name="clnt_activity" id="idclnt_activity" action="" method="post">
+															<tr>
+																<td width="100">
+																<select class="Text1" name="sel_rep" size="1" >
+																<option value="^ALL^">&nbsp;REGISTERED REPS.&nbsp;(ALL)</option>
+																<option value="^ALL^">____________</option>
+																																					<option value="091^288">BRG, &nbsp; &nbsp; (091)</option>
+																																					<option value="012^218">Brunner, Scott&nbsp; &nbsp; (012)</option>
+																																					<option value="041^301">Cattani, Chris&nbsp; &nbsp; (041)</option>
+																																					<option value="033^219">Colburn, Brian&nbsp; &nbsp; (033)</option>
+																																					<option value="048^220">Davey, John&nbsp; &nbsp; (048)</option>
+																																					<option value="065^244">Demartini, John&nbsp; &nbsp; (065)</option>
+																																					<option value="032^221">Donner, Robert&nbsp; &nbsp; (032)</option>
+																																					<option value="044^228">Efstathiou, Bob&nbsp; &nbsp; (044)</option>
+																																					<option value="063^241">Gault, William&nbsp; &nbsp; (063)</option>
+																																					<option value="030^230">Gronet, Mark&nbsp; &nbsp; (030)</option>
+																																					<option value="068^296">Jacob, Matthew&nbsp; &nbsp; (068)</option>
+																																					<option value="035^225">Leddy, Tom&nbsp; &nbsp; (035)</option>
+																																					<option value="036^226">Luchansky, Marc&nbsp; &nbsp; (036)</option>
+																																					<option value="039^233">Maguire, John&nbsp; &nbsp; (039)</option>
+																																					<option value="028^234">Mccartan, Fran&nbsp; &nbsp; (028)</option>
+																																					<option value="067^281">Nolan, Michael&nbsp; &nbsp; (067)</option>
+																																					<option value="046^276">O'Gorman, Kevin&nbsp; &nbsp; (046)</option>
+																																					<option value="040^235">Rogers, Doug&nbsp; &nbsp; (040)</option>
+																																					<option value="034^236">Rosenberg, Jill&nbsp; &nbsp; (034)</option>
+																																					<option value="037^237">Scheiner, Richard&nbsp; &nbsp; (037)</option>
+																																					<option value="031^238">Sinclair, Andrew&nbsp; &nbsp; (031)</option>
+																																					<option value="049^248">Stephens, Michael&nbsp; &nbsp; (049)</option>
+																																					<option value="042^239">Sullivan, Vincent&nbsp; &nbsp; (042)</option>
+																																					<option value="060^245">Sutera, Anthony&nbsp; &nbsp; (060)</option>
+																																					<option value="038^240">Turetsky, Howard&nbsp; &nbsp; (038)</option>
+																																					<option value="045^298">Williams, Anne&nbsp; &nbsp; (045)</option>
+																																</select>
+																</td>
+																<td width="5">&nbsp;</td>
+																<td width="100">
+																<select class="Text1" name="sel_client" size="1" >
+																<option value="^ALL^">&nbsp;CLIENTS&nbsp;(ALL)</option>
+																<option value="^ALL^">____________</option>
+																<script type="text/javascript">
+																var dc = new Array()
+																																
+																dc [0] = "0648^0648";
+dc [1] = "ARTM^ARTM";
+dc [2] = "ASTE^ASTE";
+dc [3] = "BACK^BACK";
+dc [4] = "BAYH^BAYH";
+dc [5] = "BHMS^BHMS";
+dc [6] = "CL00^CL00";
+dc [7] = "CLOC^CLOC";
+dc [8] = "COBB^COBB";
+dc [9] = "COCL^COCL";
+dc [10] = "CONN^CONN";
+dc [11] = "DEML^DEML";
+dc [12] = "DIDI^DIDI";
+dc [13] = "DONT^DONT";
+dc [14] = "FASS^FASS";
+dc [15] = "GARD^GARD";
+dc [16] = "GARX^GARX";
+dc [17] = "GTAM^GTAM";
+dc [18] = "HAVN^HAVN";
+dc [19] = "HOMB^HOMB";
+dc [20] = "JSAM^JSAM";
+dc [21] = "LANE^LANE";
+dc [22] = "MAMM^MAMM";
+dc [23] = "MAPL^MAPL";
+dc [24] = "MELP^MELP";
+dc [25] = "MILA^MILA";
+dc [26] = "MLIM^MLIM";
+dc [27] = "MONA^MONA";
+dc [28] = "NCNC^NCNC";
+dc [29] = "NEWL^NEWL";
+dc [30] = "OLP5^OLP5";
+dc [31] = "PDY3^PDY3";
+dc [32] = "PDYG^PDYG";
+dc [33] = "PIC1^PIC1";
+dc [34] = "PIC7^PIC7";
+dc [35] = "PIC8^PIC8";
+dc [36] = "RAND^RAND";
+dc [37] = "ROBX^ROBX";
+dc [38] = "ROSB^ROSB";
+dc [39] = "RSIM^RSIM";
+dc [40] = "SSRD^SSRD";
+dc [41] = "SYND^SYND";
+dc [42] = "TIGF^TIGF";
+dc [43] = "UBSC^UBSC";
+dc [44] = "WCPW^WCPW";
+dc [45] = "WEMT^WEMT";
+dc [46] = "WTRA^WTRA";
+dc [47] = "XXXX^XXXX";
+dc [48] = "ZWIG^ZWIG";
+dc [49] = "1837^1837 PARTNERS/RMB CAP";
+dc [50] = "3NOT^3 NOTCH CAPITAL";
+dc [51] = "AIMA^A.I.M. ADVISORS INC";
+dc [52] = "AADC^AAD CAPITAL";
+dc [53] = "ACKA^ACK ASSET";
+dc [54] = "ACT2^ACT II PARTNERS";
+dc [55] = "ADAG^ADAGE CAPITAL MGMT";
+dc [56] = "AELT^AELTUS/ING IVESTMENT MGT";
+dc [57] = "AJBC^AJB CAPITAL";
+dc [58] = "ALLN^ALLEN & CO";
+dc [59] = "ALCA^ALLIANCE CAPITAL";
+dc [60] = "ALSO^ALSON CAPITAL";
+dc [61] = "ALTA^ALTA CAPITAL MGMT";
+dc [62] = "AMAR^AMARANTH";
+dc [63] = "AMBR^AMBER CAPITAL";
+dc [64] = "AMEX^AMER EX/RIVER SOURCE-IDS";
+dc [65] = "ANDE^ANDERSON HOAGLAND & CO";
+dc [66] = "ANTA^ANTEUS ASSOC.BAEL";
+dc [67] = "APEX^APEX CAPITAL MGMT.";
+dc [68] = "ARDS^ARDSLEY PARTNERS";
+dc [69] = "ARIE^ARIENCE CAPITAL";
+dc [70] = "ARTP^ARTISAN PARTNERS LP";
+dc [71] = "ASCE^ASCEND PARTNERS";
+dc [72] = "ATLA^ATLAS CAPITAL";
+dc [73] = "AVEN^AVENUE CAPITAL MGMT";
+dc [74] = "AVES^AVESTA CAP";
+dc [75] = "AWAD^AWAD ASSET MGMT";
+dc [76] = "AXIA^AXIA CAPITAL MGMT";
+dc [77] = "BCAP^B CAPITAL";
+dc [78] = "BAIR^BAIRD INVESTMENT";
+dc [79] = "BALY^BALYASNY ASSET MGMT";
+dc [80] = "BONY^BANK OF NEW YORK";
+dc [81] = "BBOO^BARABOO GROWTH";
+dc [82] = "BARO^BARON ASSET MGMT*";
+dc [83] = "BARR^BARROW HANLEY MEWHINNEY";
+dc [84] = "BASI^BASIX";
+dc [85] = "BASS^BASSO CAPITAL";
+dc [86] = "BAYP^BAYPOINT/PRIMEMOVERS";
+dc [87] = "BSAM^BEAR STEARNS ASSET MGMT.";
+dc [88] = "BMOL^BECK MACK & OLIVER LLC";
+dc [89] = "BECK^BECKER ADV";
+dc [90] = "BELA^BELAY CAPITAL";
+dc [91] = "BELM^BELMONT GLOBAL ADV";
+dc [92] = "BENC^BENCHMARK";
+dc [93] = "BENL^BENNETT LAWRENCE";
+dc [94] = "BERK^BERKLEY";
+dc [95] = "BESS^BESSIMER TRUST";
+dc [96] = "BLRS^BLACKROCK/BOSTON";
+dc [97] = "BLUH^BLUE HARBOR";
+dc [98] = "BODR^BODRI CAPITAL MGMT";
+dc [99] = "BONZ^BONANZA PARTNERS";
+dc [100] = "BRAH^BRAHMAN CAPITAL";
+dc [101] = "BRAM^BRAMWELL CAP";
+dc [102] = "BWAM^BRANDWINE";
+dc [103] = "BREE^BREEDEN CAP MGMT";
+dc [104] = "BREN^BRENCOURT";
+dc [105] = "BRIG^BRIGHTPOINT CAP";
+dc [106] = "BROM^BROMPTON CROSS";
+dc [107] = "BROO^BROOKSIDE CAPITAL PART";
+dc [108] = "BUCK^BUCK CAPITAL MGMT";
+dc [109] = "BULL^BULL PATH CAPITAL";
+dc [110] = "CADM^CADMUS CAP";
+dc [111] = "CDPC^CAISSE DEPOT PLACEMENT Q";
+dc [112] = "CAMB^CAMBIAR CAP";
+dc [113] = "CANT^CANTILLON CAPITAL";
+dc [114] = "CAPG^CAPITAL GROWTH MGMT.";
+dc [115] = "CAPW^CAPITAL WORKS";
+dc [116] = "CARD^CARDINAL CAPITAL";
+dc [117] = "CARL^CARLSON CAPITAL";
+dc [118] = "CBLU^CARLYLE BLUE WAVE PR MG";
+dc [119] = "CASE^CASEY CAPITAL";
+dc [120] = "CASA^CASTLE ARK";
+dc [121] = "CAST^CASTLEROCK";
+dc [122] = "CATA^CATAPULT";
+dc [123] = "CAVU^CAVU CAP ADV";
+dc [124] = "CAXT^CAXTON PART";
+dc [125] = "CENT^CENTURION PARTNERS";
+dc [126] = "CHAT^CHART WELL ADV";
+dc [127] = "CHAR^CHARTER OAK";
+dc [128] = "CHIL^CHILTON CAPITAL MGMT.";
+dc [129] = "CIBC^CIBC ADV.";
+dc [130] = "CIRC^CIRCLE T PART";
+dc [131] = "CLEA^CLEARBRIDGE";
+dc [132] = "CLOR^CLOVER CAPITAL";
+dc [133] = "CLOV^CLOVIS CAPITAL";
+dc [134] = "COBA^COBALT";
+dc [135] = "COEU^COEUS CAPITAL";
+dc [136] = "COHE^COHE & STEERS";
+dc [137] = "COLO^COLONIAL FUND LLC";
+dc [138] = "COLM^COLUMBIA MGMT";
+dc [139] = "COLP^COLUMBIA PARTNERS";
+dc [140] = "COLC^COLUMBUS CIRCLE";
+dc [141] = "COMB^COMMERCE BANK";
+dc [142] = "COMM^COMMISSUM CAPITAL";
+dc [143] = "COOK^COOKBIELER";
+dc [144] = "COUG^COUGAR TRADING";
+dc [145] = "CRIN^CR INTRINIC INVESTMENT";
+dc [146] = "CRSB^CRAMER ROSENTHAL/SCOTT";
+dc [147] = "CREF^CREF";
+dc [148] = "CROC^CROSS CAPITAL";
+dc [149] = "CROW^CROWN ADVISORS";
+dc [150] = "CRYS^CRYSTAL ROCK CAP MGMT";
+dc [151] = "CSFB^CSFB GLOBAL PROPRIETARY";
+dc [152] = "CUMB^CUMBERLAND";
+dc [153] = "DALT^DALTON GREINER";
+dc [154] = "DARU^DARUMA ASSET MGMT INC";
+dc [155] = "DJGR^DAVID J GREEN & CO";
+dc [156] = "DAVI^DAVIDSON KEMPNER ADVISOR";
+dc [157] = "DAVT^DAVIDSON TRUST CO";
+dc [158] = "DAVE^DAVIS SELECT ADV";
+dc [159] = "DAWS^DAWSON SANBERG & CO";
+dc [160] = "DCCA^DC CAPITAL";
+dc [161] = "DESH^DE SHAW";
+dc [162] = "DEEP^DEEPHAVEN";
+dc [163] = "DELM^DELAWARE MANAGEMENT";
+dc [164] = "DELT^DELTEC ASSET MGMT.";
+dc [165] = "DENV^DENVER INST. ADV";
+dc [166] = "DGCA^DG CAPITAL";
+dc [167] = "DIAM^DIAMONDBACK CAP MGMT";
+dc [168] = "DISI^DISIPLINED GROWTH INV.";
+dc [169] = "DKRC^DKR CAPITAL";
+dc [170] = "DOVV^DOUBLE V/PBX";
+dc [171] = "DOWN^DOWNTOWN ASSOC";
+dc [172] = "DSGC^DSG CAPITAL";
+dc [173] = "DSMC^DSM CAPITAL PARTNERS";
+dc [174] = "DUNC^DUNCAN HURST CAP";
+dc [175] = "DURA^DURANGO INVESTMENTS";
+dc [176] = "EAGL^EAGLE ASSET MGMT";
+dc [177] = "EATO^EATON VANCE MGMT";
+dc [178] = "EGAS^EGS ASSOCIATES LP";
+dc [179] = "EIDE^EIDELMAN,FINGER & CO";
+dc [180] = "ELAZ^ELAZAR ADV";
+dc [181] = "ELLI^ELLIOTT ADV";
+dc [182] = "ELMR^ELM RIDGE ADVISORS";
+dc [183] = "EMIN^EMINENCE CAPITAL";
+dc [184] = "EMPY^EMPYREAN CAP";
+dc [185] = "ENDE^ENDEAVOUR CAPITAL";
+dc [186] = "ENTR^ENTRUST CAPITAL";
+dc [187] = "EOSP^EOS PARTNERS";
+dc [188] = "EPOC^EPOCH INV MGMT";
+dc [189] = "EQUI^EQUINOX";
+dc [190] = "ESSX^ESSEX CAP MGMT";
+dc [191] = "ESTA^ESTABROOK";
+dc [192] = "ETON^ETON PARK CAPITAL";
+dc [193] = "EXTO^EXTON CAP MGMT";
+dc [194] = "FARA^FARALLON CAP MGMT";
+dc [195] = "FARB^FARBER/WEISS PECK";
+dc [196] = "FSIL^FINANCIAL STOCK LP";
+dc [197] = "FIMC^FIRST INV MGMT CORP";
+dc [198] = "FNYS^FIRST NEW YORK LEDDY";
+dc [199] = "FNYB^FIRST NEW YORK/BILLY";
+dc [200] = "FNYC^FIRST NY SEC/CHRIS";
+dc [201] = "FPAC^FIRST PACIFIC ADV";
+dc [202] = "FORC^FORCE CAPITAL MGMT";
+dc [203] = "FORD^FORD FDN.";
+dc [204] = "FORS^FORSTMAN LEFF";
+dc [205] = "FAGS^FORSTMAN/AG CAP";
+dc [206] = "FORB^FORSTMAN/BOSTON";
+dc [207] = "FORT^FORTRESS CAPITAL";
+dc [208] = "FOUN^FOUNDERS";
+dc [209] = "FOXP^FOX POINT/WILLIAMS";
+dc [210] = "FFCA^FRANKLIN FUND OF CALIFOR";
+dc [211] = "FFNJ^FRANKLIN FUNDS N J";
+dc [212] = "FRIS^FRIESS MGMT";
+dc [213] = "FROP^FRONTPOINT";
+dc [214] = "FULL^FULLER & THALER ASSET";
+dc [215] = "GSPS^G S PRINCIPAL STRATEGIES";
+dc [216] = "GABE^GABELLI FUNDS";
+dc [217] = "GALL^GALLEON MGMT LP";
+dc [218] = "GLAM^GARDNER LEWIS ASSET MGMT";
+dc [219] = "GARN^GARNET GROUP";
+dc [220] = "GABC^GARTMORE/B COLBURN";
+dc [221] = "GART^GARTMORE/NORTHPOINT/VILL";
+dc [222] = "GEIC^GENERAL ELECTIC CO";
+dc [223] = "GMIC^GENERAL MOTORS INV CO";
+dc [224] = "GENE^GENERIC TRADING";
+dc [225] = "WEIS^GEORGE WEISS";
+dc [226] = "GLEH^GLENHILL CAPITAL";
+dc [227] = "GLEV^GLENVIEW CAPITAL";
+dc [228] = "GLGP^GLG PARTNERS";
+dc [229] = "GSSS^GOLD SACHS SPECIAL SIT";
+dc [230] = "GTRE^GOLDEN TREE";
+dc [231] = "GSAM^GOLDMAN SACHS ASSET MGMT";
+dc [232] = "GRAC^GRACIE CAPITAL";
+dc [233] = "GRIN^GRANAHAN INV";
+dc [234] = "GRAN^GRANITE CAPITAL";
+dc [235] = "GRWH^GREENWICH P B";
+dc [236] = "GRIS^GRISANTI BROWN & PARTNERS LLC.";
+dc [237] = "GRBR^GRUBER MACBAINE";
+dc [238] = "GRUS^GRUSS CAPITAL";
+dc [239] = "GUAR^GUARDIAN LIFE";
+dc [240] = "GULF^GULF STREAM EQUITY MGMT";
+dc [241] = "HALO^HALOGEN ASSET MGMT";
+dc [242] = "HARR^HARRIS ASSOCIATES";
+dc [243] = "HTFD^HARTFORD INVEST MGMT";
+dc [244] = "HARV^HARVEST MGMT";
+dc [245] = "HAYG^HAYGROUND COE";
+dc [246] = "HAYS^HAYSTACK CAPITAL";
+dc [247] = "HBKF^HBK FUNDS";
+dc [248] = "HEAL^HEALY CIRCLE";
+dc [249] = "HEIR^HEIRLOOM CAPITAL";
+dc [250] = "HELI^HELIOS";
+dc [251] = "HERM^HERMES";
+dc [252] = "HIGB^HIGHBRIDGE CAPITAL";
+dc [253] = "HIBC^HIGHBRIDGE/MS OLDS";
+dc [254] = "HIGF^HIGHFIELDS CAP MGMT";
+dc [255] = "HIGL^HIGHLINE ADV";
+dc [256] = "HOLD^HOLLAND CAP MGMT";
+dc [257] = "HOLL^HOLLIS CAPITAL";
+dc [258] = "HOOV^HOOVER INV. MGMT";
+dc [259] = "HOTS^HOTCHKIS & WILEY";
+dc [260] = "HUNT^HUNTER GLOBAL INVESTOR";
+dc [261] = "IMPA^IMPALA ASSET MMT";
+dc [262] = "INDC^INDEPENDENCE CAPITAL";
+dc [263] = "INDE^INDEPENDENCE INV";
+dc [264] = "INTE^INTEGRITY CAPITAL MGMT";
+dc [265] = "INVS^INVISTA CAP/PRINCIPAL";
+dc [266] = "INWO^INWOOD CAPITAL";
+dc [267] = "IRAM^IRIDIAN ASSET MGMT.";
+dc [268] = "IHCM^IRON HORSE CAPITAL MGMT";
+dc [269] = "IROB^IRONBOUND CAPITAL";
+dc [270] = "IRON^IRONWOOD CAPITAL";
+dc [271] = "IVOR^IVORY CAPITAL";
+dc [272] = "JLFH^J L A ASSET MGMT/HOWARD";
+dc [273] = "JLFA^J L F ASSET MGMT";
+dc [274] = "JWSE^J.W. SELIGMAN";
+dc [275] = "JANA^JANA CAPITAL";
+dc [276] = "JANU^JANUS CAPITAL CORP";
+dc [277] = "JCKP^JCK PARTNERS";
+dc [278] = "JEFF^JEFFERIES ASSET/PARAGON";
+dc [279] = "JEFL^JEFFRIES MIKE";
+dc [280] = "JENN^JENNISON";
+dc [281] = "JETS^JETSTREAM GLOBAL FUND LP";
+dc [282] = "JLAD^JL ADVISORS";
+dc [283] = "JMPA^JMP ASSET MGMT";
+dc [284] = "LEVN^JOHN A LEVIN & CO";
+dc [285] = "JMIC^JOHN MCSTAY/BRAZOS CAP";
+dc [286] = "JPMV^JP MORGAN VENTURES";
+dc [287] = "JPML^JPMSI/TOM LEDDY";
+dc [288] = "JWBR^JW BRISTOL";
+dc [289] = "KACE^KACELA CAPITAL";
+dc [290] = "KAIA^KAIA INV MGMT";
+dc [291] = "KARS^KARSCH CAPITAL";
+dc [292] = "KBWA^KEEFE BRUYETTE WOODS A";
+dc [293] = "KEEL^KEEL CAPITAL";
+dc [294] = "KENN^KENNEDY CAPITAL";
+dc [295] = "KENS^KENSICO CAPITAL";
+dc [296] = "KEYA^KEY ASSET MGMT/VICTORY";
+dc [297] = "KEYS^KEYSTONE/EVERGREEN";
+dc [298] = "KINP^KINGD POINT PARTNERS";
+dc [299] = "KIND^KINGDON ASSET MGMT";
+dc [300] = "KINF^KINGSFORD CAPITAL";
+dc [301] = "KIRR^KIRR MARBACH";
+dc [302] = "KLIN^KLINGENSTEIN,FIELDS & CO";
+dc [303] = "KNOT^KNOTT PARTNERS";
+dc [304] = "LAGR^LAGRANGE CAP ADV";
+dc [305] = "LAKE^LAKEWAY CAPITAL MGMT";
+dc [306] = "LAPI^LAPIDES ASSET MGMT";
+dc [307] = "LATE^LATEFF MGMT";
+dc [308] = "LAZZ^LAZARD ASSET MGMT";
+dc [309] = "LEHM^LEHMAN PROPRIETARY TRAD";
+dc [310] = "LEST^LESTER BROS CAPITAL LLC";
+dc [311] = "LEVS^LEVIN CAPITAL STRATEGIES";
+dc [312] = "LIBE^LIBERTYVIEW CAPITAL MGMT";
+dc [313] = "LHFG^LIGHTHOUSE FIN/QUAD";
+dc [314] = "LINC^LINCOLN FUNDS";
+dc [315] = "LOCO^LOCUS WOOD CAPITAL MGMT";
+dc [316] = "LONG^LONG TRAIL CAP";
+dc [317] = "LOOM^LOOMIS SALES/BOSTON";
+dc [318] = "LORD^LORD ABBETT & COMPANY";
+dc [319] = "LUCI^LUCID PARTNERS";
+dc [320] = "KRAS^M. KRAUS & CO.";
+dc [321] = "MAGN^MAGNETAR FINANCIAL";
+dc [322] = "MAIR^MAIRS AND POWER INV";
+dc [323] = "MANN^MANNING & NAPIER";
+dc [324] = "MARA^MARATHON CAPITAL MGMT.";
+dc [325] = "MAKA^MARK ASSETMGMT (SR)";
+dc [326] = "MARK^MARK/JETCAP";
+dc [327] = "MASO^MASON CAPITAL";
+dc [328] = "MATA^MATADOR CAPITAL";
+dc [329] = "MATL^MATLIN PATTERSON";
+dc [330] = "MATX^MATRIX ASSET ADV.";
+dc [331] = "MATT^MATTHES CAPITAL MGMT";
+dc [332] = "MAZA^MAZAMA CAPITAL MGMT.";
+dc [333] = "MBAC^MEISENBACH CAP MGMT";
+dc [334] = "MELL^MELLON INV";
+dc [335] = "MERR^MERRILL ASSET";
+dc [336] = "MLSI^MERRILL LYNCH STRATEGICI";
+dc [337] = "METR^METROPOLITAN CAPITAL";
+dc [338] = "MFPI^MFP INVESTORS";
+dc [339] = "MHRC^MHR CAPITAL MGMT";
+dc [340] = "MILP^MILLENIUM PARTNERS";
+dc [341] = "MILR^MILLRACE FUND LP";
+dc [342] = "MILT^MILTON PARTNERS";
+dc [343] = "MISS^MISSOURI VALLEY PART";
+dc [344] = "MOOR^MOORE CAPITAL";
+dc [345] = "JPMB^MORGAN BANK /JPM";
+dc [346] = "MORL^MORGAN LEWIS/MLH";
+dc [347] = "MSAM^MORGAN STANLEY ASSET MGT";
+dc [348] = "MSP2^MORGAN STANLEY PRINC 2";
+dc [349] = "MORG^MORGENS WATERFALL";
+dc [350] = "MORR^MORRISON & FRASIER";
+dc [351] = "MORT^MORTAR ROCK";
+dc [352] = "MSPS^MS PRINCIPAL STRATEGIES";
+dc [353] = "MSDC^MSD CAPITAL";
+dc [354] = "MTBI^MTB INV ADV";
+dc [355] = "MUHL^MUHLENKAMP FUND";
+dc [356] = "NBCA^NATIONAL BK OF CAN";
+dc [357] = "NATL^NATIONAL CITY/ARMADA FD";
+dc [358] = "NCMC^NCM CAPITAL MGMT";
+dc [359] = "NEED^NEEDHAM CAP";
+dc [360] = "NBER^NEUBERGER BERMAN";
+dc [361] = "NEWJ^NEW  JERSEY DIV OF INV.";
+dc [362] = "NEWV^NEW VERNON";
+dc [363] = "NICH^NICHOLAS ADVISORS";
+dc [364] = "APPL^NICOLAS APPLEGATE";
+dc [365] = "NOMU^NOMURA CAPITAL";
+dc [366] = "NORT^NORTH GROWTH RESEARCH";
+dc [367] = "NORP^NORTHPOINT";
+dc [368] = "NMIL^NORTHROP/MILLNIUM GRONET";
+dc [369] = "STAR^NORTHSTAR";
+dc [370] = "NUMI^NUMERIC";
+dc [371] = "NWQI^NWQ INVESTMENT MGMT CO";
+dc [372] = "OMGA^OMEGA ADVISORS";
+dc [373] = "OPPM^OPPENHEIMER MGMT.";
+dc [374] = "OPTI^OPTIMUM INV ADV";
+dc [375] = "OSSC^OSS CAPITAL/KEVIN DANN";
+dc [376] = "OWLC^OWL CREEK INV";
+dc [377] = "PALS^PALISADE CAPITAL MGMT.";
+dc [378] = "PALM^PALMYRA CAPITAL";
+dc [379] = "PART^PARTNER FUND MGMT LP";
+dc [380] = "PASS^PASSPORT CAPITAL";
+dc [381] = "PATT^PATTEN & PATTEN";
+dc [382] = "PAWP^PAW PARTNERS";
+dc [383] = "PBEX^PB EXEC/BODRI/MS PRIME";
+dc [384] = "PBXB^PBEX/BODRI TOM L";
+dc [385] = "PMAC^PEAK MACAYA CAP MGMT";
+dc [386] = "PECO^PECONIC PARTNERS";
+dc [387] = "PELL^PELL RUDMAN/ATLANTIC TR";
+dc [388] = "PENN^PENN CAPITAL MGMT";
+dc [389] = "PEQU^PEQUOT CAPITAL MGMT";
+dc [390] = "PERE^PEREGRINE";
+dc [391] = "PERR^PERRY PARTNERS";
+dc [392] = "PERS^PERSHING SQUARE";
+dc [393] = "PHIL^PHILADELPHIA FINANCIAL";
+dc [394] = "PHIN^PHINITY/PBX";
+dc [395] = "PIED^PIEDRA CAPITAL";
+dc [396] = "PILO^PILOT ADV";
+dc [397] = "PILR^PILOT ROCK";
+dc [398] = "PIOO^PIONEER OAKRIDGE";
+dc [399] = "PION^PIONEERING MGMT CORP";
+dc [400] = "PIVO^PIVOT CAP";
+dc [401] = "PLAT^PLATTE RIVER CAPITAL";
+dc [402] = "POLY^POLYGON INVESTMENT";
+dc [403] = "PORT^PORTER-ORLIN-FELDMAN";
+dc [404] = "POST^POST ROAD CAP";
+dc [405] = "PREN^PRENTICE";
+dc [406] = "PRES^PRESIDIO";
+dc [407] = "PRIM^PRIME CAPITAL";
+dc [408] = "PRIL^PRIME LOGIC ADV";
+dc [409] = "PRIN^PRINCIPLE CAPITAL";
+dc [410] = "PROS^PROSPECTOR PARTNERS LLC";
+dc [411] = "PROV^PROVIDENT INV COUNSEL";
+dc [412] = "PZEN^PZENA INV ADV";
+dc [413] = "RAIN^RAINIER INV MGMT";
+dc [414] = "RAMI^RAMIUS CAP";
+dc [415] = "RANG^RANGER";
+dc [416] = "RBCC^RBC CAPITAL MARKETS";
+dc [417] = "RICH^REICH AND TANG";
+dc [418] = "REIN^REINHART & MAHONEY";
+dc [419] = "RHCA^RH CAPITAL ASSOCIATES";
+dc [420] = "RHOC^RHO CAPITAL MGMT";
+dc [421] = "RICE^RICE HALL AND JAMES";
+dc [422] = "RIDB^RIDGEBACK";
+dc [423] = "RIDG^RIDGECRST PARTNERS";
+dc [424] = "RIVE^RIVER RUN MGMT";
+dc [425] = "RKCA^RK CAPITAL MGMT LLC";
+dc [426] = "ROAR^ROARING BLUE LION MGMT";
+dc [427] = "ROBE^ROBERTSON OPP CAPITAL";
+dc [428] = "RSBC^ROBERTSON STEVENS BC";
+dc [429] = "ROCK^ROCKEFELLER & CO.";
+dc [430] = "ROSE^ROSEDALE CAPITAL";
+dc [431] = "ROSN^ROSENBERG CAPITAL MGMT";
+dc [432] = "ROTH^ROTHSCHILD ASSET";
+dc [433] = "ROXB^ROXBURY CAPITAL MGMT";
+dc [434] = "ROYA^ROYAL CAPITAL";
+dc [435] = "ROYC^ROYCE TRADING";
+dc [436] = "RUDM^RUDMAN ASSOCIATES";
+dc [437] = "SACC^S.A.C. CAPITAL MGMT.";
+dc [438] = "SABC^SAB CAPITAL";
+dc [439] = "SACD^SAC DOUG RODGERS";
+dc [440] = "SACH^SAC TRADING HOWARD";
+dc [441] = "SACB^SAC TRADING/BILLY";
+dc [442] = "SAGE^SAGE ASSET MGMT";
+dc [443] = "SAIL^SAILFISH";
+dc [444] = "SANL^SANDELL ADV";
+dc [445] = "SAND^SANDLER CAPITAL";
+dc [446] = "SANO^SANDLER O'NEILL ASSET";
+dc [447] = "SARA^SARANAC CAPITAL/SOLMON2";
+dc [448] = "SARS^SARAS CAPITAL";
+dc [449] = "SASC^SASCO";
+dc [450] = "SATE^SATELLITE ASSET MGMT";
+dc [451] = "SAVA^SAVANNAH-BALTIMORE";
+dc [452] = "SAXO^SAXON WOODS ADVISORS";
+dc [453] = "SCHO^SCHOTTENFELD ASSOC";
+dc [454] = "SCHK^SCHOTTENFELD/KEVIN";
+dc [455] = "SCAB^SCHRODER";
+dc [456] = "SCOG^SCOGGIN CAP";
+dc [457] = "SCOP^SCOPUS FUND";
+dc [458] = "SCOU^SCOUT CAPITAL";
+dc [459] = "SCUF^SCUDDER HEDGE";
+dc [460] = "SEAR^SEAROCK CAPITAL MANAGE";
+dc [461] = "SEAS^SEASONS CAPITAL";
+dc [462] = "SECO^SECOND CURVE";
+dc [463] = "SECU^SECURITY MGMT";
+dc [464] = "SEGA^SEGAL BRYANT HAMMILL";
+dc [465] = "SEMI^SEMINOLE CAP";
+dc [466] = "SECA^SENECA CA";
+dc [467] = "SENE^SENECA CAPITAL LP NY";
+dc [468] = "SENT^SENTINAL CAPITAL";
+dc [469] = "SEQU^SEQUENCE CAPITAL";
+dc [470] = "SERE^SERENGETI MGMT";
+dc [471] = "SHAK^SHAKER INV";
+dc [472] = "SHAR^SHAREVEST CAPITAL MGMT.";
+dc [473] = "SIBE^SIGMA CAP BOBBY";
+dc [474] = "SIGM^SIGMA CAPITAL ASSOCIATES";
+dc [475] = "SLSC^SLS CAPITAL LLC";
+dc [476] = "SNYD^SNYDER CAPITAL";
+dc [477] = "SOCI^SOCIETY GENERALE";
+dc [478] = "SOLA^SOLARIS INV MGMT";
+dc [479] = "SOME^SOMERSET ADV";
+dc [480] = "SONA^SONAR CAP MGMT";
+dc [481] = "SORO^SOROS";
+dc [482] = "SPRI^SPRINGBOC";
+dc [483] = "SSII^SSI INVESTORS";
+dc [484] = "STAD^STADIA CAPITAL";
+dc [485] = "SPAC^STANDARD PACIFIC CAPITAL";
+dc [486] = "STRK^STARK ASSET MGMT";
+dc [487] = "STEI^STEINBERG";
+dc [488] = "STLL^STELLIAM INV ADV";
+dc [489] = "STEP^STEPHENS INC";
+dc [490] = "STEL^STERLING JOHNSTON";
+dc [491] = "STGI^STG INVESTORS";
+dc [492] = "STOR^STONERIDGE INV PART";
+dc [493] = "STRX^STRATIX ASSEST MGMT";
+dc [494] = "STRA^STRAUSS ASSET MGMT";
+dc [495] = "SCMG^STRONG/MARK GRONET";
+dc [496] = "SCHT^STRONG/WELL HOWARD";
+dc [497] = "SUFF^SUFFOLK CAPITAL MGMT";
+dc [498] = "SUNA^SUN AMERICA ASSET MGMT";
+dc [499] = "SUNO^SUNOVA CAPITAL";
+dc [500] = "SUSQ^SUSQUEHANNA CAPITAL";
+dc [501] = "SUTT^SUTTONBROOK CAPITAL";
+dc [502] = "SYST^SYSTEMATIC FINANCIAL MGT";
+dc [503] = "TROW^T. ROWE PRICE";
+dc [504] = "TERA^TERRA NOVA ASSET LLC.";
+dc [505] = "BOST^THE BOSTON COMPANY";
+dc [506] = "GOLD^THE JAY GOLDMAN";
+dc [507] = "THES^THESIS CAPITAL";
+dc [508] = "THAM^THIRD AVE MGMT";
+dc [509] = "3CAP^THIRD COAST CAPITAL";
+dc [510] = "THIR^THIRD POINT MGMT";
+dc [511] = "THNB^THOMSON HORSTMAN BRYANT";
+dc [512] = "TIGR^TIGER";
+dc [513] = "TILL^TILLDALE MGMT.";
+dc [514] = "TIME^TIME SQUARE CAP MGMT";
+dc [515] = "TOCQ^TOCQUEVILLE ASSET MGMT";
+dc [516] = "TOKI^TOKIO MARINE ASSET MGMT";
+dc [517] = "TORR^TORREY PINE MASTER FUND";
+dc [518] = "TPGA^TPG-AXON";
+dc [519] = "TRAF^TRAFELET & COMP.";
+dc [520] = "TREL^TRELLUS PARTNERS LP";
+dc [521] = "TRIS^TRI SUN CAPITAL";
+dc [522] = "TRIB^TRIBECA";
+dc [523] = "TRID^TRIBECA/DOUG";
+dc [524] = "TRIV^TRIVIUM CAP MGMT";
+dc [525] = "TROO^TROOB CAPITAL";
+dc [526] = "TROU^TROUBH PART";
+dc [527] = "TRUS^TRUSCO CAPITAL MGMT";
+dc [528] = "TRLA^TRUST CO L.A.";
+dc [529] = "TCWK^TRUST CO OF THE WEST/NY";
+dc [530] = "TRCO^TRUST CO/COWEN/CALF.";
+dc [531] = "TUDR^TUDOR INVESTORS";
+dc [532] = "TYEE^TYEE/TYGH";
+dc [533] = "USTC^U.S.TRUST COMPANY";
+dc [534] = "UBST^UBS O'CONNOR/TOM LEDDY";
+dc [535] = "UBSO^UBS OCONNOR";
+dc [536] = "USXX^UNITED STATES PENSION";
+dc [537] = "USBC^US BANCORP";
+dc [538] = "VANK^VAN KAMPEN ADV";
+dc [539] = "VAND^VANDER MOOLEN";
+dc [540] = "VARD^VARDON PARTNERS";
+dc [541] = "VENT^VENTANA CAPITAL";
+dc [542] = "VERI^VERITY CAPITAL";
+dc [543] = "VICT^VICTORIA INVESTORS LP";
+dc [544] = "VIKI^VIKING GLOBAL";
+dc [545] = "VINI^VINIK ASSET MGMT.";
+dc [546] = "VISH^VISIUM/BALY HOWARD";
+dc [547] = "VISB^VISIUM/DIV OF BALY BOBBY";
+dc [548] = "WDWI^W.D.WITTER";
+dc [549] = "WAGO^WAGONHOUND";
+dc [550] = "WALK^WALKER SMITH";
+dc [551] = "WANG^WANGER ASS";
+dc [552] = "WARB^WARBURG";
+dc [553] = "WASH^WASHINGTON ASSET";
+dc [554] = "WDPA^WD PARTNERS ILP";
+dc [555] = "WEIN^WEINTRAUB CAPITAL MGT.";
+dc [556] = "PECK^WEISS PECK";
+dc [557] = "WPAR^WEISS PECK/ARB";
+dc [558] = "WELL^WELLINGTON MGMT.";
+dc [559] = "WCAP^WELLS/STRONG LEDDY";
+dc [560] = "WENT^WENTWORTH HAUSER VIOLICK";
+dc [561] = "WESL^WESLEY CAPITAL";
+dc [562] = "WLAN^WESTLANE CAPITAL";
+dc [563] = "WHAL^WHALE ROCK CAP";
+dc [564] = "WPIN^WHITE PINE CAPITAL";
+dc [565] = "WHIT^WHITTIER CAP";
+dc [566] = "WBLA^WILLIAM BLAIR";
+dc [567] = "WTDR^WILLIAM TRADING/DOUG R";
+dc [568] = "WTBE^WILLIAMS TRAD/BOBBY";
+dc [569] = "WTJR^WILLIAMS TRADING /JILL";
+dc [570] = "WTHT^WILLIAMS TRADING/HOWARD";
+dc [571] = "WTJM^WILLIAMS/NEW MOUNTAIN";
+dc [572] = "WILL^WILLOW CREEK";
+dc [573] = "WOOS^WOOSTER CAPITAL";
+dc [574] = "WYPE^WYPER CAPITAL";
+dc [575] = "XYLM^XYLEM GLOBAL";
+dc [576] = "YAHK^YAHK CAPITAL";
+dc [577] = "YORK^YORK CAPITAL";
+dc [578] = "ZAND^ZANDER CAPITAL MGMT";
+dc [579] = "ZIFF^ZIFF BROS";
+																
+																for (i=0;i<dc.length;i++)
+																	{
+																	var rowclient_array = new Array()
+																	rowclient_array=dc[i].split("^");
+																	document.write("<option value='"+rowclient_array[0]+"'>"+rowclient_array[1]+"</option>");
+																	}
+																</script>
+																</select>
+																</td>
+																<td width="5">&nbsp;</td>
+																<td width="5">&nbsp;</td>
+																<td width="100">																
+																<select class="Text1" name="sel_symbol" size="1" >
+																<option value="^ALL^">&nbsp;SYMBOLS&nbsp;(ALL)&nbsp;&nbsp;</option>
+																<option value="^ALL^">_____________</option>
+																<script type="text/javascript">
+																var ds
+																ds = "A^AA^AAI^AAON^AAP^AAPL^AAWW^AB^ABB^ABC^ABCO^ABD^ABFS^ABG^ABI^ABK^ABS^ABT^ABTL^ABX^ABY^AC^ACA^ACAD^ACAS^ACCL^ACE^ACF^ACGY^ACI^ACIW^ACL^ACLI^ACLS^ACM^ACMR^ACN^ACPW^ACS^ACTI^ACTS^ACV^ACXM^AD^ADBE^ADBL^ADCT^ADI^ADLR^ADM^ADP^ADRU^ADRX^ADS^ADSK^ADTN^AEE^AEIS^AEL^AEM^AEO^AEOS^AEP^AER^AES^AET^AEZ^AF^AFCE^AFFX^AFFY^AFG^AFL^AFR^AG^AGE^AGI^AGII^AGIL^AGIX^AGN^AGO^AGP^AGR^AGU^AH^AHC^AHG^AHM^AHO^AHR^AHS^AIC^AIG^AIN^AIQ^AIR^AIRM^AIT^AIV^AIX^AIZ^AJG^AKAM^AKS^AL^ALA^ALB^ALC^ALEX^ALGN^ALJ^ALK^ALKS^ALL^ALO^ALTR^ALU^ALV^ALVR^ALXN^AM^AMAT^AMB^AMCC^AMD^AME^AMED^AMG^AMGN^AMH^AMK^AMLN^AMMD^AMP^AMR^AMRN^AMSG^AMT^AMTD^AMX^AMZN^AN^ANAD^ANDE^ANDW^ANET^ANF^ANH^ANN^ANPI^ANR^ANSS^ANST^ANT^ANW^ANX^AOB^AOC^AOI^AOS^APA^APC^APCC^APCS^APD^APH^APOL^APPB^AQNT^ARA^ARAY^ARB^ARBA^ARD^ARG^ARII^ARJ^ARNA^ARO^ARP^ARQL^ARRO^ARRS^ARS^ARTC^ARTG^ARW^ARXX^ASBC^ASCA^ASD^ASEI^ASF^ASH^ASHW^ASML^ASN^ASO^ASPM^ASVI^AT^ATE^ATEC^ATG^ATHR^ATI^ATK^ATML^ATN^ATO^ATR^ATRI^ATRS^ATSN^ATU^ATVI^ATW^ATYT^AUO^AUY^AV^AVA^AVB^AVCT^AVD^AVID^AVP^AVR^AVT^AVX^AVY^AVZ^AVZA^AW^AWH^AWI^AXA^AXE^AXL^AXP^AXS^AXYS^AYE^AYI^AYR^AZN^AZO^AZPN^B^BA^BAC^BAM^BAMM^BARE^BAS^BAX^BBA^BBBB^BBBY^BBH^BBI^BBIB^BBND^BBSI^BBT^BBV^BBW^BBX^BBY^BC^BCR^BCRX^BCS^BCSI^BDC^BDE^BDH^BDK^BDN^BDSB^BDSBW^BDX^BDY^BE^BEAS^BEAV^BEBE^BEC^BECN^BEE^BELM^BEN^BER^BEZ^BFAM^BFB^BFT^BG^BGC^BGFV^BGG^BGO^BGP^BGS^BHE^BHI^BHP^BHS^BID^BIDZ^BIG^BIIB^BIO^BIOD^BIOF^BIOS^BJ^BJS^BK^BKC^BKD^BKE^BKHM^BKI^BKMU^BKR^BKS^BKUNA^BLC^BLD^BLDR^BLI^BLK^BLL^BLS^BLT^BLUD^BMA^BMC^BMD^BMET^BMHC^BMR^BMRN^BMS^BMY^BNI^BNPQY^BOBE^BOBJ^BOH^BOL^BONT^BORL^BOW^BP^BPHX^BPL^BQI^BR^BRC^BRCD^BRCM^BRKB^BRL^BRLI^BRNC^BRO^BRS^BRY^BSC^BSG^BSX^BTH^BTN^BTRX^BTU^BUCY^BUD^BUSU^BVF^BW^BWA^BWLD^BWNG^BWP^BWS^BWTR^BX^BXC^BXP^BXS^BYD^BYI^BZH^C^CA^CAB^CACH^CAG^CAH^CAI^CAKE^CAL^CAM^CAO^CAR^CAS^CASY^CAT^CB^CBB^CBE^CBEY^CBG^CBH^CBI^CBK^CBL^CBM^CBPRB^CBR^CBRL^CBS^CBSS^CBST^CBT^CBU^CC^CCBL^CCC^CCE^CCI^CCIX^CCJ^CCK^CCL^CCMP^CCMS^CCO^CCOI^CCRT^CCU^CD^CDE^CDL^CDNS^CDS^CDWC^CE^CEC^CECE^CECO^CEG^CEI^CELG^CELL^CEM^CEN^CENT^CENTA^CENX^CEPH^CERN^CERS^CETV^CEVA^CF^CFC^CFR^CG^CGNX^CGT^CGV^CGX^CHAP^CHB^CHCG^CHCI^CHD^CHDX^CHE^CHH^CHIC^CHIR^CHK^CHKP^CHRD^CHRS^CHRT^CHRW^CHS^CHTP^CHTR^CHTT^CHUX^CI^CIEN^CIG^CINF^CIT^CKFR^CKNN^CKP^CKR^CL^CLB^CLC^CLDN^CLE^CLF^CLHB^CLI^CLK^CLMS^CLNE^CLP^CLRK^CLS^CLWR^CLX^CMA^CMC^CMCO^CMCSA^CMCSK^CME^CMED^CMG^CMGB^CMGBWI^CMGI^CMI^CMLS^CMN^CMO^CMOS^CMP^CMRG^CMS^CMTL^CMVT^CMX^CMZ^CNB^CNC^CNCT^CNE^CNET^CNH^CNI^CNO^CNP^CNQ^CNS^CNST^CNW^CNX^CNXT^COCO^COF^COG^COGN^COGT^COH^COHR^COL^COLM^COMS^CONN^COO^COP^CORE^CORS^COSI^COST^COT^COV^COWN^CP^CPB^CPBY^CPF^CPHD^CPHL^CPII^CPKI^CPLA^CPLP^CPO^CPS^CPSI^CPSS^CPST^CPT^CPTS^CPWM^CPWR^CPX^CQB^CR^CRA^CRAY^CRE^CREE^CRI^CRK^CRL^CRM^CRMT^CRN^CROX^CRR^CRRC^CRS^CRZO^CS^CSAR^CSC^CSCC^CSCO^CSD^CSE^CSG^CSGP^CSH^CSK^CSL^CSS^CSTR^CSUN^CSV^CSX^CT^CTAS^CTB^CTHR^CTL^CTR^CTRN^CTRP^CTSH^CTV^CTX^CTXS^CUTR^CVA^CVC^CVD^CVG^CVH^CVO^CVS^CVTX^CVX^CW^CWCO^CWST^CWTR^CX^CXG^CXO^CXR^CXW^CY^CYB^CYBI^CYBX^CYH^CYMI^CYN^CYNO^CYT^CYTC^CZN^D^DA^DADE^DAKT^DAL^DANKY^DAR^DB^DBA^DBD^DBRN^DBSDY^DBTK^DCEL^DCGN^DCI^DCNAQ^DCP^DCT^DCX^DD^DDE^DDI^DDM^DDMX^DDR^DDS^DE^DECK^DEEP^DEI^DEL^DELL^DENN^DEO^DEPO^DF^DFG^DFS^DG^DGIN^DGIT^DGX^DHI^DHR^DIA^DIGE^DIOD^DIS^DISCA^DISH^DIVX^DJ^DJO^DKS^DLIA^DLLR^DLM^DLP^DLTR^DLX^DMND^DNA^DNB^DNR^DO^DOV^DOW^DOX^DP^DPHIQ^DPII^DPL^DPTR^DPZ^DR^DRAX^DRC^DRE^DRH^DRI^DRIV^DRL^DRQ^DRRX^DRS^DRTE^DSCM^DSGX^DSL^DST^DSW^DTAS^DTC^DTE^DTG^DTLK^DTV^DUK^DV^DVA^DVN^DVR^DVW^DW^DWA^DWSN^DXCM^DY^DYN^EAC^EAGL^EAR^EAS^EAT^EBAY^EBHI^EC^ECA^ECIL^ECL^ECLP^ECPG^ED^EDA^EDO^EDS^EDU^EEE^EEM^EEP^EFA^EFD^EFII^EFT^EFX^EGLE^EGN^EGP^EGY^EHTH^EICU^EIG^EIX^EK^EL^ELK^ELN^ELON^ELOS^ELOY^ELRC^ELS^ELX^ELY^EMC^EME^EMIS^EMKR^EMMS^EMN^EMR^EMS^EMU^ENB^ENCY^ENDP^ENER^ENG^ENH^ENR^ENS^ENTG^EOG^EON^EOP^EP^EPAX^EPD^EPIC^EPIQ^EPIX^EPL^EPP^EPR^EQ^EQIX^EQR^EQT^EQY^ERIC^ERIE^ERJ^ERS^ERTS^ESALY^ESE^ESI^ESL^ESPD^ESRX^ESV^ET^ETE^ETFC^ETH^ETM^ETN^ETP^ETR^EV^EVC^EVR^EVST^EVVV^EW^EWBC^EWC^EWG^EWH^EWJ^EWM^EWS^EWT^EWW^EWY^EWZ^EXBD^EXC^EXH^EXLS^EXP^EXPD^EXPE^EXPO^EXTR^EYE^EZPW^EZU^F^FACE^FAF^FAL^FAST^FBCM^FBN^FBP^FBR^FBTX^FCEL^FCH^FCL^FCN^FCS^FCX^FD^FDC^FDO^FDP^FDRY^FDS^FDX^FE^FED^FFCH^FFEX^FFIV^FHN^FHRX^FIC^FIF^FIG^FII^FILE^FINL^FIS^FISV^FITB^FIX^FL^FLA^FLE^FLEX^FLIR^FLO^FLOW^FLR^FLS^FLSH^FLWS^FLY^FMC^FMD^FMER^FMR^FMT^FMX^FNF^FNM^FNSR^FNT^FO^FOE^FORM^FOSL^FPL^FR^FRC^FRE^FRED^FRK^FRNT^FRO^FRP^FRPT^FRX^FS^FSH^FSI^FSII^FSL^FSLB^FSLR^FSP^FSS^FST^FSTR^FSYS^FTBK^FTD^FTEK^FTI^FTK^FTO^FTWR^FUN^FVE^FWLT^FWRD^FXI^FXY^GAIA^GAP^GAS^GBBK^GBL^GBX^GCA^GCI^GCO^GD^GDI^GDP^GDT^GDW^GE^GEF^GEG^GEHL^GEMS^GENZ^GEO^GES^GET^GEX^GFF^GFI^GFIG^GG^GGC^GGG^GGI^GGL^GGP^GGXY^GHCI^GHDX^GHL^GHS^GI^GIII^GIL^GILD^GIS^GKIS^GLBC^GLBL^GLD^GLF^GLG^GLP^GLT^GLW^GM^GME^GMR^GMRK^GMST^GMT^GNA^GNSS^GNTX^GNW^GOL^GOOG^GPC^GPI^GPN^GPOR^GPRO^GPS^GPX^GR^GRA^GRB^GRMN^GRNB^GROW^GRP^GRS^GRT^GS^GSF^GSK^GSS^GT^GTI^GTK^GTRC^GTXI^GVA^GW^GWR^GWW^GXP^GY^GYI^GYMB^H^HA^HAE^HAIN^HAL^HANS^HAR^HAS^HAWK^HAYN^HAYZ^HBAN^HBC^HBG^HBI^HC^HCA^HCBK^HCC^HCR^HCSG^HD^HDB^HDI^HE^HEI^HELX^HERO^HES^HET^HEW^HF^HGO^HGSI^HGT^HHGP^HHH^HHS^HIBB^HIG^HIRE^HK^HL^HLEX^HLF^HLS^HLT^HLX^HLYS^HMA^HMB^HMC^HME^HMX^HNI^HNSN^HNT^HNZ^HOC^HOFD^HOFF^HOG^HOLX^HON^HORC^HOT^HOTT^HOV^HP^HPC^HPOL^HPQ^HPT^HPY^HR^HRB^HRH^HRL^HRS^HRZ^HS^HSC^HSIC^HSP^HST^HSTX^HSY^HTCH^HTLD^HTV^HTZ^HUBB^HUBG^HUM^HUMC^HUN^HURC^HURN^HVT^HW^HWAY^HWK^HXL^HXM^HYC^HYDL^HYGS^HYSL^HZO^IAAC^IACI^IAI^IAR^IART^IBB^IBI^IBKR^IBM^IBN^ICE^ICF^ICGE^ICI^ICLR^ICO^ICOC^ICON^ICOP^ID^IDA^IDC^IDEV^IDIX^IDR^IDSY^IDTI^IDU^IEO^IESC^IEX^IFC^IFF^IFIN^IFLO^IFN^IFS^IFSIA^IGT^IGW^IHP^IHS^IIF^IIG^IJH^IJK^IJR^ILA^ILF^ILMN^ILSE^IM^IMA^IMB^IMCL^IMGC^IMH^IMN^IMO^IMOS^IN^INAP^INCY^INDM^INFA^INFN^INFS^INFY^INPC^INSU^INT^INTC^INTU^INTV^INWK^INXI^IO^IOC^IOSP^IP^IPAR^IPCR^IPG^IPS^IPSU^IR^IRF^IRIS^IRM^ISCA^ISE^ISIL^ISIS^ISLE^ISRG^ISSC^ISSX^ISYS^IT^ITB^ITC^ITCD^ITG^ITRI^ITT^ITW^IUSA^IVV^IVZ^IWF^IWM^IWN^IWO^IWOV^IWP^IWR^IXJ^IXN^IXYS^IYC^IYK^IYR^IYT^IYW^JADE^JAH^JAS^JAVA^JBHT^JBL^JBLU^JBSS^JBX^JCG^JCI^JCOM^JCP^JCS^JDSU^JEC^JEF^JJZ^JKHY^JLG^JLL^JMBA^JNC^JNJ^JNPR^JNS^JNY^JOE^JOF^JOSB^JOYG^JP^JPM^JRC^JRN^JRT^JSDA^JTX^JUPM^JWN^K^KAI^KBH^KBR^KBSTY^KBW^KCE^KCI^KCP^KCS^KEA^KEG^KEGS^KEI^KELYA^KEM^KEP^KERX^KEX^KEY^KEYN^KFI^KFN^KFT^KFX^KFY^KG^KGC^KIE^KIM^KKD^KLAC^KLIC^KMB^KMG^KMI^KMT^KMX^KND^KNDL^KNL^KNOT^KNX^KNXA^KO^KOG^KOP^KOSP^KPA^KR^KRC^KRE^KRON^KSE^KSS^KSU^KSWS^KTO^KUL^KVA^KWD^KWK^KYPH^L^LAB^LAD^LAMR^LAVA^LAZ^LBTYA^LBTYK^LCAPA^LCAV^LCC^LDG^LDK^LDL^LEA^LEAP^LEE^LEG^LEH^LEN^LEND^LF^LFB^LFG^LG^LGF^LGND^LH^LI^LIFC^LII^LINTA^LIZ^LKQX^LLL^LLNW^LLTC^LLY^LM^LMC^LMNX^LMS^LMT^LNC^LNCR^LNET^LNG^LNN^LNT^LNUX^LNY^LOGI^LOJN^LOW^LPL^LPNT^LPX^LRCX^LRW^LSCC^LSE^LSI^LSS^LSTR^LTC^LTD^LTM^LTR^LU^LUB^LUK^LULU^LUM^LUV^LVB^LVLT^LVS^LWSN^LXK^LXP^LYO^LYV^LZ^LZB^M^MA^MAA^MAC^MAN^MANT^MAR^MAS^MASB^MAT^MATK^MATW^MAV^MBI^MBLX^MBT^MCCC^MCD^MCHP^MCK^MCO^MCRL^MCRS^MDC^MDCO^MDG^MDP^MDR^MDRX^MDT^MDTH^MDU^MDY^MDZ^ME^MECA^MEDI^MEDX^MEE^MEG^MEK^MEL^MENT^MER^MERQ^MET^MEU^MF^MFA^MFB^MFE^MFI^MFW^MGA^MGAM^MGI^MGLN^MGM^MGRC^MGU^MHI^MHK^MHL^MHP^MHS^MI^MIC^MIG^MIK^MIL^MIM^MIND^MINI^MIR^MKC^MKL^MKTX^MLHR^MLI^MLM^MLNM^MLNX^MLS^MM^MMC^MMM^MMR^MNC^MNI^MNST^MNT^MO^MOGN^MOH^MOLX^MOLXA^MON^MOS^MOT^MOTV^MOVI^MPEL^MPW^MRCY^MRD^MRH^MRK^MRO^MROI^MRT^MRVC^MRVL^MRX^MS^MSC^MSCC^MSF^MSFT^MSM^MSO^MSSR^MT^MTB^MTD^MTG^MTH^MTMD^MTN^MTR^MTRX^MTSC^MTSN^MTU^MTW^MTZ^MU^MUR^MVK^MVL^MVSN^MW^MWA^MWAB^MWIV^MWRK^MWV^MXIM^MXWL^MYE^MYG^MYL^MYOG^MZ^N^NABI^NADX^NAL^NATI^NATL^NAV^NAVG^NAVZ^NBIX^NBL^NBR^NCC^NCI^NCMI^NCR^NCS^NCT^NCX^NDAQ^NDE^NDN^NE^NEM^NETL^NEU^NEW^NEWP^NEWS^NEXC^NEXT^NFB^NFLX^NFP^NFX^NG^NGAS^NGS^NHWK^NI^NICE^NIHD^NIKOY^NILE^NISTY^NITE^NJR^NKE^NKTR^NLC^NLS^NLY^NM^NMR^NMTI^NMX^NNI^NOA^NOBL^NOC^NOK^NOOF^NOV^NOVL^NOVN^NP^NPO^NR^NRF^NRG^NS^NSC^NSIT^NSM^NSR^NSRGY^NSS^NST^NT^NTAP^NTGR^NTLI^NTLS^NTQ^NTRI^NTRS^NTT^NTY^NU^NUAN^NUCO^NUE^NURO^NUS^NUVA^NVDA^NVEC^NVL^NVLS^NVO^NVR^NVS^NVT^NVTL^NWA^NWEC^NWK^NWL^NWN^NWS^NWSA^NWY^NX^NXG^NXL^NXTM^NXTP^NYB^NYNY^NYT^NYX^NZ^NZT^OATS^OB^OC^OCAI^OCAS^OCNW^OCR^ODP^OEF^OEH^OFG^OGE^OHI^OI^OIH^OII^OIIM^OIS^OKE^OLN^OMC^OMCL^OMG^OMI^OMM^OMN^OMPI^OMRI^OMTR^OMX^ONB^ONNN^ONXX^OO^OPLK^OPSW^OPTM^OPWV^OPXT^OPY^ORA^ORB^ORCL^ORCT^ORGN^ORLY^OS^OSG^OSI^OSIP^OSIS^OSK^OSUR^OTEX^OVEN^OVTI^OWW^OXM^OXPS^OXY^PACR^PAG^PALM^PARL^PAY^PAYX^PBCT^PBE^PBG^PBH^PBI^PBR^PBRA^PBT^PBW^PBY^PCAR^PCBC^PCCC^PCG^PCH^PCL^PCLN^PCOP^PCP^PCR^PCS^PCU^PD^PDC^PDCO^PDE^PDFS^PDLI^PDS^PDX^PEC^PEET^PEG^PEIX^PENN^PEP^PER^PERY^PETC^PETM^PFCB^PFE^PFG^PFGC^PFWD^PG^PGI^PGIC^PGJ^PGL^PGN^PGR^PH^PHH^PHLY^PHM^PHO^PHRM^PHTN^PII^PIR^PJC^PKE^PKG^PKI^PKS^PKX^PL^PLAY^PLB^PLCE^PLCM^PLD^PLL^PLLL^PLMD^PLNR^PLT^PLTE^PLXS^PLXT^PMC^PMCS^PMD^PMI^PMTC^PMTI^PNC^PNK^PNM^PNR^PNRA^PNW^PNX^POL^PONR^POOL^POP^POR^POS^POT^POZN^PPC^PPCO^PPDI^PPG^PPL^PPP^PPS^PQE^PRAA^PRE^PRFT^PRGS^PRM^PRS^PRSC^PRTR^PRU^PRX^PRXI^PRXL^PRZ^PSA^PSMT^PSO^PSPT^PSS^PSUN^PSYS^PTEN^PTI^PTIX^PTMK^PTP^PTRY^PTT^PTV^PUW^PVA^PVH^PVTB^PWAV^PWEI^PWER^PWR^PX^PXD^PXP^PXPL^PXR^PXT^PYX^PZZA^Q^QCOM^QD^QLD^QLGC^QLTI^QMAR^QQQQ^QRCP^QSFT^QTM^R^RA^RACK^RAD^RADS^RAH^RAI^RAIL^RARE^RAS^RBA^RBAK^RBC^RBN^RBPAA^RCII^RCKY^RCL^RCNI^RCRC^RDA^RDC^RDEN^RDK^RDN^RDSA^RDY^RE^RESP^REV^REY^RF^RFMD^RGA^RGC^RGE^RGF^RGLD^RGR^RGS^RHAT^RHD^RHHBY^RHI^RHT^RI^RIG^RIMG^RIMM^RIO^RJF^RKH^RKT^RL^RLI^RMCF^RMD^RMIX^RMK^RML^RNOW^RNR^RNT^RNWK^ROC^ROCK^ROG^ROH^ROK^ROL^ROLL^ROP^ROST^RPB^RRC^RRD^RRGB^RRI^RS^RSAS^RSC^RSG^RSH^RSO^RSP^RSTI^RSTO^RT^RTH^RTI^RTIX^RTN^RTP^RTSX^RUS^RUSHA^RUTH^RVBD^RVI^RWC^RWR^RWT^RX^RYAN^RYL^RYN^S^SAF^SAFM^SAH^SAI^SAIA^SAM^SANM^SAP^SAPE^SAX^SAY^SBAC^SBH^SBL^SBN^SBNY^SBUX^SCDE^SCG^SCHL^SCHN^SCHW^SCI^SCRX^SCS^SCSS^SCT^SCUR^SCVL^SDS^SDXC^SE^SEE^SEIC^SEO^SEPR^SF^SFD^SFE^SFG^SFI^SFL^SFLY^SFN^SFY^SGDE^SGIC^SGMS^SGP^SGR^SGY^SHFL^SHLD^SHOE^SHOO^SHOR^SHPGY^SHW^SHY^SIAL^SIE^SIGI^SII^SIL^SIMG^SIMO^SINA^SIRF^SIRI^SIX^SIZ^SJM^SJT^SJW^SKF^SKH^SKIL^SKS^SKT^SKX^SKYW^SLAB^SLB^SLE^SLG^SLGN^SLH^SLM^SLR^SLXP^SM^SMA^SMBI^SMBL^SMF^SMG^SMH^SMMX^SMOD^SMP^SMRT^SMSI^SMTL^SNA^SNCR^SNDK^SNE^SNG^SNPS^SNS^SNTS^SNV^SNX^SNY^SO^SOLUQ^SON^SONC^SONE^SONO^SONS^SOV^SPA^SPAR^SPC^SPF^SPG^SPLS^SPN^SPP^SPR^SPSN^SPW^SPWR^SPY^SR^SRCL^SRDX^SRE^SRP^SRT^SRVY^SRX^SRZ^SSCC^SSD^SSI^SSL^SSP^SSW^SSYS^STA^STAR^STE^STFC^STGS^STI^STJ^STKL^STLD^STN^STP^STR^STRL^STSA^STST^STT^STX^STXN^STXS^STZ^SU^SUF^SUG^SUN^SUNH^SUNW^SUP^SUSS^SVC^SVM^SVR^SVU^SVVS^SWC^SWH^SWHC^SWIM^SWIR^SWK^SWKS^SWN^SWS^SWSI^SWY^SY^SYD^SYK^SYKE^SYMC^SYNA^SYNL^SYNO^SYNT^SYT^SYX^SYY^T^TA^TAG^TAL^TAP^TARO^TARR^TASR^TAST^TAXI^TBL^TCB^TCBI^TCC^TCK^TCO^TCT^TDC^TDF^TDFXQ^TDG^TDS^TDSS^TDW^TDY^TE^TECD^TECUA^TEG^TEK^TEL^TELK^TELWI^TEN^TER^TESO^TEVA^TEX^TFR^TFSL^TFSM^TFX^TG^TGI^TGIC^TGT^THC^THE^THG^THI^THO^THOR^THQI^THX^TIBX^TIE^TIF^TIN^TIP^TIVO^TJX^TK^TKC^TKLC^TKR^TLAB^TLB^TLCV^TLGD^TLM^TLT^TM^TMA^TMK^TMM^TMO^TMR^TMX^TNB^TNL^TNOX^TOA^TOL^TOM^TOMO^TOO^TOT^TPP^TPX^TR^TRA^TRAD^TRAK^TRB^TRFC^TRGL^TRI^TRID^TRIN^TRLG^TRMB^TRMP^TRN^TROW^TRS^TRV^TRXB^TS^TSA^TSAI^TSCM^TSCO^TSM^TSN^TSO^TSRA^TSU^TTC^TTEC^TTEK^TTH^TTI^TTMI^TTWO^TUES^TUNE^TUP^TV^TVL^TW^TWB^TWC^TWGP^TWI^TWM^TWP^TWPG^TWTC^TWTR^TWW^TWX^TXCO^TXI^TXN^TXRH^TXT^TXU^TYC^TZIX^UA^UAG^UAPH^UARM^UAUA^UB^UBA^UBB^UBH^UBS^UCBH^UCBI^UCLP^UCO^UCTT^UEIC^UFI^UFS^UHCO^UHS^UIC^UIL^UIS^UL^ULBI^ULTI^UMC^UMPQ^UN^UNFI^UNH^UNM^UNP^UNS^UNT^UPFC^UPL^UPM^UPS^URBN^URI^URS^USAP^USB^USG^USIH^USM^USO^USPI^UST^USTR^USU^UTEK^UTHR^UTI^UTIW^UTSI^UTX^UVN^VAL^VAR^VARI^VAS^VC^VCI^VCLK^VCP^VDSI^VFC^VG^VIAB^VICR^VIGN^VITA^VITL^VLCM^VLO^VLTR^VLY^VMC^VMED^VMSI^VMW^VNO^VOCS^VOD^VOE^VOL^VOLC^VOX^VPHM^VPRT^VQ^VRGY^VRNT^VRSN^VRTX^VRX^VSAT^VSE^VSEA^VSH^VSTA^VTAL^VTI^VTIV^VTR^VTS^VVC^VVI^VVTV^VWO^VZ^WAB^WABC^WAG^WAL^WAT^WB^WBC^WBCWI^WBS^WBSN^WCC^WCG^WCI^WCN^WCRX^WDC^WDR^WEBM^WEBX^WEC^WEN^WERN^WFC^WFMI^WFR^WFT^WGII^WGL^WGO^WGR^WHI^WHQ^WHR^WIN^WINN^WIRE^WITS^WL^WLK^WLL^WLM^WLP^WLSC^WLT^WLV^WM^WMAR^WMB^WMG^WMGI^WMI^WMS^WMT^WNC^WNDXQ^WNG^WNR^WOLF^WON^WOOF^WOR^WPC^WPI^WPL^WPP^WPPGY^WPS^WPSC^WPTE^WRCN^WRES^WRLD^WRNC^WSH^WSM^WSO^WTFC^WTI^WTKWY^WTM^WTS^WTSLA^WTW^WTZ^WU^WVCM^WW^WWW^WWY^WXS^WY^WYE^WYN^WYNN^WZEN^X^XBI^XEC^XEL^XHB^XIDE^XL^XLB^XLE^XLF^XLI^XLK^XLNX^XLU^XLV^XLY^XMSR^XOHO^XOM^XPL^XPRT^XRAY^XRIT^XRM^XRT^XRX^XTO^XTXI^YCC^YHOO^YRCW^YUM^ZBRA^ZGEN^ZINC^ZION^ZLC^ZMH^ZOLL^ZOLT^ZQK^ZRAN^ZUMZ^ZZ^";
+																var rowsymbol = new Array()
+																rowsymbol=ds.split("^");
+																for (i=0;i<rowsymbol.length-1;i++)
+																		{
+																		document.write("<option value='"+rowsymbol[i]+"'>"+rowsymbol[i]+"</option>");
+																		}
+																</script>
+																
+																</select>
+																</td>
+																<td width="5">&nbsp;</td>
+																<td width="100">																
+																<select class="Text1" name="sel_month" size="1" >
+																<option value="">&nbsp;BROKERAGE MONTH&nbsp;&nbsp;</option>
+																<option value="">_______________</option>
+																<option value="Oct^2007">Oct 2007</option>
+<option value="Sep^2007">Sep 2007</option>
+<option value="Aug^2007">Aug 2007</option>
+<option value="Jul^2007">Jul 2007</option>
+<option value="Jun^2007">Jun 2007</option>
+<option value="May^2007">May 2007</option>
+<option value="Apr^2007">Apr 2007</option>
+<option value="Mar^2007">Mar 2007</option>
+<option value="Feb^2007">Feb 2007</option>
+<option value="Jan^2007">Jan 2007</option>
+<option value="Dec^2006">Dec 2006</option>
+<option value="Nov^2006">Nov 2006</option>
+<option value="Oct^2006">Oct 2006</option>
+<option value="Sep^2006">Sep 2006</option>
+<option value="Aug^2006">Aug 2006</option>
+<option value="Jul^2006">Jul 2006</option>
+<option value="Jun^2006">Jun 2006</option>
+<option value="May^2006">May 2006</option>
+<option value="Apr^2006">Apr 2006</option>
+<option value="Mar^2006">Mar 2006</option>
+<option value="Feb^2006">Feb 2006</option>
+<option value="Jan^2006">Jan 2006</option>
+																</select>
+																</td>
+
+																<SCRIPT LANGUAGE="JavaScript" SRC="includes/calendarpopup/CalendarPopup.js"></SCRIPT>
+																<SCRIPT LANGUAGE="JavaScript">document.write(getCalendarStyles());</SCRIPT>
+																	<SCRIPT LANGUAGE="JavaScript">
+																	var calfrom = new CalendarPopup("divfrom");
+																	calfrom.addDisabledDates("10/19/2007",null);
+																	var calto = new CalendarPopup("divto");
+																	calto.addDisabledDates("10/19/2007",null);
+																	
+																	</SCRIPT>						
+																<td width="5">&nbsp;</td>
+																<td width="10">From:</td>
+																<td width="10"><input type="text" id="iddatefrom" class="Text1" name="datefrom" readonly size="12" maxlength="12" value="10/18/2007"></td>
+																<td width="20" align="center"><A HREF="#" onClick="calfrom.select(document.forms['clnt_activity'].datefrom,'anchor1','MM/dd/yyyy'); return false;" NAME="anchor1" ID="anchor1"><img src="images/lf_v1/sel_date.png" border="0"></A></td>
+																<td width="5">&nbsp;</td>
+																<td width="10">To:</td>
+																<td width="10"><input type="text" id="iddateto" class="Text1" name="dateto" readonly size="12" maxlength="12" value="10/18/2007"></td>
+																<td width="20" align="center"><A HREF="#" onClick="calto.select(document.forms['clnt_activity'].dateto,'anchor2','MM/dd/yyyy'); return false;" NAME="anchor2" ID="anchor2"><img src="images/lf_v1/sel_date.png" border="0"></A></td>
+																<td width="5">&nbsp;</td>
+																<td width="10"><input type="image" src="images/lf_v1/form_submit.png"></td>
+																<td width="10" align="center">&nbsp;</td>
+																<td width="10" align="center">&nbsp;</td>
+																<td>&nbsp;
+																
+																</td>
+															</tr>
+														</form>			
+														</table>
+														</td> 
+													</tr>
+													<tr id="pbd"> <!--  style="display=none; visibility=hidden" -->
+														<td>
+														
+		<table width="100%" border="0" cellspacing="1" cellpadding="2" bgcolor="#FFFFFF">				
+			<tr>
+					<td align="left"><a class="links_temp" href="rep_all_rep_ca_exp_trade_excel.php?xl=692f93be8c7a41525c0baf2076aecfb4^^2007-10-18^2007-10-18^^^" target="_blank">GET TO EXCEL</a>&nbsp;&nbsp;&nbsp;<font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#666666"><strong></strong>&nbsp;&nbsp;</font></td>
+					<td>&nbsp;</td>
+				</tr>
+		</table>
+		
+
+		<table width="100%" height="100%" cellpadding="1", cellspacing="0" bgcolor="#AAAAAA">
+			<tr>
+				<td>		
+
+		<script language="JavaScript" src="includes/javascript/sorttable.js" type="text/javascript"></script>
+		<table class="sortable" preserve_style="cell" width="100%" border="0"  cellspacing="1" cellpadding="1">
+		  <thead class="datadisplay">
+				<tr bgcolor="#cccccc">
+					<td ts_type="date" width="90">Trade Date</td>
+				  <td width="276">ADVISOR / CLIENT</td>
+					<td width="56">RR #</td>
+					<td width="80">Symbol</td>
+					<td width="80">B/S</td>
+					<td ts_type="money" width="80">Shares</td>
+					<td ts_type="money" width="80">Price</td>
+					<td ts_type="money" width="80">Commission</td>
+					<td ts_type="money" width="100">Comm./Shr.</td>
+					<td align="right">&nbsp;&nbsp;&nbsp;RESEARCH</td>
+				</tr>
+  		</thead>
+  		<tbody id="offTblBdy" class="datadisplay">
+						
+			<script type="text/javascript">
+			var dt = new Array()
+
+			dt [0] = "10/18/2007^BACK^041^ORCL^B^50,000^21.39^2,500.00^0.050^0^BACK";
+dt [1] = "10/18/2007^BACK^041^PKG^&nbsp;&nbsp;&nbsp;&nbsp;S^22,500^30.78^1,125.00^0.050^1^BACK";
+dt [2] = "10/18/2007^GTAM^036^SPY^C^9,185^153.81^459.25^0.050^0^GTAM";
+dt [3] = "10/18/2007^ACT II PARTNERS^067^SSP^&nbsp;&nbsp;&nbsp;&nbsp;SS^25,000^44.65^1,250.00^0.050^0^ACT2";
+dt [4] = "10/18/2007^APEX CAPITAL MGMT.^091^JCP^B^5,000^57.57^250.00^0.050^1^APEX";
+dt [5] = "10/18/2007^BALYASNY ASSET MGMT^044^ANF^&nbsp;&nbsp;&nbsp;&nbsp;SS^10,000^79.02^500.00^0.050^1^BALY";
+dt [6] = "10/18/2007^BALYASNY ASSET MGMT^044^GM^&nbsp;&nbsp;&nbsp;&nbsp;S^18,300^40.06^915.00^0.050^1^BALY";
+dt [7] = "10/18/2007^BEAR STEARNS ASSET MGMT.^033^CHS^&nbsp;&nbsp;&nbsp;&nbsp;SS^50,000^12.86^2,000.00^0.040^1^BSAM";
+dt [8] = "10/18/2007^BUCK CAPITAL MGMT^001^ANF^&nbsp;&nbsp;&nbsp;&nbsp;S^10,000^78.89^400.00^0.040^1^BUCK";
+dt [9] = "10/18/2007^BUCK CAPITAL MGMT^001^ARO^B^188,500^20.60^7,540.00^0.040^1^BUCK";
+dt [10] = "10/18/2007^BUCK CAPITAL MGMT^001^BWS^B^20,000^20.05^800.00^0.040^0^BUCK";
+dt [11] = "10/18/2007^BUCK CAPITAL MGMT^001^COH^&nbsp;&nbsp;&nbsp;&nbsp;SS^380,000^42.53^15,200.00^0.040^1^BUCK";
+dt [12] = "10/18/2007^BUCK CAPITAL MGMT^001^GES^&nbsp;&nbsp;&nbsp;&nbsp;S^20,000^54.30^800.00^0.040^0^BUCK";
+dt [13] = "10/18/2007^BUCK CAPITAL MGMT^001^JWN^&nbsp;&nbsp;&nbsp;&nbsp;S^50,000^40.23^2,000.00^0.040^1^BUCK";
+dt [14] = "10/18/2007^BUCK CAPITAL MGMT^001^M^&nbsp;&nbsp;&nbsp;&nbsp;S^100,000^31.25^4,000.00^0.040^1^BUCK";
+dt [15] = "10/18/2007^BUCK CAPITAL MGMT^001^PSS^&nbsp;&nbsp;&nbsp;&nbsp;S^100,000^18.87^4,000.00^0.040^0^BUCK";
+dt [16] = "10/18/2007^BUCK CAPITAL MGMT^001^PVH^B^40,000^47.25^1,600.00^0.040^1^BUCK";
+dt [17] = "10/18/2007^BUCK CAPITAL MGMT^001^RL^&nbsp;&nbsp;&nbsp;&nbsp;S^10,000^68.27^400.00^0.040^1^BUCK";
+dt [18] = "10/18/2007^BUCK CAPITAL MGMT^001^RL^&nbsp;&nbsp;&nbsp;&nbsp;SS^50,000^69.11^2,000.00^0.040^1^BUCK";
+dt [19] = "10/18/2007^BUCK CAPITAL MGMT^001^SKX^&nbsp;&nbsp;&nbsp;&nbsp;S^70,000^20.44^2,800.00^0.040^1^BUCK";
+dt [20] = "10/18/2007^BUCK CAPITAL MGMT^001^TJX^&nbsp;&nbsp;&nbsp;&nbsp;S^50,000^28.94^2,000.00^0.040^1^BUCK";
+dt [21] = "10/18/2007^BUCK CAPITAL MGMT^001^TWB^B^45,000^30.64^1,800.00^0.040^1^BUCK";
+dt [22] = "10/18/2007^CAPITAL GROWTH MGMT.^241^CMI^B^40,000^138.39^2,000.00^0.050^0^CAPG";
+dt [23] = "10/18/2007^CASTLEROCK^040^LIZ^&nbsp;&nbsp;&nbsp;&nbsp;SS^59,500^29.63^2,380.00^0.040^1^CAST";
+dt [24] = "10/18/2007^CASTLEROCK^040^SPLS^&nbsp;&nbsp;&nbsp;&nbsp;SS^80,100^22.01^3,204.00^0.040^1^CAST";
+dt [25] = "10/18/2007^CATAPULT^040^ETFC^B^10,000^11.47^500.00^0.050^0^CATA";
+dt [26] = "10/18/2007^CATAPULT^040^ETFC^&nbsp;&nbsp;&nbsp;&nbsp;SS^10,000^11.67^500.00^0.050^0^CATA";
+dt [27] = "10/18/2007^CATAPULT^040^KEY^B^25,000^29.58^1,250.00^0.050^0^CATA";
+dt [28] = "10/18/2007^CHILTON CAPITAL MGMT.^036^BEAS^&nbsp;&nbsp;&nbsp;&nbsp;S^77,777^18.25^3,111.08^0.040^1^CHIL";
+dt [29] = "10/18/2007^CHILTON CAPITAL MGMT.^036^CEM^&nbsp;&nbsp;&nbsp;&nbsp;SS^37,331^9.59^1,493.24^0.040^0^CHIL";
+dt [30] = "10/18/2007^CHILTON CAPITAL MGMT.^036^D^&nbsp;&nbsp;&nbsp;&nbsp;SS^8,371^86.83^334.84^0.040^0^CHIL";
+dt [31] = "10/18/2007^CHILTON CAPITAL MGMT.^036^GM^&nbsp;&nbsp;&nbsp;&nbsp;SS^50,000^38.33^2,000.00^0.040^1^CHIL";
+dt [32] = "10/18/2007^CHILTON CAPITAL MGMT.^036^KFT^&nbsp;&nbsp;&nbsp;&nbsp;S^10,000^33.78^400.00^0.040^0^CHIL";
+dt [33] = "10/18/2007^CHILTON CAPITAL MGMT.^036^NKTR^&nbsp;&nbsp;&nbsp;&nbsp;S^40,000^6.91^1,600.00^0.040^0^CHIL";
+dt [34] = "10/18/2007^CHILTON CAPITAL MGMT.^036^RL^&nbsp;&nbsp;&nbsp;&nbsp;S^3,000^69.32^120.00^0.040^1^CHIL";
+dt [35] = "10/18/2007^CHILTON CAPITAL MGMT.^036^RX^C^100,000^23.59^4,000.00^0.040^0^CHIL";
+dt [36] = "10/18/2007^COLUMBUS CIRCLE^036^PVH^&nbsp;&nbsp;&nbsp;&nbsp;S^42,116^46.16^1,684.64^0.040^1^COLC";
+dt [37] = "10/18/2007^COUGAR TRADING^044^ANF^&nbsp;&nbsp;&nbsp;&nbsp;SS^5,000^78.65^250.00^0.050^1^COUG";
+dt [38] = "10/18/2007^COUGAR TRADING^044^JCG^B^5,000^39.99^250.00^0.050^1^COUG";
+dt [39] = "10/18/2007^COUGAR TRADING^044^KSS^&nbsp;&nbsp;&nbsp;&nbsp;S^5,000^55.99^250.00^0.050^1^COUG";
+dt [40] = "10/18/2007^COUGAR TRADING^044^KSS^&nbsp;&nbsp;&nbsp;&nbsp;SS^10,000^55.42^500.00^0.050^1^COUG";
+dt [41] = "10/18/2007^COUGAR TRADING^044^RL^B^10,000^69.61^500.00^0.050^1^COUG";
+dt [42] = "10/18/2007^COUGAR TRADING^044^RL^&nbsp;&nbsp;&nbsp;&nbsp;SS^10,000^69.48^500.00^0.050^1^COUG";
+dt [43] = "10/18/2007^COUGAR TRADING^044^TWB^B^10,000^30.86^500.00^0.050^1^COUG";
+dt [44] = "10/18/2007^COUGAR TRADING^044^WRNC^B^5,000^39.98^250.00^0.050^1^COUG";
+dt [45] = "10/18/2007^CSFB GLOBAL PROPRIETARY^035^PKG^&nbsp;&nbsp;&nbsp;&nbsp;S^30,000^31.00^1,500.00^0.050^1^CSFB";
+dt [46] = "10/18/2007^DEEPHAVEN^031^HLT^&nbsp;&nbsp;&nbsp;&nbsp;S^50,000^47.34^2,000.00^0.040^0^DEEP";
+dt [47] = "10/18/2007^FIRST NY SEC/CHRIS^041^VC^B^15,000^5.93^900.00^0.060^1^FNYC";
+dt [48] = "10/18/2007^GALLEON MGMT LP^033^IMCL^B^15,000^47.66^750.00^0.050^0^GALL";
+dt [49] = "10/18/2007^GALLEON MGMT LP^033^M^B^10,000^31.25^500.00^0.050^1^GALL";
+dt [50] = "10/18/2007^GARDNER LEWIS ASSET MGMT^028^PFE^C^41,000^24.64^2,050.00^0.050^1^GLAM";
+dt [51] = "10/18/2007^GEORGE WEISS^034^CBE^&nbsp;&nbsp;&nbsp;&nbsp;SS^2,000^54.62^80.00^0.040^1^WEIS";
+dt [52] = "10/18/2007^GOLD SACHS SPECIAL SIT^030^NDN^&nbsp;&nbsp;&nbsp;&nbsp;SS^53,300^10.48^2,665.00^0.050^1^GSSS";
+dt [53] = "10/18/2007^GOLDEN TREE^036^QQQQ^C^82,800^53.69^4,140.00^0.050^0^GTRE";
+dt [54] = "10/18/2007^GOLDEN TREE^036^SPY^C^78,215^153.81^3,910.75^0.050^0^GTRE";
+dt [55] = "10/18/2007^JP MORGAN VENTURES^046^RL^C^10,000^69.03^500.00^0.050^1^JPMV";
+dt [56] = "10/18/2007^JPMSI/TOM LEDDY^035^UA^B^10,000^56.13^500.00^0.050^0^JPML";
+dt [57] = "10/18/2007^LAGRANGE CAP ADV^048^ABG^B^11,600^18.96^580.00^0.050^1^LAGR";
+dt [58] = "10/18/2007^LAGRANGE CAP ADV^048^BONT^B^15,000^18.65^750.00^0.050^1^LAGR";
+dt [59] = "10/18/2007^LAGRANGE CAP ADV^048^PSS^B^15,000^18.69^750.00^0.050^0^LAGR";
+dt [60] = "10/18/2007^LAGRANGE CAP ADV^048^SAM^&nbsp;&nbsp;&nbsp;&nbsp;SS^6,300^54.18^315.00^0.050^0^LAGR";
+dt [61] = "10/18/2007^LAGRANGE CAP ADV^048^TIF^&nbsp;&nbsp;&nbsp;&nbsp;SS^10,000^56.40^500.00^0.050^1^LAGR";
+dt [62] = "10/18/2007^LIGHTHOUSE FIN/QUAD^046^PIR^&nbsp;&nbsp;&nbsp;&nbsp;S^7,500^5.39^300.00^0.040^0^LHFG";
+dt [63] = "10/18/2007^MATTHES CAPITAL MGMT^033^VFC^&nbsp;&nbsp;&nbsp;&nbsp;SS^10,000^82.17^400.00^0.040^0^MATT";
+dt [64] = "10/18/2007^MAZAMA CAPITAL MGMT.^035^AIQ^&nbsp;&nbsp;&nbsp;&nbsp;S^84,000^9.50^3,360.00^0.040^0^MAZA";
+dt [65] = "10/18/2007^METROPOLITAN CAPITAL^044^PSS^B^102,600^18.83^5,130.00^0.050^0^METR";
+dt [66] = "10/18/2007^MILLENIUM PARTNERS^028^VC^B^25,000^5.91^750.00^0.030^1^MILP";
+dt [67] = "10/18/2007^MS PRINCIPAL STRATEGIES^041^MAR^B^1,900^41.00^95.00^0.050^0^MSPS";
+dt [68] = "10/18/2007^MUHLENKAMP FUND^046^C^&nbsp;&nbsp;&nbsp;&nbsp;S^200,000^44.01^10,000.00^0.050^1^MUHL";
+dt [69] = "10/18/2007^NOMURA CAPITAL^045^AWI^B^1,400^40.79^70.00^0.050^0^NOMU";
+dt [70] = "10/18/2007^NOMURA CAPITAL^045^VMED^B^2,100^23.50^105.00^0.050^0^NOMU";
+dt [71] = "10/18/2007^NORTH GROWTH RESEARCH^030^AAWW^&nbsp;&nbsp;&nbsp;&nbsp;S^8,575^56.42^343.00^0.040^0^NORT";
+dt [72] = "10/18/2007^NORTH GROWTH RESEARCH^030^IIG^&nbsp;&nbsp;&nbsp;&nbsp;S^6,075^23.31^243.00^0.040^0^NORT";
+dt [73] = "10/18/2007^NORTH GROWTH RESEARCH^030^OMPI^&nbsp;&nbsp;&nbsp;&nbsp;S^4,890^21.05^195.60^0.040^0^NORT";
+dt [74] = "10/18/2007^NORTHPOINT^030^AAWW^&nbsp;&nbsp;&nbsp;&nbsp;S^9,600^56.42^384.00^0.040^0^NORP";
+dt [75] = "10/18/2007^NORTHPOINT^030^ATU^&nbsp;&nbsp;&nbsp;&nbsp;S^2,000^67.63^80.00^0.040^0^NORP";
+dt [76] = "10/18/2007^NORTHPOINT^030^IIG^&nbsp;&nbsp;&nbsp;&nbsp;S^7,100^23.31^284.00^0.040^0^NORP";
+dt [77] = "10/18/2007^NORTHPOINT^030^OMPI^&nbsp;&nbsp;&nbsp;&nbsp;S^9,100^21.05^364.00^0.040^0^NORP";
+dt [78] = "10/18/2007^PRINCIPLE CAPITAL^040^TUP^B^29,100^35.53^873.00^0.030^0^PRIN";
+dt [79] = "10/18/2007^PRINCIPLE CAPITAL^040^YRCW^&nbsp;&nbsp;&nbsp;&nbsp;SS^46,400^25.43^1,392.00^0.030^0^PRIN";
+dt [80] = "10/18/2007^ROTHSCHILD ASSET^040^ARJ^B^20,100^45.33^904.50^0.045^0^ROTH";
+dt [81] = "10/18/2007^SSI INVESTORS^048^MDT^&nbsp;&nbsp;&nbsp;&nbsp;SS^49,483^49.00^1,979.32^0.040^1^SSII";
+dt [82] = "10/18/2007^STADIA CAPITAL^035^EL^B^25,000^43.72^1,000.00^0.040^1^STAD";
+dt [83] = "10/18/2007^STELLIAM INV ADV^040^WSM^B^10,000^29.85^500.00^0.050^0^STLL";
+dt [84] = "10/18/2007^STONERIDGE INV PART^033^SSI^B^47,395^18.08^2,369.75^0.050^1^STOR";
+dt [85] = "10/18/2007^SUN AMERICA ASSET MGMT^030^NWY^B^50,000^6.41^2,500.00^0.050^1^SUNA";
+dt [86] = "10/18/2007^SYSTEMATIC FINANCIAL MGT^035^PVH^B^15,200^46.45^570.00^0.038^1^SYST";
+dt [87] = "10/18/2007^THE JAY GOLDMAN^034^NWY^&nbsp;&nbsp;&nbsp;&nbsp;S^50,000^6.40^2,000.00^0.040^1^GOLD";
+dt [88] = "10/18/2007^THIRD COAST CAPITAL^035^HNI^B^15,000^38.68^750.00^0.050^0^3CAP";
+dt [89] = "10/18/2007^THIRD COAST CAPITAL^035^IFLO^B^35,000^18.52^1,750.00^0.050^0^3CAP";
+dt [90] = "10/18/2007^THIRD COAST CAPITAL^035^PCS^&nbsp;&nbsp;&nbsp;&nbsp;S^30,000^21.85^1,500.00^0.050^0^3CAP";
+dt [91] = "10/18/2007^THIRD COAST CAPITAL^035^PVH^&nbsp;&nbsp;&nbsp;&nbsp;SS^10,000^46.18^500.00^0.050^1^3CAP";
+dt [92] = "10/18/2007^TPG-AXON^040^WAG^C^65,000^38.26^3,250.00^0.050^0^TPGA";
+dt [93] = "10/18/2007^TRELLUS PARTNERS LP^028^FOSL^C^40,000^37.26^2,000.00^0.050^1^TREL";
+dt [94] = "10/18/2007^TRELLUS PARTNERS LP^028^GM^&nbsp;&nbsp;&nbsp;&nbsp;SS^25,000^39.65^1,250.00^0.050^1^TREL";
+dt [95] = "10/18/2007^TRELLUS PARTNERS LP^028^JCI^&nbsp;&nbsp;&nbsp;&nbsp;SS^11,700^42.21^585.00^0.050^1^TREL";
+dt [96] = "10/18/2007^TRIVIUM CAP MGMT^251^CTXS^B^33,600^39.34^1,344.00^0.040^0^TRIV";
+dt [97] = "10/18/2007^UBS OCONNOR^031^JPM^B^105,000^45.90^3,150.00^0.030^1^UBSO";
+dt [98] = "10/18/2007^VENTANA CAPITAL^060^ARO^&nbsp;&nbsp;&nbsp;&nbsp;SS^10,000^20.43^400.00^0.040^1^VENT";
+dt [99] = "10/18/2007^VISIUM/BALY HOWARD^038^JCP^B^25,000^57.82^1,250.00^0.050^1^VISH";
+dt [100] = "10/18/2007^VISIUM/BALY HOWARD^038^NDN^&nbsp;&nbsp;&nbsp;&nbsp;S^40,000^10.27^2,000.00^0.050^1^VISH";
+		
+				var datefromString = '07-21-2007';
+				var datetoString = '10-19-2007';
+				
+				for (i=0;i<dt.length;i++)
+					{
+					var rowtrades_array = new Array()
+					var rowclass
+					var research_link
+					if (i%2 == 0) {
+						rowclass = " class=\"trdark\"";
+					} else {
+						rowclass = " class=\"trlight\"";
+					}
+					
+					rowtrades_array=dt[i].split("^");
+					
+					if (rowtrades_array[9]==1) {
+					research_link = "<a href='http://192.168.20.63/rv/sr/?in_ticker="+
+										rowtrades_array[3]+
+										"&datefrom=" + datefromString + "&dateto=" + datetoString +
+										"'" +
+										" target='_blank'><img src='images/lf_v1/research.png' border='0' alt='Recent Research on "+
+										rowtrades_array[3]+
+										"'></a>";
+					} else {
+					research_link = "";
+					}
+					
+						document.write(
+										"<tr" + rowclass + ">"+"<td>&nbsp;&nbsp;&nbsp;"+rowtrades_array[0]+"</td>"+
+										"<td onclick=\"CreateWnd(\'chart_t12m.php?clnt="+rowtrades_array[10]+"\', 620, 330, false);\"><div align='left'>&nbsp; <a href='#'><img src=\"images/t12m.png\" border=\"0\" onclick=\"CreateWnd(\'chart_t12m.php?clnt="+rowtrades_array[10]+"\', 620, 330, false);\"></a>&nbsp; &nbsp; "+rowtrades_array[1]+"</div></td>"+
+										"<td>&nbsp;&nbsp;&nbsp;"+rowtrades_array[2]+"</td>"+
+										"<td>&nbsp;&nbsp;&nbsp;"+rowtrades_array[3]+"</td>"+
+										"<td>&nbsp;&nbsp;&nbsp;"+rowtrades_array[4]+"</td>"+
+										"<td align='right'>"+rowtrades_array[5]+"&nbsp;&nbsp;&nbsp;</td>"+
+										"<td align='right'>"+rowtrades_array[6]+"&nbsp;&nbsp;&nbsp;</td>"+
+										"<td align='right'>"+rowtrades_array[7]+"&nbsp;&nbsp;&nbsp;</td>"+
+										"<td align='right'>"+rowtrades_array[8]+"&nbsp;&nbsp;&nbsp;</td>"+
+										"<td align='right'>&nbsp;" + research_link + "&nbsp;&nbsp;&nbsp;</td></tr>");
+					}
+					</script>
+
+				</tbody>
+				<tfoot>
+					<tr bgcolor="#CCCCCC" class="display_totals">
+						<td><div align="left">&nbsp;&nbsp;TOTALS:</div></td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td align="right">3,701,713</td>
+						<td align="right">&nbsp;</td>
+						<td align="right">160,228.97&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td align="right">&nbsp;</td>
+						<td>&nbsp;</td>
+					</tr>
+				</tfoot>
+				</table>
+				</td></tr></table>														</td>
+													</tr>
+												</table>
+												<!-- END TABLE 4 -->
+			  </td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>						
+	<DIV ID="divfrom" STYLE="position:absolute;visibility:hidden;background-color:white;layer-background-color:white;"></DIV>
+	<DIV ID="divto" STYLE="position:absolute;visibility:hidden;background-color:white;layer-background-color:white;"></DIV>			
+				</td>
+			</tr>
+		</table>
+		<!-- END TABLE 1 -->
+	</td>
+</tr>
+<tr valign="bottom">
+	<td height="10">
+		<table width="100%"> <!-- height="20"-->
+			<tr valign="top">
+			<td align="center" valign="bottom">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_bordertop_1">  <!--height="20" -->
+					<tr valign="top"> 
+					<td align="center" valign="bottom">
+							<center>
+							<a class="centersys" href="http://www.centersys.com" target="_blank">CenterSys Group, Inc.</a>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a class="centersys"> 
+							 Process Time 0.00 s.							</a> 
+							</center>
+					</td>
+					</tr>
+				</table>
+			</td>
+			</tr>
+		</table>
+	</td>
+</tr>
+</table>
+</body>
+</html>

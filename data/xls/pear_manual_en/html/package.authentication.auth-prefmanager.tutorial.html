@@ -1,0 +1,532 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;    Tutorial
+   </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Auth_PrefManager"
+HREF="package.authentication.auth-prefmanager.html"><LINK
+REL="PREVIOUS"
+TITLE="
+    Introduction to
+    Auth_PrefManager
+   "
+HREF="package.authentication.auth-prefmanager.intro.html"><LINK
+REL="NEXT"
+TITLE="
+   constructor
+   Auth_PrefManager::Auth_PrefManager
+  "
+HREF="package.authentication.auth-prefmanager.auth-prefmanager.auth-prefmanager.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.authentication.auth-prefmanager.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.authentication.auth-prefmanager.auth-prefmanager.auth-prefmanager.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.authentication.auth-prefmanager.tutorial">Tutorial</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN17053"
+></A
+>
+    Tutorial
+   &nbsp;--&nbsp;
+    A short guide to using <B
+CLASS="classname"
+>Auth_PrefManager</B
+>
+   </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth-prefmanager.tutorial.table"
+></A
+><H2
+>&#13;    Setting up the database
+   </H2
+><P
+>&#13;     The first step is to setup a database to store the values in. 
+     For this tutorial it's assumed that you already know 
+     the basics of using the PEAR 
+     <A
+HREF="package.database.db.html"
+>DB</A
+> class.
+   </P
+><P
+>&#13;     To set up the default table layout run the following SQL statement:
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN17062"><P
+><B
+>Example 28-1. SQL to setup the table</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>CREATE TABLE `preferences` (
+   `user_id` varchar( 255 ) NOT NULL default '',
+   `pref_id` varchar( 32 ) NOT NULL default '',
+   `pref_value` longtext NOT NULL ,
+    PRIMARY KEY ( `user_id` , `pref_id` )
+);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth-prefmanager.tutorial.create"
+></A
+><H2
+>Setting up your first PrefManager object</H2
+><P
+>&#13;      To use Auth_PrefManager we must first create an instance of the base object, as shown below.
+    </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN17068"><P
+><B
+>Example 28-2. Setting up the object</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once('Auth/PrefManager.php');
+$dsn = 'mysql://user:password@localhost/database';   // Change the DSN to fit your database.
+$options = array('serialize' =&#62; true);               // Enable serialization of data before saving, this ensures that the values are retrieved cleanly.
+$prefmanager = new Auth_PrefManager($dsn, $options); // Create the object.
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth-prefmanager.tutorial.setdefaultpref"
+></A
+><H2
+>Setting and displaying default preferences</H2
+><P
+>&#13;      Now that we have a PrefManager object, 
+	  we can make use of it to set some preferences.
+    </P
+><P
+>&#13;      For this tutorial we're going 
+	  to allow users to specify their country, 
+	  and assume that any user who hasn't 
+	  set their country is somewhere on Earth.
+    </P
+><P
+>&#13;      First we need to set the default value, using 
+	  <A
+HREF="package.authentication.auth-prefmanager.auth-prefmanager.setdefaultpref.html"
+>setDefaultPref</A
+>.
+    </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN17077"><P
+><B
+>Example 28-3. Setting up the object</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Continued from example 1.
+$prefmanager-&#62;setDefaultPref("country", "Earth");
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;     Now that the default is set, 
+	 we can create a (very) basic page, 
+	 welcoming users with a customised message.
+   </P
+><P
+>&#13;     Currently this message will only ever display 
+	 "Welcome to the people of Earth!", 
+	 since no users have their country set.
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN17082"><P
+><B
+>Example 28-4. Getting preferences</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$username = "guest";
+&#60;h1&#62;Welcome to the people of &#60;?=$prefmanager-&#62;getPref($username, "country")?&#62;!&#60;/h1&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth-prefmanager.tutorial.setpref"
+></A
+><H2
+>Setting a user's preferences</H2
+><P
+>&#13;      Finally we need a way for people to choose which country they're in.
+    </P
+><P
+>&#13;      This is going to be done with a simple text box, 
+	  and you should obviously be a little more careful 
+	  in a real application about allowing users to set preferences for people!
+    </P
+><P
+>&#13;      The Reset Country button will delete the user's preference, 
+	  and cause the default to be displayed again.
+    </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN17090"><P
+><B
+>Example 28-5. Getting preferences</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;h1&#62;Set Country&#60;/h1&#62;
+// Allow users to set their country and username.
+if (isset($_POST['submit'])) {
+    $username = htmlspecialchars($_POST['username']);
+    $prefmanager-&#62;setPref($username, 'country', $_POST['country']);
+} else if (isset($_POST['reset'])) {
+    $username = htmlspecialchars($_POST['username']);
+    $prefmanager-&#62;deletePref($username, 'country');
+} else {
+    $username = 'guest';
+}
+?&#62;
+&#60;h1&#62;Welcome to the people of &#60;?=$prefmanager-&#62;getPref($username, "country")?&#62;!&#60;/h1&#62;
+&#60;h2&#62;Set Country And Username&#60;/h2&#62;
+&#60;form method="post" action="&#60;?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?&#62;"&#62;
+  &#60;label for="username"&#62;Username&#60;/label&#62; &#60;input name="username" value="&#60;?=$username?&#62;" /&#62;&#60;br/&#62;
+  &#60;label for="country"&#62;Country&#60;/label&#62; &#60;input name="country" value="&#60;?=$prefmanager-&#62;getPref($username, 'country')?&#62;"/&#62;&#60;br/&#62;
+  &#60;input type="submit" name="submit" value="Set Country" /&#62; &#60;input type="submit" name="reset" value="Reset Country" /&#62;
+&#60;/form&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;     Now once a user has entered their username, 
+	 and their country, whenever they login they'll get a personalized welcome.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth-prefmanager.tutorial.source"
+></A
+><H2
+>Full sourcecode</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN17096"><P
+><B
+>Example 28-6. Sourcecode for the example page</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;h1&#62;Set Country&#60;/h1&#62;
+&#60;?php
+require_once('Auth/PrefManager.php');
+
+// Create the PrefManager object.
+
+// Change the DSN to fit your database.
+$dsn = 'mysql://user:password@localhost/database';   
+
+// Enable serialization of data before saving, this ensures that the values are retrieved cleanly.
+$options = array('serialize' =&#62; true);               
+
+// Create the object.
+$prefmanager = new Auth_PrefManager($dsn, $options); 
+
+// Set the default value (this doesn't need to be done everytime the script is run).
+$prefmanager-&#62;setDefaultPref("country", "Earth");
+
+// Allow users to set their country and username.
+if (isset($_POST['submit'])) {
+    $username = htmlspecialchars($_POST['username']);
+    $prefmanager-&#62;setPref($username, 'country', $_POST['country']);
+} else if (isset($_POST['reset'])) {
+    $username = htmlspecialchars($_POST['username']);
+    $prefmanager-&#62;deletePref($username, 'country');
+} else {
+    $username = 'guest';
+}
+?&#62;
+&#60;h1&#62;Welcome to the people of &#60;?=$prefmanager-&#62;getPref($username, "country")?&#62;!&#60;/h1&#62;
+&#60;h2&#62;Set Country And Username&#60;/h2&#62;
+&#60;form method="post" action="&#60;?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?&#62;"&#62;
+  &#60;label for="username"&#62;Username&#60;/label&#62; &#60;input name="username" value="&#60;?=$username?&#62;" /&#62;&#60;br/&#62;
+  &#60;label for="country"&#62;Country&#60;/label&#62; &#60;input name="country" value="&#60;?=$prefmanager-&#62;getPref($username, 'country')?&#62;"/&#62;&#60;br/&#62;
+  &#60;input type="submit" name="submit" value="Set Country" /&#62; &#60;input type="submit" name="reset" value="Reset Country" /&#62;
+&#60;/form&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.authentication.auth-prefmanager.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.authentication.auth-prefmanager.auth-prefmanager.auth-prefmanager.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction to
+    <B
+CLASS="classname"
+>Auth_PrefManager</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.authentication.auth-prefmanager.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>constructor
+   <B
+CLASS="function"
+>Auth_PrefManager::Auth_PrefManager()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,261 @@
+<HTML
+><HEAD
+><TITLE
+>Pager "Jumping" vs. "Sliding"</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Pager"
+HREF="package.html.pager.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.html.pager.intro.html"><LINK
+REL="NEXT"
+TITLE="Pager::factory"
+HREF="package.html.pager.factory.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.pager.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.pager.factory.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.pager.compare"><B
+CLASS="classname"
+>Pager</B
+> "Jumping" vs. "Sliding"</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN72576"
+></A
+><B
+CLASS="classname"
+>Pager</B
+> "Jumping" vs. "Sliding"&nbsp;--&nbsp;Feature comparison of the two pager styles</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager.compare.intro"
+></A
+><H2
+>What are the differences between the two styles?</H2
+><P
+>&#13;    Since an example is worth 1000 words:
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager.compare.example_jumping"
+></A
+><H2
+>"Jumping" Pager logic</H2
+><P
+>&#13;     Let's suppose that the data spans on 15 pages, and the window width is 5 page links.
+     The links are built on "frames" of 5 pages each:  [1-5] [6-10] [11-15]
+     Pager in "Jumping" mode always shows the same 5 page links while you are on
+     one of these pages.
+     Here's a temporal succession of the links, starting from page 1 and moving forward.
+     There are brakets around current page number to highlight this:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>a)    {1} 2  3  4  5  =&#62;   // first frame: [1-5]
+b) &#60;=  1 {2} 3  4  5  =&#62;
+c) &#60;=  1  2 {3} 4  5  =&#62;
+d) &#60;=  1  2  3 {4} 5  =&#62;
+e) &#60;=  1  2  3  4 {5} =&#62;   // HERE IT JUMPS TO THE NEXT FRAME
+f) &#60;= {6} 7  8  9 10  =&#62;   // second frame: [6-10]
+g) &#60;=  6 {7} 8  9 10  =&#62;
+h) &#60;=  6  7 {8} 9 10  =&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+     and so on. See what a "jumping window" frame is? When you reach a limit (in the
+     example, you go from page 5 to page 6), it "jumps" to next frame (links from page 6 to 10).
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager.compare.example_pager_sliding"
+></A
+><H2
+>"Sliding" Pager logic</H2
+><P
+>&#13;     Instead of jumping from one frame to the other, with Pager in "Sliding" mode
+      the change is done smoothly, and the current page is always shown at the center of the
+      "window" (except of course for the first and the last pages):
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>a)       {1} 2  3  4  5  =&#62; [15]
+b) [1] &#60;= 1 {2} 3  4  5  =&#62; [15]
+c) [1] &#60;= 1  2 {3} 4  5  =&#62; [15]  // HERE IT's STARTING WORKING AS DESIGNED
+d) [1] &#60;= 2  3 {4} 5  6  =&#62; [15]  // see: current page number is at the center of the window
+e) [1] &#60;= 3  4 {5} 6  7  =&#62; [15]  // and it stays there...
+f) [1] &#60;= 4  5 {6} 7  8  =&#62; [15]
+g) [1] &#60;= 5  6 {7} 8  9  =&#62; [15]
+h) [1] &#60;= 6  7 {8} 9 10  =&#62; [15]</PRE
+></TD
+></TR
+></TABLE
+>
+     and so on.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager.compare.other"
+></A
+><H2
+>Other differences</H2
+><P
+>&#13;     Apart from the different "philosophy", there is one difference in the
+     <TT
+CLASS="parameter"
+><I
+>delta</I
+></TT
+> parameter: in "Jumping" mode, it's the
+     number of page numbers to show; in "Sliding" mode it's the number of
+     page numbers to show before and after the current one.
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.pager.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.pager.factory.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.pager.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Pager::factory()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

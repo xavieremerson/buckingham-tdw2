@@ -1,0 +1,308 @@
+<HTML
+><HEAD
+><TITLE
+>Imagick</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PECL Packages"
+HREF="pecl.html"><LINK
+REL="PREVIOUS"
+TITLE="PECL Packages"
+HREF="pecl.html"><LINK
+REL="NEXT"
+HREF="r106235.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="reference"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="pecl.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="r106235.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="reference"
+><A
+NAME="pecl.imagick"><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="title"
+>I. Imagick</H1
+><DIV
+CLASS="PARTINTRO"
+><A
+NAME="AEN106211"><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;     This documention is outdated, it refers to an version older then
+     18 months. Please ask the maintainer of this package to update 
+     this documentation.
+    </P
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>This module is
+<SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>EXPERIMENTAL</I
+></SPAN
+>. That means that the behaviour of these
+functions, these function names, in concreto ANYTHING documented here can
+change in a future release of this package WITHOUT NOTICE. Be warned, and
+use this module at your own risk.</P
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="pecl.imagick.partintro">Introduction</H1
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="pecl.imagick.intro">About ImageMagick</H2
+><P
+>&#13;      ImageMagick is a robust collection of tools and libraries to
+      read, write, and manipulate an image  in many image formats
+      (over 68 major formats) including popular formats like TIFF,
+      JPEG, PNG, PDF,  PhotoCD, and GIF. With ImageMagick you can
+      create images dynamically, making it suitable  for Web
+      applications. You can also resize, rotate, sharpen, color
+      reduce, or add  special effects to an image and save your
+      completed work in the same or differing image format.
+     </P
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+       The above text is from the ImageMagick Website 
+       (<A
+HREF="http://www.imagemagick.org/"
+TARGET="_top"
+>http://www.imagemagick.org/</A
+>),
+       therefore not everything does apply to this extension at
+       the moment, but it will some time in the  future.
+       Hopefully. And the link above is also a great source, if
+       you don't understand everything here.
+      </P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="pecl.imagick.note">Important Note</H2
+><P
+>&#13;      imagick went through a major upgrade with version 0.9 and is not backwards 
+      compatible to older versions. You should look at the examples, which come 
+      with the package, for some documentation about the new API.
+     </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="pecl.imagick.install">Installation</H2
+><P
+>&#13;      Read the INSTALL file, which comes with the package. Or just use the PEAR 
+      installer with "pear install imagick".
+     </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="pecl.imagick.contact">Contact Information</H2
+><P
+>&#13;      Any questions about the extension should be asked on one of the 
+      <A
+HREF="http://pear.php.net/support/"
+TARGET="_top"
+>PEAR Mailing lists</A
+>.
+     </P
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="r106235.html"
+></A
+>&nbsp;--&nbsp;</DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="pecl.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="r106235.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>PECL Packages</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="pecl.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,351 @@
+<HTML
+><HEAD
+><TITLE
+>HTTP::redirect</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTTP"
+HREF="package.http.http.html"><LINK
+REL="PREVIOUS"
+TITLE="HTTP::negotiateLanguage"
+HREF="package.http.http.negotiatelanguage.html"><LINK
+REL="NEXT"
+TITLE="HTTP_Client"
+HREF="package.http.http-client.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.http.http.negotiatelanguage.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.http.http-client.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.http.http.redirect">HTTP::redirect</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN73994"
+></A
+>HTTP::redirect&nbsp;--&nbsp;redirects the client</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN73997"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN73998"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTTP.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>HTTP::redirect</B
+></CODE
+> (string url)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http.redirect.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     This function redirects the client. This is done by issuing
+     a <TT
+CLASS="literal"
+>Location:</TT
+> header and exiting.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http.redirect.example"
+></A
+><H2
+>Example</H2
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN74012"><P
+><B
+>Example 42-1. Redirecting to another site</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'HTTP.php';
+
+HTTP::redirect("http://example.com/");</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN74016"><P
+><B
+>Example 42-2. Local redirect</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'HTTP.php';
+
+HTTP::redirect("/foo.php");</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+     This will redirect the client to <TT
+CLASS="filename"
+>/foo.php</TT
+>.
+     The method will take care of adding the right hostname as
+     required by <A
+HREF="http://www.faqs.org/rfcs/rfc2616"
+TARGET="_top"
+>RFC 2616</A
+>.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http.redirect.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $url</I
+></TT
+> - the new URL, where
+        to client should be redirected to.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http.redirect.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can be called
+statically.</P
+><P
+>&#13;     Avoid sending any kind of data to the client before calling
+     <B
+CLASS="function"
+>redirect()</B
+>.
+    </P
+><P
+>&#13;     The location header requires an absolute URL. If not given,
+     <B
+CLASS="function"
+>redirect()</B
+> tries to build one from 
+     <TT
+CLASS="parameter"
+><I
+>$url</I
+></TT
+>. So if the redirect fails,
+     set the absolute URL manually as argument.
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.http.http.negotiatelanguage.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.http.http-client.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTTP::negotiateLanguage</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.http.http.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTTP_Client</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

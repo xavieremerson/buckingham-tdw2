@@ -1,0 +1,379 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_QuickForm_element::freeze()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Base classes"
+HREF="package.html.html-quickform.html#package.html.html-quickform.elements.base"><LINK
+REL="PREVIOUS"
+TITLE="HTML_QuickForm_element::exportValue()"
+HREF="package.html.html-quickform.html-quickform-element.exportvalue.html"><LINK
+REL="NEXT"
+TITLE="HTML_QuickForm_element::getFrozenHtml()"
+HREF="package.html.html-quickform.html-quickform-element.getfrozenhtml.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-element.exportvalue.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-element.getfrozenhtml.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.html-quickform-element.freeze">HTML_QuickForm_element::freeze()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN53875"
+></A
+>HTML_QuickForm_element::freeze()&nbsp;--&nbsp;Freezes the element</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN53878"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN53879"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/QuickForm/element.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void      <B
+CLASS="function"
+>HTML_QuickForm_element::freeze</B
+></CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-element.freeze.desc"
+></A
+><H2
+>Description</H2
+><P
+>When the element is displayed after the call to <B
+CLASS="function"
+>freeze()</B
+>, only its value is displayed without the input tags, thus the element cannot be edited. If persistant freeze is set, then hidden field containing the element value will be output, too.</P
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+         This method makes sense only with the elements that actually are editable in the
+         first place. It has no effect on buttons, images, hidden fields, static content 
+         and the like.
+       </P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-element.freeze.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> no exceptions thrown
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-element.freeze.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>see</I
+></SPAN
+> <A
+HREF="package.html.html-quickform.html-quickform-element.unfreeze.html"
+><B
+CLASS="function"
+>unfreeze()</B
+></A
+>, <A
+HREF="package.html.html-quickform.html-quickform-element.isfrozen.html"
+><B
+CLASS="function"
+>isFrozen()</B
+></A
+>, <A
+HREF="package.html.html-quickform.html-quickform-element.setpersistantfreeze.html"
+><B
+CLASS="function"
+>setPersistantFreeze()</B
+></A
+>, <A
+HREF="package.html.html-quickform.html-quickform-element.getfrozenhtml.html"
+><B
+CLASS="function"
+>getFrozenHtml()</B
+></A
+>, <A
+HREF="package.html.html-quickform.html-quickform.freeze.html"
+><B
+CLASS="function"
+>HTML_QuickForm::freeze()</B
+></A
+>, <A
+HREF="package.html.html-quickform.html-quickform.isfrozen.html"
+><B
+CLASS="function"
+>HTML_QuickForm::isFrozen()</B
+></A
+>.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-element.freeze.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-element.freeze.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN53916"><P
+><B
+>Example 41-1. Freezing the text element</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'HTML/QuickForm.php';
+
+$text =&#38; HTML_QuickForm::createElement('text', 'freezeMe');
+$text-&#62;setValue('Some value');
+echo $text-&#62;toHtml() . "\n";
+$text-&#62;freeze();
+echo $text-&#62;toHtml() . "\n";
+$text-&#62;setPersistantFreeze(false);
+echo $text-&#62;toHtml() . "\n";
+$text-&#62;unfreeze();
+echo $text-&#62;toHtml() . "\n";</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN53919"><P
+><B
+>Example 41-2. Output</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>&#60;input name="freezeMe" type="text" value="Some value" /&#62;
+Some value&#60;input type="hidden" name="freezeMe" value="Some value" /&#62;
+Some value
+&#60;input name="freezeMe" type="text" value="Some value" /&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-element.exportvalue.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-element.getfrozenhtml.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_QuickForm_element::exportValue()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.elements.base"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_QuickForm_element::getFrozenHtml()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

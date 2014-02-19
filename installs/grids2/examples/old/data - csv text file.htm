@@ -1,0 +1,70 @@
+<html>
+<head>
+	<title>ActiveWidgets Grid :: Examples</title>
+	<style> body, html {margin:0px; padding: 0px; overflow: hidden;} </style>
+
+	<!-- ActiveWidgets stylesheet and scripts -->
+	<link href="../../runtime/styles/xp/aw.css" rel="stylesheet" type="text/css" ></link>
+	<script src="../../runtime/lib/aw.js"></script>
+
+	<!-- grid format -->
+	<style>
+		.aw-grid-control {height: 100%; width: 100%; border: none; font: menu;}
+
+		.aw-column-0 {width:  80px;}
+		.aw-column-1 {width: 200px; background-color: threedlightshadow;}
+		.aw-column-2 {text-align: right;}
+		.aw-column-3 {text-align: right;}
+		.aw-column-4 {text-align: right;}
+
+		.aw-grid-cell {border-right: 1px solid threedshadow;}
+		.aw-grid-row {border-bottom: 1px solid threedlightshadow;}
+	</style>
+</head>
+<body>
+	<script>
+
+	//	create ActiveWidgets data model - CSV text table
+	var table = new AW.CSV.Table;
+
+	//	define data formats
+	var str = new AW.Formats.String;
+	var num = new AW.Formats.Number;
+
+	table.setFormats([str, str, num, num, num]);
+
+	//	provide data URL - plain text comma-separated file
+	table.setURL("../data/companies.csv");
+
+	//	start asyncronous data retrieval
+	table.request();
+
+	//	define column labels
+	var columns = ["Ticker", "Company Name", "Market Cap.", "$ Sales", "Employees"];
+
+	//	create ActiveWidgets Grid javascript object
+	var obj = new AW.UI.Grid;
+
+	//	provide column labels
+	obj.setHeaderText(columns);
+
+	//	number of columns
+	obj.setColumnCount(5);
+
+	//	enable row selectors
+	obj.setSelectorVisible(true);
+	obj.setSelectorText(function(i){return this.getRowPosition(i)+1});
+	obj.setSelectorWidth(25);
+
+	//	set row selection
+	obj.setSelectionMode("single-row");
+
+	//	provide external model as a grid data source
+	obj.setCellModel(table);
+
+	//	write grid html to the page
+	document.write(obj);
+
+	</script>
+</body>
+</html>

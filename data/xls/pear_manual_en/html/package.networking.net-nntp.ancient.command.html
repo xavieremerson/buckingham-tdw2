@@ -1,0 +1,340 @@
+<HTML
+><HEAD
+><TITLE
+>Net_NNTP::command()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_NNTP"
+HREF="package.networking.net-nntp.html#package.networking.net-nntp.ancient"><LINK
+REL="PREVIOUS"
+TITLE="Constants"
+HREF="package.networking.net-nntp.ancient.constants.html"><LINK
+REL="NEXT"
+TITLE="Net_NNTP::connect()"
+HREF="package.networking.net-nntp.ancient.connect.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-nntp.ancient.constants.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-nntp.ancient.connect.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-nntp.ancient.command">Net_NNTP::command()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN85376"
+></A
+>Net_NNTP::command()&nbsp;--&nbsp;send a command to a newsserver</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN85379"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN85380"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Net/NNTP.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>string <B
+CLASS="function"
+>Net_NNTP::command</B
+></CODE
+> (string $cmd, boolean $auth)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.ancient.command.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     <B
+CLASS="function"
+>Command()</B
+> sends a string command to a newsserver.
+     So you can send customized and/ or non-standard commands to the 
+     newsserver. 
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.ancient.command.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $cmd</I
+></TT
+> - the command to send
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>boolean $auth</I
+></TT
+> - if <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, an auth request
+        is issued before the command        
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.ancient.command.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>string</I
+></TT
+> - the unprocessed server response
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.ancient.command.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;      <B
+CLASS="function"
+>Command()</B
+> does no checks on the given command
+      and/ or proccesses the server response. So you should know what are you
+      doing.
+     </P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.ancient.command.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN85416"><P
+><B
+>Example 48-1. Using command()</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>...
+$response = $nntp-&#62;command("ARTICLE 1004853");</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-nntp.ancient.constants.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-nntp.ancient.connect.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Constants</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-nntp.html#package.networking.net-nntp.ancient"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Net_NNTP::connect()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

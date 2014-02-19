@@ -1,0 +1,294 @@
+<HTML
+><HEAD
+><TITLE
+>Event_Dispatcher</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Event"
+HREF="package.event.html"><LINK
+REL="PREVIOUS"
+TITLE="Event"
+HREF="package.event.html"><LINK
+REL="NEXT"
+TITLE="Introduction"
+HREF="package.event.event-dispatcher.intro.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.event.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 36. Event</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.event.event-dispatcher.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.event.event-dispatcher">Event_Dispatcher</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.event.event-dispatcher.intro.html"
+>Introduction</A
+>&nbsp;--&nbsp;Introduction to Event_Dispatcher</DT
+><DT
+><A
+HREF="package.event.event-dispatcher.example.html"
+>Examples</A
+>&nbsp;--&nbsp;Examples for the usage of Event_Dispatcher</DT
+><DT
+><A
+HREF="package.event.event-dispatcher.event-dispatcher.getinstance.html"
+><B
+CLASS="function"
+>Event_Dispatcher::getInstance()</B
+></A
+>&nbsp;--&nbsp;Create a new Event_Dispatcher object</DT
+><DT
+><A
+HREF="package.event.event-dispatcher.event-dispatcher.getname.html"
+><B
+CLASS="function"
+>Event_Dispatcher::getName()</B
+></A
+>&nbsp;--&nbsp;Get the name of the dispatcher.</DT
+><DT
+><A
+HREF="package.event.event-dispatcher.event-dispatcher.addobserver.html"
+><B
+CLASS="function"
+>Event_Dispatcher::addObserver()</B
+></A
+>&nbsp;--&nbsp;Add a new observer.</DT
+><DT
+><A
+HREF="package.event.event-dispatcher.event-dispatcher.removeobserver.html"
+><B
+CLASS="function"
+>Event_Dispatcher::removeObserver()</B
+></A
+>&nbsp;--&nbsp;Remove an observer.</DT
+><DT
+><A
+HREF="package.event.event-dispatcher.event-dispatcher.setnotificationclass.html"
+><B
+CLASS="function"
+>Event_Dispatcher::setNotificationClass()</B
+></A
+>&nbsp;--&nbsp;Set the class that is used as notification.</DT
+><DT
+><A
+HREF="package.event.event-dispatcher.event-dispatcher.post.html"
+><B
+CLASS="function"
+>Event_Dispatcher::post()</B
+></A
+>&nbsp;--&nbsp;Post a notification.</DT
+><DT
+><A
+HREF="package.event.event-dispatcher.event-dispatcher.addnesteddispatcher.html"
+><B
+CLASS="function"
+>Event_Dispatcher::addNestedDispatcher()</B
+></A
+>&nbsp;--&nbsp;Add a nested dispatcher.</DT
+><DT
+><A
+HREF="package.event.event-dispatcher.event-dispatcher.removenesteddispatcher.html"
+><B
+CLASS="function"
+>Event_Dispatcher::removeNestedDispatcher()</B
+></A
+>&nbsp;--&nbsp;Remove a nested dispatcher.</DT
+><DT
+><A
+HREF="package.event.event-dispatcher.event-notification.html"
+><B
+CLASS="classname"
+>Event_Notification</B
+></A
+>&nbsp;--&nbsp;Container class for notifications.</DT
+><DT
+><A
+HREF="package.event.event-dispatcher.event-notification.event-notification.html"
+><B
+CLASS="function"
+>Event_Notification::Event_Notification()</B
+></A
+>&nbsp;--&nbsp;Create a new notification object.</DT
+><DT
+><A
+HREF="package.event.event-dispatcher.event-notification.getnotificationname.html"
+><B
+CLASS="function"
+>Event_Notification::getNotificationName()</B
+></A
+>&nbsp;--&nbsp;Get the name of the notification.</DT
+><DT
+><A
+HREF="package.event.event-dispatcher.event-notification.getnotificationobject.html"
+><B
+CLASS="function"
+>Event_Notification::getNotificationObject()</B
+></A
+>&nbsp;--&nbsp;Get the object that sent the notification.</DT
+><DT
+><A
+HREF="package.event.event-dispatcher.event-notification.getnotificationinfo.html"
+><B
+CLASS="function"
+>Event_Notification::getNotificationInfo()</B
+></A
+>&nbsp;--&nbsp;Get additional information from the notification.</DT
+><DT
+><A
+HREF="package.event.event-dispatcher.event-notification.getnotificationcount.html"
+><B
+CLASS="function"
+>Event_Notification::getNotificationCount()</B
+></A
+>&nbsp;--&nbsp;Get number of observers notified.</DT
+><DT
+><A
+HREF="package.event.event-dispatcher.event-notification.cancelnotification.html"
+><B
+CLASS="function"
+>Event_Notification::cancelNotification()</B
+></A
+>&nbsp;--&nbsp;Cancel the notification.</DT
+><DT
+><A
+HREF="package.event.event-dispatcher.event-notification.isnotificationcancelled.html"
+><B
+CLASS="function"
+>Event_Notification::isNotificationCancelled()</B
+></A
+>&nbsp;--&nbsp;Check, whether notification has been cancelled.</DT
+></DL
+></DIV
+><P
+>&#13;  Dispatch notifications using PHP callbacks
+ </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.event.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.event.event-dispatcher.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Event</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.event.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

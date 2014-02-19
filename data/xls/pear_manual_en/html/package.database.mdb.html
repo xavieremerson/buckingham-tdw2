@@ -1,0 +1,380 @@
+<HTML
+><HEAD
+><TITLE
+>MDB</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Database"
+HREF="package.database.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.database.db-table.intro.html"><LINK
+REL="NEXT"
+TITLE="Introduction - DSN"
+HREF="package.database.mdb.intro-dsn.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db-table.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 33. Database</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb.intro-dsn.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.database.mdb">MDB</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.database.mdb.intro-dsn.html"
+>Introduction - DSN</A
+>&nbsp;--&nbsp;The Data Source Name</DT
+><DT
+><A
+HREF="package.database.mdb.intro-connect.html"
+>Introduction - Connect</A
+>&nbsp;--&nbsp;Connecting and disconnecting a database</DT
+><DT
+><A
+HREF="package.database.mdb.intro-query.html"
+>Introduction - Query</A
+>&nbsp;--&nbsp;Performing a query against a database.</DT
+><DT
+><A
+HREF="package.database.mdb.intro-fetch.html"
+>Introduction - Fetch</A
+>&nbsp;--&nbsp;Fetching rows from the query</DT
+><DT
+><A
+HREF="package.database.mdb.intro-sequences.html"
+>Introduction - Sequences</A
+>&nbsp;--&nbsp;Database sequences</DT
+><DT
+><A
+HREF="package.database.mdb.intro-executequery.html"
+>Introduction - Execute</A
+>&nbsp;--&nbsp;Prepare &#38; Execute/ExecuteMultiple</DT
+><DT
+><A
+HREF="package.database.mdb.mdb.html"
+><B
+CLASS="classname"
+>MDB</B
+></A
+>&nbsp;--&nbsp;Main class</DT
+><DT
+><A
+HREF="package.database.mdb.mdb.connect.html"
+>MDB::connect()</A
+>&nbsp;--&nbsp;connects to database</DT
+><DT
+><A
+HREF="package.database.mdb.mdb.iserror.html"
+>MDB::isError()</A
+>&nbsp;--&nbsp;checks for an error</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.html"
+><B
+CLASS="classname"
+>MDB_Common</B
+></A
+>&nbsp;--&nbsp;Interface for database access</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.affectedrows.html"
+>MDB_Common::affectedRows()</A
+>&nbsp;--&nbsp;Number of affected rows</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.createsequence.html"
+>MDB_Common::createSequence()</A
+>&nbsp;--&nbsp;create a new sequence</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.currid.html"
+>MDB_Common::currId()</A
+>&nbsp;--&nbsp;returns the current free id of a sequence</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.disconnect.html"
+>MDB_Common::disconnect()</A
+>&nbsp;--&nbsp;disconnect from a database</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.dropsequence.html"
+>MDB_Common::dropSequence()</A
+>&nbsp;--&nbsp;deletes a sequence</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.execute.html"
+>MDB_Common::execute()</A
+>&nbsp;--&nbsp;executes a prepared SQL statment</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.executequery.html"
+>MDB_Common::executeQuery()</A
+>&nbsp;--&nbsp;executes a prepared SQL statment</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.executemultiple.html"
+>MDB_Common::executeMultiple()</A
+>&nbsp;--&nbsp;repeated execution of a prepared SQL statment</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.fetchall.html"
+>MDB_Common::fetchAll()</A
+>&nbsp;--&nbsp;fetch result set as a nested array</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.fetchcol.html"
+>MDB_Common::fetchCol()</A
+>&nbsp;--&nbsp;Fetch a single column</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.fetchone.html"
+>MDB_Common::fetchOne()</A
+>&nbsp;--&nbsp;fetch the first column of the first row</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.fetchrow.html"
+>MDB_Common::fetchRow()</A
+>&nbsp;--&nbsp;fetch the first row</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.fetchinto.html"
+>MDB_Common::fetchInto()</A
+>&nbsp;--&nbsp;fetch a row into a variable</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.freeresult.html"
+>MDB_Common::freeResult()</A
+>&nbsp;--&nbsp;delete the result set</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.getall.html"
+>MDB_Common::getAll()</A
+>&nbsp;--&nbsp;Fetch all rows</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.getassoc.html"
+>MDB_Common::getAssoc()</A
+>&nbsp;--&nbsp;fetch result set as associative array</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.getcol.html"
+>MDB_Common::getCol()</A
+>&nbsp;--&nbsp;Fetch a single column</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.getone.html"
+>MDB_Common::getOne()</A
+>&nbsp;--&nbsp;fetch the first column of the first row</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.getrow.html"
+>MDB_Common::getRow()</A
+>&nbsp;--&nbsp;fetch the first row</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.gettextvalue.html"
+>MDB_Common::getTextValue()</A
+>&nbsp;--&nbsp;quotes a string</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.limitquery.html"
+>MDB_Common::limitQuery()</A
+>&nbsp;--&nbsp;send a limited query to the database</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.nextid.html"
+>MDB_Common::nextId()</A
+>&nbsp;--&nbsp;returns the next free id of a sequence</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.numcols.html"
+>MDB_Common::numCols()</A
+>&nbsp;--&nbsp;get number of columns</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.numrows.html"
+>MDB_Common::numRows()</A
+>&nbsp;--&nbsp;get number of rows</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.preparequery.html"
+>MDB_Common::prepareQuery()</A
+>&nbsp;--&nbsp;prepares a SQL statment</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.query.html"
+>MDB_Common::query()</A
+>&nbsp;--&nbsp;send a query to the database</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.queryall.html"
+>MDB_Common::queryAll()</A
+>&nbsp;--&nbsp;fetch result set as a nested array</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.querycol.html"
+>MDB_Common::queryCol()</A
+>&nbsp;--&nbsp;Fetch a single column</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.queryone.html"
+>MDB_Common::queryOne()</A
+>&nbsp;--&nbsp;fetch the first column of the first row</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.queryrow.html"
+>MDB_Common::queryRow()</A
+>&nbsp;--&nbsp;fetch the first row</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.setfetchmode.html"
+>MDB_Common::setFetchMode()</A
+>&nbsp;--&nbsp;sets the default fetch mode</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-common.tableinfo.html"
+>MDB_Common::tableInfo()</A
+>&nbsp;--&nbsp;get table info from a query</DT
+><DT
+><A
+HREF="package.database.mdb.mdb-error.html"
+><B
+CLASS="classname"
+>MDB_Error</B
+></A
+>&nbsp;--&nbsp;MDB Error object</DT
+></DL
+></DIV
+><P
+>&#13;  A unified API for accessing databases, based on user provided meta data.
+ </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db-table.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.mdb.intro-dsn.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction - DSN</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

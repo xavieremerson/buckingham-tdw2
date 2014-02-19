@@ -1,0 +1,354 @@
+<HTML
+><HEAD
+><TITLE
+>-&#62;selectAs()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB_DataObject"
+HREF="package.database.db-dataobject.html"><LINK
+REL="PREVIOUS"
+TITLE="->getLinks()"
+HREF="package.database.db-dataobject.db-dataobject.getlinks.html"><LINK
+REL="NEXT"
+TITLE="->joinAdd()"
+HREF="package.database.db-dataobject.db-dataobject.joinadd.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.getlinks.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.joinadd.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db-dataobject.db-dataobject.selectas">-&#62;selectAs()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN26954"
+></A
+>-&#62;selectAs()&nbsp;--&nbsp;Build the select component of a query (usually for joins)</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN26957"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN26958"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>$DB_DataObject-&#62;selectAs</B
+></CODE
+> ([object | array $columns_or_object [, string $format [, string $table_name]]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.selectas.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Auto creates select items based on either the current objects column names, 
+     the supplied object, or an array.
+     
+    </P
+><P
+>&#13;     This is primarily used in conjunciton with joinAdd, to enable the renaming of columns 
+     into a fixed format when they are likely to have naming conflicts (like both tables have
+     an 'id' column).
+     </P
+><P
+>&#13;     Sending no arguments to selectAs, will reset the current select (usually removing the default *),
+     and build a select list based on the current objects column names.
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.selectas.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>object | array $column_or_object</I
+></TT
+> - a dataobject or array of column names 
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $format</I
+></TT
+> - the format the columns will appear, using sprintf format,
+        the %s is replaced with the column name so car_%s would result in the SQL 'car.name as car_name'
+        being generated.
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $tableName</I
+></TT
+> - this is used either when use send an array as the first
+        argument, or when you are joining a table 'as' another name, 
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.selectas.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+></P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.selectas.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN26995"><P
+><B
+>Example 33-1. Using <B
+CLASS="function"
+>selectAs()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php       
+// ok lets see what is going on..
+DB_DataObject::debugLevel(1);       
+       
+$person = new DataObjects_Person;
+
+
+// to generate "person.id as id , person.name as name ......."
+$person-&#62;selectAs();
+
+// to generate a restricted list.. "person.age as age , person.name as name"
+$person-&#62;selectAs(array('age','name'));
+
+// using another object. 
+$car = new DataObjects_Car;
+
+// this is the first car (
+$car-&#62;use = 'first';
+
+
+// using the joinadd add the car..
+$person-&#62;joinAdd($car); 
+
+// now add all the select columns for the car eg. "car.id as car_id, car.name as car_name ...."
+$person-&#62;selectAs($car, 'car_%s');
+
+
+// select only a few columns from the car table.
+// note you have to use the table name at the end..
+$person-&#62;selectAs(array('color','topspeed'), 'car_%s','car');
+
+
+
+
+// now the user can have a second car....
+$secondcar = new DataObjects_Car;
+$secondcar-&#62;use = 'second';
+
+// now since we alreay have one car, the sql statement would get messy 
+// so we are joining this as the second car "FROM person INNER JOIN car ..... , car as secondcar WHERE .....
+$person-&#62;joinAdd($secondcar,'','secondcar'); 
+
+// and we can now add all the columns
+// "secondcar.id as secondcar_id, secondcar.name as secondcar_name ........
+// note that you must use the last field as the SECONDCAR.ID format uses the 'AS' name, rather than the 
+// objects real table name 'car'
+$person-&#62;selectAs($secondcar, 'secondcar_%s','secondcar');
+
+ 
+
+// ok fire of a query...
+$person-&#62;find();
+while ($person-&#62;fetch()) {
+  ......
+}
+
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.getlinks.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.joinadd.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>-&#62;getLinks()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>-&#62;joinAdd()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

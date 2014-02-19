@@ -1,0 +1,236 @@
+<HTML
+><HEAD
+><TITLE
+>Basic Authentication</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTTP_Request"
+HREF="package.http.http-request.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.http.http-request.intro.html"><LINK
+REL="NEXT"
+TITLE="Cookies"
+HREF="package.http.http-request.cookie.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.http.http-request.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.http.http-request.cookie.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.http.http-request.basic-auth">Basic Authentication</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN75620"
+></A
+>Basic Authentication&nbsp;--&nbsp;
+   Authentication for protected websites
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-request.basic-auth.intro"
+></A
+><H2
+>Introduction to Basic Authentication</H2
+><P
+>&#13;   Basic Authentication is a challenge-response mechanism described in
+   <A
+HREF="http://www.faqs.org/rfcs/rfc2617"
+TARGET="_top"
+>RFC 2617</A
+>.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-request.basic-auth.usage"
+></A
+><H2
+>How to use Basic Authentication</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN75630"><P
+><B
+>Example 42-1. Basic Authentication</B
+></P
+><P
+>&#13;    The following example assumes that one wants to fetch a page
+    <TT
+CLASS="filename"
+>/protected.html</TT
+> on the host
+    <TT
+CLASS="literal"
+>example.com</TT
+> that is protected using Basic
+    Authentication. The necessary username to pass the authentication is
+    <TT
+CLASS="literal"
+>johndoe</TT
+> and the appendant password is
+    <TT
+CLASS="literal"
+>foo</TT
+>.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "HTTP/Request.php";
+
+$req =&#38; new HTTP_Request("http://example.com/protected.html");
+$req-&#62;setBasicAuth("johndoe", "foo");
+
+$response = $req-&#62;sendRequest();
+
+if (PEAR::isError($response)) {
+    echo $response-&#62;getMessage();
+} else {
+    echo $req-&#62;getResponseBody();
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.http.http-request.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.http.http-request.cookie.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.http.http-request.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Cookies</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

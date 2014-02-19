@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<Title>3D Bar Chart</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">3D Bar Chart</p>
+<hr class="separator">
+<div class="content">
+<img src="images/threedbar.png">
+<br><br>
+This example extends the <a href="simplebar.htm">Simple Bar Chart</a> example by introducing three more features of ChartDirector:<br><br>
+<ul><li> Add a title to the chart using <a href="BaseChart.addTitle.htm">BaseChart.addTitle</a>.<br><br>
+<li> Draw the bars in 3D using <a href="Layer.set3D.htm">Layer.set3D</a>.<br><br>
+<li> Add titles to the x and y axes using <a href="Axis.setTitle.htm">Axis.setTitle</a>.</ul>
+</div>
+<p class="heading2">Source Code Listing</p>
+<div class="content">
+[File: phpdemo/threedbar.php]<br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp><?php
+include("phpchartdir.php");
+
+#The data for the bar chart
+$data = array(85, 156, 179.5, 211, 123);
+
+#The labels for the bar chart
+$labels = array("Mon", "Tue", "Wed", "Thu", "Fri");
+
+#Create a XYChart object of size 300 x 280 pixels
+$c = new XYChart(300, 280);
+
+#Set the plotarea at (45, 30) and of size 200 x 200 pixels
+$c->setPlotArea(45, 30, 200, 200);
+
+#Add a title to the chart
+$c->addTitle("Weekly Server Load");
+
+#Add a title to the y axis
+$c->yAxis->setTitle("MBytes");
+
+#Add a title to the x axis
+$c->xAxis->setTitle("Work Week 25");
+
+#Add a bar chart layer with green (0x00ff00) bars using the given data
+$barLayerObj = $c->addBarLayer($data, 0xff00);
+$barLayerObj->set3D();
+
+#Set the x axis labels using the given labels
+$c->xAxis->setLabels($labels);
+
+#output the chart
+header("Content-type: image/png");
+print($c->makeChart2(PNG));
+?></xmp>
+</td></tr></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

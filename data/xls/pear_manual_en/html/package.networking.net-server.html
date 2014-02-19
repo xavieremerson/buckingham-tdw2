@@ -1,0 +1,459 @@
+<HTML
+><HEAD
+><TITLE
+>Net_Server</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Networking"
+HREF="package.networking.html"><LINK
+REL="PREVIOUS"
+TITLE="Net_Portscan::getService()"
+HREF="package.networking.net-portscan.getservice.html"><LINK
+REL="NEXT"
+TITLE="Introduction"
+HREF="package.networking.net-server.intro.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-portscan.getservice.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 48. Networking</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-server.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.networking.net-server">Net_Server</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.networking.net-server.intro.html"
+>Introduction</A
+>&nbsp;--&nbsp;Introduction to Net_Server</DT
+><DT
+><A
+HREF="package.networking.net-server.example.html"
+>Example</A
+>&nbsp;--&nbsp;using Net_Server</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-summary.html"
+>Class Summary <B
+CLASS="classname"
+>Net_Server</B
+></A
+>&nbsp;--&nbsp;PHP socket server base class</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server.create.html"
+><B
+CLASS="function"
+>Net_Server::create()</B
+></A
+>&nbsp;--&nbsp;create a new server</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-summary.html"
+>Class Summary <B
+CLASS="classname"
+>Net_Server_Driver</B
+></A
+>&nbsp;--&nbsp;Base class for all drivers</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver.getlastsocketerror.html"
+><B
+CLASS="function"
+>Net_Server_Driver::getLastSocketError()</B
+></A
+>&nbsp;--&nbsp;return string for last socket error</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver.setcallbackobject.html"
+><B
+CLASS="function"
+>Net_Server_Driver::setCallbackObject()</B
+></A
+>&nbsp;--&nbsp;register a callback object, that is used to handle all events</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver.setdebugmode.html"
+><B
+CLASS="function"
+>Net_Server_Driver::setDebugMode()</B
+></A
+>&nbsp;--&nbsp;set debug mode</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-fork-summary.html"
+>Class Summary <B
+CLASS="classname"
+>Net_Server_Driver_Fork</B
+></A
+>&nbsp;--&nbsp;Forking server class.</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-fork.broadcastdata.html"
+><B
+CLASS="function"
+>Net_Server_Driver_Fork::broadcastData()</B
+></A
+>&nbsp;--&nbsp;send data to all clients</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-fork.closeconnection.html"
+><B
+CLASS="function"
+>Net_Server_Driver_Fork::closeConnection()</B
+></A
+>&nbsp;--&nbsp;close the current connection</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-fork.getclientinfo.html"
+><B
+CLASS="function"
+>Net_Server_Driver_Fork::getClientInfo()</B
+></A
+>&nbsp;--&nbsp;get current information about a client</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-fork.getclients.html"
+><B
+CLASS="function"
+>Net_Server_Driver_Fork::getClients()</B
+></A
+>&nbsp;--&nbsp;get current amount of clients</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-fork.isconnected.html"
+><B
+CLASS="function"
+>Net_Server_Driver_Fork::isConnected()</B
+></A
+>&nbsp;--&nbsp;check, whether a client is still connected</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-fork.senddata.html"
+><B
+CLASS="function"
+>Net_Server_Driver_Fork::sendData()</B
+></A
+>&nbsp;--&nbsp;send data to a client</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-fork.servicerequest.html"
+><B
+CLASS="function"
+>Net_Server_Driver_Fork::serviceRequest()</B
+></A
+>&nbsp;--&nbsp;service the current request</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-fork.setmaxclients.html"
+><B
+CLASS="function"
+>Net_Server_Driver_Fork::setMaxClients()</B
+></A
+>&nbsp;--&nbsp;set maximum amount of simultaneous connections</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-fork.shutdown.html"
+><B
+CLASS="function"
+>Net_Server_Driver_Fork::shutDown()</B
+></A
+>&nbsp;--&nbsp;shutdown server</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-fork.start.html"
+><B
+CLASS="function"
+>Net_Server_Driver_Fork::start()</B
+></A
+>&nbsp;--&nbsp;start the server</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-sequential-summary.html"
+>Class Summary <B
+CLASS="classname"
+>Net_Server_Driver_Sequential</B
+></A
+>&nbsp;--&nbsp;Sequential server class.</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-sequential.acceptconnection.html"
+><B
+CLASS="function"
+>Net_Server_Driver_Sequential::acceptConnection()</B
+></A
+>&nbsp;--&nbsp;accept a new connection</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-sequential.broadcastdata.html"
+><B
+CLASS="function"
+>Net_Server_Driver_Sequential::broadcastData()</B
+></A
+>&nbsp;--&nbsp;send data to all clients</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-sequential.closeconnection.html"
+><B
+CLASS="function"
+>Net_Server_Driver_Sequential::closeConnection()</B
+></A
+>&nbsp;--&nbsp;close connection to a client</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-sequential.getclientinfo.html"
+><B
+CLASS="function"
+>Net_Server_Driver_Sequential::getClientInfo()</B
+></A
+>&nbsp;--&nbsp;get current information about a client</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-sequential.getclients.html"
+><B
+CLASS="function"
+>Net_Server_Driver_Sequential::getClients()</B
+></A
+>&nbsp;--&nbsp;get current amount of clients</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-sequential.isconnected.html"
+><B
+CLASS="function"
+>Net_Server_Driver_Sequential::isConnected()</B
+></A
+>&nbsp;--&nbsp;check, whether a client is still connected</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-sequential.senddata.html"
+><B
+CLASS="function"
+>Net_Server_Driver_Sequential::sendData()</B
+></A
+>&nbsp;--&nbsp;send data to a client</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-sequential.setmaxclients.html"
+><B
+CLASS="function"
+>Net_Server_Driver_Sequential::setMaxClients()</B
+></A
+>&nbsp;--&nbsp;set maximum amount of simultaneous connections</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-sequential.shutdown.html"
+><B
+CLASS="function"
+>Net_Server_Driver_Sequential::shutDown()</B
+></A
+>&nbsp;--&nbsp;shutdown server</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-driver-sequential.start.html"
+><B
+CLASS="function"
+>Net_Server_Driver_Sequential::start()</B
+></A
+>&nbsp;--&nbsp;start the server</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-handler-summary.html"
+>Class Summary <B
+CLASS="classname"
+>Net_Server_Handler</B
+></A
+>&nbsp;--&nbsp;Base class for all handlers</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-handler.onclose.html"
+><B
+CLASS="function"
+>Net_Server_Handler::onClose()</B
+></A
+>&nbsp;--&nbsp;onClose handler</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-handler.onconnect.html"
+><B
+CLASS="function"
+>Net_Server_Handler::onConnect()</B
+></A
+>&nbsp;--&nbsp;onConnect handler</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-handler.onconnectionrefused.html"
+><B
+CLASS="function"
+>Net_Server_Handler::onConnectionRefused()</B
+></A
+>&nbsp;--&nbsp;onConnectionRefused handler</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-handler.onreceivedata.html"
+><B
+CLASS="function"
+>Net_Server_Handler::onReceiveData()</B
+></A
+>&nbsp;--&nbsp;onReceiveData handler</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-handler.onshutdown.html"
+><B
+CLASS="function"
+>Net_Server_Handler::onShutdown()</B
+></A
+>&nbsp;--&nbsp;onShutdown handler</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-handler.onstart.html"
+><B
+CLASS="function"
+>Net_Server_Handler::onStart()</B
+></A
+>&nbsp;--&nbsp;onStart handler</DT
+><DT
+><A
+HREF="package.networking.net-server.net-server-handler.setserverreference.html"
+><B
+CLASS="function"
+>Net_Server_Handler::setServerReference()</B
+></A
+>&nbsp;--&nbsp;set a reference to the server object</DT
+><DT
+><A
+HREF="package.networking.net-server.constants.html"
+>Package Net_Server Constants</A
+>&nbsp;--&nbsp;Constants defined in and used by Net_Server</DT
+></DL
+></DIV
+><P
+>&#13;  Generic server package for creating daemons.
+ </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-portscan.getservice.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-server.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Net_Portscan::getService()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

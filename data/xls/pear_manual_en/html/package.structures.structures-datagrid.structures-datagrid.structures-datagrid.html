@@ -1,0 +1,392 @@
+<HTML
+><HEAD
+><TITLE
+>constructor Structures_DataGrid::Structures_DataGrid</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Class Structures_DataGrid"
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.class-structures-datagrid"><LINK
+REL="PREVIOUS"
+TITLE="Structures_DataGrid"
+HREF="package.structures.structures-datagrid.html"><LINK
+REL="NEXT"
+TITLE="Structures_DataGrid::addColumn"
+HREF="package.structures.structures-datagrid.structures-datagrid.addcolumn.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.addcolumn.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid.structures-datagrid">constructor <B
+CLASS="function"
+>Structures_DataGrid::Structures_DataGrid()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN94200"
+></A
+>constructor <B
+CLASS="function"
+>Structures_DataGrid::Structures_DataGrid()</B
+>&nbsp;--&nbsp;Constructor</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN94204"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN94205"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Structures/DataGrid.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void      constructor <B
+CLASS="function"
+>Structures_DataGrid::Structures_DataGrid</B
+></CODE
+> ([string $limit = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> [, int $page = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> [, string $rendererType = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>]]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid.structures-datagrid.desc"
+></A
+><H2
+>Description</H2
+><P
+>Builds the DataGrid class. The Core functionality and Renderer are  seperated for maintainability and to keep cohesion high.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid.structures-datagrid.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+                         <TT
+CLASS="parameter"
+><I
+>$limit</I
+></TT
+></DT
+><DD
+><P
+>&#13;         The number of records to display per page.
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>integer
+                         <TT
+CLASS="parameter"
+><I
+>$page</I
+></TT
+></DT
+><DD
+><P
+>&#13;         The current page viewed.                               In most cases, this
+is useless.                               Note: if you specify this, the
+"page" GET                               variable will be
+ignored.
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+                         <TT
+CLASS="parameter"
+><I
+>$rendererType</I
+></TT
+></DT
+><DD
+><P
+>&#13;         The type of renderer to use.                                  You may
+prefer to use the $type argument                                  of <A
+HREF="package.structures.structures-datagrid.structures-datagrid.render.html"
+><B
+CLASS="function"
+>render()</B
+></A
+>,
+<A
+HREF="package.structures.structures-datagrid.structures-datagrid.fill.html"
+><B
+CLASS="function"
+>fill()</B
+></A
+>
+or                                  <A
+HREF="package.structures.structures-datagrid.structures-datagrid.getoutput.html"
+><B
+CLASS="function"
+>getOutput()</B
+></A
+>
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid.structures-datagrid.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> no exceptions thrown
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid.structures-datagrid.example"
+></A
+><H2
+>Examples</H2
+><P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN94262"><P
+><B
+>Example 55-1. Instantiation</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php-highlighted"
+>&#60;?php
+// Don't forget the ampersand
+$datagrid =&#38; new <A
+HREF="package.structures.structures-datagrid.structures-datagrid.structures-datagrid.html"
+>Structures_DataGrid</A
+>(); 
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid.structures-datagrid.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.addcolumn.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Structures_DataGrid</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.class-structures-datagrid"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Structures_DataGrid::addColumn()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

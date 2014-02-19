@@ -1,0 +1,266 @@
+<HTML
+><HEAD
+><TITLE
+>CVS installer</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Installation"
+HREF="installation.html"><LINK
+REL="PREVIOUS"
+TITLE="Manual installation"
+HREF="installation.manually.html"><LINK
+REL="NEXT"
+TITLE="Installing PECL packages"
+HREF="installation.pecl.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="installation.manually.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 2. Installation</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="installation.pecl.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="installation.cvs">CVS installer</H1
+><P
+>&#13;	This passage will describe how to install the latest development
+	version of a PEAR package from CVS.
+   </P
+><P
+>&#13;    It is NOT recommended to run a package from CVS in working environments!
+    Because CVS versions are not regular releases, this means:
+    <P
+></P
+><UL
+><LI
+><P
+>You could get no kind of help from the maintainer or anybody other.</P
+></LI
+><LI
+><P
+>Versions in CVS may break the upgrade mechanism of the PEAR Installer.</P
+></LI
+></UL
+>
+   </P
+><P
+>&#13;    You should use a package from CVS only, if:
+    <P
+></P
+><UL
+><LI
+><P
+>The maintainer recommended it for you.</P
+></LI
+><LI
+><P
+>You want to help in development of a package.</P
+></LI
+><LI
+><P
+>You really need a special patch or function, which is not currently released.</P
+></LI
+></UL
+>
+   </P
+><P
+>&#13;    If you still want to install a package from CVS, you have to do the same steps
+    like a package maintainer creating a new release of a package. If you have problems
+    following the next steps, take a look into the
+    <A
+HREF="guide-developers.html"
+>Developers Section</A
+> of the manual.
+   </P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>&#13;      Get the package files from CVS like described in <A
+HREF="http://www.php.net/anoncvs.php"
+TARGET="_top"
+>http://www.php.net/anoncvs.php</A
+>
+     </P
+><P
+>&#13;      The name of the module to checkout is <TT
+CLASS="filename"
+>pear/&#60;packagename&#62;</TT
+>,
+      i.e. <B
+CLASS="command"
+> cvs -d :pserver:cvsread@cvs.php.net:/repository checkout pear/HTTP_Client</B
+>.
+     </P
+></LI
+><LI
+><P
+>&#13;      Check the <TT
+CLASS="filename"
+>package.xml</TT
+> file, especially the fileset entries.
+      They must match the existing files and directory structure. If they differ, contact
+      the maintainer and ask for an update of <TT
+CLASS="filename"
+>package.xml</TT
+>.
+     </P
+></LI
+><LI
+><P
+>&#13;      Create a valid package using the PEAR Installer
+      <B
+CLASS="command"
+>pear package &#60;path to package.xml&#62;</B
+>
+     </P
+></LI
+><LI
+><P
+>&#13;      If you have already the package installed: remove it to avoid versions problems:
+      <B
+CLASS="command"
+>pear uninstall &#60;package&#62;</B
+>
+     </P
+></LI
+><LI
+><P
+>&#13;      Install your package archive:
+      <B
+CLASS="command"
+>pear install &#60;package-file&#62;</B
+>
+     </P
+><P
+>&#13;      Now, you have an CVS version installed!
+     </P
+></LI
+></OL
+><P
+>&#13;    You should upgrade to a official release of the package as early as possible.
+    Before you install the official release, uninstall the CVS version to avoid
+    version problems.
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="installation.manually.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="installation.pecl.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Manual installation</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="installation.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Installing PECL packages</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

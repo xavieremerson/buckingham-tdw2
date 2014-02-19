@@ -1,0 +1,331 @@
+<HTML
+><HEAD
+><TITLE
+>XML_Tree::&#38;insertChild</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_Tree"
+HREF="package.xml.xml-tree.html"><LINK
+REL="PREVIOUS"
+TITLE="XML_Tree::&addRoot"
+HREF="package.xml.xml-tree.xml-tree.addroot.html"><LINK
+REL="NEXT"
+TITLE="XML_Tree::&removeChild"
+HREF="package.xml.xml-tree.xml-tree.removechild.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-tree.xml-tree.addroot.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-tree.xml-tree.removechild.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.xml.xml-tree.xml-tree.insertchild">XML_Tree::&#38;insertChild</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN105338"
+></A
+>XML_Tree::&#38;insertChild&nbsp;--&nbsp;inserts a child/tree</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN105341"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN105342"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once "XML/Tree.php";</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>object XML_Tree_Node <B
+CLASS="function"
+>XML_Tree::&#38;insertChild</B
+></CODE
+> (array $path, integer $pos, mixed $child [, string $content='' [, array $attributes=array()]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-tree.xml-tree.insertchild.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Inserts a child or tree into the tree in the path <TT
+CLASS="parameter"
+><I
+>&#13;     $path</I
+></TT
+> on position <TT
+CLASS="parameter"
+><I
+>$pos</I
+></TT
+>
+    and maintains namespace integrity
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-tree.xml-tree.insertchild.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>array $path</I
+></TT
+> -
+        path to parent of child to insert
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>integer $pos</I
+></TT
+> -
+        position of child to be inserted in its parents children-list
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>mixed $child</I
+></TT
+> -
+        child-node (by <B
+CLASS="classname"
+>XML_Tree</B
+>,
+        <B
+CLASS="classname"
+>XML_Node</B
+> or Name)
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $content</I
+></TT
+> -
+        content (text) for new node
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>array $attributes</I
+></TT
+> -
+        attribute-hash for new node
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-tree.xml-tree.insertchild.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>object XML_Tree_Node</I
+></TT
+> - inserted child (node)
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-tree.xml-tree.insertchild.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+></P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-tree.xml-tree.insertchild.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;
+     <A
+HREF="package.xml.xml-tree.xml-tree.removechild.html"
+><B
+CLASS="function"
+>XML_Tree::removeChild()</B
+></A
+>
+
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-tree.xml-tree.addroot.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-tree.xml-tree.removechild.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>XML_Tree::&#38;addRoot</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.xml-tree.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>XML_Tree::&#38;removeChild</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

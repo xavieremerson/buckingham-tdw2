@@ -1,0 +1,521 @@
+<HTML
+><HEAD
+><TITLE
+>Config_Container::addItem</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Config"
+HREF="package.configuration.config.html"><LINK
+REL="PREVIOUS"
+TITLE="Config_Container::Config_Container"
+HREF="package.configuration.config.config-container.config-container.html"><LINK
+REL="NEXT"
+TITLE="Config_Container::countChildren"
+HREF="package.config.config-container.countchildren.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.configuration.config.config-container.config-container.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.config.config-container.countchildren.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.configuration.config.config-container.additem"><B
+CLASS="function"
+>Config_Container::addItem()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN19195"
+></A
+><B
+CLASS="function"
+>Config_Container::addItem()</B
+>&nbsp;--&nbsp;Add item to this item.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN19199"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN19200"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Config/Container.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>object <B
+CLASS="function"
+>Config_Container::addItem</B
+></CODE
+> (object &#38;$item [, string $where = 'bottom' [, object $target = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.additem.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      This method will add a Config_Container child to the current container
+      children. Thus, <B
+CLASS="function"
+>addItem()</B
+> can only be called 
+      one a section type container. If a position is specified, 
+      the object will be added at this position. If 
+      <TT
+CLASS="parameter"
+><I
+>'before'</I
+></TT
+> or <TT
+CLASS="parameter"
+><I
+>'after'</I
+></TT
+> 
+      are specified as position, a target object is required. 
+      The object will then be added before or after the target 
+      object position in the current container.
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.additem.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>object
+        <TT
+CLASS="parameter"
+><I
+>&#38;$item</I
+></TT
+></DT
+><DD
+><P
+>&#13;         a container object
+        </P
+></DD
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$where</I
+></TT
+></DT
+><DD
+><P
+>&#13;         choose a position <TT
+CLASS="parameter"
+><I
+>'bottom'</I
+></TT
+>, 
+         <TT
+CLASS="parameter"
+><I
+>'top'</I
+></TT
+>, <TT
+CLASS="parameter"
+><I
+>'after'</I
+></TT
+>,
+         <TT
+CLASS="parameter"
+><I
+>'before'</I
+></TT
+>
+        </P
+></DD
+><DT
+>object
+        <TT
+CLASS="parameter"
+><I
+>$target</I
+></TT
+></DT
+><DD
+><P
+>&#13;         needed if you choose <TT
+CLASS="parameter"
+><I
+>'before'</I
+></TT
+> or 
+         <TT
+CLASS="parameter"
+><I
+>'after'</I
+></TT
+> in <TT
+CLASS="parameter"
+><I
+>$where</I
+></TT
+>.
+         <TT
+CLASS="parameter"
+><I
+>$target</I
+></TT
+> must be one of this 
+         container's children. ZendEngine2 will accept references 
+         with default. It will then be possible to have 
+         <TT
+CLASS="parameter"
+><I
+>&#38;$target</I
+></TT
+> instead.
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.additem.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>object</I
+></TT
+> - A reference to the added object
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.additem.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN19258"><P
+><B
+>Table 31-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error value</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Meaning</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>""</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.additem.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.additem.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN19279"><P
+><B
+>Example 31-1. Adding an item using <B
+CLASS="function"
+>addItem()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$section =&#38; new Config_Container('section', 'conf');
+$directive =&#38; new Config_Container('directive', 'user', 'mansion');
+$section-&#62;addItem($directive);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN19283"><P
+><B
+>Example 31-2. Adding an item using <B
+CLASS="function"
+>addItem()</B
+> and a position relative to another item</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$section =&#38; new Config_Container('section', 'conf');
+$directive =&#38; new Config_Container('directive', 'user', 'mansion');
+$section-&#62;addItem($directive);
+
+$comment =&#38; new Config_Container('comment', null, 'Here goes my name');
+$section-&#62;addItem($comment, 'before', $directive);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.configuration.config.config-container.config-container.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.config.config-container.countchildren.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>Config_Container::Config_Container()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.configuration.config.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Config_Container::countChildren()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

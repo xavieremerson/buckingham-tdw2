@@ -1,0 +1,362 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File_HtAccess"
+HREF="package.filesystem.file-htaccess.html"><LINK
+REL="PREVIOUS"
+TITLE="File_HtAccess"
+HREF="package.filesystem.file-htaccess.html"><LINK
+REL="NEXT"
+TITLE="File_HtAccess::file_htaccess()"
+HREF="package.filesystem.file-htaccess.file-htaccess.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-htaccess.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-htaccess.file-htaccess.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.filesystem.file-htaccess.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN48764"
+></A
+>Introduction&nbsp;--&nbsp;what are .htaccess files</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-htaccess.intro.whatis-file-htaccess"
+></A
+><H2
+>What is File_HtAccess?</H2
+><P
+>&#13;    <B
+CLASS="classname"
+>File_HtAccess</B
+> provides common methods
+    to create and manipulate Apache / NCSA style .htaccess files.
+    These files together with accompanying password files are used 
+    to protect webserver directories. Since 
+    <B
+CLASS="classname"
+>File_HtAccess</B
+> does not provide any means 
+    to manipulate or create password files you should use it together
+    with <A
+HREF="package.fileformats.file-passwd.html"
+><B
+CLASS="classname"
+>&#13;    File_Passwd</B
+></A
+>.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-htaccess.intro.whatis-htaccess"
+></A
+><H2
+>What are .htaccess files?</H2
+><P
+>&#13;    The most common and the original purpose of .htaccess files is
+    to create per-directory password protection of resources. With
+    modern webservers there is vast amount of other things .htaccess
+    files can do. These include: custom error pages, ip based access
+    control, redirecting users automatically, denying directory listing
+    and using different files as an index file.
+   </P
+><P
+>&#13;    <B
+CLASS="classname"
+>File_HtAccess</B
+> concentrates only 
+    to password protection of directories, although it is possible to use 
+    it to control other things mentioned above too.
+   </P
+><P
+>&#13;    A .htaccess file is built from the following basic directives. They
+    differ a bit whether youre using Basic or Digest authentication. 
+    <DIV
+CLASS="table"
+><A
+NAME="AEN48780"><P
+><B
+>Table 38-1. Directives</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Directive</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Purpose</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>AuthType</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;         Authentication type being used, "Basic" or "Digest".
+        </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>AuthName</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;         Authentication realm or name.         
+        </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>AuthUserFile</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;         Full path to password file if using Basic authentication.
+        </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>AuthGroupFile</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;         Full path to group file if using Basic authentication.
+        </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>AuthDigestFile</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;         Full path to password file if using Digest authentication.
+        </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>AuthDigestGroupFile</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;         Full path to group file if using Digest authentication.
+        </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Require</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;         Requirements which must be met to grant access.
+        </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+   </P
+><P
+>&#13;    File_HtAccess provides method accessor methods with corresponding names
+    for each of these directives, such as getAuthType() and setAuthType().
+   </P
+><P
+>&#13;    A typical .htaccess file looks like this:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>AuthName "Protected"
+AuthType Basic
+AuthUserFile /usr/local/apache/conf/users.dat
+require valid-user</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-htaccess.intro.whatis-basic"
+></A
+><H2
+>What is Basic authentication</H2
+><P
+>&#13;    When a client requests resource protected with basic authentication
+    webserver responds with a 401 Authentication Required header. When
+    client receives 401 header it asks the user for username and password.
+    If authentication succeeds, the protected resource will be sent to
+    the client. Otherwise the access will be denied.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-htaccess.intro.whatis-digest"
+></A
+><H2
+>What is Digest authentication</H2
+><P
+>&#13;    Even though the passwords are stored encrypted on serverside they are  
+    sent cleartext between client and server when using Basic authentication.
+    With Digest authentication the passwords are never sent cleartext but as
+    a MD5 digest instead. The caveat is, most browsers do not support Digest
+    authentication.
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-htaccess.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-htaccess.file-htaccess.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>File_HtAccess</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-htaccess.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>File_HtAccess::file_htaccess()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

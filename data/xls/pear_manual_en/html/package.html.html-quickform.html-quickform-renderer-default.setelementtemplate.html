@@ -1,0 +1,295 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_QuickForm_Renderer_Default::setElementTemplate()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Basic renderers"
+HREF="package.html.html-quickform.html#package.html.html-quickform.output.basic-renderers"><LINK
+REL="PREVIOUS"
+TITLE="HTML_QuickForm_Renderer_Default::clearAllTemplates()"
+HREF="package.html.html-quickform.html-quickform-renderer-default.clearalltemplates.html"><LINK
+REL="NEXT"
+TITLE="HTML_QuickForm_Renderer_Default::setFormTemplate()"
+HREF="package.html.html-quickform.html-quickform-renderer-default.setformtemplate.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-default.clearalltemplates.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-default.setformtemplate.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.html-quickform-renderer-default.setelementtemplate">HTML_QuickForm_Renderer_Default::setElementTemplate()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN64150"
+></A
+>HTML_QuickForm_Renderer_Default::setElementTemplate()&nbsp;--&nbsp;Sets element template</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN64153"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN64154"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/QuickForm/Renderer/Default.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void    <B
+CLASS="function"
+>HTML_QuickForm_Renderer_Default::setElementTemplate</B
+></CODE
+> (string $html [, string $element = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-renderer-default.setelementtemplate.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;       Sets element template. When called with one parameter, it sets the default element template, when
+       called with two parameters it sets template for the concrete element. The template should include
+       at least the <TT
+CLASS="varname"
+>{element}</TT
+> placeholder.
+     </P
+><P
+>&#13;       The default element template is
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>"\n\t&#60;tr&#62;\n\t\t&#60;td align=\"right\" valign=\"top\"&#62;&#60;!-- BEGIN required --&#62;&#60;span style=\"color: #ff0000\"&#62;*&#60;/span&#62;&#60;!-- END required --&#62;&#60;b&#62;{label}&#60;/b&#62;&#60;/td&#62;\n\t\t&#60;td valign=\"top\" align=\"left\"&#62;&#60;!-- BEGIN error --&#62;&#60;span style=\"color: #ff0000\"&#62;{error}&#60;/span&#62;&#60;br /&#62;&#60;!-- END error --&#62;\t{element}&#60;/td&#62;\n\t&#60;/tr&#62;"</PRE
+></TD
+></TR
+></TABLE
+>
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-renderer-default.setelementtemplate.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+         <TT
+CLASS="parameter"
+><I
+>$html</I
+></TT
+></DT
+><DD
+><P
+>&#13;        The HTML surrounding an element
+       </P
+></DD
+><DT
+>string
+         <TT
+CLASS="parameter"
+><I
+>$element</I
+></TT
+></DT
+><DD
+><P
+>&#13;        (optional) Name of the element to apply template for
+       </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-renderer-default.setelementtemplate.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> no exceptions thrown
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-renderer-default.setelementtemplate.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-default.clearalltemplates.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-default.setformtemplate.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_QuickForm_Renderer_Default::clearAllTemplates()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.output.basic-renderers"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_QuickForm_Renderer_Default::setFormTemplate()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,342 @@
+<HTML
+><HEAD
+><TITLE
+>File_DICOM::getValue</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File_DICOM"
+HREF="package.fileformats.file-dicom.html"><LINK
+REL="PREVIOUS"
+TITLE="File_DICOM::write"
+HREF="package.default.file-dicom.file-dicom.write.html"><LINK
+REL="NEXT"
+TITLE="File_DICOM::setValue"
+HREF="package.default.file-dicom.file-dicom.setvalue.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.default.file-dicom.file-dicom.write.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.default.file-dicom.file-dicom.setvalue.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.default.file-dicom.file-dicom.getvalue"><B
+CLASS="function"
+>File_DICOM::getValue()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN36647"
+></A
+><B
+CLASS="function"
+>File_DICOM::getValue()</B
+>&nbsp;--&nbsp;Gets the value for a DICOM element.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN36651"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN36652"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'File/DICOM.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed      <B
+CLASS="function"
+>File_DICOM::getValue</B
+></CODE
+> (mixed $group_or_name [, integer $element = null])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.default.file-dicom.file-dicom.getvalue.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      Gets the value for a DICOM element of a given group from the parsed DICOM file
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.default.file-dicom.file-dicom.getvalue.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>mixed
+                 <TT
+CLASS="parameter"
+><I
+>$group_or_name</I
+></TT
+></DT
+><DD
+><P
+>&#13;         The group the DICOM element belongs to (integer), or its name (string)
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>integer
+                 <TT
+CLASS="parameter"
+><I
+>$element</I
+></TT
+></DT
+><DD
+><P
+>&#13;         The identifier for the DICOM element (unique inside a group). Optional
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.default.file-dicom.file-dicom.getvalue.returns"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>returns</I
+></SPAN
+> The value for the DICOM element on success, PEAR_Error on failure
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.default.file-dicom.file-dicom.getvalue.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.default.file-dicom.file-dicom.getvalue.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN36691"><P
+><B
+>Example 37-1. Using <B
+CLASS="function"
+>getValue()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once('File/DICOM.php');
+
+$dicom_file = new File_DICOM();
+$res = $dicom_file-&#62;parse('test.dcm');
+
+// check for errors
+if (PEAR::isError($res)) {
+    die($res-&#62;getMessage());
+}
+
+echo 'this value: '.$dicom_file-&#62;getValue('PatientName')."\n";
+echo 'Should be the same as this value: '.$dicom_file-&#62;getValue(0x0010, 0x0010)."\n";</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.default.file-dicom.file-dicom.write.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.default.file-dicom.file-dicom.setvalue.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>File_DICOM::write()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-dicom.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>File_DICOM::setValue()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

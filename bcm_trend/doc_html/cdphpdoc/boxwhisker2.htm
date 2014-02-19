@@ -1,0 +1,76 @@
+<HTML>
+<HEAD>
+<Title>Horizontal Box-Whisker Chart</Title>
+<link type='text/css' rel='Stylesheet' href="maxchartapi.css" />
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 5.0 (PHP Edition)</p>
+<p class="heading1">Horizontal Box-Whisker Chart</p>
+<hr class="separator">
+<div class="content">
+<img src="images/boxwhisker2.png">
+<br><br>
+This example demonstrates creating a multi-color horizontal box-whisker chart.<br><br>
+<a href="XYChart.addBoxWhiskerLayer2.htm">XYChart.addBoxWhiskerLayer2</a> is used to create the multi-color box-whisker layer. The chart is set to horizontal orientation using <a href="XYChart.swapXY.htm">XYChart.swapXY</a>.
+</div>
+<p class="heading1a">Source Code Listing</p>
+<div class="content">
+<b>[File: phpdemo/boxwhisker2.php]</b>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc"><pre>&lt;?php
+require_once("../lib/phpchartdir.php");
+
+# Sample data for the Box-Whisker chart. Represents the minimum, 1st quartile,
+# medium, 3rd quartile and maximum values of some quantities
+$Q0Data = array(40, 45, 35);
+$Q1Data = array(55, 60, 50);
+$Q2Data = array(62, 70, 60);
+$Q3Data = array(70, 80, 65);
+$Q4Data = array(80, 90, 75);
+
+# The labels for the chart
+$labels = array("&lt;*img=robot1.png*&gt;&lt;*br*&gt;Bipedal Type",
+    "&lt;*img=robot2.png*&gt;&lt;*br*&gt;Wolf Type", "&lt;*img=robot5.png*&gt;&lt;*br*&gt;Bird Type");
+
+# Create a XYChart object of size 540 x 320 pixels
+$c = new XYChart(540, 320);
+
+# swap the x and y axes to create a horizontal box-whisker chart
+$c-&gt;swapXY();
+
+#Set directory for loading images to current script directory
+#Need when running under Microsoft IIS
+$c-&gt;setSearchPath(dirname(__FILE__));
+
+# Set the plotarea at (75, 25) and of size 440 x 270 pixels. Enable both horizontal
+# and vertical grids by setting their colors to grey (0xc0c0c0)
+$plotAreaObj = $c-&gt;setPlotArea(75, 25, 440, 270);
+$plotAreaObj-&gt;setGridColor(0xc0c0c0, 0xc0c0c0);
+
+# Add a title to the chart
+$c-&gt;addTitle("           Robot Shooting Accuracy Scores");
+
+# Set the labels on the x axis and the font to Arial Bold
+$labelsObj = $c-&gt;xAxis-&gt;setLabels($labels);
+$labelsObj-&gt;setFontStyle("arialbd.ttf");
+
+# Disable x axis ticks by setting the length to 0
+$c-&gt;xAxis-&gt;setTickLength(0);
+
+# Set the font for the y axis labels to Arial Bold
+$c-&gt;yAxis-&gt;setLabelStyle("arialbd.ttf");
+
+# Add a Box Whisker layer using light blue 0x9999ff as the fill color and blue (0xcc)
+# as the line color. Set the line width to 2 pixels
+$boxWhiskerLayerObj = $c-&gt;addBoxWhiskerLayer2($Q3Data, $Q1Data, $Q4Data, $Q0Data,
+    $Q2Data);
+$boxWhiskerLayerObj-&gt;setLineWidth(2);
+
+# Output the chart
+header("Content-type: image/png");
+print($c-&gt;makeChart2(PNG));
+?&gt;</pre></tr></td></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2008 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

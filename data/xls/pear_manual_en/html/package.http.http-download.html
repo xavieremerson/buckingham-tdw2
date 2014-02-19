@@ -1,0 +1,323 @@
+<HTML
+><HEAD
+><TITLE
+>HTTP_Download</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTTP"
+HREF="package.http.html"><LINK
+REL="PREVIOUS"
+TITLE="HTTP_Client_CookieManager::updateCookies()"
+HREF="package.http.http-client.http-client-cookiemanager.updatecookies.html"><LINK
+REL="NEXT"
+TITLE="Intro"
+HREF="package.http.http-download.intro.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.http.http-client.http-client-cookiemanager.updatecookies.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 42. HTTP</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.http.http-download.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.http.http-download">HTTP_Download</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.http.http-download.intro.html"
+>Intro</A
+>&nbsp;--&nbsp;
+   Introduction in usage of <B
+CLASS="classname"
+>HTTP_Download</B
+>
+  </DT
+><DT
+><A
+HREF="package.http.http-download.http-download.html"
+><B
+CLASS="function"
+>HTTP_Download::HTTP_Download()</B
+></A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.http.http-download.setparams.html"
+><B
+CLASS="function"
+>HTTP_Download::setParams()</B
+></A
+>&nbsp;--&nbsp;Set various parameters</DT
+><DT
+><A
+HREF="package.http.http-download.setfile.html"
+><B
+CLASS="function"
+>HTTP_Download::setFile()</B
+></A
+>&nbsp;--&nbsp;
+   Set file path
+  </DT
+><DT
+><A
+HREF="package.http.http-download.setdata.html"
+><B
+CLASS="function"
+>HTTP_Download::setData()</B
+></A
+>&nbsp;--&nbsp;Set raw data</DT
+><DT
+><A
+HREF="package.http.http-download.setresource.html"
+><B
+CLASS="function"
+>HTTP_Download::setResource()</B
+></A
+>&nbsp;--&nbsp;Set resource for download</DT
+><DT
+><A
+HREF="package.http.http-download.setgzip.html"
+><B
+CLASS="function"
+>HTTP_Download::setGzip()</B
+></A
+>&nbsp;--&nbsp;
+   Whether to gzip the download on the fly or not. (requires ext/zlib)
+  </DT
+><DT
+><A
+HREF="package.http.http-download.setcache.html"
+><B
+CLASS="function"
+>HTTP_Download::setCache()</B
+></A
+>&nbsp;--&nbsp;
+   Whether to allow caching of the download on the clients side.
+  </DT
+><DT
+><A
+HREF="package.http.http-download.setcachecontrol.html"
+><B
+CLASS="function"
+>HTTP_Download::setCacheControl()</B
+></A
+>&nbsp;--&nbsp;
+   Control cache privacy and validity.
+  </DT
+><DT
+><A
+HREF="package.http.http-download.setbuffersize.html"
+><B
+CLASS="function"
+>HTTP_Download::setBufferSize()</B
+></A
+>&nbsp;--&nbsp;
+   Set size of buffer in bytes.
+  </DT
+><DT
+><A
+HREF="package.http.http-download.setthrottledelay.html"
+><B
+CLASS="function"
+>HTTP_Download::setThrottleDelay()</B
+></A
+>&nbsp;--&nbsp;
+   Set throttle delay in seconds
+  </DT
+><DT
+><A
+HREF="package.http.http-download.setcontenttype.html"
+><B
+CLASS="function"
+>HTTP_Download::setContentType()</B
+></A
+>&nbsp;--&nbsp;
+   Set content type
+  </DT
+><DT
+><A
+HREF="package.http.http-download.setlastmodified.html"
+><B
+CLASS="function"
+>HTTP_Download::setLastModified()</B
+></A
+>&nbsp;--&nbsp;
+   Set "Last-Modified"
+  </DT
+><DT
+><A
+HREF="package.http.http-download.setcontentdisposition.html"
+><B
+CLASS="function"
+>HTTP_Download::setContentDisposition()</B
+></A
+>&nbsp;--&nbsp;
+   Set content disposition
+  </DT
+><DT
+><A
+HREF="package.http.http-download.guesscontenttype.html"
+><B
+CLASS="function"
+>HTTP_Download::guessContentType()</B
+></A
+>&nbsp;--&nbsp;Guess content type of file</DT
+><DT
+><A
+HREF="package.http.http-download.send.html"
+><B
+CLASS="function"
+>HTTP_Download::send()</B
+></A
+>&nbsp;--&nbsp;Send file</DT
+><DT
+><A
+HREF="package.http.http-download.staticsend.html"
+><B
+CLASS="function"
+>HTTP_Download::staticSend()</B
+></A
+>&nbsp;--&nbsp;
+   Static send
+  </DT
+><DT
+><A
+HREF="package.http.http-download.sendarchive.html"
+><B
+CLASS="function"
+>HTTP_Download::sendArchive()</B
+></A
+>&nbsp;--&nbsp;
+   Send an archive created on the fly
+  </DT
+></DL
+></DIV
+><P
+>Send HTTP Downloads</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.http.http-client.http-client-cookiemanager.updatecookies.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.http.http-download.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTTP_Client_CookieManager::updateCookies()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.http.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Intro</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

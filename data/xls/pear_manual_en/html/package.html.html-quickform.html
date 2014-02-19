@@ -1,0 +1,1585 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_QuickForm</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML"
+HREF="package.html.html"><LINK
+REL="PREVIOUS"
+TITLE="Package HTML_Menu Constants"
+HREF="package.html.html-menu.constants.html"><LINK
+REL="NEXT"
+TITLE="HTML_QuickForm_Controller"
+HREF="package.html.html-quickform-controller.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-menu.constants.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 41. HTML</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform-controller.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.html.html-quickform">HTML_QuickForm</H1
+><P
+>&#13; The PEAR::HTML_QuickForm package provides methods for creating, validating, processing HTML forms.
+</P
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.html.html-quickform.introduction">Introduction</H2
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.html.html-quickform.tutorial.html"
+>QuickStart</A
+>&nbsp;--&nbsp;A tutorial for HTML_QuickForm</DT
+><DT
+><A
+HREF="package.html.html-quickform.intro-faq.html"
+>QuickHelp</A
+>&nbsp;--&nbsp;Answers to most Frequently Asked Questions</DT
+><DT
+><A
+HREF="package.html.html-quickform.intro-elements.html"
+>QuickForm element types</A
+>&nbsp;--&nbsp;What elements can be added to QuickForm</DT
+><DT
+><A
+HREF="package.html.html-quickform.intro-migration32.html"
+>Migration to version 3.2</A
+>&nbsp;--&nbsp;API changes to observe</DT
+><DT
+><A
+HREF="package.html.html-quickform.intro-subpackages.html"
+>Subpackages</A
+>&nbsp;--&nbsp;An overview about subpackages and packages that use QuickForm</DT
+></DL
+></DIV
+><P
+>&#13;QuickForm is a convenience library for dealing with HTML forms.
+It provides Javascript and server-side form validation, and is customizable and extensible in many ways.
+QuickForm consists of multiple files. The main file is <TT
+CLASS="filename"
+>QuickForm.php</TT
+> and should be installed in
+your <TT
+CLASS="filename"
+>pear/HTML</TT
+> directory. The other important files are <TT
+CLASS="filename"
+>element.php</TT
+>,
+which handles all methods relative to form elements, and <TT
+CLASS="filename"
+>group.php</TT
+>, which deals with
+methods relative to groups of elements in the form. Both are located in your <TT
+CLASS="filename"
+>HTML/QuickForm</TT
+>
+directory along with the other form objects. <TT
+CLASS="filename"
+>input.php</TT
+> contains a common class for all
+the elements of input type (text, password...). QuickForm has objects for all the common form elements:
+select, text, password, checkbox, file, submit, reset, button, image, radio, hidden, textarea.
+QuickForm provides the possibility to create your own elements as long as you comply with the common API.
+  </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.html.html-quickform.basic-form">Creating a basic form</H2
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.html-quickform.html"
+>constructor HTML_QuickForm::HTML_QuickForm()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.addelement.html"
+>HTML_QuickForm::addElement()</A
+>&nbsp;--&nbsp;Adds an element into the form</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.apiversion.html"
+>HTML_QuickForm::apiVersion()</A
+>&nbsp;--&nbsp;Returns the current API version</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.createelement.html"
+>HTML_QuickForm::createElement()</A
+>&nbsp;--&nbsp;Creates a new form element of the given type</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.elementexists.html"
+>HTML_QuickForm::elementExists()</A
+>&nbsp;--&nbsp;Checks if element is in the form</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.errormessage.html"
+>HTML_QuickForm::errorMessage()</A
+>&nbsp;--&nbsp;Returns an error message for error code</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.getelementtype.html"
+>HTML_QuickForm::getElementType()</A
+>&nbsp;--&nbsp;Returns the type of an element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.getelement.html"
+>HTML_QuickForm::getElement()</A
+>&nbsp;--&nbsp;Returns a reference to the element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.getmaxfilesize.html"
+>HTML_QuickForm::getMaxFileSize()</A
+>&nbsp;--&nbsp;Returns the value of MAX_FILE_SIZE hidden element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.getregisteredtypes.html"
+>HTML_QuickForm::getRegisteredTypes()</A
+>&nbsp;--&nbsp;Returns registered element types</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.insertelementbefore.html"
+>HTML_QuickForm::insertElementBefore()</A
+>&nbsp;--&nbsp;Inserts a new element right before the other element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.iserror.html"
+>HTML_QuickForm::isError()</A
+>&nbsp;--&nbsp;Tells whether a result is an error</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.istyperegistered.html"
+>HTML_QuickForm::isTypeRegistered()</A
+>&nbsp;--&nbsp;Checks whether the form element type is supported</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.registerelementtype.html"
+>HTML_QuickForm::registerElementType()</A
+>&nbsp;--&nbsp;Registers a new element type</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.removeelement.html"
+>HTML_QuickForm::removeElement()</A
+>&nbsp;--&nbsp;Removes an element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.setmaxfilesize.html"
+>HTML_QuickForm::setMaxFileSize()</A
+>&nbsp;--&nbsp;Sets the value of MAX_FILE_SIZE hidden element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.updateelementattr.html"
+>HTML_QuickForm::updateElementAttr()</A
+>&nbsp;--&nbsp;Updates Attributes for one or more elements</DT
+></DL
+></DIV
+><P
+>&#13;To be written.
+  </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.html.html-quickform.elements">Classes representing form elements</H2
+><P
+>&#13;To be written
+  </P
+><DIV
+CLASS="sect3"
+><H3
+CLASS="sect3"
+><A
+NAME="package.html.html-quickform.elements.base">Base classes</H3
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-element.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_element</B
+></A
+>&nbsp;--&nbsp;Base class for form elements</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-element.html-quickform-element.html"
+>constructor HTML_QuickForm_element()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-element.accept.html"
+>HTML_QuickForm_element::accept()</A
+>&nbsp;--&nbsp;Accepts a renderer</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-element.apiversion.html"
+>HTML_QuickForm_element::apiVersion()</A
+>&nbsp;--&nbsp;Returns the current API version</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-element.exportvalue.html"
+>HTML_QuickForm_element::exportValue()</A
+>&nbsp;--&nbsp;Returns a 'safe' element's value (package developer related)</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-element.freeze.html"
+>HTML_QuickForm_element::freeze()</A
+>&nbsp;--&nbsp;Freezes the element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-element.getfrozenhtml.html"
+>HTML_QuickForm_element::getFrozenHtml()</A
+>&nbsp;--&nbsp;Returns the value of field without HTML tags</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-element.getlabel.html"
+>HTML_QuickForm_element::getLabel()</A
+>&nbsp;--&nbsp;Returns the label for the element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-element.getname.html"
+>HTML_QuickForm_element::getName()</A
+>&nbsp;--&nbsp;Returns the element name</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-element.gettype.html"
+>HTML_QuickForm_element::getType()</A
+>&nbsp;--&nbsp;Returns the element type</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-element.getvalue.html"
+>HTML_QuickForm_element::getValue()</A
+>&nbsp;--&nbsp;Returns the value of the form element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-element.isfrozen.html"
+>HTML_QuickForm_element::isFrozen()</A
+>&nbsp;--&nbsp;Returns whether or not the element is frozen</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-element.onquickformevent.html"
+>HTML_QuickForm_element::onQuickFormEvent()</A
+>&nbsp;--&nbsp;Called by <B
+CLASS="classname"
+>HTML_QuickForm</B
+> whenever form event is made on this element (package developer related)</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-element.setlabel.html"
+>HTML_QuickForm_element::setLabel()</A
+>&nbsp;--&nbsp;Sets a label for the element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-element.setname.html"
+>HTML_QuickForm_element::setName()</A
+>&nbsp;--&nbsp;Sets the input field name</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-element.setpersistantfreeze.html"
+>HTML_QuickForm_element::setPersistantFreeze()</A
+>&nbsp;--&nbsp;Sets whether element value should persist on <B
+CLASS="function"
+>freeze()</B
+></DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-element.setvalue.html"
+>HTML_QuickForm_element::setValue()</A
+>&nbsp;--&nbsp;Sets the value of the form element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-element.unfreeze.html"
+>HTML_QuickForm_element::unfreeze()</A
+>&nbsp;--&nbsp;Unfreezes the element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-input.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_input</B
+></A
+>&nbsp;--&nbsp;Base class for input form elements</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-input.html-quickform-input.html"
+>constructor HTML_QuickForm_input()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-input.settype.html"
+>HTML_QuickForm_input::setType()</A
+>&nbsp;--&nbsp;Sets the element type</DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="sect3"
+><H3
+CLASS="sect3"
+><A
+NAME="package.html.html-quickform.elements.standard">Standard HTML elements</H3
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-button.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_button</B
+></A
+>&nbsp;--&nbsp;HTML class for a button type element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-button.html-quickform-button.html"
+>constructor HTML_QuickForm_button()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-checkbox.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_checkbox</B
+></A
+>&nbsp;--&nbsp;HTML class for a checkbox type field</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-checkbox.html-quickform-checkbox.html"
+>constructor HTML_QuickForm_checkbox()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-checkbox.getchecked.html"
+>HTML_QuickForm_checkbox::getChecked()</A
+>&nbsp;--&nbsp;Returns whether a checkbox is checked</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-checkbox.gettext.html"
+>HTML_QuickForm_checkbox::getText()</A
+>&nbsp;--&nbsp;Returns the checkbox text</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-checkbox.setchecked.html"
+>HTML_QuickForm_checkbox::setChecked()</A
+>&nbsp;--&nbsp;Sets whether a checkbox is checked</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-checkbox.settext.html"
+>HTML_QuickForm_checkbox::setText()</A
+>&nbsp;--&nbsp;Sets the checkbox text</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-file.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_file</B
+></A
+>&nbsp;--&nbsp;HTML class for a file type element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-file.html-quickform-file.html"
+>constructor HTML_QuickForm_file()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-file.getsize.html"
+>HTML_QuickForm_file::getSize()</A
+>&nbsp;--&nbsp;Returns size of file element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-file.getvalue.html"
+>HTML_QuickForm_file::getValue()</A
+>&nbsp;--&nbsp;Returns information about the uploaded file</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-file.isuploadedfile.html"
+>HTML_QuickForm_file::isUploadedFile()</A
+>&nbsp;--&nbsp;Checks if the element contains an uploaded file</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-file.moveuploadedfile.html"
+>HTML_QuickForm_file::moveUploadedFile()</A
+>&nbsp;--&nbsp;Moves an uploaded file into the destination</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-file.setsize.html"
+>HTML_QuickForm_file::setSize()</A
+>&nbsp;--&nbsp;Sets size of file element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-hidden.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_hidden</B
+></A
+>&nbsp;--&nbsp;HTML class for a hidden type element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-hidden.html-quickform-hidden.html"
+>constructor HTML_QuickForm_hidden()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-image.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_image</B
+></A
+>&nbsp;--&nbsp;HTML class for a image type element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-image.html-quickform-image.html"
+>constructor HTML_QuickForm_image()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-image.setalign.html"
+>HTML_QuickForm_image::setAlign()</A
+>&nbsp;--&nbsp;Sets alignment for image element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-image.setborder.html"
+>HTML_QuickForm_image::setBorder()</A
+>&nbsp;--&nbsp;Sets border size for image element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-image.setsource.html"
+>HTML_QuickForm_image::setSource()</A
+>&nbsp;--&nbsp;Sets source for image element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-password.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_password</B
+></A
+>&nbsp;--&nbsp;HTML class for a password type field</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-password.html-quickform-password.html"
+>constructor HTML_QuickForm_password()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-password.setmaxlength.html"
+>HTML_QuickForm_password::setMaxlength()</A
+>&nbsp;--&nbsp;Sets maxlength of password element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-password.setsize.html"
+>HTML_QuickForm_password::setSize()</A
+>&nbsp;--&nbsp;Sets size of password element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-radio.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_radio</B
+></A
+>&nbsp;--&nbsp;HTML class for a radio type element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-radio.html-quickform-radio.html"
+>constructor HTML_QuickForm_radio()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-radio.getchecked.html"
+>HTML_QuickForm_radio::getChecked()</A
+>&nbsp;--&nbsp;Returns whether radio button is checked</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-radio.gettext.html"
+>HTML_QuickForm_radio::getText()</A
+>&nbsp;--&nbsp;Returns the radio text</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-radio.setchecked.html"
+>HTML_QuickForm_radio::setChecked()</A
+>&nbsp;--&nbsp;Sets whether radio button is checked</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-radio.settext.html"
+>HTML_QuickForm_radio::setText()</A
+>&nbsp;--&nbsp;Sets the radio text</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-reset.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_reset</B
+></A
+>&nbsp;--&nbsp;HTML class for a reset type element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-reset.html-quickform-reset.html"
+>constructor HTML_QuickForm_reset()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-select.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_select</B
+></A
+>&nbsp;--&nbsp;Class to dynamically create an HTML SELECT</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-select.html-quickform-select.html"
+>constructor HTML_QuickForm_select()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-select.addoption.html"
+>HTML_QuickForm_select::addOption()</A
+>&nbsp;--&nbsp;Adds a new OPTION to the SELECT</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-select.getmultiple.html"
+>HTML_QuickForm_select::getMultiple()</A
+>&nbsp;--&nbsp;Returns the select mutiple attribute</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-select.getprivatename.html"
+>HTML_QuickForm_select::getPrivateName()</A
+>&nbsp;--&nbsp;Returns the element name (possibly with brackets appended)</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-select.getselected.html"
+>HTML_QuickForm_select::getSelected()</A
+>&nbsp;--&nbsp;Returns an array of the selected values</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-select.getsize.html"
+>HTML_QuickForm_select::getSize()</A
+>&nbsp;--&nbsp;Returns the select field size</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-select.load.html"
+>HTML_QuickForm_select::load()</A
+>&nbsp;--&nbsp;Loads options from different types of data sources</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-select.loadarray.html"
+>HTML_QuickForm_select::loadArray()</A
+>&nbsp;--&nbsp;Loads the options from an associative array</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-select.loaddbresult.html"
+>HTML_QuickForm_select::loadDbResult()</A
+>&nbsp;--&nbsp;Loads the options from DB_result object</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-select.loadquery.html"
+>HTML_QuickForm_select::loadQuery()</A
+>&nbsp;--&nbsp;Queries a database and loads the options from the results</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-select.setmultiple.html"
+>HTML_QuickForm_select::setMultiple()</A
+>&nbsp;--&nbsp;Sets the select mutiple attribute</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-select.setselected.html"
+>HTML_QuickForm_select::setSelected()</A
+>&nbsp;--&nbsp;Sets the default values of the select box</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-select.setsize.html"
+>HTML_QuickForm_select::setSize()</A
+>&nbsp;--&nbsp;Sets the select field size, only applies to 'multiple' selects</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-submit.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_submit</B
+></A
+>&nbsp;--&nbsp;HTML class for a submit type element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-submit.html-quickform-submit.html"
+>constructor HTML_QuickForm_submit()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-text.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_text</B
+></A
+>&nbsp;--&nbsp;HTML class for a text field</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-text.html-quickform-text.html"
+>constructor HTML_QuickForm_text</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-text.setmaxlength.html"
+>HTML_QuickForm_text::setMaxlength()</A
+>&nbsp;--&nbsp;Sets maxlength of text field</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-text.setsize.html"
+>HTML_QuickForm_text::setSize()</A
+>&nbsp;--&nbsp;Sets size of text field</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-textarea.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_textarea</B
+></A
+>&nbsp;--&nbsp;HTML class for a textarea type field</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-textarea.html-quickform-textarea.html"
+>constructor HTML_QuickForm_textarea()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-textarea.setcols.html"
+>HTML_QuickForm_textarea::setCols()</A
+>&nbsp;--&nbsp;Sets width in cols for textarea element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-textarea.setrows.html"
+>HTML_QuickForm_textarea::setRows()</A
+>&nbsp;--&nbsp;Sets height in rows for textarea element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-textarea.setwrap.html"
+>HTML_QuickForm_textarea::setWrap()</A
+>&nbsp;--&nbsp;Sets wrap type for textarea element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-xbutton.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_xbutton</B
+></A
+>&nbsp;--&nbsp;Class for HTML 4.0 &#60;button&#62; element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-xbutton.html-quickform-xbutton.html"
+>constructor HTML_QuickForm_xbutton()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-xbutton.setcontent.html"
+>HTML_QuickForm_xbutton::setContent()</A
+>&nbsp;--&nbsp;Sets the contents of the element</DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="sect3"
+><H3
+CLASS="sect3"
+><A
+NAME="package.html.html-quickform.elements.custom">Custom elements</H3
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-advcheckbox.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_advcheckbox</B
+></A
+>&nbsp;--&nbsp;HTML class for an advanced checkbox type field</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-advcheckbox.html-quickform-advcheckbox.html"
+>constructor HTML_QuickForm_advcheckbox()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-advcheckbox.getonclickjs.html"
+>HTML_QuickForm_advcheckbox::getOnclickJs()</A
+>&nbsp;--&nbsp;Create the javascript for the onclick event</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-advcheckbox.getprivatename.html"
+>HTML_QuickForm_advcheckbox::getPrivateName()</A
+>&nbsp;--&nbsp;Gets the private name for the element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-advcheckbox.setvalues.html"
+>HTML_QuickForm_advcheckbox::setValues()</A
+>&nbsp;--&nbsp;Sets the values used by the hidden element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-autocomplete.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_autocomplete</B
+></A
+>&nbsp;--&nbsp;HTML class for a text field with autocompletion feature</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-autocomplete.html-quickform-autocomplete.html"
+>constructor HTML_QuickForm_autocomplete</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-autocomplete.setoptions.html"
+>HTML_QuickForm_autocomplete::setoptions()</A
+>&nbsp;--&nbsp;Sets the options for the autocomplete input text element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-date.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_date</B
+></A
+>&nbsp;--&nbsp;Class for a group of elements used to input dates (and times).</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-date.html-quickform-date.html"
+>constructor HTML_QuickForm_date()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-header.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_header</B
+></A
+>&nbsp;--&nbsp;A pseudo-element used for adding headers to form</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-header.html-quickform-header.html"
+>constructor HTML_QuickForm_header()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-hiddenselect.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_hiddenselect</B
+></A
+>&nbsp;--&nbsp;Creates hidden elements with select's values</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-hiddenselect.html-quickform-hiddenselect.html"
+>constructor HTML_QuickForm_hiddenselect()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-hierselect.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_hierselect</B
+></A
+>&nbsp;--&nbsp;Class to dynamically create chained HTML Select elements, each select
+changes the content of the next.</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-hierselect.html-quickform-hierselect.html"
+>constructor HTML_QuickForm_hierselect()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-hierselect.setoptions.html"
+>HTML_QuickForm_hierselect::setOptions()</A
+>&nbsp;--&nbsp;Sets the options for the select elements</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-hierselect.setmainoptions.html"
+>HTML_QuickForm_hierselect::setMainOptions()</A
+>&nbsp;--&nbsp;DEPRECATED: Sets the options for the first select</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-hierselect.setsecoptions.html"
+>HTML_QuickForm_hierselect::setSecOptions()</A
+>&nbsp;--&nbsp;DEPRECATED: Sets the options for the secondary select</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-html.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_html</B
+></A
+>&nbsp;--&nbsp;A pseudo-element used for adding raw HTML to form (deprecated)</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-html.html-quickform-html.html"
+>constructor HTML_QuickForm_html()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-link.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_link</B
+></A
+>&nbsp;--&nbsp;HTML class for a link type field</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-link.html-quickform-link.html"
+>constructor HTML_QuickForm_link()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-link.sethref.html"
+>HTML_QuickForm_link::setHref()</A
+>&nbsp;--&nbsp;Sets the links href</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-static.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_static</B
+></A
+>&nbsp;--&nbsp;HTML class for static data</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-static.html-quickform-static.html"
+>constructor HTML_QuickForm_static()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-static.settext.html"
+>HTML_QuickForm_static::setText()</A
+>&nbsp;--&nbsp;Sets the text</DT
+></DL
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.html.html-quickform.groups">Using groups</H2
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.addgroup.html"
+>HTML_QuickForm::addGroup()</A
+>&nbsp;--&nbsp;Adds an element group</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-group.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_group</B
+></A
+>&nbsp;--&nbsp;HTML class for a form element group</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-group.html-quickform-group.html"
+>constructor HTML_QuickForm_group()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-group.getelementname.html"
+>HTML_QuickForm_group::getElementName()</A
+>&nbsp;--&nbsp;Returns the name of an element inside the group</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-group.getelements.html"
+>HTML_QuickForm_group::getElements()</A
+>&nbsp;--&nbsp;Gets the grouped elements</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-group.getgrouptype.html"
+>HTML_QuickForm_group::getGroupType()</A
+>&nbsp;--&nbsp;Gets the group type based on its elements.</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-group.setelements.html"
+>HTML_QuickForm_group::setElements()</A
+>&nbsp;--&nbsp;Sets the grouped elements</DT
+></DL
+></DIV
+><P
+>&#13;To be written.
+  </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.html.html-quickform.values">Working with elements' values</H2
+><P
+>&#13;  This section covers the methods QuickForm offers for managing form element's values and working with submitted values.
+  </P
+><DIV
+CLASS="sect3"
+><H3
+CLASS="sect3"
+><A
+NAME="package.html.html-quickform.values.getting-setting">Getting, setting and processing element values</H3
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.setconstants.html"
+>HTML_QuickForm::setConstants()</A
+>&nbsp;--&nbsp;Sets constant form values</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.setdefaults.html"
+>HTML_QuickForm::setDefaults()</A
+>&nbsp;--&nbsp;Sets default form values</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.issubmitted.html"
+>HTML_QuickForm::isSubmitted()</A
+>&nbsp;--&nbsp;Tells whether the form was already submitted</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.exportvalue.html"
+>HTML_QuickForm::exportValue()</A
+>&nbsp;--&nbsp;Returns the element's "safe" value</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.exportvalues.html"
+>HTML_QuickForm::exportValues()</A
+>&nbsp;--&nbsp;Returns "safe" elements' values</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.getelementvalue.html"
+>HTML_QuickForm::getElementValue()</A
+>&nbsp;--&nbsp;Returns the element's raw value</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.getsubmitvalue.html"
+>HTML_QuickForm::getSubmitValue()</A
+>&nbsp;--&nbsp;Returns the submitted element's value</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.getsubmitvalues.html"
+>HTML_QuickForm::getSubmitValues()</A
+>&nbsp;--&nbsp;Returns the values submitted by the form</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.process.html"
+>HTML_QuickForm::process()</A
+>&nbsp;--&nbsp;Performs the form data processing</DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="sect3"
+><H3
+CLASS="sect3"
+><A
+NAME="package.html.html-quickform.values.validation">Validation and filters</H3
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.html.html-quickform.intro-validation.html"
+>Introduction - validation and filters</A
+>&nbsp;--&nbsp;How to process submitted data</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.addrule.html"
+>HTML_QuickForm::addRule()</A
+>&nbsp;--&nbsp;Adds a validation rule for the given field</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.addgrouprule.html"
+>HTML_QuickForm::addGroupRule()</A
+>&nbsp;--&nbsp;Adds a validation rule for the given group</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.addformrule.html"
+>HTML_QuickForm::addFormRule()</A
+>&nbsp;--&nbsp;Adds a global validation rule</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.iselementrequired.html"
+>HTML_QuickForm::isElementRequired()</A
+>&nbsp;--&nbsp;Returns whether the form element is required</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.validate.html"
+>HTML_QuickForm::validate()</A
+>&nbsp;--&nbsp;Performs the server side validation</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.getelementerror.html"
+>HTML_QuickForm::getElementError()</A
+>&nbsp;--&nbsp;Returns error corresponding to validated element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.setelementerror.html"
+>HTML_QuickForm::setElementError()</A
+>&nbsp;--&nbsp;Set error message for a form element</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.registerrule.html"
+>HTML_QuickForm::registerRule()</A
+>&nbsp;--&nbsp;Registers a new validation rule</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.getregisteredrules.html"
+>HTML_QuickForm::getRegisteredRules()</A
+>&nbsp;--&nbsp;Returns registered validation rules</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.isruleregistered.html"
+>HTML_QuickForm::isRuleRegistered()</A
+>&nbsp;--&nbsp;Returns whether the rule is supported</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.applyfilter.html"
+>HTML_QuickForm::applyFilter()</A
+>&nbsp;--&nbsp;Applies a filter for the given field(s)</DT
+></DL
+></DIV
+><P
+>&#13;QuickForm also provides validation rules support. You can code your own validation rules, register them in QuickForm and then call them in your script. By default, QuickForm can handle validation against regular expressions (<A
+HREF="http://www.php.net/manual-lookup.php?pattern=preg-match"
+TARGET="_top"
+>preg_match</A
+> style) and check for required elements. If you want client-side validation, QuickForm can generate the javascript code needed. Server-side validation is always on by default.
+    </P
+><P
+>&#13;QuickForm can also make use of filters for data import into the form or for data processing once the form has been submitted. Filters work the same way as rules except that you don't need to register them. You write your filter functions and call them in your script. You can call any php function (ie. trim, addslashes, htmlentities, etc.) and have them applied recursively to your element values.
+    </P
+></DIV
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.html.html-quickform.output">Outputting the form</H2
+><P
+>&#13;Your form can be customised in many ways.
+QuickForm can use different kind of renderers and provides a default one which allows for customization
+of the form, the elements, the error messages, the headers, the required elements note and the required
+elements sign. You can also write your own renderers.
+  </P
+><DIV
+CLASS="sect3"
+><H3
+CLASS="sect3"
+><A
+NAME="package.html.html-quickform.output.form-customization">Form customization and output helpers</H3
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.freeze.html"
+>HTML_QuickForm::freeze()</A
+>&nbsp;--&nbsp;"Freezes" the form's elements</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.iselementfrozen.html"
+>HTML_QuickForm::isElementFrozen()</A
+>&nbsp;--&nbsp;Checks whether the element is frozen</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.isfrozen.html"
+>HTML_QuickForm::isFrozen()</A
+>&nbsp;--&nbsp;Checks whether the form is frozen</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.setrequirednote.html"
+>HTML_QuickForm::setRequiredNote()</A
+>&nbsp;--&nbsp;Sets required note</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.setjswarnings.html"
+>HTML_QuickForm::setJsWarnings()</A
+>&nbsp;--&nbsp;Sets JavaScript warning messages</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.getrequirednote.html"
+>HTML_QuickForm::getRequiredNote()</A
+>&nbsp;--&nbsp;Returns the required note</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.getvalidationscript.html"
+>HTML_QuickForm::getValidationScript()</A
+>&nbsp;--&nbsp;Returns the client side validation script</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.accept.html"
+>HTML_QuickForm::accept()</A
+>&nbsp;--&nbsp;Accepts a renderer</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.defaultrenderer.html"
+>HTML_QuickForm::defaultRenderer()</A
+>&nbsp;--&nbsp;Returns a reference to default renderer object</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.toarray.html"
+>HTML_QuickForm::toArray()</A
+>&nbsp;--&nbsp;Returns the form's contents in an array</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.tohtml.html"
+>HTML_QuickForm::toHtml()</A
+>&nbsp;--&nbsp;Returns an HTML version of the form</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform.display.html"
+>HTML_QuickForm::display()</A
+>&nbsp;--&nbsp;Outputs an HTML version of the form</DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="sect3"
+><H3
+CLASS="sect3"
+><A
+NAME="package.html.html-quickform.output.basic-renderers">Basic renderers</H3
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.html.html-quickform.intro-renderers.html"
+>Introduction - renderers</A
+>&nbsp;--&nbsp;How to output the form</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-default.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Renderer_Default</B
+></A
+>&nbsp;--&nbsp;Default renderer</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-default.clearalltemplates.html"
+>HTML_QuickForm_Renderer_Default::clearAllTemplates()</A
+>&nbsp;--&nbsp;Clears all templates</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-default.setelementtemplate.html"
+>HTML_QuickForm_Renderer_Default::setElementTemplate()</A
+>&nbsp;--&nbsp;Sets element template</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-default.setformtemplate.html"
+>HTML_QuickForm_Renderer_Default::setFormTemplate()</A
+>&nbsp;--&nbsp;Sets form template</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-default.setgroupelementtemplate.html"
+>HTML_QuickForm_Renderer_Default::setGroupElementTemplate()</A
+>&nbsp;--&nbsp;Sets template for group elements</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-default.setgrouptemplate.html"
+>HTML_QuickForm_Renderer_Default::setGroupTemplate()</A
+>&nbsp;--&nbsp;Sets template for a group wrapper</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-default.setheadertemplate.html"
+>HTML_QuickForm_Renderer_Default::setHeaderTemplate()</A
+>&nbsp;--&nbsp;Sets header template</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-default.setrequirednotetemplate.html"
+>HTML_QuickForm_Renderer_Default::setRequiredNoteTemplate()</A
+>&nbsp;--&nbsp;Sets the template for 'required' note</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-default.tohtml.html"
+>HTML_QuickForm_Renderer_Default::toHtml()</A
+>&nbsp;--&nbsp;Returns the HTML</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-array.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Renderer_Array</B
+></A
+>&nbsp;--&nbsp;Array representation of the form</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-array.html-quickform-renderer-array.html"
+>constructor HTML_QuickForm_Renderer_Array::HTML_QuickForm_Renderer_Array()</A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-array.setelementstyle.html"
+>HTML_QuickForm_Renderer_Array::setElementStyle()</A
+>&nbsp;--&nbsp;Sets a style to use for element rendering</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-array.toarray.html"
+>HTML_QuickForm_Renderer_Array::toArray()</A
+>&nbsp;--&nbsp;Returns the resultant array</DT
+></DL
+></DIV
+><P
+>These renderers are based on pre-3.0 <B
+CLASS="classname"
+>HTML_QuickForm</B
+> code and require no external classes to do their work.</P
+></DIV
+><DIV
+CLASS="sect3"
+><H3
+CLASS="sect3"
+><A
+NAME="package.html.html-quickform.output.template-renderers">Template-based renderers</H3
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-arraysmarty.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Renderer_ArraySmarty</B
+></A
+>&nbsp;--&nbsp;A renderer for 'static' Smarty templates</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-arraysmarty.html-quickform-renderer-arraysmarty.html"
+>constructor HTML_QuickForm_Renderer_ArraySmarty::HTML_QuickForm_Renderer_ArraySmarty()</A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-arraysmarty.seterrortemplate.html"
+>HTML_QuickForm_Renderer_ArraySmarty::setErrorTemplate()</A
+>&nbsp;--&nbsp;Sets the way elements with validation errors are rendered</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-arraysmarty.setrequiredtemplate.html"
+>HTML_QuickForm_Renderer_ArraySmarty::setRequiredTemplate()</A
+>&nbsp;--&nbsp;Sets the way required elements are rendered</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-itdynamic.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Renderer_ITDynamic</B
+></A
+>&nbsp;--&nbsp;Dynamic renderer for Integrated Templates</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-itdynamic.html-quickform-renderer-itdynamic.html"
+>constructor HTML_QuickForm_Renderer_ITDynamic::HTML_QuickForm_Renderer_ITDynamic()</A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-itdynamic.setelementblock.html"
+>HTML_QuickForm_Renderer_ITDynamic::setElementBlock()</A
+>&nbsp;--&nbsp;Sets the block to use for element rendering</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-itdynamic.setheaderblock.html"
+>HTML_QuickForm_Renderer_ITDynamic::setHeaderBlock()</A
+>&nbsp;--&nbsp;Sets the name of a block to use for header rendering</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-itstatic.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Renderer_ITStatic</B
+></A
+>&nbsp;--&nbsp;Static renderer for Integrated Templates</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-itstatic.html-quickform-renderer-itstatic.html"
+>constructor HTML_QuickForm_Renderer_ITStatic::HTML_QuickForm_Renderer_ITStatic()</A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-itstatic.seterrortemplate.html"
+>HTML_QuickForm_Renderer_ITStatic::setErrorTemplate()</A
+>&nbsp;--&nbsp;Sets the way elements with validation errors are rendered</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-itstatic.setrequiredtemplate.html"
+>HTML_QuickForm_Renderer_ITStatic::setRequiredTemplate()</A
+>&nbsp;--&nbsp;Sets the way required elements are rendered</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-quickhtml.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Renderer_QuickHtml</B
+></A
+>&nbsp;--&nbsp;Render form elements into HTML in an easy and flexible manner</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-quickhtml.html-quickform-renderer-quickhtml.html"
+>constructor HTML_QuickForm_Renderer_QuickHtml::HTML_QuickForm_Renderer_QuickHtml()</A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-quickhtml.tohtml.html"
+>HTML_QuickForm_Renderer_QuickHtml::toHtml()</A
+>&nbsp;--&nbsp;Returns the HTML</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-quickhtml.elementtohtml.html"
+>HTML_QuickForm_Renderer_QuickHtml::elementToHtml()</A
+>&nbsp;--&nbsp;Renders a specific form element into HTML</DT
+></DL
+></DIV
+><P
+>These renderers use template engines to actually generate the HTML for the form.</P
+></DIV
+><DIV
+CLASS="sect3"
+><H3
+CLASS="sect3"
+><A
+NAME="package.html.html-quickform.output.renderer-doc">Renderer infrastructure</H3
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Renderer</B
+></A
+>&nbsp;--&nbsp;Abstract base class for renderers (package developer related)</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer.startform.html"
+>HTML_QuickForm_Renderer::startForm()</A
+>&nbsp;--&nbsp;Start visiting a form (package developer related)</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer.finishform.html"
+>HTML_QuickForm_Renderer::finishForm()</A
+>&nbsp;--&nbsp;Finish visiting a form (package developer related)</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer.startgroup.html"
+>HTML_QuickForm_Renderer::startGroup()</A
+>&nbsp;--&nbsp;Start visiting a group (package developer related)</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer.finishgroup.html"
+>HTML_QuickForm_Renderer::finishGroup()</A
+>&nbsp;--&nbsp;Finish visiting a group (package developer related)</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer.renderelement.html"
+>HTML_QuickForm_Renderer::renderElement()</A
+>&nbsp;--&nbsp;Visit an element (package developer related)</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer.renderheader.html"
+>HTML_QuickForm_Renderer::renderHeader()</A
+>&nbsp;--&nbsp;Visit a header (package developer related)</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer.renderhidden.html"
+>HTML_QuickForm_Renderer::renderHidden()</A
+>&nbsp;--&nbsp;Visit a hidden element (package developer related)</DT
+><DT
+><A
+HREF="package.html.html-quickform.html-quickform-renderer.renderhtml.html"
+>HTML_QuickForm_Renderer::renderHtml()</A
+>&nbsp;--&nbsp;Visit a raw HTML/text element (package developer related)</DT
+></DL
+></DIV
+><P
+>If you want to modify an existing renderer or write a new one, this section will be of interest to you.</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-menu.constants.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform-controller.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Package HTML_Menu Constants</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_QuickForm_Controller</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

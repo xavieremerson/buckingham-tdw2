@@ -1,0 +1,289 @@
+<HTML
+><HEAD
+><TITLE
+>Net_IPv4::parseAddress()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_IPv4"
+HREF="package.networking.net-ipv4.html"><LINK
+REL="PREVIOUS"
+TITLE="Net_IPv4::validateNetmask()"
+HREF="package.networking.net-ipv4.validatenetmask.html"><LINK
+REL="NEXT"
+TITLE="Net_IPv4::calculate()"
+HREF="package.networking.net-ipv4.calculate.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-ipv4.validatenetmask.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-ipv4.calculate.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-ipv4.parseaddress">Net_IPv4::parseAddress()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN83820"
+></A
+>Net_IPv4::parseAddress()&nbsp;--&nbsp;Parse a CIDR address (address/netmask combination).</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN83823"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN83824"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once('Net/IPv4.php');</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>bool <B
+CLASS="function"
+>parseAddress</B
+></CODE
+> (string $address)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-ipv4.parseaddress.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Parses a Classless Inter-Domain Routing address (e.g. 192.168.1.0/24) and stores
+   information in the object variables network, ip, netmask, broadcast, long and bitmask.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-ipv4.parseaddress.example"
+></A
+><H2
+>Example</H2
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN83837"><P
+><B
+>Example 48-1. How to get netmask and broadcast from CIDR address</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+require('Net/IPv4.php');
+
+$cidr = '192.168.0.50/16';
+$net = Net_IPv4::parseAddress($cidr);
+echo $net-&#62;network;   // 192.168.0.0
+echo $net-&#62;ip;        // 192.168.0.50
+echo $net-&#62;broadcast; // 192.168.255.255
+echo $net-&#62;bitmask;   // 16
+echo $net-&#62;long;      // 3232235520 (long/double version of 192.168.0.50)
+echo $net-&#62;netmask;   // 255.255.0.0
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-ipv4.parseaddress.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   <TT
+CLASS="parameter"
+><I
+>boolean</I
+></TT
+> - Returns <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> on success,
+<B
+CLASS="classname"
+>PEAR_Error</B
+> on failure.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-ipv4.parseaddress.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-ipv4.validatenetmask.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-ipv4.calculate.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Net_IPv4::validateNetmask()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-ipv4.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Net_IPv4::calculate()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

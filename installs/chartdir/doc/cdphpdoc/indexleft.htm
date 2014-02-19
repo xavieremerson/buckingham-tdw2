@@ -1,0 +1,795 @@
+<html>
+<head>
+<link type='text/css' rel='Stylesheet' href='maxcharthtml.css'/>
+</head>
+<body topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+<script>
+function getTag(id) 
+{
+	if (document.getElementById)
+		return document.getElementById(id);
+	else
+		return document.all[id];
+}
+
+function tv(id) {
+	var s = getTag("bk" + id).style; 
+	if (s.display == 'none') 
+	{
+		s.display = 'block'; 
+		getTag("img" + id).src="minus.gif";
+	}
+	else 
+	{
+		s.display = 'none';
+		getTag("img" + id).src="plus.gif";
+	}
+	return false;
+}
+
+var selectedA = null;
+function ta(id) {
+	if (selectedA != null)
+		selectedA.style.background = "#FFFFFF";
+	selectedA = id;
+	id.style.background = "#FF8080";
+	return true;
+}
+
+function getFile(f)
+{
+	var ret = f.split("/");
+	ret = ret[ret.length - 1];
+	ret = ret.split("\\");
+	return ret[ret.length - 1];
+}
+
+function findLink(url)
+{
+	url = getFile(url);
+	for (var i = 0; i < document.links.length; ++i)
+	{
+		if (getFile(document.links[i].pathname) == url)
+			return i;
+	}
+	return -1;
+}
+
+function nextpage()
+{
+	var i = findLink(top.ir.location.pathname);
+	if (i < 0)
+		return;
+	for (var j = i + 1; j < document.links.length; ++j)
+	{
+		if (document.links[j].href.charAt(document.links[j].href.length - 1) != "#")
+		{
+			top.ir.location.href = document.links[j].href;
+			ta(document.links[j]);
+			break;
+		}
+	}
+}
+
+function prevpage()
+{
+	var i = findLink(top.ir.location.pathname);
+	for (var j = i - 1; j >= 0; --j)
+	{
+		if (document.links[j].href.charAt(document.links[j].href.length - 1) != "#")
+		{
+			top.ir.location.href = document.links[j].href;
+			ta(document.links[j]);
+			break;
+		}
+	}
+}
+
+function expandBlk(p)
+{
+	if (!p || !p.style)
+		return;
+	expandBlk(p.parentNode || p.parentElement);
+	p.style.display = "block";
+	if (p.id)
+	{
+		var im = getTag("img" + p.id.substring(2, p.id.length));
+		if (im)
+			im.src = "minus.gif";
+	}
+}
+
+function syncpage()
+{
+	var i = findLink(top.ir.location.pathname);
+	if (i < 0)
+		return;
+	ta(document.links[i]);
+	expandBlk(document.links[i].parentNode || document.links[i].parentElement);
+	document.links[i].focus();
+}
+</script>
+<div class="in0" id="bk0">
+<div><a href="#" onclick="return tv(1);"><img id="img1" src="minus.gif" border="0"></a><a href="cover.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(1);">ChartDirector Documentation</a></div>
+<div class="in1" id="bk1">
+<div class="ns"><b><img src="doc.gif"></b><a href="license.htm" target="ir" onclick="return ta(this);">License Agreement</a></div>
+<div class="ns"><b><img src="doc.gif"></b><a href="intro.htm" target="ir" onclick="return ta(this);">Introduction</a></div>
+<div class="ns"><b><img src="doc.gif"></b><a href="install.htm" target="ir" onclick="return ta(this);">Installation</a></div>
+<div class="ns"><a href="#" onclick="return tv(2);"><img id="img2" src="plus.gif" border="0"></a><a href="gettingstarted.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(2);">Getting Started</a></div>
+<div class="in2" id="bk2" style="display:none">
+<div><b><img src="doc.gif"></b><a href="firstproject.htm" target="ir" onclick="return ta(this);">The First Project</a></div>
+<div><b><img src="doc.gif"></b><a href="chartsinweb.htm" target="ir" onclick="return ta(this);">Incorporating Charts in Web Pages</a></div>
+<div><b><img src="doc.gif"></b><a href="objectmodel.htm" target="ir" onclick="return ta(this);">ChartDirector Object Model Overview</a></div>
+</div>
+<div class="ns"><a href="#" onclick="return tv(3);"><img id="img3" src="plus.gif" border="0"></a><a href="piecharts.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(3);">Pie Charts</a></div>
+<div class="in2" id="bk3" style="display:none">
+<div><b><img src="doc.gif"></b><a href="simplepie.htm" target="ir" onclick="return ta(this);">Simple Pie Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="threedpie.htm" target="ir" onclick="return ta(this);">3D Pie Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="multidepthpie.htm" target="ir" onclick="return ta(this);">Multi-Depth Pie Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="sidelabelpie.htm" target="ir" onclick="return ta(this);">Side Label Layout</a></div>
+<div><b><img src="doc.gif"></b><a href="circlelabelpie.htm" target="ir" onclick="return ta(this);">Circular Label Layout</a></div>
+<div><b><img src="doc.gif"></b><a href="legendpie.htm" target="ir" onclick="return ta(this);">Pie Chart with Legend</a></div>
+<div><b><img src="doc.gif"></b><a href="smallsectorpie.htm" target="ir" onclick="return ta(this);">Pie with Small Sectors</a></div>
+<div><b><img src="doc.gif"></b><a href="iconpie.htm" target="ir" onclick="return ta(this);">Icon Pie Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="iconpie2.htm" target="ir" onclick="return ta(this);">Icon Pie Chart (2)</a></div>
+<div><b><img src="doc.gif"></b><a href="fontpie.htm" target="ir" onclick="return ta(this);">Text Style and Colors</a></div>
+<div><b><img src="doc.gif"></b><a href="goldpie.htm" target="ir" onclick="return ta(this);">Metallic Background Coloring</a></div>
+<div><b><img src="doc.gif"></b><a href="colorpie.htm" target="ir" onclick="return ta(this);">Coloring and Wallpaper</a></div>
+<div><b><img src="doc.gif"></b><a href="borderpie.htm" target="ir" onclick="return ta(this);">Sectors with Borders</a></div>
+<div><b><img src="doc.gif"></b><a href="threedanglepie.htm" target="ir" onclick="return ta(this);">3D Angle</a></div>
+<div><b><img src="doc.gif"></b><a href="threeddepthpie.htm" target="ir" onclick="return ta(this);">3D Depth</a></div>
+<div><b><img src="doc.gif"></b><a href="shadowpie.htm" target="ir" onclick="return ta(this);">3D Shadow Mode</a></div>
+<div><b><img src="doc.gif"></b><a href="anglepie.htm" target="ir" onclick="return ta(this);">Start Angle and Direction</a></div>
+</div>
+<div class="ns"><a href="#" onclick="return tv(4);"><img id="img4" src="minus.gif" border="0"></a><a href="xycharts.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(4);">XY Charts</a></div>
+<div class="in2" id="bk4">
+<div class="ns"><a href="#" onclick="return tv(5);"><img id="img5" src="plus.gif" border="0"></a><a href="barcharts.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(5);">Bar Charts</a></div>
+<div class="in3" id="bk5" style="display:none">
+<div><b><img src="doc.gif"></b><a href="simplebar.htm" target="ir" onclick="return ta(this);">Simple Bar Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="threedbar.htm" target="ir" onclick="return ta(this);">3D Bar Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="colorbar.htm" target="ir" onclick="return ta(this);">Multi-Color Bar Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="stackedbar.htm" target="ir" onclick="return ta(this);">Stacked Bar Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="percentbar.htm" target="ir" onclick="return ta(this);">Percentage Bar Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="multibar.htm" target="ir" onclick="return ta(this);">Multi-Bar Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="multistackbar.htm" target="ir" onclick="return ta(this);">Multi-Stacked Bar Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="depthbar.htm" target="ir" onclick="return ta(this);">Depth Bar Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="posnegbar.htm" target="ir" onclick="return ta(this);">Positive Negative Bar</a></div>
+<div><b><img src="doc.gif"></b><a href="hbar.htm" target="ir" onclick="return ta(this);">Horizontal Bar Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="dualhbar.htm" target="ir" onclick="return ta(this);">Dual Horizontal Bar Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="pareto.htm" target="ir" onclick="return ta(this);">Pareto Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="gapbar.htm" target="ir" onclick="return ta(this);">Bar Gap</a></div>
+</div>
+<div class="ns"><a href="#" onclick="return tv(6);"><img id="img6" src="plus.gif" border="0"></a><a href="linecharts.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(6);">Line Charts</a></div>
+<div class="in3" id="bk6" style="display:none">
+<div><b><img src="doc.gif"></b><a href="simpleline.htm" target="ir" onclick="return ta(this);">Simple Line Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="enhancedline.htm" target="ir" onclick="return ta(this);">Enhanced Line Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="threedline.htm" target="ir" onclick="return ta(this);">3D Line Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="multiline.htm" target="ir" onclick="return ta(this);">Multi-Line Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="symbolline.htm" target="ir" onclick="return ta(this);">Symbol Line Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="splineline.htm" target="ir" onclick="return ta(this);">Spline Line Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="stepline.htm" target="ir" onclick="return ta(this);">Step Line Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="linecompare.htm" target="ir" onclick="return ta(this);">Line Comparison</a></div>
+<div><b><img src="doc.gif"></b><a href="errline.htm" target="ir" onclick="return ta(this);">Line with Error Symbols</a></div>
+<div><b><img src="doc.gif"></b><a href="customsymbolline.htm" target="ir" onclick="return ta(this);">Custom Symbols</a></div>
+<div><b><img src="doc.gif"></b><a href="rotatedline.htm" target="ir" onclick="return ta(this);">Rotated Line Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="xyline.htm" target="ir" onclick="return ta(this);">Arbitrary XY Line Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="discontline.htm" target="ir" onclick="return ta(this);">Discontinuous Lines</a></div>
+</div>
+<div class="ns"><a href="#" onclick="return tv(7);"><img id="img7" src="plus.gif" border="0"></a><a href="trendcurve.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(7);">Trending and Curve Fitting</a></div>
+<div class="in3" id="bk7" style="display:none">
+<div><b><img src="doc.gif"></b><a href="trendline.htm" target="ir" onclick="return ta(this);">Trend Line Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="scattertrend.htm" target="ir" onclick="return ta(this);">Scatter Trend Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="confidenceband.htm" target="ir" onclick="return ta(this);">Confidence Band</a></div>
+<div><b><img src="doc.gif"></b><a href="curvefitting.htm" target="ir" onclick="return ta(this);">General Curve Fitting</a></div>
+</div>
+<div class="ns"><a href="#" onclick="return tv(8);"><img id="img8" src="plus.gif" border="0"></a><a href="scattercharts.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(8);">Scatter/Bubble Charts</a></div>
+<div class="in3" id="bk8" style="display:none">
+<div><b><img src="doc.gif"></b><a href="scatter.htm" target="ir" onclick="return ta(this);">Scatter Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="scattersymbols.htm" target="ir" onclick="return ta(this);">Custom Scatter Symbols</a></div>
+<div><b><img src="doc.gif"></b><a href="scatterlabels.htm" target="ir" onclick="return ta(this);">Custom Scatter Labels</a></div>
+<div><b><img src="doc.gif"></b><a href="bubble.htm" target="ir" onclick="return ta(this);">Bubble Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="bubblescale.htm" target="ir" onclick="return ta(this);">Bubble XY Scaling</a></div>
+</div>
+<div class="ns"><a href="#" onclick="return tv(9);"><img id="img9" src="plus.gif" border="0"></a><a href="areacharts.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(9);">Area Charts</a></div>
+<div class="in3" id="bk9" style="display:none">
+<div><b><img src="doc.gif"></b><a href="simplearea.htm" target="ir" onclick="return ta(this);">Simple Area Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="enhancedarea.htm" target="ir" onclick="return ta(this);">Enhanced Area Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="threedarea.htm" target="ir" onclick="return ta(this);">3D Area Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="patternarea.htm" target="ir" onclick="return ta(this);">Pattern Area Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="stackedarea.htm" target="ir" onclick="return ta(this);">Stacked Area Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="threedstackarea.htm" target="ir" onclick="return ta(this);">3D Stacked Area Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="percentarea.htm" target="ir" onclick="return ta(this);">Percentage Area Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="deptharea.htm" target="ir" onclick="return ta(this);">Depth Area Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="rotatedarea.htm" target="ir" onclick="return ta(this);">Rotated Area Chart</a></div>
+</div>
+<div class="ns"><a href="#" onclick="return tv(10);"><img id="img10" src="plus.gif" border="0"></a><a href="boxwhiskercharts.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(10);">Box Whister Charts</a></div>
+<div class="in3" id="bk10" style="display:none">
+<div><b><img src="doc.gif"></b><a href="boxwhisker.htm" target="ir" onclick="return ta(this);">Box-Whisker Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="boxwhisker2.htm" target="ir" onclick="return ta(this);">Box-Whisker Chart (2)</a></div>
+<div><b><img src="doc.gif"></b><a href="gantt.htm" target="ir" onclick="return ta(this);">Simple Gantt Chart</a></div>
+</div>
+<div class="ns"><a href="#" onclick="return tv(11);"><img id="img11" src="plus.gif" border="0"></a><a href="financecharts.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(11);">Finance Charts</a></div>
+<div class="in3" id="bk11" style="display:none">
+<div><b><img src="doc.gif"></b><a href="hloc.htm" target="ir" onclick="return ta(this);">High-Low-Open-Close Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="candlestick.htm" target="ir" onclick="return ta(this);">Candlestick Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="finance.htm" target="ir" onclick="return ta(this);">Finance Chart (1)</a></div>
+<div><b><img src="doc.gif"></b><a href="finance2.htm" target="ir" onclick="return ta(this);">Finance Chart (2)</a></div>
+</div>
+<div class="ns"><a href="#" onclick="return tv(12);"><img id="img12" src="plus.gif" border="0"></a><a href="xyfeatures.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(12);">Other XY Chart Features</a></div>
+<div class="in3" id="bk12" style="display:none">
+<div><b><img src="doc.gif"></b><a href="markzone.htm" target="ir" onclick="return ta(this);">Marks and Zones</a></div>
+<div><b><img src="doc.gif"></b><a href="markzone2.htm" target="ir" onclick="return ta(this);">Marks and Zones (2)</a></div>
+<div><b><img src="doc.gif"></b><a href="yzonecolor.htm" target="ir" onclick="return ta(this);">Y Zone Coloring</a></div>
+<div><b><img src="doc.gif"></b><a href="xzonecolor.htm" target="ir" onclick="return ta(this);">X Zone Coloring</a></div>
+<div><b><img src="doc.gif"></b><a href="dualyaxis.htm" target="ir" onclick="return ta(this);">Dual Y-Axis</a></div>
+<div><b><img src="doc.gif"></b><a href="dualxaxis.htm" target="ir" onclick="return ta(this);">Dual X-Axis</a></div>
+<div><b><img src="doc.gif"></b><a href="fontxy.htm" target="ir" onclick="return ta(this);">Text Style and Colors</a></div>
+<div><b><img src="doc.gif"></b><a href="background.htm" target="ir" onclick="return ta(this);">Background and Wallpaper</a></div>
+<div><b><img src="doc.gif"></b><a href="logaxis.htm" target="ir" onclick="return ta(this);">Log Scale Axis</a></div>
+<div><b><img src="doc.gif"></b><a href="axisscale.htm" target="ir" onclick="return ta(this);">Y-Axis Scaling</a></div>
+<div><b><img src="doc.gif"></b><a href="ticks.htm" target="ir" onclick="return ta(this);">Tick Density</a></div>
+</div>
+</div>
+<div class="ns"><a href="#" onclick="return tv(13);"><img id="img13" src="plus.gif" border="0"></a><a href="polarcharts.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(13);">Polar/Radar Charts</a></div>
+<div class="in2" id="bk13" style="display:none">
+<div><b><img src="doc.gif"></b><a href="simpleradar.htm" target="ir" onclick="return ta(this);">Simple Radar Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="multiradar.htm" target="ir" onclick="return ta(this);">Multi Radar Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="polarline.htm" target="ir" onclick="return ta(this);">Polar Line Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="polarspline.htm" target="ir" onclick="return ta(this);">Polar Spline Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="polarscatter.htm" target="ir" onclick="return ta(this);">Polar Scatter Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="polarbubble.htm" target="ir" onclick="return ta(this);">Polar Bubble Chart</a></div>
+<div><b><img src="doc.gif"></b><a href="polarzones.htm" target="ir" onclick="return ta(this);">Polar Zones</a></div>
+</div>
+<div class="ns"><a href="#" onclick="return tv(14);"><img id="img14" src="plus.gif" border="0"></a><a href="datasource.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(14);">Using Data Sources with ChartDirector</a></div>
+<div class="in2" id="bk14" style="display:none">
+<div><b><img src="doc.gif"></b><a href="dbweb.htm" target="ir" onclick="return ta(this);">Using ChartDirector with Database in Web Pages</a></div>
+<div><b><img src="doc.gif"></b><a href="dbsample0.htm" target="ir" onclick="return ta(this);">Database Sample Code Overview</a></div>
+<div><b><img src="doc.gif"></b><a href="dbsample1.htm" target="ir" onclick="return ta(this);">Direct Database Access</a></div>
+<div><b><img src="doc.gif"></b><a href="dbsample2.htm" target="ir" onclick="return ta(this);">Pass Data as HTTP Query Parameters</a></div>
+</div>
+<div class="ns"><a href="#" onclick="return tv(15);"><img id="img15" src="plus.gif" border="0"></a><a href="clickablecharts.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(15);">Clickable Charts</a></div>
+<div class="in2" id="bk15" style="display:none">
+<div><b><img src="doc.gif"></b><a href="clickableintro.htm" target="ir" onclick="return ta(this);">Introduction to Clickable Charts</a></div>
+<div><b><img src="doc.gif"></b><a href="clickableoverview.htm" target="ir" onclick="return ta(this);">Clickable Charts Operation Overview</a></div>
+<div><b><img src="doc.gif"></b><a href="simpleclickable.htm" target="ir" onclick="return ta(this);">Simple Clickable Charts</a></div>
+<div><b><img src="doc.gif"></b><a href="jsclickable.htm" target="ir" onclick="return ta(this);">Javascript Clickable Charts</a></div>
+<div><b><img src="doc.gif"></b><a href="customclickable.htm" target="ir" onclick="return ta(this);">Custom Clickable Objects</a></div>
+<div><b><img src="doc.gif"></b><a href="dbclickable.htm" target="ir" onclick="return ta(this);">Database Clickable Charts</a></div>
+<div><b><img src="doc.gif"></b><a href="multiplehandlers.htm" target="ir" onclick="return ta(this);">Using Multiple Click Handlers</a></div>
+<div><b><img src="doc.gif"></b><a href="otherclickable.htm" target="ir" onclick="return ta(this);">Making Other Objects Clickable</a></div>
+</div>
+<div class="ns"><a href="#" onclick="return tv(16);"><img id="img16" src="minus.gif" border="0"></a><a href="cdref.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(16);">ChartDirector Reference</a></div>
+<div class="in2" id="bk16">
+<div class="ns"><a href="#" onclick="return tv(17);"><img id="img17" src="plus.gif" border="0"></a><a href="classlib.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(17);">Class Library</a></div>
+<div class="in3" id="bk17" style="display:none">
+<div><a href="#" onclick="return tv(18);"><img id="img18" src="plus.gif" border="0"></a><a href="phpchartdir.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(18);">phpchartdir</a></div>
+<div class="in4" id="bk18" style="display:none">
+<div><b><img src="doc.gif"></b><a href="phpchartdir.chartTime.htm" target="ir" onclick="return ta(this);">chartTime</a></div>
+<div><b><img src="doc.gif"></b><a href="phpchartdir.chartTime2.htm" target="ir" onclick="return ta(this);">chartTime2</a></div>
+<div><b><img src="doc.gif"></b><a href="phpchartdir.setLicenseCode.htm" target="ir" onclick="return ta(this);">setLicenseCode</a></div>
+<div><b><img src="doc.gif"></b><a href="phpchartdir.getVersion.htm" target="ir" onclick="return ta(this);">getVersion</a></div>
+</div>
+<div><a href="#" onclick="return tv(19);"><img id="img19" src="plus.gif" border="0"></a><a href="#" ondblclick="return tv(19);">Fundamental Classes</a></div>
+<div class="in4" id="bk19" style="display:none">
+<div><a href="#" onclick="return tv(20);"><img id="img20" src="plus.gif" border="0"></a><a href="Box.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(20);">Box</a></div>
+<div class="in5" id="bk20" style="display:none">
+<div><b><img src="doc.gif"></b><a href="Box.setPos.htm" target="ir" onclick="return ta(this);">setPos</a></div>
+<div><b><img src="doc.gif"></b><a href="Box.setSize.htm" target="ir" onclick="return ta(this);">setSize</a></div>
+<div><b><img src="doc.gif"></b><a href="Box.setBackground.htm" target="ir" onclick="return ta(this);">setBackground</a></div>
+<div><b><img src="doc.gif"></b><a href="Box.getWidth.htm" target="ir" onclick="return ta(this);">getWidth</a></div>
+<div><b><img src="doc.gif"></b><a href="Box.getHeight.htm" target="ir" onclick="return ta(this);">getHeight</a></div>
+<div><b><img src="doc.gif"></b><a href="Box.getImageCoor.htm" target="ir" onclick="return ta(this);">getImageCoor</a></div>
+</div>
+<div><a href="#" onclick="return tv(21);"><img id="img21" src="plus.gif" border="0"></a><a href="TextBox.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(21);">TextBox</a></div>
+<div class="in5" id="bk21" style="display:none">
+<div><b><img src="doc.gif"></b><a href="TextBox.setText.htm" target="ir" onclick="return ta(this);">setText</a></div>
+<div><b><img src="doc.gif"></b><a href="TextBox.setAlignment.htm" target="ir" onclick="return ta(this);">setAlignment</a></div>
+<div><b><img src="doc.gif"></b><a href="TextBox.setFontStyle.htm" target="ir" onclick="return ta(this);">setFontStyle</a></div>
+<div><b><img src="doc.gif"></b><a href="TextBox.setFontSize.htm" target="ir" onclick="return ta(this);">setFontSize</a></div>
+<div><b><img src="doc.gif"></b><a href="TextBox.setFontAngle.htm" target="ir" onclick="return ta(this);">setFontAngle</a></div>
+<div><b><img src="doc.gif"></b><a href="TextBox.setFontColor.htm" target="ir" onclick="return ta(this);">setFontColor</a></div>
+<div><b><img src="doc.gif"></b><a href="TextBox.setMargin.htm" target="ir" onclick="return ta(this);">setMargin</a></div>
+<div><b><img src="doc.gif"></b><a href="TextBox.setMargin2.htm" target="ir" onclick="return ta(this);">setMargin2</a></div>
+</div>
+<div><a href="#" onclick="return tv(22);"><img id="img22" src="plus.gif" border="0"></a><a href="Line.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(22);">Line</a></div>
+<div class="in5" id="bk22" style="display:none">
+<div><b><img src="doc.gif"></b><a href="Line.setPos.htm" target="ir" onclick="return ta(this);">setPos</a></div>
+<div><b><img src="doc.gif"></b><a href="Line.setColor.htm" target="ir" onclick="return ta(this);">setColor</a></div>
+<div><b><img src="doc.gif"></b><a href="Line.setWidth.htm" target="ir" onclick="return ta(this);">setWidth</a></div>
+</div>
+</div>
+<div><a href="#" onclick="return tv(23);"><img id="img23" src="plus.gif" border="0"></a><a href="#" ondblclick="return tv(23);">General Charts</a></div>
+<div class="in4" id="bk23" style="display:none">
+<div><a href="#" onclick="return tv(24);"><img id="img24" src="plus.gif" border="0"></a><a href="BaseChart.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(24);">BaseChart</a></div>
+<div class="in5" id="bk24" style="display:none">
+<div><b><img src="doc.gif"></b><a href="BaseChart.setSize.htm" target="ir" onclick="return ta(this);">setSize</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.setBackground.htm" target="ir" onclick="return ta(this);">setBackground</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.setBorder.htm" target="ir" onclick="return ta(this);">setBorder</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.setWallpaper.htm" target="ir" onclick="return ta(this);">setWallpaper</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.setBgImage.htm" target="ir" onclick="return ta(this);">setBgImage</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.setSearchPath.htm" target="ir" onclick="return ta(this);">setSearchPath</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.setTransparentColor.htm" target="ir" onclick="return ta(this);">setTransparentColor</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.setAntiAlias.htm" target="ir" onclick="return ta(this);">setAntiAlias</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.addTitle.htm" target="ir" onclick="return ta(this);">addTitle</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.addTitle2.htm" target="ir" onclick="return ta(this);">addTitle2</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.addLegend.htm" target="ir" onclick="return ta(this);">addLegend</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.getLegend.htm" target="ir" onclick="return ta(this);">getLegend</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.getDrawArea.htm" target="ir" onclick="return ta(this);">getDrawArea</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.addText.htm" target="ir" onclick="return ta(this);">addText</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.addLine.htm" target="ir" onclick="return ta(this);">addLine</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.setColor.htm" target="ir" onclick="return ta(this);">setColor</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.setColors.htm" target="ir" onclick="return ta(this);">setColors</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.setColors2.htm" target="ir" onclick="return ta(this);">setColors2</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.getColor.htm" target="ir" onclick="return ta(this);">getColor</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.halfColor.htm" target="ir" onclick="return ta(this);">halfColor</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.dashLineColor.htm" target="ir" onclick="return ta(this);">dashLineColor</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.patternColor.htm" target="ir" onclick="return ta(this);">patternColor</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.patternColor2.htm" target="ir" onclick="return ta(this);">patternColor2</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.gradientColor.htm" target="ir" onclick="return ta(this);">gradientColor</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.gradientColor2.htm" target="ir" onclick="return ta(this);">gradientColor2</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.setDefaultFonts.htm" target="ir" onclick="return ta(this);">setDefaultFonts</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.setFontTable.htm" target="ir" onclick="return ta(this);">setFontTable</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.setNumberFormat.htm" target="ir" onclick="return ta(this);">setNumberFormat</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.setMonthNames.htm" target="ir" onclick="return ta(this);">setMonthNames</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.setWeekDayNames.htm" target="ir" onclick="return ta(this);">setWeekDayNames</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.setAMPM.htm" target="ir" onclick="return ta(this);">setAMPM</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.layout.htm" target="ir" onclick="return ta(this);">layout</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.makeChart.htm" target="ir" onclick="return ta(this);">makeChart</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.makeChart2.htm" target="ir" onclick="return ta(this);">makeChart2</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.makeChart3.htm" target="ir" onclick="return ta(this);">makeChart3</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.makeSession.htm" target="ir" onclick="return ta(this);">makeSession</a></div>
+<div><b><img src="doc.gif"></b><a href="BaseChart.getHTMLImageMap.htm" target="ir" onclick="return ta(this);">getHTMLImageMap</a></div>
+</div>
+<div><a href="#" onclick="return tv(25);"><img id="img25" src="plus.gif" border="0"></a><a href="MultiChart.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(25);">MultiChart</a></div>
+<div class="in5" id="bk25" style="display:none">
+<div><b><img src="doc.gif"></b><a href="MultiChart.MultiChart.htm" target="ir" onclick="return ta(this);">MultiChart</a></div>
+<div><b><img src="doc.gif"></b><a href="MultiChart.addChart.htm" target="ir" onclick="return ta(this);">addChart</a></div>
+</div>
+<div><a href="#" onclick="return tv(26);"><img id="img26" src="plus.gif" border="0"></a><a href="LegendBox.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(26);">LegendBox</a></div>
+<div class="in5" id="bk26" style="display:none">
+<div><b><img src="doc.gif"></b><a href="LegendBox.addKey.htm" target="ir" onclick="return ta(this);">addKey</a></div>
+<div><b><img src="doc.gif"></b><a href="LegendBox.setText.htm" target="ir" onclick="return ta(this);">setText</a></div>
+<div><b><img src="doc.gif"></b><a href="LegendBox.setKeySize.htm" target="ir" onclick="return ta(this);">setKeySize</a></div>
+<div><b><img src="doc.gif"></b><a href="LegendBox.setKeySpacing.htm" target="ir" onclick="return ta(this);">setKeySpacing</a></div>
+<div><b><img src="doc.gif"></b><a href="LegendBox.getImageCoor2.htm" target="ir" onclick="return ta(this);">getImageCoor2</a></div>
+<div><b><img src="doc.gif"></b><a href="LegendBox.getHTMLImageMap.htm" target="ir" onclick="return ta(this);">getHTMLImageMap</a></div>
+</div>
+</div>
+<div><a href="#" onclick="return tv(27);"><img id="img27" src="plus.gif" border="0"></a><a href="#" ondblclick="return tv(27);">Pie Charts Related</a></div>
+<div class="in4" id="bk27" style="display:none">
+<div><a href="#" onclick="return tv(28);"><img id="img28" src="plus.gif" border="0"></a><a href="PieChart.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(28);">PieChart</a></div>
+<div class="in5" id="bk28" style="display:none">
+<div><b><img src="doc.gif"></b><a href="PieChart.PieChart.htm" target="ir" onclick="return ta(this);">PieChart</a></div>
+<div><b><img src="doc.gif"></b><a href="PieChart.setPieSize.htm" target="ir" onclick="return ta(this);">setPieSize</a></div>
+<div><b><img src="doc.gif"></b><a href="PieChart.set3D.htm" target="ir" onclick="return ta(this);">set3D</a></div>
+<div><b><img src="doc.gif"></b><a href="PieChart.set3D2.htm" target="ir" onclick="return ta(this);">set3D2</a></div>
+<div><b><img src="doc.gif"></b><a href="PieChart.setStartAngle.htm" target="ir" onclick="return ta(this);">setStartAngle</a></div>
+<div><b><img src="doc.gif"></b><a href="PieChart.setExplode.htm" target="ir" onclick="return ta(this);">setExplode</a></div>
+<div><b><img src="doc.gif"></b><a href="PieChart.setExplodeGroup.htm" target="ir" onclick="return ta(this);">setExplodeGroup</a></div>
+<div><b><img src="doc.gif"></b><a href="PieChart.setLabelFormat.htm" target="ir" onclick="return ta(this);">setLabelFormat</a></div>
+<div><b><img src="doc.gif"></b><a href="PieChart.setLabelStyle.htm" target="ir" onclick="return ta(this);">setLabelStyle</a></div>
+<div><b><img src="doc.gif"></b><a href="PieChart.setLabelPos.htm" target="ir" onclick="return ta(this);">setLabelPos</a></div>
+<div><b><img src="doc.gif"></b><a href="PieChart.setLabelLayout.htm" target="ir" onclick="return ta(this);">setLabelLayout</a></div>
+<div><b><img src="doc.gif"></b><a href="PieChart.setJoinLine.htm" target="ir" onclick="return ta(this);">setJoinLine</a></div>
+<div><b><img src="doc.gif"></b><a href="PieChart.setLineColor.htm" target="ir" onclick="return ta(this);">setLineColor</a></div>
+<div><b><img src="doc.gif"></b><a href="PieChart.setData.htm" target="ir" onclick="return ta(this);">setData</a></div>
+<div><b><img src="doc.gif"></b><a href="PieChart.addExtraField.htm" target="ir" onclick="return ta(this);">addExtraField</a></div>
+<div><b><img src="doc.gif"></b><a href="PieChart.sector.htm" target="ir" onclick="return ta(this);">sector</a></div>
+</div>
+<div><a href="#" onclick="return tv(29);"><img id="img29" src="plus.gif" border="0"></a><a href="Sector.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(29);">Sector</a></div>
+<div class="in5" id="bk29" style="display:none">
+<div><b><img src="doc.gif"></b><a href="Sector.setExplode.htm" target="ir" onclick="return ta(this);">setExplode</a></div>
+<div><b><img src="doc.gif"></b><a href="Sector.setLabelFormat.htm" target="ir" onclick="return ta(this);">setLabelFormat</a></div>
+<div><b><img src="doc.gif"></b><a href="Sector.setLabelStyle.htm" target="ir" onclick="return ta(this);">setLabelStyle</a></div>
+<div><b><img src="doc.gif"></b><a href="Sector.setLabelPos.htm" target="ir" onclick="return ta(this);">setLabelPos</a></div>
+<div><b><img src="doc.gif"></b><a href="Sector.setLabelLayout.htm" target="ir" onclick="return ta(this);">setLabelLayout</a></div>
+<div><b><img src="doc.gif"></b><a href="Sector.setJoinLine.htm" target="ir" onclick="return ta(this);">setJoinLine</a></div>
+<div><b><img src="doc.gif"></b><a href="Sector.setColor.htm" target="ir" onclick="return ta(this);">setColor</a></div>
+<div><b><img src="doc.gif"></b><a href="Sector.getImageCoor.htm" target="ir" onclick="return ta(this);">getImageCoor</a></div>
+<div><b><img src="doc.gif"></b><a href="Sector.getLabelCoor.htm" target="ir" onclick="return ta(this);">getLabelCoor</a></div>
+<div><b><img src="doc.gif"></b><a href="Sector.setColor.htm" target="ir" onclick="return ta(this);">setColor</a></div>
+</div>
+</div>
+<div><a href="#" onclick="return tv(30);"><img id="img30" src="plus.gif" border="0"></a><a href="#" ondblclick="return tv(30);">XY Charts Related</a></div>
+<div class="in4" id="bk30" style="display:none">
+<div><a href="#" onclick="return tv(31);"><img id="img31" src="plus.gif" border="0"></a><a href="XYChart.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(31);">XYChart</a></div>
+<div class="in5" id="bk31" style="display:none">
+<div><b><img src="doc.gif"></b><a href="XYChart.XYChart.htm" target="ir" onclick="return ta(this);">XYChart</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.yAxis.htm" target="ir" onclick="return ta(this);">yAxis</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.yAxis2.htm" target="ir" onclick="return ta(this);">yAxis2</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.syncYAxis.htm" target="ir" onclick="return ta(this);">syncYAxis</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.setYAxisOnRight.htm" target="ir" onclick="return ta(this);">setYAxisOnRight</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.xAxis.htm" target="ir" onclick="return ta(this);">xAxis</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.xAxis2.htm" target="ir" onclick="return ta(this);">xAxis2</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.setXAxisOnTop.htm" target="ir" onclick="return ta(this);">setXAxisOnTop</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.swapXY.htm" target="ir" onclick="return ta(this);">swapXY</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.setPlotArea.htm" target="ir" onclick="return ta(this);">setPlotArea</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.setClipping.htm" target="ir" onclick="return ta(this);">setClipping</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.addBarLayer.htm" target="ir" onclick="return ta(this);">addBarLayer</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.addBarLayer2.htm" target="ir" onclick="return ta(this);">addBarLayer2</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.addBarLayer3.htm" target="ir" onclick="return ta(this);">addBarLayer3</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.addLineLayer.htm" target="ir" onclick="return ta(this);">addLineLayer</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.addLineLayer2.htm" target="ir" onclick="return ta(this);">addLineLayer2</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.addAreaLayer.htm" target="ir" onclick="return ta(this);">addAreaLayer</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.addAreaLayer2.htm" target="ir" onclick="return ta(this);">addAreaLayer2</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.addHLOCLayer.htm" target="ir" onclick="return ta(this);">addHLOCLayer</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.addHLOCLayer2.htm" target="ir" onclick="return ta(this);">addHLOCLayer2</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.addCandleStickLayer.htm" target="ir" onclick="return ta(this);">addCandleStickLayer</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.addBoxWhiskerLayer.htm" target="ir" onclick="return ta(this);">addBoxWhiskerLayer</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.addScatterLayer.htm" target="ir" onclick="return ta(this);">addScatterLayer</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.addTrendLayer.htm" target="ir" onclick="return ta(this);">addTrendLayer</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.addTrendLayer2.htm" target="ir" onclick="return ta(this);">addTrendLayer2</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.addSplineLayer.htm" target="ir" onclick="return ta(this);">addSplineLayer</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.addStepLineLayer.htm" target="ir" onclick="return ta(this);">addStepLineLayer</a></div>
+<div><b><img src="doc.gif"></b><a href="XYChart.addInterLineLayer.htm" target="ir" onclick="return ta(this);">addInterLineLayer</a></div>
+</div>
+<div><a href="#" onclick="return tv(32);"><img id="img32" src="plus.gif" border="0"></a><a href="PlotArea.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(32);">PlotArea</a></div>
+<div class="in5" id="bk32" style="display:none">
+<div><b><img src="doc.gif"></b><a href="PlotArea.setBackground.htm" target="ir" onclick="return ta(this);">setBackground</a></div>
+<div><b><img src="doc.gif"></b><a href="PlotArea.setBackground2.htm" target="ir" onclick="return ta(this);">setBackground2</a></div>
+<div><b><img src="doc.gif"></b><a href="PlotArea.setGridColor.htm" target="ir" onclick="return ta(this);">setGridColor</a></div>
+<div><b><img src="doc.gif"></b><a href="PlotArea.setGridWidth.htm" target="ir" onclick="return ta(this);">setGridWidth</a></div>
+</div>
+<div><a href="#" onclick="return tv(33);"><img id="img33" src="plus.gif" border="0"></a><a href="Axis.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(33);">Axis</a></div>
+<div class="in5" id="bk33" style="display:none">
+<div><b><img src="doc.gif"></b><a href="Axis.setLabelStyle.htm" target="ir" onclick="return ta(this);">setLabelStyle</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setLabelFormat.htm" target="ir" onclick="return ta(this);">setLabelFormat</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setLabelGap.htm" target="ir" onclick="return ta(this);">setLabelGap</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setTitle.htm" target="ir" onclick="return ta(this);">setTitle</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setTitlePos.htm" target="ir" onclick="return ta(this);">setTitlePos</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setColors.htm" target="ir" onclick="return ta(this);">setColors</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setTickLength.htm" target="ir" onclick="return ta(this);">setTickLength</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setTickLength2.htm" target="ir" onclick="return ta(this);">setTickLength2</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setTickWidth.htm" target="ir" onclick="return ta(this);">setTickWidth</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setTickColor.htm" target="ir" onclick="return ta(this);">setTickColor</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setWidth.htm" target="ir" onclick="return ta(this);">setWidth</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setMargin.htm" target="ir" onclick="return ta(this);">setMargin</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setIndent.htm" target="ir" onclick="return ta(this);">setIndent</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setAutoScale.htm" target="ir" onclick="return ta(this);">setAutoScale</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setRounding.htm" target="ir" onclick="return ta(this);">setRounding</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setTickDensity.htm" target="ir" onclick="return ta(this);">setTickDensity</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setReverse.htm" target="ir" onclick="return ta(this);">setReverse</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setLabels.htm" target="ir" onclick="return ta(this);">setLabels</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setLabels2.htm" target="ir" onclick="return ta(this);">setLabels2</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setLinearScale.htm" target="ir" onclick="return ta(this);">setLinearScale</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setLinearScale2.htm" target="ir" onclick="return ta(this);">setLinearScale2</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setLinearScale3.htm" target="ir" onclick="return ta(this);">setLinearScale3</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setLogScale.htm" target="ir" onclick="return ta(this);">setLogScale</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setLogScale2.htm" target="ir" onclick="return ta(this);">setLogScale2</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setLogScale3.htm" target="ir" onclick="return ta(this);">setLogScale3</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setDateScale.htm" target="ir" onclick="return ta(this);">setDateScale</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setDateScale2.htm" target="ir" onclick="return ta(this);">setDateScale2</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.setDateScale3.htm" target="ir" onclick="return ta(this);">setDateScale3</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.addLabel.htm" target="ir" onclick="return ta(this);">addLabel</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.addMark.htm" target="ir" onclick="return ta(this);">addMark</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.addZone.htm" target="ir" onclick="return ta(this);">addZone</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.getMinValue.htm" target="ir" onclick="return ta(this);">getMinValue</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.getMaxValue.htm" target="ir" onclick="return ta(this);">getMaxValue</a></div>
+<div><b><img src="doc.gif"></b><a href="Axis.getTicks.htm" target="ir" onclick="return ta(this);">getTicks</a></div>
+</div>
+<div><a href="#" onclick="return tv(34);"><img id="img34" src="plus.gif" border="0"></a><a href="Mark.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(34);">Mark</a></div>
+<div class="in5" id="bk34" style="display:none">
+<div><b><img src="doc.gif"></b><a href="Mark.setValue.htm" target="ir" onclick="return ta(this);">setValue</a></div>
+<div><b><img src="doc.gif"></b><a href="Mark.setMarkColor.htm" target="ir" onclick="return ta(this);">setMarkColor</a></div>
+<div><b><img src="doc.gif"></b><a href="Mark.setLineWidth.htm" target="ir" onclick="return ta(this);">setLineWidth</a></div>
+<div><b><img src="doc.gif"></b><a href="Mark.setDrawOnTop.htm" target="ir" onclick="return ta(this);">setDrawOnTop</a></div>
+<div><b><img src="doc.gif"></b><a href="Mark.getLine.htm" target="ir" onclick="return ta(this);">getLine</a></div>
+</div>
+<div><a href="#" onclick="return tv(35);"><img id="img35" src="plus.gif" border="0"></a><a href="Layer.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(35);">Layer</a></div>
+<div class="in5" id="bk35" style="display:none">
+<div><b><img src="doc.gif"></b><a href="Layer.set3D.htm" target="ir" onclick="return ta(this);">set3D</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.setLineWidth.htm" target="ir" onclick="return ta(this);">setLineWidth</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.setBorderColor.htm" target="ir" onclick="return ta(this);">setBorderColor</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.setLegend.htm" target="ir" onclick="return ta(this);">setLegend</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.setDataCombineMethod.htm" target="ir" onclick="return ta(this);">setDataCombineMethod</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.addDataSet.htm" target="ir" onclick="return ta(this);">addDataSet</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.getDataSet.htm" target="ir" onclick="return ta(this);">getDataSet</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.addDataGroup.htm" target="ir" onclick="return ta(this);">addDataGroup</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.addExtraField.htm" target="ir" onclick="return ta(this);">addExtraField</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.setUseYAxis2.htm" target="ir" onclick="return ta(this);">setUseYAxis2</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.setXData.htm" target="ir" onclick="return ta(this);">setXData</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.setXData2.htm" target="ir" onclick="return ta(this);">setXData2</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.getXCoor.htm" target="ir" onclick="return ta(this);">getXCoor</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.getYCoor.htm" target="ir" onclick="return ta(this);">getYCoor</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.xZoneColor.htm" target="ir" onclick="return ta(this);">xZoneColor</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.yZoneColor.htm" target="ir" onclick="return ta(this);">yZoneColor</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.getImageCoor.htm" target="ir" onclick="return ta(this);">getImageCoor</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.getImageCoor2.htm" target="ir" onclick="return ta(this);">getImageCoor2</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.getHTMLImageMap.htm" target="ir" onclick="return ta(this);">getHTMLImageMap</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.setDataLabelStyle.htm" target="ir" onclick="return ta(this);">setDataLabelStyle</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.setDataLabelFormat.htm" target="ir" onclick="return ta(this);">setDataLabelFormat</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.addCustomDataLabel.htm" target="ir" onclick="return ta(this);">addCustomDataLabel</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.setAggregateLabelStyle.htm" target="ir" onclick="return ta(this);">setAggregateLabelStyle</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.setAggregateLabelFormat.htm" target="ir" onclick="return ta(this);">setAggregateLabelFormat</a></div>
+<div><b><img src="doc.gif"></b><a href="Layer.addCustomAggregateLabel.htm" target="ir" onclick="return ta(this);">addCustomAggregateLabel</a></div>
+</div>
+<div><a href="#" onclick="return tv(36);"><img id="img36" src="plus.gif" border="0"></a><a href="BarLayer.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(36);">BarLayer</a></div>
+<div class="in5" id="bk36" style="display:none">
+<div><b><img src="doc.gif"></b><a href="BarLayer.setBarGap.htm" target="ir" onclick="return ta(this);">setBarGap</a></div>
+<div><b><img src="doc.gif"></b><a href="BarLayer.setBarWidth.htm" target="ir" onclick="return ta(this);">setBarWidth</a></div>
+<div><b><img src="doc.gif"></b><a href="BarLayer.setMinLabelSize.htm" target="ir" onclick="return ta(this);">setMinLabelSize</a></div>
+</div>
+<div><a href="#" onclick="return tv(37);"><img id="img37" src="plus.gif" border="0"></a><a href="LineLayer.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(37);">LineLayer</a></div>
+<div class="in5" id="bk37" style="display:none">
+<div><b><img src="doc.gif"></b><a href="LineLayer.setSymbolScale.htm" target="ir" onclick="return ta(this);">setSymbolScale</a></div>
+<div><b><img src="doc.gif"></b><a href="LineLayer.setGapColor.htm" target="ir" onclick="return ta(this);">setGapColor</a></div>
+<div><b><img src="doc.gif"></b><a href="LineLayer.setImageMapWidth.htm" target="ir" onclick="return ta(this);">setImageMapWidth</a></div>
+<div><b><img src="doc.gif"></b><a href="LineLayer.getLine.htm" target="ir" onclick="return ta(this);">getLine</a></div>
+</div>
+<div><a href="#" onclick="return tv(38);"><img id="img38" src="plus.gif" border="0"></a><a href="SplineLayer.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(38);">SplineLayer</a></div>
+<div class="in5" id="bk38" style="display:none">
+<div><b><img src="doc.gif"></b><a href="SplineLayer.setTension.htm" target="ir" onclick="return ta(this);">setTension</a></div>
+</div>
+<div><a href="#" onclick="return tv(39);"><img id="img39" src="plus.gif" border="0"></a><a href="StepLineLayer.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(39);">StepLineLayer</a></div>
+<div class="in5" id="bk39" style="display:none">
+<div><b><img src="doc.gif"></b><a href="StepLineLayer.setAlignment.htm" target="ir" onclick="return ta(this);">setAlignment</a></div>
+</div>
+<div><a href="#" onclick="return tv(40);"><img id="img40" src="plus.gif" border="0"></a><a href="TrendLayer.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(40);">TrendLayer</a></div>
+<div class="in5" id="bk40" style="display:none">
+<div><b><img src="doc.gif"></b><a href="TrendLayer.addConfidenceBand.htm" target="ir" onclick="return ta(this);">addConfidenceBand</a></div>
+<div><b><img src="doc.gif"></b><a href="TrendLayer.addPredictionBand.htm" target="ir" onclick="return ta(this);">addPredictionBand</a></div>
+<div><b><img src="doc.gif"></b><a href="TrendLayer.getSlope.htm" target="ir" onclick="return ta(this);">getSlope</a></div>
+<div><b><img src="doc.gif"></b><a href="TrendLayer.getIntercept.htm" target="ir" onclick="return ta(this);">getIntercept</a></div>
+<div><b><img src="doc.gif"></b><a href="TrendLayer.getCorrelation.htm" target="ir" onclick="return ta(this);">getCorrelation</a></div>
+<div><b><img src="doc.gif"></b><a href="TrendLayer.getStdError.htm" target="ir" onclick="return ta(this);">getStdError</a></div>
+<div><b><img src="doc.gif"></b><a href="TrendLayer.setImageMapWidth.htm" target="ir" onclick="return ta(this);">setImageMapWidth</a></div>
+<div><b><img src="doc.gif"></b><a href="TrendLayer.getLine.htm" target="ir" onclick="return ta(this);">getLine</a></div>
+</div>
+<div><b><img src="doc.gif"></b><a href="InterLineLayer.htm" target="ir" onclick="return ta(this);">InterLineLayer</a></div>
+<div><b><img src="doc.gif"></b><a href="ScatterLayer.htm" target="ir" onclick="return ta(this);">ScatterLayer</a></div>
+<div><a href="#" onclick="return tv(41);"><img id="img41" src="plus.gif" border="0"></a><a href="AreaLayer.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(41);">AreaLayer</a></div>
+<div class="in5" id="bk41" style="display:none">
+<div><b><img src="doc.gif"></b><a href="AreaLayer.setMinLabelSize.htm" target="ir" onclick="return ta(this);">setMinLabelSize</a></div>
+</div>
+<div><a href="#" onclick="return tv(42);"><img id="img42" src="plus.gif" border="0"></a><a href="HLOCLayer.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(42);">HLOCLayer</a></div>
+<div class="in5" id="bk42" style="display:none">
+<div><b><img src="doc.gif"></b><a href="HLOCLayer.setDataGap.htm" target="ir" onclick="return ta(this);">setDataGap</a></div>
+</div>
+<div><a href="#" onclick="return tv(43);"><img id="img43" src="plus.gif" border="0"></a><a href="CandleStickLayer.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(43);">CandleStickLayer</a></div>
+<div class="in5" id="bk43" style="display:none">
+<div><b><img src="doc.gif"></b><a href="CandleStickLayer.setDataGap.htm" target="ir" onclick="return ta(this);">setDataGap</a></div>
+</div>
+<div><a href="#" onclick="return tv(44);"><img id="img44" src="plus.gif" border="0"></a><a href="BoxWhiskerLayer.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(44);">BoxWhiskerLayer</a></div>
+<div class="in5" id="bk44" style="display:none">
+<div><b><img src="doc.gif"></b><a href="BoxWhiskerLayer.setDataGap.htm" target="ir" onclick="return ta(this);">setDataGap</a></div>
+</div>
+<div><a href="#" onclick="return tv(45);"><img id="img45" src="plus.gif" border="0"></a><a href="DataSet.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(45);">DataSet</a></div>
+<div class="in5" id="bk45" style="display:none">
+<div><b><img src="doc.gif"></b><a href="DataSet.setDataName.htm" target="ir" onclick="return ta(this);">setDataName</a></div>
+<div><b><img src="doc.gif"></b><a href="DataSet.setDataColor.htm" target="ir" onclick="return ta(this);">setDataColor</a></div>
+<div><b><img src="doc.gif"></b><a href="DataSet.setDataSymbol.htm" target="ir" onclick="return ta(this);">setDataSymbol</a></div>
+<div><b><img src="doc.gif"></b><a href="DataSet.setDataSymbol2.htm" target="ir" onclick="return ta(this);">setDataSymbol2</a></div>
+<div><b><img src="doc.gif"></b><a href="DataSet.setDataSymbol3.htm" target="ir" onclick="return ta(this);">setDataSymbol3</a></div>
+<div><b><img src="doc.gif"></b><a href="DataSet.setLineWidth.htm" target="ir" onclick="return ta(this);">setLineWidth</a></div>
+<div><b><img src="doc.gif"></b><a href="DataSet.setDataLabelStyle.htm" target="ir" onclick="return ta(this);">setDataLabelStyle</a></div>
+<div><b><img src="doc.gif"></b><a href="DataSet.setDataLabelFormat.htm" target="ir" onclick="return ta(this);">setDataLabelFormat</a></div>
+<div><b><img src="doc.gif"></b><a href="DataSet.setUseYAxis2.htm" target="ir" onclick="return ta(this);">setUseYAxis2</a></div>
+</div>
+</div>
+<div><a href="#" onclick="return tv(46);"><img id="img46" src="plus.gif" border="0"></a><a href="#" ondblclick="return tv(46);">Polar Charts Related</a></div>
+<div class="in4" id="bk46" style="display:none">
+<div><a href="#" onclick="return tv(47);"><img id="img47" src="plus.gif" border="0"></a><a href="PolarChart.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(47);">PolarChart</a></div>
+<div class="in5" id="bk47" style="display:none">
+<div><b><img src="doc.gif"></b><a href="PolarChart.PolarChart.htm" target="ir" onclick="return ta(this);">PolarChart</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarChart.setPlotArea.htm" target="ir" onclick="return ta(this);">setPlotArea</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarChart.setGridColor.htm" target="ir" onclick="return ta(this);">setGridColor</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarChart.setGridStyle.htm" target="ir" onclick="return ta(this);">setGridStyle</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarChart.setStartAngle.htm" target="ir" onclick="return ta(this);">setStartAngle</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarChart.angularAxis.htm" target="ir" onclick="return ta(this);">angularAxis</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarChart.radialAxis.htm" target="ir" onclick="return ta(this);">radialAxis</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarChart.getXCoor.htm" target="ir" onclick="return ta(this);">getXCoor</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarChart.getYCoor.htm" target="ir" onclick="return ta(this);">getYCoor</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarChart.addExtraField.htm" target="ir" onclick="return ta(this);">addExtraField</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarChart.addAreaLayer.htm" target="ir" onclick="return ta(this);">addAreaLayer</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarChart.addLineLayer.htm" target="ir" onclick="return ta(this);">addLineLayer</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarChart.addSplineLineLayer.htm" target="ir" onclick="return ta(this);">addSplineLineLayer</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarChart.addSplineAreaLayer.htm" target="ir" onclick="return ta(this);">addSplineAreaLayer</a></div>
+</div>
+<div><b><img src="doc.gif"></b><a href="RadialAxis.htm" target="ir" onclick="return ta(this);">RadialAxis</a></div>
+<div><a href="#" onclick="return tv(48);"><img id="img48" src="plus.gif" border="0"></a><a href="AngularAxis.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(48);">AngularAxis</a></div>
+<div class="in5" id="bk48" style="display:none">
+<div><b><img src="doc.gif"></b><a href="AngularAxis.setLabelStyle.htm" target="ir" onclick="return ta(this);">setLabelStyle</a></div>
+<div><b><img src="doc.gif"></b><a href="AngularAxis.setLabelGap.htm" target="ir" onclick="return ta(this);">setLabelGap</a></div>
+<div><b><img src="doc.gif"></b><a href="AngularAxis.setLabels.htm" target="ir" onclick="return ta(this);">setLabels</a></div>
+<div><b><img src="doc.gif"></b><a href="AngularAxis.setLabels2.htm" target="ir" onclick="return ta(this);">setLabels2</a></div>
+<div><b><img src="doc.gif"></b><a href="AngularAxis.addLabel.htm" target="ir" onclick="return ta(this);">addLabel</a></div>
+<div><b><img src="doc.gif"></b><a href="AngularAxis.setLinearScale.htm" target="ir" onclick="return ta(this);">setLinearScale</a></div>
+<div><b><img src="doc.gif"></b><a href="AngularAxis.setLinearScale2.htm" target="ir" onclick="return ta(this);">setLinearScale2</a></div>
+</div>
+<div><a href="#" onclick="return tv(49);"><img id="img49" src="plus.gif" border="0"></a><a href="PolarLayer.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(49);">PolarLayer</a></div>
+<div class="in5" id="bk49" style="display:none">
+<div><b><img src="doc.gif"></b><a href="PolarLayer.setAngles.htm" target="ir" onclick="return ta(this);">setAngles</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarLayer.setBorderColor.htm" target="ir" onclick="return ta(this);">setBorderColor</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarLayer.setLineWidth.htm" target="ir" onclick="return ta(this);">setLineWidth</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarLayer.setDataSymbol.htm" target="ir" onclick="return ta(this);">setDataSymbol</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarLayer.setDataSymbol2.htm" target="ir" onclick="return ta(this);">setDataSymbol2</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarLayer.setDataSymbol3.htm" target="ir" onclick="return ta(this);">setDataSymbol3</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarLayer.setSymbolScale.htm" target="ir" onclick="return ta(this);">setSymbolScale</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarLayer.setImageMapWidth.htm" target="ir" onclick="return ta(this);">setImageMapWidth</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarLayer.getImageCoor.htm" target="ir" onclick="return ta(this);">getImageCoor</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarLayer.getHTMLImageMap.htm" target="ir" onclick="return ta(this);">getHTMLImageMap</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarLayer.setDataLabelFormat.htm" target="ir" onclick="return ta(this);">setDataLabelFormat</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarLayer.setDataLabelStyle.htm" target="ir" onclick="return ta(this);">setDataLabelStyle</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarLayer.addCustomDataLabel.htm" target="ir" onclick="return ta(this);">addCustomDataLabel</a></div>
+</div>
+<div><a href="#" onclick="return tv(50);"><img id="img50" src="plus.gif" border="0"></a><a href="PolarLineLayer.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(50);">PolarLineLayer</a></div>
+<div class="in5" id="bk50" style="display:none">
+<div><b><img src="doc.gif"></b><a href="PolarLineLayer.setCloseLoop.htm" target="ir" onclick="return ta(this);">setCloseLoop</a></div>
+<div><b><img src="doc.gif"></b><a href="PolarLineLayer.setGapColor.htm" target="ir" onclick="return ta(this);">setGapColor</a></div>
+</div>
+<div><b><img src="doc.gif"></b><a href="PolarAreaLayer.htm" target="ir" onclick="return ta(this);">PolarAreaLayer</a></div>
+<div><a href="#" onclick="return tv(51);"><img id="img51" src="plus.gif" border="0"></a><a href="PolarSplineLineLayer.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(51);">PolarSplineLineLayer</a></div>
+<div class="in5" id="bk51" style="display:none">
+<div><b><img src="doc.gif"></b><a href="PolarSplineLineLayer.setTension.htm" target="ir" onclick="return ta(this);">setTension</a></div>
+</div>
+<div><a href="#" onclick="return tv(52);"><img id="img52" src="plus.gif" border="0"></a><a href="PolarSplineAreaLayer.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(52);">PolarSplineAreaLayer</a></div>
+<div class="in5" id="bk52" style="display:none">
+<div><b><img src="doc.gif"></b><a href="PolarSplineAreaLayer.setTension.htm" target="ir" onclick="return ta(this);">setTension</a></div>
+</div>
+</div>
+<div><a href="#" onclick="return tv(53);"><img id="img53" src="plus.gif" border="0"></a><a href="#" ondblclick="return tv(53);">Graphics Primitives</a></div>
+<div class="in4" id="bk53" style="display:none">
+<div><a href="#" onclick="return tv(54);"><img id="img54" src="plus.gif" border="0"></a><a href="DrawArea.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(54);">DrawArea</a></div>
+<div class="in5" id="bk54" style="display:none">
+<div><b><img src="doc.gif"></b><a href="DrawArea.DrawArea.htm" target="ir" onclick="return ta(this);">DrawArea</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.setSize.htm" target="ir" onclick="return ta(this);">setSize</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.resize.htm" target="ir" onclick="return ta(this);">resize</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.getWidth.htm" target="ir" onclick="return ta(this);">getWidth</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.getHeight.htm" target="ir" onclick="return ta(this);">getHeight</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.setClipRect.htm" target="ir" onclick="return ta(this);">setClipRect</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.setBgColor.htm" target="ir" onclick="return ta(this);">setBgColor</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.move.htm" target="ir" onclick="return ta(this);">move</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.rotate.htm" target="ir" onclick="return ta(this);">rotate</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.hFlip.htm" target="ir" onclick="return ta(this);">hFlip</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.vFlip.htm" target="ir" onclick="return ta(this);">vFlip</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.clone.htm" target="ir" onclick="return ta(this);">clone</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.pixel.htm" target="ir" onclick="return ta(this);">pixel</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.getPixel.htm" target="ir" onclick="return ta(this);">getPixel</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.hline.htm" target="ir" onclick="return ta(this);">hline</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.vline.htm" target="ir" onclick="return ta(this);">vline</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.line.htm" target="ir" onclick="return ta(this);">line</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.arc.htm" target="ir" onclick="return ta(this);">arc</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.rect.htm" target="ir" onclick="return ta(this);">rect</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.polygon.htm" target="ir" onclick="return ta(this);">polygon</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.surface.htm" target="ir" onclick="return ta(this);">surface</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.sector.htm" target="ir" onclick="return ta(this);">sector</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.cylinder.htm" target="ir" onclick="return ta(this);">cylinder</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.circle.htm" target="ir" onclick="return ta(this);">circle</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.fill.htm" target="ir" onclick="return ta(this);">fill</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.fill2.htm" target="ir" onclick="return ta(this);">fill2</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.text.htm" target="ir" onclick="return ta(this);">text</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.text2.htm" target="ir" onclick="return ta(this);">text2</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.text3.htm" target="ir" onclick="return ta(this);">text3</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.text4.htm" target="ir" onclick="return ta(this);">text4</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.merge.htm" target="ir" onclick="return ta(this);">merge</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.tile.htm" target="ir" onclick="return ta(this);">tile</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.setSearchPath.htm" target="ir" onclick="return ta(this);">setSearchPath</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.loadGIF.htm" target="ir" onclick="return ta(this);">loadGIF</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.loadPNG.htm" target="ir" onclick="return ta(this);">loadPNG</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.loadJPG.htm" target="ir" onclick="return ta(this);">loadJPG</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.loadWMP.htm" target="ir" onclick="return ta(this);">loadWMP</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.load.htm" target="ir" onclick="return ta(this);">load</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.rAffineTransform.htm" target="ir" onclick="return ta(this);">rAffineTransform</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.affineTransform.htm" target="ir" onclick="return ta(this);">affineTransform</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.sphereTransform.htm" target="ir" onclick="return ta(this);">sphereTransform</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.hCylinderTransform.htm" target="ir" onclick="return ta(this);">hCylinderTransform</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.vCylinderTransform.htm" target="ir" onclick="return ta(this);">vCylinderTransform</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.vTriangleTransform.htm" target="ir" onclick="return ta(this);">vTriangleTransform</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.hTriangleTransform.htm" target="ir" onclick="return ta(this);">hTriangleTransform</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.shearTransform.htm" target="ir" onclick="return ta(this);">shearTransform</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.waveTransform.htm" target="ir" onclick="return ta(this);">waveTransform</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.out.htm" target="ir" onclick="return ta(this);">out</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.outGIF.htm" target="ir" onclick="return ta(this);">outGIF</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.outPNG.htm" target="ir" onclick="return ta(this);">outPNG</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.outJPG.htm" target="ir" onclick="return ta(this);">outJPG</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.outWMP.htm" target="ir" onclick="return ta(this);">outWMP</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.outBMP.htm" target="ir" onclick="return ta(this);">outBMP</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.outGIF2.htm" target="ir" onclick="return ta(this);">outGIF2</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.outPNG2.htm" target="ir" onclick="return ta(this);">outPNG2</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.outJPG2.htm" target="ir" onclick="return ta(this);">outJPG2</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.outWMP2.htm" target="ir" onclick="return ta(this);">outWMP2</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.outBMP2.htm" target="ir" onclick="return ta(this);">outBMP2</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.setPaletteMode.htm" target="ir" onclick="return ta(this);">setPaletteMode</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.setDitherMethod.htm" target="ir" onclick="return ta(this);">setDitherMethod</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.setTransparentColor.htm" target="ir" onclick="return ta(this);">setTransparentColor</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.setAntiAlias.htm" target="ir" onclick="return ta(this);">setAntiAlias</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.setInterlace.htm" target="ir" onclick="return ta(this);">setInterlace</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.setColorTable.htm" target="ir" onclick="return ta(this);">setColorTable</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.getARGBColor.htm" target="ir" onclick="return ta(this);">getARGBColor</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.halfColor.htm" target="ir" onclick="return ta(this);">halfColor</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.dashLineColor.htm" target="ir" onclick="return ta(this);">dashLineColor</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.patternColor.htm" target="ir" onclick="return ta(this);">patternColor</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.patternColor2.htm" target="ir" onclick="return ta(this);">patternColor2</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.gradientColor.htm" target="ir" onclick="return ta(this);">gradientColor</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.gradientColor2.htm" target="ir" onclick="return ta(this);">gradientColor2</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.setDefaultFonts.htm" target="ir" onclick="return ta(this);">setDefaultFonts</a></div>
+<div><b><img src="doc.gif"></b><a href="DrawArea.setFontTable.htm" target="ir" onclick="return ta(this);">setFontTable</a></div>
+</div>
+<div><a href="#" onclick="return tv(55);"><img id="img55" src="plus.gif" border="0"></a><a href="TTFText.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(55);">TTFText</a></div>
+<div class="in5" id="bk55" style="display:none">
+<div><b><img src="doc.gif"></b><a href="TTFText.getWidth.htm" target="ir" onclick="return ta(this);">getWidth</a></div>
+<div><b><img src="doc.gif"></b><a href="TTFText.getHeight.htm" target="ir" onclick="return ta(this);">getHeight</a></div>
+<div><b><img src="doc.gif"></b><a href="TTFText.getLineHeight.htm" target="ir" onclick="return ta(this);">getLineHeight</a></div>
+<div><b><img src="doc.gif"></b><a href="TTFText.getLineDistance.htm" target="ir" onclick="return ta(this);">getLineDistance</a></div>
+<div><b><img src="doc.gif"></b><a href="TTFText.draw.htm" target="ir" onclick="return ta(this);">draw</a></div>
+</div>
+</div>
+<div><a href="#" onclick="return tv(56);"><img id="img56" src="plus.gif" border="0"></a><a href="#" ondblclick="return tv(56);">Utility Classes</a></div>
+<div class="in4" id="bk56" style="display:none">
+<div><a href="#" onclick="return tv(57);"><img id="img57" src="plus.gif" border="0"></a><a href="ArrayMath.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(57);">ArrayMath</a></div>
+<div class="in5" id="bk57" style="display:none">
+<div><b><img src="doc.gif"></b><a href="ArrayMath.ArrayMath.htm" target="ir" onclick="return ta(this);">ArrayMath</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.add.htm" target="ir" onclick="return ta(this);">add</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.add2.htm" target="ir" onclick="return ta(this);">add2</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.sub.htm" target="ir" onclick="return ta(this);">sub</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.sub2.htm" target="ir" onclick="return ta(this);">sub2</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.mul.htm" target="ir" onclick="return ta(this);">mul</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.mul2.htm" target="ir" onclick="return ta(this);">mul2</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.div.htm" target="ir" onclick="return ta(this);">div</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.div2.htm" target="ir" onclick="return ta(this);">div2</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.delta.htm" target="ir" onclick="return ta(this);">delta</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.abs.htm" target="ir" onclick="return ta(this);">abs</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.acc.htm" target="ir" onclick="return ta(this);">acc</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.selectGTZ.htm" target="ir" onclick="return ta(this);">selectGTZ</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.selectGEZ.htm" target="ir" onclick="return ta(this);">selectGEZ</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.selectLTZ.htm" target="ir" onclick="return ta(this);">selectLTZ</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.selectLEZ.htm" target="ir" onclick="return ta(this);">selectLEZ</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.selectEQZ.htm" target="ir" onclick="return ta(this);">selectEQZ</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.selectNEZ.htm" target="ir" onclick="return ta(this);">selectNEZ</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.selectStartOfHour.htm" target="ir" onclick="return ta(this);">selectStartOfHour</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.selectStartOfDay.htm" target="ir" onclick="return ta(this);">selectStartOfDay</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.selectStartOfWeek.htm" target="ir" onclick="return ta(this);">selectStartOfWeek</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.selectStartOfMonth.htm" target="ir" onclick="return ta(this);">selectStartOfMonth</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.selectStartOfYear.htm" target="ir" onclick="return ta(this);">selectStartOfYear</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.trim.htm" target="ir" onclick="return ta(this);">trim</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.insert.htm" target="ir" onclick="return ta(this);">insert</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.insert2.htm" target="ir" onclick="return ta(this);">insert2</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.replace.htm" target="ir" onclick="return ta(this);">replace</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.movAvg.htm" target="ir" onclick="return ta(this);">movAvg</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.expAvg.htm" target="ir" onclick="return ta(this);">expAvg</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.movMed.htm" target="ir" onclick="return ta(this);">movMed</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.movPercentile.htm" target="ir" onclick="return ta(this);">movPercentile</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.movMax.htm" target="ir" onclick="return ta(this);">movMax</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.movMin.htm" target="ir" onclick="return ta(this);">movMin</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.movStdDev.htm" target="ir" onclick="return ta(this);">movStdDev</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.movCorr.htm" target="ir" onclick="return ta(this);">movCorr</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.lowess.htm" target="ir" onclick="return ta(this);">lowess</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.lowess2.htm" target="ir" onclick="return ta(this);">lowess2</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.result.htm" target="ir" onclick="return ta(this);">result</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.max.htm" target="ir" onclick="return ta(this);">max</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.min.htm" target="ir" onclick="return ta(this);">min</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.avg.htm" target="ir" onclick="return ta(this);">avg</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.sum.htm" target="ir" onclick="return ta(this);">sum</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.med.htm" target="ir" onclick="return ta(this);">med</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.percentile.htm" target="ir" onclick="return ta(this);">percentile</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.maxIndex.htm" target="ir" onclick="return ta(this);">maxIndex</a></div>
+<div><b><img src="doc.gif"></b><a href="ArrayMath.minIndex.htm" target="ir" onclick="return ta(this);">minIndex</a></div>
+</div>
+<div><a href="#" onclick="return tv(58);"><img id="img58" src="plus.gif" border="0"></a><a href="RanTable.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(58);">RanTable</a></div>
+<div class="in5" id="bk58" style="display:none">
+<div><b><img src="doc.gif"></b><a href="RanTable.RanTable.htm" target="ir" onclick="return ta(this);">RanTable</a></div>
+<div><b><img src="doc.gif"></b><a href="RanTable.setCol.htm" target="ir" onclick="return ta(this);">setCol</a></div>
+<div><b><img src="doc.gif"></b><a href="RanTable.setCol2.htm" target="ir" onclick="return ta(this);">setCol2</a></div>
+<div><b><img src="doc.gif"></b><a href="RanTable.setDateCol.htm" target="ir" onclick="return ta(this);">setDateCol</a></div>
+<div><b><img src="doc.gif"></b><a href="RanTable.setHLOCCols.htm" target="ir" onclick="return ta(this);">setHLOCCols</a></div>
+<div><b><img src="doc.gif"></b><a href="RanTable.getCol.htm" target="ir" onclick="return ta(this);">getCol</a></div>
+</div>
+</div>
+</div>
+<div class="ns"><a href="#" onclick="return tv(59);"><img id="img59" src="plus.gif" border="0"></a><a href="datatypes.htm" target="ir" onclick="return ta(this);" ondblclick="return tv(59);">Data Types</a></div>
+<div class="in3" id="bk59" style="display:none">
+<div><b><img src="doc.gif"></b><a href="colorspec.htm" target="ir" onclick="return ta(this);">Color Specification</a></div>
+<div><b><img src="doc.gif"></b><a href="fontspec.htm" target="ir" onclick="return ta(this);">Font Specification</a></div>
+<div><b><img src="doc.gif"></b><a href="alignment.htm" target="ir" onclick="return ta(this);">Alignment Specification</a></div>
+<div><b><img src="doc.gif"></b><a href="dateformat.htm" target="ir" onclick="return ta(this);">Date/Time Specification</a></div>
+<div><b><img src="doc.gif"></b><a href="novalue.htm" target="ir" onclick="return ta(this);">No Value Specification</a></div>
+<div><b><img src="doc.gif"></b><a href="resampling.htm" target="ir" onclick="return ta(this);">Re-sampling Filters</a></div>
+</div>
+<div class="ns"><b><img src="doc.gif"></b><a href="cdml.htm" target="ir" onclick="return ta(this);">ChartDirector Mark Up Lauguage</a></div>
+<div class="ns"><b><img src="doc.gif"></b><a href="paramsub.htm" target="ir" onclick="return ta(this);">Parameter Substitution and Formatting</a></div>
+<div class="ns"><b><img src="doc.gif"></b><a href="international.htm" target="ir" onclick="return ta(this);">Internationalization</a></div>
+</div>
+</div>
+</div>
+</body>
+</html>

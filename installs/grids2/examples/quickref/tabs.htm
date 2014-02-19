@@ -1,0 +1,258 @@
+
+<html>
+<head>
+	<script src="../../runtime/lib/aw.js"></script>
+	<link href="../../runtime/styles/xp/aw.css" rel="stylesheet"></link>
+</head>
+<body>
+<style>
+
+/********************************************************************
+	Tabs
+********************************************************************/
+
+	#myTabs {width: 400px; height: 30px;}
+
+/********************************************************************
+	Items
+********************************************************************/
+
+	#myTabs .aw-list-item {color: blue}
+
+/*	each element has unique ID, check with Firefox DOM Inspector :-) */
+	#myTabs-item-1 {font-weight: bold}
+	#myTabs-item-2-box-text {border-bottom: 2px solid red}
+
+</style>
+
+<p style="font:menu">
+	see page source
+</p>
+
+<script>
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	Create tabs object
+
+/////////////////////////////////////////////////////////////////////
+********************************************************************/
+
+	var obj = new AW.UI.Tabs;
+
+	obj.setId("myTabs");	// necessary for CSS rules
+
+
+/********************************************************************
+	Text layout
+********************************************************************/
+
+//	obj.setClass("text", "normal");	// hide overflow (ellipsis)
+//	obj.setClass("text", "expand");	// expand horizontally, default
+//	obj.setClass("text", "wrap");	// multiline text
+
+
+/********************************************************************
+	Size and position
+********************************************************************/
+
+//	obj.setControlSize(500, 40);	// width, height
+//	obj.setControlPosition(10, 100);	// left, top - adds 'position:absolute'
+
+
+
+
+
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	I T E M S
+
+/////////////////////////////////////////////////////////////////////
+*********************************************************************
+	item text (js array)
+********************************************************************/
+
+	obj.setItemText(["Home", "Favorites", "Font size", "Search"]);
+
+
+/********************************************************************
+	item text (static value)
+********************************************************************/
+
+//	obj.setItemText("text");		// assign the same text to all items
+//	obj.setItemText("text", 1);		// item 1
+
+
+/********************************************************************
+	item text (function)
+********************************************************************/
+
+//	obj.setItemText(function(i){return i});				// function for all items
+//	obj.setItemText(function(){return new Date()}, 1);	// function for item 1
+
+
+/********************************************************************
+	item image (js array)
+********************************************************************/
+
+	obj.setItemImage(["home", "favorites", "fontsize", "search"]);
+
+
+/********************************************************************
+	item count
+********************************************************************/
+
+	obj.setItemCount(4);	// same as setViewCount()
+
+
+/********************************************************************
+	item templates
+********************************************************************/
+
+//	obj.setItemTemplate(new AW.Templates.Link);		// hyperlink template
+//	obj.setItemLink("http://www.google.com", 1);	// URL for item 1
+
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	V I E W
+
+/////////////////////////////////////////////////////////////////////
+*********************************************************************
+	View count (same as item count)
+********************************************************************/
+
+//	obj.setViewCount(4);	// by default view/count takes value from item/count
+
+
+/********************************************************************
+	Re-arrange items
+********************************************************************/
+
+//	obj.setViewIndices([0, 2, 3]);		// remove item 1
+//	obj.setViewIndices([3, 2, 1, 0]);	// reverse order
+
+
+
+
+
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	C U R R E N T   C U R S O R   P O S I T I O N
+
+/////////////////////////////////////////////////////////////////////
+********************************************************************/
+
+//	obj.setCurrentItem(1);	// moves focus only, does not change selection
+
+
+
+
+
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	S E L E C T I O N S
+
+/////////////////////////////////////////////////////////////////////
+********************************************************************/
+
+	obj.setSelectedItems([1]);
+
+
+
+
+
+
+	document.write(obj);
+</script>
+<div style="border-top: 1px solid #999">
+</div>
+
+<script>
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	E V E N T S
+
+/////////////////////////////////////////////////////////////////////
+********************************************************************/
+
+/********************************************************************
+	mouse
+********************************************************************/
+
+//	obj.onControlClicked 		= function(event){ window.status = "Control clicked"};
+//	obj.onControlDoubleClicked 	= function(event){ window.status = "Control double clicked"};
+//	obj.onControlMouseOver 		= function(event){ window.status = "Control mouse over"};
+//	obj.onControlMouseOut 		= function(event){ window.status = "Control mouse out"};
+//	obj.onControlMouseDown 		= function(event){ window.status = "Control mouse down"};
+//	obj.onControlMouseUp 		= function(event){ window.status = "Control mouse up"};
+
+	obj.onItemClicked 		= function(event, index){ window.status = "Item " + index + " clicked"};
+	obj.onItemDoubleClicked	= function(event, index){ window.status = "Item " + index + " double clicked"};
+	obj.onItemMouseOver		= function(event, index){ window.status = "Item " + index + " mouse over"};
+	obj.onItemMouseOut		= function(event, index){ window.status = "Item " + index + " mouse out"};
+	obj.onItemMouseDown		= function(event, index){ window.status = "Item " + index + " mouse down"};
+	obj.onItemMouseUp		= function(event, index){ window.status = "Item " + index + " mouse up"};
+
+
+/********************************************************************
+	data
+********************************************************************/
+
+	obj.onItemTextChanged = function(text, index){ window.status = "item " + index + " text: " + text };
+	obj.onItemImageChanged = function(image, index){ window.status = "item " + index + " image: " + image };
+
+/********************************************************************
+	current cursor position (focus)
+********************************************************************/
+
+//	obj.onCurrentItemChanged = function(index){ window.status = "current item: " + index };
+
+
+/********************************************************************
+	selection
+********************************************************************/
+
+	obj.onSelectedItemsChanged = function(array){ window.status = "selected items: " + array };
+
+
+
+</script>
+
+
+<p></p>
+
+<script>
+
+	var button = new AW.UI.Button;
+	button.setControlText("Click me");
+	document.write(button);
+
+	button.onClick = function(){
+
+/********************************************************************
+	data
+********************************************************************/
+
+	alert("control text: " + obj.getItemText(1));
+	obj.setItemText("Some other text", 1);
+
+
+
+
+	}
+
+
+</script>
+</body>
+</html>

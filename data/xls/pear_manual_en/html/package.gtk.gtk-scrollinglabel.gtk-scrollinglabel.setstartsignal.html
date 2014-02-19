@@ -1,0 +1,293 @@
+<HTML
+><HEAD
+><TITLE
+>Gtk_ScrollingLabel::setStartSignal</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Gtk_ScrollingLabel"
+HREF="package.gtk.gtk-scrollinglabel.html"><LINK
+REL="PREVIOUS"
+TITLE="Gtk_ScrollingLabel::setBounce"
+HREF="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.setbounce.html"><LINK
+REL="NEXT"
+TITLE="Gtk_ScrollingLabel::startScroll"
+HREF="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.startscroll.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.setbounce.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.startscroll.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.setstartsignal">Gtk_ScrollingLabel::setStartSignal</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN49641"
+></A
+>Gtk_ScrollingLabel::setStartSignal&nbsp;--&nbsp;
+     Connects the <B
+CLASS="function"
+>startScroll()</B
+> method to a given event.
+    </DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN49645"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN49646"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Gtk/ScrollingLabel.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>Gtk_ScrollingLabel::setStartSignal</B
+></CODE
+> (string $signal)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.setstartsignal.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     <B
+CLASS="function"
+>setStartSignal()</B
+> will make the event box listen for the
+     signal <TT
+CLASS="parameter"
+><I
+>$signal</I
+></TT
+> and will envoke 
+     <B
+CLASS="function"
+>startScroll()</B
+> when ever it is heard.  The signal should
+     be a signal that <B
+CLASS="classname"
+>GtkEventBox</B
+> listens for normally
+     or a button press event. 
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.setstartsignal.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        string <TT
+CLASS="parameter"
+><I
+>$signal</I
+></TT
+> -
+        The Gtk signal to connect to <B
+CLASS="function"
+>startScroll()</B
+>.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.setstartsignal.returns"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>returns</I
+></SPAN
+> The handler id for the connection.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.setstartsignal.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;     <A
+HREF="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.startscroll.html"
+>&#13;      <B
+CLASS="function"
+>startScroll()</B
+>
+     </A
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.setstartsignal.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.setbounce.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.startscroll.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Gtk_ScrollingLabel::setBounce</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.gtk.gtk-scrollinglabel.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Gtk_ScrollingLabel::startScroll</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

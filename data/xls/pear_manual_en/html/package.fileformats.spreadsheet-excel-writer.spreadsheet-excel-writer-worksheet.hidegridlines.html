@@ -1,0 +1,279 @@
+<HTML
+><HEAD
+><TITLE
+>Worksheet::hideGridlines</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Spreadsheet_Excel_Writer"
+HREF="package.fileformats.spreadsheet-excel-writer.html"><LINK
+REL="PREVIOUS"
+TITLE="Worksheet::printArea"
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.printarea.html"><LINK
+REL="NEXT"
+TITLE="Worksheet::printRowColHeaders"
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.printrowcolheaders.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.printarea.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.printrowcolheaders.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.hidegridlines">Worksheet::hideGridlines</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN43213"
+></A
+>Worksheet::hideGridlines&nbsp;--&nbsp;Set the option to hide gridlines on the printed page.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN43216"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN43217"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once "Spreadsheet/Excel/Writer.php";</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>Worksheet::hideGridlines</B
+></CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.hidegridlines.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Set the option to hide gridlines on the printed page.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.hidegridlines.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+></P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.hidegridlines.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN43232"><P
+><B
+>Example 37-1. Using <B
+CLASS="function"
+>hideGridlines()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Spreadsheet/Excel/Writer.php';
+
+$workbook = new Spreadsheet_Excel_Writer();
+$worksheet =&#38; $workbook-&#62;addWorksheet();
+
+$radius = 20;
+$worksheet-&#62;setColumn(0,$radius*2,1);
+
+// Face
+for ($i = 0; $i &#60; 360; $i++)
+{
+    $worksheet-&#62;write(floor(sin((2*pi()*$i)/360)*$radius) + $radius + 1, floor(cos((2*pi()*$i)/360)*$radius) + $radius + 1, "x");
+}
+// Eyes (maybe use a format instead?)
+$worksheet-&#62;writeURL(floor($radius*0.8), floor($radius*0.8), "0");
+$worksheet-&#62;writeURL(floor($radius*0.8), floor($radius*1.2), "0");
+
+// Smile
+for ($i = 65; $i &#60; 115; $i++)
+{
+    $worksheet-&#62;write(floor(sin((2*pi()*$i)/360)*$radius*1.3) + floor($radius*0.2), floor(cos((2*pi()*$i)/360)*$radius*1.3) + $radius + 1, "x");
+}
+
+// hide gridlines so they don't mess with our Excel art.
+$worksheet-&#62;hideGridLines();
+
+$workbook-&#62;send('face.xls');
+$workbook-&#62;close();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.printarea.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.printrowcolheaders.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Worksheet::printArea</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Worksheet::printRowColHeaders</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

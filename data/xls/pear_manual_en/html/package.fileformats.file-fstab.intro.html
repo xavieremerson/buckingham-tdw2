@@ -1,0 +1,262 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File_Fstab"
+HREF="package.fileformats.file-fstab.html"><LINK
+REL="PREVIOUS"
+TITLE="File_Fstab"
+HREF="package.fileformats.file-fstab.html"><LINK
+REL="NEXT"
+TITLE="Entries"
+HREF="package.fileformats.file-fstab.entries.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.file-fstab.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.file-fstab.entries.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.fileformats.file-fstab.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN36779"
+></A
+>Introduction&nbsp;--&nbsp;
+   Introduction to <B
+CLASS="classname"
+>File_Fstab</B
+>.
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-fstab.intro.overview"
+></A
+><H2
+>Overview</H2
+><P
+>&#13;    This package allows you to read, manipulate, and write
+    <SPAN
+CLASS="acronym"
+>fstab</SPAN
+>-format files, such as /etc/fstab,
+    /etc/mtab, and /proc/mounts.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-fstab.intro.examples"
+></A
+><H2
+>Examples</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN36789"><P
+><B
+>Example 37-1. Getting the filesystem type of the root device.</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'File/Fstab.php';
+
+$fstab =&#38; new File_Fstab();
+
+$root =&#38; $fstab-&#62;getEntryForPath('/');
+echo "Root FS type: " . $root-&#62;fsType . "\n";</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN36792"><P
+><B
+>Example 37-2. Determine if a user may mount the CD-ROM</B
+></P
+><P
+>&#13;    The <TT
+CLASS="literal"
+>user</TT
+> option in your fstab determines whether
+    users may mount a given device or not.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'File/Fstab.php';
+
+$fstab =&#38; new File_Fstab();
+
+$cd =&#38; $fstab-&#62;getEntryForDevice('/dev/cdrom');
+if ($cd-&#62;hasOption('user')) {
+    echo "Users may mount the CD-ROM\n";
+} else {
+    echo "Users may not mount the CD-ROM\n";
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-fstab.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-fstab.entries.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>File_Fstab</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-fstab.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Entries</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

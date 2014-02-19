@@ -1,0 +1,29 @@
+<!-- Css --> 
+<style type="text/css"> 
+#mySpan{ 
+/* width is 25px less than textarea to compensate for no scrollbar */ 
+width:300px; 
+font-family:Arial; 
+font-size:11px; 
+visibility:hidden; 
+} 
+#myTextArea{ 
+width:325px; 
+font-family:Arial; 
+font-size:11px; 
+} 
+</style> 
+<!-- Html --> 
+<span id="mySpan"></span> 
+
+<form action="http://www.google.com" method="post"> 
+<textarea id="myTextArea">Lorem ipsum dolor sit amet,akdaskda;skda;ksd; kas;skd;asksd ka;skd;aks;dlka;skd;alksd;alks;dlksa;lskd;aks;dlak;lsdk;salsd consectetuer adipiscing elit. Duis non mi. Nam erat quam, malesuada in, dictum a, luctus in, ipsum. Sed aliquam pharetra nisi. Vestibulum rhoncus.</textarea> 
+</form> 
+
+<!-- JavaScript --> 
+<script type="text/javascript"> 
+/* get the contents of the textarea and place it in the span */ 
+document.getElementById("mySpan").innerHTML = document.getElementById("myTextArea").value; 
+/* get the new height of the span and set that height to the textarea */ 
+document.getElementById("myTextArea").style.height = ((document.getElementById("mySpan").offsetHeight)+10) + "px"; 
+</script> 

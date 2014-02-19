@@ -1,0 +1,740 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - Prepare &#38; Execute</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction - Results"
+HREF="package.database.db.intro-fetch.html"><LINK
+REL="NEXT"
+TITLE="Introduction - autoPrepare & autoExecute"
+HREF="package.database.db.intro-auto.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.intro-fetch.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.intro-auto.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.intro-execute">Introduction - Prepare &#38; Execute</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN21430"
+></A
+>Introduction - Prepare &#38; Execute&nbsp;--&nbsp;Prepare and execute SQL statements</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.intro-execute.desc"
+></A
+><H2
+>Description</H2
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.db.intro-execute.desc.purpose"
+></A
+><H3
+>Purpose</H3
+><P
+>&#13;    <A
+HREF="package.database.db.db-common.prepare.html"
+>&#13;     <B
+CLASS="function"
+>prepare()</B
+></A
+> and
+    <A
+HREF="package.database.db.db-common.execute.html"
+>&#13;     <B
+CLASS="function"
+>execute*()</B
+></A
+>
+    give you more power and flexibilty for query execution.
+    Prepare/execute mode is helpful when you have to run the
+    same query several times but with different values in it,
+    such as adding a list of addresses into a database.
+   </P
+><P
+>&#13;    Another place prepare/execute is useful is supporting
+    databases which have different SQL syntaxes.
+    Imagine you want to support two databases with different
+    <B
+CLASS="command"
+>INSERT</B
+> syntax:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>db1: INSERT INTO tbl_name (col1, col2) VALUES (expr1, expr2)
+db2: INSERT INTO tbl_name SET col1=expr1, col2=expr2</PRE
+></TD
+></TR
+></TABLE
+>
+    Correspondending to create multi-lingual scripts you can create
+    a array with queries like this:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$statement['db1']['INSERT_PERSON'] = 'INSERT INTO person
+    (surname, name, age) VALUES (?, ?, ?)';
+
+$statement['db2']['INSERT_PERSON'] = 'INSERT INTO person
+    SET surname=?, name=?, age=?';</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.db.intro-execute.desc.prepare"
+></A
+><H3
+>Prepare</H3
+><P
+>&#13;    To use the features above, you have to do two steps. Step one is to
+    <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>prepare</I
+></SPAN
+> the statement and the second is
+    to <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>execute</I
+></SPAN
+> it.
+   </P
+><P
+>&#13;    To start out, you need to
+    <A
+HREF="package.database.db.db-common.prepare.html"
+>&#13;     <B
+CLASS="function"
+>prepare()</B
+></A
+> a generic
+    SQL statment. Create a generic statment by writing
+    the SQL query as usual:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>SELECT surname, name, age
+    FROM person
+    WHERE name = 'name_to_find' AND age &#60; age_limit</PRE
+></TD
+></TR
+></TABLE
+>
+    Then substitute <SPAN
+CLASS="QUOTE"
+>"placeholders"</SPAN
+> for the
+    literal values which will be provided at run time:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>SELECT surname, name, age
+    FROM person
+    WHERE name = ? AND age &#60; ?</PRE
+></TD
+></TR
+></TABLE
+>
+    Then pass this SQL statement to
+    <A
+HREF="package.database.db.db-common.prepare.html"
+>&#13;     <B
+CLASS="function"
+>prepare()</B
+></A
+>, which returns
+    a statement handle to be used when calling
+    <A
+HREF="package.database.db.db-common.execute.html"
+>&#13;     <B
+CLASS="function"
+>execute()</B
+></A
+>.
+   </P
+><P
+>&#13;    <A
+HREF="package.database.db.db-common.prepare.html"
+>&#13;     <B
+CLASS="function"
+>prepare()</B
+></A
+> can handle different types of
+    placeholders (a.k.a. wildcards).
+    <P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>&#13;      <TT
+CLASS="literal"
+>?</TT
+> - (recommended) stands for a scalar
+      value like strings or numbers. The value will be automatically
+      escaped and quoted according to the current DBMS's requirements.
+     </TD
+></TR
+><TR
+><TD
+>&#13;      <TT
+CLASS="literal"
+>!</TT
+> - stands for a scalar value and
+      will inserted into the statement <SPAN
+CLASS="QUOTE"
+>"as is"</SPAN
+>.
+     </TD
+></TR
+><TR
+><TD
+>&#13;      <TT
+CLASS="literal"
+>&#38;</TT
+> - requires an existing filename,
+      the content of this file will be included into the statment
+      (i.e. for saving binary data of a graphic file in a database)
+     </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+   </P
+><P
+>&#13;    Use backslashes to escape placeholder characters if you don't want
+    them to be interpreted as placeholders:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>UPDATE foo SET col=? WHERE col='over \&#38; under'</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.db.intro-execute.desc.execute"
+></A
+><H3
+>Execute</H3
+><P
+>&#13;    After preparing the statement, you can execute the query. This
+    means to assign the variables to the prepared statement. To do
+    this, <A
+HREF="package.database.db.db-common.execute.html"
+>&#13;     <B
+CLASS="function"
+>execute()</B
+></A
+> requires two arguments:
+    the statement handle returned by
+    <A
+HREF="package.database.db.db-common.prepare.html"
+>&#13;     <B
+CLASS="function"
+>prepare()</B
+></A
+> and a scalar or array
+    with the values to assign.
+   </P
+><P
+>&#13;    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21482"><P
+><B
+>Example 33-1. Passing scalars to <B
+CLASS="function"
+>execute()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$sth = $db-&#62;prepare('INSERT INTO numbers (number) VALUES (?)');
+$db-&#62;execute($sth, 1);
+$db-&#62;execute($sth, 8);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    When a prepared statement has multiple placeholders, you must use
+    an array to pass the values to <B
+CLASS="function"
+>execute()</B
+>.
+    The first entry of the array represents the first
+    placeholder, the second the second placeholder, etc.
+    The order is independent of the type of placeholder used.
+   </P
+><P
+>&#13;    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21489"><P
+><B
+>Example 33-2. Passing an array to <B
+CLASS="function"
+>execute()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$sth = $db-&#62;prepare('INSERT INTO numbers VALUES (?, ?, ?)');
+
+$data = array(1, 'one', 'en');
+$db-&#62;execute($sth, $data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   </P
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;     The values passed in <TT
+CLASS="parameter"
+><I
+>$data</I
+></TT
+> must be literals.
+     Do not submit SQL functions (for example <TT
+CLASS="literal"
+>CURDATE()</TT
+>).
+     SQL functions that should be performed at execution time need
+     to be put in the prepared statement. Similarly, identifiers
+     (i.e. table names and column names) can not be used because
+     the names get validated during the prepare phase.
+    </P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.db.intro-execute.desc.executemultiple"
+></A
+><H3
+>ExecuteMultiple</H3
+><P
+>&#13;    DB contains a process for executing several queries at once.
+    So, rather than having to execute them manually, like this:
+
+    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21500"><P
+><B
+>Example 33-3. Passing arrays to <B
+CLASS="function"
+>execute()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// Once you have a valid DB object named $db...
+$alldata = array(array(1, 'one', 'en'),
+                 array(2, 'two', 'to'),
+                 array(3, 'three', 'tre'),
+                 array(4, 'four', 'fire'));
+$sth = $db-&#62;prepare('INSERT INTO numbers VALUES (?, ?, ?)');
+foreach ($alldata as $row) {
+    $db-&#62;execute($sth, $row);
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+
+    which would issue four queries:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>INSERT INTO numbers VALUES ('1', 'one', 'en')
+INSERT INTO numbers VALUES ('2', 'two', 'to')
+INSERT INTO numbers VALUES ('3', 'three', 'tre')
+INSERT INTO numbers VALUES ('4', 'four', 'fire')</PRE
+></TD
+></TR
+></TABLE
+>
+
+    you can use
+    <A
+HREF="package.database.db.db-common.executemultiple.html"
+>&#13;     <B
+CLASS="function"
+>executeMultiple()</B
+></A
+> to avoid the explicit
+    foreach in the eample above:
+
+    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21507"><P
+><B
+>Example 33-4. 
+      Using <B
+CLASS="function"
+>executeMultiple()</B
+> instead of
+      <B
+CLASS="function"
+>execute()</B
+>
+     </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// Once you have a valid DB object named $db...
+$alldata = array(array(1, 'one', 'en'),
+                 array(2, 'two', 'to'),
+                 array(3, 'three', 'tre'),
+                 array(4, 'four', 'fire'));
+$sth = $db-&#62;prepare('INSERT INTO numbers VALUES (?, ?, ?)');
+$db-&#62;executeMultiple($sth, $alldata);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    The result is the same. If one of the records failed, the
+    unfinished records will not be executed.
+   </P
+><P
+>&#13;    <A
+HREF="package.database.db.db-common.execute.html"
+>&#13;     <B
+CLASS="function"
+>execute*()</B
+></A
+> has three
+    possible returns:
+    a new <A
+HREF="package.database.db.db-result.html"
+><B
+CLASS="classname"
+>DB_result</B
+></A
+> object
+    for queries that return results (such as
+    <B
+CLASS="command"
+>SELECT</B
+> queries),
+    <A
+HREF="package.database.db.db-error.html"
+><TT
+CLASS="constant"
+><B
+>DB_OK</B
+></TT
+></A
+> for queries that manipulate data (such as
+    <B
+CLASS="command"
+>INSERT</B
+> queries)
+    or a <A
+HREF="package.database.db.db-error.html"
+><B
+CLASS="classname"
+>DB_Error</B
+></A
+> object on failure
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.intro-fetch.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.intro-auto.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction - Results</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction - autoPrepare &#38; autoExecute</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

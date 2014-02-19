@@ -1,0 +1,414 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_Template_IT::setVariable()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_IT"
+HREF="package.html.html-template-it.html"><LINK
+REL="PREVIOUS"
+TITLE="HTML_Template_IT::setTemplate()"
+HREF="package.html.html-template-it.settemplate.html"><LINK
+REL="NEXT"
+TITLE="HTML_Template_IT::show()"
+HREF="package.html.html-template-it.show.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-it.settemplate.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-it.show.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-it.setvariable">HTML_Template_IT::setVariable()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN70422"
+></A
+>HTML_Template_IT::setVariable()&nbsp;--&nbsp;set a variable</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN70425"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN70426"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/Template/IT.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void
+      <B
+CLASS="function"
+>HTML_Template_IT::setVariable</B
+></CODE
+> (mixed 
+       $placeholder [, mixed 
+        $variable = ""])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.setvariable.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Set the value of a variable in the current template block. 
+If <TT
+CLASS="parameter"
+><I
+>$placeholder</I
+></TT
+> is an array the key of an element 
+is treated as a placeholder name while the value is treated as it's substitution.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.setvariable.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>mixed $placeholder</I
+></TT
+> - 
+        name of the placeholder to
+        substitute or a array with the placeholder as key and the data to
+        assign as value.
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>mixed $variable</I
+></TT
+> - 
+        if <TT
+CLASS="parameter"
+><I
+>$placeholder</I
+></TT
+> is not a array, the
+        value to assign to the placeholder.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.setvariable.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN70453"><P
+><B
+>Example 41-1. Template - cvsnames.tpl.htm</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>&#60;html&#62;
+ &#60;table&#62;
+&#60;!-- BEGIN row --&#62;
+  &#60;tr&#62;
+   &#60;td&#62;
+    {CVS_USERNAME}
+   &#60;/td&#62;
+   &#60;td&#62;
+    {REALNAME}
+   &#60;/td&#62;
+   &#60;td&#62;
+    &#60;ul&#62;
+    &#60;!-- BEGIN project_row --&#62;
+     &#60;li&#62;{PROJECT}&#60;/li&#62;
+    &#60;!-- END project_row --&#62;
+    &#60;/ul&#62;
+   &#60;/td&#62;
+  &#60;/tr&#62;
+&#60;!-- END row --&#62;
+ &#60;/table&#62;
+&#60;/html&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN70456"><P
+><B
+>Example 41-2. Script</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+  require_once "HTML/Template/IT.php";
+
+  $data = array
+  (
+    "0" =&#62; array("cvs_username" =&#62; "pajoye", 
+                 "realname" =&#62; "Pierre-Alain Joye",
+                 "projects" =&#62; array("PEAR", 
+                                     "PEAR_Frontend_Web", 
+                                     "PEAR_RemoteInstaller", 
+                                      "HTML_Template_IT")),
+    "1" =&#62; array("cvs_username" =&#62; "dsp",
+                 "realname" =&#62; "David Soria Parra",
+                 "projects" =&#62; array("HTML_Template_IT"))
+  );
+
+  $tpl = new HTML_Template_IT("./templates");
+
+  $tpl-&#62;loadTemplatefile("cvsnames.tpl.htm", true, true);
+
+  foreach($data as $name) {
+     // Assign data to the inner block
+     
+     $tpl-&#62;setCurrentBlock("project_row");
+     foreach ($name['projects'] as $projectname) {
+         $tpl-&#62;setVariable("PROJECT", $projectname);
+         $tpl-&#62;parseCurrentBlock();
+     }
+     
+     // use the possbility to set the placeholders using an assoc array
+     $tpl-&#62;setVariable(
+                      array("CVS_USERNAME" =&#62; $name["cvs_username"],
+                            "REALNAME" =&#62; $name["realname"])
+                      );
+
+     $tpl-&#62;parse("row");
+  }
+
+  // show() parses the __global__ block and
+  // print the output
+  $tpl-&#62;show();
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.setvariable.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.setvariable.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;     <A
+HREF="package.html.html-template-it.parse.html"
+>&#13;      <B
+CLASS="function"
+>HTML_Template_IT::parse()</B
+></A
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-it.settemplate.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-it.show.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_Template_IT::setTemplate()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-it.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_Template_IT::show()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

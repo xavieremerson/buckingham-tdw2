@@ -1,0 +1,503 @@
+<HTML
+><HEAD
+><TITLE
+>addBlock()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_Sigma"
+HREF="package.html.html-template-sigma.html"><LINK
+REL="PREVIOUS"
+TITLE="constructor HTML_Template_Sigma()"
+HREF="package.html.html-template-sigma.html-template-sigma.html-template-sigma.html"><LINK
+REL="NEXT"
+TITLE="addBlockfile()"
+HREF="package.html.html-template-sigma.html-template-sigma.addblockfile.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.html-template-sigma.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.addblockfile.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.addblock">addBlock()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN70819"
+></A
+>addBlock()&nbsp;--&nbsp;Adds a block to the template</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN70822"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN70823"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/Template/Sigma.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed       <B
+CLASS="function"
+>HTML_Template_Sigma::addBlock</B
+></CODE
+> (string $placeholder, string $block, string $template)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.addblock.desc"
+></A
+><H2
+>Description</H2
+><P
+>Adds a block to the template changing a variable placeholder to a block placeholder. This means that a new block will be integrated into the template in  place of a variable placeholder. The variable placeholder will be  removed and the new block will behave in the same way as if it was  inside the original template.</P
+><P
+>The block content must not start with <TT
+CLASS="literal"
+>&#60;!-- BEGIN blockname --&#62;</TT
+> and end with  <TT
+CLASS="literal"
+>&#60;!-- END blockname --&#62;</TT
+>, if it does the error will be thrown.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.addblock.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$placeholder</I
+></TT
+></DT
+><DD
+><P
+>&#13;        name of the variable placeholder, the name must be unique within the template.
+       </P
+></DD
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$block</I
+></TT
+></DT
+><DD
+><P
+>&#13;        name of the block to be added
+       </P
+></DD
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$template</I
+></TT
+></DT
+><DD
+><P
+>&#13;        content of the block
+       </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.addblock.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>return</I
+></SPAN
+> <TT
+CLASS="constant"
+><B
+>SIGMA_OK</B
+></TT
+> on success, error object on failure
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.addblock.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>see</I
+></SPAN
+> <A
+HREF="package.html.html-template-sigma.html-template-sigma.addblockfile.html"
+><B
+CLASS="function"
+>HTML_Template_Sigma::addBlockfile()</B
+></A
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.addblock.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN70876"><P
+><B
+>Table 41-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>SIGMA_BLOCK_EXISTS</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Block '<TT
+CLASS="parameter"
+><I
+>$block</I
+></TT
+>' already exists</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Tried to add a block with a name that is already present in the template</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Choose a different name for a new block</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>SIGMA_PLACEHOLDER_NOT_FOUND</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Variable placeholder '<TT
+CLASS="parameter"
+><I
+>$placeholder</I
+></TT
+>' not found</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>There is no placeholder to replace by a new block in the template</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Check the spelling of the placeholder name</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>SIGMA_PLACEHOLDER_DUPLICATE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Placeholder '<TT
+CLASS="parameter"
+><I
+>$placeholder</I
+></TT
+>' should be unique, found in multiple blocks</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>A placeholder to be replaced by a new block should appear only in one place</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Check the spelling of the placeholder name, choose a different placeholder</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>SIGMA_BLOCK_DUPLICATE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The name of a block must be unique within a template. Block 'blockname' found twice.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The added block contains a subblock that has the same name as the existing one</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Check the <TT
+CLASS="parameter"
+><I
+>$template</I
+></TT
+> and rename the block to something else</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           <TT
+CLASS="constant"
+><B
+>SIGMA_CALLBACK_SYNTAX_ERROR</B
+></TT
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           Cannot parse template function: (error description)
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           Bogus syntax for template function parameters.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           Fix the template function definition, pay special attention to
+           <A
+HREF="package.html.html-template-sigma.intro-syntax.html#package.html.html-template-sigma.intro-syntax.callback.quoting"
+>quoting rules</A
+>.
+         </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.addblock.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.html-template-sigma.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.addblockfile.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>constructor HTML_Template_Sigma()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-sigma.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>addBlockfile()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

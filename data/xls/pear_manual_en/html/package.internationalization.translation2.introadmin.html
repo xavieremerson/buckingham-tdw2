@@ -1,0 +1,426 @@
+<HTML
+><HEAD
+><TITLE
+>Admin Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Translation2"
+HREF="package.internationalization.translation2.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.internationalization.translation2.intro.html"><LINK
+REL="NEXT"
+TITLE="Containers Overview"
+HREF="package.internationalization.translation2.intro-containers.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.internationalization.translation2.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.internationalization.translation2.intro-containers.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.internationalization.translation2.introadmin">Admin Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN78331"
+></A
+>Admin Introduction&nbsp;--&nbsp;Usage of <B
+CLASS="classname"
+>Translation2_Admin</B
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.translation2.introadmin.whatis"
+></A
+><H2
+>What is Translation2_Admin?</H2
+><P
+>&#13;    <B
+CLASS="classname"
+>Translation2_Admin</B
+> is a class meant to help with
+    translation management (add/remove a language, add/remove a string).
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.translation2.introadmin.addlang"
+></A
+><H2
+>Adding a new language</H2
+><P
+>&#13;     This simple example will show how you can add a new language
+     [<A
+HREF="package.internationalization.translation2.translation2-admin.addlang.html"
+><B
+CLASS="function"
+>addLang()</B
+></A
+>],
+     using the <B
+CLASS="classname"
+>MDB2</B
+> driver:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// set the parameters to connect to your db
+$dbinfo = array(
+    'hostspec' =&#62; 'host',
+    'database' =&#62; 'dbname',
+    'phptype'  =&#62; 'mysql',
+    'username' =&#62; 'user',
+    'password' =&#62; 'pwd'
+);
+
+// tell Translation2 about your db-tables structure,
+// if it's different from the default one.
+$params = array(
+    'langs_avail_table' =&#62; 'langs_avail',
+    'lang_id_col'       =&#62; 'id',
+    'lang_name_col'     =&#62; 'name',
+    'lang_meta_col'     =&#62; 'meta',
+    'lang_errmsg_col'   =&#62; 'error_text',
+    'lang_encoding_col' =&#62; 'encoding',
+    'strings_tables'    =&#62; array(
+                            'it' =&#62; 'i18n',
+                            'de' =&#62; 'i18n'
+                         ),
+    //OR, if you use only one table,
+    //'strings_default_table' =&#62; 'i18n',
+    'string_id_col'      =&#62; 'id',
+    'string_page_id_col' =&#62; 'page_id',
+    'string_text_col'    =&#62; '%s'  //'%s' will be replaced by the lang code
+);
+
+$driver = 'MDB2';
+
+require_once 'Translation2/Admin.php';
+$tr =&#38; Translation2_Admin::factory($driver, $dbinfo, $params);
+
+// set some info about the new lang
+$newLang = array(
+    'lang_id'    =&#62; 'en',
+    'table_name' =&#62; 'i18n',
+    'name'       =&#62; 'english',
+    'meta'       =&#62; 'some meta info',
+    'error_text' =&#62; 'not available',
+    'encoding'   =&#62; 'iso-8859-1',
+);
+
+$tr-&#62;addLang($newLang);</PRE
+></TD
+></TR
+></TABLE
+>
+     That's it. If you specified a new table, it will be created,
+     if you used the same table name as the one of your other translations,
+     it will be ALTERed to host the new language too.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.translation2.introadmin.updatelang"
+></A
+><H2
+>Updating a language</H2
+><P
+>&#13;     This simple example will show how you can update an existing language
+     [<A
+HREF="package.internationalization.translation2.translation2-admin.updatelang.html"
+><B
+CLASS="function"
+>updateLang()</B
+></A
+>]:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// set some info about the new lang
+$langData = array(
+    'lang_id'    =&#62; 'en',
+    'table_name' =&#62; 'i18n',
+    'name'       =&#62; 'English',
+    'meta'       =&#62; 'some updated meta info',
+    'error_text' =&#62; 'this text is not available in English',
+    'encoding'   =&#62; 'iso-8859-15',
+);
+
+$tr-&#62;updateLang($langData);</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.translation2.introadmin.removelang"
+></A
+><H2
+>Removing an existing language</H2
+><P
+>&#13;     If you want to remove all the translated strings and the info
+     for a certain language, all you have to do is
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$tr-&#62;removeLang('fr');</PRE
+></TD
+></TR
+></TABLE
+>
+
+     <A
+HREF="package.internationalization.translation2.translation2-admin.removelang.html"
+><B
+CLASS="function"
+>removeLang()</B
+></A
+>
+     can accept a 2nd parameter (<TT
+CLASS="parameter"
+><I
+>$force</I
+></TT
+>):
+     if you want to remove the whole strings table (regardless it being used
+     for other languages as well), you can do it this way:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$tr-&#62;removeLang('fr', true);</PRE
+></TD
+></TR
+></TABLE
+>
+     Be warned it won't do any check, so you're responsible for what you do ;-)
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.translation2.introadmin.addtranslation"
+></A
+><H2
+>Adding new translations</H2
+><P
+>&#13;     Now let's see how we can
+     <A
+HREF="package.internationalization.translation2.translation2-admin.add.html"
+><B
+CLASS="function"
+>add()</B
+></A
+>
+     a new translation for a new or an existing string.
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$stringArray = array(
+    'en' =&#62; 'sample',
+    'it' =&#62; 'esempio',
+);
+
+// add the English and Italian translations associated to
+// the 'smallTest' stringID and to the 'testGroup' pageID
+
+$tr-&#62;add('smallTest', 'testGroup', $stringArray);</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.translation2.introadmin.removetranslation"
+></A
+><H2
+>Remove a translation</H2
+><P
+>&#13;     You can
+     <A
+HREF="package.internationalization.translation2.translation2-admin.remove.html"
+><B
+CLASS="function"
+>remove()</B
+></A
+>
+     the translations for a certain stringID:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$tr-&#62;remove('smallTest', 'testGroup');</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.internationalization.translation2.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.internationalization.translation2.intro-containers.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.internationalization.translation2.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Containers Overview</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

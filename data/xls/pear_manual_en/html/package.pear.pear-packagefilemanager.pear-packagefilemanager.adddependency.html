@@ -1,0 +1,377 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR_PackageFileManager::addDependency</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR_PackageFileManager"
+HREF="package.pear.pear-packagefilemanager.html"><LINK
+REL="PREVIOUS"
+TITLE="PEAR_PackageFileManager::addConfigureOption"
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.addconfigureoption.html"><LINK
+REL="NEXT"
+TITLE="PEAR_PackageFileManager::addMaintainer"
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.addmaintainer.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.addconfigureoption.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.addmaintainer.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.pear.pear-packagefilemanager.pear-packagefilemanager.adddependency"><B
+CLASS="function"
+>PEAR_PackageFileManager::addDependency()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN91244"
+></A
+><B
+CLASS="function"
+>PEAR_PackageFileManager::addDependency()</B
+>&nbsp;--&nbsp;Add a dependency on another package, or an extension/php</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN91248"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN91249"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'PEAR/PackageFileManager.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void|PEAR_Error      <B
+CLASS="function"
+>PEAR_PackageFileManager::addDependency</B
+></CODE
+> (string $name [, string $version = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> [, string $operator = 'ge' [, string $type = 'pkg' [, boolean $optional = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>]]]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packagefilemanager.pear-packagefilemanager.adddependency.desc"
+></A
+><H2
+>Description</H2
+><P
+>This will overwrite an existing dependency if it is found.  In  other words, if a dependency on PHP 4.1.0 exists, and  addDependency('php', '4.3.0', 'ge', 'php') is called, the existing  dependency on PHP 4.1.0 will be overwritten with the new one on PHP 4.3.0</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packagefilemanager.pear-packagefilemanager.adddependency.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+                 <TT
+CLASS="parameter"
+><I
+>$name</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Dependency element name
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+                 <TT
+CLASS="parameter"
+><I
+>$version</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Dependency version
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+                 <TT
+CLASS="parameter"
+><I
+>$operator</I
+></TT
+></DT
+><DD
+><P
+>&#13;         A specific operator for the version, this can be one of:   
+'has', 'not', 'lt', 'le',
+'eq', 'ne', 'ge', or 'gt'
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+                 <TT
+CLASS="parameter"
+><I
+>$type</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Dependency type.  This can be one of:    'pkg', 'ext',
+'php', 'prog', 'os', 'sapi', or
+'zend'
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>boolean
+                 <TT
+CLASS="parameter"
+><I
+>$optional</I
+></TT
+></DT
+><DD
+><P
+>&#13;         <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> if dependency is optional
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packagefilemanager.pear-packagefilemanager.adddependency.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> PEAR_PACKAGEFILEMANAGER_RUN_SETOPTIONS
+    </P
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> PEAR_PACKAGEFILEMANAGER_PHP_NOT_PACKAGE
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packagefilemanager.pear-packagefilemanager.adddependency.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.addconfigureoption.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.addmaintainer.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_PackageFileManager::addConfigureOption()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.pear.pear-packagefilemanager.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_PackageFileManager::addMaintainer()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

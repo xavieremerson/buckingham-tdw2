@@ -1,0 +1,755 @@
+<HTML
+><HEAD
+><TITLE
+>Archive_Tar::listContent()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Archive-Tar"
+HREF="package.filesystem.archive-tar.html"><LINK
+REL="PREVIOUS"
+TITLE="Archive_Tar::extractModify()"
+HREF="package.filesystem.archive-tar.extractmodify.html"><LINK
+REL="NEXT"
+TITLE="Archive_Tar::extractInString()"
+HREF="package.filesystem.archive-tar.extractinstring.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.archive-tar.extractmodify.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.archive-tar.extractinstring.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.filesystem.archive-tar.listcontent">Archive_Tar::listContent()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN46001"
+></A
+>Archive_Tar::listContent()&nbsp;--&nbsp;list files and directories in archive</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN46004"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN46005"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Archive/Tar.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>listContent</B
+></CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.archive-tar.listcontent.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Lists the files and the directories of the archive.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.archive-tar.listcontent.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>array</I
+></TT
+> - 
+      each array entry represents a file or folder.
+      The array is not sorted, so the index shows the position 
+      of the file or directory in the archive.     
+     </P
+><P
+>&#13;    Each entry contains the following information:
+     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>$file['filename']</I
+></TT
+> - 
+        Name and path of the file/dir.
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>$file['mode']</I
+></TT
+> - 
+        File permissions (result of fileperms())
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>$file['uid']</I
+></TT
+> - 
+        user id
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>$file['gid']</I
+></TT
+> - 
+        group id
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>$file['size']</I
+></TT
+> - 
+        filesize
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>$file['mtime']</I
+></TT
+> - 
+        Last modification time (result of filemtime())
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>$file['typeflag']</I
+></TT
+> - 
+        empty for file, "5" for directory
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.archive-tar.listcontent.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN46044"><P
+><B
+>Table 38-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"
+           Unable to open in read mode <TT
+CLASS="parameter"
+><I
+>archive</I
+></TT
+>
+          "</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          The file is exclusively locked by another application.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Check for other applications working on the file.
+          This can not be caused by a competive processing the archive
+          with <B
+CLASS="classname"
+>Archive_Tar</B
+>
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"
+           Invalid listcontent mode <TT
+CLASS="parameter"
+><I
+>mode</I
+></TT
+>
+          "</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Implementation error
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Should not occur, please set up a bug report.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"
+           Directory <TT
+CLASS="parameter"
+><I
+>name</I
+></TT
+> already exists as a file
+          "</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          A file is marked up as directory in the archive.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Maybe a corrupted archive.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"
+           File <TT
+CLASS="parameter"
+><I
+>name</I
+></TT
+> already exists as a directory
+          "</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          A directoy is marked up as file in the archive.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Maybe a corrupted archive.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"
+           File <TT
+CLASS="parameter"
+><I
+>name</I
+></TT
+> already exists and 
+           is write protected.
+          "</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          The archive contains a file which already exists in 
+          the destination dir and can not be overwritten.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Extract the archive to an empty directory.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"
+           Unable to create path for <TT
+CLASS="parameter"
+><I
+>name</I
+></TT
+>
+          "</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          One or more new nested directories could not be created 
+          in the destination directory.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Ensure the destination directory and all nested directories
+          have the required rights.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"
+           Unable to create directory <TT
+CLASS="parameter"
+><I
+>name</I
+></TT
+>
+          "</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          A directory could not be created 
+          in the destination directory.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Ensure the destination directory has the required rights.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"
+           Error while opening <TT
+CLASS="parameter"
+><I
+>name</I
+></TT
+> in write binary mode
+          "</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          The file could not be created. 
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          The file is maybe locked.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"
+           Extracted file <TT
+CLASS="parameter"
+><I
+>filename</I
+></TT
+> does 
+           not have the correct file size <TT
+CLASS="parameter"
+><I
+>filesize</I
+></TT
+>
+           (<TT
+CLASS="parameter"
+><I
+>size</I
+></TT
+> expected). Archive may be corrupted.
+          "</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Read the message.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Read the message.
+         </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.archive-tar.listcontent.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.archive-tar.listcontent.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN46134"><P
+><B
+>Example 38-1. List archive content</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$tar_object = new Archive_Tar("tarname.tar");
+
+if (($v_list  =  $tar_object-&#62;listContent()) != 0) {
+    for ($i=0; $i&#60;sizeof($v_list); $i++) {
+        echo "Filename :'".$v_list[$i]['filename']."'&#60;br&#62;";
+        echo " .size :'".$v_list[$i]['size']."'&#60;br&#62;";
+        echo " .mtime :'".$v_list[$i]['mtime']."' (".
+             date("l dS of F Y h:i:s A", $v_list[$i]['mtime']).")&#60;br&#62;";
+        echo " .mode :'".$v_list[$i]['mode']."'&#60;br&#62;";
+        echo " .uid :'".$v_list[$i]['uid']."'&#60;br&#62;";
+        echo " .gid :'".$v_list[$i]['gid']."'&#60;br&#62;";
+        echo " .typeflag :'".$v_list[$i]['typeflag']."'&#60;br&#62;";
+   }
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.filesystem.archive-tar.extractmodify.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.filesystem.archive-tar.extractinstring.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Archive_Tar::extractModify()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.filesystem.archive-tar.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Archive_Tar::extractInString()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

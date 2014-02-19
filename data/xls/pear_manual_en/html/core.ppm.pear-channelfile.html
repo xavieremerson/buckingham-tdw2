@@ -1,0 +1,530 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR_ChannelFile</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR Installer classes"
+HREF="core.ppm.html"><LINK
+REL="PREVIOUS"
+TITLE="PEAR_Builder::phpizeCallback"
+HREF="core.ppm.pear-builder.phpizecallback.html"><LINK
+REL="NEXT"
+TITLE="
+    Class Summary
+    PEAR_ChannelFile
+   "
+HREF="core.ppm.pear-channelfile-summary.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-builder.phpizecallback.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 27. PEAR Installer classes</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-channelfile-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="core.ppm.pear-channelfile">PEAR_ChannelFile</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile-summary.html"
+>Class Summary
+    <B
+CLASS="classname"
+>PEAR_ChannelFile</B
+></A
+>&nbsp;--&nbsp;The Channel handling class</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.pear-channelfile.html"
+>constructor
+   <B
+CLASS="function"
+>PEAR_ChannelFile::PEAR_ChannelFile()</B
+></A
+>&nbsp;--&nbsp;PEAR_ChannelFile</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.addfunction.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::addFunction()</B
+></A
+>&nbsp;--&nbsp;Add a protocol to the provides section</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.addmirror.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::addMirror()</B
+></A
+>&nbsp;--&nbsp;addMirror</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.addmirrorfunction.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::addMirrorFunction()</B
+></A
+>&nbsp;--&nbsp;Add a protocol to a mirror's provides section</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.fromany.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::fromAny()</B
+></A
+>&nbsp;--&nbsp;Returns channel information from different sources</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.fromarray.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::fromArray()</B
+></A
+>&nbsp;--&nbsp;fromArray</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.fromxmlfile.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::fromXmlFile()</B
+></A
+>&nbsp;--&nbsp;
+   Parse a channel.xml file.  Expects the name of  a channel xml file as
+   input.
+</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.fromxmlstring.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::fromXmlString()</B
+></A
+>&nbsp;--&nbsp;fromXmlString</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.getalias.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::getAlias()</B
+></A
+>&nbsp;--&nbsp;Return the suggested alias users can use to refer to this channel on the command-line.</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.getbaseurl.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::getBaseURL()</B
+></A
+>&nbsp;--&nbsp;Get the URL to access a base resource.</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.geterrors.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::getErrors()</B
+></A
+>&nbsp;--&nbsp;Wrapper to PEAR_ErrorStack::getErrors()</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.getfunction.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::getFunction()</B
+></A
+>&nbsp;--&nbsp;getFunction</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.getfunctions.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::getFunctions()</B
+></A
+>&nbsp;--&nbsp;Retrieve a list of all xmlrpc/soap functions</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.getmirror.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::getMirror()</B
+></A
+>&nbsp;--&nbsp;Get the unserialized XML representing a mirror</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.getmirrors.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::getMirrors()</B
+></A
+>&nbsp;--&nbsp;Retrieve a list of all mirrors and their contents</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.getname.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::getName()</B
+></A
+>&nbsp;--&nbsp;retrieve the channel name</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.getpath.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::getPath()</B
+></A
+>&nbsp;--&nbsp;getPath</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.getport.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::getPort()</B
+></A
+>&nbsp;--&nbsp;retrieve the socket port used to connect to the server</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.getserver.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::getServer()</B
+></A
+>&nbsp;--&nbsp;Retrieve the channel server</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.getssl.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::getSSL()</B
+></A
+>&nbsp;--&nbsp;get SSL support for a channel or mirror</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.getsummary.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::getSummary()</B
+></A
+>&nbsp;--&nbsp;Get channel summary</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.getvalidationobject.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::getValidationObject()</B
+></A
+>&nbsp;--&nbsp;Retrieve the object that can be used for custom validation</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.getvalidationpackage.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::getValidationPackage()</B
+></A
+>&nbsp;--&nbsp;Retrieve the name of the validation package for this channel</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.isincludeable.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::isIncludeable()</B
+></A
+>&nbsp;--&nbsp;Determine whether a file exists in the include_path and is readable</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.lastmodified.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::lastModified()</B
+></A
+>&nbsp;--&nbsp;This function is used by the channel updater and retrieves a value set by the registry, or the current time if it has not been set</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.resetfunctions.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::resetFunctions()</B
+></A
+>&nbsp;--&nbsp;Empty all protocol definitions</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.resetrest.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::resetREST()</B
+></A
+>&nbsp;--&nbsp;Since REST does not implement RPC, provide this as a logical wrapper around resetFunctions for REST</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.setalias.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::setAlias()</B
+></A
+>&nbsp;--&nbsp;Set the channel alias</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.setbaseurl.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::setBaseURL()</B
+></A
+>&nbsp;--&nbsp;set the base URL for a REST resource, or set of REST resources</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.setdefaultpearprotocols.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::setDefaultPEARProtocols()</B
+></A
+>&nbsp;--&nbsp;Set a channel's protocols to the protocols supported by pearweb</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.setname.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::setName()</B
+></A
+>&nbsp;--&nbsp;setName</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.setpath.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::setPath()</B
+></A
+>&nbsp;--&nbsp;Set the file path for xmlrpc or soap</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.setport.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::setPort()</B
+></A
+>&nbsp;--&nbsp;Set the socket number (port) that is used to connect to this channel</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.setserver.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::setServer()</B
+></A
+>&nbsp;--&nbsp;set the Channel server</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.setssl.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::setSSL()</B
+></A
+>&nbsp;--&nbsp;Sets whether SSL is used to connect to this channel</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.setsummary.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::setSummary()</B
+></A
+>&nbsp;--&nbsp;set the summary of a channel's purpose</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.setvalidationpackage.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::setValidationPackage()</B
+></A
+>&nbsp;--&nbsp;
+   Set the package validation object if it differs from PEAR's default.
+  </DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.supports.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::supports()</B
+></A
+>&nbsp;--&nbsp;determines whether a webservices function is supported by a channel</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.supportsrest.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::supportsREST()</B
+></A
+>&nbsp;--&nbsp;
+   Determines whether a channel supports any Representational State Transfer
+   (REST) resources
+ </DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.toarray.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::toArray()</B
+></A
+>&nbsp;--&nbsp;return the channel representation in array format</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.toxml.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::toXml()</B
+></A
+>&nbsp;--&nbsp;Return an XML document based on the internal representation of this channel</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.validate.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::validate()</B
+></A
+>&nbsp;--&nbsp;Validate channel information.</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.validchannelserver.html"
+><B
+CLASS="function"
+>PEAR_ChannelFile::validChannelServer()</B
+></A
+>&nbsp;--&nbsp;Test whether a string contains a valid channel server.</DT
+><DT
+><A
+HREF="core.ppm.pear-channelfile.constants.html"
+>Package PEAR Constants</A
+>&nbsp;--&nbsp;Constants defined in and used by PEAR</DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-builder.phpizecallback.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-channelfile-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Builder::phpizeCallback()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.ppm.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class Summary
+    <B
+CLASS="classname"
+>PEAR_ChannelFile</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

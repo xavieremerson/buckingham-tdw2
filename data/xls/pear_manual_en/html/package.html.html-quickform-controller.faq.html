@@ -1,0 +1,892 @@
+<HTML
+><HEAD
+><TITLE
+>FAQ</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_QuickForm_Controller"
+HREF="package.html.html-quickform-controller.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.html.html-quickform-controller.intro.html"><LINK
+REL="NEXT"
+TITLE="Class Summary HTML_QuickForm_Controller"
+HREF="package.html.html-quickform-controller.html-quickform-controller-summary.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform-controller.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform-controller.html-quickform-controller-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform-controller.faq">FAQ</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN65623"
+></A
+>FAQ&nbsp;--&nbsp;Understanding package features</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform-controller.faq.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;This document is based on questions asked on <A
+HREF="mailto:pear-general@lists.php.net"
+TARGET="_top"
+>PEAR general mailing list</A
+>. You are encouraged to search the list archives to find more verbose answers and examples.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform-controller.faq.noob"
+></A
+><H2
+>The package is so complex! I don't understand anything!</H2
+><P
+>&#13;    Sorry, <B
+CLASS="classname"
+>HTML_QuickForm_Controller</B
+> is not intended for PHP newbies. If you don't understand what classes are, if you have no prior experience with QuickForm, if you are a fan of copy-paste programming then this package is not for you.
+    </P
+><P
+>&#13;    The package is indeed complex, but so are the problems it is trying to solve. Try to rewrite any of the enclosed multipage form examples without using such a package and you'll see what we mean.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform-controller.faq.actions"
+></A
+><H2
+>Meta-question: actions</H2
+><P
+>&#13;To avoid confusion lets use the terms "action" for the string containing the name of the action and "action handler" for the subclass of <A
+HREF="package.html.html-quickform-controller.html-quickform-action-back-summary.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Action</B
+></A
+>.
+    </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform-controller.faq.actions.default"
+></A
+><H3
+>Default actions and default action handlers</H3
+><P
+>&#13;While you can invent your own action names and create custom handlers for them, you'll most certainly have to deal with the default actions and their handlers first. 
+      </P
+><P
+></P
+><DIV
+CLASS="variablelist"
+><P
+><B
+>Default action names</B
+></P
+><DL
+><DT
+><TT
+CLASS="literal"
+>'display'</TT
+></DT
+><DD
+><P
+>&#13;    This action has a default handler, <A
+HREF="package.html.html-quickform-controller.html-quickform-action-display-summary.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Action_Display</B
+></A
+>, which displays the form using the Default renderer. You should subclass this handler if you want to customize the form output. This action is called automatically when the page needs to be displayed and should <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>not</I
+></SPAN
+> be bound to buttons via <B
+CLASS="function"
+>getButtonName()</B
+>.
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'submit'</TT
+></DT
+><DD
+><P
+>&#13;    This action should be bound to a "global" submit button for a form. It can be the "submit" button of a single-page or tabbed multi-page form, "finish" button of a wizard. This action has a default handler, <A
+HREF="package.html.html-quickform-controller.html-quickform-action-submit-summary.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Action_Submit</B
+></A
+>, which checks whether all the pages of the form are valid, then either calls the <TT
+CLASS="literal"
+>'process'</TT
+> handler or displays the invalid page.
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'next'</TT
+></DT
+><DD
+><P
+>&#13;    This action should be bound to the "Next" button of (usually) a modal multipage form (AKA wizard). This action has a default handler, <A
+HREF="package.html.html-quickform-controller.html-quickform-action-next-summary.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Action_Next</B
+></A
+>, which checks the validity of the current page and redirects to the next one if the current is valid (or if the form is not modal). On the last page of a modal multipage form this behaves like the default <TT
+CLASS="literal"
+>'submit'</TT
+> handler.
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'back'</TT
+></DT
+><DD
+><P
+>&#13;    This action should be bound to the "Back" button of (usually) a modal multipage form (AKA wizard). This action has a default handler, <A
+HREF="package.html.html-quickform-controller.html-quickform-action-back-summary.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Action_Back</B
+></A
+>, which redirects to the previous page if one exists. As of QFC 0.9.3, no form validation takes place on <TT
+CLASS="literal"
+>'back'</TT
+> action.
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'jump'</TT
+></DT
+><DD
+><P
+>&#13;      This action has a default handler, <A
+HREF="package.html.html-quickform-controller.html-quickform-action-jump-summary.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Action_Jump</B
+></A
+>, which just makes HTTP redirect to the given page of the form. This action should <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>not</I
+></SPAN
+> be bound to buttons via <B
+CLASS="function"
+>getButtonName()</B
+>.
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'process'</TT
+></DT
+><DD
+><P
+>&#13;      This is the action called by default <TT
+CLASS="literal"
+>'submit'</TT
+> and <TT
+CLASS="literal"
+>'next'</TT
+> (on the last page of the wizard only) handlers after successful (i.e. without validation errors) form submit. This action doesn't have a default handler, you should define the custom one yourself and implement all the necessary logic to process the form's values in it.
+    </P
+></DD
+></DL
+></DIV
+><P
+>There is also a default handler, <A
+HREF="package.html.html-quickform-controller.html-quickform-action-direct-summary.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Action_Direct</B
+></A
+>, that does <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>not</I
+></SPAN
+> have a default action name. It is used to go to the specific page of the form and should be explicitly added via <A
+HREF="package.html.html-quickform-controller.html-quickform-page.addaction.html"
+><B
+CLASS="function"
+>Page::addAction()</B
+></A
+> or <A
+HREF="package.html.html-quickform-controller.html-quickform-controller.addaction.html"
+><B
+CLASS="function"
+>Controller::addAction()</B
+></A
+> with the name of the target page as <TT
+CLASS="parameter"
+><I
+>$actionName</I
+></TT
+> and bound to buttons via <B
+CLASS="function"
+>getButtonName()</B
+> using the same name.
+      </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform-controller.faq.actions.call"
+></A
+><H3
+>How to call an action handler?</H3
+><P
+>&#13;You should use <B
+CLASS="classname"
+>Page</B
+>'s <A
+HREF="package.html.html-quickform-controller.html-quickform-page.handle.html"
+><B
+CLASS="function"
+>handle()</B
+></A
+> method:
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$page-&#62;handle('action');</PRE
+></TD
+></TR
+></TABLE
+>
+<B
+CLASS="classname"
+>Controller</B
+>'s <A
+HREF="package.html.html-quickform-controller.html-quickform-controller.handle.html"
+><B
+CLASS="function"
+>handle()</B
+></A
+> method will be called automatically if needed.
+      </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform-controller.faq.actions.custom"
+></A
+><H3
+>How to make a custom action?</H3
+><P
+>&#13;      Create a subclass of <A
+HREF="package.html.html-quickform-controller.html-quickform-action-summary.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Action</B
+></A
+>, add the necessary logic to its <B
+CLASS="function"
+>perform()</B
+> method. Add it to the <B
+CLASS="classname"
+>Page</B
+> or to the <B
+CLASS="classname"
+>Controller</B
+> via <B
+CLASS="function"
+>addAction()</B
+> with the appropriate name.
+      </P
+><P
+>&#13;      If you intend to bind this action to some button via <B
+CLASS="function"
+>getButtonName()</B
+>, you should care about storing values in the <A
+HREF="package.html.html-quickform-controller.html-quickform-controller.container.html"
+><B
+CLASS="function"
+>container()</B
+></A
+>:
+<P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>Build the form.</P
+></LI
+><LI
+><P
+>Get a reference to container.</P
+></LI
+><LI
+><P
+>Fill the container's <TT
+CLASS="varname"
+>['values'][$pageName]</TT
+> and  <TT
+CLASS="varname"
+>['valid'][$pageName]</TT
+> elements.</P
+></LI
+></OL
+>
+      </P
+><P
+>&#13;      As usual, see the default action handlers' source for the examples.
+      </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform-controller.faq.actions.bind"
+></A
+><H3
+>Can actions be bound to something other than submit buttons?</H3
+><P
+>&#13;Controller is able to properly handle actions bound to <TT
+CLASS="literal"
+>&#60;input type="image" /&#62;</TT
+> controls, too. You don't have to do anything special, just set the control's name via <B
+CLASS="function"
+>getButtonName()</B
+>.
+      </P
+><P
+>&#13;If you want to bind an action to something like a hyperlink, you must consider the following: <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>the form must be submitted</I
+></SPAN
+> to be able to get its values, thus you need to write some javascript that will submit the form and somehow pass the action name to the controller.
+      </P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform-controller.faq.clear-container"
+></A
+><H2
+>How do I reset the form?</H2
+><P
+>&#13;       Controller keeps the form data and validation status in session in so-called container, accessible via 
+       <A
+HREF="package.html.html-quickform-controller.html-quickform-controller.container.html"
+><B
+CLASS="function"
+>container()</B
+></A
+> 
+       method. To reset the form you need to clear this container, which is achieved by passing <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> to 
+       <B
+CLASS="function"
+>container()</B
+>.
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform-controller.faq.additional-data"
+></A
+><H2
+>How to pass additional data between pages of the form?</H2
+><P
+>&#13;    The answer is quite simple: you need to use the <A
+HREF="package.html.html-quickform-controller.html-quickform-controller.container.html"
+><B
+CLASS="function"
+>container()</B
+></A
+> method of <B
+CLASS="classname"
+>HTML_QuickForm_Controller</B
+>, like this:
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// Note the reference
+$data =&#38; $page-&#62;controller-&#62;container();
+$data['_my_stuff'] = $stuff;</PRE
+></TD
+></TR
+></TABLE
+>
+On the target page you do
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$data =&#38; $page-&#62;controller-&#62;container();
+$stuff = $data['_my_stuff'];</PRE
+></TD
+></TR
+></TABLE
+>
+Please use some prefix for your fields or start their names with underscore to prevent possible name conflicts with the future versions of QFC.
+    </P
+><P
+>&#13;    Please note that <B
+CLASS="classname"
+>Controller</B
+> knows nothing about your additional data, so do not expect it to return it via <A
+HREF="package.html.html-quickform-controller.html-quickform-controller.exportvalues.html"
+><B
+CLASS="function"
+>exportValues()</B
+></A
+> method or the like. You'll have to use the <A
+HREF="package.html.html-quickform-controller.html-quickform-controller.container.html"
+><B
+CLASS="function"
+>container()</B
+></A
+> method and extract the data yourself. However, your data <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>will</I
+></SPAN
+> be deleted when the container is reset.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform-controller.faq.renderers"
+></A
+><H2
+>How to use template-based renderers?</H2
+><P
+>&#13;    First of all, please understand that <B
+CLASS="classname"
+>HTML_QuickForm_Page</B
+> is a subclass of <B
+CLASS="classname"
+>HTML_QuickForm</B
+>, thus everything that applies to the parent class will apply to the child. You are encouraged to read the <A
+HREF="package.html.html-quickform.intro-renderers.html"
+>section about renderers</A
+> in <B
+CLASS="classname"
+>HTML_QuickForm</B
+> and the docs to the renderer you are trying to use. The usage examples are available in <TT
+CLASS="filename"
+>docs/renderers/</TT
+> directory of QuickForm distribution.
+    </P
+><P
+>&#13;    As was already pointed out, you should subclass the <A
+HREF="package.html.html-quickform-controller.html-quickform-action-display-summary.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Action_Display</B
+></A
+> class if you want to customize the form output and add an instance of this subclass as a handler for Page's <TT
+CLASS="literal"
+>'display'</TT
+> action. Its <B
+CLASS="function"
+>_renderForm()</B
+> will contain all renderer-specific code.
+    </P
+><P
+>&#13;    The only new problem <B
+CLASS="classname"
+>Controller</B
+> introduces is the buttons bound to specific actions via <A
+HREF="package.html.html-quickform-controller.html-quickform-page.getbuttonname.html"
+><B
+CLASS="function"
+>getButtonName()</B
+></A
+>. If you are using some kind of Dynamic renderer this will not be a problem, as you need not care about the elements names, but you need these names to output the form via Static renderer.
+    </P
+><P
+>&#13;    We'll assume using <A
+HREF="package.html.html-quickform.html-quickform-renderer-itstatic.html"
+>ITStatic renderer</A
+> but the same can be applied to other Static renderers as well. You basically have 3 options:
+<P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>Manually add the buttons/placeholders with the names that should be autogenerated via <A
+HREF="package.html.html-quickform-controller.html-quickform-page.getbuttonname.html"
+><B
+CLASS="function"
+>getButtonName()</B
+></A
+> to the form. This is <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>not recommended</I
+></SPAN
+>, as the names should not be of interest to anyone except <B
+CLASS="classname"
+>Controller</B
+> itself and should not be used directly.</P
+></LI
+><LI
+><P
+>Put the auto-named buttons into <A
+HREF="package.html.html-quickform.html#package.html.html-quickform.groups"
+>group</A
+>. You can name the group any way you like, just be sure to set <TT
+CLASS="parameter"
+><I
+>$appendName</I
+></TT
+> to false. When ITStatic sees <TT
+CLASS="varname"
+>{form_element_html}</TT
+> placeholder, it'll assign group's HTML to it.</P
+></LI
+><LI
+><P
+>Call <B
+CLASS="function"
+>getButtonName()</B
+> from within template. Add the following to the template
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#60;input type="submit" value="Bla-bla" name="func_buttonName('action')" ... /&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+and the following to the <B
+CLASS="function"
+>_renderForm()</B
+> method of your custom <B
+CLASS="classname"
+>HTML_QuickForm_Action_Display</B
+> subclass
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$tpl-&#62;setCallbackFunction('buttonName', array(&#38;$page, 'getButtonName'));</PRE
+></TD
+></TR
+></TABLE
+>
+This code will work with <B
+CLASS="classname"
+>HTML_Template_Sigma</B
+>, <B
+CLASS="classname"
+>HTML_Template_ITX</B
+> (note the X) will require some more tweaking.
+     </P
+></LI
+></OL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform-controller.faq.nonlinear"
+></A
+><H2
+>How to create a wizard with optional pages?</H2
+><P
+>Thanks to Donald Lobo for this contribution.</P
+><P
+>Lets assume we have a three-page wizard:
+<P
+></P
+><UL
+><LI
+><P
+>Page 1 has a control that lets the user choose the next page.</P
+></LI
+><LI
+><P
+>Based on input, the user is directed to either page 2A or page 2B.</P
+></LI
+><LI
+><P
+>Both page 2A and 2B go to page 3 (this is commonly referred to as a 
+StateMachine in programming books). </P
+></LI
+></UL
+>
+    </P
+><P
+>&#13;    You need to create several action handlers based on QFC's default <A
+HREF="package.html.html-quickform-controller.html-quickform-action-next-summary.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Action_Next</B
+></A
+> and <A
+HREF="package.html.html-quickform-controller.html-quickform-action-back-summary.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Action_Back</B
+></A
+>. You can do this either at the Page level or at the Controller level. The Page level subclassing is simple, but if you have a complex StateMachine you will end up having multiple subclasses. 
+    </P
+><P
+>&#13;For the above example, the <TT
+CLASS="literal"
+>'next'</TT
+> action on page 1 sends the 'user' to either page 2 or page 3 based on input. The handler also sets the <TT
+CLASS="literal"
+>'valid'</TT
+> flag of the page that will not be visited.
+    </P
+><P
+>&#13;The <TT
+CLASS="literal"
+>'back'</TT
+> action on pages 2A and 2B sends the user back to page 1, while the <TT
+CLASS="literal"
+>'next'</TT
+> action sends him to page 3.
+    </P
+><P
+>&#13;Finally, the <TT
+CLASS="literal"
+>'back'</TT
+> action handler on page 3 should examine the input on page 1 and send the user to either 2A or 2B.
+    </P
+><P
+>&#13;The working example is available in <TT
+CLASS="filename"
+>statemachine.php</TT
+> file.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform-controller.faq.back-validation"
+></A
+><H2
+>I use client-side validation. How do I switch it off for <TT
+CLASS="literal"
+>'Back'</TT
+> button?</H2
+><P
+>&#13;      Client-side validation is called by form's <TT
+CLASS="varname"
+>onSubmit</TT
+> handler, if you remove
+      the handler, the validation will not run. Therefore you need to remove it if user clicks on 
+      <TT
+CLASS="literal"
+>'Back'</TT
+> button. This can be achieved f.e. by adding the following as
+      the button's <TT
+CLASS="varname"
+>onClick</TT
+> handler:
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="javascript"
+>this.form.onsubmit = null; return true;</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform-controller.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform-controller.html-quickform-controller-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform-controller.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_Controller</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

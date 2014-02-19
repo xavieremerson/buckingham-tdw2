@@ -1,0 +1,229 @@
+<HTML
+><HEAD
+><TITLE
+>Custom File Roles</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="New features in PEAR 1.4"
+HREF="guide-migrating.html"><LINK
+REL="PREVIOUS"
+TITLE="XML-RPC functions"
+HREF="guide.migrating.channels.xmlrpcfunctions.html"><LINK
+REL="NEXT"
+TITLE="Defining a customized role for use in a package.xml"
+HREF="guide.migrating.customroles.defining.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="chapter"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="guide.migrating.channels.xmlrpcfunctions.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="guide.migrating.customroles.defining.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="chapter"
+><H1
+><A
+NAME="guide.migrating.customroles"
+>Chapter 23. Custom File Roles</A
+></H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="guide.migrating.customroles.html#guide.migrating.customroles.xml"
+>Using a customized role in a package.xml</A
+></DT
+><DT
+><A
+HREF="guide.migrating.customroles.defining.html"
+>Defining a customized role for use in a package.xml</A
+></DT
+></DL
+></DIV
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;   As of PEAR version 1.4.3, the required format for custom file roles has been
+   changed due to a minor security vulnerability.  All custom file roles must
+   now define a <TT
+CLASS="filename"
+>Role.xml</TT
+> file in order to properly declare
+   a custom file role.  See the example below for more information.
+  </P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>&#13;  One of the programming features that the PEAR installer enforces is the separation
+  of files into separate categories, and the important idea that files of a similar
+  category are always installed into the same location, or at least handled the
+  same way, as in the case of role="src" for PECL packages.
+ </P
+><P
+>&#13;  This has been quite successful for smaller library-style packages, but complete
+  applications cannot function without customized installation locations.  For instance,
+  some files may be intended for use in a public web frontend, others for library location.
+  PEAR 1.4 introduces the possibility of defining custom installation roles to fill this
+  void.
+ </P
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="guide.migrating.customroles.xml">Using a customized role in a package.xml</H1
+><P
+>&#13;   To use a custom installation role that another programmer has written, there are three
+   steps that are necessary.  First, the
+   <A
+HREF="guide.developers.package2.usesrole.html"
+>&#60;usesrole&#62;</A
+> tag should
+   be used to define each custom role that is used in the package.xml.  Next, the role should
+   simply be used for the files it pertains to.  Finally, a dependency on the package that
+   provides the custom role should be added to the package.xml, just for completeness.
+  </P
+><P
+>&#13;   Pretty simple!
+  </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="guide.migrating.channels.xmlrpcfunctions.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="guide.migrating.customroles.defining.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>XML-RPC functions</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="guide-migrating.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Defining a customized role for use in a package.xml</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

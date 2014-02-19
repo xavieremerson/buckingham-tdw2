@@ -1,0 +1,449 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_QuickForm_select::load()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Standard HTML elements"
+HREF="package.html.html-quickform.html#package.html.html-quickform.elements.standard"><LINK
+REL="PREVIOUS"
+TITLE="HTML_QuickForm_select::getSize()"
+HREF="package.html.html-quickform.html-quickform-select.getsize.html"><LINK
+REL="NEXT"
+TITLE="HTML_QuickForm_select::loadArray()"
+HREF="package.html.html-quickform.html-quickform-select.loadarray.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-select.getsize.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-select.loadarray.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.html-quickform-select.load">HTML_QuickForm_select::load()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN57584"
+></A
+>HTML_QuickForm_select::load()&nbsp;--&nbsp;Loads options from different types of data sources</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN57587"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN57588"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/QuickForm/select.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>PEAR_Error      <B
+CLASS="function"
+>HTML_QuickForm_select::load</B
+></CODE
+> (mixed &#38;$options [, mixed $param1 = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> [, mixed $param2 = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> [, mixed $param3 = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> [, mixed $param4 = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>]]]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-select.load.desc"
+></A
+><H2
+>Description</H2
+><P
+>This method is a simulated overloaded method.  The arguments, other than the  first are optional and only mean something depending on the type of the first argument.</P
+><P
+>If the first argument is an array then all arguments are passed in order to <A
+HREF="package.html.html-quickform.html-quickform-select.loadarray.html"
+><B
+CLASS="function"
+>loadArray()</B
+></A
+>.  If the first argument is a <A
+HREF="package.database.db.db-result.html"
+><B
+CLASS="classname"
+>DB_Result</B
+></A
+> then all arguments are passed in order to <A
+HREF="package.html.html-quickform.html-quickform-select.loaddbresult.html"
+><B
+CLASS="function"
+>loadDbResult()</B
+></A
+>.  If the first argument is a string or a DB connection then all arguments are  passed in order to <A
+HREF="package.html.html-quickform.html-quickform-select.loadquery.html"
+><B
+CLASS="function"
+>loadQuery()</B
+></A
+>.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-select.load.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>mixed
+                 <TT
+CLASS="parameter"
+><I
+>&#38;$options</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Options source currently supports assoc array or DB_result
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>mixed
+                 <TT
+CLASS="parameter"
+><I
+>$param1</I
+></TT
+></DT
+><DD
+><P
+>&#13;         (optional) See function detail
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>mixed
+                 <TT
+CLASS="parameter"
+><I
+>$param2</I
+></TT
+></DT
+><DD
+><P
+>&#13;         (optional) See function detail
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>mixed
+                 <TT
+CLASS="parameter"
+><I
+>$param3</I
+></TT
+></DT
+><DD
+><P
+>&#13;         (optional) See function detail
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>mixed
+                 <TT
+CLASS="parameter"
+><I
+>$param4</I
+></TT
+></DT
+><DD
+><P
+>&#13;         (optional) See function detail
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-select.load.returns"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>returns</I
+></SPAN
+> <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> on success
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-select.load.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> PEAR_Error
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-select.load.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>see</I
+></SPAN
+> <A
+HREF="package.html.html-quickform.html-quickform-select.loadarray.html"
+><B
+CLASS="function"
+>loadArray()</B
+></A
+>, <A
+HREF="package.html.html-quickform.html-quickform-select.loaddbresult.html"
+><B
+CLASS="function"
+>loadDbResult()</B
+></A
+>, <A
+HREF="package.html.html-quickform.html-quickform-select.loadquery.html"
+><B
+CLASS="function"
+>loadQuery()</B
+></A
+>.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-select.load.note"
+></A
+><H2
+>Note</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>since</I
+></SPAN
+> 1.1
+    </P
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-select.getsize.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-select.loadarray.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_QuickForm_select::getSize()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.elements.standard"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_QuickForm_select::loadArray()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,128 @@
+/*****************************************************************
+
+	ActiveWidgets 2.0.b3 (beta3)
+	Copyright (C) 2003-2005 ActiveWidgets Ltd. All Rights Reserved. 
+	http://www.activewidgets.com/
+
+	WARNING: This software program is protected by copyright law 
+	and international treaties. Unauthorized reproduction or
+	distribution of this program, or any portion of it, may result
+	in severe civil and criminal penalties, and will be prosecuted
+	to the maximum extent possible under the law.
+
+	FOR TESTING AND EVALUATION ONLY:
+	This software is not free and is licensed to you for testing 
+	and evaluation only. You are not allowed to distribute 
+	or use any parts of this software for any other purposes.
+
+*****************************************************************/
+
+.aw-grid-control {
+	padding: 1px;
+	border: 1px solid #7f9db9;
+	background: #fff;
+}
+
+
+.aw-strict .aw-grid-control {
+	padding: 1px 3px;
+}
+
+.aw-grid-box {
+	padding: 0px;
+}
+
+
+.aw-strict .aw-grid-box {
+	margin: 0px -2px;
+	padding: 0px 2px;
+}
+
+.aw-row-selector {
+	border: 1px solid;
+	border-color: #f2f1e2 #e2decd #e2decd #ebeadb;
+	background: #ebeadb;
+}
+
+.aw-strict .aw-row-selector {
+	padding: 0px 6px 2px 0px;
+}
+
+.aw-row-selector .aw-item-ruler {
+	margin-top: -1px;
+}
+
+.aw-header-0 .aw-grid-header {
+	border: none;
+	border-bottom: 1px solid #cbc7b8;
+	background: #d6d2c2!important;
+	padding: 0px 0px 1px 0px;
+}
+
+
+.aw-strict .aw-header-0 .aw-grid-header {
+	padding: 0px 4px 3px 4px;
+	margin:  0px 0px -4px 0px;
+	height: 100%;
+}
+
+.aw-header-0 .aw-item-box {
+	border-bottom: 1px solid #e2decd;
+	background: #ebeadb;
+}
+
+.aw-strict .aw-header-0 .aw-grid-header .aw-item-box {
+	padding: 0px 4px 1px 4px;
+	margin: 0px -4px -1px -4px;
+}
+
+.aw-strict .aw-header-0 .aw-grid-header .aw-item-ruler {
+	padding: 0px;
+}
+
+
+.aw-grid-separator {
+	background: url(grid.png) -70px 0px repeat-y;
+}
+
+.aw-header-0 .aw-mouseover-header {
+	border-bottom-color: #f9b119;
+	background: #fcc247!important;
+}
+
+.aw-header-0 .aw-mouseover-header .aw-item-box {
+	border-bottom-color: #f9a900;
+	background: #faf9f4;
+}
+
+.aw-cells-selected,
+.aw-rows-selected {
+	color: #fff;
+	background: #316ac5;
+}
+
+.aw-rows-selected .aw-grid-cell {
+	background: none;
+}
+
+.aw-rows-selected .aw-row-selector {
+	color: #000;
+}
+
+.aw-grid-footers {
+	border-top: 1px solid #eee;
+}
+
+.aw-sort-ascending .aw-grid-sort {
+	background: url(grid.png) -25px -5px;
+}
+
+.aw-sort-descending .aw-grid-sort {
+	background: url(grid.png) -45px -5px;
+}
+
+.aw-grid-control .aw-ui-input,
+.aw-grid-control .aw-ui-combo {
+	background: #fff!important;
+	border: 1px solid #7f9db9!important;
+}

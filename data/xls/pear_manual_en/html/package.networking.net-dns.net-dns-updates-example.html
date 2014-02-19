@@ -1,0 +1,316 @@
+<HTML
+><HEAD
+><TITLE
+>Examples -- DNS Updates</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_DNS"
+HREF="package.networking.net-dns.html"><LINK
+REL="PREVIOUS"
+TITLE="
+      Class Summary Net_DNS_RR
+     "
+HREF="package.networking.net-dns.net-dns-rr-intro.html"><LINK
+REL="NEXT"
+TITLE="Net_DNSBL"
+HREF="package.networking.net-dnsbl.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-dns.net-dns-rr-intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-dnsbl.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-dns.net-dns-updates-example">Examples -- <B
+CLASS="classname"
+>DNS Updates</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN82304"
+></A
+>Examples -- <B
+CLASS="classname"
+>DNS Updates</B
+>&nbsp;--&nbsp;RFC 2136 DNS Updates</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN82308"
+></A
+><H2
+>RFC 2136 DNS Updates</H2
+><P
+>&#13;      By constructing a specially formatted DNS packet and sending it to a
+      nameserver, a dynamic DNS update can be performed very easily.  RFC 2136
+      defines some variations of a DNS packet that are used by Net_DNS to
+      request an update.  The nameserver must first be configured to accept
+      DNS updates, a key must be established between the client and server,
+      and most importantly, the PHP mhash extension must be included for
+      processing the MD5 digest of the key.
+     </P
+><P
+>&#13;      The format of the DNS packet is very specific and requires in-depth
+      knowledge of how DNS updates work.  <B
+CLASS="classname"
+>Net_DNS</B
+>
+      currently does not support any abstraction of these specially formatted
+      packets.  Packets must currently be crafted and sent manually.  The full
+      formatting of update packets can be found in RFC 2136.
+     </P
+><P
+>&#13;      For a complete listing of all of the fields that are available for DNS
+      updates, please review RFC2136 (http://www.ietf.org/rfc/rfc2136.txt).
+      The following examples show the simplest forms of a DNS update.
+     </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN82314"><P
+><B
+>Example 48-1. Sending a dynamic DNS update packet to a nameserver</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'Net/DNS.php';
+
+$resolver = new Net_DNS_Resolver();
+
+// We should only send the request to the master server
+// accepting DNS updates for the zone.
+$resolver-&#62;nameservers = array('192.168.0.254');
+
+// We must manually construct the DNS packet for a DNS update
+// First we must instantiate the packet object
+$packet = new Net_DNS_Packet();
+
+// Create the header for the update packet.  Most of the defaults are
+// acceptable, but we must set the header OPCODE to "UPDATE"
+$packet-&#62;header = new Net_DNS_Header();
+$packet-&#62;header-&#62;id = $resolver-&#62;nextid();
+$packet-&#62;header-&#62;qr = 0;
+$packet-&#62;header-&#62;opcode = "UPDATE";
+
+// As specified in RFC2136, the question section becomes the "ZONE" section.
+// This specifies the zone for which we are requesting a change.  This
+// reflects the zone configuration as specified in the nameserver
+// configuration.
+$packet-&#62;question[0] = new Net_DNS_Question('example.com', "SOA", "IN");
+
+// The "ANSWER" section of the packet becomes the "PREREQUISITE" section of
+// the packet. Section 2.4 of RFC2136 defines the possible values for this
+// section.  As show below, without any prerequisites the nameserver will
+// attempt to perform the update unconditionally.
+$packet-&#62;answer = array();
+
+// The AUTHORITY section becomes the "UPDATE" section of the DNS packet.  The
+// UPDATE section is a collection of resource record updates that should be
+// modified in one form or another.  RRs can be deleted or added based on the
+// values passed in the RR object.  These values are specified in RFC2136 but
+// are summarized here:
+//
+// Adding an RR
+// A complete RR object with a non-zero TTL is considered an addition.
+//
+// Deleting an RR
+// A complete RR object with a zero TTL is considered an deletion. An RR that
+// matches (exactly) with all values except for the TTL will be removed.
+//
+// Deleting an RRset
+// A complete RR object with a zero TTL and a type of ANY is considered a
+// deletion of all RRs with the specified name and type. An RR that matches
+// (exactly) with all values except for the TTL and the TYPE will be removed.
+//
+// Deleting all RRsets for a name 
+// A complete RR object with a zero TTL, a type of ANY, and a class of ANY is
+// considered a deletion of all RRs with the specified name. Any RR that
+// matches the name section of the query will be removed.
+//
+// The following specification will delete the RR that has a name of
+// "example.com", class of "IN", type of "A", and an address of
+// "192.0.34.166".
+$rrDelete = new Net_DNS_RR("example.com. 0 IN A 192.0.34.166");
+//
+// The following specification will add an RR that has a name of example.com,
+// a TTL of 1 hour, a class of "IN", type of "A", and an address of
+// "192.0.34.155").  Note that the only difference between this RR and the
+// previous RR is the value of the TTL.
+$rrAdd = new Net_DNS_RR("example.com. 3600 IN A 192.0.34.166");
+//
+// The RR modifications are added to the authority (UPDATE) section of the DNS
+// packet.
+$packet-&#62;authority[0] = $rrDelete;
+$packet-&#62;authority[1] = $rrAdd;
+//
+// The signature must be present in any packet sent to a nameserver that
+// requires authentication.  The TSIG RR is added to the additional section of
+// the DNS packet.
+$tsig = new Net_DNS_RR("keyname.as.specified.in.server. TSIG ThisIsMyKey");
+$packet-&#62;additional = array($tsig);
+// Net_DNS does not automatically calculate the number of records stored in
+// each section.  This calculation must be done manually.
+$packet-&#62;header-&#62;qdcount = count($packet-&#62;question);
+$packet-&#62;header-&#62;ancount = count($packet-&#62;answer);
+$packet-&#62;header-&#62;nscount = count($packet-&#62;authority);
+$packet-&#62;header-&#62;arcount = count($packet-&#62;additional);
+//
+// After creating your packet, you must send it to the name server for
+// processing.  DNS updates must use the send_tcp() method: 
+$response = $resolver-&#62;send_tcp($packet, $packet-&#62;data());
+//
+// The response from the server will vary.  If the update was successfuly, the
+// server will have a response code of "NOERROR".  Any other error types will
+// be reported in the response packet's header "rcode" variable.
+if ($response-&#62;header-&#62;rcode != "NOERROR") {
+  return($response-&#62;header-&#62;rcode);
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-dns.net-dns-rr-intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-dnsbl.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Class Summary <B
+CLASS="classname"
+>Net_DNS_RR</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-dns.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Net_DNSBL</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

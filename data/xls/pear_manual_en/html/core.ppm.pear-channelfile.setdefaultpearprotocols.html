@@ -1,0 +1,320 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;   PEAR_ChannelFile::setDefaultPEARProtocols
+  </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR_ChannelFile"
+HREF="core.ppm.pear-channelfile.html"><LINK
+REL="PREVIOUS"
+TITLE="
+   PEAR_ChannelFile::setBaseURL
+  "
+HREF="core.ppm.pear-channelfile.setbaseurl.html"><LINK
+REL="NEXT"
+TITLE="
+   PEAR_ChannelFile::setName
+  "
+HREF="core.ppm.pear-channelfile.setname.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-channelfile.setbaseurl.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-channelfile.setname.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.ppm.pear-channelfile.setdefaultpearprotocols"><B
+CLASS="function"
+>PEAR_ChannelFile::setDefaultPEARProtocols()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN8260"
+></A
+>
+   <B
+CLASS="function"
+>PEAR_ChannelFile::setDefaultPEARProtocols()</B
+>
+  &nbsp;--&nbsp;Set a channel's protocols to the protocols supported by pearweb</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN8264"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN8265"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once '/ChannelFile.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     void
+     <B
+CLASS="function"
+>PEAR_ChannelFile::setDefaultPEARProtocols</B
+>
+    </CODE
+> (string
+     [$version = '1.0'], string|false
+     [$mirror = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-channelfile.setdefaultpearprotocols.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   This method sets up a channel's <TT
+CLASS="literal"
+>xmlrpc</TT
+> protocols to match
+   that of pearweb (pear.php.net).  Note that it does not configure REST resources,
+   that must be done manually through <A
+HREF="core.ppm.pear-channelfile.setbaseurl.html"
+><B
+CLASS="function"
+>setBaseURL()</B
+></A
+>.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-channelfile.setdefaultpearprotocols.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+      <TT
+CLASS="parameter"
+><I
+>$version</I
+></TT
+></DT
+><DD
+><P
+>&#13;       version of pearweb protocols to use.
+      </P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string|<TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>
+      <TT
+CLASS="parameter"
+><I
+>$mirror</I
+></TT
+></DT
+><DD
+><P
+>&#13;       Mirror name or false for primary server.
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-channelfile.setdefaultpearprotocols.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+>
+   no exceptions thrown
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-channelfile.setdefaultpearprotocols.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-channelfile.setbaseurl.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-channelfile.setname.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_ChannelFile::setBaseURL()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-channelfile.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_ChannelFile::setName()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

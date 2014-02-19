@@ -1,0 +1,383 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_QuickForm::addFormRule()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Validation and filters"
+HREF="package.html.html-quickform.html#package.html.html-quickform.values.validation"><LINK
+REL="PREVIOUS"
+TITLE="HTML_QuickForm::addGroupRule()"
+HREF="package.html.html-quickform.html-quickform.addgrouprule.html"><LINK
+REL="NEXT"
+TITLE="HTML_QuickForm::isElementRequired()"
+HREF="package.html.html-quickform.html-quickform.iselementrequired.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform.addgrouprule.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform.iselementrequired.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.html-quickform.addformrule">HTML_QuickForm::addFormRule()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN63280"
+></A
+>HTML_QuickForm::addFormRule()&nbsp;--&nbsp;Adds a global validation rule</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN63283"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN63284"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/QuickForm.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void       <B
+CLASS="function"
+>HTML_QuickForm::addFormRule</B
+></CODE
+> (mixed $rule)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform.addformrule.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;This should be used when you want to add a rule involving several fields or if you want to use some completely custom validation for your form.
+The rule function/method should return <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> in case of successful validation and array('element name' =&#62; 'error') when there were errors.
+</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform.addformrule.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>mixed
+         <TT
+CLASS="parameter"
+><I
+>$rule</I
+></TT
+></DT
+><DD
+><P
+>&#13;        A valid callback
+       </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform.addformrule.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN63308"><P
+><B
+>Table 41-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>QUICKFORM_INVALID_RULE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Callback function does not exist in HTML_QuickForm::addFormRule()</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Tried to pass a name of a non-existant function as a callback</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Check spelling</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform.addformrule.note"
+></A
+><H2
+>Note</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>since</I
+></SPAN
+> 3.1
+    </P
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform.addformrule.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN63331"><P
+><B
+>Example 41-1. Using <B
+CLASS="function"
+>addFormRule()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once ('HTML/QuickForm.php');
+
+$form = new HTML_QuickForm();
+
+// the function checks whether the passwords are the same
+function cmpPass($fields)
+{
+    if (strlen($fields['passwd1']) &#38;&#38; strlen($fields['passwd2']) &#38;&#38;
+        $fields['passwd1'] != $fields['passwd2']) {
+        return array('passwd1' =&#62; 'Passwords are not the same');
+    }
+    return true;
+}
+
+$form-&#62;addElement('password', 'passwd1', 'Enter password');
+$form-&#62;addElement('password', 'passwd2', 'Confirm password');
+
+$form-&#62;addFormRule('cmpPass');
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform.addgrouprule.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform.iselementrequired.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_QuickForm::addGroupRule()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.values.validation"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_QuickForm::isElementRequired()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

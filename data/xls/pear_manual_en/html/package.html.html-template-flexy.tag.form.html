@@ -1,0 +1,372 @@
+<HTML
+><HEAD
+><TITLE
+>&#60;FORM NAME="name"</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_Flexy"
+HREF="package.html.html-template-flexy.html"><LINK
+REL="PREVIOUS"
+TITLE="{else:}"
+HREF="package.html.html-template-flexy.tag.else.html"><LINK
+REL="NEXT"
+TITLE='<INPUT NAME="name">'
+HREF="package.html.html-template-flexy.attribute.input.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.tag.else.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.attribute.input.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-flexy.tag.form">&#60;FORM NAME="name"</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN69599"
+></A
+>&#60;FORM NAME="name"&nbsp;--&nbsp;configures automatic form elements</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN69602"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN69603"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     <B
+CLASS="function"
+>Usage</B
+></CODE
+> (&#60;FORM NAME="name"&#62;)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.tag.form.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      By default, all forms are converted to HTML_Template_Flexy_Elements, so they can be altered at runtime.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.tag.form.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69614"><P
+><B
+>Example 41-1. Using an element to change a template.</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$form = new HTML_Template_Flexy();
+$form-&#62;compile('some_file_name');
+
+// create an instance (note you dont have to specify any details..)
+
+$elements['theform'] = new HTML_Template_Flexy_Element;
+
+// change an attribute
+$elements['theform']-&#62;attributes['action'] = 'http://pear.php.net';
+
+//  
+
+
+// for the different types of elements:
+$elements['test_textarea'] = new HTML_Template_Flexy_Element;
+$elements['test_textarea']-&#62;setValue('Blogs');
+
+
+// select options
+$elements['test_select'] = new HTML_Template_Flexy_Element;
+$elements['test_select']-&#62;setOptions( array(
+  '123' =&#62; 'a select option',
+  '1234' =&#62; 'another select option'
+));
+$elements['test_select']-&#62;setValue('1234');
+
+// checkboxes
+$elements['test_checkbox'] = new HTML_Template_Flexy_Element;
+$elements['test_checkbox']-&#62;setValue(1);
+
+// array type checkboxes..
+$elements['test_checkbox_array[]'] = new HTML_Template_Flexy_Element;
+$elements['test_checkbox_array[]']-&#62;setValue(array(1,2));
+
+// radio buttons
+$val = 'yes';
+$elements['test_radio'] = new HTML_Template_Flexy_Element;
+// if you have a default - you may want default to using it..
+$elements['test_radio']-&#62;setValue($val != 'no' ? $val : 'no');
+
+
+$form-&#62;outputObject(new StdClass, $elements);
+
+// in the example below, the new data you have added is to the existing attributes</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69617"><P
+><B
+>Example 41-2. template example</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>&#60;BODY&#62;
+  &#60;FORM name="theform"&#62;
+  
+      &#60;TEXTAREA name="test_textarea"&#62;&#60;/TEXTAREA&#62;
+    
+    &#60;SELECT name="test_select"&#62;&#60;/SELECT&#62;
+    
+    &#60;input name="test_checkbox" type="checkbox" value="1"&#62;
+    
+    &#60;input name="test_checkbox_array[]" type="checkbox" value="1"&#62;1&#60;BR&#62;
+    &#60;input name="test_checkbox_array[]" type="checkbox" value="2"&#62;2&#60;BR&#62;
+    &#60;input name="test_checkbox_array[]" type="checkbox" value="3"&#62;3&#60;BR&#62;
+    
+    &#60;!-- you need to use id's --&#62;
+    &#60;input name="test_radio" type="radio" id="radio_yes" value="yes"&#62;yes&#60;BR&#62;
+    &#60;input name="test_radio" type="radio" id="radio_no" value="no"&#62;no&#60;BR&#62;
+    
+  &#60;/FORM&#62;
+&#60;/BODY&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69620"><P
+><B
+>Example 41-3. output from the Template</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>&#60;BODY&#62;
+  &#60;FORM name="theform" action="http://pear.php.net"&#62;
+  
+     
+    &#60;TEXTAREA name="test_textarea"&#62;Blogs&#60;/TEXTAREA&#62;
+    
+    &#60;SELECT name="test_select"&#62;
+      &#60;option value="123"&#62;a selection option&#60;/option&#62;
+      &#60;option value="1234" selected&#62;another selection option&#60;/option&#62;
+      
+    &#60;/SELECT&#62;
+    
+    &#60;input name="test_checkbox" type="checkbox" value="1" checked&#62;
+    
+    &#60;input name="test_checkbox_array[]" type="checkbox" value="1" checked&#62;1&#60;BR&#62;
+    &#60;input name="test_checkbox_array[]" type="checkbox" value="2" checked&#62;2&#60;BR&#62;
+    &#60;input name="test_checkbox_array[]" type="checkbox" value="3"&#62;3&#60;BR&#62;
+    
+    &#60;input name="test_radio" type="radio" value="yes" id="radio_yes" checked&#62;yes&#60;BR&#62;
+    &#60;input name="test_radio" type="radio" value="no" id="radio_no"&#62;no&#60;BR&#62;
+    
+    
+  &#60;/FORM&#62;
+&#60;/BODY&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.tag.else.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.attribute.input.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>{else:}</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>&#60;INPUT NAME="name"&#62;</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

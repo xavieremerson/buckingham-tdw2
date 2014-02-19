@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<Title>Multi-Depth Pie Chart</Title>
+<link type='text/css' rel='Stylesheet' href="maxchartapi.css" />
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 5.0 (PHP Edition)</p>
+<p class="heading1">Multi-Depth Pie Chart</p>
+<hr class="separator">
+<div class="content">
+<img src="images/multidepthpie.png">
+<br><br>
+This example demonstrates a 3D pie chart where sectors have different 3D heights.<br><br>
+Instead of using <a href="PieChart.set3D.htm">PieChart.set3D</a> to set a single 3D depth for all sectors, in this example, <a href="PieChart.set3D2.htm">PieChart.set3D2</a> is used to set different depths for the sectors with an array of integers.
+</div>
+<p class="heading1a">Source Code Listing</p>
+<div class="content">
+<b>[File: phpdemo/multidepthpie.php]</b>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc"><pre>&lt;?php
+require_once("../lib/phpchartdir.php");
+
+# The data for the pie chart
+$data = array(72, 18, 15, 12);
+
+# The labels for the pie chart
+$labels = array("Labor", "Machinery", "Facilities", "Computers");
+
+# The depths for the sectors
+$depths = array(30, 20, 10, 10);
+
+# Create a PieChart object of size 360 x 300 pixels, with a light blue (DDDDFF)
+# background and a 1 pixel 3D border
+$c = new PieChart(360, 300, 0xddddff, -1, 1);
+
+# Set the center of the pie at (180, 175) and the radius to 100 pixels
+$c-&gt;setPieSize(180, 175, 100);
+
+# Add a title box using 15 pts Times Bold Italic font and blue (AAAAFF) as background
+# color
+$textBoxObj = $c-&gt;addTitle("Project Cost Breakdown", "timesbi.ttf", 15);
+$textBoxObj-&gt;setBackground(0xaaaaff);
+
+# Set the pie data and the pie labels
+$c-&gt;setData($data, $labels);
+
+# Draw the pie in 3D with variable 3D depths
+$c-&gt;set3D2($depths);
+
+# Set the start angle to 225 degrees may improve layout when the depths of the sector
+# are sorted in descending order, because it ensures the tallest sector is at the
+# back.
+$c-&gt;setStartAngle(225);
+
+# Output the chart
+header("Content-type: image/png");
+print($c-&gt;makeChart2(PNG));
+?&gt;</pre></tr></td></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2008 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

@@ -1,0 +1,249 @@
+<HTML
+><HEAD
+><TITLE
+>&#60;compatible&#62;</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Detailed Tag Reference for package.xml version 2.0"
+HREF="guide.developers.package2.tags.html"><LINK
+REL="PREVIOUS"
+TITLE="tasks for <file>s"
+HREF="guide.developers.package2.tasks.html"><LINK
+REL="NEXT"
+TITLE="<dependencies>"
+HREF="guide.developers.package2.dependencies.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="guide.developers.package2.tasks.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="guide.developers.package2.dependencies.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="guide.developers.package2.compatible">&#60;compatible&#62;</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN2509"
+></A
+>&#60;compatible&#62;&nbsp;--&nbsp;Alleviating strict versioning with &#60;compatible&#62;</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="guide.developers.package2.compatible.intro"
+></A
+><H2
+>Working with &#60;recommended&#62; dependency versions and &#60;compatible&#62;</H2
+><P
+>&#13;   The &#60;compatible&#62; tag is designed to be used with a &#60;package&#62; dependency that
+   contains a &#60;recommended&#62; version tag from package pear.example.com/Bar version 1.3.0 like so:
+  </P
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;package&#62;
+ &#60;name&#62;Foo&#60;/name&#62;
+ &#60;channel&#62;pear.example.com&#60;/channel&#62;
+ &#60;min&#62;1.0.0&#60;/min&#62;
+ &#60;recommended&#62;1.5.2&#60;/recommended&#62;
+&#60;/package&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><P
+>&#13;   The above dependency can be translated into English as follows: "Use the package
+   pear.example.com/Foo, but only versions 1.0.0 or newer.  If pear.example.com/Foo is not
+   installed, install version 1.5.2.  If pear.example.com/Foo is installed and is not version
+   1.5.2, fail unless --force is specified, or pear.example.com/Foo is compatible with me."
+  </P
+><P
+>&#13;   That last clause "...or pear.example.com/Foo is compatible with me." is controlled by the
+   &#60;compatible&#62; tag.  If package Foo version 1.5.3's package.xml has a &#60;compatible&#62; like so:
+  </P
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;compatible&#62;
+ &#60;name&#62;Bar&#60;/name&#62;
+ &#60;channel&#62;pear.example.com&#60;/channel&#62;
+ &#60;min&#62;1.2.0&#60;/min&#62;
+ &#60;max&#62;1.3.0&#60;/max&#62;
+ &#60;exclude&#62;1.2.9&#60;/exclude&#62;
+&#60;/compatible&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><P
+>&#13;   This will instruct the installer that pear.example.com/Foo version 1.5.3 is compatible with
+   pear.example.com/Bar versions 1.2.0 to 1.3.0 inclusive, but is not compatible with 1.2.9.
+  </P
+><P
+>&#13;   It is very important to note that only <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>existing</I
+></SPAN
+> versions that have been
+   tested with the package should be mentioned in the &#60;compatible&#62; tag.  Future versions
+   of pear.example.com/Bar should simply upgrade the &#60;recommended&#62; tag.
+  </P
+><P
+>&#13;   &#60;compatible&#62; may contain three versioning tags.  The required &#60;min&#62; and &#60;max&#62;
+   are used to define the range of tested and compatible versions, and &#60;exclude&#62; is used to
+   exclude any versions within the range.  In the example above, 1.3.0 and 1.2.0 are the highest and
+   lowest versions that may be excluded.  There can be an unlimited number of &#60;compatible&#62; tags
+   inside a package.xml.
+  </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN2525"
+></A
+><H3
+>See also:</H3
+><P
+>&#13;    <A
+HREF="guide.developers.package2.dependencies.html#guide.developers.package2.dependencies.package"
+>&#60;package&#62; dependencies</A
+>
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.tasks.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.dependencies.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>tasks for &#60;file&#62;s</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.tags.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>&#60;dependencies&#62;</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

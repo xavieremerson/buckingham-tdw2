@@ -1,0 +1,641 @@
+<HTML
+><HEAD
+><TITLE
+>DB_common::quoteSmart()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="DB_common::quoteIdentifier()"
+HREF="package.database.db.db-common.quoteidentifier.html"><LINK
+REL="NEXT"
+TITLE="DB_common::rollback()"
+HREF="package.database.db.db-common.rollback.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.quoteidentifier.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.rollback.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.db-common.quotesmart">DB_common::quoteSmart()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN24568"
+></A
+>DB_common::quoteSmart()&nbsp;--&nbsp;Formats input so it can be safely used as a literal</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN24571"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN24572"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>quoteSmart</B
+></CODE
+> (mixed $in)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.quotesmart.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Format input so it can be safely used as a literal in a query.  Literals
+   are values such as strings or numbers which get utilized in places like
+   <B
+CLASS="command"
+>WHERE</B
+>, <B
+CLASS="command"
+>SET</B
+> and
+   <B
+CLASS="command"
+>VALUES</B
+> clauses of SQL statements.
+  </P
+><P
+>&#13;   The format returned depends on the PHP data type of input and the
+   database type being used.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.quotesmart.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>mixed
+      <TT
+CLASS="parameter"
+><I
+>$in</I
+></TT
+></DT
+><DD
+><P
+>&#13;       the input to be quoted
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.quotesmart.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   mixed - the formatted data
+  </P
+><P
+>&#13;   The format of the results depends on the input's PHP type:
+  </P
+><P
+></P
+><UL
+><LI
+><P
+>&#13;     <TT
+CLASS="literal"
+>input</TT
+> -&#62; <TT
+CLASS="literal"
+>returns</TT
+>
+    </P
+></LI
+><LI
+><P
+>&#13;     <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> -&#62; the string <TT
+CLASS="literal"
+>NULL</TT
+>
+    </P
+></LI
+><LI
+><P
+>&#13;     integer or float -&#62; the unquoted number
+    </P
+></LI
+><LI
+><P
+>&#13;     boolean -&#62; output depends on the driver in use
+    </P
+><P
+>&#13;     Most drivers return integers: <TT
+CLASS="literal"
+>1</TT
+> if
+     <TT
+CLASS="literal"
+>true</TT
+> or <TT
+CLASS="literal"
+>0</TT
+> if
+     <TT
+CLASS="literal"
+>false</TT
+>.
+     Some return strings: <TT
+CLASS="literal"
+>TRUE</TT
+> if
+     <TT
+CLASS="literal"
+>true</TT
+> or <TT
+CLASS="literal"
+>FALSE</TT
+> if
+     <TT
+CLASS="literal"
+>false</TT
+>.
+     Finally one returns strings: <TT
+CLASS="literal"
+>T</TT
+> if
+     <TT
+CLASS="literal"
+>true</TT
+> or <TT
+CLASS="literal"
+>F</TT
+> if
+     <TT
+CLASS="literal"
+>false</TT
+>. Here is a list of each DBMS,
+     the values returned and the suggested column type:
+    </P
+><P
+></P
+><UL
+><LI
+><P
+>&#13;       <TT
+CLASS="literal"
+>dbase</TT
+> -&#62; <TT
+CLASS="literal"
+>T/F</TT
+>
+       (<TT
+CLASS="literal"
+>Logical</TT
+>)
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="literal"
+>fbase</TT
+> -&#62; <TT
+CLASS="literal"
+>TRUE/FALSE</TT
+>
+       (<TT
+CLASS="literal"
+>BOOLEAN</TT
+>)
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="literal"
+>ibase</TT
+> -&#62; <TT
+CLASS="literal"
+>1/0</TT
+>
+       (<TT
+CLASS="literal"
+>SMALLINT</TT
+>) [1]
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="literal"
+>ifx</TT
+> -&#62; <TT
+CLASS="literal"
+>1/0</TT
+>
+       (<TT
+CLASS="literal"
+>SMALLINT</TT
+>) [1]
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="literal"
+>msql</TT
+> -&#62; <TT
+CLASS="literal"
+>1/0</TT
+>
+       (<TT
+CLASS="literal"
+>INTEGER</TT
+>)
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="literal"
+>mssql</TT
+> -&#62; <TT
+CLASS="literal"
+>1/0</TT
+>
+       (<TT
+CLASS="literal"
+>TINYINT</TT
+>)
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="literal"
+>mysql</TT
+> -&#62; <TT
+CLASS="literal"
+>1/0</TT
+>
+       (<TT
+CLASS="literal"
+>TINYINT(1)</TT
+>)
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="literal"
+>mysqli</TT
+> -&#62; <TT
+CLASS="literal"
+>1/0</TT
+>
+       (<TT
+CLASS="literal"
+>TINYINT(1)</TT
+>)
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="literal"
+>oci8</TT
+> -&#62; <TT
+CLASS="literal"
+>1/0</TT
+>
+       (<TT
+CLASS="literal"
+>NUMBER(1)</TT
+>)
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="literal"
+>odbc</TT
+> -&#62; <TT
+CLASS="literal"
+>1/0</TT
+>
+       (<TT
+CLASS="literal"
+>SMALLINT</TT
+>) [1]
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="literal"
+>pgsql</TT
+> -&#62; <TT
+CLASS="literal"
+>TRUE/FALSE</TT
+>
+       (<TT
+CLASS="literal"
+>BOOLEAN</TT
+>)
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="literal"
+>sqlite</TT
+> -&#62; <TT
+CLASS="literal"
+>1/0</TT
+>
+       (<TT
+CLASS="literal"
+>INTEGER</TT
+>)
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="literal"
+>sybase</TT
+> -&#62; <TT
+CLASS="literal"
+>1/0</TT
+>
+       (<TT
+CLASS="literal"
+>TINYINT</TT
+>)
+      </P
+></LI
+></UL
+><P
+>&#13;     [1] Accommodate the lowest common denominator because not all
+     versions of have <TT
+CLASS="literal"
+>BOOLEAN</TT
+>.
+    </P
+></LI
+><LI
+><P
+>&#13;     other (including strings and numeric strings) -&#62;
+     a string which has been escaped in a DBMS specific way
+     (using
+     <A
+HREF="package.database.db.db-common.escapesimple.html"
+>&#13;      <B
+CLASS="function"
+>escapeSimple()</B
+></A
+>)
+     and then surrounded by single quotes
+    </P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.quotesmart.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+>&#13;   Function available since: Release 1.6.0
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.quotesmart.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN24707"><P
+><B
+>Example 33-1. Using <B
+CLASS="function"
+>quoteSmart()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$name   = "all's well";
+$active = true;
+$sql    = 'SELECT * FROM clients WHERE name = '
+          . $db-&#62;quoteSmart($name)
+          . ' AND active = '
+          . $db-&#62;quoteSmart($active);
+
+$res =&#38; $db-&#62;query($sql);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.quotesmart.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="package.database.db.db-common.quoteidentifier.html"
+>&#13;    <B
+CLASS="function"
+>quoteIdentifier()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-common.escapesimple.html"
+>&#13;    <B
+CLASS="function"
+>escapeSimple()</B
+></A
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.quoteidentifier.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.rollback.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>DB_common::quoteIdentifier()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>DB_common::rollback()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

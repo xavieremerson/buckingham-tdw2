@@ -1,0 +1,969 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - Fetch</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="MDB"
+HREF="package.database.mdb.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction - Query"
+HREF="package.database.mdb.intro-query.html"><LINK
+REL="NEXT"
+TITLE="Introduction - Sequences"
+HREF="package.database.mdb.intro-sequences.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb.intro-query.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb.intro-sequences.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.mdb.intro-fetch">Introduction - Fetch</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN27661"
+></A
+>Introduction - Fetch&nbsp;--&nbsp;Fetching rows from the query</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb.intro-fetch.desc"
+></A
+><H2
+>Description</H2
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN27666"
+></A
+><H3
+>Fetch functions</H3
+><P
+>&#13;    In order to fetch data from a result resource you can use one if the following methods:
+    <A
+HREF="package.database.mdb.mdb-common.fetchinto.html"
+>&#13;     <B
+CLASS="function"
+>fetchInto()</B
+>
+    </A
+>
+    , <A
+HREF="package.database.mdb.mdb-common.fetchone.html"
+>&#13;     <B
+CLASS="function"
+>fetchOne()</B
+>
+    </A
+>.
+    , <A
+HREF="package.database.mdb.mdb-common.fetchrow.html"
+>&#13;     <B
+CLASS="function"
+>fetchRow()</B
+>
+    </A
+>.
+    , <A
+HREF="package.database.mdb.mdb-common.fetchcol.html"
+>&#13;     <B
+CLASS="function"
+>fetchCol()</B
+>
+    </A
+>.
+    and <A
+HREF="package.database.mdb.mdb-common.fetchall.html"
+>&#13;     <B
+CLASS="function"
+>fetchAll()</B
+>
+    </A
+>.
+     All above mentioned methods except <B
+CLASS="function"
+>fetchOne()</B
+>
+    return the requested data encapsuled into a (multi-dimensional-)array,
+    <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> on no more data or a
+    <A
+HREF="package.database.mdb.mdb-error.html"
+>&#13;     <B
+CLASS="classname"
+>MDB_Error</B
+>
+    </A
+>, when an error occurs.
+     All method prefixed with <B
+CLASS="function"
+>fetch()</B
+> automatically free the result set.
+     </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN27684"><P
+><B
+>Example 33-1. Fetching a result set</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+...
+$db = MDB::connect($dsn);
+$res = $db-&#62;query("SELECT * FROM mytable");
+
+// Get each row of data on each iteration until
+// there are no more rows
+while ($row = $db-&#62;fetchInto($res)) {
+    $id = $row[0];
+}
+
+// If we are just interested in the first column of the first row
+$id = $db-&#62;fetchOne($res);
+
+// Since the fetch methods always free the result set
+// we cannot loop across the result set but instead
+// need to choose the proper fetch method
+$data = $db-&#62;getAll($res);
+foreach($data as $row)
+{
+	$id = $row[0];
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN27687"
+></A
+><H3
+>Select the format of the fetched row</H3
+><P
+>&#13;      The fetch modes supported are:
+      <P
+></P
+><UL
+><LI
+><P
+>&#13;       <TT
+CLASS="constant"
+><B
+>MDB_FETCHMODE_ORDERED</B
+></TT
+> (default)
+        </P
+><P
+>&#13;         The <B
+CLASS="function"
+>fetch*()</B
+> returns an ordered array.
+         The order is taken from the select statment.
+         <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN27696"><P
+><B
+>Example 33-2. Fetch a ordered array</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+$res = $db-&#62;query('SELECT id, name, email FROM users');
+$row = $db-&#62;fetchRow($res, MDB_FETCHMODE_ORDERED);
+/*
+$row will contain:
+array (
+    0 =&#62; &#60;column "id" data&#62;,
+    1 =&#62; &#60;column "name" data&#62;,
+    2 =&#62; &#60;column "email" data&#62;
+)
+*/
+// Access the data with:
+$id    = $row[0];
+$name  = $row[1];
+$email = $row[2];
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="constant"
+><B
+>MDB_FETCHMODE_ASSOC</B
+></TT
+>
+      </P
+><P
+>&#13;         Returns an associative array with the column
+         names as the array keys
+         <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN27703"><P
+><B
+>Example 33-3. Fetch a assoc. array</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+$res = $db-&#62;query('SELECT id, name, email FROM users');
+$row = $db-&#62;fetchRow($res, MDB_FETCHMODE_ASSOC);
+/*
+$row will contain:
+array (
+    'id'    =&#62; &#60;column "id" data&#62;,
+    'name'  =&#62; &#60;column "name" data&#62;,
+    'email' =&#62; &#60;column "email" data&#62;
+)
+*/
+// Access the data with:
+$id    = $row['id'];
+$name  = $row['name'];
+$email = $row['email'];
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+      </P
+></LI
+></UL
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN27706"
+></A
+><H3
+>Set the format of the fetched row</H3
+><P
+>&#13;      You can set the fetch mode per result call or for your whole MDB
+      instance.
+      <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN27709"><P
+><B
+>Example 33-4. Per call</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>while ($row = $db-&#62;fetchInto($res, MDB_FETCHMODE_ASSOC)) {
+    $id = $row['id'];
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN27712"><P
+><B
+>Example 33-5. Once per instance</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$db = MDB::connect($dsn);
+// this will set a default fetchmode for this Pear MDB instance
+// (for all queries)
+$db-&#62;setFetchMode(MDB_FETCHMODE_ASSOC);
+
+$result = $db-&#62;query(...);
+
+while ($row = $db-&#62;fetchRow($res)) {
+    $id = $row['id'];
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN27715"
+></A
+><H3
+>Fetch rows by number</H3
+><P
+>&#13;      The PEAR MDB fetch system also supports an extra parameter
+      to the fetch statement. So you can fetch rows from a result
+      by number. This is especially helpful if you only want to show
+      sets of an entire result (for example in building paginated
+      HTML lists), fetch rows in an special order, etc.
+      <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN27718"><P
+><B
+>Example 33-6. Fetching by number</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>...
+// the row to start fetching
+$from = 50;
+
+// how many results per page
+$resPage = 10;
+
+// the last row to fetch for this page
+$to = $from + $resPage;
+
+foreach (range($from, $to) as $rowNum) {
+if (!$row = $db-&#62;fetchInto($res, $fetchmode, $rowNum)) {
+        break;
+    }
+    $id = $row[0];
+    ....
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN27721"
+></A
+><H3
+>Freeing the result set</H3
+><P
+>&#13;      It is recommended to finish the result set after processing in
+      order to to save memory.
+      Use <A
+HREF="package.database.mdb.mdb-common.freeresult.html"
+>&#13;     <B
+CLASS="function"
+>freeResult()</B
+>
+    </A
+> to do this.
+      <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN27726"><P
+><B
+>Example 33-7. Freeing</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>...
+$res = $db-&#62;query('SELECT * FROM clients');
+while ($row = $res-&#62;fetchInto($res)) {
+...
+}
+$db-&#62;freeResult($res);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN27729"
+></A
+><H3
+>Quick data retrieving</H3
+><P
+>&#13;      <A
+HREF="package.database.mdb.html"
+><B
+CLASS="classname"
+>MDB</B
+></A
+> provides some special ways to retrieve information
+      from a query without the need of using
+      <B
+CLASS="function"
+>fetch*()</B
+> and loop throw results.
+     </P
+><P
+>&#13;    <A
+HREF="package.database.mdb.mdb-common.queryone.html"
+>&#13;     <B
+CLASS="function"
+>queryOne()</B
+>
+    </A
+> retrieves the first result of the
+      first column from a query
+      <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$numrows = $db-&#62;queryOne('select count(id) from clients');</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    <A
+HREF="package.database.mdb.mdb-common.queryrow.html"
+>&#13;     <B
+CLASS="function"
+>queryRow()</B
+>
+    </A
+>returns the first row and returns it as an array.
+      <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$sql = 'select name, address, phone from clients where id=1';
+if (is_array($row = $db-&#62;queryRow($sql))) {
+    list($name, $address, $phone) = $row;
+}</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    <A
+HREF="package.database.mdb.mdb-common.querycol.html"
+>&#13;     <B
+CLASS="function"
+>queryCol()</B
+>
+    </A
+> returns an array with the data
+      of the selected column. It accepts the column number to retrieve
+      as the second parameter.
+      <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$all_client_names = $db-&#62;queryCol('SELECT name FROM clients');</PRE
+></TD
+></TR
+></TABLE
+>
+      The above sentence could return for example:
+      <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$all_client_names = array('Stig', 'Jon', 'Colin');</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    <A
+HREF="package.database.mdb.mdb-common.queryall.html"
+>&#13;     <B
+CLASS="function"
+>getAll()</B
+>
+    </A
+>
+      fetches all the rows returned from a query. This method also has
+      some advanced parameters still will also enable you to return the data as an
+      associative array using the first column as the key.
+       <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$data = getAll('SELECT id, text, date FROM mytable');
+/*
+Will return:
+array(
+   1 =&#62; array('4', 'four', '2004'),
+   2 =&#62; array('5', 'five', '2005'),
+   3 =&#62; array('6', 'six', '2006')
+)
+*/</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;      The <B
+CLASS="function"
+>query*()</B
+> family methods will do all the
+      dirty job for you, this is: launch the query, fetch the data
+      and free the result. Please note that as all PEAR MDB functions
+      they will return a <A
+HREF="package.database.mdb.mdb-error.html"
+><B
+CLASS="classname"
+>MDB_Error</B
+></A
+> object
+      on errors.
+     </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN27756"
+></A
+><H3
+>Getting more information from query results</H3
+><P
+>&#13;      With <A
+HREF="package.database.mdb.html"
+><B
+CLASS="classname"
+>MDB</B
+></A
+> you have many ways to retrieve useful information
+      from query results. These are:
+      <P
+></P
+><UL
+><LI
+><P
+>&#13;       <A
+HREF="package.database.mdb.mdb-common.numrows.html"
+>&#13;        <B
+CLASS="function"
+>numRows()</B
+>
+       </A
+>: Returns the total number of
+         rows returned from a "SELECT" query.
+         <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// Number of rows
+echo $db-&#62;numRows($res);</PRE
+></TD
+></TR
+></TABLE
+>
+      </P
+></LI
+><LI
+><P
+>&#13;       <A
+HREF="package.database.mdb.mdb-common.numcols.html"
+>&#13;        <B
+CLASS="function"
+>numCols()</B
+>
+       </A
+>: Returns the total number of
+         columns returned from a "SELECT" query.
+         <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// Number of cols
+echo $db-&#62;numCols($res);</PRE
+></TD
+></TR
+></TABLE
+>
+      </P
+></LI
+><LI
+><P
+>&#13;       <A
+HREF="package.database.mdb.mdb-common.affectedrows.html"
+>&#13;        <B
+CLASS="function"
+>affectedRows()</B
+>
+       </A
+>: Returns the number of rows
+         affected by a data manipulation query ("INSERT", "UPDATE" or
+         "DELETE").
+         <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// remember that this statement won't return a result object
+$db-&#62;query('DELETE * FROM clients');
+echo 'I have deleted ' . $db-&#62;affectedRows() . ' clients';</PRE
+></TD
+></TR
+></TABLE
+>
+      </P
+></LI
+><LI
+><P
+>&#13;       <A
+HREF="package.database.mdb.mdb-common.tableinfo.html"
+>&#13;        <B
+CLASS="function"
+>tableInfo()</B
+>
+       </A
+>: Returns an associative array
+         with information about the returned fields from a "SELECT"
+         query.
+         <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// Table Info
+print_r($db-&#62;tableInfo($res));</PRE
+></TD
+></TR
+></TABLE
+>
+      </P
+></LI
+></UL
+>
+      Don't forget to check if the returned result from your action is
+      a <A
+HREF="package.database.mdb.mdb-error.html"
+><B
+CLASS="classname"
+>MDB_Error</B
+></A
+> object. If you get a error message like
+      <SPAN
+CLASS="QUOTE"
+>"MDB_Error: database not capable"</SPAN
+>, means that
+      your database backend doesn't support this action.
+     </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.mdb.intro-query.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.mdb.intro-sequences.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction - Query</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.mdb.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction - Sequences</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

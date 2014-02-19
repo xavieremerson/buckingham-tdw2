@@ -1,0 +1,435 @@
+<HTML
+><HEAD
+><TITLE
+>Net_NNTP::getGroups()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_NNTP"
+HREF="package.networking.net-nntp.html#package.networking.net-nntp.ancient"><LINK
+REL="PREVIOUS"
+TITLE="Net_NNTP::getDate()"
+HREF="package.networking.net-nntp.ancient.getdate.html"><LINK
+REL="NEXT"
+TITLE="Net_NNTP::getHeaderRaw()"
+HREF="package.networking.net-nntp.ancient.getheaderraw.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-nntp.ancient.getdate.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-nntp.ancient.getheaderraw.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-nntp.ancient.getgroups">Net_NNTP::getGroups()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN86000"
+></A
+>Net_NNTP::getGroups()&nbsp;--&nbsp;fetch list of avaible newsgroups</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN86003"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN86004"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Net/NNTP.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>Net_NNTP::getGroups</B
+></CODE
+> ([string $fetch = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.ancient.getgroups.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Returns a list of all avaible newsgroups from the connected 
+     news server
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.ancient.getgroups.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>$fetch</I
+></TT
+> - can be irgnored, unused
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.ancient.getgroups.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>array</I
+></TT
+> - a two dimensional, nested array
+     indicated by the name of the newsgroup, every entry contains
+     information about the newsgroup:
+     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>$groups[newsgroup_name]['group']</I
+></TT
+>
+        name of the newsgroup
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>$groups[newsgroup_name]['last']</I
+></TT
+>
+        message number of the last message
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>$groups[newsgroup_name]['first']</I
+></TT
+>
+        message number of the first message
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>$groups[newsgroup_name]['posting_allowed']</I
+></TT
+>
+        values: <TT
+CLASS="parameter"
+><I
+>y</I
+></TT
+> - yes, 
+        <TT
+CLASS="parameter"
+><I
+>n</I
+></TT
+> - no,
+        <TT
+CLASS="parameter"
+><I
+>m</I
+></TT
+> - moderated)
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>$groups[newsgroup_name]['desc']</I
+></TT
+>
+        newsgroup description
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.ancient.getgroups.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;      Especially public news server can provide more then 30.000 
+      newsgroup. So this function may runs longer then the maximum
+      execution time set in the <TT
+CLASS="filename"
+>php.ini</TT
+>.
+     </P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.ancient.getgroups.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;      <A
+HREF="package.networking.net-nntp.ancient.selectgroup.html"
+>&#13;       <B
+CLASS="function"
+>Net_NNTP::selectGroup()</B
+>
+      </A
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.ancient.getgroups.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN86059"><P
+><B
+>Example 48-1. Using <B
+CLASS="function"
+>getGroups()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>...
+$ret = $nntp-&#62;connect("news.php.net");
+if( PEAR::isError($ret)) {
+ // handle error
+} else {
+ // success
+ $groups = $nntp-&#62;getGroups();
+ // Print a list of avaible newsgroups
+ foreach($groups as $group) {
+    echo $group['group'].': '.$group['desc'].'&#60;br&#62;';
+ }
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-nntp.ancient.getdate.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-nntp.ancient.getheaderraw.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Net_NNTP::getDate()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-nntp.html#package.networking.net-nntp.ancient"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Net_NNTP::getHeaderRaw()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

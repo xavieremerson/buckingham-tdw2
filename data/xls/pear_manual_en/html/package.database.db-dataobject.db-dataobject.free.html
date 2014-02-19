@@ -1,0 +1,252 @@
+<HTML
+><HEAD
+><TITLE
+>-&#62;free()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB_DataObject"
+HREF="package.database.db-dataobject.html"><LINK
+REL="PREVIOUS"
+TITLE="->query()"
+HREF="package.database.db-dataobject.db-dataobject.query.html"><LINK
+REL="NEXT"
+TITLE="->selectAdd()"
+HREF="package.database.db-dataobject.db-dataobject.selectadd.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.query.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.selectadd.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db-dataobject.db-dataobject.free">-&#62;free()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN26576"
+></A
+>-&#62;free()&nbsp;--&nbsp;Free resources</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN26579"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN26580"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>object <B
+CLASS="function"
+>$DB_DataObject-&#62;free</B
+></CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.free.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     DataObjects stores result  set's as a private global variable, normally this 
+     is free'ed after you have run through the results, or at the end of the request. 
+     However in some situations, like running queries directly, inserting data, 
+     some data is unnecessarly cached. 
+     </P
+><P
+>&#13;     Using this method will Free All results sets! (so be carefull) it may break running 
+     fetch() loops..
+    </P
+><P
+>&#13;     You normally only need to use this if you are doing a large number of inserts or 
+     queries. 
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.free.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.free.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN26595"><P
+><B
+>Example 33-1. Freeing resources in a loop</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+for ($i = 0; i&#60; 10000; $i++) {
+    $person = new DataObjects_Person;
+    $person-&#62;query(' ... do something ... ');
+    $person-&#62;free();
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.query.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.selectadd.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>-&#62;query()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>-&#62;selectAdd()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,427 @@
+<HTML
+><HEAD
+><TITLE
+>$flexy-&#62;bufferedOutputObject()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_Flexy"
+HREF="package.html.html-template-flexy.html"><LINK
+REL="PREVIOUS"
+TITLE="$flexy->outputObject()"
+HREF="package.html.html-template-flexy.html-template-flexy.outputobject.html"><LINK
+REL="NEXT"
+TITLE="$flexy->getElements()"
+HREF="package.html.html-template-flexy.html-template-flexy.getelements.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.outputobject.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.getelements.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-flexy.html-template-flexy.bufferedoutputobject">$flexy-&#62;bufferedOutputObject()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN68824"
+></A
+>$flexy-&#62;bufferedOutputObject()&nbsp;--&nbsp;Merges a controller object with the template and returns the result</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN68827"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN68828"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>string $flexy-&#62;<B
+CLASS="function"
+>bufferedOutputObject</B
+></CODE
+> (object $controllerObject [, array  $elements])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.html-template-flexy.bufferedoutputobject.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      This maps the values of the supplied object and runs the compiled template, 
+      and returns the result.
+    </P
+><P
+>&#13;      This can be used in conjuction with PEAR::Cache, or in the example below, with
+      a email template (note this still needs testing.. - the backend should 
+      eventually support a native tokenizer for email templates.)
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.html-template-flexy.bufferedoutputobject.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;          <P
+></P
+><UL
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>object $controllerObject</I
+></TT
+> - 
+       The object you want to use with the template, the values of the object will
+       relate to the $controllerObject-&#62;tag will map to {tag} on the template
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>array $elements</I
+></TT
+> - 
+       This is an associative array of form, or dynamic elements names (or id's) which will be merged with 
+       the one defined in the template.
+      </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.html-template-flexy.bufferedoutputobject.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>string</I
+></TT
+> - the object variables overlayed on the template
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.html-template-flexy.bufferedoutputobject.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.html-template-flexy.bufferedoutputobject.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN68860"><P
+><B
+>Example 41-1. Person DataObject send_password method</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>class DataObjects_Person {
+    var $id;
+    var $name;
+    var $password;
+    var $cleartextPassword;
+    var $email;
+    
+    function sendEmail($templateFile,$content) {
+            
+            $content = is_object($content) ? $content : (object) $content;
+            foreach(get_object_vars($this) as $k=&#62;$v) {
+                $content-&#62;$k = $v;
+            }
+            /* use the regex compiler, as it doesnt parse &#60;tags */
+            $template = new HTML_Template_Flexy( array(
+                    'compiler'    =&#62; 'Regex',
+                     'filters' =&#62; array('SimpleTags','Mail'),
+                ));
+            
+            /* compile a text file (email template) */
+            $template-&#62;compile($templateFile);
+            
+            /* use variables from this object to ouput data. */
+            $mailtext = $template-&#62;bufferedOutputObject($content);
+            //echo "&#60;PRE&#62;";print_R($mailtext);
+            
+            /* With the output try and send an email, using a few tricks in Mail_MimeDecode. */
+            require_once 'Mail/mimeDecode.php';
+            require_once 'Mail.php';
+            
+            $decoder = new Mail_mimeDecode($mailtext);
+            $parts = $decoder-&#62;getSendArray();
+            if (PEAR::isError($parts)) {
+                return $parts;
+                
+            } 
+            list($recipents,$headers,$body) = $parts;
+            
+            $mailOptions = PEAR::getStaticProperty('Mail','options');
+            $mail = Mail::factory("SMTP",$mailOptions);
+            
+            return PEAR::isError($mail) ? $mail : $mail-&#62;send($recipents,$headers,$body);
+        
+        
+        }
+    
+       
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN68863"><P
+><B
+>Example 41-2. An email template (using the Regex Parser - hence the {t.*})</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>From: "HTML_Template_Flexy" &#60;html_template_flexy@pear.php.net&#62;
+Sender: "HTML_Template_Flexy"  &#60;html_template_flexy@pear.php.net&#62;
+To: {t.email}
+Subject: Here is your new password
+Content-Type: text/plain; charset=us-ascii
+
+Dear {t.name}
+
+Your New Password is {t.cleartextPassword}
+
+please use it  to log into your bank account :)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN68866"><P
+><B
+>Example 41-3. The resulting email head and body</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>From: "HTML_Template_Flexy" &#60;html_template_flexy@pear.php.net&#62;
+Sender: "HTML_Template_Flexy"  &#60;html_template_flexy@pear.php.net&#62;
+To: demo@example.com
+Subject: Here is your new password
+Content-Type: text/plain; charset=us-ascii
+
+Dear Fred Blobs
+
+Your New Password is 0ab123dcc
+
+please use it  to log into your bank account :)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.outputobject.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.getelements.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>$flexy-&#62;outputObject()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>$flexy-&#62;getElements()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

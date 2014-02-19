@@ -1,0 +1,293 @@
+<HTML>
+<HEAD>
+<Title>Finance Chart (1)</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">Finance Chart (1)</p>
+<hr class="separator">
+<div class="content">
+<img src="images/finance.png">
+<br><br>
+This example demonstrates combining various ChartDirector features to create full-featured finance charts. The chart in this example includes HLOC, moving averages, Bollinger band, volume data, and RSI. You may use techniques demonstrated in this example to create additional indicators of your choice.<br><br>
+This example assumes the source data comes from a database table with 6 columns for time stamp, high value, low value, open value, close value, and volume. These data are then used to devire additional indicators such as moving averages, Bollinger band and RSI.<br><br>
+For simplicity and to allow this example to run without connecting to a real database, a <a href="RanTable.htm">RanTable</a> object is used to simulate the database table. <a href="RanTable.htm">RanTable</a> is a ChartDirector utility class used for creating tables with random numbers.<br><br>
+<b>Data Preparation</b><br><br>
+<ul><li> This example draws a 100 days finance chart. Because only weekdays are used in finance charts, the 100 days cover approximately four and a half month.<br><br>
+<li> To compute moving averages, we need to obtain data before the first day in the chart. For example, to compute 20 days moving averages for the first day, we need extra 19 days of data before the first day. The same is true for any indicators that are based on some moving windows, such as Bollinger band and RSI.<br><br>
+<li> So to draw a 100 days chart, we need more than 100 days of data. In this example, we simulate getting 130 days of data from the database. This should be more than enough for all the indicators demonstrated in this example.</ul>
+<b>Overall Chart Design</b><br><br>
+<ul><li> The chart in this example is created as a <a href="MultiChart.htm">MultiChart</a> containing three <a href="XYChart.htm">XYChart</a> objects.<br><br>
+<li> The x-axis labels are devired from the time stamp column of the random table. However, the random table contains 130 days of data, and we need only 100 days in the labels, so <a href="ArrayMath.trim.htm">ArrayMath.trim</a> is used to trim off the excess data. Also, instead of one label per day, it is better to show labels only on the first available day of the month. This is achieved by fitering the time stamps with <a href="ArrayMath.selectStartOfMonth.htm">ArrayMath.selectStartOfMonth</a>.<br><br>
+<li> The volumn data is trimmed from 130 days to 100 days using <a href="ArrayMath.trim.htm">ArrayMath.trim</a>.<br><br>
+<li> The high, low, open, close data are not trimmed yet, as we still need the extra data to compute moving averages and various indicators.</ul>
+<b>Top Chart</b><br><br>
+<ul><li> The HLOC portion of the chart is created using <a href="XYChart.addHLOCLayer.htm">XYChart.addHLOCLayer</a>.<br><br>
+<li> The moving averages are computed using <a href="ArrayMath.movAvg.htm">ArrayMath.movAvg</a> and drawn as lines using <a href="XYChart.addLineLayer.htm">XYChart.addLineLayer</a>.<br><br>
+<li> The Bollinger band is defined as closeData +/- movStdDev * 2, where movStdDev is a moving standard deviation of the close data. The upper and lower bounds of the Bollinger band are computed using <a href="ArrayMath.htm">ArrayMath</a>, and drawn as lines using <a href="XYChart.addLineLayer.htm">XYChart.addLineLayer</a>. The region between the upper and lower bounds is colored using <a href="XYChart.addInterLineLayer.htm">XYChart.addInterLineLayer</a>.<br><br>
+<li> Add labels to the x-axis using <a href="Axis.setLabels2.htm">Axis.setLabels2</a>, then move the x-axis to the top of the plot area using <a href="XYChart.setXAxisOnTop.htm">XYChart.setXAxisOnTop</a>.</ul>
+<b>Middle Chart</b><br><br>
+<ul><li> The bars in the middle chart displays volume data in red if the day is an "up" day (current day's closing price > previous day's closing price), in green if the day is a "down" day, and in grey if the closing prices are unchanged.<br><br>
+<li> To achieve the above effect, the volume data is splitted into 3 series for up, down and unchanged days. First, we compute the changes in closing prices using <a href="ArrayMath.delta.htm">ArrayMath.delta</a>. Then we filter the volumne data depending on whether the price changes are positive, negative or zero, using <a href="ArrayMath.selectGTZ.htm">ArrayMath.selectGTZ</a>, <a href="ArrayMath.selectLTZ.htm">ArrayMath.selectLTZ</a> and <a href="ArrayMath.selectEQZ.htm">ArrayMath.selectEQZ</a>.<br><br>
+<li> The three series are then plotted as three bar layers, with three different colors (red, green and grey).<br><br>
+<li> No x-axis labels are needed in the middle chart, but we still need the grid lines. So we add the labels to the x-axis anyway using <a href="Axis.setLabels.htm">Axis.setLabels</a>, and set the label and tick colors to <a href="colorspec.htm#argb">Transparent</a> using <a href="Axis.setColors.htm">Axis.setColors</a>.</ul>
+<b>Bottom Chart</b><br><br>
+<ul><li> RSI is defined as the average up changes for the last 14 days, divided by the average absolute changes for the last 14 days, expressed as a percentage. The RSI is computed using <a href="ArrayMath.htm">ArrayMath</a>, and is drawn as a line using <a href="XYChart.addLineLayer.htm">XYChart.addLineLayer</a>.<br><br>
+<li> A red mark line is added to the chart at y = 70, and a blue mark line at y = 30, using <a href="Axis.addMark.htm">Axis.addMark</a>.<br><br>
+<li> Fill the region where the RSI is above the y = 70 mark line with red using <a href="XYChart.addInterLineLayer.htm">XYChart.addInterLineLayer</a>. Similarly, fill the region where the RSI is below the y = 30 mark line with blue using <a href="XYChart.addInterLineLayer.htm">XYChart.addInterLineLayer</a>.<br><br>
+<li> Add labels to the x-axis using <a href="Axis.setLabels2.htm">Axis.setLabels2</a>.<br><br>
+<li> Set the x-axis to indented mode using <a href="Axis.setIndent.htm">Axis.setIndent</a>. This is to make sure the x-axis is synchronized with the x-axis of the top and middle chart. Please refer to <a href="Axis.setIndent.htm">Axis.setIndent</a> on details of what is an indented axis.</ul>
+</div>
+<p class="heading2">Source Code Listing</p>
+<div class="content">
+[File: phpdemo/finance.php]<br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp><?php
+include("phpchartdir.php");
+
+#Create a finance chart demo containing 100 days of data
+$noOfDays = 100;
+
+#To compute moving averages, we need to get data points before the first day
+$extraDays = 30;
+
+#We use a random table to simulate the data from a database. The random table
+#contains 6 cols x (noOfDays + extraDays) rows, using 9 as the seed.
+$rantable = new RanTable(9, 6, $noOfDays + $extraDays);
+
+#Set the 1st col to be the timeStamp, starting from Sep 4, 2002, with each row
+#representing one day, and counting week days only (jump over Sat and Sun)
+$rantable->setDateCol(0, chartTime(2002, 9, 4), 86400, true);
+
+#Set the 2nd, 3rd, 4th and 5th columns to be high, low, open and close data. The
+#open value starts from 1800, and the daily change is random from -5 to 5.
+$rantable->setHLOCCols(1, 1800, -5, 5);
+
+#Set the 6th column as the vol data from 50 to 250
+$rantable->setCol(5, 50, 250);
+
+#Now we read the data from the table into arrays
+$timeStamps = $rantable->getCol(0);
+$highData = $rantable->getCol(1);
+$lowData = $rantable->getCol(2);
+$openData = $rantable->getCol(3);
+$closeData = $rantable->getCol(4);
+$volData = $rantable->getCol(5);
+
+#To create the date labels for the x axis, we need to trim extraDays at the
+#beginning. Also, we select only the dates that represent the first date in the
+#month as labels.
+$selectDates = new ArrayMath($timeStamps);
+$selectDates->selectStartOfMonth();
+$labels = array_slice($selectDates->result(), $extraDays);
+
+#Similarly, for the volume data, we need to trim extraDays at the beginning
+$volData = array_slice($volData, $extraDays);
+
+#==========================================================================
+#    Create the top chart
+#==========================================================================
+
+#Create a XYChart object of size 600 x 210 pixels
+$c = new XYChart(600, 210, Transparent);
+
+#Set the plotarea at (50, 20) and of size 500 x 180 pixels. Enable both the
+#horizontal and vertical grids by setting their colors to grey (0xc0c0c0)
+$plotAreaObj = $c->setPlotArea(50, 20, 500, 180);
+$plotAreaObj->setGridColor(0xc0c0c0, 0xc0c0c0);
+
+#Add a horizontal legend box at (50, 15) and set its border and background
+#colors to transparent
+$legendObj = $c->addLegend(50, 15, false, "arial.ttf", 7.5);
+$legendObj->setBackground(Transparent);
+
+#Add an HLOC layer using blue (0x80) color. We need to trim extraDays at the
+#beginning as these days are just for computing moving averages.
+$c->addHLOCLayer(array_slice($highData, $extraDays), array_slice($lowData,
+    $extraDays), array_slice($openData, $extraDays), array_slice($closeData,
+    $extraDays), 0x80);
+
+#Add line layers representing 5 days and 20 days moving averages.
+$movAvgLine1 = new ArrayMath($closeData);
+$movAvgLine1->movAvg(5);
+$movAvgLine2 = new ArrayMath($closeData);
+$movAvgLine2->movAvg(20);
+$c->addLineLayer(array_slice($movAvgLine1->result(), $extraDays), 0xff0000,
+    "Moving Average (5 days)");
+$c->addLineLayer(array_slice($movAvgLine2->result(), $extraDays), 0xff00ff,
+    "Moving Average (20 days)");
+
+#Compute Bollinger Band as closeData +/- 2 * standard_deviation
+$stdDev2 = new ArrayMath($closeData);
+$stdDev2->movStdDev(20);
+$stdDev2->mul(2);
+$upperBand = new ArrayMath($closeData);
+$upperBand->add($stdDev2->result());
+$lowerBand = new ArrayMath($closeData);
+$lowerBand->sub($stdDev2->result());
+
+#Add the upper and lower lines for the bollinger band
+$uLayer = $c->addLineLayer(array_slice($upperBand->result(), $extraDays),
+    0x66ff66, "Bollinger Band");
+$lLayer = $c->addLineLayer(array_slice($lowerBand->result(), $extraDays),
+    0x66ff66);
+
+#Color the region between the bollinger lines with semi-transparent green
+$c->addInterLineLayer($uLayer->getLine(), $lLayer->getLine(), 0xc066ff66);
+
+#Add labels to the x axis formatted as mm/yyyy
+$c->xAxis->setLabels2($labels, "{value|mm/yyyy}");
+
+#For the top chart, the x axis is on top
+$c->setXAxisOnTop();
+
+#==========================================================================
+#    Create the middle chart (volume chart)
+#==========================================================================
+
+#Create a XYChart object of size 600 x 80 pixels
+$c2 = new XYChart(600, 80, Transparent);
+
+#Set the plotarea at (50, 10) and of size 500 x 50) pixels. Enable both the
+#horizontal and vertical grids by setting their colors to grey (0xc0c0c0)
+$plotAreaObj = $c2->setPlotArea(50, 10, 500, 50);
+$plotAreaObj->setGridColor(0xc0c0c0, 0xc0c0c0);
+
+#Add a horizontal legend box at (50, 5) and set its border and background colors
+#to transparent
+$legendObj = $c2->addLegend(50, 5, false, "arial.ttf", 7.5);
+$legendObj->setBackground(Transparent);
+
+#Compute an array to represent the closing price changes
+$closeChange = new ArrayMath($closeData);
+$closeChange->delta();
+$closeChange = array_slice($closeChange->result(), $extraDays);
+
+#Select the volume data for "up" days. An up day is a day where the closing
+#price is higher than the preivous day. Use the selected data for a green bar
+#layer.
+$upVol = new ArrayMath($volData);
+$upVol->selectGTZ($closeChange);
+$barLayerObj = $c2->addBarLayer($upVol->result(), 0xff00, "Vol (Up days)");
+$barLayerObj->setBorderColor(Transparent);
+
+#Select the volume data for "down" days. An up day is a day where the closing
+#price is lower than the preivous day. Use the selected data for a red bar
+#layer.
+$downVol = new ArrayMath($volData);
+$downVol->selectLTZ($closeChange);
+$barLayerObj = $c2->addBarLayer($downVol->result(), 0xff0000, "Vol (Down days)")
+    ;
+$barLayerObj->setBorderColor(Transparent);
+
+#Select the volume data for days when closing prices are unchanged. Use the
+#selected data for a grey bar layer.
+$equalVol = new ArrayMath($volData);
+$equalVol->selectEQZ($closeChange);
+$barLayerObj = $c2->addBarLayer($equalVol->result(), 0x808080, "Vol (No change)"
+    );
+$barLayerObj->setBorderColor(Transparent);
+
+#Add labels to the x axis. We do not really need the label text, but we need the
+#grid line associated the labels
+$c2->xAxis->setLabels2($labels);
+
+#We set the label and tick colors to transparent as we do not need them
+$c2->xAxis->setColors(LineColor, Transparent, Transparent, Transparent);
+
+#==========================================================================
+#    Create the bottom chart (RSI chart)
+#==========================================================================
+
+#Create a XYChart object of size 600 x 120 pixels
+$c3 = new XYChart(600, 120, Transparent);
+
+#Set the plotarea at (50, 10) and of size 500 x 50) pixels. Enable both the
+#horizontal and vertical grids by setting their colors to grey (0xc0c0c0)
+$plotAreaObj = $c3->setPlotArea(50, 10, 500, 50);
+$plotAreaObj->setGridColor(0xc0c0c0, 0xc0c0c0);
+
+#Add a horizontal legend box at (50, 5) and set its border and background colors
+#to transparent
+$legendObj = $c3->addLegend(50, 5, false, "arial.ttf", 7.5);
+$legendObj->setBackground(Transparent);
+
+#RSI is defined as the average up changes for the last 14 days, divided by the
+#average absolute changes for the last 14 days, expressed as a percentage.
+
+#Use the delta method to get the changes between subsequent days, then use
+#selectGTZ to get the up days only, and compute the 14 days moving average
+$upChange = new ArrayMath($closeData);
+$upChange->delta();
+$upChange->selectGTZ();
+$upChange->movAvg(14);
+
+#Similar, compute the 14 days moving average of the absolute changes
+$absChange = new ArrayMath($closeData);
+$absChange->delta();
+$absChange->abs();
+$absChange->movAvg(14);
+
+#Compute RSI as the ratio of the above two moving averages, expressed as
+#percentage
+$rsi = new ArrayMath($upChange->result());
+$rsi->div($absChange->result());
+$rsi->mul(100);
+
+#Add RSI as a line layer
+$rsiLine = $c3->addLineLayer(array_slice($rsi->result(), $extraDays), 0x800080,
+    "RSI (14 days)");
+
+#Add a blue (0xff) mark at 30
+$mark30 = $c3->yAxis->addMark(30, 0xff, "30");
+
+#Add a red (0xff0000) mark at 70
+$mark70 = $c3->yAxis->addMark(70, 0xff0000, "70");
+
+#If the RSI line gets above the upper mark line, color the region between the
+#lines as red (0xff0000)
+$c3->addInterLineLayer($rsiLine->getLine(), $mark70->getLine(), 0xff0000,
+    Transparent);
+
+#If the RSI line gets below the lower mark line, color the region between the
+#lines as blue (0xff)
+$c3->addInterLineLayer($rsiLine->getLine(), $mark30->getLine(), Transparent,
+    0xff);
+
+#Set the y axis scale as 0 - 100, with tick at 50
+$c3->yAxis->setLinearScale(0, 100, 50);
+
+#We need to explicitly set the indent mode axis. By default, line layers are not
+#indented, but we need it to be indented so the x axis will synchronize with the
+#top and middle charts
+$c3->xAxis->setIndent(true);
+
+#Add labels to the x axis formatted as mm/yyyy
+$c3->xAxis->setLabels2($labels, "{value|mm/yyyy}");
+
+#==========================================================================
+#    Combine the charts together using a MultiChart
+#==========================================================================
+
+#Create a MultiChart object of size 600 x 400 pixels
+$m = new MultiChart(600, 400);
+
+#Add a title to the chart
+$m->addTitle("Finance Chart Demonstration");
+
+#Add the 3 charts to the multi-chart
+$m->addChart(0, 30, $c);
+$m->addChart(0, 235, $c2);
+$m->addChart(0, 300, $c3);
+
+#output the chart
+header("Content-type: image/png");
+print($m->makeChart2(PNG));
+?></xmp>
+</td></tr></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

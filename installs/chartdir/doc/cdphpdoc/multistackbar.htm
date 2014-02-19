@@ -1,0 +1,123 @@
+<HTML>
+<HEAD>
+<Title>Multi-Stacked Bar Chart</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">Multi-Stacked Bar Chart</p>
+<hr class="separator">
+<div class="content">
+<img src="images/multistackbar.png">
+<br><br>
+A multi-stacked bar chart combines the stacked bar chart style with the multi- bar chart style. The bars are cluster together as in a multi-bar chart, but each bar is itself a stacked bar.<br><br>
+A mutli-stacked bar can be created by separating the data sets into groups. Data sets within the same group will be stacked. The stacked bars are then clustered together.<br><br>
+This example illustrates a number of ChartDirector features. The key ones are:<br><br>
+<ul><li> Use the <a href="Layer.addDataGroup.htm">Layer.addDataGroup</a> method creates a new data group. All subsequent data sets added to the layer will belong to that group. The group ends when <a href="Layer.addDataGroup.htm">Layer.addDataGroup</a> is called again to create another new group.<br><br>
+<li> Embed icons in axis labels by using <a href="cdml.htm">CDML</a> to encode the labels.<br><br>
+<li> Set the bar border to <a href="colorspec.htm#argb">Transparent</a> using <a href="Layer.setBorderColor.htm">Layer.setBorderColor</a>.<br><br>
+<li> Configure the bars within a cluster to touch each others, and allowing 20% gaps between the clusters. This is achieved by using <a href="BarLayer.setBarGap.htm">BarLayer.setBarGap</a>.<br><br>
+<li> Swap the x and y axes to create a horizontal bar chart using <a href="XYChart.swapXY.htm">XYChart.swapXY</a>.<br><br>
+<li> Reserve 20% space at the right of the plot area for the bar labels by using <a href="Axis.setAutoScale.htm">Axis.setAutoScale</a>.<br><br>
+<li> Customize the aggregate bar labels by using <a href="Layer.setAggregateLabelFormat.htm">Layer.setAggregateLabelFormat</a>.<br><br>
+<li> Customize the legend entries by using <a href="TextBox.setText.htm">TextBox.setText</a> (inherited by <a href="LegendBox.htm">LegendBox</a>).</ul>
+</div>
+<p class="heading2">Source Code Listing</p>
+<div class="content">
+[File: phpdemo/multistackbar.php]<br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp><?php
+include("phpchartdir.php");
+
+#The data for the bar chart
+$data0 = array(44, 55, 100);
+$data1 = array(97, 87, 167);
+$data2 = array(156, 78, 147);
+$data3 = array(125, 118, 211);
+
+#The labels for the bar chart. The labels contains embedded images as icons.
+$labels = array("<*img=service.png*>\nService",
+    "<*img=software.png*>\nSoftware", "<*img=computer.png*>\nHardware");
+
+#Create a XYChart object of size 600 x 350 pixels, using 0xe0e0ff as the
+#background color, 0xccccff as the border color, with 1 pixel 3D border effect.
+$c = new XYChart(600, 350, 0xe0e0ff, 0xccccff, 1);
+
+#Set directory for loading images to current script directory
+#Need when running under Microsoft IIS
+$c->setSearchPath(dirname(__FILE__));
+
+#Add a title to the chart using 14 points Times Bold Itatic font and light blue
+#(0x9999ff) as the background color
+$titleObj = $c->addTitle("Business Results 2001 vs 2002", "timesbi.ttf", 14);
+$titleObj->setBackground(0x9999ff);
+
+#Set the plotarea at (60, 45) and of size 500 x 210 pixels, using white
+#(0xffffff) as the background
+$c->setPlotArea(60, 45, 500, 210, 0xffffff);
+
+#Swap the x and y axes to create a horizontal bar chart
+$c->swapXY();
+
+#Add a title to the y axis using 11 pt Times Bold Italic as font
+$c->yAxis->setTitle("Revenue (millions)", "timesbi.ttf", 11);
+
+#Set the labels on the x axis
+$c->xAxis->setLabels($labels);
+
+#Disable x-axis ticks by setting the tick length to 0
+$c->xAxis->setTickLength(0);
+
+#Add a stacked bar layer to the chart
+$layer = $c->addBarLayer2(Stack);
+
+#Add the first two data sets to the chart as a stacked bar group
+$layer->addDataGroup("2001");
+$layer->addDataSet($data0, 0xaaaaff, "Local");
+$layer->addDataSet($data1, 0x6666ff, "International");
+
+#Add the remaining data sets to the chart as another stacked bar group
+$layer->addDataGroup("2002");
+$layer->addDataSet($data2, 0xffaaaa, "Local");
+$layer->addDataSet($data3, 0xff6666, "International");
+
+#Set the sub-bar gap to 0, so there is no gap between stacked bars with a group
+$layer->setBarGap(0.2, 0);
+
+#Set the bar border to transparent
+$layer->setBorderColor(Transparent);
+
+#Set the aggregate label format
+$layer->setAggregateLabelFormat("Year {dataGroupName}\n{value} millions");
+
+#Set the aggregate label font to 8 point Arial Bold Italic
+$layer->setAggregateLabelStyle("arialbi.ttf", 8);
+
+#Reverse 20% space at the right during auto-scaling to allow space for the
+#aggregate bar labels
+$c->yAxis->setAutoScale(0.2);
+
+#Add a legend box at (300, 300) using TopCenter alignment, with horizontal
+#layout, and using 8 pt Arial Bold Italic as the font
+$legendBox = $c->addLegend(300, 300, false, "arialbi.ttf", 8);
+$legendBox->setAlignment(TopCenter);
+
+#Set the legend box width to 500 pixels (height = automatic)
+$legendBox->setSize(500, 0);
+
+#Set the format of the text displayed in the legend box
+$legendBox->setText("Year {dataGroupName} {dataSetName} Revenue");
+
+#Set the background and border of the legend box to transparent
+$legendBox->setBackground(Transparent, Transparent);
+
+#output the chart
+header("Content-type: image/png");
+print($c->makeChart2(PNG));
+?></xmp>
+</td></tr></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

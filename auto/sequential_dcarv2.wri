@@ -1,0 +1,57 @@
+2014-02-18
+Today is not a holiday or weekend, hence proceeding with program execution!
+Proceeding after holiday/weekend check....
+trade_date_to_process = [2014-02-14]
+mri_beginning_search = [2014-01-15]
+Watch List items
+date_match_val = [14-Feb]
+date_to_show = [02/14/2014]
+qry_res = [select * from mri_research_ioc where report_date between '2014-01-15' and '2014-02-14' and report_type = 'RES']
+Initiating Coverage
+Array
+(
+    [0] => DISH
+    [1] => CVC
+    [2] => DTV
+    [3] => GPS
+    [4] => LB
+    [5] => GPS
+    [6] => LB
+    [7] => GPS
+    [8] => GPS
+)
+Initiating Coverage MRI Format
+Array
+(
+    [DISH] => 2014-01-27
+    [CVC] => 2014-01-27
+    [DTV] => 2014-01-27
+    [GPS] => 2014-01-28
+    [LB] => 2014-01-29
+)
+tmp_mry_cmpl_temp and tmp_mry_cmpl_trades are flushed and ready for the next set of data
+query_trades = [SELECT * 
+																 FROM nfs_trades
+																 WHERE trad_run_date = '2014-02-14'
+																 AND trad_cancel_code != '1']
+Data inserted to temporary table for further processing.
+count(sorted_merged_array_trades) = [142]
+store_running_trad_commission_total = [69508.83]
+Array
+(
+)
+<font color="#000000" size="3" face="Courier"><strong>NONE</strong></font><br>
+
+<font color="#FF0000" size="3" face="Courier"><strong>AVP</strong></font>, <font color="#FF0000" size="3" face="Courier"><strong>SHPG</strong></font>, <font color="#FF0000" size="3" face="Courier"><strong>BWA</strong></font><br>
+
+tmp_mry_cmpl_temp and tmp_mry_cmpl_trades are flushed and ready for the next set of data<br>
+
+Data inserted to temporary table for further processing.<br>
+
+tmp_mry_cmpl_temp and tmp_mry_cmpl_trades are flushed and ready for the next set of data<br>
+
+Data inserted to temporary table for further processing.<br>
+
+YTD = [0%]
+T-Date : (02/14/2014) = [0%]
+d:\tdw\tdw\includes\createpdf.bat 2014-02-14_dcarv2.pdf 2014-02-14_dcarv2.html<br>

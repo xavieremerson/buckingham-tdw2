@@ -1,0 +1,58 @@
+WinSysInfo 1.2.1
+Copyright (c) OpenGate Networks.
+Made by RedShift (redshift@pandora.be)
+
+TOC
+|--1 Requirements
+|--2 Installation and configuration
+|--3 Templates
+|--4 Bugs and things to do
+
+
+1. Requirements
+------------------------------------------
+To run properly, WinSysInfo needs a Windows NT based system (such as Windows NT, 2000 or XP) with
+php (recommended > 4.3.0 with register_globals set to off.) and ofcourse a webserver :-).
+It does not work on unix based systems, it is exclusivly for Windows.
+
+2. Installation and configuration
+------------------------------------------
+There isn't much of an installation, just place the files in any directory you'd like, reachable by the web.
+Configuration,
+Open the file config.php
+Set there the approperiate values.
+NOTE ON CACHING: The directory you set the caching dir to, must be writeable by everyone.
+It is recommended you set caching to 300 seconds (5 minutes.) as building the page can consume resources.
+
+3. Templates
+------------------------------------------
+To use another template than the default one (aqua.htt), just open up config.php and go to TemplateToUse
+variable. Set there the name of your template file from the templates directory.
+If you create your own template, place it in the folder templates.
+Do not forget to add the copyright notice.
+
+The following templates are included within this release:
+
+basic.htt (made by RedShift)
+	Should give a start off to make your own template
+	
+default.htt (made by RedShift)
+	Default template. Fairly simple. Blue with red bars.
+	
+aqua.htt (made by RedShift)
+	Aqua template designed to reflect the look of MacOS X.
+
+jorge.htt (made by Jorge)
+	Nice template made by Jorge Schrauwen. Grey background with blue information fields. Very nice.
+	
+
+For creating your own templates, open up basic.htt and you'll see how it works.
+
+4. Bugs and things to do
+------------------------------------------
+It is know that processor information is not display when use versions of php older than 4.3.0
+This has to do with the variable scoping of PHP.
+Oh and please run the script with register_globals set to off (I don't know what effect it has with it on)
+
+Things to do?
+Don't know. Suggestions can always be send to us (use this form please: http://opengate.ath.cx:2000/?p=contact)

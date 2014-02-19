@@ -1,0 +1,588 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_QuickForm_Renderer_ITDynamic</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Template-based renderers"
+HREF="package.html.html-quickform.html#package.html.html-quickform.output.template-renderers"><LINK
+REL="PREVIOUS"
+TITLE="HTML_QuickForm_Renderer_ArraySmarty::setRequiredTemplate()"
+HREF="package.html.html-quickform.html-quickform-renderer-arraysmarty.setrequiredtemplate.html"><LINK
+REL="NEXT"
+TITLE="constructor HTML_QuickForm_Renderer_ITDynamic::HTML_QuickForm_Renderer_ITDynamic()"
+HREF="package.html.html-quickform.html-quickform-renderer-itdynamic.html-quickform-renderer-itdynamic.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-arraysmarty.setrequiredtemplate.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-itdynamic.html-quickform-renderer-itdynamic.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.html-quickform-renderer-itdynamic"><B
+CLASS="classname"
+>HTML_QuickForm_Renderer_ITDynamic</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN64652"
+></A
+><B
+CLASS="classname"
+>HTML_QuickForm_Renderer_ITDynamic</B
+>&nbsp;--&nbsp;Dynamic renderer for Integrated Templates</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-renderer-itdynamic.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;The word 'dynamic' in renderer name means that exact form layout is defined at script 
+runtime. This also means that you can create <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>one</I
+></SPAN
+> template file 
+for <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>all</I
+></SPAN
+> your forms. That template should contain a block for 
+every distinct element 'look' appearing in your forms and also some special blocks. 
+If a special block is not set for an element, the renderer falls back to a default one.
+    </P
+><P
+>&#13;If most of your forms tend to share the same look (a good example would be back-office
+interface), your best bet will be to use Dynamic renderer. If each of your forms has a 
+really special layout, you should go with a Static one.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-renderer-itdynamic.template"
+></A
+><H2
+>Template structure</H2
+><P
+>&#13;This is a somewhat minimal template, but it contains all the necessary elements to
+render any form you are able to define with the package.
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>{qf_javascript}
+&#60;form {qf_attributes}&#62;
+&#60;!-- BEGIN qf_hidden_loop --&#62;
+{qf_hidden}
+&#60;!-- END qf_hidden_loop --&#62;
+
+&#60;table&#62;
+
+&#60;!-- BEGIN qf_errors --&#62;
+    &#60;tr&#62;
+        &#60;td&#62;
+            Collected errors:
+            &#60;ul&#62;
+                &#60;!-- BEGIN qf_error_loop --&#62;
+                &#60;li&#62;{qf_error}&#60;/li&#62;
+                &#60;!-- END qf_error_loop --&#62;
+            &#60;/ul&#62;
+        &#60;/td&#62;
+    &#60;/tr&#62;
+&#60;!-- END qf_errors --&#62;
+
+&#60;!-- BEGIN qf_main_loop --&#62;
+    &#60;!-- BEGIN qf_header --&#62;
+    &#60;tr&#62;
+        &#60;th colspan="2"&#62;{qf_header}&#60;/th&#62;
+    &#60;/tr&#62;
+    &#60;!-- END qf_header --&#62;
+
+    &#60;!-- BEGIN qf_element --&#62;
+    &#60;tr valign="top"&#62;
+        &#60;td align="right"&#62;
+            &#60;!-- BEGIN qf_element_required --&#62;&#60;span style="color: #FF0000;"&#62;*&#60;/span&#62;&#60;!-- END qf_element_required --&#62;
+            &#60;b&#62;{qf_label}&#60;/b&#62;
+        &#60;/td&#62;
+        &#60;td&#62;
+            &#60;!-- BEGIN qf_element_error --&#62;&#60;span style="color: #FF0000;"&#62;{qf_error}&#60;/span&#62;&#60;br /&#62;&#60;!-- END qf_element_error --&#62;
+            {qf_element}
+        &#60;/td&#62;
+    &#60;/tr&#62;
+    &#60;!-- END qf_element --&#62;
+
+    &#60;!-- BEGIN qf_group --&#62;
+    &#60;tr valign="top"&#62;
+        &#60;td align="right"&#62;
+            &#60;!-- BEGIN qf_group_required --&#62;&#60;span style="color: #FF0000;"&#62;*&#60;/span&#62;&#60;!-- END qf_group_required --&#62;
+            &#60;b&#62;{qf_group_label}&#60;/b&#62;
+        &#60;/td&#62;
+        &#60;td&#62;
+            &#60;!-- BEGIN qf_group_error --&#62;&#60;span style="color: #FF0000;"&#62;{qf_error}&#60;/span&#62;&#60;br /&#62;&#60;!-- END qf_group_error --&#62;
+            &#60;!-- BEGIN qf_group_loop --&#62;
+                &#60;!-- BEGIN qf_group_element --&#62;{qf_separator}{qf_label}{qf_element}&#60;!-- END qf_group_element --&#62;
+            &#60;!-- END qf_group_loop --&#62;
+        &#60;/td&#62;
+    &#60;/tr&#62;
+    &#60;!-- END qf_group --&#62;
+
+&#60;!-- END qf_main_loop --&#62;
+
+&#60;!-- BEGIN qf_required_note --&#62;
+    &#60;tr&#62;
+        &#60;td&#62;&#38;nbsp;&#60;/td&#62;
+        &#60;td align="left" valign="top"&#62;{qf_required_note}&#60;/td&#62;
+    &#60;/tr&#62;
+&#60;!-- END qf_required_note --&#62;
+&#60;/table&#62;
+&#60;/form&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+     </P
+><P
+></P
+><DIV
+CLASS="variablelist"
+><P
+><B
+>Blocks in the template</B
+></P
+><DL
+><DT
+><TT
+CLASS="varname"
+>qf_main_loop</TT
+></DT
+><DD
+><P
+>&#13;         This block should <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>always</I
+></SPAN
+> be present and should be 
+         a parent for all visible elements' blocks. It is used to implement 
+         "flow", to render elements one after another.
+         </P
+></DD
+><DT
+><TT
+CLASS="varname"
+>qf_element</TT
+></DT
+><DD
+><P
+>&#13;         This is the default block for rendering form elements. This block should
+         <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>always</I
+></SPAN
+> be present, as the renderer uses the following 
+         logic to decide which block to use for an element's output:
+           <P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>If a special block was set for an element, use that</P
+></LI
+><LI
+><P
+>If a block <TT
+CLASS="varname"
+>qf_%element's type%</TT
+> (e.g. <TT
+CLASS="varname"
+>qf_password</TT
+>) exists, use that</P
+></LI
+><LI
+><P
+>Use <TT
+CLASS="varname"
+>qf_element</TT
+></P
+></LI
+></OL
+>
+         </P
+></DD
+><DT
+><TT
+CLASS="varname"
+>qf_element_required</TT
+></DT
+><DD
+><P
+>&#13;         The block will be <A
+HREF="package.html.html-template-sigma.html-template-sigma.touchblock.html"
+>touch</A
+>'d if an element is required.
+         </P
+></DD
+><DT
+><TT
+CLASS="varname"
+>qf_element_error</TT
+></DT
+><DD
+><P
+>&#13;         An error associated with an element will be output here.
+         </P
+></DD
+><DT
+><TT
+CLASS="varname"
+>qf_header</TT
+></DT
+><DD
+><P
+>&#13;         This is the default block used to output headers. Should be present unless you 
+         have no headers in your form.
+         </P
+></DD
+><DT
+><TT
+CLASS="varname"
+>qf_group</TT
+></DT
+><DD
+><P
+>&#13;         Default block to output groups. Should be present unless you do not use grouped
+         elements.
+         </P
+></DD
+><DT
+><TT
+CLASS="varname"
+>qf_group_loop</TT
+></DT
+><DD
+><P
+>&#13;         An analog of <TT
+CLASS="varname"
+>qf_main_loop</TT
+>, used to render group's elements
+         one after another. A <TT
+CLASS="varname"
+>%group's block%_loop</TT
+> should
+         <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>always</I
+></SPAN
+> be present inside <TT
+CLASS="varname"
+>%group's block%</TT
+>
+         </P
+></DD
+><DT
+><TT
+CLASS="varname"
+>qf_group_element</TT
+></DT
+><DD
+><P
+>&#13;         A default block to render group's elements, <TT
+CLASS="varname"
+>%group's block%_element</TT
+>
+         should always be present inside <TT
+CLASS="varname"
+>%group's block%_loop</TT
+> (for the
+         same reason as the <TT
+CLASS="varname"
+>qf_element</TT
+> should be present in 
+         <TT
+CLASS="varname"
+>qf_main_loop</TT
+>)
+         </P
+></DD
+><DT
+><TT
+CLASS="varname"
+>qf_error_loop</TT
+></DT
+><DD
+><P
+>&#13;         This is used to output collected errors for the elements that do not have a 
+         <TT
+CLASS="varname"
+>%element's block%_error</TT
+> block.
+         </P
+></DD
+><DT
+><TT
+CLASS="varname"
+>qf_hidden_loop</TT
+></DT
+><DD
+><P
+>&#13;         &#60;input type="hidden" /&#62; elements are rendered here.
+         </P
+></DD
+></DL
+></DIV
+><P
+></P
+><DIV
+CLASS="variablelist"
+><P
+><B
+>Placeholders in the template</B
+></P
+><DL
+><DT
+><TT
+CLASS="varname"
+>{qf_javascript}</TT
+></DT
+><DD
+><P
+>&#13;         Javascript for client-side form validation will be output here.
+         </P
+></DD
+><DT
+><TT
+CLASS="varname"
+>{qf_required_note}</TT
+></DT
+><DD
+><P
+>&#13;         If there are required elements in the form, a note will be output here
+         </P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-renderer-itdynamic.example"
+></A
+><H2
+>Usage example</H2
+><P
+>&#13;Assuming the template is in <TT
+CLASS="filename"
+>./qform.html</TT
+>:
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'HTML/QuickForm/Renderer/ITDynamic.php';
+require_once 'HTML/Template/Sigma.php';
+
+// Instantiate the template object and load the template file
+$tpl =&#38; new HTML_Template_Sigma('.');
+$tpl-&#62;loadTemplateFile('qform.html');
+
+// Instantiate the renderer and process the form
+$renderer =&#38; new HTML_QuickForm_Renderer_ITDynamic($tpl);
+$form-&#62;accept($renderer);
+
+// Output the results
+$tpl-&#62;show();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+Note that we do not show how the form is built here, that's because the example will work for virtually
+any form.
+     </P
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Template class compatibility: </B
+>
+    This renderer was developed and tested using <A
+HREF="package.html.html-template-sigma.html"
+><B
+CLASS="classname"
+>HTML_Template_Sigma</B
+></A
+>.
+    While it probably will work with <A
+HREF="package.html.html-template-it.html"
+><B
+CLASS="classname"
+>HTML_Template_IT</B
+></A
+>, no warranties can be given.
+       </P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Removing empty blocks: </B
+>
+    The renderer assumes that the template object was set up to remove empty blocks
+    (this is the default behaviour). If that is not true, the results will be pretty
+    discouraging.
+       </P
+></BLOCKQUOTE
+></DIV
+><P
+>&#13;     </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-arraysmarty.setrequiredtemplate.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-itdynamic.html-quickform-renderer-itdynamic.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_QuickForm_Renderer_ArraySmarty::setRequiredTemplate()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.output.template-renderers"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>constructor HTML_QuickForm_Renderer_ITDynamic::HTML_QuickForm_Renderer_ITDynamic()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

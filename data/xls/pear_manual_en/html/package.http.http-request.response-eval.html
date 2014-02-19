@@ -1,0 +1,371 @@
+<HTML
+><HEAD
+><TITLE
+>Response Evaluation</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTTP_Request"
+HREF="package.http.http-request.html"><LINK
+REL="PREVIOUS"
+TITLE="Proxy Authorization"
+HREF="package.http.http-request.proxy-auth.html"><LINK
+REL="NEXT"
+TITLE="HTTP_Upload"
+HREF="package.http.http-upload.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.http.http-request.proxy-auth.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.http.http-upload.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.http.http-request.response-eval">Response Evaluation</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN75706"
+></A
+>Response Evaluation&nbsp;--&nbsp;
+   Evaluating the information from a HTTP response
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-request.response-eval.intro"
+></A
+><H2
+>Introduction</H2
+><P
+>&#13;   Because HTTP is a protocol based on the <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Request -
+   Response</I
+></SPAN
+> scheme, every HTTP request is followed by a HTTP
+   response. <B
+CLASS="classname"
+>HTTP_Request</B
+> offers several methods
+   to evaluate the information from these responses.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-request.response-eval.codes"
+></A
+><H2
+>Response Codes</H2
+><P
+>&#13;   A important part of the HTTP response is the response code. The most
+   well-known response code probably is <TT
+CLASS="literal"
+>404</TT
+>, which
+   you may have seen in your browser at several occasions. The meaning
+   of <TT
+CLASS="literal"
+>404</TT
+> is that the requested ressource could not
+   be found. A complete list of status codes can be found in <A
+HREF="http://www.faqs.org/rfcs/rfc2616"
+TARGET="_top"
+>RFC 2616</A
+>.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN75720"><P
+><B
+>Example 42-1. Checking the response code</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "HTTP/Request.php";
+
+$urls = array(
+    "http://www.example.com/",
+    "http://example.com/thisdoesnotexist.html"
+    );
+
+$req =&#38; new HTTP_Request("");
+foreach ($urls as $url) {
+    $req-&#62;setURL($url);
+    $req-&#62;sendRequest();
+
+    $code = $req-&#62;getResponseCode();
+    switch ($code) {
+    case 404:
+        echo "Document not found\n";
+        break;
+
+    case 200:
+        echo "Everything's ok\n";
+        break;
+
+    /* ... */
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-request.response-eval.header"
+></A
+><H2
+>Response Headers</H2
+><P
+>&#13;   Similar to a HTTP request a HTTP response consists of a header and a
+   body. <B
+CLASS="classname"
+>HTTP_Request</B
+> offers a method to access
+   the header of the response.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN75727"><P
+><B
+>Example 42-2. Getting all headers from the response</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "HTTP/Request.php";
+
+$req =&#38; new HTTP_Request("http://example.com/");
+$req-&#62;sendRequest();
+
+foreach ($req-&#62;getResponseHeader() as $name =&#62; $value) {
+    echo $name . " = " . $value . "\n";
+}</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    This will print all headers and the appendant values.
+   </P
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN75731"><P
+><B
+>Example 42-3. Getting a specific header</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "HTTP/Request.php";
+
+$req =&#38; new HTTP_Request("http://example.com/");
+$req-&#62;sendRequest();
+
+echo $req-&#62;getResponseHeader("Date");</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    This will print the value of the <TT
+CLASS="literal"
+>Date:</TT
+> header.
+   </P
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-request.response-eval.cookies"
+></A
+><H2
+>Response Cookies</H2
+><P
+>&#13;   Fetching the cookies that are part of the HTTP response is described
+   in the <A
+HREF="package.http.http-request.cookie.html"
+>Cookies</A
+> section.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.http.http-request.proxy-auth.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.http.http-upload.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Proxy Authorization</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.http.http-request.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTTP_Upload</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

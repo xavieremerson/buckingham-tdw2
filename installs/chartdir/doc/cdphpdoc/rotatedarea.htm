@@ -1,0 +1,74 @@
+<HTML>
+<HEAD>
+<Title>Rotated Area Chart</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">Rotated Area Chart</p>
+<hr class="separator">
+<div class="content">
+<img src="images/rotatedarea.png">
+<br><br>
+This example demonstrates swapping the x and y axes to produce an rotated area chart in which the area goes from left to right (instead of bottom to top).<br><br>
+The x and y axes in the example are configured as follows:<br><br>
+<ul><li> Initially, the direction of the x-axis is left to right and is at the bottom of the chart, while the y-axis is from bottom to top and is on the left of the chart.<br><br>
+<li> Swap the x and y axes using <a href="XYChart.swapXY.htm">XYChart.swapXY</a>. Now the x-axis is from bottom to top and is on the left of the chart, while the y-axis is from left to right and is at the bottom of the chart.<br><br>
+<li> Use <a href="XYChart.setYAxisOnRight.htm">XYChart.setYAxisOnRight</a> to move the y-axis to the opposite side of the plot area, so that the y-axis is on the top of the plot area (instead of at the bottom). (<b>Note:</b> setYAxisOnRight moves the primary y-axis to the opposite side. It is the right side by default, but will become the top side if x and y axes are swapped. The name of this method is for compatibility with earlier versions of ChartDirector in which <a href="XYChart.swapXY.htm">XYChart.swapXY</a> was not supported.)<br><br>
+<li> Use <a href="Axis.setReverse.htm">Axis.setReverse</a> to reverse the direction of the x-axis, so that the x-axis is from top to bottom (instead of bottom to top).</ul>
+The area in this chart is filled using a gradient color created with <a href="BaseChart.gradientColor.htm">BaseChart.gradientColor</a>.
+</div>
+<p class="heading2">Source Code Listing</p>
+<div class="content">
+[File: phpdemo/rotatedarea.php]<br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp><?php
+include("phpchartdir.php");
+
+#The data for the area chart
+$data = array(30, 28, 40, 55, 75, 68, 54, 60, 50, 62, 75, 65, 75, 89, 60, 55,
+    53, 35, 50, 66, 56, 48, 52, 65, 62);
+
+#The labels for the area chart
+$labels = array("0 m", "", "", "3 m", "", "", "6 m", "", "", "9 m", "", "",
+    "12 m", "", "", "15 m", "", "", "18 m", "", "", "21 m", "", "", "24 m");
+
+#Create a XYChart object of size 320 x 320 pixels
+$c = new XYChart(320, 320);
+
+#Swap the x and y axis to become a rotated chart
+$c->swapXY();
+
+#Set the y axis on the top side (right + rotated = top)
+$c->setYAxisOnRight();
+
+#Reverse the x axis so it is pointing downwards
+$c->xAxis->setReverse();
+
+#Set the plotarea at (50, 50) and of size 200 x 200 pixels. Enable horizontal
+#and vertical grids by setting their colors to grey (0xc0c0c0).
+$plotAreaObj = $c->setPlotArea(50, 50, 250, 250);
+$plotAreaObj->setGridColor(0xc0c0c0, 0xc0c0c0);
+
+#Add a line chart layer using the given data
+$c->addAreaLayer($data, $c->gradientColor(50, 0, 300, 0, 0xffffff, 0xff));
+
+#Set the x axis labels using the given labels
+$c->xAxis->setLabels($labels);
+
+#Add a title to the x axis
+$c->xAxis->setTitle("Depth");
+
+#Add a title to the y axis
+$c->yAxis->setTitle("Carbon Dioxide Concentration (ppm)");
+
+#output the chart
+header("Content-type: image/png");
+print($c->makeChart2(PNG));
+?></xmp>
+</td></tr></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

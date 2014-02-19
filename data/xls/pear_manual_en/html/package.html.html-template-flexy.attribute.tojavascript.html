@@ -1,0 +1,388 @@
+<HTML
+><HEAD
+><TITLE
+>&#60;FLEXY:TOJAVASCRIPT JSVAR="PHPVAR"&#62; ...</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_Flexy"
+HREF="package.html.html-template-flexy.html"><LINK
+REL="PREVIOUS"
+TITLE='flexy:nameuses="variable"'
+HREF="package.html.html-template-flexy.attribute.nameuses.html"><LINK
+REL="NEXT"
+TITLE="HTML_Template_IT"
+HREF="package.html.html-template-it.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.attribute.nameuses.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-it.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-flexy.attribute.tojavascript">&#60;FLEXY:TOJAVASCRIPT JSVAR="PHPVAR"&#62; ...</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN69892"
+></A
+>&#60;FLEXY:TOJAVASCRIPT JSVAR="PHPVAR"&#62; ...&nbsp;--&nbsp;Provides a simple way to pass data from PHP to Javascript</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN69895"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN69896"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     <B
+CLASS="function"
+>Usage</B
+></CODE
+> (&#60;flexy:tojavascript JSVAR="PHPVAR" ...&#62;)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.attribute.tojavascript.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      To reduce the "WTF" effect of magically having javascript code that looks like flexy tags completely
+      broken by the template engine,
+      Flexy deliberatly turns the parser OFF when dealing with script contents 
+      (see Configuration Options for details of PHP in script tags)
+    </P
+><P
+>&#13;      As a result of this, it is not possible to put any flexy tags within blocks of javascript code. 
+      the flexy:tojavascript tag solves this in a way that enables javascript to be tested seperatly from 
+      the application, and also serves to encourage better coding practices. (eg. seperating your code with distinct
+      lines of communication)
+    </P
+><P
+>&#13;      This feature depends on PEAR's HTML_Javascript Library
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.attribute.tojavascript.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69909"><P
+><B
+>Example 41-1. A template with javascript and flexy:tojavasscript</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;html&#62;&#60;head&#62;
+&#60;title&#62;Example&#60;/title&#62;
+
+
+&#60;flexy:toJavascript
+    flexy:prefix="test_abc_"
+    abcg="xyz"
+    abcd="xyz"
+    srcXxx="xyz"
+&#62;
+&#60;!-- 
+
+We can use the inner contents for testing the template in a browser.
+The template will remove these contents when it is compiled.
+--&#62;
+    &#60;script type="text/javascript"&#62;
+  
+    var test_abc_abcg = '123';
+    var test_abc_abcd = '123';
+    var test_abc_srcXxx = '123';
+
+    &#60;/script&#62;
+
+&#60;/flexy:toJavascript&#62;
+
+
+
+
+&#60;flexy:toJavascript abcg="xyz"&#62;
+    &#60;script type="text/javascript"&#62;
+    var xyz = '123';
+    &#60;/script&#62;
+&#60;/flexy:toJavascript&#62;
+
+
+
+&#60;body&#62;
+&#60;p&#62;Example of flexy:toJavascript with default values.&#60;/p&#62;
+&#60;/body&#62;&#60;/html&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69912"><P
+><B
+>Example 41-2. compiled template</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;html&#62;&#60;head&#62;
+&#60;title&#62;Example&#60;/title&#62;
+
+
+
+&#60;?php require_once 'HTML/Javascript/Convert.php';?&#62;
+&#60;script type='text/javascript'&#62;
+&#60;?php $__tmp = HTML_Javascript_Convert::convertVar($t-&#62;xyz,'test_abc_abcg',true);
+    echo (is_a($__tmp,"PEAR_Error")) ? ("&#60;pre&#62;".print_r($__tmp,true)."&#60;/pre&#62;") : $__tmp;?&#62;
+&#60;?php $__tmp = HTML_Javascript_Convert::convertVar($t-&#62;xyz,'test_abc_abcd',true);
+    echo (is_a($__tmp,"PEAR_Error")) ? ("&#60;pre&#62;".print_r($__tmp,true)."&#60;/pre&#62;") : $__tmp;?&#62;
+&#60;?php $__tmp = HTML_Javascript_Convert::convertVar($t-&#62;xyz,'test_abc_srcXxx',true);
+    echo (is_a($__tmp,"PEAR_Error")) ? ("&#60;pre&#62;".print_r($__tmp,true)."&#60;/pre&#62;") : $__tmp;?&#62;
+&#60;/script&#62;
+
+?php require_once 'HTML/Javascript/Convert.php';?&#62;
+&#60;script type='text/javascript'&#62;
+&#60;?php $__tmp = HTML_Javascript_Convert::convertVar($t-&#62;xyz,'abcg',true);
+    echo (is_a($__tmp,"PEAR_Error")) ? ("&#60;pre&#62;".print_r($__tmp,true)."&#60;/pre&#62;") : $__tmp;?&#62;
+&#60;/script&#62;
+
+
+
+
+
+&#60;body&#62;
+&#60;p&#62;Example of flexy:toJavascript with default values.&#60;/p&#62;
+&#60;/body&#62;&#60;/html&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69915"><P
+><B
+>Example 41-3. output from the Template (with no values set)</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>&#60;html&#62;&#60;head&#62;
+&#60;title&#62;Example&#60;/title&#62;
+
+
+&#60;script type='text/javascript'&#62;
+test_abc_abcg = null;
+test_abc_abcd = null;
+test_abc_srcXxx = null;
+&#60;/script&#62;
+
+
+
+
+&#60;script type='text/javascript'&#62;
+abcg = null;
+&#60;/script&#62;
+
+
+
+
+
+&#60;body&#62;
+&#60;p&#62;Example of flexy:toJavascript with default values.&#60;/p&#62;
+&#60;/body&#62;&#60;/html&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.attribute.nameuses.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-it.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>flexy:nameuses="variable"</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_Template_IT</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

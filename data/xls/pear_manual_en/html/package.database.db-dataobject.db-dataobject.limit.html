@@ -1,0 +1,324 @@
+<HTML
+><HEAD
+><TITLE
+>-&#62;limit()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB_DataObject"
+HREF="package.database.db-dataobject.html"><LINK
+REL="PREVIOUS"
+TITLE="->escape()"
+HREF="package.database.db-dataobject.db-dataobject.escape.html"><LINK
+REL="NEXT"
+TITLE="->orderBy()"
+HREF="package.database.db-dataobject.db-dataobject.orderby.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.escape.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.orderby.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db-dataobject.db-dataobject.limit">-&#62;limit()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN26712"
+></A
+>-&#62;limit()&nbsp;--&nbsp;Set limit</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN26715"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN26716"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>$DB_DataObject-&#62;limit</B
+></CODE
+> ([int $from [, int $number]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.limit.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Sets the limit for a query. (this only works on databases that support the LIMIT clause),
+     without parameters, it will clear the current limit.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.limit.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>int $from</I
+></TT
+> - limit start (or number), or blank to reset
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>int $number</I
+></TT
+> - limit results to number
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.limit.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+>Since postgres and mysql only really support limit directly - calling this on
+       an unsupported database will emit a <B
+CLASS="classname"
+>PEAR::Error</B
+> and die.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.limit.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN26746"><P
+><B
+>Example 33-1. Setting the Limit</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$person = new DataObjects_Person;
+$person-&#62;limit(2);
+$person-&#62;find();
+while ($person-&#62;fetch()) {
+    echo "{$person-&#62;id} {$person-&#62;name}&#60;BR&#62;";
+}
+
+
+$person = new DataObjects_Person;
+$person-&#62;limit(2,4);
+$person-&#62;find();
+
+while ($person-&#62;fetch()) {
+    echo "{$person-&#62;id} {$person-&#62;name}&#60;BR&#62;";
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN26749"><P
+><B
+>Example 33-2. Resulting SQL</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>SELECT * FROM person LIMIT 2
+
+SELECT * FROM person LIMIT 2,4</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.escape.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.orderby.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>-&#62;escape()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>-&#62;orderBy()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

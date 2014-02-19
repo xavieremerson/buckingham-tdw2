@@ -1,0 +1,2274 @@
+<HTML
+><HEAD
+><TITLE
+>DB_common::getAssoc()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="DB_common::getAll()"
+HREF="package.database.db.db-common.getall.html"><LINK
+REL="NEXT"
+TITLE="DB_common::getCol()"
+HREF="package.database.db.db-common.getcol.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.getall.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.getcol.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.db-common.getassoc">DB_common::getAssoc()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN23130"
+></A
+>DB_common::getAssoc()&nbsp;--&nbsp;Runs a query and returns the data as an array</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN23133"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN23134"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>&#38;getAssoc</B
+></CODE
+> (string $query [, boolean $force_array = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> [, mixed $params = array() [, integer $fetchmode =
+      <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_DEFAULT</B
+></TT
+> [, boolean $group = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>]]]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.getassoc.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Runs the query provided and puts the
+   entire result set into an associative array
+   then frees the result set.
+  </P
+><P
+>&#13;   If the result set contains more than two columns, the value
+   will be an array of the values from column 2 to n.  If the result
+   set contains only two columns, the returned value will be a
+   scalar with the value of the second column (unless forced to an
+   array with the <TT
+CLASS="parameter"
+><I
+>$force_array</I
+></TT
+> parameter).
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.getassoc.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+      <TT
+CLASS="parameter"
+><I
+>$query</I
+></TT
+></DT
+><DD
+><P
+>&#13;       the SQL query or the statement to prepare
+      </P
+></DD
+><DT
+>boolean
+      <TT
+CLASS="parameter"
+><I
+>$force_array</I
+></TT
+></DT
+><DD
+><P
+>&#13;       used only if the query returns
+       exactly two columns.
+       If <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, the values of the returned array
+       will be one-element arrays instead of scalars.
+      </P
+></DD
+><DT
+>mixed
+      <TT
+CLASS="parameter"
+><I
+>$params</I
+></TT
+></DT
+><DD
+><P
+>&#13;       array, string or numeric data to be added to the prepared statement.
+       Quantity of items passed must match quantity of placeholders in the
+       prepared statement: meaning 1 placeholder for non-array
+       parameters or 1 placeholder per array element.
+      </P
+><P
+>&#13;       If supplied,
+       <A
+HREF="package.database.db.intro-execute.html"
+>&#13;        <B
+CLASS="function"
+>prepare()</B
+>/
+        <B
+CLASS="function"
+>execute()</B
+></A
+> is used.
+      </P
+></DD
+><DT
+>integer
+      <TT
+CLASS="parameter"
+><I
+>$fetchmode</I
+></TT
+></DT
+><DD
+><P
+>&#13;       the fetch mode to use.
+       The default is <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_DEFAULT</B
+></TT
+>,
+       which tells this method to use DB's current fetch mode.
+       DB's current default fetch mode can be changed using
+       <A
+HREF="package.database.db.db-common.setfetchmode.html"
+>&#13;        <B
+CLASS="function"
+>setFetchMode()</B
+></A
+>.
+       Potential values include:
+       <P
+></P
+><UL
+><LI
+><P
+>&#13;          <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ORDERED</B
+></TT
+>
+         </P
+></LI
+><LI
+><P
+>&#13;          <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ASSOC</B
+></TT
+>
+         </P
+></LI
+><LI
+><P
+>&#13;          <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_OBJECT</B
+></TT
+>
+         </P
+></LI
+></UL
+>
+      </P
+></DD
+><DT
+>boolean
+      <TT
+CLASS="parameter"
+><I
+>$group</I
+></TT
+></DT
+><DD
+><P
+>&#13;       if <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, the values of
+       the returned array is wrapped in another array.
+       If the same key value (in the first column)
+       repeats itself, the values
+       will be appended to this array instead
+       of overwriting the
+       existing values.
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.getassoc.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   array - associative array with the query results
+   or a <A
+HREF="package.database.db.db-error.html"
+><B
+CLASS="classname"
+>DB_Error</B
+></A
+> object on failure
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.getassoc.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <DIV
+CLASS="table"
+><A
+NAME="AEN23222"><P
+><B
+>Table 33-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_INVALID</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        invalid
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        SQL statment for preparing is not valid.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        See the <A
+HREF="package.database.db.db-common.prepare.html"
+>&#13;         <B
+CLASS="function"
+>prepare()</B
+> documentation</A
+>,
+        if you want to use a SQL statemt using placeholders.
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_MISMATCH</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        mismatch
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Quantity of parameters didn't match quantity of placeholders in
+        the prepared statment.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check that the number of placeholders in the
+        <A
+HREF="package.database.db.db-common.prepare.html"
+>&#13;         <B
+CLASS="function"
+>prepare()</B
+></A
+> statement passed to
+        <TT
+CLASS="parameter"
+><I
+>$query</I
+></TT
+> equals the count of entries
+        passed to <TT
+CLASS="parameter"
+><I
+>$params</I
+></TT
+>.
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_NODBSELECTED</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        no database selected
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        No database was choosen.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check the <A
+HREF="package.database.db.intro-dsn.html"
+>DSN</A
+>
+        in <A
+HREF="package.database.db.db.connect.html"
+>&#13;         <B
+CLASS="function"
+>connect()</B
+></A
+>.
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_TRUNCATED</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        truncated
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        The result set contains fewer then two columns
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check the SQL query or choose another
+        <B
+CLASS="function"
+>get*()</B
+> function
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>every other error code</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Database specific error
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check the database related section of
+        <A
+HREF="http://www.php.net/manual/"
+TARGET="_top"
+>PHP-Manual</A
+>
+        to detect the reason for this error. In the most cases
+        a misformed SQL statment. Ie. using LIMIT in a SQL-Statment
+        for an Oracle database.
+       </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.getassoc.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.getassoc.example"
+></A
+><H2
+>Example</H2
+><P
+>&#13;   All of the examples use the following data set:
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>INSERT INTO foo VALUES ('Juan', 5, '1991-01-11 21:31:41');
+INSERT INTO foo VALUES ('Kyu', 10, '1992-02-12 22:32:42');
+INSERT INTO foo VALUES ('Kyu', 15, '1993-03-13 23:33:43');</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.db.db-common.getassoc.example.two"
+></A
+><H3
+>Result sets having two columns</H3
+><P
+>&#13;    When using <B
+CLASS="function"
+>getAssoc()</B
+> for results
+    which have two columns and
+    <TT
+CLASS="parameter"
+><I
+>$force_array</I
+></TT
+> = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> (the default)
+    changing <TT
+CLASS="parameter"
+><I
+>$fetchmode</I
+></TT
+> has no
+    impact on the format of the resulting array.
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23286"><P
+><B
+>Example 33-1. 
+     Using <B
+CLASS="function"
+>getAssoc()</B
+> in default mode
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data =&#38; $db-&#62;getAssoc('SELECT cf, df FROM foo');
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+
+print_r($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;     Output:
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [Juan] =&#62; 1991-01-11 21:31:41
+    [Kyu] =&#62; 1993-03-13 23:33:43
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23292"><P
+><B
+>Example 33-2. 
+     Using <B
+CLASS="function"
+>getAssoc()</B
+> with
+     <TT
+CLASS="parameter"
+><I
+>$group</I
+></TT
+> = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data =&#38; $db-&#62;getAssoc('SELECT cf, df FROM foo',
+        false, array(), DB_FETCHMODE_ORDERED, true);
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+
+print_r($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;     Output:
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [Juan] =&#62; Array
+        (
+            [0] =&#62; 1991-01-11 21:31:41
+        )
+    [Kyu] =&#62; Array
+        (
+            [0] =&#62; 1992-02-12 22:32:42
+            [1] =&#62; 1993-03-13 23:33:43
+        )
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23300"><P
+><B
+>Example 33-3. 
+     Using <B
+CLASS="function"
+>getAssoc()</B
+> with
+     <TT
+CLASS="parameter"
+><I
+>$force_array</I
+></TT
+> = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>
+     and <TT
+CLASS="parameter"
+><I
+>$fetchmode</I
+></TT
+> =
+     <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ORDERED</B
+></TT
+>
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data =&#38; $db-&#62;getAssoc('SELECT cf, df FROM foo',
+        true, array(), DB_FETCHMODE_ORDERED);
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+
+print_r($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;     Output:
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [Juan] =&#62; Array
+        (
+            [0] =&#62; 1991-01-11 21:31:41
+        )
+    [Kyu] =&#62; Array
+        (
+            [0] =&#62; 1993-03-13 23:33:43
+        )
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23310"><P
+><B
+>Example 33-4. 
+     Using <B
+CLASS="function"
+>getAssoc()</B
+> with
+     <TT
+CLASS="parameter"
+><I
+>$force_array</I
+></TT
+> = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>
+     and <TT
+CLASS="parameter"
+><I
+>$fetchmode</I
+></TT
+> =
+     <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ASSOC</B
+></TT
+>
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data =&#38; $db-&#62;getAssoc('SELECT cf, df FROM foo',
+        true, array(), DB_FETCHMODE_ASSOC);
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+
+print_r($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;     Output:
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [Juan] =&#62; Array
+        (
+            [df] =&#62; 1991-01-11 21:31:41
+        )
+    [Kyu] =&#62; Array
+        (
+            [df] =&#62; 1993-03-13 23:33:43
+        )
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23320"><P
+><B
+>Example 33-5. 
+     Using <B
+CLASS="function"
+>getAssoc()</B
+> with
+     <TT
+CLASS="parameter"
+><I
+>$force_array</I
+></TT
+> = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>
+     and <TT
+CLASS="parameter"
+><I
+>$fetchmode</I
+></TT
+> =
+     <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_OBJECT</B
+></TT
+>
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data =&#38; $db-&#62;getAssoc('SELECT cf, df FROM foo',
+        true, array(), DB_FETCHMODE_OBJECT);
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+
+print_r($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;     Output:
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [Juan] =&#62; stdClass Object
+        (
+            [cf] =&#62; Juan
+            [df] =&#62; 1991-01-11 21:31:41
+        )
+    [Kyu] =&#62; stdClass Object
+        (
+            [cf] =&#62; Kyu
+            [df] =&#62; 1993-03-13 23:33:43
+        )
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23330"><P
+><B
+>Example 33-6. 
+     Using <B
+CLASS="function"
+>getAssoc()</B
+> with
+     <TT
+CLASS="parameter"
+><I
+>$force_array</I
+></TT
+> = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>,
+     <TT
+CLASS="parameter"
+><I
+>$fetchmode</I
+></TT
+> =
+     <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ORDERED</B
+></TT
+>
+     and <TT
+CLASS="parameter"
+><I
+>$group</I
+></TT
+> = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data =&#38; $db-&#62;getAssoc('SELECT cf, df FROM foo',
+        true, array(), DB_FETCHMODE_ORDERED, true);
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+
+print_r($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;     Output:
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [Juan] =&#62; Array
+        (
+            [0] =&#62; Array
+                (
+                    [0] =&#62; 1991-01-11 21:31:41
+                )
+        )
+    [Kyu] =&#62; Array
+        (
+            [0] =&#62; Array
+                (
+                    [0] =&#62; 1992-02-12 22:32:42
+                )
+            [1] =&#62; Array
+                (
+                    [0] =&#62; 1993-03-13 23:33:43
+                )
+        )
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23342"><P
+><B
+>Example 33-7. 
+     Using <B
+CLASS="function"
+>getAssoc()</B
+> with
+     <TT
+CLASS="parameter"
+><I
+>$force_array</I
+></TT
+> = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>,
+     <TT
+CLASS="parameter"
+><I
+>$fetchmode</I
+></TT
+> =
+     <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ASSOC</B
+></TT
+>
+     and <TT
+CLASS="parameter"
+><I
+>$group</I
+></TT
+> = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data =&#38; $db-&#62;getAssoc('SELECT cf, df FROM foo',
+        true, array(), DB_FETCHMODE_ASSOC, true);
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+
+print_r($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;     Output:
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [Juan] =&#62; Array
+        (
+            [0] =&#62; Array
+                (
+                    [df] =&#62; 1991-01-11 21:31:41
+                )
+        )
+    [Kyu] =&#62; Array
+        (
+            [0] =&#62; Array
+                (
+                    [df] =&#62; 1992-02-12 22:32:42
+                )
+            [1] =&#62; Array
+                (
+                    [df] =&#62; 1993-03-13 23:33:43
+                )
+        )
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23354"><P
+><B
+>Example 33-8. 
+     Using <B
+CLASS="function"
+>getAssoc()</B
+> with
+     <TT
+CLASS="parameter"
+><I
+>$force_array</I
+></TT
+> = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>,
+     <TT
+CLASS="parameter"
+><I
+>$fetchmode</I
+></TT
+> =
+     <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_OBJECT</B
+></TT
+>
+     and <TT
+CLASS="parameter"
+><I
+>$group</I
+></TT
+> = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data =&#38; $db-&#62;getAssoc('SELECT cf, df FROM foo',
+        true, array(), DB_FETCHMODE_OBJECT, true);
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+
+print_r($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;     Output:
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [Juan] =&#62; Array
+        (
+            [0] =&#62; stdClass Object
+                (
+                    [cf] =&#62; Juan
+                    [df] =&#62; 1991-01-11 21:31:41
+                )
+        )
+    [Kyu] =&#62; Array
+        (
+            [0] =&#62; stdClass Object
+                (
+                    [cf] =&#62; Kyu
+                    [df] =&#62; 1992-02-12 22:32:42
+                )
+            [1] =&#62; stdClass Object
+                (
+                    [cf] =&#62; Kyu
+                    [df] =&#62; 1993-03-13 23:33:43
+                )
+        )
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.db.db-common.getassoc.example.more"
+></A
+><H3
+>Result sets having more than two columns</H3
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23368"><P
+><B
+>Example 33-9. 
+     Using <B
+CLASS="function"
+>getAssoc()</B
+> with
+     <TT
+CLASS="parameter"
+><I
+>$fetchmode</I
+></TT
+> =
+     <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ORDERED</B
+></TT
+>
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data =&#38; $db-&#62;getAssoc('SELECT cf, nf, df FROM foo',
+        false, array(), DB_FETCHMODE_ORDERED);
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+
+print_r($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;     Output:
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [Juan] =&#62; Array
+        (
+            [0] =&#62; 5
+            [1] =&#62; 1991-01-11 21:31:41
+        )
+    [Kyu] =&#62; Array
+        (
+            [0] =&#62; 15
+            [1] =&#62; 1993-03-13 23:33:43
+        )
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23376"><P
+><B
+>Example 33-10. 
+     Using <B
+CLASS="function"
+>getAssoc()</B
+> with
+     <TT
+CLASS="parameter"
+><I
+>$fetchmode</I
+></TT
+> =
+     <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ASSOC</B
+></TT
+>
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data =&#38; $db-&#62;getAssoc('SELECT cf, nf, df FROM foo',
+        false, array(), DB_FETCHMODE_ASSOC);
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+
+print_r($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;     Output:
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [Juan] =&#62; Array
+        (
+            [nf] =&#62; 5
+            [df] =&#62; 1991-01-11 21:31:41
+        )
+    [Kyu] =&#62; Array
+        (
+            [nf] =&#62; 15
+            [df] =&#62; 1993-03-13 23:33:43
+        )
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23384"><P
+><B
+>Example 33-11. 
+     Using <B
+CLASS="function"
+>getAssoc()</B
+> with
+     <TT
+CLASS="parameter"
+><I
+>$fetchmode</I
+></TT
+> =
+     <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_OBJECT</B
+></TT
+>
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data =&#38; $db-&#62;getAssoc('SELECT cf, nf, df FROM foo',
+        false, array(), DB_FETCHMODE_OBJECT);
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+
+print_r($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;     Output:
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [Juan] =&#62; stdClass Object
+        (
+            [cf] =&#62; Juan
+            [nf] =&#62; 5
+            [df] =&#62; 1991-01-11 21:31:41
+        )
+    [Kyu] =&#62; stdClass Object
+        (
+            [cf] =&#62; Kyu
+            [nf] =&#62; 15
+            [df] =&#62; 1993-03-13 23:33:43
+        )
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23392"><P
+><B
+>Example 33-12. 
+     Using <B
+CLASS="function"
+>getAssoc()</B
+> with
+     <TT
+CLASS="parameter"
+><I
+>$fetchmode</I
+></TT
+> =
+     <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ORDERED</B
+></TT
+>
+     and <TT
+CLASS="parameter"
+><I
+>$group</I
+></TT
+> = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data =&#38; $db-&#62;getAssoc('SELECT cf, nf, df FROM foo',
+        false, array(), DB_FETCHMODE_ORDERED, true);
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+
+print_r($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;     Output:
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [Juan] =&#62; Array
+        (
+            [0] =&#62; Array
+                (
+                    [0] =&#62; 5
+                    [1] =&#62; 1991-01-11 21:31:41
+                )
+        )
+    [Kyu] =&#62; Array
+        (
+            [0] =&#62; Array
+                (
+                    [0] =&#62; 10
+                    [1] =&#62; 1992-02-12 22:32:42
+                )
+            [1] =&#62; Array
+                (
+                    [0] =&#62; 15
+                    [1] =&#62; 1993-03-13 23:33:43
+                )
+        )
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23402"><P
+><B
+>Example 33-13. 
+     Using <B
+CLASS="function"
+>getAssoc()</B
+> with
+     <TT
+CLASS="parameter"
+><I
+>$fetchmode</I
+></TT
+> =
+     <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ASSOC</B
+></TT
+>
+     and <TT
+CLASS="parameter"
+><I
+>$group</I
+></TT
+> = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data =&#38; $db-&#62;getAssoc('SELECT cf, nf, df FROM foo',
+        false, array(), DB_FETCHMODE_ASSOC, true);
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+
+print_r($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;     Output:
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [Juan] =&#62; Array
+        (
+            [0] =&#62; Array
+                (
+                    [nf] =&#62; 5
+                    [df] =&#62; 1991-01-11 21:31:41
+                )
+        )
+    [Kyu] =&#62; Array
+        (
+            [0] =&#62; Array
+                (
+                    [nf] =&#62; 10
+                    [df] =&#62; 1992-02-12 22:32:42
+                )
+            [1] =&#62; Array
+                (
+                    [nf] =&#62; 15
+                    [df] =&#62; 1993-03-13 23:33:43
+                )
+        )
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23412"><P
+><B
+>Example 33-14. 
+     Using <B
+CLASS="function"
+>getAssoc()</B
+> with
+     <TT
+CLASS="parameter"
+><I
+>$fetchmode</I
+></TT
+> =
+     <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_OBJECT</B
+></TT
+>
+     and <TT
+CLASS="parameter"
+><I
+>$group</I
+></TT
+> = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data =&#38; $db-&#62;getAssoc('SELECT cf, nf, df FROM foo',
+        false, array(), DB_FETCHMODE_OBJECT, true);
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+
+print_r($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;     Output:
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [Juan] =&#62; Array
+        (
+            [0] =&#62; stdClass Object
+                (
+                    [cf] =&#62; Juan
+                    [nf] =&#62; 5
+                    [df] =&#62; 1991-01-11 21:31:41
+                )
+        )
+    [Kyu] =&#62; Array
+        (
+            [0] =&#62; stdClass Object
+                (
+                    [cf] =&#62; Kyu
+                    [nf] =&#62; 10
+                    [df] =&#62; 1992-02-12 22:32:42
+                )
+            [1] =&#62; stdClass Object
+                (
+                    [cf] =&#62; Kyu
+                    [nf] =&#62; 15
+                    [df] =&#62; 1993-03-13 23:33:43
+                )
+        )
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.db.db-common.getassoc.example.params"
+></A
+><H3
+>Prepare / Execute Mode</H3
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23424"><P
+><B
+>Example 33-15. 
+     Using <B
+CLASS="function"
+>getAssoc()</B
+>
+     with one placeholder
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data =&#38; $db-&#62;getAssoc('SELECT cf, df FROM foo WHERE nf = ?',
+        false, 5);
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23428"><P
+><B
+>Example 33-16. 
+     Using <B
+CLASS="function"
+>getAssoc()</B
+>
+     with two placeholders
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data =&#38; $db-&#62;getAssoc('SELECT cf, df FROM foo WHERE nf IN (?, ?)',
+        false, array(5, 10));
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.getassoc.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="package.database.db.db-common.setfetchmode.html"
+>&#13;    <B
+CLASS="function"
+>setFetchMode()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-common.getone.html"
+>&#13;    <B
+CLASS="function"
+>getOne()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-common.getrow.html"
+>&#13;    <B
+CLASS="function"
+>getRow()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-common.getcol.html"
+>&#13;    <B
+CLASS="function"
+>getCol()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-common.getall.html"
+>&#13;    <B
+CLASS="function"
+>getAll()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-common.query.html"
+>&#13;    <B
+CLASS="function"
+>query()</B
+></A
+>,
+   <A
+HREF="package.database.db.intro-execute.html"
+>&#13;    <SPAN
+CLASS="QUOTE"
+>"Intro - Prepare &#38; Execute"</SPAN
+></A
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.getall.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.getcol.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>DB_common::getAll()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>DB_common::getCol()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

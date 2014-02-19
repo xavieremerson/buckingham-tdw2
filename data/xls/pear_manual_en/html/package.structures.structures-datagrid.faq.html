@@ -1,0 +1,465 @@
+<HTML
+><HEAD
+><TITLE
+>FAQ</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Introduction and Features"
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.intro-and-features"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.structures.structures-datagrid.intro.html"><LINK
+REL="NEXT"
+TITLE="Installation"
+HREF="package.structures.structures-datagrid.installation.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.installation.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.structures.structures-datagrid.faq">FAQ</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN93625"
+></A
+>FAQ&nbsp;--&nbsp;Answers to most Frequently Asked Questions</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.faq.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   This document is based on questions asked on <A
+HREF="mailto:pear-general@lists.php.net"
+TARGET="_top"
+>PEAR 
+   general mailing list</A
+> and other mailing lists and forums.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.faq.content"
+></A
+><H2
+>Structures_DataGrid FAQ</H2
+><DIV
+CLASS="qandaset"
+><DL
+><DT
+>1. <A
+HREF="package.structures.structures-datagrid.faq.html#AEN93636"
+>&#13;      I'm using the HTML_Table Renderer. How can I use multiple grids on the
+      same page?
+     </A
+></DT
+><DT
+>2. <A
+HREF="package.structures.structures-datagrid.faq.html#AEN93649"
+>&#13;      Which DataSource drivers are recommended?
+     </A
+></DT
+><DT
+>3. <A
+HREF="package.structures.structures-datagrid.faq.html#AEN93665"
+>&#13;      I'd like to add row numbers to my DataGrid. How can I do this?
+     </A
+></DT
+><DT
+>4. <A
+HREF="package.structures.structures-datagrid.faq.html#AEN93677"
+>&#13;      I'm using the Excel Renderer and would like to have the &#8364; sign in
+      the resulting Excel file, but I always get only a box or some funny
+      characters. How can I get the right &#8364; sign?
+     </A
+></DT
+></DL
+><DIV
+CLASS="qandaentry"
+><B
+><DIV
+CLASS="question"
+><P
+><A
+NAME="AEN93636"
+></A
+><B
+>1. </B
+>
+      I'm using the HTML_Table Renderer. How can I use multiple grids on the
+      same page?
+     </P
+></DIV
+></B
+><DIV
+CLASS="answer"
+><P
+><B
+> </B
+>
+      The <A
+HREF="package.structures.structures-datagrid.structures-datagrid.setrequestprefix.html"
+><B
+CLASS="function"
+>setRequestPrefix()</B
+></A
+>
+      method is the solution for this problem. Each DataGrid for the page needs
+      such a prefix that is internally used before the GET parameters for sorting
+      and paging. An example of the usage:
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Structures/DataGrid.php';
+
+$datagrid1 = new Structures_DataGrid();
+$datagrid2 = new Structures_DataGrid();
+
+$datagrid1-&#62;bind('SELECT * FROM trade', array('dsn' =&#62; DSN));
+$datagrid2-&#62;bind('SELECT * FROM stock', array('dsn' =&#62; DSN));
+
+$datagrid1-&#62;setRequestPrefix('trade_');
+$datagrid2-&#62;setRequestPrefix('stock_');
+
+$datagrid1-&#62;render();
+$datagrid2-&#62;render();</PRE
+></TD
+></TR
+></TABLE
+>
+     </P
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+       You need to call <B
+CLASS="function"
+>setRequestPrefix()</B
+>
+       before calling
+       <A
+HREF="package.structures.structures-datagrid.structures-datagrid.bind.html"
+><B
+CLASS="function"
+>bind()</B
+></A
+>.
+      </P
+></BLOCKQUOTE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="qandaentry"
+><B
+><DIV
+CLASS="question"
+><P
+><A
+NAME="AEN93649"
+></A
+><B
+>2. </B
+>
+      Which DataSource drivers are recommended?
+     </P
+></DIV
+></B
+><DIV
+CLASS="answer"
+><P
+><B
+> </B
+>
+      Currently there are four DataSource drivers that are recommended in the
+      sense of efficiency:
+     </P
+><P
+></P
+><UL
+><LI
+><P
+>&#13;        DB_DataObject
+       </P
+></LI
+><LI
+><P
+>&#13;        DB_Table
+       </P
+></LI
+><LI
+><P
+>&#13;        DBQuery
+       </P
+></LI
+><LI
+><P
+>&#13;        MDB2
+       </P
+></LI
+></UL
+><P
+>&#13;      These four drivers will only fetch the needed records from the database.
+      For example, if you have a row limit of 15 records per page, they will
+      only fetch (up to) 15 records.
+     </P
+><P
+>&#13;      All other DataSource drivers can, of course, also be used. But there is
+      no logic implemented (better said: implementable) to avoid fetching (or
+      keeping in memory) unneeded records.
+     </P
+></DIV
+></DIV
+><DIV
+CLASS="qandaentry"
+><B
+><DIV
+CLASS="question"
+><P
+><A
+NAME="AEN93665"
+></A
+><B
+>3. </B
+>
+      I'd like to add row numbers to my DataGrid. How can I do this?
+     </P
+></DIV
+></B
+><DIV
+CLASS="answer"
+><P
+><B
+> </B
+>
+      You need a <A
+HREF="package.structures.structures-datagrid.formatter.html"
+>formatter</A
+>
+      for the new column that should hold the row number. The first parameter
+      that is passed to such a formatter function contains a
+      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>currRow</I
+></SPAN
+> value with the row number per page. For
+      calculating the row number relative to the whole table, you need to take
+      also the <A
+HREF="package.structures.structures-datagrid.structures-datagrid.getcurrentrecordnumberstart.html"
+><B
+CLASS="function"
+>getCurrentRecordNumberStart()</B
+></A
+>
+      method into account.
+     </P
+><P
+>&#13;      The following code snippet shows you how to define the formatter function
+      and how to add the column (with <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>#</I
+></SPAN
+> as the column label
+      and right aligned values):
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>function formatRowNumber($params, $recordNumberStart)
+{
+    return $params['currRow'] + $recordNumberStart;
+}
+
+$datagrid-&#62;addColumn(
+    new Structures_DataGrid_Column(
+        '#',
+        null,
+        null,
+        array('style' =&#62; 'text-align: right;'),
+        null,
+        'formatRowNumber',
+        $datagrid-&#62;getCurrentRecordNumberStart()
+    ));</PRE
+></TD
+></TR
+></TABLE
+>
+     </P
+></DIV
+></DIV
+><DIV
+CLASS="qandaentry"
+><B
+><DIV
+CLASS="question"
+><P
+><A
+NAME="AEN93677"
+></A
+><B
+>4. </B
+>
+      I'm using the Excel Renderer and would like to have the &#8364; sign in
+      the resulting Excel file, but I always get only a box or some funny
+      characters. How can I get the right &#8364; sign?
+     </P
+></DIV
+></B
+><DIV
+CLASS="answer"
+><P
+><B
+> </B
+>
+      Instead of using an encoding like ISO-8859-15, you need to use
+      Windows-1252.
+     </P
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.installation.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.intro-and-features"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Installation</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

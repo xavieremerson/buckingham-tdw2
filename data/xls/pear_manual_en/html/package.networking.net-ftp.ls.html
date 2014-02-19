@@ -1,0 +1,448 @@
+<HTML
+><HEAD
+><TITLE
+>Net_FTP::ls()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_FTP"
+HREF="package.networking.net-ftp.html"><LINK
+REL="PREVIOUS"
+TITLE="Net_FTP::size()"
+HREF="package.networking.net-ftp.size.html"><LINK
+REL="NEXT"
+TITLE="Net_FTP::rm()"
+HREF="package.networking.net-ftp.rm.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-ftp.size.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-ftp.rm.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-ftp.ls">Net_FTP::ls()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN82864"
+></A
+>Net_FTP::ls()&nbsp;--&nbsp;returns the listing of a directory in a specified way.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN82867"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN82868"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Net/FTP.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>Net_FTP::ls</B
+></CODE
+> ([string $dir = null [, string $mode = <TT
+CLASS="constant"
+><B
+>NET_FTP_DIRS_FILES</B
+></TT
+>]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-ftp.ls.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     this function gives you a listing of either the files / directories / both or an unformated
+     array (like the PHP function ftp_rawlist()).
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-finger.ls.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string [$dir = null]</I
+></TT
+> - The directory to list. You can
+        either use a relative or an absolute path. This optional parameter will be set to the 
+        current path.
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>int $mode = <TT
+CLASS="constant"
+><B
+>NET_FTP_DIRS_FILES</B
+></TT
+></I
+></TT
+> - 
+        A constant representing the nodes list (directories, files, both or a ram directory
+        listing). This parameter is determined by the constants (
+        see: <A
+HREF="package.networking.net-ftp.constants.html"
+>Constants</A
+>). This parameter is 
+        optional and will be set for listing directories and files structured in an array.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-ftp.ls.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>mixed</I
+></TT
+> - a directory listing in the form you determine on success,
+     otherwise PEAR::Error.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-ftp.ls.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     Several errors may be returned by ls. The errornumber is unspecific (until now) and will not 
+     tell you anything about the errormessage. Possible errors are:
+    </P
+><P
+>&#13;        <DIV
+CLASS="table"
+><A
+NAME="AEN82905"><P
+><B
+>Table 48-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;                Raw directory-list in wrong format.
+            </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;                The format given by the server on PHP function ftp_rawlist()was wrong. Check if the 
+                directory you wanted to be listed is correct and you have access to listing it.
+            </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;                Specify a correct directory path (eg. <TT
+CLASS="constant"
+><B
+>/my/file/path/</B
+></TT
+>, <TT
+CLASS="constant"
+><B
+>../</B
+></TT
+>)
+                and check (maybe change) the rights on it.
+            </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;                Could not get last-modification-date of '$file'.
+            </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;                The last-modification date could not be determined by PHP. Reasons for this might be
+                that your FTP-server does not support the used command or that you gave the function a
+                non existent file as reference.
+            </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;                <P
+></P
+><UL
+><LI
+><P
+>check the given file for existence</P
+></LI
+><LI
+><P
+>contact the FTP server's admin</P
+></LI
+></UL
+>     
+            </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;                Date-format failed on timestamp '$res'.
+            </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;                The given format-string was not well formated.
+            </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;                Check the documentation of the PHP function date().
+            </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-ftp.ls.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-ftp.ls.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN82938"><P
+><B
+>Example 48-1. Using <B
+CLASS="function"
+>ls()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+     
+    var_dump($test-&#62;ls('/foo/bar'));
+    
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-ftp.size.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-ftp.rm.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Net_FTP::size()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-ftp.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Net_FTP::rm()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

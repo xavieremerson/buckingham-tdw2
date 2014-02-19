@@ -1,0 +1,436 @@
+<HTML
+><HEAD
+><TITLE
+>Config_Container::getItem</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Config"
+HREF="package.configuration.config.html"><LINK
+REL="PREVIOUS"
+TITLE="Config_Container::getContent"
+HREF="package.configuration.config.config-container.getcontent.html"><LINK
+REL="NEXT"
+TITLE="Config_Container::getItemIndex"
+HREF="package.configuration.config.config-container.getitemindex.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.configuration.config.config-container.getcontent.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.configuration.config.config-container.getitemindex.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.configuration.config.config-container.getitem"><B
+CLASS="function"
+>Config_Container::getItem()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN19958"
+></A
+><B
+CLASS="function"
+>Config_Container::getItem()</B
+>&nbsp;--&nbsp;Tries to find specific items</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN19962"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN19963"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Config/Container.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>Config_Container::getItem</B
+></CODE
+> ([string $type = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> [, string $name = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> [, mixed $content = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> [, array $attributes = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> [, int $index = -1]]]]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.getitem.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      This method tries to find the items that respond to the specified parameters.
+     </P
+><P
+>&#13;      This method can only be called on an object of type
+      <TT
+CLASS="parameter"
+><I
+>'section'</I
+></TT
+>. Note that root is a section. 
+      This method is not recursive and tries to keep the current structure.
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.getitem.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$type</I
+></TT
+></DT
+><DD
+><P
+>&#13;         type of item: <TT
+CLASS="parameter"
+><I
+>directive</I
+></TT
+>, <TT
+CLASS="parameter"
+><I
+>section</I
+></TT
+>,
+             <TT
+CLASS="parameter"
+><I
+>comment</I
+></TT
+>, <TT
+CLASS="parameter"
+><I
+>blank</I
+></TT
+>...
+        </P
+></DD
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$name</I
+></TT
+></DT
+><DD
+><P
+>&#13;         item name
+        </P
+></DD
+><DT
+>mixed
+        <TT
+CLASS="parameter"
+><I
+>$content</I
+></TT
+></DT
+><DD
+><P
+>&#13;         find item with this content
+        </P
+></DD
+><DT
+>array
+        <TT
+CLASS="parameter"
+><I
+>$attributes</I
+></TT
+></DT
+><DD
+><P
+>&#13;         find item with attribute set to the given value
+        </P
+></DD
+><DT
+>integer
+        <TT
+CLASS="parameter"
+><I
+>$index</I
+></TT
+></DT
+><DD
+><P
+>&#13;         index of the item in the returned object list. 
+         If it is not set, will try to return the last item with this name.
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.getitem.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>mixed</I
+></TT
+> - reference to item found or <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> when not found
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.getitem.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.getitem.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN20040"><P
+><B
+>Example 31-1. A few examples on how to find items using <B
+CLASS="function"
+>getItem()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// will return the last directive found
+
+$directives =&#38; $obj-&#62;getItem('directive');
+
+// will return the last directive found with content 'root'
+
+$directives =&#38; $obj-&#62;getItem('directive', null, 'root');
+
+// will return the fourth directive with name 'bar'
+
+$directive_bar_4 =&#38; $obj-&#62;getItem('directive', 'bar', null, null, 4);
+
+// will return the last section named 'foo'
+
+$section_foo =&#38; $obj-&#62;getItem('section', 'foo');
+
+// will return the last section with attribute 'id' set to 'db'
+
+$section_foo =&#38; $obj-&#62;getItem('section', 'foo', null, array('id' =&#62; 'db'));</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.configuration.config.config-container.getcontent.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.configuration.config.config-container.getitemindex.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>Config_Container::getContent()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.configuration.config.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Config_Container::getItemIndex()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

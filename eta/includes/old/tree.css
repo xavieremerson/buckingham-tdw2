@@ -1,0 +1,27 @@
+.mout {
+	background-color: #ffffff;
+	text-decoration: none;
+	width: 100%;
+	padding: 0px;
+}
+.mover {
+	background-color: #4682B4;
+	text-decoration: none;
+	width: 100%;
+	padding: 0px;
+}
+.selmout {
+	background-color: #ffffff;
+	text-decoration: none;
+	width: 100%;
+	padding: 0px;
+	font-weight: bold;
+}
+.selmover {
+	background-color: #4682B4;
+	text-decoration: none;
+	width: 100%;
+	padding: 0px;
+	font-weight: bold;
+}
+

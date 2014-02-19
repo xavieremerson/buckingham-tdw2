@@ -1,0 +1,18 @@
+<HTML>
+<HEAD>
+<Title>Clickable Charts Operation Overview</Title>
+<link type='text/css' rel='Stylesheet' href="maxchartapi.css" />
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+<p class="heading0">ChartDirector Ver 5.0 (PHP Edition)</p>
+<p class="heading1">Clickable Charts Operation Overview</p>
+<hr class="separator">
+<div class="content">For a browser to display an image with an image map, the following sequence of events must have occurred:<br><br>
+<ol> <li>The browser sends a HTTP request to the server.<br><br>
+<li>The server returns a HTML web page that contains an &lt;IMG&gt; tag for the image, and the &lt;MAP&gt; and &lt;AREA&gt; tags for the image map.<br><br>
+<li>The browser receives the HTML web page. It then sends another HTTP request to the server using the URL in the &lt;IMG&gt; tag for the actual image.<br><br>
+<li>The server returns the actual image to the browser. </ol>
+Note that a ChartDirector chart image needs to be generated in step (2), so that we can produce the image map. However, the image itself can only be delivered to the browser in step (4), which is another HTTP connection. So after the chart image is produced in step (2), it must be saved in "some place". When step (4) occurs, the server can send the image to the browser.<br><br>
+The "some place" can be a "temporary file" or a "session variable". The clickable examples in this documentation will be based on the "session variable" approach.</div><br>
+<hr class="separator"><div class="copyright">&copy; 2008 Advanced Software Engineering Limited. All rights reserved.</div></body>
+</HTML>

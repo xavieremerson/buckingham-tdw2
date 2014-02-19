@@ -1,0 +1,610 @@
+<HTML
+><HEAD
+><TITLE
+>Header Comment Blocks</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Coding Standards"
+HREF="standards.html"><LINK
+REL="PREVIOUS"
+TITLE="PHP Code Tags"
+HREF="standards.tags.html"><LINK
+REL="NEXT"
+TITLE="Using CVS"
+HREF="standards.cvs.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="standards.tags.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 4. Coding Standards</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="standards.cvs.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="standards.header">Header Comment Blocks</H1
+><P
+>&#13;   All source code files in the PEAR repository shall contain a
+   <SPAN
+CLASS="QUOTE"
+>"page-level"</SPAN
+> docblock at the top of each file
+   and a <SPAN
+CLASS="QUOTE"
+>"class-level"</SPAN
+> docblock immediately above
+   each class. Below are examples of such docblocks.
+  </P
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+/* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
+
+/**
+* Short description for file
+*
+* Long description for file (if any)...
+*
+* PHP versions 4 and 5
+*
+* LICENSE: This source file is subject to version 3.0 of the PHP license
+* that is available through the world-wide-web at the following URI:
+* http://www.php.net/license/3_0.txt.  If you did not receive a copy of
+* the PHP License and are unable to obtain it through the web, please
+* send a note to license@php.net so we can mail you a copy immediately.
+*
+* @category   CategoryName
+* @package    PackageName
+* @author     Original Author &#60;author@example.com&#62;
+* @author     Another Author &#60;another@example.com&#62;
+* @copyright  1997-2005 The PHP Group
+* @license    http://www.php.net/license/3_0.txt  PHP License 3.0
+* @version    CVS: $Id:$
+* @link       http://pear.php.net/package/PackageName
+* @see        NetOther, Net_Sample::Net_Sample()
+* @since      File available since Release 1.2.0
+* @deprecated File deprecated in Release 2.0.0
+*/
+
+/*
+* Place includes, constant defines and $_GLOBAL settings here.
+* Make sure they have appropriate docblocks to avoid phpDocumentor
+* construing they are documented by the page-level docblock.
+*/
+
+/**
+* Short description for class
+*
+* Long description for class (if any)...
+*
+* @category   CategoryName
+* @package    PackageName
+* @author     Original Author &#60;author@example.com&#62;
+* @author     Another Author &#60;another@example.com&#62;
+* @copyright  1997-2005 The PHP Group
+* @license    http://www.php.net/license/3_0.txt  PHP License 3.0
+* @version    Release: @package_version@
+* @link       http://pear.php.net/package/PackageName
+* @see        NetOther, Net_Sample::Net_Sample()
+* @since      Class available since Release 1.2.0
+* @deprecated Class deprecated in Release 2.0.0
+*/
+class foo
+{
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="standards.header.variable">Required Tags That Have Variable Content</H2
+><P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>Short Descriptions</DT
+><DD
+><P
+>&#13;       Short descriptions must be provided for all docblocks.
+       They should be a quick sentence, not the name of the item.
+       Please read the Coding Standard's
+       <A
+HREF="standards.sample.html"
+>&#13;         Sample File</A
+> about how to write good descriptions.
+       </P
+></DD
+><DT
+>PHP Versions</DT
+><DD
+><P
+>&#13;        One of the following must go in the page-level docblock:
+       </P
+><DIV
+CLASS="informalexample"
+><A
+NAME="AEN993"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="docblock"
+>.
+ * PHP version 4
+ * PHP version 5
+ * PHP versions 4 and 5</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DD
+><DT
+>@license</DT
+><DD
+><P
+>&#13;        There are several possible licenses. One of the
+        following must be picked and placed in the page-level
+        and class-level docblocks:
+       </P
+><DIV
+CLASS="informalexample"
+><A
+NAME="AEN999"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="docblock"
+>.
+ * @license   http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
+ * @license   http://www.freebsd.org/copyright/freebsd-license.html  BSD License (2 Clause)
+ * @license   http://www.debian.org/misc/bsd.license  BSD License (3 Clause)
+ * @license   http://www.freebsd.org/copyright/license.html  BSD License (4 Clause)
+ * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @license   http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
+ * @license   http://www.php.net/license/3_0.txt  PHP License 3.0</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><P
+>&#13;        For more information, see the PEAR Group's
+        <A
+HREF="http://pear.php.net/group/docs/20040402-la.php"
+TARGET="_top"
+>&#13;         Licensing Announcement</A
+>.
+       </P
+></DD
+><DT
+>@link</DT
+><DD
+><P
+>&#13;        The following must be used in both the page-level and
+        class-level docblocks. Of course, change
+        <SPAN
+CLASS="QUOTE"
+>"PackageName"</SPAN
+> to the name of your package.
+        This ensures the generated documentation links back your package.
+       </P
+><DIV
+CLASS="informalexample"
+><A
+NAME="AEN1008"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="docblock"
+>.
+ * @link      http://pear.php.net/package/PackageName</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DD
+><DT
+>@author</DT
+><DD
+><P
+>&#13;        There's no hard rule to determine when a new code
+        contributor should be added to the list of authors
+        for a given source file. In general, their changes
+        should fall into the "substantial" category (meaning
+        somewhere around 10% to 20% of code changes).
+        Exceptions could be made for rewriting functions or
+        contributing new logic.
+       </P
+><P
+>&#13;        Simple code reorganization or bug fixes would not
+        justify the addition of a new individual to the
+        list of authors.
+       </P
+></DD
+><DT
+>@since</DT
+><DD
+><P
+>&#13;        This tag is required when a file or class is added
+        after the package's initial release. Do not use it
+        in an initial release.
+       </P
+></DD
+><DT
+>@deprecated</DT
+><DD
+><P
+>&#13;        This tag is required when a file or class is no
+        longer used but has been left in place for
+        backwards compatibility.
+       </P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="standards.header.optional">Optional Tags</H2
+><P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>@copyright</DT
+><DD
+><P
+>&#13;        Feel free to apply whatever copyrights you desire.
+        When formatting this tag, the year should be in
+        four digit format and if a span of years is involved,
+        use a hyphen between the earliest and latest year.
+        The copyright holder can be you, a list of people, a
+        company, the PHP Group, etc. Examples:
+       </P
+><DIV
+CLASS="informalexample"
+><A
+NAME="AEN1030"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="docblock"
+>.
+ * @copyright 2003 John Doe and Jennifer Buck
+ * @copyright 2001-2004 John Doe
+ * @copyright 1997-2004 The PHP Group
+ * @copyright 2001-2004 XYZ Corporation</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DD
+><DT
+>License Summary</DT
+><DD
+><P
+>&#13;        If you are using the PHP License, use the summary text
+        provided above. If another license is being used,
+        please remove the PHP License summary. Feel free to
+        substitute it with text appropriate to your license,
+        though to keep things easy to locate, please preface
+        the text with <TT
+CLASS="literal"
+>LICENSE: </TT
+>.
+       </P
+></DD
+><DT
+>@see</DT
+><DD
+><P
+>&#13;        Add a @see tag when you want to refer users to other
+        sections of the package's documentation. If you have
+        multiple items, separate them with commas rather than
+        adding multiple @see tags.
+       </P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="standards.header.order">Order and Spacing</H2
+><P
+>&#13;     To ease long term readability of PEAR source code, the
+     text and tags must conform to the order and spacing
+     provided in the example above. This standard is
+     adopted from the JavaDoc standard.
+    </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="standards.header.version">@package_version@ Usage</H2
+><P
+>&#13;     There are two ways to implement the
+     @package_version@ replacements. The procedure depends on
+     whether you write your own package.xml files or if you
+     use the PackageFileManager.
+    </P
+><P
+>&#13;     For those authoring package.xml files directly, add a
+     &#60;replace&#62; element for each file. The XML for
+     such would look something like this:
+    </P
+><DIV
+CLASS="informalexample"
+><A
+NAME="AEN1048"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;file name="Class.php"&#62;
+  &#60;replace from="@package_version@" to="version" type="package-info" /&#62;
+&#60;/file&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><P
+>&#13;     Maintainers using the PackageFileManager need to
+     call <B
+CLASS="function"
+>addReplacement()</B
+> for each file:
+    </P
+><DIV
+CLASS="informalexample"
+><A
+NAME="AEN1052"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$pkg-&#62;addReplacement('filename.php', 'package-info',
+                     '@package_version@', 'version');</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="standards.header.transition">Transition Policy</H2
+><P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>Existing Small Packages</DT
+><DD
+><P
+>&#13;        Existing packages that have only a few files are required
+        to adopt these docblocks before the next release.
+       </P
+></DD
+><DT
+>Existing Large Packages</DT
+><DD
+><P
+>&#13;        Existing packages with many files are encouraged to
+        adopt the new headers as soon as possible. When such
+        packages come out with a new major version upgrade,
+        these docblocks must be implemented therein.
+       </P
+></DD
+><DT
+>New and Unreleased Packages</DT
+><DD
+><P
+>&#13;        New packages and existing packages which have no
+        releases yet must include these docblocks before
+        their first release.
+       </P
+></DD
+></DL
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="standards.tags.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="standards.cvs.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>PHP Code Tags</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="standards.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Using CVS</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

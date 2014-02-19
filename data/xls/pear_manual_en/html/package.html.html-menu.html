@@ -1,0 +1,426 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_Menu</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML"
+HREF="package.html.html"><LINK
+REL="PREVIOUS"
+TITLE="Usage examples"
+HREF="package.html.html-form.examples.html"><LINK
+REL="NEXT"
+TITLE="Introduction"
+HREF="package.html.html-menu.intro.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-form.examples.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 41. HTML</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-menu.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.html.html-menu">HTML_Menu</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.html.html-menu.intro.html"
+>Introduction</A
+>&nbsp;--&nbsp;Menu structure and supported output modes</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu.html-menu.html"
+>constructor HTML_Menu::HTML_Menu()</A
+>&nbsp;--&nbsp;Initializes the menu, sets the type and menu structure.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu.forcecurrenturl.html"
+>HTML_Menu::forceCurrentUrl()</A
+>&nbsp;--&nbsp;Forces the given URL to be "current"</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu.get.html"
+>HTML_Menu::get()</A
+>&nbsp;--&nbsp;Returns the HTML menu.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu.getcurrenturl.html"
+>HTML_Menu::getCurrentURL()</A
+>&nbsp;--&nbsp;Returns the URL of the currently selected page.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu.getpath.html"
+>HTML_Menu::getPath()</A
+>&nbsp;--&nbsp;Returns the path of the current page in the menu 'tree'.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu.render.html"
+>HTML_Menu::render()</A
+>&nbsp;--&nbsp;Renders the menu.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu.setmenu.html"
+>HTML_Menu::setMenu()</A
+>&nbsp;--&nbsp;Sets the menu structure.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu.setmenutype.html"
+>HTML_Menu::setMenuType()</A
+>&nbsp;--&nbsp;Sets the type of the menu.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu.seturlenvvar.html"
+>HTML_Menu::setURLEnvVar()</A
+>&nbsp;--&nbsp;Sets the environment variable to use to get the current URL.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu.seturlprefix.html"
+>HTML_Menu::setURLPrefix()</A
+>&nbsp;--&nbsp;Sets the prefix for the URLs in the menu</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu.show.html"
+>HTML_Menu::show()</A
+>&nbsp;--&nbsp;Prints the HTML menu.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu-renderer-summary.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_Menu_Renderer</B
+></A
+>&nbsp;--&nbsp;An abstract base class for HTML_Menu renderers (package developer related)</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu-renderer.finishlevel.html"
+>HTML_Menu_Renderer::finishLevel()</A
+>&nbsp;--&nbsp;Finish the tree level (for types <TT
+CLASS="literal"
+>'tree'</TT
+> and <TT
+CLASS="literal"
+>'sitemap'</TT
+>) (package developer related)</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu-renderer.finishmenu.html"
+>HTML_Menu_Renderer::finishMenu()</A
+>&nbsp;--&nbsp;Finish the menu (package developer related)</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu-renderer.finishrow.html"
+>HTML_Menu_Renderer::finishRow()</A
+>&nbsp;--&nbsp;Finish the row in the menu (package developer related)</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu-renderer.renderentry.html"
+>HTML_Menu_Renderer::renderEntry()</A
+>&nbsp;--&nbsp;Renders the element of the menu (package developer related)</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu-renderer.setmenutype.html"
+>HTML_Menu_Renderer::setMenuType()</A
+>&nbsp;--&nbsp;Sets the type of the menu being rendered</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu-directrenderer-summary.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_Menu_DirectRenderer</B
+></A
+>&nbsp;--&nbsp;The renderer that generates HTML for the menu all by itself.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu-directrenderer.setentrytemplate.html"
+>DirectRenderer::setEntryTemplate()</A
+>&nbsp;--&nbsp;Sets the template for menu entry.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu-directrenderer.setmenutemplate.html"
+>DirectRenderer::setMenuTemplate()</A
+>&nbsp;--&nbsp;Sets the menu template (HTML that wraps around rows)</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu-directrenderer.setrowtemplate.html"
+>DirectRenderer::setRowTemplate()</A
+>&nbsp;--&nbsp;Sets the row template (HTML that wraps around entries)</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu-directrenderer.tohtml.html"
+>DirectRenderer::toHtml()</A
+>&nbsp;--&nbsp;returns the HTML generated for the menu</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu-directtreerenderer-summary.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_Menu_DirectTreeRenderer</B
+></A
+>&nbsp;--&nbsp;The "direct" renderer for <TT
+CLASS="literal"
+>'tree'</TT
+> and <TT
+CLASS="literal"
+>'sitemap'</TT
+> menu types where level is represented by tags nesting.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu-directtreerenderer.setentrytemplate.html"
+>DirectTreeRenderer::setEntryTemplate()</A
+>&nbsp;--&nbsp;Sets the template for menu entry.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu-directtreerenderer.setitemtemplate.html"
+>DirectTreeRenderer::setItemTemplate()</A
+>&nbsp;--&nbsp;Sets the item template (HTML that wraps around entries)</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu-directtreerenderer.setleveltemplate.html"
+>DirectTreeRenderer::setLevelTemplate()</A
+>&nbsp;--&nbsp;Sets the level template (HTML that wraps around the submenu)</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu-directtreerenderer.tohtml.html"
+>DirectTreeRenderer::toHtml()</A
+>&nbsp;--&nbsp;returns the HTML generated for the menu</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu-arrayrenderer-summary.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_Menu_ArrayRenderer</B
+></A
+>&nbsp;--&nbsp;The renderer that creates an array of visible menu entries.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu-arrayrenderer.toarray.html"
+>ArrayRenderer::toArray()</A
+>&nbsp;--&nbsp;returns the resultant array</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu-sigmarenderer-summary.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_Menu_SigmaRenderer</B
+></A
+>&nbsp;--&nbsp;The renderer that uses <A
+HREF="package.html.html-template-sigma.html"
+><B
+CLASS="classname"
+>HTML_Template_Sigma</B
+></A
+> instance for menu output.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu-sigmarenderer.html-menu-sigmarenderer.html"
+>constructor HTML_Menu_SigmaRenderer()</A
+>&nbsp;--&nbsp;Class constructor.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu-sigmatreerenderer-summary.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_Menu_SigmaTreeRenderer</B
+></A
+>&nbsp;--&nbsp;<B
+CLASS="classname"
+>HTML_Template_Sigma</B
+>-based renderer for <TT
+CLASS="literal"
+>'tree'</TT
+> and <TT
+CLASS="literal"
+>'sitemap'</TT
+> type menus, where menu level is represented by tag nesting.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menu-sigmatreerenderer.html-menu-sigmatreerenderer.html"
+>constructor HTML_Menu_SigmaTreeRenderer()</A
+>&nbsp;--&nbsp;Class constructor.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menubrowser-summary.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_MenuBrowser</B
+></A
+>&nbsp;--&nbsp;Simple filesystem browser that can be used to generated menu (3) hashes
+based on the directory structure.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menubrowser.html-menubrowser.html"
+>constructor HTML_MenuBrowser::HTML_MenuBrowser()</A
+>&nbsp;--&nbsp;Creates the object and optionally sets the directory to scan.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menubrowser.addfileinfo.html"
+>HTML_MenuBrowser::addFileInfo()</A
+>&nbsp;--&nbsp;Adds further informations to the menu hash gathered from the files in it</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menubrowser.browse.html"
+>HTML_MenuBrowser::browse()</A
+>&nbsp;--&nbsp;Recursive function that does the scan and builds the menu (3) hash.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menubrowser.explorefile.html"
+>HTML_MenuBrowser::exploreFile()</A
+>&nbsp;--&nbsp;Returns additional menu informations decoded in the file that appears in
+the menu.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menubrowser.getmenu.html"
+>HTML_MenuBrowser::getMenu()</A
+>&nbsp;--&nbsp;Returns a hash to be used with menu(3)'s setMenu().</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menubrowser.setdirectory.html"
+>HTML_MenuBrowser::setDirectory()</A
+>&nbsp;--&nbsp;Sets the directory to scan.</DT
+><DT
+><A
+HREF="package.html.html-menu.html-menubrowser.setidprefix.html"
+>HTML_MenuBrowser::setIDPrefix()</A
+>&nbsp;--&nbsp;Sets the prefix for every id in the menu hash.</DT
+><DT
+><A
+HREF="package.html.html-menu.constants.html"
+>Package HTML_Menu Constants</A
+>&nbsp;--&nbsp;Constants defined in and used by HTML_Menu</DT
+></DL
+></DIV
+><P
+>&#13;With the <B
+CLASS="classname"
+>HTML_Menu</B
+> class one can easily create and maintain a 
+navigation structure for websites, configuring it via a multidimensional 
+hash structure. Different modes for the HTML output are supported.
+</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-form.examples.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-menu.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Usage examples</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

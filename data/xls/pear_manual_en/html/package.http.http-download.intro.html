@@ -1,0 +1,401 @@
+<HTML
+><HEAD
+><TITLE
+>Intro</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTTP_Download"
+HREF="package.http.http-download.html"><LINK
+REL="PREVIOUS"
+TITLE="HTTP_Download"
+HREF="package.http.http-download.html"><LINK
+REL="NEXT"
+TITLE="HTTP_Download::HTTP_Download"
+HREF="package.http.http-download.http-download.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.http.http-download.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.http.http-download.http-download.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.http.http-download.intro">Intro</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN74748"
+></A
+>Intro&nbsp;--&nbsp;
+   Introduction in usage of <B
+CLASS="classname"
+>HTTP_Download</B
+>
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.intro.details"
+></A
+><H2
+>Introduction</H2
+><P
+>&#13;   <B
+CLASS="classname"
+>HTTP_Download</B
+> 
+   provides an interface to easily send any arbitrary data to HTTP clients. 
+
+   <B
+CLASS="classname"
+>HTTP_Download</B
+>
+   can gain its data from variables, files or stream resources.
+  </P
+><P
+>&#13;   With this package you can easily handle (hidden) downloads.
+
+   Hidden means not accessible by the public 
+
+   - for instance if you want to restrict access to particular downloads.
+  </P
+><P
+>&#13;   It supports HTTP compression, caching and partial downloads, 
+   resuming and sending raw data, for example from database BLOBs.
+  </P
+><P
+>&#13;  <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>ATTENTION:</I
+></SPAN
+>
+   You shouldn't use this package together with ob_gzhandler or 
+   zlib.output_compression enabled in your php.ini, especially 
+   if you want to send already gzipped data!
+  </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.http.http-download.intro.details.examples"
+></A
+><H3
+>Usage Examples:</H3
+><P
+>&#13;    Have a look at the following examples:
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.http.http-download.intro.details.examples.static"><P
+><B
+>Example 42-1. Static send:</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>1  $params = array(
+2   'file'                =&#62; '../hidden/download.tgz',
+3   'contenttype'         =&#62; 'application/x-gzip',
+4   'contentdisposition'  =&#62; array(HTTP_DOWNLOAD_ATTACHMENT, 'latest.tgz'),
+5  );
+6  
+7  $error = HTTP_Download::staticSend($params, false);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.http.http-download.intro.details.examples.file"><P
+><B
+>Example 42-2. Send a hidden file:</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>1  $dl = &#38;new HTTP_Download();
+2  $dl-&#62;setFile('../hidden/download.tgz');
+3  $dl-&#62;setContentDisposition(HTTP_DOWNLOAD_ATTACHMENT, 'latest.tgz');
+4  // with ext/magic.mime
+5  // $dl-&#62;guessContentType();
+6  // else:
+7  $dl-&#62;setContentType('application/x-gzip');
+8  $dl-&#62;send();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.http.http-download.intro.details.examples.data"><P
+><B
+>Example 42-3. Send arbitrary data:</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>1  $dl = &#38;new HTTP_Download();
+2  $dl-&#62;setData($data);
+3  $dl-&#62;setLastModified($unix_timestamp);
+4  $dl-&#62;setContentType('application/x-gzip');
+5  $dl-&#62;setContentDisposition(HTTP_DOWNLOAD_ATTACHMENT, 'latest.tgz');
+6  $dl-&#62;send();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.http.http-download.intro.details.examples.throttle"><P
+><B
+>Example 42-4. Limiting bandwidth:</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>1  $dl = &#38;new HTTP_Download();
+2  $dl-&#62;setFile('huge_file.bin');
+3  $dl-&#62;setBufferSize(25 * 1024); // 25 K
+4  $dl-&#62;setThrottleDelay(1);   // 1 sec
+5  $dl-&#62;send();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.http.http-download.intro.details.examples.pglob"><P
+><B
+>Example 42-5. Sending a PostgreSQL LOB:</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>1  require_once 'HTTP/Download.php';
+2  require_once 'HTTP/Download/PgLOB.php';
+3  $dl = &#38;new HTTP_Download();
+4  $dl-&#62;setResource(
+5    HTTP_Download_PgLOB::open(pg_connect('dbname=lobs'), 12345));
+6  $dl-&#62;send();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.http.http-download.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.http.http-download.http-download.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTTP_Download</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.http.http-download.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>HTTP_Download::HTTP_Download()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

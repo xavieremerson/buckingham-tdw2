@@ -1,0 +1,483 @@
+<HTML
+><HEAD
+><TITLE
+>Console_Getopt::getopt</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Console_Getopt"
+HREF="package.console.console-getopt.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction - Options"
+HREF="package.console.console-getopt.intro-options.html"><LINK
+REL="NEXT"
+TITLE="Console_Getopt::readPHPArgv"
+HREF="package.console.console-getopt.readphpargv.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.console.console-getopt.intro-options.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.console.console-getopt.readphpargv.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.console.console-getopt.getopt">Console_Getopt::getopt</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN20711"
+></A
+>Console_Getopt::getopt&nbsp;--&nbsp;fetch the command-line options</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN20714"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN20715"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Console/Getopt.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>getopt</B
+></CODE
+> (array $args, string $shortoptions [, array
+       $longoptions = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.console.console-getopt.getopt.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Parses the command-line options and returns them.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.console.console-getopt.getopt.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>array $args</I
+></TT
+> - an array of command-line arguments
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $shortoptions</I
+></TT
+> - specifies the list of allowed
+        short options. See the <A
+HREF="package.console.console-getopt.intro-options.html"
+>"Options" section</A
+>
+         for more information.
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>array $longoptions</I
+></TT
+> - specifies the list of allowed
+        long options. Default is <TT
+CLASS="parameter"
+><I
+>NULL</I
+></TT
+>. See the <A
+HREF="package.console.console-getopt.intro-options.html"
+>"Options" section</A
+>
+         for more information.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.console.console-getopt.getopt.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>array</I
+></TT
+> - two-element array containing the list of
+     parsed options and the non-option arguments or a <A
+HREF="core.pear.pear-error.html"
+><B
+CLASS="classname"
+>PEAR_Error</B
+></A
+>.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.console.console-getopt.getopt.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN20756"><P
+><B
+>Table 32-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"Console_Getopt: option --<TT
+CLASS="parameter"
+><I
+>$opt</I
+></TT
+> is ambiguous"</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Two or more long options starts with the same character.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Change the naming of the options. It is also possible that
+          the error is caused by a typing mistake.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"Console_Getopt: option --<TT
+CLASS="parameter"
+><I
+>$opt</I
+></TT
+> requires an argument"</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          No parameter for a option was given.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Normally this is a user mistake. If the parameter is optional,
+          you have to markup the parameter as optional in the option
+          definitions.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"Console_Getopt: option --<TT
+CLASS="parameter"
+><I
+>$opt</I
+></TT
+> doesn't allow an argument"</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          A parameter for a option was given.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Normally this is a user mistake. If the option requires a
+          (optional) parameter, you have to markup it in the options
+          definition.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"Console_Getopt: unrecognized option
+           --<TT
+CLASS="parameter"
+><I
+>$opt</I
+></TT
+>"</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Unknown option.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Normally this is a user mistake. If the option exists, you
+          have to define them in the options definition.
+         </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.console.console-getopt.getopt.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.console.console-getopt.intro-options.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.console.console-getopt.readphpargv.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction - Options</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.console.console-getopt.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Console_Getopt::readPHPArgv</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

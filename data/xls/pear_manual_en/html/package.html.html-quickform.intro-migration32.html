@@ -1,0 +1,533 @@
+<HTML
+><HEAD
+><TITLE
+>Migration to version 3.2</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Introduction"
+HREF="package.html.html-quickform.html#package.html.html-quickform.introduction"><LINK
+REL="PREVIOUS"
+TITLE="QuickForm element types"
+HREF="package.html.html-quickform.intro-elements.html"><LINK
+REL="NEXT"
+TITLE="Subpackages"
+HREF="package.html.html-quickform.intro-subpackages.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.intro-elements.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.intro-subpackages.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.intro-migration32">Migration to version 3.2</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN52653"
+></A
+>Migration to version 3.2&nbsp;--&nbsp;API changes to observe</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.intro-migration32.overview"
+></A
+><H2
+>Why these changes?</H2
+><P
+>&#13;HTML_QuickForm has improved a lot since version 2.x. With the addition of a new renderer layer, a lot of methods that were located in the main QuickForm class were actually duplicates of methods in the renderers. Those methods were kept to give user time to adjust their code. With release 3.2 they will be removed, making QuickForm class much lighter and consistent.
+</P
+><P
+>&#13;At the same time, file upload validation was moved to the file element as this is a more appropriate place.
+</P
+><P
+>Removed methods
+<P
+></P
+><UL
+><LI
+><P
+>QuickForm related
+    <P
+></P
+><UL
+><LI
+><P
+><B
+CLASS="function"
+>HTML_QuickForm::getAttributesString()</B
+></P
+></LI
+><LI
+><P
+><B
+CLASS="function"
+>HTML_QuickForm::addElementGroup()</B
+></P
+></LI
+><LI
+><P
+><B
+CLASS="function"
+>HTML_QuickForm::addHeader()</B
+></P
+></LI
+><LI
+><P
+><B
+CLASS="function"
+>HTML_QuickForm::addData()</B
+></P
+></LI
+></UL
+>
+  </P
+></LI
+><LI
+><P
+>Renderer related
+    <P
+></P
+><UL
+><LI
+><P
+><B
+CLASS="function"
+>HTML_QuickForm::setElementTemplate()</B
+></P
+></LI
+><LI
+><P
+><B
+CLASS="function"
+>HTML_QuickForm::setHeaderTemplate()</B
+></P
+></LI
+><LI
+><P
+><B
+CLASS="function"
+>HTML_QuickForm::setFormTemplate()</B
+></P
+></LI
+><LI
+><P
+><B
+CLASS="function"
+>HTML_QuickForm::setRequiredNoteTemplate()</B
+></P
+></LI
+><LI
+><P
+><B
+CLASS="function"
+>HTML_QuickForm::clearAllTemplates()</B
+></P
+></LI
+><LI
+><P
+><B
+CLASS="function"
+>HTML_QuickForm_group::setElementTemplate()</B
+></P
+></LI
+><LI
+><P
+><B
+CLASS="function"
+>HTML_QuickForm_group::setGroupTemplate()</B
+></P
+></LI
+></UL
+>
+  </P
+></LI
+><LI
+><P
+>File upload related
+    <P
+></P
+><UL
+><LI
+><P
+><B
+CLASS="function"
+>HTML_QuickForm::isUploadedFile()</B
+></P
+></LI
+><LI
+><P
+><B
+CLASS="function"
+>HTML_QuickForm::getUploadedFile()</B
+></P
+></LI
+><LI
+><P
+><B
+CLASS="function"
+>HTML_QuickForm::moveUploadedFile()</B
+></P
+></LI
+></UL
+>
+  </P
+></LI
+></UL
+>
+</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.intro-migration32.adjust"
+></A
+><H2
+>How to adjust your code</H2
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform.intro-migration32.adjust.quickform"
+></A
+><H3
+>QuickForm related</H3
+><P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+><B
+CLASS="function"
+>HTML_QuickForm::getAttributesString()</B
+></DT
+><DD
+><P
+>&#13;<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$form-&#62;getAttributes(true);</PRE
+></TD
+></TR
+></TABLE
+>
+will return the same value by using <B
+CLASS="function"
+>HTML_Common::getAttributes()</B
+> method.
+    </P
+></DD
+><DT
+><B
+CLASS="function"
+>HTML_QuickForm::addElementGroup()</B
+></DT
+><DD
+><P
+>&#13;Arguments order was changed to conform to the way elements are usually added to QuickForm by <A
+HREF="package.html.html-quickform.html-quickform.addelement.html"
+><B
+CLASS="function"
+>addElement()</B
+></A
+>. Use <A
+HREF="package.html.html-quickform.html-quickform.addgroup.html"
+><B
+CLASS="function"
+>HTML_QuickForm::addGroup()</B
+></A
+> instead and swap the element label with the element name.
+    </P
+></DD
+><DT
+><B
+CLASS="function"
+>HTML_QuickForm::addHeader()</B
+></DT
+><DD
+><P
+>&#13;A header is now considered like any other element. There is a new <A
+HREF="package.html.html-quickform.html-quickform-header.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_header</B
+></A
+> element that extends <A
+HREF="package.html.html-quickform.html-quickform-static.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_static</B
+></A
+>. Just use
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$form-&#62;addElement('header', $header_name, $header_text);</PRE
+></TD
+></TR
+></TABLE
+>
+This will also allow you to customize the header rendering based on its name.    </P
+></DD
+><DT
+><B
+CLASS="function"
+>HTML_QuickForm::addData()</B
+></DT
+><DD
+><P
+>&#13;If you absolutely need this feature, use
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$form-&#62;addElement('html', $data)</PRE
+></TD
+></TR
+></TABLE
+>
+or consider using some template-based renderer.
+    </P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform.intro-migration32.adjust.renderer"
+></A
+><H3
+>Renderer related</H3
+><P
+>&#13;Those methods are now handled by the renderers. How to use these methods depends on your choice of renderer. With QuickForm default renderer, you can use these methods like that:
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$form =&#38; new HTML_QuickForm('myform');
+
+$renderer =&#38; $form-&#62;defaultRenderer();
+$renderer-&#62;setFormTemplate('&#60;table&#62;&#60;form{attributes}&#62;{content}&#60;/form&#62;&#60;/table&#62;');
+$renderer-&#62;setHeaderTemplate('&#60;tr&#62;&#60;td colspan="2"&#62;&#60;b&#62;{header}&#60;/b&#62;&#60;/td&#62;&#60;/tr&#62;');
+$renderer-&#62;setGroupTemplate('&#60;table&#62;&#60;tr&#62;{content}&#60;/tr&#62;&#60;/table&#62;');
+$renderer-&#62;setGroupElementTemplate('&#60;td&#62;{element}&#60;br /&#62;&#60;!-- BEGIN required --&#62;*&#60;!-- END required --&#62;{label}&#60;/td&#62;');</PRE
+></TD
+></TR
+></TABLE
+>
+<A
+HREF="package.html.html-quickform.html-quickform.defaultrenderer.html"
+><B
+CLASS="function"
+>defaultRenderer()</B
+></A
+>will return a reference to QuickForm integrated renderer. You can of course use <A
+HREF="package.html.html-quickform.intro-renderers.html"
+>any other renderer</A
+> available in QuickForm such as Sigma, ITX, Smarty, Flexy and so on. Have a look at their documentation to see which methods are available for them.
+       </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform.intro-migration32.adjust.file"
+></A
+><H3
+>File upload related</H3
+><P
+>&#13;File-related methods and rules have been moved to the file element <A
+HREF="package.html.html-quickform.html-quickform-file.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_file</B
+></A
+> because it makes more sense this way and you don't have to include upload-related code if you are not using uploads. You have access to these methods like that:
+
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$form = new HTML_QuickForm('myform');
+$file =&#38; $form-&#62;addElement('file', 'myfile', 'Your file:');
+$form-&#62;addRule('myfile', 'Cannot exceed 1776 bytes', 'maxfilesize', 1776);
+if ($file-&#62;isUploadedFile()) {
+    $file-&#62;moveUploadedFile('/tmp', 'testfile.txt');
+}</PRE
+></TD
+></TR
+></TABLE
+>
+
+or like that:
+
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$file =&#38; $form-&#62;getElement('myfile');
+if ($file-&#62;isUploadedFile()) {
+     $fileInfo = $file-&#62;getValue();
+}</PRE
+></TD
+></TR
+></TABLE
+>
+       </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.intro-elements.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.intro-subpackages.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>QuickForm element types</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.introduction"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Subpackages</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

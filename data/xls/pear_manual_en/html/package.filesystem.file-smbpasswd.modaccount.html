@@ -1,0 +1,408 @@
+<HTML
+><HEAD
+><TITLE
+>File_SMBPasswd::modAccount()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File_SMBPasswd"
+HREF="package.filesystem.file-smbpasswd.html"><LINK
+REL="PREVIOUS"
+TITLE="File_SMBPasswd::modAccountEncrypted()"
+HREF="package.filesystem.file-smbpasswd.modaccountencrypted.html"><LINK
+REL="NEXT"
+TITLE="File_SMBPasswd::modUser()"
+HREF="package.filesystem.file-smbpasswd.moduser.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-smbpasswd.modaccountencrypted.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-smbpasswd.moduser.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.filesystem.file-smbpasswd.modaccount">File_SMBPasswd::modAccount()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN48004"
+></A
+>File_SMBPasswd::modAccount()&nbsp;--&nbsp;modify an exsting account with the given plaintext-password.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN48007"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN48008"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>File_SMBPasswd::modAccount</B
+></CODE
+> (string $user, int $userid [, string $pass = '' [, string $comment = '' [, string $flags = '']]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-smbpasswd.modaccount.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;    This method works in the same way as 
+    <A
+HREF="package.filesystem.file-smbpasswd.modaccountencrypted.html"
+>&#13;      <B
+CLASS="function"
+>File_SMBPasswd::modAccountEncrypted()</B
+>
+    </A
+>, except the password has to be given as plaintext. The encryption 
+    is done internaly.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-smbpasswd.modaccount.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>string $user</I
+></TT
+> - username to be modified
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>int $userid</I
+></TT
+> - userid of the user
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>string $pass</I
+></TT
+> - plaintext-password
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>string $comment</I
+></TT
+> - comment
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>string $flags</I
+></TT
+> - flags
+     </P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-smbpasswd.modaccount.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   <TT
+CLASS="parameter"
+><I
+>mixed</I
+></TT
+> - Returns <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> on success,
+<B
+CLASS="classname"
+>PEAR_Error</B
+> on failure.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-smbpasswd.modaccount.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-smbpasswd.modaccount.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>&#13;     <A
+HREF="package.filesystem.file-smbpasswd.addaccount.html"
+>&#13;      <B
+CLASS="function"
+>File_SMBPasswd::addAccount()</B
+>
+     </A
+>
+    </TD
+></TR
+><TR
+><TD
+>&#13;     <A
+HREF="package.filesystem.file-smbpasswd.modaccountencrypted.html"
+>&#13;      <B
+CLASS="function"
+>File_SMBPasswd::modAccountEncrypted()</B
+>
+     </A
+>
+    </TD
+></TR
+><TR
+><TD
+>&#13;     <A
+HREF="package.filesystem.file-smbpasswd.moduser.html"
+>&#13;      <B
+CLASS="function"
+>File_SMBPasswd::modUser()</B
+>
+     </A
+>
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-smbpasswd.modaccount.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN48073"><P
+><B
+>Example 38-1. Using <B
+CLASS="function"
+>File_SMBPasswd::modAccount()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'File/SMBPasswd.php';
+
+// modify user mbretter
+$fh = new File_SMBPasswd('/usr/local/private/smbpasswd');
+$fh-&#62;load();
+$status = $fh-&#62;modAccount(
+    'mbretter', 
+    1005, 
+    'MyPwa',
+    'Michaela Bretterklieber');
+if (PEAR::isError($status)) {
+    // handle errors
+} else {
+    $fh-&#62;save();
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-smbpasswd.modaccountencrypted.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-smbpasswd.moduser.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>File_SMBPasswd::modAccountEncrypted()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-smbpasswd.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>File_SMBPasswd::modUser()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

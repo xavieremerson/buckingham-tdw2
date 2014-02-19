@@ -1,0 +1,16 @@
+To create a theme use the <B>create_css()</B> method. It will scan the path to theme folder and it will generate there the required CSS file using sizes of existing images. You will need write permissions on that folder.
+<BR>A theme needs images named:
+<center><B>frame_foot_left.gif, frame_foot_right.gif, frame_right.gif, frame_top_mid.gif cell.gif, frame_foot_mid.gif, frame_left.gif, frame_top_left.gif, frame_top_right.gif</B></center>
+<BR>Buttons are: <B>but_clos.gif  but_mini.gif but_maxi.gif</B><BR>
+<B>Used/generated CSS</B>: windows.css<BR><BR>
+
+The method will check the size of frame_* images and basing on that will generate working CSS. It may require some tweaking (like background color etc.). See existing themes to catch the "structure" of those files (like frame_foot_left.gif is top left border,  frame_foot_mid.gif - is the foot middle graphics)<BR>
+
+<h2>Example</h2>
+<pre>$a = new prtw('themes/rk', '');
+<B>$a->create_css();</B>
+echo $a->js_init();
+echo $a->do_window('aaaa', 'bla', 'w1', 'window1');
+echo $a->do_window('aaaa', 'bla', 'w2', 'window2');
+echo $a->exec_windows(array('w1' => array('x' => 100, 'y' => 100, 'id' => 'window1', 'width' => 400, 'height' => 200),
+'w2' => array('x' => 300, 'y' => 300, 'id' => 'window2', 'width' => 300, 'height' => 200)));</pre>

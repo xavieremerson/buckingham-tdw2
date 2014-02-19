@@ -1,0 +1,370 @@
+<HTML
+><HEAD
+><TITLE
+>Mail_mimePart::Mail_mimePart()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Mail_Mime"
+HREF="package.mail.mail-mime.html"><LINK
+REL="PREVIOUS"
+TITLE="Mail_Mime - Example"
+HREF="package.mail.mail-mime.example.html"><LINK
+REL="NEXT"
+TITLE="Mail_mimePart::addsubpart()"
+HREF="package.mail.mail-mimepart.addsubpart.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-mime.example.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-mimepart.addsubpart.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.mail.mail-mimepart.mail-mimepart">Mail_mimePart::Mail_mimePart()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN80964"
+></A
+>Mail_mimePart::Mail_mimePart()&nbsp;--&nbsp;constructor</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN80967"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN80968"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Mail/mimePart.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>Mail_mimePart <B
+CLASS="function"
+>Mail_mimePart</B
+></CODE
+> ([string 
+       $body = '' [, array 
+       $params = array()]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mimepart.mail-mimepart.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Create a new <B
+CLASS="classname"
+>Mail_mimePart</B
+> object.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mimepart.mail-mimepart.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $body</I
+></TT
+> - 
+        The body of the mime part if any. Default is an empty string.
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>array $params</I
+></TT
+> - 
+        An associative array of parameters:
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params["content_type"]</I
+></TT
+> - 
+           The content type for this part ie.
+           <TT
+CLASS="parameter"
+><I
+>multipart/mixed</I
+></TT
+>
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params["encoding"]</I
+></TT
+> - 
+           The encoding to use ie. <TT
+CLASS="parameter"
+><I
+>7bit</I
+></TT
+>, 
+           <TT
+CLASS="parameter"
+><I
+>8bit</I
+></TT
+>, <TT
+CLASS="parameter"
+><I
+>base64</I
+></TT
+> or 
+           <TT
+CLASS="parameter"
+><I
+>quoted-printable</I
+></TT
+>
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params["cid"]</I
+></TT
+> - 
+           content ID to apply
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params["disposition"]</I
+></TT
+> - 
+           Content disposition <TT
+CLASS="parameter"
+><I
+>inline</I
+></TT
+> 
+           or <TT
+CLASS="parameter"
+><I
+>attachment</I
+></TT
+>
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params["dfilename"]</I
+></TT
+> - 
+           Optional filename parameter for content disposition
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params["description"]</I
+></TT
+> - 
+           Content description
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params["charset"]</I
+></TT
+> - 
+           Character set to use
+          </P
+></LI
+></UL
+>
+        Default is an empty array.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mimepart.mail-mimepart.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mime.example.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mimepart.addsubpart.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Mail_Mime - Example</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mime.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Mail_mimePart::addsubpart()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

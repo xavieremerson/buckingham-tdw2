@@ -1,0 +1,210 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;    Class Summary
+    Translation2_Decorator_Lang
+   </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Translation2"
+HREF="package.internationalization.translation2.html"><LINK
+REL="PREVIOUS"
+TITLE="
+    Class Summary
+    Translation2_Decorator_ErrorText
+   "
+HREF="package.internationalization.translation2.translation2-decorator-errortext-summary.html"><LINK
+REL="NEXT"
+TITLE="
+    Class Summary
+    Translation2_Decorator_Iconv
+   "
+HREF="package.internationalization.translation2.translation2-decorator-iconv-summary.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.internationalization.translation2.translation2-decorator-errortext-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.internationalization.translation2.translation2-decorator-iconv-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.internationalization.translation2.translation2-decorator-lang-summary">Class Summary
+    <B
+CLASS="classname"
+>Translation2_Decorator_Lang</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN79398"
+></A
+>
+    Class Summary
+    <B
+CLASS="classname"
+>Translation2_Decorator_Lang</B
+>
+   &nbsp;--&nbsp;Decorator to provide a fallback language for empty strings.</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN79402"
+></A
+><H2
+>Lang Decorator Example</H2
+><P
+>&#13;     This decorator is very useful when you want to provide a fallback language
+     for empty strings. It is stackable, so you can have more than one default language.
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$tr = new Translation2($driver, $dbinfo, $params);
+
+//set English as the main language
+$tr-&#62;setLang('en');
+
+//set Italian as the first fallback language
+$tr =&#38; $tr-&#62;getDecorator('Lang');
+$tr-&#62;setOption('fallbackLang', 'it');
+
+//set Spanish as the second fallback language
+$tr =&#38; $tr-&#62;getDecorator('Lang');
+$tr-&#62;setOption('fallbackLang', 'es');</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.internationalization.translation2.translation2-decorator-errortext-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.internationalization.translation2.translation2-decorator-iconv-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Class Summary
+    <B
+CLASS="classname"
+>Translation2_Decorator_ErrorText</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.internationalization.translation2.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class Summary
+    <B
+CLASS="classname"
+>Translation2_Decorator_Iconv</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

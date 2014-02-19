@@ -1,0 +1,306 @@
+<HTML
+><HEAD
+><TITLE
+>Config_Container::setDirective</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Config"
+HREF="package.configuration.config.html"><LINK
+REL="PREVIOUS"
+TITLE="Config_Container::setContent"
+HREF="package.configuration.config.config-container.setcontent.html"><LINK
+REL="NEXT"
+TITLE="Config_Container::setName"
+HREF="package.configuration.config.config-container.setname.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.configuration.config.config-container.setcontent.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.configuration.config.config-container.setname.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.configuration.config.config-container.setdirective"><B
+CLASS="function"
+>Config_Container::setDirective()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN20320"
+></A
+><B
+CLASS="function"
+>Config_Container::setDirective()</B
+>&nbsp;--&nbsp;Set child directive content or create new directive</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN20324"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN20325"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Config/Container.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>Config_Container::setDirective</B
+></CODE
+> (string $name, mixed $content [, int $index = -1])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.setdirective.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      This is an helper method that will first try to find the item with the 
+      desired name using <A
+HREF="package.configuration.config.config-container.getitem.html"
+>&#13;       <B
+CLASS="function"
+>getItem()</B
+></A
+>. If the item is found, it will call 
+      its <A
+HREF="package.configuration.config.config-container.setcontent.html"
+>&#13;       <B
+CLASS="function"
+>setContent()</B
+></A
+> method. If not, it will just create 
+      a new directive at the bottom with the given name and content.
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.setdirective.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$name</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Name of the directive to look for
+        </P
+></DD
+><DT
+>mixed
+        <TT
+CLASS="parameter"
+><I
+>$content</I
+></TT
+></DT
+><DD
+><P
+>&#13;         New content, usually a string
+        </P
+></DD
+><DT
+>integer
+        <TT
+CLASS="parameter"
+><I
+>$index</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Index of the directive to set, in case there are more than one directive with the same name
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.setdirective.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>object</I
+></TT
+> - Newly set directive
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.configuration.config.config-container.setdirective.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.configuration.config.config-container.setcontent.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.configuration.config.config-container.setname.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>Config_Container::setContent()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.configuration.config.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Config_Container::setName()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

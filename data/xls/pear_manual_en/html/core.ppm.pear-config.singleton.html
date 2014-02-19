@@ -1,0 +1,307 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR_Config::singleton</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR_Config"
+HREF="core.ppm.pear-config.html"><LINK
+REL="PREVIOUS"
+TITLE="PEAR_Config::setRegistry"
+HREF="core.ppm.pear-config.setregistry.html"><LINK
+REL="NEXT"
+TITLE="PEAR_Config::store"
+HREF="core.ppm.pear-config.store.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-config.setregistry.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-config.store.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.ppm.pear-config.singleton"><B
+CLASS="function"
+>PEAR_Config::singleton()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN11274"
+></A
+><B
+CLASS="function"
+>PEAR_Config::singleton()</B
+>&nbsp;--&nbsp;Return a reference of a PEAR_Config object</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN11278"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN11279"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'PEAR/config.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>object &#38;<B
+CLASS="function"
+>PEAR_Config::singleton</B
+></CODE
+> ([string $user_file = '' [, string $system_file = '']])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-config.singleton.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      If you want to keep only one instance of 
+      this class in use, this method will give you 
+      a reference to the last created 
+      <B
+CLASS="classname"
+>PEAR_Config</B
+> object if 
+      one exists, or create a new object.
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-config.singleton.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+         <TT
+CLASS="parameter"
+><I
+>$user_file</I
+></TT
+></DT
+><DD
+><P
+>&#13;         file to read user-defined options from
+        </P
+></DD
+><DT
+>string
+         <TT
+CLASS="parameter"
+><I
+>$system_file</I
+></TT
+></DT
+><DD
+><P
+>&#13;         file to read system-wide defaults from
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-config.singleton.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>object</I
+></TT
+> -
+     an existing or new <B
+CLASS="classname"
+>PEAR_Config</B
+> instance
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-config.singleton.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;     <A
+HREF="core.ppm.pear-config.pear-config.html"
+>&#13;      <B
+CLASS="function"
+>PEAR_Config::PEAR_Config()</B
+>
+     </A
+> 
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-config.singleton.note"
+></A
+><H2
+>Note</H2
+><P
+>This function should be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-config.setregistry.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-config.store.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Config::setRegistry()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-config.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Config::store()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

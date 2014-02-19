@@ -1,0 +1,392 @@
+<HTML
+><HEAD
+><TITLE
+>DB::connect()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="DB"
+HREF="package.database.db.db.html"><LINK
+REL="NEXT"
+TITLE="DB::isError()"
+HREF="package.database.db.db.iserror.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db.iserror.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.db.connect">DB::connect()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN21777"
+></A
+>DB::connect()&nbsp;--&nbsp;Connects to a database</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN21780"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN21781"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>object <B
+CLASS="function"
+>connect</B
+></CODE
+> (mixed $dsn [, array $options = array()])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db.connect.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Creates a new DB connection object and connect to the specified
+   database
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db.connect.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string or array
+      <TT
+CLASS="parameter"
+><I
+>$dsn</I
+></TT
+></DT
+><DD
+><P
+>&#13;       Data Source Name. String formats are described in the
+       <A
+HREF="package.database.db.intro-dsn.html"
+>DSN</A
+> section
+       while array formats are covered in the
+       <A
+HREF="package.database.db.intro-connect.html"
+><SPAN
+CLASS="QUOTE"
+>"Intro -
+        Connect"</SPAN
+></A
+> section.
+      </P
+></DD
+><DT
+>array
+      <TT
+CLASS="parameter"
+><I
+>$options</I
+></TT
+></DT
+><DD
+><P
+>&#13;       An optional argument can contain runtime configuration settings
+       for this package.
+       See <A
+HREF="package.database.db.db-common.setoption.html"
+>&#13;        <B
+CLASS="function"
+>setOption()</B
+></A
+> for more information on the
+       available settings.
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db.connect.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   object - a new DB object
+   or a <A
+HREF="package.database.db.db-error.html"
+><B
+CLASS="classname"
+>DB_Error</B
+></A
+> object on failure
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db.connect.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <DIV
+CLASS="table"
+><A
+NAME="AEN21824"><P
+><B
+>Table 33-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_NOT_FOUND</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        not found
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        The database specific class was not found.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check the <TT
+CLASS="parameter"
+><I
+>$dsn</I
+></TT
+> and make sure
+        to have an complete installation of the
+        <TT
+CLASS="filename"
+>DB-package</TT
+> and that you database
+        is supported by <A
+HREF="package.database.db.html"
+><B
+CLASS="classname"
+>DB</B
+></A
+>.
+       </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db.connect.note"
+></A
+><H2
+>Note</H2
+><P
+>This function should be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db.connect.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="package.database.db.db-common.disconnect.html"
+>&#13;    <B
+CLASS="function"
+>disconnect()</B
+></A
+>,
+   <A
+HREF="package.database.db.intro-connect.html"
+>&#13;    <SPAN
+CLASS="QUOTE"
+>"Intro - Connect"</SPAN
+></A
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.db.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.db.iserror.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="classname"
+>DB</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>DB::isError()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

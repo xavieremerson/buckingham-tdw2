@@ -1,0 +1,164 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;    Why a flat directory structure instead of a deep?
+   </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="FAQ - Frequently Asked Questions"
+HREF="faq.html"><LINK
+REL="PREVIOUS"
+TITLE="
+    Why does the directory structure of pear/ and pear-core/ differ?
+   "
+HREF="faq.directory-structure.html"><LINK
+REL="NEXT"
+TITLE="
+    Can I commit experimental/unstable stuff?
+   "
+HREF="faq.unstable-code.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="faq.directory-structure.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 6. FAQ - Frequently Asked Questions</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="faq.unstable-code.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="faq.flat-structure">Why a flat directory structure instead of a deep?</H1
+><P
+>&#13;    In CVS, PEAR code is organized by package instead of hierarchical
+    like it would finally be installed.  For example, if you want to
+    use the XML_RPC class, you include "XML/RPC.php".  It's easy to
+    think that in CVS, this file should be in pear/XML/RPC.php, but
+    that's not the case.  XML_RPC is an independent package with its
+    own directory in CVS, in this case the RPC.php file is actually
+    located at pear/XML_RPC/RPC.php.  The package description file
+    (package.xml) is used to say where the files should finally be
+    installed.
+   </P
+><P
+>&#13;    The reason CVS is organized this way is that it makes package
+    administration much easier.
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="faq.directory-structure.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="faq.unstable-code.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Why does the directory structure of pear/ and pear-core/ differ?</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="faq.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Can I commit experimental/unstable stuff?</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

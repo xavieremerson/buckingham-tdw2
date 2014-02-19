@@ -1,0 +1,331 @@
+<HTML
+><HEAD
+><TITLE
+>XML_RDDL::getResourcesByPurpose</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_RDDL"
+HREF="package.xml.xml-rddl.html"><LINK
+REL="PREVIOUS"
+TITLE="XML_RDDL::getResourcesByNature"
+HREF="package.xml.xml-rddl.xml-rddl.getresourcesbynature.html"><LINK
+REL="NEXT"
+TITLE="XML_RDDL::getResourcesByLanguage"
+HREF="package.xml.xml-rddl.xml-rddl.getresourcesbylanguage.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-rddl.xml-rddl.getresourcesbynature.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-rddl.xml-rddl.getresourcesbylanguage.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.xml.xml-rddl.xml-rddl.getresourcesbypurpose"><B
+CLASS="function"
+>XML_RDDL::getResourcesByPurpose()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN102907"
+></A
+><B
+CLASS="function"
+>XML_RDDL::getResourcesByPurpose()</B
+>&nbsp;--&nbsp;selects all resources of a specified nature</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN102911"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN102912"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'XML/RDDL.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>XML_RDDL::getResourcesByPurpose</B
+></CODE
+> (string $purpose)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-rddl.xml-rddl.getresourcesbypurpose.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      Gets all resources of a given purpose from an RDDL document. You have to call
+	  <A
+HREF="package.xml.xml-rddl.xml-rddl.parserddl.html"
+>XML_RDDL::parseRDDL()</A
+>
+	  first. The purpose of a resource is specified by the 'xlink:arcrole' attribute.
+      The purpose of a resource link determines what the link will be used for. Frequently the purpose
+      of a link can be determined from the nature of the referenced resource. For example the purpose
+      of an XML Schema is typically schema validation, yet a schema may be comprised of a number of
+      included modules and even when included modules are themselves an XML Schema, the purpose is as a module.
+      You can find a list of well known purposes at
+      <A
+HREF="http://www.rddl.org/purposes/"
+TARGET="_top"
+>http://www.rddl.org/purposes/</A
+>.
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.default.xml-rddl.xml-rddl.getresourcesbypurpose.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;    <P
+></P
+><UL
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>string $purpose</I
+></TT
+> - purpose of the resources you want to get.
+      </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-rddl.xml-rddl.getresourcesbypurpose.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>array</I
+></SPAN
+> array containing all resources with the specified purpose.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-rddl.xml-rddl.getresourcesbypurpose.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-rddl.xml-rddl.getresourcesbypurpose.example1"
+></A
+><H2
+>Usage example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN102940"><P
+><B
+>Example 61-1. Getting all normative references</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "XML/RDDL.php";
+// create new parser
+$rddl   = &#38;new XML_RDDL();
+	
+// parse a document that contains RDDL resources
+$result = $rddl-&#62;parseRDDL('http://www.rddl.org');
+// check for error
+if (PEAR::isError($result)) {
+    echo sprintf( "ERROR: %s (code %d)", $result-&#62;getMessage(), $result-&#62;getCode());
+    exit;
+}
+// get all normative references
+$ref = $rddl-&#62;getResourcesByPurpose('http://www.rddl.org/purposes#normative-reference');
+echo "&#60;pre&#62;";
+print_r($ref);
+echo "&#60;/pre&#62;";</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-rddl.xml-rddl.getresourcesbynature.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-rddl.xml-rddl.getresourcesbylanguage.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>XML_RDDL::getResourcesByNature()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.xml-rddl.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>XML_RDDL::getResourcesByLanguage()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

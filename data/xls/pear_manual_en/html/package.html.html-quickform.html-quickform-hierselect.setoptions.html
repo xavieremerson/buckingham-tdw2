@@ -1,0 +1,404 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_QuickForm_hierselect::setOptions()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Custom elements"
+HREF="package.html.html-quickform.html#package.html.html-quickform.elements.custom"><LINK
+REL="PREVIOUS"
+TITLE="constructor HTML_QuickForm_hierselect()"
+HREF="package.html.html-quickform.html-quickform-hierselect.html-quickform-hierselect.html"><LINK
+REL="NEXT"
+TITLE="HTML_QuickForm_hierselect::setMainOptions()"
+HREF="package.html.html-quickform.html-quickform-hierselect.setmainoptions.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-hierselect.html-quickform-hierselect.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-hierselect.setmainoptions.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.html-quickform-hierselect.setoptions">HTML_QuickForm_hierselect::setOptions()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN60942"
+></A
+>HTML_QuickForm_hierselect::setOptions()&nbsp;--&nbsp;Sets the options for the select elements</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN60945"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN60946"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/QuickForm/hierselect.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>HTML_QuickForm_hierselect::setOptions</B
+></CODE
+> (array $options)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-hierselect.setoptions.desc"
+></A
+><H2
+>Description</H2
+><P
+>Sets the options for the select elements within hierselect. Note 
+     that the actual number of selects that will be displayed is governed by 
+     the number of the elements in the array passed to this function.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-hierselect.setoptions.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array
+          <TT
+CLASS="parameter"
+><I
+>$options</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Array of options for the elements, having the following structure:
+         <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>array(
+  // options for the first element
+  array(
+    'key_1' =&#62; 'value 1',
+    'key_2' =&#62; 'value 2',
+    ...
+    'key_N' =&#62; 'value N',
+  ),
+  // options for the second element
+  array(
+    'key_1' =&#62; array(
+      'key_1_1' =&#62; 'value 1.1',
+      'key_1_2' =&#62; 'value 1.2',
+      ...
+      'key_1_M1' =&#62; 'value 1.M1'
+    ),
+    'key_2' =&#62; array(
+      'key_2_1' =&#62; 'value 2.1',
+      'key_2_2' =&#62; 'value 2.2',
+      ...
+      'key_2_M2' =&#62; 'value 2.M2'
+    ),
+    ...
+    'key_N' =&#62; array(
+      'key_N_1' =&#62; 'value N.1',
+      'key_N_2' =&#62; 'value N.2',
+      ...
+      'key_N_MN' =&#62; 'value N.MN'
+    )
+  )
+  // options for further elements
+  ...
+)</PRE
+></TD
+></TR
+></TABLE
+>
+        </P
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>The options for subsequent elements should have keys for all options of the previous
+          elements. Having a select without options is invalid HTML and will break hierselect's
+          JavaScript. See also <A
+HREF="http://pear.php.net/bugs/5218"
+TARGET="_top"
+>Bug #5218</A
+>.</P
+></BLOCKQUOTE
+></DIV
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-hierselect.setoptions.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> no exceptions thrown
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-hierselect.setoptions.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>since</I
+></SPAN
+> 3.2.2
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-hierselect.setoptions.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN60981"><P
+><B
+>Example 41-1. Setting the hierselect options</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+$select1 = $select2 = $select3 = array();
+
+$select1[0] = 'Pop';
+$select1[1] = 'Classical';
+$select1[2] = 'Funeral doom';
+
+// second select
+$select2[0][0] = '--- Artist ---';
+$select2[0][1] = 'Red Hot Chil Peppers';
+$select2[0][2] = 'The Pixies';
+      
+$select2[1][0] = '--- Artist ---';
+$select2[1][1] = 'Wagner';
+$select2[1][2] = 'Strauss';
+      
+$select2[2][0] = '--- Artist ---';
+$select2[2][1] = 'Pantheist';
+$select2[2][2] = 'Skepticism';
+     
+// Create a third select with prices for the cds
+$select3[0][0][0] = '--- Choose the artist ---';
+$select3[0][1][0] = '15.00$';
+$select3[0][2][1] = '17.00$';
+$select3[1][0][0] = '--- Choose the artist ---';
+$select3[1][1][0] = '15.00$';
+$select3[1][2][1] = '17.00$';
+$select3[2][0][0] = '--- Choose the artist ---';
+$select3[2][1][0] = '15.00$';
+$select3[2][2][1] = '17.00$';     
+
+// Create the Element
+$sel =&#38; $form-&#62;addElement('hierselect', 'cds', 'Choose CD:');
+
+// And add the selection options
+$sel-&#62;setOptions(array($select1, $select2, $select3));
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-hierselect.html-quickform-hierselect.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-hierselect.setmainoptions.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>constructor HTML_QuickForm_hierselect()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.elements.custom"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_QuickForm_hierselect::setMainOptions()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

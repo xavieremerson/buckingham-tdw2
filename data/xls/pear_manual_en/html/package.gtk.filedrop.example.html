@@ -1,0 +1,417 @@
+<HTML
+><HEAD
+><TITLE
+>Example</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="FileDrop"
+HREF="package.gtk.filedrop.html"><LINK
+REL="PREVIOUS"
+TITLE="Widget support"
+HREF="package.gtk.filedrop.widgetsupport.html"><LINK
+REL="NEXT"
+TITLE="Gtk_ScrollingLabel"
+HREF="package.gtk.gtk-scrollinglabel.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.gtk.filedrop.widgetsupport.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.gtk.gtk-scrollinglabel.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.gtk.filedrop.example">Example</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN49411"
+></A
+>Example&nbsp;--&nbsp;
+   How to use Gtk_FileDrop
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN49414"
+></A
+><H2
+>Using Gtk_FileDrop</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN49416"><P
+><B
+>Example 39-1. General setup</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+$accepted_types = array(
+    'text/html',
+    'text/plain',
+    '.dat'
+);
+Gtk_FileDrop::attach($widget, $accepted_types);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Here we set up the array of accepted file types:
+    The widget shall accept files with MIME-Type
+    <TT
+CLASS="literal"
+>text/html</TT
+>, <TT
+CLASS="literal"
+>text/plain</TT
+> and
+    files ending with <TT
+CLASS="literal"
+>.dat</TT
+>.
+    After this we set up the <TT
+CLASS="literal"
+>$widget</TT
+> to accept this
+    files. 
+   </P
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN49424"><P
+><B
+>Example 39-2. Accepting directories</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$accepted_types = array(
+    'inode/directory',
+);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    The MIME type <TT
+CLASS="literal"
+>inode/directory</TT
+> has to be used if
+    the widget shall accept directories.
+   </P
+></DIV
+></TD
+></TR
+></TABLE
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+     When a file is dropped over a widget which accepts directories 
+     only, the directory of the filename is used.
+    </P
+></BLOCKQUOTE
+></DIV
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN49431"><P
+><B
+>Example 39-3. Setup with callback</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+function filesDropped($widget, $arFiles) {
+    foreach($arFiles as $strFile) {
+        echo "The file \"$strFile\" has been dropped\r\n";
+    }
+}
+
+$accepted_types = array(
+    'text/html',
+    'text/plain',
+    '.dat'
+);
+Gtk_FileDrop::attach($widget, $accepted_types, 'filesDropped', false);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    In this example we use a callback function to print out all 
+    dropped files to the console. Further we determine the fourth
+    parameter as <TT
+CLASS="literal"
+>false</TT
+> which means that the widget's
+    value is not changed automatically.
+   </P
+><P
+>&#13;    To use the callback with objects, you pass an array with the reference
+    of the object:
+    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN49437"><P
+><B
+>Example 39-4. Using a callback</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+Gtk_FileDrop::attach($widget, $accepted_types, array( &#38;$this, 'filesDropped'));
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN49440"><P
+><B
+>Example 39-5. Working example</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+if (!extension_loaded('gtk')) {	
+    dl('php_gtk.' . PHP_SHLIB_SUFFIX);
+}
+require_once('Gtk/FileDrop.php');
+
+$window = &#38;new GtkWindow();
+$window-&#62;set_default_size(300, 30);
+$window-&#62;connect_object('destroy', array('gtk', 'main_quit'));
+$window-&#62;show();
+
+$entry =&#38; new GtkEntry();
+$window-&#62;add($entry);
+$entry-&#62;set_text('drop text files on me');
+Gtk_FileDrop::attach($entry, array('text/plain'));
+    
+$window-&#62;show_all();
+gtk::main();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.gtk.filedrop.widgetsupport.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.gtk.gtk-scrollinglabel.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Widget support</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.gtk.filedrop.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Gtk_ScrollingLabel</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

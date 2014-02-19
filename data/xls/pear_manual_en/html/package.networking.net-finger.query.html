@@ -1,0 +1,366 @@
+<HTML
+><HEAD
+><TITLE
+>Net_Finger::query()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_Finger"
+HREF="package.networking.net-finger.html"><LINK
+REL="PREVIOUS"
+TITLE="Net_Finger"
+HREF="package.networking.net-finger.html"><LINK
+REL="NEXT"
+TITLE="Net_FTP"
+HREF="package.networking.net-ftp.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-finger.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-ftp.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-finger.query">Net_Finger::query()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN82342"
+></A
+>Net_Finger::query()&nbsp;--&nbsp;does a finger query</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN82345"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN82346"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Net/Finger.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>string 
+     <B
+CLASS="function"
+>Net_Finger::query</B
+>
+    </CODE
+> (string $server, string $query)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-finger.query.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Execute a finger query on a server
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-finger.query.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>string $server</I
+></TT
+> 
+      - The name of the server or the IP-adress
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>string $query</I
+></TT
+> 
+      - The finger object to look up
+     </P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-finger.query.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   <TT
+CLASS="parameter"
+><I
+>string</I
+></TT
+> 
+   - the data from the finger request.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-finger.query.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   The returned <A
+HREF="core.pear.pear-error.html"
+><B
+CLASS="classname"
+>PEAR_Error</B
+></A
+> object in case of an error
+   is unspecific, so you can ignore the error code and/or message.
+
+   The reason for a failure could be a failed connection to the server
+   or the server did not run a finger service.
+  </P
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+    You will <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>not</I
+></SPAN
+> get a <A
+HREF="core.pear.pear-error.html"
+><B
+CLASS="classname"
+>PEAR_Error</B
+></A
+>, 
+    if the query fails due to a not existing finger object. 
+
+    This can be only done by checking the data returned by 
+    <B
+CLASS="function"
+>query()</B
+>.
+   </P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-finger.query.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-finger.query.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN82394"><P
+><B
+>Example 48-1. Using <B
+CLASS="function"
+>query()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+$server = "localhost" ; // or IP adress to use
+$query  = "ralph" ;     // Username to look up
+
+$data = Net_Finger::query( $server, $query) ;
+echo $data ; 
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-finger.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-ftp.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Net_Finger</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-finger.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Net_FTP</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

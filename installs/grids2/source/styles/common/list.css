@@ -1,0 +1,119 @@
+/*****************************************************************
+
+	ActiveWidgets 2.0.b3 (beta3)
+	Copyright (C) 2003-2005 ActiveWidgets Ltd. All Rights Reserved. 
+	http://www.activewidgets.com/
+
+	WARNING: This software program is protected by copyright law 
+	and international treaties. Unauthorized reproduction or
+	distribution of this program, or any portion of it, may result
+	in severe civil and criminal penalties, and will be prosecuted
+	to the maximum extent possible under the law.
+
+	FOR TESTING AND EVALUATION ONLY:
+	This software is not free and is licensed to you for testing 
+	and evaluation only. You are not allowed to distribute 
+	or use any parts of this software for any other purposes.
+
+*****************************************************************/
+
+.aw-list-control {
+	width: 400px;
+	height: 150px;
+}
+
+.aw-strict .aw-list-control {
+	width: 392px;
+	height: 146px;
+}
+
+.aw-list-box {
+	display: block;
+	position: relative;
+	overflow: auto;
+	width: 100%;
+	height: 100%;
+	vertical-align: top;
+	-moz-box-flex: 1;
+}
+
+.aw-list-template {
+	display: block;
+	overflow: visible;
+	position: relative;
+	width: auto;
+	height: 100%;
+}
+
+.aw-strict .aw-list-template {
+	padding: 0px 4px 0px 0px;
+	margin:  0px -4px 0px 0px;
+}
+
+.aw-list-item {
+	margin: 0px;
+	vertical-align: top;
+}
+
+
+/* flow vertical */
+
+.aw-flow-vertical {
+	width: 120px;
+}
+
+.aw-strict .aw-flow-vertical {
+	width: 112px;
+}
+
+.aw-flow-vertical .aw-list-item {
+	display: block;
+	overflow: hidden;
+	width: 100%;
+	max-width: 100%;
+}
+
+.aw-strict .aw-flow-vertical .aw-list-item {
+	margin: 0px -8px 0px 0px;
+}
+
+.aw-safari .aw-flow-vertical .aw-list-template {
+	padding: 0px 8px 0px 0px;
+	margin: 0px -4px 0px 0px;
+}
+
+
+
+/* flow horizontal */
+
+.aw-flow-horizontal {
+	height: 23px;
+}
+
+.aw-strict .aw-flow-horizontal {
+	height: 15px;
+}
+
+.aw-flow-horizontal .aw-list-box {
+	overflow: hidden;
+}
+
+.aw-flow-horizontal .aw-list-template {
+	overflow: hidden;
+	width: 9999px;
+}
+
+.aw-strict .aw-flow-horizontal .aw-list-template {
+	padding: 0px  8px  4px  0px;
+	margin:  0px -4px -4px -4px;
+}
+
+.aw-flow-horizontal .aw-list-item {
+	height: 100%;
+	margin: 0;
+}
+
+.aw-strict .aw-flow-horizontal .aw-list-item	{
+	margin:  0px -4px -4px -4px;
+}
+

@@ -1,0 +1,331 @@
+<HTML
+><HEAD
+><TITLE
+>XML_Util::attributesToString</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_Util"
+HREF="package.xml.xml-util.html"><LINK
+REL="PREVIOUS"
+TITLE="XML_Util::apiVersion"
+HREF="package.xml.xml-util.xml-util.apiversion.html"><LINK
+REL="NEXT"
+TITLE="XML_Util::collapseEmptyTags"
+HREF="package.xml.xml-util.xml-util.collapseemptytags.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-util.xml-util.apiversion.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-util.xml-util.collapseemptytags.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.xml.xml-util.xml-util.attributestostring"><B
+CLASS="function"
+>XML_Util::attributesToString()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN105655"
+></A
+><B
+CLASS="function"
+>XML_Util::attributesToString()</B
+>&nbsp;--&nbsp;create XML attribute string</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN105659"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN105660"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'XML/Util.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>string <B
+CLASS="function"
+>XML_Util::attributesToString</B
+></CODE
+> (array $attributes [, boolean $sort = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> [, boolean $multiline = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> [, string $indent = '    ' [, string $linebreak = "\n" [, integer $entities = XML_UTIL_ENTITIES_XML]]]]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-util.xml-util.attributestostring.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      create string representation of an attribute list
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.default.xml-util.xml-util.attributestostring.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;    <P
+></P
+><UL
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>array $attributes</I
+></TT
+> - assoc array containg attributes 
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>boolean $sort</I
+></TT
+> - whether to sort the attributes alphabetically
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>boolean $multiline</I
+></TT
+> - whether to display the attributes on more than one line (makes it easier to read)
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>string $indent</I
+></TT
+> - indentation characters, only used when multiline is set to <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>string $linebreak</I
+></TT
+> - linebreak character, only used when multiline is set to <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>integer $entities</I
+></TT
+> - define, which entities should be replaced in the attribute values. One of
+       XML_UTIL_ENTITIES_NONE, XML_UTIL_ENTITIES_XML, XML_UTIL_ENTITIES_XML_REQUIRED or XML_UTIL_ENTITIES_HTML
+      </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-util.xml-util.attributestostring.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>string</I
+></SPAN
+> string representation of the attributes
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-util.xml-util.attributestostring.note"
+></A
+><H2
+>Note</H2
+><P
+>This function should be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-util.xml-util.apiversion.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-util.xml-util.collapseemptytags.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>XML_Util::apiVersion()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.xml-util.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>XML_Util::collapseEmptyTags()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

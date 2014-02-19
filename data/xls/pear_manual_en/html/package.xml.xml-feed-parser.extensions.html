@@ -1,0 +1,200 @@
+<HTML
+><HEAD
+><TITLE
+>XML_Feed_Parser and Extensions</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_Feed_Parser"
+HREF="package.xml.xml-feed-parser.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction and Quick Start"
+HREF="package.xml.xml-feed-parser.intro.html"><LINK
+REL="NEXT"
+TITLE="XML_Parser"
+HREF="package.xml.xml-parser.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-feed-parser.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-parser.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.xml.xml-feed-parser.extensions">XML_Feed_Parser and Extensions</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN102578"
+></A
+>XML_Feed_Parser and Extensions&nbsp;--&nbsp;Handling extensions with XML_Feed_Parser</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-feed-parser.extensions.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Using XML namespaces, the various syndication formats are very
+   easy to extend and the number of extensions in use is enormous.
+  </P
+><P
+>&#13;   XML_Feed_Parser focusses on core functionality shared between the
+   various syndication formats. Some of the most common extensions are
+   handled natively&#8212;particularly when they provide one format with
+   features to bring it into line with others, such as the content
+   extension for RSS2&#8212;but the majority provide specialist content and
+   providing support for them would quickly result in a bloated package.
+  </P
+><P
+>&#13;   It is possible that a proper extensions mechanism may be introduced
+   in a future version, but as an alternative the DOM models in use within the
+   classes are publicly accessible, allowing the package to be wrapped with
+   special handlers.
+  </P
+><P
+>&#13;   For example, to make use of the 'pheed' extension (namespace
+   http://www.pheed.com/pheed/) we might use:
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$feed = new XML_Feed_Parser($xml_source);
+$entry = $feed-&#62;getEntryByOffset(0);
+$eModel = $entry-&#62;model;
+
+$thumbnails = $eModel-&#62;getElementsByTagNameNS(
+    'http://www.pheed.com/pheed/', 'thumbnail');
+
+if ($thumbnails-&#62;length) {
+    $thumbnail_url = $thumbnails-&#62;item(0)-&#62;nodeValue;
+}</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-feed-parser.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-parser.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction and Quick Start</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.xml-feed-parser.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>XML_Parser</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

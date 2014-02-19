@@ -1,0 +1,369 @@
+<HTML
+><HEAD
+><TITLE
+>-&#62;count()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB_DataObject"
+HREF="package.database.db-dataobject.html"><LINK
+REL="PREVIOUS"
+TITLE="->fetch()"
+HREF="package.database.db-dataobject.db-dataobject.fetch.html"><LINK
+REL="NEXT"
+TITLE="->insert()"
+HREF="package.database.db-dataobject.db-dataobject.insert.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.fetch.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.insert.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db-dataobject.db-dataobject.count">-&#62;count()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN26273"
+></A
+>-&#62;count()&nbsp;--&nbsp;Perform a select count() request</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN26276"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN26277"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int <B
+CLASS="function"
+>$DB_DataObject-&#62;count</B
+></CODE
+> ([string|boolean $countWhat|$whereAddOnly [, boolean $whereAddOnly]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.count.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;       It performs a select count() request on the tables key 
+     column and returns the number of resulting rows.  
+     The default condition applied to the count() is  
+     a combination of the object variables and whereAdd settings.  If
+     the constant DB_DATAOBJECT_WHEREADD_ONLY is passed in as the first 
+     parameter then only the whereAdd settings will be used.
+     
+      
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.count.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $countWhat</I
+></TT
+> - by default count will count on the primary key,
+        if you need to count something else, if you just say DISTINCT, 
+        it will count the primiary key prefixed with distinct, or put your own value in
+        (dont forget to escape it if necessary)
+         
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>boolean $useWhereAddOnly</I
+></TT
+> - use only the 
+         whereAdd conditions (by default, count will only use both the object settings and
+         the whereAdd conditions) 
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.count.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>int|false</I
+></TT
+> - number of results or false on an error
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.count.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+></P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.count.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN26310"><P
+><B
+>Example 33-1. Various examples of using count()</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php 
+
+/* using property values */
+$person = new DataObjects_Person;
+$person-&#62;name  = "test"
+$total = $person-&#62;count();
+echo "There are {$total} people with a name like test";
+
+/* using countWhat */
+$person = new DataObjects_Person;
+$total = $person-&#62;count('DISTINCT name');
+echo "There are {$total} names in the database";
+
+/* using countWhat value = DISTINCT */
+$person = new DataObjects_Person;
+$total = $person-&#62;count('DISTINCT');
+echo "There are {$total} names in the database";
+
+/* using whereOnly */
+$person = new DataObjects_Person;
+$person-&#62;name = "test";
+$person-&#62;whereAdd("name like '%test%");
+$total = $person-&#62;count(DB_DATAOBJECT_WHEREADD_ONLY);
+echo "There are {$total} names in the database";
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN26313"><P
+><B
+>Example 33-2. Resulting SQL </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>SELECT count(person.id) AS DATAOBJECT_NUM 
+    FROM person 
+    WHERE person.name = 'test';
+
+SELECT count(DISTINCT name) AS DATAOBJECT_NUM 
+    FROM person;
+
+SELECT count(DISTINCT person.id) AS DATAOBJECT_NUM 
+    FROM person;
+
+SELECT count(person.id) AS DATAOBJECT_NUM 
+    FROM person 
+    WHERE name like '%test%';</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.fetch.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.insert.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>-&#62;fetch()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>-&#62;insert()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

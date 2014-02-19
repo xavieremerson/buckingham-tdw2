@@ -1,0 +1,199 @@
+<HTML
+><HEAD
+><TITLE
+>Auth_HTTP Example 2</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Auth_HTTP"
+HREF="package.authentication.auth-http.html"><LINK
+REL="PREVIOUS"
+TITLE="Auth_HTTP Example"
+HREF="package.authentication.auth-http.auth-http.example.html"><LINK
+REL="NEXT"
+TITLE="Auth_HTTP::getAuth()"
+HREF="package.authentication.auth-http.auth-http.getauth.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.authentication.auth-http.auth-http.example.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.authentication.auth-http.auth-http.getauth.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.authentication.auth-http.auth-http.example2">Auth_HTTP Example 2</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN16958"
+></A
+>Auth_HTTP Example 2&nbsp;--&nbsp;Example: A password protected page with multiple rows fetch and md5 password</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN16961"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php  
+// example of Auth_HTTP implementation with encrypted password and multiple columns fetch
+
+require_once("Auth/HTTP.php");
+
+// setting the database connection options
+$AuthOptions = array(
+'dsn'=&#62;"pgsql://test:test@localhost/testdb",
+'table'=&#62;"testable",                            // your table name 
+'usernamecol'=&#62;"username",			// the table username column
+'passwordcol'=&#62;"password",			// the table password column
+'cryptType'=&#62;"md5",				// password encryption type in your db
+'db_fields'=&#62;"*",				// enabling fetch for other db columns
+);
+
+
+$a = new Auth_HTTP("DB", $AuthOptions);
+
+$a-&#62;setRealm('yourrealm');			// realm name
+$a-&#62;setCancelText('&#60;h2&#62;Error 401&#60;/h2&#62;');        // error message if authentication fails
+$a-&#62;start();					// starting the authentication process
+
+
+if($a-&#62;getAuth())				// checking for autenticated user 
+{
+	echo "Hello $a-&#62;username welcome to my secret page &#60;BR&#62;";
+	echo "Your details on file are: &#60;BR&#62;";
+	echo $a-&#62;getAuthData('userid');		// retriving other details from the database row
+	echo $a-&#62;getAuthData('telephone');      // in this example the user id, telephone number
+	echo $a-&#62;getAuthData('email');		// and email address
+};
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.authentication.auth-http.auth-http.example.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.authentication.auth-http.auth-http.getauth.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Auth_HTTP Example</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.authentication.auth-http.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Auth_HTTP::getAuth()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

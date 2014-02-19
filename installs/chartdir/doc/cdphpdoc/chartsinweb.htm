@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<Title>Incorporating Charts in Web Pages</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">Incorporating Charts in Web Pages</p>
+<hr class="separator">
+<div class="content">
+In many real application, the charts created by ChartDirector are to be
+displayed inside HTML based web pages.
+<br><br>
+To display any image in a HTML web page, one needs to insert an &lt;IMG&gt; tag
+in the HTML web page. When the browser sees the &lt;IMG&gt; tag, it will load
+the image using the URL in the &lt;IMG&gt; tag in another HTTP connection.
+<br><br>
+This is no difference to display a ChartDirector chart in a HTML web page. An
+&lt;IMG&gt; tag must be used. In this case, the URL in the &lt;IMG&gt; tag
+points to a "ChartDirector script" (a script using ChartDirector to create and
+deliver chart images) instead of a static image file.
+<br><br>
+For example:
+<br><br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp><HTML>
+<BODY>
+
+<h1>Hello World!</h1>
+<p>Hi, this is my first web page with ChartDirector charts.</p>
+
+<IMG SRC="http://aaa.bbb.ccc.ddd/phpdemo/simplebar.php">
+
+More HTML elements ......
+
+</BODY>
+</HTML></xmp></td></tr></table><br>
+In the above code, the "http://aaa.bbb.ccc.ddd/phpdemo/simplebar.php" is a
+ChartDirector script that creates and delivers a chart.
+<br><br>
+You can include multiple charts in the same web page by using multiple
+&lt;IMG&gt; tags.
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div></body>
+</HTML>

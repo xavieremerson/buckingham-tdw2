@@ -1,0 +1,250 @@
+<html>
+<head>
+<link href="../../runtime/styles/xp/aw.css" rel="stylesheet"></link>
+<script src="../../runtime/lib/aw.js"></script>
+<style>
+	.aw-system-control {position: absolute}
+
+	#box	 {left:   0px; top:   0px; width: 398px; height: 432px; border: 1px solid #999; background: #ece9d8; position: absolute;}
+	#tabs	 {left:   6px; top:   6px; width: 386px; height:  22px;}
+	#frame	 {left:   6px; top:  28px; width: 386px; height: 362px; border: 1px solid #999; background: #f9f8f4; position: absolute;}
+
+	#group1  {left:  21px; top:  40px; width: 357px; height: 100px;}
+	#label1	 {left:  70px; top:  60px; width: 300px; height:  16px;}
+	#label2	 {left:  35px; top:  63px; width:  30px; height:  16px;}
+	#label3	 {left:  71px; top:  82px; width:  50px; height:  16px;}
+	#input1	 {left: 135px; top:  81px; width: 230px; height:  20px;}
+	#button1 {left: 112px; top: 108px; width:  82px;}
+	#button2 {left: 198px; top: 108px; width:  82px;}
+	#button3 {left: 284px; top: 108px; width:  82px;}
+
+	#group2  {left:  21px; top: 150px; width: 357px; height:  86px;}
+	#label4	 {left:  70px; top: 167px; width: 310px; height:  28px;}
+	#label5	 {left:  35px; top: 170px; width:  30px; height:  16px;}
+	#button4 {left:  95px; top: 204px; width:  95px;}
+	#button5 {left: 198px; top: 204px; width:  82px;}
+	#button6 {left: 284px; top: 204px; width:  82px;}
+
+	#group3  {left:  21px; top: 247px; width: 357px; height:  95px;}
+	#label6	 {left:  70px; top: 265px; width: 310px; height:  28px;}
+	#label7	 {left:  35px; top: 268px; width:  30px; height:  16px;}
+	#label8	 {left:  71px; top: 305px; width: 150px; height:  16px;}
+	#input2	 {left: 240px; top: 304px; width:  39px; height:  20px;}
+	#button7 {left: 284px; top: 302px; width:  82px;}
+
+	#button8 {left:  20px; top: 350px; width:  85px;}
+	#button9 {left: 111px; top: 350px; width:  85px;}
+	#button10{left: 202px; top: 350px; width:  85px;}
+	#button11{left: 293px; top: 350px; width:  85px;}
+
+	#button12{left: 154px; top: 400px; width:  75px;}
+	#button13{left: 236px; top: 400px; width:  75px;}
+	#button14{left: 318px; top: 400px; width:  75px;}
+
+	#label9	 {left:  70px; top:  60px; width: 300px; height:  16px;}
+
+</style>
+</head>
+<body>
+<script>
+
+	var box = new AW.HTML.DIV;
+	box.setId("box");
+	document.write(box);
+
+	var tabs = new AW.UI.Tabs;
+	tabs.setId("tabs");
+	tabs.setItemText(["General", "Security", "Privacy", "Content", "Connections", "Programs", "Advanced"]);
+	tabs.setItemCount(7);
+	tabs.setSelectedItems([0]);
+	document.write(tabs);
+
+	var frame = new AW.HTML.DIV;
+	frame.setId("frame");
+	document.write(frame);
+
+	var container = new AW.HTML.SPAN;
+	document.write(container);
+
+//--
+
+	var group1 = new AW.UI.Group;
+	group1.setId("group1");
+	group1.setControlText("Home page");
+
+	var label1 = new AW.UI.Label;
+	label1.setId("label1");
+	label1.setControlText("You can change which page to use for your home page.");
+
+	var label2 = new AW.UI.Label;
+	label2.setId("label2");
+	label2.setControlImage("home");
+
+	var label3 = new AW.UI.Label;
+	label3.setId("label3");
+	label3.setControlText("Address:");
+
+	var input1 = new AW.UI.Input;
+	input1.setId("input1");
+	input1.setControlText("http://www.google.com/");
+
+	var button1 = new AW.UI.Button;
+	button1.setId("button1");
+	button1.setControlText("Use Current");
+
+	var button2 = new AW.UI.Button;
+	button2.setId("button2");
+	button2.setControlText("Use Default");
+
+	var button3 = new AW.UI.Button;
+	button3.setId("button3");
+	button3.setControlText("Use Blank");
+
+//	---
+
+	var group2 = new AW.UI.Group;
+	group2.setId("group2");
+	group2.setControlText("Temporary Internet Files");
+
+	var label4 = new AW.UI.Label;
+	label4.setId("label4");
+	label4.setControlText("Pages you view on the Internet are stored in a special folder for quick viewing later.");
+	label4.setClass("text", "wrap");
+
+	var label5 = new AW.UI.Label;
+	label5.setId("label5");
+	label5.setControlImage("favorites");
+
+	var button4 = new AW.UI.Button;
+	button4.setId("button4");
+	button4.setControlText("Delete Cookies&hellip;");
+
+	var button5 = new AW.UI.Button;
+	button5.setId("button5");
+	button5.setControlText("Delete Files&hellip;");
+
+	var button6 = new AW.UI.Button;
+	button6.setId("button6");
+	button6.setControlText("Settings&hellip;");
+
+//	---
+
+	var group3 = new AW.UI.Group;
+	group3.setId("group3");
+	group3.setControlText("History");
+
+	var label6 = new AW.UI.Label;
+	label6.setId("label6");
+	label6.setControlText("The History folder contains links to pages you've visited, for quick access to recently viewed pages.");
+	label6.setClass("text", "wrap");
+
+	var label7 = new AW.UI.Label;
+	label7.setId("label7");
+	label7.setControlImage("search");
+
+	var label8 = new AW.UI.Label;
+	label8.setId("label8");
+	label8.setControlText("Days to keep pages in history:");
+
+	var input2 = new AW.UI.Input;
+	input2.setId("input2");
+	input2.setControlText("5");
+
+	var button7 = new AW.UI.Button;
+	button7.setId("button7");
+	button7.setControlText("Clear History");
+
+//	---
+
+	var button8 = new AW.UI.Button;
+	button8.setId("button8");
+	button8.setControlText("Colors&hellip;");
+
+	var button9 = new AW.UI.Button;
+	button9.setId("button9");
+	button9.setControlText("Fonts&hellip;");
+
+	var button10 = new AW.UI.Button;
+	button10.setId("button10");
+	button10.setControlText("Languages&hellip;");
+
+	var button11 = new AW.UI.Button;
+	button11.setId("button11");
+	button11.setControlText("Accessibility&hellip;");
+
+//	---
+
+
+	var label9 = new AW.UI.Label;
+	label9.setId("label9");
+	label9.setControlText("Other pages not yet implemented");
+	label9.setControlImage("favorites");
+
+//	---
+
+
+	var button12 = new AW.UI.Button;
+	button12.setId("button12");
+	button12.setControlText("OK");
+	document.write(button12);
+
+	var button13 = new AW.UI.Button;
+	button13.setId("button13");
+	button13.setControlText("Cancel");
+	document.write(button13);
+
+	var button14 = new AW.UI.Button;
+	button14.setId("button14");
+	button14.setControlText("Apply");
+	document.write(button14);
+
+//	---
+
+	button1.onClick = function(){
+		input1.setControlText("http://www.activewidgets.com/");
+	}
+
+	button2.onClick = function(){
+		input1.setControlText("http://www.google.com/");
+	}
+
+	button3.onClick = function(){
+		input1.setControlText("");
+	}
+
+	button4.onClick = function(){
+		alert("Not implemented");
+	}
+
+	button5.onClick = function(){
+		alert("Not implemented");
+	}
+
+	button6.onClick = function(){
+		alert("Not implemented");
+	}
+
+//	---
+
+	var page1 = [group1, label1, label2, label3, input1, button1, button2, button3,
+				 group2, label4, label5, button4, button5, button6,
+				 group3, label6, label7, label8, input2, button7,
+				 button8, button9, button10, button11];
+
+	var page2 = [label9];
+
+	var pages = [page1, page2, page2, page2, page2, page2, page2];
+
+	container.element().innerHTML = page1.join("");
+
+    tabs.onCurrentItemChanged = function(i) {
+
+		container.element().innerHTML = pages[i].join("");
+
+		if (container.$browser=="opera"){document.body.className += ""}
+    }
+
+
+</script>
+</body>
+</html>

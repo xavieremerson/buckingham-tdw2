@@ -1,0 +1,422 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_Table::setCellAttributes</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Table"
+HREF="package.html.html-table.html"><LINK
+REL="PREVIOUS"
+TITLE="HTML_Table::setCaption"
+HREF="package.html.html-table.html-table.setcaption.html"><LINK
+REL="NEXT"
+TITLE="HTML_Table::setCellContents"
+HREF="package.html.html-table.html-table.setcellcontents.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-table.html-table.setcaption.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-table.html-table.setcellcontents.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-table.html-table.setcellattributes">HTML_Table::setCellAttributes</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN67801"
+></A
+>HTML_Table::setCellAttributes&nbsp;--&nbsp;Set cell attributes</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN67804"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN67805"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/Table.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>HTML_Table::setCellAttributes</B
+></CODE
+> (int $row, int $col, mixed $attributes)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-table.html-table.setcellattributes.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Sets the cell attributes for an existing cell. If the given indices
+     do not exist and <TT
+CLASS="parameter"
+><I
+>autoGrow</I
+></TT
+> is 
+     <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> then the 
+     given row and/or column is automatically added.
+     If <TT
+CLASS="parameter"
+><I
+>autoGrow</I
+></TT
+> is 
+     <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>, an error is returned.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-table.html-table.setcellattributes.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>int $row</I
+></TT
+> -
+        Row index
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>int $col</I
+></TT
+> -
+        Column index
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>mixed $attributes</I
+></TT
+> -
+        Associative array or string of table cell attributes
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="packages.html.html-table.html-table.setcellattributes.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN67839"><P
+><B
+>Table 41-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Meaning</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"
+           Invalid table row reference [<TT
+CLASS="parameter"
+><I
+>$row</I
+></TT
+>]
+          "</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The row <TT
+CLASS="parameter"
+><I
+>$row</I
+></TT
+> does not exists</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Enable the <TT
+CLASS="parameter"
+><I
+>autoGrow</I
+></TT
+> feature</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"
+           Invalid table column reference [<TT
+CLASS="parameter"
+><I
+>$column</I
+></TT
+>]
+          "</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The column <TT
+CLASS="parameter"
+><I
+>$column</I
+></TT
+> does not exists</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Enable the <TT
+CLASS="parameter"
+><I
+>autoGrow</I
+></TT
+> feature</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-table.html-table.setcellattributes.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+></P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-table.html-table.setcellattributes.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;     <A
+HREF="package.html.html-table.html-table.setautogrow.html"
+>&#13;      <B
+CLASS="function"
+>HTML_Table::setAutoGrow()</B
+>
+     </A
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-table.html-table.setcaption.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-table.html-table.setcellcontents.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_Table::setCaption</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-table.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_Table::setCellContents</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

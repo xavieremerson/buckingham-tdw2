@@ -1,0 +1,369 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Calendar"
+HREF="package.datetime.calendar.html"><LINK
+REL="PREVIOUS"
+TITLE="Calendar"
+HREF="package.datetime.calendar.html"><LINK
+REL="NEXT"
+TITLE="Installing"
+HREF="package.datetime.calendar.intro-installing.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.datetime.calendar.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.datetime.calendar.intro-installing.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.datetime.calendar.intro-purpose">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN32209"
+></A
+>Introduction&nbsp;--&nbsp;
+        What <B
+CLASS="classname"
+>Calendar</B
+> can do
+      </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32213"
+></A
+><H2
+>Introduction</H2
+><P
+>&#13;       <DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;            Some classes in PEAR::<B
+CLASS="classname"
+>Calendar</B
+> require
+            PEAR::<B
+CLASS="classname"
+>Date</B
+> be installed.
+            The PEAR::<B
+CLASS="classname"
+>Date</B
+> 1.3.1beta is missing a file
+            and will not work. Make sure you have PEAR::<B
+CLASS="classname"
+>Date</B
+>
+            version 1.4 or newer installed.
+           </P
+></TD
+></TR
+></TABLE
+></DIV
+>
+       </P
+><P
+>&#13;        PEAR::Calendar is a package for generating Calendars as data structures.
+        It does not render content or rely on any underlying data store,
+        allowing it to be applied to many problem domains.
+        At the same time it provides an easy to use API that makes rendering,
+        for example, an HTML calendar very easy, while making it possible to
+        "connect" the calendar with your data store.
+       </P
+><P
+>&#13;       PEAR::<B
+CLASS="classname"
+>Calendar</B
+> was developed as a result of finding
+       no alternatives out there in PHP.
+       There are numerous public domain calendar utilities / classes out there
+       but all are tied to a specific output format (typically HTML with limited
+       ability to customize without re-writing code) and often dependent on pre-built
+       data structures stored in a database (read MySQL).
+       This poses significant restrictions on the problem domains they can be applied to.
+       By contrast PEAR::Calendar focuses on eliminating the math from the task
+       of generating a calendar, allowing the end user to simply iterate over
+       a prepared data structure.
+      </P
+><P
+>&#13;        Some of the benefits / features of PEAR::Calendar include:
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;             You can render whatever output you like (e.g. (X)HTML, WML, SOAP,
+             XML-RPC, command line ASCII or whatever).
+            </P
+></LI
+><LI
+><P
+>&#13;             Generating a calendar is much like looping through the results of
+             a database query.
+            </P
+></LI
+><LI
+><P
+>&#13;             Representations of all "date objects" from a Year down to a Second
+             (e.g. you can equally render a complete yearly calendar with months
+             and days or a "Weekly / Daily Diary")
+            </P
+></LI
+><LI
+><P
+>Allows "tabular" calendars to be generated easily.</P
+></LI
+><LI
+><P
+>Any date can be easily validated (is 29th Feb 2003 valid?).</P
+></LI
+><LI
+><P
+>Performs well despite number crunching and object oriented API.</P
+></LI
+><LI
+><P
+>&#13;             Calendars can be easily navigated (e.g. providing a link from
+             1st Jan 2004 to 31st Dec 2003 is no problem).
+            </P
+></LI
+><LI
+><P
+>&#13;             It returns numeric values for all operations, meaning you are not
+             tied to using, say, English names for months.
+             Typically you would generate these yourself with PHP functions like
+             <B
+CLASS="function"
+>strftime()</B
+> and <B
+CLASS="function"
+>setlocale()</B
+>.
+            </P
+></LI
+><LI
+><P
+>&#13;             Representations of a date can be obtained as a human readable number
+             or in the form of a timestamp (e.g. Unix Timestamp), depending on the
+             calendar engine you are using.
+            </P
+></LI
+><LI
+><P
+>&#13;             You can attach your own functionality to the calendar by creating Decorators.
+            </P
+></LI
+><LI
+><P
+>Allows you to write layered, N-Tier applications.</P
+></LI
+><LI
+><P
+>&#13;             The calendar "calculation engine" is abstracted meaning you are not
+             tied to a Gregorian calendar - you  could write a Tolkien calendar
+             should you wish.
+             Currently "engines" based on Unixtimestamps (the default) and
+             PEAR::<B
+CLASS="classname"
+>Date</B
+> have been implemented.
+            </P
+></LI
+></UL
+>
+      </P
+><P
+>&#13;      <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN32255"><P
+><B
+>Example 34-1. A Simple Example</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Calendar/Month.php';
+
+$Month = new Calendar_Month(2003, 10); // October 2003
+
+$Month-&#62;build(); // Build the days in the month
+
+// Loop through the days...
+while ($Day = $Month-&#62;fetch()) {
+    echo $Day-&#62;thisDay().'&#60;br /&#62;';
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+        <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Note:</I
+></SPAN
+> there are numerous and extensive examples provided
+        with the PEAR::<B
+CLASS="classname"
+>Calendar</B
+> package file.
+      </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.datetime.calendar.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.datetime.calendar.intro-installing.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Calendar</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.datetime.calendar.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Installing</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

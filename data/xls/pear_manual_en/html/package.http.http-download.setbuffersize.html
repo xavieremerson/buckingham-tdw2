@@ -1,0 +1,278 @@
+<HTML
+><HEAD
+><TITLE
+>HTTP_Download::setBufferSize</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTTP_Download"
+HREF="package.http.http-download.html"><LINK
+REL="PREVIOUS"
+TITLE="HTTP_Download::setCacheControl"
+HREF="package.http.http-download.setcachecontrol.html"><LINK
+REL="NEXT"
+TITLE="HTTP_Download::setThrottleDelay"
+HREF="package.http.http-download.setthrottledelay.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.http.http-download.setcachecontrol.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.http.http-download.setthrottledelay.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.http.http-download.setbuffersize"><B
+CLASS="function"
+>HTTP_Download::setBufferSize()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN75172"
+></A
+><B
+CLASS="function"
+>HTTP_Download::setBufferSize()</B
+>&nbsp;--&nbsp;
+   Set size of buffer in bytes.
+  </DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN75176"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN75177"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     mixed
+     <B
+CLASS="function"
+>HTTP_Download::setBufferSize</B
+>
+    </CODE
+> (int
+     [$size = 2097152])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.setbuffersize.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   The amount of bytes specified as buffer size is the maximum amount
+   of data read at once from resources or files. 
+   
+   The default size is 2M (2097152 bytes).
+  </P
+><P
+>&#13;   Be aware that if you enable gzip compression and
+   you set a very low buffer size that the actual file size may grow
+   due to added gzip headers for each sent chunk of the specified size.
+  </P
+><P
+>&#13;   Returns <B
+CLASS="classname"
+>PEAR_Error</B
+> 
+   (<TT
+CLASS="constant"
+><B
+>HTTP_DOWNLOAD_E_INVALID_PARAM</B
+></TT
+>) 
+   if $size is not greater than 0 bytes.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.setbuffersize.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      int
+      <TT
+CLASS="parameter"
+><I
+>&#13;       [$size = 2097152]
+      </I
+></TT
+>
+      - amount of bytes to buffer
+     </P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.setbuffersize.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   Returns <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> on success,
+<B
+CLASS="classname"
+>PEAR_Error</B
+> on failure.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.setbuffersize.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.http.http-download.setcachecontrol.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.http.http-download.setthrottledelay.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>HTTP_Download::setCacheControl()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.http.http-download.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>HTTP_Download::setThrottleDelay()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

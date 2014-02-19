@@ -1,0 +1,718 @@
+<HTML
+><HEAD
+><TITLE
+>Archive_Tar::addModify()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Archive-Tar"
+HREF="package.filesystem.archive-tar.html"><LINK
+REL="PREVIOUS"
+TITLE="Archive_Tar::add()"
+HREF="package.filesystem.archive-tar.add.html"><LINK
+REL="NEXT"
+TITLE="Archive_Tar::create()"
+HREF="package.filesystem.archive-tar.create.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.archive-tar.add.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.archive-tar.create.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.filesystem.archive-tar.addmodify">Archive_Tar::addModify()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN45320"
+></A
+>Archive_Tar::addModify()&nbsp;--&nbsp;add files or directories</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN45323"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN45324"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Archive/Tar.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>boolean <B
+CLASS="function"
+>addModify</B
+></CODE
+> (mixed $filelist, string
+      $add_dir [, string
+      $remove_dir = ''])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.archive-tar.addmodify.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     This methods add files and directories listed in <TT
+CLASS="parameter"
+><I
+>&#13;     filelist</I
+></TT
+> at the end of the existing archive.
+    </P
+><P
+>&#13;     If the archive does not exists it attempts to create it.
+     If a file or directory is already in the archive it will only be added
+     at the end of the archive. There is no update of the existing archived
+     file or directory. However while extracting the archive, the last file will
+     replace the first one. This results in a none optimization of the
+     archive size. If a file or directory does not exists, it is ignored.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.archive-tar.addmodify.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>mixed $filelist</I
+></TT
+> - 
+        an array of filenames and directory
+        names, or a single string with names separated by a single blank space.
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $add_dir</I
+></TT
+> - 
+        a string which contains a path to be
+        added to the memorized path of each element in the list.
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $remove_dir</I
+></TT
+> - 
+        a string which contains a path to be
+        removed from the memorized path of each element in the list, when
+        relevant. 
+       </P
+><P
+>&#13;        The path indicated in <TT
+CLASS="parameter"
+><I
+>add_dir</I
+></TT
+> will be added
+        at the beginning of the memorized path of each file/directory 
+        listed. However it can be set to empty ''. The adding of a 
+        path is done after the removing of path. The path 
+        add/remove ability enables the user to prepare an archive
+        for extraction in a different path than the original path.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.archive-tar.addmodify.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>boolean</I
+></TT
+> - Returns <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> on success, <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> on failure.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.archive-tar.addmodify.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN45365"><P
+><B
+>Table 38-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"Invalid file list"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The argument for the function is not
+          correctly formatted or build.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Check for typing mistakes in the argument
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"Unable to open in write mode <TT
+CLASS="parameter"
+><I
+>file name</I
+></TT
+>"</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          The file permissions for an existing file do not allow
+          writing or the file is locked.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Check permissions and possible competive programs using
+          the file.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"Invalid file list"</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Archive is empty or corrupted
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"File <TT
+CLASS="parameter"
+><I
+>filename</I
+></TT
+> does not exist"</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          A file you want to add to the archive does not exist.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>          
+          Check for typing mistakes in the function argument.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"Directory <TT
+CLASS="parameter"
+><I
+>dirname</I
+></TT
+> can not be read"</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          A directory or a file in it you want to add to the archive 
+          does not exists or the permissions for reading the
+          directory does not allow access.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>          
+          Check for typing mistakes in the function argument and permissions.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"Unable to open file <TT
+CLASS="parameter"
+><I
+>filename</I
+></TT
+>in binary read mode"</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          The file to add to the archive could not be read.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>          
+          Check for typing mistakes in the function argument and file 
+          permissions.
+         </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.archive-tar.addmodify.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.archive-tar.addmodify.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN45426"><P
+><B
+>Example 38-1. Add files to a compressed archive in a new directory</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$tar_object = new Archive_Tar("tarname.tar");
+$v_list[0]="dev/file.txt";
+$v_list[1]="dev/data/";
+$v_list[2]="log/file.log";
+$tar_object-&#62;addModify($v_list, "install");
+// files are stored in the archive as :
+//   install/file.txt
+//   install/data
+//   install/data/file1.txt
+//   install/data/... all the files and sub-dirs of data/
+//   install/file.log</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN45429"><P
+><B
+>Example 38-2. 
+      Add files to a compressed archive moving to a new directory
+     </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$tar_object = new Archive_Tar("tarname.tar");
+$v_list[0]="dev/file.txt";
+$v_list[1]="dev/data/";
+$v_list[2]="log/file.log";
+$tar_object-&#62;addModify($v_list, "install", "dev");
+// files are stored in the archive as :
+//   install/file.txt
+//   install/data
+//   install/data/file1.txt
+//   install/data/...         all the files and sub-dirs of data/
+//   install/log/file.log</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN45432"><P
+><B
+>Example 38-3. 
+      Add files to a compressed archive moving to a new directory
+      (especially for Windows)
+     </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$tar_object = new Archive_Tar("tarname.tar");
+$v_list[0]="d:\\dev\\file.txt";
+$v_list[1]="d:\\dev\\data\\";
+$v_list[2]="d:\\log\\file.log";
+$tar_object-&#62;addModify($v_list, "install/temp", "d:\\dev");
+// files are stored in the archive as :
+//   install/temp/file.txt
+//   install/temp/data
+//   install/temp/data/file1.txt
+//   install/temp/data/...         all the files and sub-dirs of data/
+//   install/temp/log/file.log</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;    On Windows system, Windows path format can be used. 
+    However if the files are using a Windows path, 
+    the <TT
+CLASS="parameter"
+><I
+>$remove_dir</I
+></TT
+> parameter must also be
+    in Windows path format.
+    The <TT
+CLASS="parameter"
+><I
+>$add_dir</I
+></TT
+> parameter can be in 
+    Windows or Unix path format.
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.filesystem.archive-tar.add.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.filesystem.archive-tar.create.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Archive_Tar::add()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.filesystem.archive-tar.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Archive_Tar::create()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

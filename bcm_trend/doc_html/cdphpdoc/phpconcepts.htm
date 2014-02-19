@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<Title>Appendix - PHP Concepts</Title>
+<link type='text/css' rel='Stylesheet' href="maxchartapi.css" />
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+<p class="heading0">ChartDirector Ver 5.0 (PHP Edition)</p>
+<p class="heading1">Appendix - PHP Concepts</p>
+<hr class="separator">
+<div class="content">This document introduces some PHP concepts and features that may be useful for ChartDirector installation.
+</div><p class="heading1a"><a name="phpinfo"></a>phpinfo - Obtaining PHP Configuration Information</p><div class="content">
+phpinfo is a standard PHP function for obtain detail information about your PHP system. To use it, create a PHP file on your web server that contains only one line as follows:<br><br>
+<div style="margin-left:25;font-family:courier new,courier">
+<pre>&lt;?php phpinfo() ?&gt;</pre> </div><br>
+Access the above PHP file with a browser, and it will display your PHP configuration.
+</div><p class="heading1a"><a name="inifile"></a>php.ini - PHP Configuration File</p><div class="content">
+PHP configurations are stored in a text file called the PHP configuration file. The file name is usually "php.ini" but sometimes a different file name is used. You may use <a href="#phpinfo">phpinfo</a> to find out the exact location and name of your PHP configuration file.<br><br>
+<div style="background-color:#cccccc;width:99%;padding:10px">
+<b><u>Notes For Shared Hosting</u></b><br><br>
+If you are using shared hosting, you may be unable to modify the default "php.ini". In most cases, it is possible to use an alternative "php.ini" under your control. The details depend on how the PHP system is configured.<br><br>
+Some hosting companies provide instructions on how to set up custom "php.ini". (If you search for "custom php.ini hosting" using a search engine, you may find many hits from hosting companies.) So the first source of information is to read the technical documentation and FAQ of your hosting provider, and search its support forum to see if there are instructions on using custom "php.ini".<br><br>
+If the "Server API" of your PHP is CGI or FastCGI (you may use <a href="#phpinfo">phpinfo</a> to find out), you may try to put the custom "php.ini" in the same directory as the PHP script. Some CGI PHP will scan the script directory first for the "php.ini" before using the default "php.ini".<br><br>
+If your web server is using Apache and supports CGI (the vast majority of PHP shared hosting are based on Apache and support CGI), you may use ".htaccess" to forward all ".php" request to your own CGI script. In your own CGI script (can be a shell script), you may invoke a PHP CGI interpreter with a "-c" flag to specify your own "php.ini". (Even if the default PHP interpreter is not CGI based, there is often a PHP CGI interpreter in "/usr/bin" or other directory.)<br><br>
+<b>Note:</b> From experience, the last method has a high success rate, but the exact steps differ depending on how the Apache and PHP are set up. If you are not sure how to implement this method, you may contact our support service at <a href="mailto:support@advsofteng.net">support@advsofteng.net</a> for help. Please include the URL of your <a href="phpconcepts.htm#phpinfo">phpinfo</a> page in your email.
+</div><br>
+</div><p class="heading1a"><a name="extdir"></a>PHP Extension Directory</p><div class="content">
+The PHP extension directory is a directory for storing PHP extension DLLs or shared objects. The PHP extension directory is configured using the "extension_dir" statement in <a href="#inifile">php.ini</a>. You may use <a href="#phpinfo">phpinfo</a> to find out where is your PHP extension directory.<br><br>
+If the PHP extension directory is configured as a relative path (such as "./"), please make sure you know where the path is relative to. Depending on how the PHP system is set up, it can be relative to the PHP script directory, the PHP interpreter directory, the web server executable directory, other directory. To avoid confusion, it is best to set the PHP extension directory to an absolute path.<br><br>
+<div style="background-color:#cccccc;width:99%;padding:10px">
+<b><u>Notes For Shared Hosting</u></b><br><br>
+If you are using shared hosting, you may be unable to write to the PHP extension directory. In this case, you may ask your hosting company to copy the files for you. Some hosting companies are willing to do this for commercial PHP extensions with a proven track record (like ChartDirector, which is available since 2001).<br><br>
+Alternatively, you may try to use a custom "php.ini", and put an "extension_dir" statement in it to set the PHP extension directory to a directory under your control. The "extension_dir" statement is like:<br><br>
+<div style="margin-left:25;font-family:courier new,courier"> <code>extension_dir=/home/path/to/my/personal/directory</code> </div><br>
+See <a href="#inifile">php.ini</a> for details on how to set up a custom "php.ini".<br><br>
+</ul>
+</div></div><br>
+<hr class="separator"><div class="copyright">&copy; 2008 Advanced Software Engineering Limited. All rights reserved.</div></body>
+</HTML>

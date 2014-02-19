@@ -1,0 +1,431 @@
+<HTML
+><HEAD
+><TITLE
+>MDB::connect()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="MDB"
+HREF="package.database.mdb.html"><LINK
+REL="PREVIOUS"
+TITLE="
+   MDB
+  "
+HREF="package.database.mdb.mdb.html"><LINK
+REL="NEXT"
+TITLE="MDB::isError()"
+HREF="package.database.mdb.mdb.iserror.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb.mdb.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb.mdb.iserror.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.mdb.mdb.connect">MDB::connect()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN27874"
+></A
+>MDB::connect()&nbsp;--&nbsp;connects to database</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN27877"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN27878"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'MDB.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>object <B
+CLASS="function"
+>MDB::connect</B
+>
+    </CODE
+> (string $dsn, boolean
+      [$options = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb.mdb.connect.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Creates a new MDB connection object and connect to the specified
+     database
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb.mdb.connect.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$dsn</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Data Source Name. See the
+         <A
+HREF="package.database.mdb.intro-dsn.html"
+>"DSN" section</A
+>
+         for further information.
+        </P
+></DD
+><DT
+>boolean
+        <TT
+CLASS="parameter"
+><I
+>$options</I
+></TT
+></DT
+><DD
+><P
+>&#13;         If <TT
+CLASS="parameter"
+><I
+>$options</I
+></TT
+> is <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> the
+         connection will be persistent
+         (requires support by database driver).
+         Default is <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>. In future releases, this parameter
+         will be an array
+         and take different options depending on the database.
+        </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb.mdb.connect.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   <TT
+CLASS="parameter"
+><I
+>object</I
+></TT
+> - the created MDB connection object,
+     or a <A
+HREF="package.database.mdb.mdb-error.html"
+><B
+CLASS="classname"
+>MDB_Error</B
+></A
+> object on error.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb.mdb.connect.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <DIV
+CLASS="table"
+><A
+NAME="AEN27921"><P
+><B
+>Table 33-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <TT
+CLASS="constant"
+><B
+>MDB_ERROR_NOT_FOUND</B
+></TT
+>
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          The database specific class was not found.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Check the <TT
+CLASS="parameter"
+><I
+>$dsn</I
+></TT
+> and make sure
+          to have an complete installation of the
+          <TT
+CLASS="filename"
+>MDB-package</TT
+> and that you database
+          is supported by <A
+HREF="package.database.mdb.html"
+><B
+CLASS="classname"
+>MDB</B
+></A
+>.
+         </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb.mdb.connect.note"
+></A
+><H2
+>Note</H2
+><P
+>This function should be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb.mdb.connect.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="package.database.mdb.mdb-common.disconnect.html"
+>&#13;    <B
+CLASS="function"
+>MDB::disconnect()</B
+>
+   </A
+>,
+     <A
+HREF="package.database.mdb.intro-connect.html"
+>&#13;    <B
+CLASS="function"
+>Tutorial - Connect()</B
+>
+   </A
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.mdb.mdb.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.mdb.mdb.iserror.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="classname"
+>MDB</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.mdb.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>MDB::isError()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

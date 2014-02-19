@@ -1,0 +1,261 @@
+<HTML
+><HEAD
+><TITLE
+>Net_Socket</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Networking"
+HREF="package.networking.html"><LINK
+REL="PREVIOUS"
+TITLE="Net_SMTP::vrfy"
+HREF="package.networking.net-smtp.net-smtp.vrfy.html"><LINK
+REL="NEXT"
+TITLE="Net_Socket::connect()"
+HREF="package.networking.net-socket.connect.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-smtp.net-smtp.vrfy.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 48. Networking</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-socket.connect.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.networking.net-socket">Net_Socket</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.networking.net-socket.connect.html"
+>Net_Socket::connect()</A
+>&nbsp;--&nbsp;connects to a server</DT
+><DT
+><A
+HREF="package.networking.net-socket.disconnect.html"
+>Net_Socket::disconnect()</A
+>&nbsp;--&nbsp;disconnects from a server</DT
+><DT
+><A
+HREF="package.networking.net-socket.eof.html"
+>Net_Socket::eof()</A
+>&nbsp;--&nbsp;test for end-of-file</DT
+><DT
+><A
+HREF="package.networking.net-socket.gets.html"
+>Net_Socket::gets()</A
+>&nbsp;--&nbsp;retrieve a string</DT
+><DT
+><A
+HREF="package.networking.net-socket.getstatus.html"
+>Net_Socket::getStatus()</A
+>&nbsp;--&nbsp;retrieve information about a connection</DT
+><DT
+><A
+HREF="package.networking.net-socket.isblocking.html"
+>Net_Socket::isBlocking()</A
+>&nbsp;--&nbsp;check for blocking mode</DT
+><DT
+><A
+HREF="package.networking.net-socket.read.html"
+>Net_Socket::read()</A
+>&nbsp;--&nbsp;retrieve data</DT
+><DT
+><A
+HREF="package.networking.net-socket.readall.html"
+>Net_Socket::readAll()</A
+>&nbsp;--&nbsp;retrieve data until connection closes</DT
+><DT
+><A
+HREF="package.networking.net-socket.readbyte.html"
+>Net_Socket::readByte()</A
+>&nbsp;--&nbsp;read a byte</DT
+><DT
+><A
+HREF="package.networking.net-socket.readint.html"
+>Net_Socket::readInt()</A
+>&nbsp;--&nbsp;read an integer</DT
+><DT
+><A
+HREF="package.networking.net-socket.readipaddress.html"
+>Net_Socket::readIPAddress()</A
+>&nbsp;--&nbsp;read an IP-address</DT
+><DT
+><A
+HREF="package.networking.net-socket.readline.html"
+>Net_Socket::readLine()</A
+>&nbsp;--&nbsp;retrieve data until line end</DT
+><DT
+><A
+HREF="package.networking.net-socket.readstring.html"
+>Net_Socket::readString()</A
+>&nbsp;--&nbsp;read a string</DT
+><DT
+><A
+HREF="package.networking.net-socket.readword.html"
+>Net_Socket::readWord()</A
+>&nbsp;--&nbsp;read a word</DT
+><DT
+><A
+HREF="package.networking.net-socket.setblocking.html"
+>Net_Socket::setBlocking()</A
+>&nbsp;--&nbsp;sets blocking mode</DT
+><DT
+><A
+HREF="package.networking.net-socket.settimeout.html"
+>Net_Socket::setTimeout()</A
+>&nbsp;--&nbsp;sets timeout</DT
+><DT
+><A
+HREF="package.networking.net-socket.write.html"
+>Net_Socket::write()</A
+>&nbsp;--&nbsp;write data</DT
+><DT
+><A
+HREF="package.networking.net-socket.writeline.html"
+>Net_Socket::writeLine()</A
+>&nbsp;--&nbsp;write data including EOL</DT
+><DT
+><A
+HREF="package.networking.net-socket.example.html"
+>Example</A
+>&nbsp;--&nbsp;using <B
+CLASS="classname"
+>Net_Socket</B
+></DT
+></DL
+></DIV
+><P
+>&#13;  <B
+CLASS="classname"
+>Net_Socket</B
+> provides a generic API 
+  for communication over TCP/IP-sockets.
+ </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-smtp.net-smtp.vrfy.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-socket.connect.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>Net_SMTP::vrfy()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Net_Socket::connect()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

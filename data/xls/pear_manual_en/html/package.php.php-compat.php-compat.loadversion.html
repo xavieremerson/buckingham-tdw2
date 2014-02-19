@@ -1,0 +1,401 @@
+<HTML
+><HEAD
+><TITLE
+>PHP_Compat::loadVersion</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PHP_Compat"
+HREF="package.php.php-compat.html"><LINK
+REL="PREVIOUS"
+TITLE="PHP_Compat::loadConstant"
+HREF="package.php.php-compat.php-compat.loadconstant.html"><LINK
+REL="NEXT"
+TITLE="PHPUnit"
+HREF="package.php.phpunit.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.php.php-compat.php-compat.loadconstant.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.php.phpunit.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.php.php-compat.php-compat.loadversion"><B
+CLASS="function"
+>PHP_Compat::loadVersion()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN93157"
+></A
+><B
+CLASS="function"
+>PHP_Compat::loadVersion()</B
+>&nbsp;--&nbsp;Load all components, or all components until a given version of PHP</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN93161"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN93162"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'PHP/Compat.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>PHP_Compat::loadVersion</B
+></CODE
+> (string $version)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.php.php-compat.loadversion.desc"
+></A
+><H2
+>Description</H2
+><P
+>Load all components, or all components until a given version of PHP.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.php.php-compat.loadversion.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string <TT
+CLASS="parameter"
+><I
+>$version</I
+></TT
+></DT
+><DD
+><P
+>The version of PHP to load components until.</P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.php.php-compat.loadversion.return"
+></A
+><H2
+>Return value</H2
+><P
+>array</P
+><P
+>&#13;   <P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>&#13;     An associative array of boolean values. The key is the name of the
+     component loaded.
+     The value for whether or not the component was loaded correctly.
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.php.php-compat.loadversion.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN93191"><P
+><B
+>Example 52-1. Loading all components:</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'PHP/Compat.php';
+$components = PHP_Compat::loadVersion();
+
+// To see which components were loaded
+print_r($components);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    This example would show a long list of components which
+    were loaded.
+   </P
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN93195"><P
+><B
+>Example 52-2. Loading up to a specific version:</B
+></P
+><P
+>&#13;    The components loaded would be those with versions lower
+    than, or equal to the supplied version and greater
+    than the current PHP version.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'PHP/Compat.php';
+$components = PHP_Compat::loadVersion('4.3.0');
+
+// To see which components were loaded
+print_r($components);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    This would output an array of components which were loaded.
+    The output would be simular to:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [array_diff_assoc] =&#62; 1
+    [file_get_contents] =&#62; 1
+    [get_include_path] =&#62; 1
+    [html_entity_decode] =&#62; 1
+    [image_type_to_mime_type] =&#62; 1
+    [ob_get_clean] =&#62; 1
+    [ob_get_flush] =&#62; 1
+    [restore_include_path] =&#62; 1
+    [set_include_path] =&#62; 1
+    [str_shuffle] =&#62; 1
+    [str_word_count] =&#62; 1
+    [FILE] =&#62; 1
+    [STD] =&#62; 1
+    [UPLOAD_ERR] =&#62; 1
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.php.php-compat.loadversion.note"
+></A
+><H2
+>Note</H2
+><P
+>This function should be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.php.php-compat.php-compat.loadconstant.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.php.phpunit.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PHP_Compat::loadConstant()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.php.php-compat.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>PHPUnit</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

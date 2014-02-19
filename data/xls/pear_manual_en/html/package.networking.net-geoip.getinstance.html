@@ -1,0 +1,415 @@
+<HTML
+><HEAD
+><TITLE
+>Net_GeoIP::getInstance()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_GeoIP"
+HREF="package.networking.net-geoip.html"><LINK
+REL="PREVIOUS"
+TITLE="Net_GeoIP"
+HREF="package.networking.net-geoip.html"><LINK
+REL="NEXT"
+TITLE="Net_GeoIP::lookupCountryName()"
+HREF="package.networking.net-geoip.lookupcountryname.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-geoip.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-geoip.lookupcountryname.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-geoip.getinstance">Net_GeoIP::getInstance()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN83504"
+></A
+>Net_GeoIP::getInstance()&nbsp;--&nbsp;
+      method to get an instance and avoid re-parsing the database
+    </DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN83507"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN83508"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once "Net/GeoIP.php";</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>object <B
+CLASS="function"
+>getInstance()</B
+></CODE
+> (string $filename [, int $flags])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-geoip.getinstance.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      This method is an implementation of the so-called singleton pattern
+      and is the preferred way to create instances of 
+      <B
+CLASS="classname"
+>Net_GeoIP</B
+>.
+    </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN83520"><P
+><B
+>Example 48-1. 
+        Creating an instance of <B
+CLASS="classname"
+>Net_GeoIP</B
+>
+      </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "Net/GeoIP.php";
+
+$geoip = Net_GeoIP::getInstance("/path/to/geoipdb.dat", Net_GeoIP::SHARED_MEMORY);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN83524"
+></A
+><H3
+>Multiple Instances</H3
+><P
+>&#13;        If you want to use multiple databases in one application, you 
+        will need to create an instance of <B
+CLASS="classname"
+>Net_GeoIP</B
+>
+        for each database.  Using the singleton <B
+CLASS="function"
+>getInstance()</B
+>
+        method will make sure that at any given point exactly one
+        object for each database exists, which saves on overhead of
+        setting up database segments.
+      </P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-geoip.getinstance.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;      <P
+></P
+><UL
+><LI
+><P
+>&#13;            <TT
+CLASS="parameter"
+><I
+>string $filename</I
+></TT
+> - Name of (and path 
+            to) the database file
+          </P
+></LI
+><LI
+><P
+>&#13;            <TT
+CLASS="parameter"
+><I
+>int $flags</I
+></TT
+> - Flags that control the 
+            class behaviour.  This parameter can be one of the following
+            class constants:
+            
+            <P
+></P
+><UL
+><LI
+><P
+>&#13;                  <TT
+CLASS="constant"
+><B
+>Net_GeoIp::SHARED_MEMORY</B
+></TT
+> - use 
+                  SHMOP to share a database among multiple PHP 
+                  instances.
+                </P
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+                    Only one <B
+CLASS="classname"
+>Net_GeoIP</B
+> instance 
+                    can use shared memory at a time.
+                  </P
+><P
+>&#13;                    If you are using <TT
+CLASS="constant"
+><B
+>Net_GeoIP::SHARED_MEMORY</B
+></TT
+>
+                    (shmop) you can only use <TT
+CLASS="constant"
+><B
+>Net_GeoIP::SHARED_MEMORY</B
+></TT
+> 
+                    for one (1) instance  (i.e. for one database). Any
+                    subsequent attempts to instantiate using 
+                    <TT
+CLASS="constant"
+><B
+>SHARED_MEMORY</B
+></TT
+> will read the same
+                    shared memory block already initialized, and therefore 
+                    will cause problems since the expected database format
+                    won't match the database in the shared memory block.
+                  </P
+><P
+>&#13;                    Note that there is no easy way to flag <SPAN
+CLASS="QUOTE"
+>"nice 
+                    errors"</SPAN
+> to prevent attempts to create new 
+                    instances using <TT
+CLASS="constant"
+><B
+>Net_GeoIP::SHARED_MEMORY</B
+></TT
+>
+                    flag and it is also not posible (in a safe way) to
+                    allow new instances to overwrite the shared memory 
+                    block.
+                  </P
+><P
+>&#13;                    In short, is you are using multiple databases, use
+                    the <TT
+CLASS="constant"
+><B
+>Net_GeoIP::SHARED_MEMORY</B
+></TT
+> 
+                    flag with care.
+                  </P
+></BLOCKQUOTE
+></DIV
+></LI
+><LI
+><P
+>&#13;                  <TT
+CLASS="constant"
+><B
+>Net_GeoIp::MEMORY_CACHE</B
+></TT
+> - store 
+                  the full contents of the database in memory for 
+                  current script.
+                </P
+><P
+>&#13;                  This is useful if you access the database several
+                  times in a script.
+                </P
+></LI
+><LI
+><P
+>&#13;                  <TT
+CLASS="constant"
+><B
+>Net_GeoIp::STANDARD</B
+></TT
+> - standard 
+                  no-cache version.  This is also the default value if
+                  this parameter is ommitted.
+                </P
+></LI
+></UL
+>
+          </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-geoip.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-geoip.lookupcountryname.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Net_GeoIP</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-geoip.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Net_GeoIP::lookupCountryName()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

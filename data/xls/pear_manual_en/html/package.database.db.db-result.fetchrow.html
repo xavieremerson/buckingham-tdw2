@@ -1,0 +1,407 @@
+<HTML
+><HEAD
+><TITLE
+>DB_result::fetchRow()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="DB_result::fetchInto()"
+HREF="package.database.db.db-result.fetchinto.html"><LINK
+REL="NEXT"
+TITLE="DB_result::free()"
+HREF="package.database.db.db-result.free.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-result.fetchinto.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-result.free.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.db-result.fetchrow">DB_result::fetchRow()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN25297"
+></A
+>DB_result::fetchRow()&nbsp;--&nbsp;Fetches a row from a result set</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN25300"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN25301"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>&#38;fetchRow</B
+></CODE
+> ([integer $fetchmode =
+      <TT
+CLASS="constant"
+><B
+>DB_DEFAULT_MODE</B
+></TT
+> [, integer $rownum = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-result.fetchrow.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Returns a row of data from a result set
+   then moves the result pointer to the next row.
+   The data can be formatted as an array or an object.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-result.fetchrow.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>integer
+      <TT
+CLASS="parameter"
+><I
+>$fetchmode</I
+></TT
+></DT
+><DD
+><P
+>&#13;       the fetch mode to use.
+       The default is <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_DEFAULT</B
+></TT
+>,
+       which tells this method to use DB's current fetch mode.
+       DB's current default fetch mode can be changed using
+       <A
+HREF="package.database.db.db-common.setfetchmode.html"
+>&#13;        <B
+CLASS="function"
+>setFetchMode()</B
+></A
+>.
+       Potential values include:
+       <P
+></P
+><UL
+><LI
+><P
+>&#13;          <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ORDERED</B
+></TT
+>
+         </P
+></LI
+><LI
+><P
+>&#13;          <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ASSOC</B
+></TT
+>
+         </P
+></LI
+><LI
+><P
+>&#13;          <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_OBJECT</B
+></TT
+>
+         </P
+></LI
+></UL
+>
+      </P
+></DD
+><DT
+>integer
+      <TT
+CLASS="parameter"
+><I
+>$rownum</I
+></TT
+></DT
+><DD
+><P
+>&#13;       the row number to fetch
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-result.fetchrow.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   mixed - an array or object containing the row's data,
+   <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> when the end of the result set is reached
+   or a <A
+HREF="package.database.db.db-error.html"
+><B
+CLASS="classname"
+>DB_Error</B
+></A
+> object on failure
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-result.fetchrow.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-result.fetchrow.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN25357"><P
+><B
+>Example 33-1. Using <B
+CLASS="function"
+>fetchRow()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$res =&#38; $db-&#62;query('SELECT * FROM mytable');
+while ($row =&#38; $res-&#62;fetchRow()) {
+    // Assuming DB's default fetchmode is
+    // DB_FETCHMODE_ORDERED
+    echo $row[0] . "\n";
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-result.fetchrow.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="package.database.db.intro-fetch.html"
+>&#13;    <SPAN
+CLASS="QUOTE"
+>"Intro - Results"</SPAN
+></A
+>,
+   <A
+HREF="package.database.db.db-common.setfetchmode.html"
+>&#13;    <B
+CLASS="function"
+>setFetchMode()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-result.fetchinto.html"
+>&#13;    <B
+CLASS="function"
+>fetchInto()</B
+></A
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.db-result.fetchinto.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.db-result.free.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>DB_result::fetchInto()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>DB_result::free()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

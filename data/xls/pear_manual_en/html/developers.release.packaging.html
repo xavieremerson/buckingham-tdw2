@@ -1,0 +1,187 @@
+<HTML
+><HEAD
+><TITLE
+>Packaging The Release Tarball</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Releasing A Package"
+HREF="developers.release.html"><LINK
+REL="PREVIOUS"
+TITLE="Validating The Package Definition File"
+HREF="developers.release.validating.html"><LINK
+REL="NEXT"
+TITLE="Releasing The Package Through The Web Interface"
+HREF="developers.release.web.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="developers.release.validating.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 17. Releasing A Package</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="developers.release.web.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="developers.release.packaging">Packaging The Release Tarball</H1
+><P
+>&#13;    Now that your package has a valid package definition file, you can package
+    the release tarball. Cd to the top-level directory of the package and run:
+    <B
+CLASS="command"
+>pear package</B
+>
+    This will create the release tarball that will be used later to upload the
+    new release. 
+    <DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+      Please note that the zlib extension needs to be enabled in 
+      your PHP build in order to create the release tarball.
+     </P
+></BLOCKQUOTE
+></DIV
+>
+   </P
+><P
+>&#13;    Next, you should install the package locally by running: <B
+CLASS="command"
+>pear
+     install <TT
+CLASS="filename"
+>&#60;file&#62;</TT
+></B
+> (file is the
+     tarball you just created). This is done to ensure that the package
+     definition file is not only valid but also contains valid
+     information. You should manually check that every file is installed
+     in the right place. If your package contains test scripts, which is
+     highly recommended, you should run them.
+   </P
+><P
+>&#13;    If anything fails at this stage, correct it and re-package and re-test.
+    When everything seems OK, proceed.
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="developers.release.validating.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="developers.release.web.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Validating The Package Definition File</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="developers.release.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Releasing The Package Through The Web Interface</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

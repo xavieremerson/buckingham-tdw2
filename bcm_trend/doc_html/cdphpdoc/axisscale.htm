@@ -1,0 +1,71 @@
+<HTML>
+<HEAD>
+<Title>Y-Axis Scaling</Title>
+<link type='text/css' rel='Stylesheet' href="maxchartapi.css" />
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 5.0 (PHP Edition)</p>
+<p class="heading1">Y-Axis Scaling</p>
+<hr class="separator">
+<div class="content">
+<img src="images/axisscale0.png">&nbsp;&nbsp;<img src="images/axisscale1.png">&nbsp;&nbsp;<img src="images/axisscale2.png">&nbsp;&nbsp;<img src="images/axisscale3.png">&nbsp;&nbsp;<img src="images/axisscale4.png">
+<br><br>
+This example demonstrates how to control auto-scaling.<br><br>
+By default, ChartDirector auto-scales all axes. The <a href="Axis.setAutoScale.htm">Axis.setAutoScale</a> method controls the top extension, bottom extension and the zero affinity parameters that ChartDirector uses during auto-scaling. The first two parameters determine the amount of top and bottom margins to reserve during auto-scaling, while the last parameter determines when the axis should start from the origin (0).<br><br>
+The first 3 charts demonstrate the effects of different top/bottom extensions.<br><br>
+The 4th chart demonstrates that one could exclude a segment on the ends of an axis from scaling using <a href="Axis.setMargin.htm">Axis.setMargin</a>.<br><br>
+The 5th chart demonstrates manual scaling instead of auto-scaling. In manual scaling, the axis scale is explicitly provided by using <a href="Axis.setLinearScale.htm">Axis.setLinearScale</a>, <a href="Axis.setLinearScale2.htm">Axis.setLinearScale2</a>, <a href="Axis.setLogScale.htm">Axis.setLogScale</a>, <a href="Axis.setLogScale2.htm">Axis.setLogScale2</a>, <a href="Axis.setDateScale.htm">Axis.setDateScale</a> or <a href="Axis.setDateScale2.htm">Axis.setDateScale2</a>.
+</div>
+<p class="heading1a">Source Code Listing</p>
+<div class="content">
+<b>[File: phpdemo/axisscale.php]</b>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc"><pre>&lt;?php
+require_once("../lib/phpchartdir.php");
+
+# The data for the chart
+$data = array(5.5, 3.5, -3.7, 1.7, -1.4, 3.3);
+$labels = array("Jan", "Feb", "Mar", "Apr", "May", "Jun");
+
+# Create a XYChart object of size 200 x 190 pixels
+$c = new XYChart(200, 190);
+
+# Set the plot area at (30, 20) and of size 140 x 140 pixels
+$c-&gt;setPlotArea(30, 20, 140, 140);
+
+# Configure the axis as according to the input parameter
+if ($_REQUEST["img"] == "0") {
+    $c-&gt;addTitle("No Axis Extension", "arial.ttf", 8);
+} else if ($_REQUEST["img"] == "1") {
+    $c-&gt;addTitle("Top/Bottom Extensions = 0/0", "arial.ttf", 8);
+    # Reserve 20% margin at top of plot area when auto-scaling
+    $c-&gt;yAxis-&gt;setAutoScale(0, 0);
+} else if ($_REQUEST["img"] == "2") {
+    $c-&gt;addTitle("Top/Bottom Extensions = 0.2/0.2", "arial.ttf", 8);
+    # Reserve 20% margin at top and bottom of plot area when auto-scaling
+    $c-&gt;yAxis-&gt;setAutoScale(0.2, 0.2);
+} else if ($_REQUEST["img"] == "3") {
+    $c-&gt;addTitle("Axis Top Margin = 15", "arial.ttf", 8);
+    # Reserve 15 pixels at top of plot area
+    $c-&gt;yAxis-&gt;setMargin(15);
+} else {
+    $c-&gt;addTitle("Manual Scale -5 to 10", "arial.ttf", 8);
+    # Set the y axis to scale from -5 to 10, with ticks every 5 units
+    $c-&gt;yAxis-&gt;setLinearScale(-5, 10, 5);
+}
+
+# Set the labels on the x axis
+$c-&gt;xAxis-&gt;setLabels($labels);
+
+# Add a color bar layer using the given data. Use a 1 pixel 3D border for the bars.
+$barLayerObj = $c-&gt;addBarLayer3($data);
+$barLayerObj-&gt;setBorderColor(-1, 1);
+
+# Output the chart
+header("Content-type: image/png");
+print($c-&gt;makeChart2(PNG));
+?&gt;</pre></tr></td></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2008 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

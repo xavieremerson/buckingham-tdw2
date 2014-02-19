@@ -1,0 +1,293 @@
+                OFFICE OF FOREIGN ASSETS CONTROL
+                    U.S. TREASURY DEPARTMENT
+
+        SPECIALLY DESIGNATED NATIONALS AND BLOCKED PERSONS
+                      NEW DATA SPECIFICATION 
+                   First Released: 12/06/2004
+                   Updated:        01/04/2007
+		   Updated:  	   03/05/2007
+
+PLEASE NOTE IMPORTANT INFORMATION REGARDING THE TECHNICAL STRUCTURE
+OF THESE FILES ARE FEATURED AT THE BOTTOM OF THE DOCUMENT
+
+     OFAC is now publishing its list of Specially Designated Nationals in XML
+and Comma delimited (CSV) format.  These  computerized publications as
+transmitted by OFAC are designed as reference tools providing actual notice of
+actions by OFAC with respect to Specially Designated Nationals and other
+entities whose property is blocked, to assist the public in complying with the
+various sanctions programs administered by OFAC.  The latest changes may appear
+here prior to their publication in the Federal Register, and it is intended that
+users rely on changes indicated in these documents that post-date the most
+recent Federal Register publication with respect to a particular sanctions
+program in the appendices to chapter V of Title 31, Code of Federal Regulations. 
+Such changes reflect official actions of OFAC, and will be reflected as soon as
+practicable in the Federal Register under the index heading "Foreign Assets
+Control."  New Federal Register notices with regard to Specially Designated
+Nationals or blocked entities may be published at any time.  Users are advised
+to check the Federal Register and these electronic publications routinely for
+additional names or other changes to the listings.  Entities and individuals on
+the list are occasionally licensed by OFAC to transact business with U.S.
+persons in anticipation of removal from the list or because of foreign policy
+considerations in unique circumstances.  Licensing in anticipation of official
+Federal Register publication of a notice of removal based on the unblocking of
+an entity's or individual's property is reflected in these publications by
+removal from the list.  Current information on licenses issued with regard to
+Specially Designated Nationals and other blocked persons may be obtained or
+verified by calling OFAC Licensing at 202/622-2480.  Format *.del consists of
+records separated by carriage returns (ASCII character 13), with fields (values)
+within records delimited by the "@" symbol (ASCII character 64).  Text values
+are enclosed by quotation marks (")(ASCII character 34).  Format *.ff consists
+of records separated by carriage returns, with fields within the records
+beginning at fixed locations.  Format *.csv consistes of records seperated by
+carriage returns (ASCII character 13), with fields  (values) within records
+delimited by the "," (comma) symbol  (ASCII character 44).  Format *.PIP
+consistes of records seperated by  carriage returns (ASCII character 13), with
+fields (values) within records  delimited by the "|" symbol (ASCII character
+124).  Null values for all four  formats consist of "-0-" (ASCII characters 45,
+48, 45).
+
+     The  @ Delimited (.del), Comma Seperated Values (.csv), Pipe  (|) delimited
+(.pip) and Fixed-Field (.ff) releases consist of three  ASCII text files--a main
+file listing the name of the SDN and other  information unique to that entity
+(sdn.*), a file of addresses (add.*),  and a file of alternate names (alt.*).
+Addresses and alternate names are linked to particular SDNs using unique integer
+values in a linking or primary key column. The integers used are assigned for
+linking purposes only and do not represent an official reference to that entity.
+
+     Releases of the database-format files are intended as a service to the user
+community.  OFAC's SDN list is published in the Federal Register.  All of OFAC's
+lists are drawn from the same underlying data and every effort has been made to
+ensure consistency.  The Federal Register will govern should differences arise. 
+Due to the nature, urgency, and sensitivity of the programs  which OFAC
+administers and enforces, it may not always be possible to  provide advanced
+notice to users of format changes to the database  structure.
+
+     The files associated with each release are:
+
+@ delimited:     SDN.DEL, ADD.DEL, ALT.DEL
+| delimited:	 SDN.PIP, ADD.PIP, ALT.PIP
+fixed field:     SDN.FF, ADD.FF, ALT.FF
+Comma delimited: SDN.CSV, ADD.CSV, ALT.CSV
+XML:  	         SDN.XML	
+Misc: dat_spec.txt (this file), sdn.xsd (XML SDN schema), sdnlist.txt 
+(ascii version of the SDN list, non-delimited), ctrylst.txt 
+(listing of all SDN entries categorized by country), prgmlst.txt 
+(listing of all SDN entries categorized by program),sdnew94.txt, 
+sdnew95.txt, sdnew96.txt, sdnew97.txt, sdnew98.txt, sdnew99.txt, 
+sdnew00.txt, sdnew01.txt, sdnew02.txt, sdnew03.txt, sdnew04.txt, 
+sdnew05.txt, sdnew06.txt, sdnew07.txt. 
+(annual histories of all changes to the SDN list since 1994).
+
+[Each Zip Archive contains a total of 32 files]   
+
+
+FORMAT SDN @ DELIMITED
+
+Main table, text file name SDN.DEL
+
+Column
+sequence Column name  Type     Size  Description
+-------- ------------ -------  ----  ---------------------
+1        ent_num      number         unique record
+                                     identifier/unique
+                                     listing identifier
+2        SDN_Name     text     350   name of sdn
+3        SDN_Type     text     12    type of SDN
+4        Program      text     50    sanctions program name
+5        Title        text     200   title of an individual
+6        Call_Sign    text     8     vessel call sign
+7        Vess_type    text     25    vessel type
+8        Tonnage      text     14    vessel tonnage
+9        GRT          text     8     gross registered tonnage
+10       Vess_flag    text     40    vessel flag
+11       Vess_owner   text     150   vessel owner
+12       remarks      text     1000  remarks on SDN
+
+Address table, text file name ADD.DEL
+
+Column
+sequence Column name  Type     Size  Description
+-------- ------------ -------  ----  ---------------------
+1        Ent_num      number         link to unique listing
+2        Add_num      number         unique record identifier
+3        Address      text     750   street address of SDN
+4        City         text     50    city of address
+5        Country      text     250   country of address
+6        Add_remarks  text     200   remarks on address
+
+Alternate identity table, text file name ALT.DEL
+
+Column
+sequence Column name  Type     Size  Description
+-------- ------------ -------  ----  ---------------------
+1        ent_num      number         link to unique listing
+2        alt_num      number         unique record identifier
+3        alt_type     text     8     type of alternate identity
+                                     (aka, fka, nka)
+4        alt_name     text     350   alternate identity name
+5        alt_remarks  text     200   remarks on alternate identity
+
+Record separator:              carriage return
+field (value) delimiter:       @
+text value quotes:             "
+null:                          -0-
+
+FORMAT SDN | DELIMITED
+
+Main table, text file name SDN.DEL
+
+Column
+sequence Column name  Type     Size  Description
+-------- ------------ -------  ----  ---------------------
+1        ent_num      number         unique record
+                                     identifier/unique
+                                     listing identifier
+2        SDN_Name     text     350   name of sdn
+3        SDN_Type     text     12    type of SDN
+4        Program      text     50    sanctions program name
+5        Title        text     200   title of an individual
+6        Call_Sign    text     8     vessel call sign
+7        Vess_type    text     25    vessel type
+8        Tonnage      text     14    vessel tonnage
+9        GRT          text     8     gross registered tonnage
+10       Vess_flag    text     40    vessel flag
+11       Vess_owner   text     150   vessel owner
+12       remarks      text     1000  remarks on SDN
+
+Address table, text file name ADD.DEL
+
+Column
+sequence Column name  Type     Size  Description
+-------- ------------ -------  ----  ---------------------
+1        Ent_num      number         link to unique listing
+2        Add_num      number         unique record identifier
+3        Address      text     750   street address of SDN
+4        City         text     50    city of address
+5        Country      text     250   country of address
+6        Add_remarks  text     200   remarks on address
+
+Alternate identity table, text file name ALT.DEL
+
+Column
+sequence Column name  Type     Size  Description
+-------- ------------ -------  ----  ---------------------
+1        ent_num      number         link to unique listing
+2        alt_num      number         unique record identifier
+3        alt_type     text     8     type of alternate identity
+                                     (aka, fka, nka)
+4        alt_name     text     350   alternate identity name
+5        alt_remarks  text     200   remarks on alternate identity
+
+Record separator:              carriage return
+field (value) delimiter:       |
+text value quotes:             "
+null:                          -0-
+
+FORMAT SDN FIXED FIELD
+
+Main table, text file name SDN.FF
+
+Column                               Posi-
+sequence Column name  Type     Size  tion  Description
+-------- -----------  -------  ----  ----  ---------------------
+1        ent_num      number   10    10    unique record
+                                           identifier/unique
+                                           listing identifier
+2        SDN_Name     text     350   11    name of sdn
+3        SDN_Type     text     12    361   type of SDN
+4        Program      text     50    373   sanctions program name
+5        Title        text     200   423   title of an individual
+6        Call_Sign    text     8     623   vessel call sign
+7        Vess_type    text     25    631   vessel type
+8        Tonnage      text     14    656   vessel tonnage
+9        GRT          text     8     670   gross registered
+                                           tonnage
+10       Vess_flag    text     40    678   vessel flag
+11       Vess_owner   text     150   718   vessel owner
+12       Remarks      text     1000  868   remarks on SDN
+         END OF ROW                  1868
+
+Address table, text file name ADD.FF
+
+Column                               Posi-
+sequence Column name  Type     Size  tion  Description
+-------- -----------  -------  ----  ----  ---------------------
+1        Ent_num      number   10    1     link to unique listing
+2        Add_num      number   10    11    unique record
+                                           identifier
+3        Address      text     750   21    street address of SDN
+4        City         text     50    771   city of address
+5        Country      text     250   821   country of address
+6        Add_remarks  text     200   1071  remarks on address
+	 END OF ROW		     1271
+
+Alternate identity table, text file name ALT.FF
+
+Column                               Posi-
+sequence Column name  Type     Size  tion  Description
+-------- -----------  -------  ----  ----  ---------------------
+1        ent_num      number   10    1     link to unique listing
+2        alt_num      number   10    11    unique record
+                                           identifier
+3        alt_type     text     8     21    type of alternate
+                                           identity
+                                           (aka, fka, nka)
+4        alt_name     text     350   29    alternate identity name
+5        alt_remarks  text     200   379   remarks on alternate
+                                           identity
+         END OF ROW		     579
+
+Record separator:     carriage return
+null:                 -0-
+
+FORMAT SDN CSV
+
+Main table, text file name SDN.CSV
+
+Column
+sequence Column name  Type     Size  Description
+-------- ------------ -------  ----  ---------------------
+1        ent_num     number          unique record
+                                     identifier/unique
+                                     listing identifier
+2        SDN_Name     text     350   name of SDN
+3        SDN_Type     text     12    type of SDN
+4        Program      text     50    sanctions program name
+5        Title        text     200   title of an individual
+6        Call_Sign    text     8     vessel call sign
+7        Vess_type    text     25    vessel type
+8        Tonnage      text     14    vessel tonnage
+9        GRT          text     8     gross registered tonnage
+10       Vess_flag    text     40    vessel flag
+11       Vess_owner   text     150   vessel owner
+12       Remarks      text     1000  remarks on SDN
+
+Address table, text file name ADD.CSV
+
+Column
+sequence Column name  Type     Size  Description
+-------- ------------ -------  ----  ---------------------
+1        Ent_num      number         link to unique listing
+2        Add_num      number         unique record identifier
+3        Address      text     750   street address of SDN
+4        City         text     50    city of address
+5        Country      text     250   country of address
+6        Add_remarks  text     200   remarks on address
+
+Alternate identity table, text file name ALT.CSV
+
+Column
+sequence Column name  Type     Size  Description
+-------- ------------ -------  ----  ---------------------
+1        ent_num      number         link to unique listing
+2        alt_num      number         unique record identifier
+3        alt_type     text     8     type of alternate identity
+                                     (aka, fka, nka)
+4        alt_name     text     350   alternate identity name
+5        alt_remarks  text     200   remarks on alternate identity
+
+Record separator:              carriage return
+field (value) delimiter:       ,
+text value quotes:             "
+null:                          -0-
+

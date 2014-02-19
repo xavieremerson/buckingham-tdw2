@@ -1,0 +1,474 @@
+<HTML
+><HEAD
+><TITLE
+>Architecture</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Services_Ebay"
+HREF="package.webservices.services-ebay.html"><LINK
+REL="PREVIOUS"
+TITLE="Error Handling"
+HREF="package.webservices.services-ebay.error-handling.html"><LINK
+REL="NEXT"
+TITLE="Example"
+HREF="package.webservices.services-ebay.example.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.webservices.services-ebay.error-handling.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.webservices.services-ebay.example.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.webservices.services-ebay.architecture">Architecture</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN100881"
+></A
+>Architecture&nbsp;--&nbsp;The architecture of Services_Ebay</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.services-ebay.architecture.refsect1"
+></A
+><H2
+>Overview of Services_Ebay architecture</H2
+><P
+>&#13;    Services_Ebay consists of a lot of small classes, which keeps the used codebase small,
+    as only the functionality that you use in your applications are loaded and parsed.
+   </P
+><P
+>&#13;    This will give you a short overview of the different types of objects that are provided
+    and for which tasks they are used.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.services-ebay.architecture.services-ebay"
+></A
+><H2
+>Services_Ebay</H2
+><P
+>&#13;    The <B
+CLASS="classname"
+>Services_Ebay</B
+> class is used for the following tasks:
+   </P
+><P
+>&#13;    <P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>&#13;       Provides factory methods.
+      </P
+><P
+>&#13;       The <B
+CLASS="classname"
+>Services_Ebay</B
+> provides methods to load and instantiate all of
+       the other classes, that are included in the Services_Ebay distribution. That means that this
+       is the only class you should include and instantiate yourself. Factory methods include
+       <B
+CLASS="function"
+>loadApiCall()</B
+>, <B
+CLASS="function"
+>getSession()</B
+> and <B
+CLASS="function"
+>loadModel()</B
+>.
+      </P
+></LI
+><LI
+><P
+>&#13;       Provides constants.
+      </P
+><P
+>&#13;       This class also defines some constants like the eBay site ids that you will need in your applications,
+       constants include <TT
+CLASS="constant"
+><B
+>Services_Ebay::SITEID_ID</B
+></TT
+>, <TT
+CLASS="constant"
+><B
+>Services_Ebay::AUTH_TYPE_TOKEN</B
+></TT
+> or
+       <TT
+CLASS="constant"
+><B
+>Services_Ebay::FEEDBACK_BRIEF</B
+></TT
+>. Whenever the eBay webservice expects an integer value
+       in an XML tag, <B
+CLASS="classname"
+>Services_Ebay</B
+> tries to provide a matching constant.
+      </P
+></LI
+><LI
+><P
+>&#13;       Provides static helper methods.
+      </P
+><P
+>&#13;       The class also provides some helper methods, which can be called statically like <B
+CLASS="function"
+>getAvailableApiCalls()</B
+>.
+      </P
+></LI
+><LI
+><P
+>&#13;       Acts as a proxy class.
+      </P
+><P
+>&#13;       The most important usage is that <B
+CLASS="classname"
+>Services_Ebay</B
+> acts as a proxy class for the
+       API calls, that means you can call methods on the class which will then be redirected to the appropriate
+       call object.
+      </P
+></LI
+></OL
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.services-ebay.architecture.services-ebay-session"
+></A
+><H2
+>Services_Ebay_Session</H2
+><P
+>&#13;    The <B
+CLASS="classname"
+>Services_Ebay_Session</B
+> class is used to handle the serialization and
+    unserialization of the incoming and outgoing XML streams. Furthermore it builds the HTTP headers that
+    are needed and manages all user authentication.
+   </P
+><P
+>&#13;    You will probably always use the session inderictly by at first passing it the the <B
+CLASS="classname"
+>Services_Ebay</B
+>
+    object which will then use the session for making API calls.
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN100922"><P
+><B
+>Example 60-1. Using the session class</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Services/Ebay.php';
+    
+// pass some authentication data
+$session = Services_Ebay::getSession($devId, $appId, $certId);
+$session-&#62;setToken($token);
+
+// create new proxy object with the instantiated session
+$ebay = new Services_Ebay($session);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.services-ebay.architecture.services-ebay-transport"
+></A
+><H2
+>Services_Ebay_Transport</H2
+><P
+>&#13;    The <B
+CLASS="classname"
+>Services_Ebay_Transport</B
+> classes are used to build up network connections to 
+    the eBay webservices and send and recieve the raw data which has been created by <B
+CLASS="classname"
+>Services_Ebay_Session</B
+>.
+   </P
+><P
+>&#13;    Theroretically there may be different transport classes, but due to bugs in PHP's stream functions and some
+    SSL libraries, the only working transport class is <B
+CLASS="classname"
+>Services_Ebay_Transport_Curl</B
+>, which
+    uses PHP's curl extension.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.services-ebay.architecture.services-ebay-call"
+></A
+><H2
+>Services_Ebay_Call</H2
+><P
+>&#13;    The <B
+CLASS="classname"
+>Services_Ebay_Call</B
+> classes contain information about the API calls that
+    the eBay webservice offers. Each API call is encapsulated in an object that contains information about
+    the API call, which XML tags have to be used and what the call is expected to return.
+   </P
+><P
+>&#13;    There are two ways in which the call objects can be used:
+   </P
+><P
+>&#13;    <P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>&#13;       Instantiate them directly (best via the factory method of <B
+CLASS="classname"
+>Services_Ebay</B
+>), pass 
+       all parameters and invode <B
+CLASS="function"
+>Services_Ebay_Call::call()</B
+> while passing the session object
+       to this method.
+      </P
+></LI
+><LI
+><P
+>&#13;       Use <B
+CLASS="classname"
+>Services_Ebay</B
+> as a proxy object which is able to do all the work by using
+       PHP5's new object overloading features.
+      </P
+></LI
+></OL
+>
+   </P
+><P
+>&#13;    It ius recommended to use <B
+CLASS="classname"
+>Services_Ebay</B
+> as a proxy insteadof working directly on the
+    Call objects. <B
+CLASS="classname"
+>Services_Ebay</B
+> will instantiate the class, pass the parameters and
+    invoke the call method on the Call object.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.services-ebay.architecture.services-ebay-model"
+></A
+><H2
+>Services_Ebay_Model</H2
+><P
+>&#13;    The <B
+CLASS="classname"
+>Services_Ebay_Model</B
+> classes act as local containers for the remote data stored
+    on the eBay server. For example, when calling <B
+CLASS="function"
+>Services_Ebay::getItem()</B
+>, the method will
+    return an instance of <B
+CLASS="classname"
+>Services_Ebay_Model_Item</B
+>, which contains information about the item
+    as well as some helper methods like <B
+CLASS="function"
+>Services_Ebay_Model_Item::addToDescription()</B
+> which
+    encapsulates a new API call.
+   </P
+><P
+>&#13;    Currently Services_Ebay provides models for accounts, disputes (single dispute and a list of disputes),
+    user feedback (summary and a single feedback entry), items and list of items, MyeBay, orders, preferences,
+    search results, shipments, eBay stores, transactions and users.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.services-ebay.architecture.services-ebay-cache"
+></A
+><H2
+>Services_Ebay_Cache</H2
+><P
+>&#13;    The <B
+CLASS="classname"
+>Services_Ebay_Cache</B
+> classes allow you to locally cache information that you
+    retrieved from the eBay webservice without changing anything in your scripts. After registering a cache instance
+    for any model type, <B
+CLASS="classname"
+>Services_Ebay</B
+> will query the cache before making a time-consuming
+    API call.
+   </P
+><P
+>&#13;    The cache classes use a very high abstraction and allow you to create new cache containers, so you could store
+    the data in a database, shared memory or wherever you like. Currently there is only one container available, which
+    stores the data in the local filesystem.
+   </P
+><P
+>&#13;    To determine, whether a cache is still valid an instance of <B
+CLASS="classname"
+>Services_Ebay_Cache_ExpiryCheck</B
+>
+    is used, which allows you to build "intelligent" caches that have a shorter expiry time the nearer the
+    end of an auction is.
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.webservices.services-ebay.error-handling.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.webservices.services-ebay.example.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Error Handling</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.webservices.services-ebay.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Example</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

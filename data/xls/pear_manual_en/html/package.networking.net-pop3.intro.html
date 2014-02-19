@@ -1,0 +1,316 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;   Introduction to Net_POP3
+  </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_POP3"
+HREF="package.networking.net-pop3.html"><LINK
+REL="PREVIOUS"
+TITLE="Net_POP3"
+HREF="package.networking.net-pop3.html"><LINK
+REL="NEXT"
+TITLE="Net_POP3::Net_POP3()"
+HREF="package.networking.net-pop3.net-pop3.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-pop3.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-pop3.net-pop3.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-pop3.intro">Introduction to <B
+CLASS="classname"
+>Net_POP3</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN87004"
+></A
+>
+   Introduction to <B
+CLASS="classname"
+>Net_POP3</B
+>
+  &nbsp;--&nbsp;</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-pop3.intro.about"
+></A
+><H2
+>About <B
+CLASS="classname"
+>Net_POP3</B
+></H2
+><P
+>&#13;   Provides a <SPAN
+CLASS="acronym"
+>POP3</SPAN
+> class to access
+   <SPAN
+CLASS="acronym"
+>POP3</SPAN
+> servers. Supports all
+   <SPAN
+CLASS="acronym"
+>POP3</SPAN
+> commands including <SPAN
+CLASS="acronym"
+>UIDL</SPAN
+>
+   listings and <SPAN
+CLASS="acronym"
+>APOP</SPAN
+> authentication.
+  </P
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+    Usage of this class compared to native <SPAN
+CLASS="acronym"
+>PHP</SPAN
+>
+    extensions such as <SPAN
+CLASS="acronym"
+>IMAP</SPAN
+> is slow and may be
+    feature deficient. If available you are STRONGLY recommended
+    to use the <SPAN
+CLASS="acronym"
+>PHP</SPAN
+> extensions.
+   </P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN87022"
+></A
+><H2
+>Usage example for <B
+CLASS="classname"
+>Net_POP3</B
+></H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN87025"><P
+><B
+>Example 48-1. Usage</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>include 'Net/POP3.php';
+
+$pop3 =&#38; new Net_POP3();
+
+/*
+ * Connect to localhost on usual port
+ * If not given, defaults are localhost:110
+ */
+$pop3-&#62;connect('localhost', 110);
+
+/*
+ * Login using username/password. APOP will
+ * be tried first if supported, then basic.
+ */
+$pop3-&#62;login('richard', 'Alien3');
+
+/*
+ * Get the raw headers of message 1
+ */
+echo '&#60;h2&#62;getRawHeaders()&#60;/h2&#62;';
+echo '&#60;pre&#62;' . htmlspecialchars($pop3-&#62;getRawHeaders(1)) . '&#60;/pre&#62;';
+
+/*
+ * Get structured headers of message 1
+ */
+echo '&#60;h2&#62;getParsedHeaders()&#60;/h2&#62; &#60;pre&#62;';
+print_r($pop3-&#62;getParsedHeaders(1));
+echo '&#60;/pre&#62;';
+
+/*
+ * Get body of message 1
+ */
+echo '&#60;h2&#62;getBody()&#60;/h2&#62;';
+echo '&#60;pre&#62;' . htmlspecialchars($pop3-&#62;getBody(1)) . '&#60;/pre&#62;';
+
+/*
+ * Get number of messages in maildrop
+ */
+echo '&#60;h2&#62;getNumMsg&#60;/h2&#62;';
+echo '&#60;pre&#62;' . $pop3-&#62;numMsg() . '&#60;/pre&#62;';
+
+/*
+ * Get entire message
+ */
+echo '&#60;h2&#62;getMsg()&#60;/h2&#62;';
+echo '&#60;pre&#62;' . htmlspecialchars($pop3-&#62;getMsg(1)) . '&#60;/pre&#62;';
+
+/*
+ * Get listing details of the maildrop
+ */
+echo '&#60;h2&#62;getListing()&#60;/h2&#62;';
+echo '&#60;pre&#62;';
+print_r($pop3-&#62;getListing());
+echo '&#60;/pre&#62;';
+
+/*
+ * Get size of maildrop
+ */
+echo '&#60;h2&#62;getSize()&#60;/h2&#62;';
+echo '&#60;pre&#62;' . $pop3-&#62;getSize() . '&#60;/pre&#62;';
+
+$pop3-&#62;disconnect();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-pop3.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-pop3.net-pop3.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Net_POP3</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-pop3.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Net_POP3::Net_POP3()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

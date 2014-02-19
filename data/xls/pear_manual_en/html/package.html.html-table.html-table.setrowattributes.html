@@ -1,0 +1,426 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_Table::setRowAttributes</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Table"
+HREF="package.html.html-table.html"><LINK
+REL="PREVIOUS"
+TITLE="HTML_Table::setRowType"
+HREF="package.html.html-table.html-table.setrowtype.html"><LINK
+REL="NEXT"
+TITLE="HTML_Table::toHtml"
+HREF="package.html.html-table.html-table.tohtml.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-table.html-table.setrowtype.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-table.html-table.tohtml.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-table.html-table.setrowattributes">HTML_Table::setRowAttributes</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN68216"
+></A
+>HTML_Table::setRowAttributes&nbsp;--&nbsp;Set row attributes</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN68219"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN68220"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/Table.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>HTML_Table::setRowAttributes</B
+></CODE
+> (int $row, mixed $attributes [, boolean $inTR = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-table.html-table.setrowattributes.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;					Sets the attributes for an existing row 
+				</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-table.html-table.setrowattributes.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;					<P
+></P
+><UL
+><LI
+><P
+>&#13;								<TT
+CLASS="parameter"
+><I
+>int $row</I
+></TT
+> -
+								Row index
+							</P
+></LI
+><LI
+><P
+>&#13;							 <TT
+CLASS="parameter"
+><I
+>mixed $attributes</I
+></TT
+> -
+        Associative array or string of table row attributes.
+        This can also be an array of attributes, 
+        in which case the attributes	will be repeated in a loop.
+							</P
+></LI
+><LI
+><P
+>&#13;								<TT
+CLASS="parameter"
+><I
+>boolean $inTR</I
+></TT
+> -
+        <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>, if attributes are to be 
+        applied in <TT
+CLASS="parameter"
+><I
+>td</I
+></TT
+> tags;
+        <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, if attributes are to be 
+        applied in <TT
+CLASS="parameter"
+><I
+>tr</I
+></TT
+> tag
+       </P
+></LI
+></UL
+>
+				</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-table.html-table.setrowattributes.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;					<DIV
+CLASS="table"
+><A
+NAME="AEN68256"><P
+><B
+>Table 41-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Meaning</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"
+           Invalid table row reference [<TT
+CLASS="parameter"
+><I
+>$row</I
+></TT
+>]
+          "</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The row <TT
+CLASS="parameter"
+><I
+>$row</I
+></TT
+> does not exists</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Enable the <TT
+CLASS="parameter"
+><I
+>autoGrow</I
+></TT
+> feature</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"
+           Invalid table column reference [<TT
+CLASS="parameter"
+><I
+>$column</I
+></TT
+>]
+          "</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          The column <TT
+CLASS="parameter"
+><I
+>$column</I
+></TT
+> does not exists
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Enable the <TT
+CLASS="parameter"
+><I
+>autoGrow</I
+></TT
+> feature</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+				</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-table.html-table.setrowattributes.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-table.html-table.setrowattributes.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;     <A
+HREF="package.html.html-table.html-table.setcolattributes.html"
+>&#13;      <B
+CLASS="function"
+>HTML_Table::setColAttributes()</B
+>
+     </A
+>    																				
+				</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-table.html-table.setrowtype.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-table.html-table.tohtml.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_Table::setRowType</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-table.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_Table::toHtml</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

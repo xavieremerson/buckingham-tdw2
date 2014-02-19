@@ -1,0 +1,411 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="System_Folders"
+HREF="package.system.folders.html"><LINK
+REL="PREVIOUS"
+TITLE="System_Folders"
+HREF="package.system.folders.html"><LINK
+REL="NEXT"
+TITLE="Example"
+HREF="package.system.folders.example.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.system.folders.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.system.folders.example.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.system.folders.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN97249"
+></A
+>Introduction&nbsp;--&nbsp;
+   Get system folder locations.
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.system.folders.intro.contrib"
+></A
+><H2
+>Contributors</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>Christian Weiske</P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.system.folders.intro.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   <B
+CLASS="classname"
+>System_Folders</B
+> provides methods to get the locations
+   of various system folders like home directory, desktop folder and
+   "My documents". You can use it on nearly every operating system: It works
+   on Linux, Windows and Mac OS; allowing you to write OS independent
+   programs.
+  </P
+><P
+>&#13;   The methods return a string of the directory (with trailing slash)
+   if the directory can be determined, and <TT
+CLASS="literal"
+>NULL</TT
+> if
+   it fails or isn't available on the system. For example, the
+   "Shared Documents" folder exists on Windows only. If you run
+   <TT
+CLASS="literal"
+>getSharedDocuments()</TT
+> on a Mac or Linux, the method
+   will return <TT
+CLASS="literal"
+>NULL</TT
+>.
+  </P
+><P
+>&#13;   The class does heavy use of environment variables. That means
+   it is very likely that the methods fail when running in a php server
+   module (e.g. apache) because there is user information available.
+   Using them on command line (cli) scripts gives best results, as the
+   class is meant to be used for such ones.
+  </P
+><DIV
+CLASS="table"
+><A
+NAME="AEN97267"><P
+><B
+>Table 56-1. Available folders and their methods</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Folder</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Method to use</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Notes</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>All users directory</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>getAllUsers()</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Windows only</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Application data</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>getAppData()</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Desktop</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>getDesktop()</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Documents / My Documents</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>getDocuments()</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Home directory</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>getHome()</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Programs folder (installed ones)</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>getPrograms()</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Temporary files</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>getTemp()</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Shared documents</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>getSharedDocuments()</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Windows only</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Windows directory</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>getWindows()</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Windows only</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.system.folders.intro.cached"
+></A
+><H2
+>System_Folders_Cached</H2
+><P
+>&#13;   On every getXXX() call, the whole procedure of looping through
+   environment variables, checking the existence of the folders and
+   trying some common locations is executed. So if you call the same
+   method again and again, it will cost you the same amount of cpu cycles
+   every time and perhaps be a slowdown in your application.
+  </P
+><P
+>&#13;   Another problem might be that some methods fail or don't return the correct
+   path, e.g. because the user has an unusual installation or unusual
+   preferences.
+  </P
+><P
+>&#13;   Both issues are addressed with <B
+CLASS="classname"
+>System_Folders_Cached</B
+>.
+   It provides a cached version of the <TT
+CLASS="literal"
+>getXXX()</TT
+> methods,
+   meaning that the result of the first method calls are stored locally and
+   returned on every further call, which speeds up consecutive calls to the
+   same method a lot.
+  </P
+><P
+>&#13;   Further, the class provides methods to set the folder locations and
+   save this settings into an ini file. Saving them can be done with
+   <TT
+CLASS="literal"
+>saveToFile()</TT
+> and they can be loaded with
+   <TT
+CLASS="literal"
+>loadFromFile()</TT
+>. This allows customization of the
+   folder locations, and persistency across sessions.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.system.folders.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.system.folders.example.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>System_Folders</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.system.folders.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Example</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

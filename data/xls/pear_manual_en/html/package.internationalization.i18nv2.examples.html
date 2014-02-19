@@ -1,0 +1,697 @@
+<HTML
+><HEAD
+><TITLE
+>Examples</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="I18Nv2"
+HREF="package.internationalization.i18nv2.html"><LINK
+REL="PREVIOUS"
+TITLE="Intro"
+HREF="package.internationalization.i18nv2.intro.html"><LINK
+REL="NEXT"
+TITLE="I18Nv2 Constants"
+HREF="package.internationalization.i18nv2.constants.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.internationalization.i18nv2.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.internationalization.i18nv2.constants.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.internationalization.i18nv2.examples">Examples</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN76470"
+></A
+>Examples&nbsp;--&nbsp;Usage example for I18Nv2</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.i18nv2.examples.preface"
+></A
+><H2
+>API Documentation</H2
+><P
+>&#13;   Please see PEARs <A
+HREF="http://pear.php.net/package/I18Nv2/docs"
+TARGET="_top"
+>API
+   Documentation</A
+> for details on the API provided by I18Nv2.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.i18nv2.examples.setlocale"
+></A
+><H2
+>Setting a locale</H2
+><P
+>&#13;   Because Un*x and Windows use different locale codes, PHPs setLocale() is not 
+   easily portable - <A
+HREF="package.internationalization.i18nv2.i18nv2.setlocale.html"
+><B
+CLASS="classname"
+>&#13;   I18Nv2</B
+>::<B
+CLASS="function"
+>setLocale()</B
+></A
+> attempts to 
+   provide this portability.
+  </P
+><P
+>&#13;   With I18Nv2 you can use standard locale codes like 'en_US' on both, Linux
+   and Windows, though the list is far not complete yet, so if you stumble
+   over a not covered locale (I18Nv2::$locales in I18Nv2::_main()), just 
+   drop a mail to the maintainer with the missing locale and its corresponding
+   Win32 code.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.internationalization.i18nv2.examples.setlocale.listing"><P
+><B
+>Example 44-1. I18Nv2::setLocale()</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'I18Nv2.php';
+
+foreach (array('en_US', 'de', 'fr_CN') as $locale) {
+    if (!$syslocale = I18Nv2::setLocale($locale)) {
+        echo "Locale '$locale' not available!\n";
+    } else {
+        echo "Systems locale for '$locale': '$syslocale'\n";
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.i18nv2.examples.localeconv"
+></A
+><H2
+>Retrieving locale conventions</H2
+><P
+>&#13;   I18Nv2 holds locale conventions returned by localeConv() stored statically, 
+   so they are easily accessible through <A
+HREF="package.internationalization.i18nv2.i18nv2.getinfo.html"
+><B
+CLASS="classname"
+>&#13;   I18Nv2</B
+>::<B
+CLASS="function"
+>getInfo()</B
+></A
+>. 
+   Have a look at the documentation of PHPs 
+   <A
+HREF="http://php.net/localeconv"
+TARGET="_top"
+>localeConv()</A
+> for all 
+   available information.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.internationalization.i18nv2.examples.localeconv.listing"><P
+><B
+>Example 44-2. I18Nv2::getInfo()</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'I18Nv2.php';
+
+I18Nv2::setLocale('fr');
+
+$dec_point = I18Nv2::getInfo('decimal_point');
+echo "The decimal point for the french locale is '$dec_point'.\n";
+echo "I18Nv2::getInfo() called without parameter returns all available information:\n";
+print_r(I18Nv2::getInfo());</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.i18nv2.examples.autoconv"
+></A
+><H2
+>Automatically transform output character set</H2
+><P
+>&#13;   I18Nv2 provides an easy way to utilize the 
+   <A
+HREF="http://php.net/ob_iconv_handler"
+TARGET="_top"
+>&#13;   <B
+CLASS="function"
+>ob_iconv_handler()</B
+></A
+> through
+   <A
+HREF="package.internationalization.i18nv2.i18nv2.autoconv.html"
+><B
+CLASS="classname"
+>&#13;   I18Nv2</B
+>::<B
+CLASS="function"
+>autoConv()</B
+></A
+>.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.internationalization.i18nv2.i18nv2.getinfo.listing"><P
+><B
+>Example 44-3. I18Nv2::autoConv()</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'I18Nv2.php';
+
+// Writing a shell app that should also display nicely in a DOS box
+if (I18Nv2_WIN) {
+    I18Nv2::autoConv('CP850');
+}
+
+// output some latin1 stuff
+echo "δόφί\n";</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.i18nv2.examples.using-locale"
+></A
+><H2
+>Using I18Nv2_Locale</H2
+><P
+>&#13;   I18Nv2_Locale is a formatter object that provides functionality to format
+   dates, times, numbers and currencies in locale dependent conventions.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.internationalization.i18nv2.examples.using-locale.listing"><P
+><B
+>Example 44-4. I18Nv2_Locale</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'I18Nv2.php';
+
+$locale = &#38;I18Nv2::createLocale('de_AT');
+
+echo "Format a currency value of 2000: ",
+    $locale-&#62;formatCurrency(2000, I18Nv2_CURRENCY_INTERNATIONAL), "\n";
+
+echo "Format todays date:              ",
+    $locale-&#62;formatDate(null, I18Nv2_DATETIME_FULL), "\n";
+
+echo "Format current time:             ",
+    $locale-&#62;formatTime(null, I18Nv2_DATETIME_SHORT), "\n";</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.i18nv2.examples.using-negotiator"
+></A
+><H2
+>Using I18Nv2_Negotiator</H2
+><P
+>&#13;   I18Nv2 provides a language, charset and locale negotiator for HTTP.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.internationalization.i18nv2.examples.using-negotiator.listing"><P
+><B
+>Example 44-5. I18Nv2_Negotiator</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'I18Nv2/Negotiator.php';
+
+$_SERVER['HTTP_ACCEPT_LANGUAGE'] = 'en-US,en-GB,en;q=0.5,de';
+$_SERVER['HTTP_ACCEPT_CHARSET']  = 'utf-8,iso-8859-1;q=0.5';
+
+$neg = &#38;new I18Nv2_Negotiator;
+
+echo "User agents preferred language:                  ",
+    $lang = $neg-&#62;getLanguageMatch(), "\n";
+
+echo "User agents preferred country for language '$lang': ",
+    $neg-&#62;getCountryMatch($lang), "\n";
+
+echo "User agents preferred locale:                    ",
+    $neg-&#62;getLocaleMatch(), "\n";
+
+echo "User agents preferred charset:                   ",
+    $neg-&#62;getCharsetMatch(), "\n";</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.i18nv2.examples.using-language"
+></A
+><H2
+>Using I18Nv2_Language</H2
+><P
+>&#13;   I18Nv2 provides translated lists of ISO language names.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.internationalization.i18nv2.examples.using-language.listing"><P
+><B
+>Example 44-6. I18Nv2_Language</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'I18Nv2/Language.php';
+
+$lang = &#38;new I18Nv2_Language('it', 'iso-8859-1');
+
+echo "Italian name for English: ",
+    $lang-&#62;getName('en'), "\n";
+
+echo "Italian name for French:  ",
+    $lang-&#62;getName('fr'), "\n";</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.i18nv2.examples.using-country"
+></A
+><H2
+>Using I18Nv2_Country</H2
+><P
+>&#13;   I18Nv2 provides translated lists of ISO country names.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.internationalization.i18nv2.examples.using-country.listing"><P
+><B
+>Example 44-7. I18Nv2_Country</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'I18Nv2/Country.php';
+
+$country = &#38;new I18Nv2_Country('de', 'iso-8859-1');
+
+echo "German name for United States: ",
+    $country-&#62;getName('us'), "\n";
+
+echo "German name for Italia:        ",
+    $country-&#62;getName('it'), "\n";</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.i18nv2.examples.using-decorated-lists"
+></A
+><H2
+>Using I18Nv2_Country</H2
+><P
+>&#13;   I18Nv2 provides decorated classes for country and language lists.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.internationalization.i18nv2.examples.using-decorated-lists.listing1"><P
+><B
+>Example 44-8. I18Nv2_DecoratedList</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'I18Nv2/Country.php';
+require_once 'I18Nv2/DecoratedList/HtmlSelect.php';
+require_once 'I18Nv2/DecoratedList/HtmlEntities.php';
+
+$c = &#38;new I18Nv2_Country('it', 'iso-8859-1');
+$e = &#38;new I18Nv2_DecoratedList_HtmlEntities($c);
+$s = &#38;new I18Nv2_DecoratedList_HtmlSelect($e);
+
+// set some attributes
+$s-&#62;attributes['select']['name'] = 'CountrySelect';
+$s-&#62;attributes['select']['onchange'] = 'this.form.submit()';
+
+// set a selected entry
+$s-&#62;selected['DE'] = true;
+
+// print a HTML safe select box
+echo $s-&#62;getAllCodes();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.internationalization.i18nv2.examples.using-decorated-lists.listing2"><P
+><B
+>Example 44-9. I18Nv2_CommonList::toDecoratedList()</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'I18Nv2/Country.php';
+
+$c = &#38;new I18Nv2_Country('it', 'iso-8859-1');
+$s = &#38;$c-&#62;toDecoratedList('HtmlSelect');
+
+// set some attributes
+$s-&#62;attributes['select']['name'] = 'CountrySelect';
+$s-&#62;attributes['select']['onchange'] = 'this.form.submit()';
+
+// set a selected entry
+$s-&#62;selected['IT'] = true;
+
+// print a HTML select box
+echo $s-&#62;getAllCodes();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.internationalization.i18nv2.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.internationalization.i18nv2.constants.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Intro</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.internationalization.i18nv2.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>I18Nv2 Constants</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

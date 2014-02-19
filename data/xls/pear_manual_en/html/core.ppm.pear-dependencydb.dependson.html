@@ -1,0 +1,353 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;   PEAR_DependencyDB::dependsOn
+  </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR_DependencyDB"
+HREF="core.ppm.pear-dependencydb.html"><LINK
+REL="PREVIOUS"
+TITLE="
+   PEAR_DependencyDB::assertDepsDB
+  "
+HREF="core.ppm.pear-dependencydb.assertdepsdb.html"><LINK
+REL="NEXT"
+TITLE="
+   PEAR_DependencyDB::getDependencies
+  "
+HREF="core.ppm.pear-dependencydb.getdependencies.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-dependencydb.assertdepsdb.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-dependencydb.getdependencies.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.ppm.pear-dependencydb.dependson"><B
+CLASS="function"
+>PEAR_DependencyDB::dependsOn()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN12563"
+></A
+>
+   <B
+CLASS="function"
+>PEAR_DependencyDB::dependsOn()</B
+>
+  &nbsp;--&nbsp;Determine whether $parent depends on $child, near or deep</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN12567"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN12568"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once '/DependencyDB.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     void
+     <B
+CLASS="function"
+>PEAR_DependencyDB::dependsOn</B
+>
+    </CODE
+> (array|PEAR_PackageFile_v2|PEAR_PackageFile_v2
+     $parent, array|PEAR_PackageFile_v2|PEAR_PackageFile_v2
+     $child)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-dependencydb.dependson.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   This method is the central method of DependencyDB.  Through the dependency
+   database, it is possible to determine whether any two packages share a dependency
+   relationship independent of how tightly bound the two packages are.  In other words,
+   if package A depends on package B depends on package C, this method can be used to
+   determine that package A indirectly depends on package C.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-dependencydb.dependson.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array|PEAR_PackageFile_v2|PEAR_PackageFile_v2
+      <TT
+CLASS="parameter"
+><I
+>$parent</I
+></TT
+></DT
+><DD
+><P
+>&#13;       The parent package (as in package A in the example above)
+      </P
+><P
+>&#13;       This parameter, if an array, should be in format:
+      </P
+><P
+>&#13;       <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#60;?php
+array(
+  'package' =&#62; 'packagename',
+  'channel' =&#62; 'channelname'
+);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+      </P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array|PEAR_PackageFile_v2|PEAR_PackageFile_v2
+      <TT
+CLASS="parameter"
+><I
+>$child</I
+></TT
+></DT
+><DD
+><P
+>&#13;       The child package (as in package B or package C in the example above)
+      </P
+><P
+>&#13;       This parameter, if an array, should be in format:
+      </P
+><P
+>&#13;       <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#60;?php
+array(
+  'package' =&#62; 'packagename',
+  'channel' =&#62; 'channelname'
+);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-dependencydb.dependson.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+>
+   no exceptions thrown
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-dependencydb.dependson.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-dependencydb.assertdepsdb.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-dependencydb.getdependencies.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_DependencyDB::assertDepsDB()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-dependencydb.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_DependencyDB::getDependencies()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

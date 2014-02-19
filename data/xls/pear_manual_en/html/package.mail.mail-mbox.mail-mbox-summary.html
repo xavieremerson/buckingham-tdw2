@@ -1,0 +1,278 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;    Class Summary
+    Mail_Mbox
+   </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Mail_Mbox"
+HREF="package.mail.mail-mbox.html"><LINK
+REL="PREVIOUS"
+TITLE="Mail_Mbox"
+HREF="package.mail.mail-mbox.html"><LINK
+REL="NEXT"
+TITLE="Tutorial"
+HREF="package.mail.mail-mbox.tutorial.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-mbox.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-mbox.tutorial.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.mail.mail-mbox.mail-mbox-summary">Class Summary
+    <B
+CLASS="classname"
+>Mail_Mbox</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN80016"
+></A
+>
+    Class Summary
+    <B
+CLASS="classname"
+>Mail_Mbox</B
+>
+   &nbsp;--&nbsp;Class to read mbox mail files.</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN80020"
+></A
+><H2
+>Reading and writing mbox files.</H2
+><P
+>&#13;    An mbox mail file is contains plain emails concatenated in one big file.
+    Since each mail starts with "From ", and ends with a newline,
+    they can be separated from each other.
+   </P
+><P
+>&#13;    This class takes a mbox filename in the constructor, generates an
+    index where the mails start and end when calling
+    <A
+HREF="package.mail.mail-mbox.mail-mbox.open.html"
+>open()</A
+>
+    and returns single mails with 
+    <A
+HREF="package.mail.mail-mbox.mail-mbox.get.html"
+>get()</A
+>,
+    using the positions in the index.
+   </P
+><P
+>&#13;    With the help of this class, you also can
+    <A
+HREF="package.mail.mail-mbox.mail-mbox.insert.html"
+>insert()</A
+>,
+    <A
+HREF="package.mail.mail-mbox.mail-mbox.remove.html"
+>remove()</A
+> and
+    <A
+HREF="package.mail.mail-mbox.mail-mbox.update.html"
+>update()</A
+>
+    messages in the mbox file. When calling one of this methods, the class
+    checks if the file has been modified since the index was created -
+    changing the file with the wrong positions in the index would very likely
+    corrupt it. This check is not done when retrieving single messages via 
+    <A
+HREF="package.mail.mail-mbox.mail-mbox.get.html"
+>get()</A
+>,
+    as this would slow down the process if you retrieve thousands of mails.
+    You can, however, call
+    <A
+HREF="package.mail.mail-mbox.mail-mbox.hasbeenmodified.html"
+>hasBeenModified()</A
+>
+    before using
+    <A
+HREF="package.mail.mail-mbox.mail-mbox.get.html"
+>get()</A
+>
+    to check for modification yourself. If the method returns true,
+    you should
+    <A
+HREF="package.mail.mail-mbox.mail-mbox.close.html"
+>close()</A
+>
+    and re-<A
+HREF="package.mail.mail-mbox.mail-mbox.open.html"
+>open()</A
+>
+    the file.
+   </P
+><P
+>&#13;    If something strange happens and you don't know why, activate
+    debugging with
+    <A
+HREF="package.mail.mail-mbox.mail-mbox.setdebug.html"
+>setDebug(true)</A
+>.
+    You also can modify the temporary directory in which changed mboxes are
+    stored when adding/removing/modifying by using
+    <A
+HREF="package.mail.mail-mbox.mail-mbox.settmpdir.html"
+>setTmpDir('/path/')</A
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN80038"
+></A
+><H2
+>&#13;    Class Tree for
+    <B
+CLASS="classname"
+>Mail_Mbox</B
+>
+   </H2
+><P
+>&#13;    <P
+></P
+><UL
+><LI
+><P
+>&#13;       PEAR
+       <P
+></P
+><UL
+><LI
+><P
+>Mail_Mbox</P
+></LI
+></UL
+>
+      </P
+></LI
+></UL
+>
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mbox.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mbox.tutorial.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Mail_Mbox</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mbox.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Tutorial</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

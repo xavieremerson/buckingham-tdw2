@@ -1,0 +1,983 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - Prepare &#38; Execute</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="MDB2"
+HREF="package.database.mdb2.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction - Results"
+HREF="package.database.mdb2.intro-fetch.html"><LINK
+REL="NEXT"
+TITLE="Introduction - Transaction"
+HREF="package.database.mdb2.intro-transaction.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb2.intro-fetch.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb2.intro-transaction.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.mdb2.intro-execute">Introduction - Prepare &#38; Execute</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN31487"
+></A
+>Introduction - Prepare &#38; Execute&nbsp;--&nbsp;Prepare and execute SQL statements</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb2.intro-execute.desc"
+></A
+><H2
+>Description</H2
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.mdb2.intro-execute.desc.purpose"
+></A
+><H3
+>Purpose</H3
+><P
+>&#13;    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodprepare"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>prepare()</B
+></A
+> and
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Statement_Common.html#methodexecute"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>execute()</B
+></A
+>
+    give you more power and flexibilty for query execution.
+    Prepare/execute mode is helpful when you have to run the
+    same query several times but with different values in it,
+    such as adding a list of addresses into a database.
+   </P
+><P
+>&#13;    Another place prepare/execute is useful is supporting
+    databases which have different SQL syntaxes.
+    Imagine you want to support two databases with different
+    <B
+CLASS="command"
+>INSERT</B
+> syntax:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>db1: INSERT INTO tbl_name (col1, col2) VALUES (expr1, expr2)
+db2: INSERT INTO tbl_name SET col1=expr1, col2=expr2</PRE
+></TD
+></TR
+></TABLE
+>
+    Correspondending to create multi-lingual scripts you can create
+    a array with queries like this:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$statement['db1']['INSERT_PERSON'] = 'INSERT INTO person
+    (surname, name, age) VALUES (?, ?, ?)';
+
+$statement['db2']['INSERT_PERSON'] = 'INSERT INTO person
+    SET surname=?, name=?, age=?';</PRE
+></TD
+></TR
+></TABLE
+>
+    Furthermore it is also possible to use named placeholders as inspired
+    by Oracle. Using named placeholders also allows using the same placeholder
+    name multiple times inside a single statement:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$statement['db1']['INSERT_PERSON'] = 'INSERT INTO person
+    (surname, name, age) VALUES (:surname, :lastname, :age)';
+
+$statement['db2']['INSERT_PERSON'] = 'INSERT INTO person
+    SET surname=:surname, name=:lastname, age=:age';</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.mdb2.intro-execute.desc.prepare"
+></A
+><H3
+>Prepare</H3
+><P
+>&#13;    To use the features above, you have to do two steps. Step one is to
+    <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>prepare</I
+></SPAN
+> the statement which returns an instance
+    of the <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Statement_Common.html"
+TARGET="_top"
+>&#13;    MDB2_Statement_Common</A
+> class.
+    The second step is to <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>execute</I
+></SPAN
+> it.
+   </P
+><P
+>&#13;    To start out, you need to
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodprepare"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>prepare()</B
+></A
+> a generic
+    SQL statment. Create a generic statment by writing
+    the SQL query as usual:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>SELECT surname, name, age
+    FROM person
+    WHERE name = 'name_to_find' AND age &#60; age_limit</PRE
+></TD
+></TR
+></TABLE
+>
+    Then substitute <SPAN
+CLASS="QUOTE"
+>"placeholders"</SPAN
+> for the
+    literal values which will be provided at run time:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>SELECT surname, name, age
+    FROM person
+    WHERE name = ? AND age &#60; ?</PRE
+></TD
+></TR
+></TABLE
+>
+    Then pass this SQL statement to
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodprepare"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>prepare()</B
+></A
+>, which returns
+    a statement class instance to be used when calling
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Statement_Common.html#methodexecute"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>execute()</B
+></A
+>.
+   </P
+><P
+>&#13;    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodprepare"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>prepare()</B
+></A
+> can handle different types of
+    placeholders (a.k.a. wildcards). By default all placeholders are handled
+    as strings. However passing an array of
+    <A
+HREF="http://cvs.php.net/viewcvs.cgi/*checkout*/pear/MDB2/docs/datatypes.html"
+TARGET="_top"
+>&#13;     data types</A
+> as the second parameter makes it
+    possible to set a specific type for each placeholder.
+   </P
+><P
+>&#13;    Since DML (data manipulation language - INSERT, UPDATE, DELETE) statements
+    have different return values than data fetches the
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodprepare"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>prepare()</B
+></A
+> accepts a third parameter. This
+    parameter should be set to <TT
+CLASS="constant"
+><B
+>MDB2_PREPARE_MANIP</B
+></TT
+> for DML
+    statements. For data reads it should either be set to
+    <TT
+CLASS="constant"
+><B
+>MDB2_PREPARE_RESULT</B
+></TT
+>, an array of
+    <A
+HREF="http://cvs.php.net/viewcvs.cgi/*checkout*/pear/MDB2/docs/datatypes.html"
+TARGET="_top"
+>&#13;     data types</A
+> for each of the columns in the
+    result set or <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> in order to automatically detect the data types in the
+    result set.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.mdb2.intro-execute.desc.execute"
+></A
+><H3
+>Execute</H3
+><P
+>&#13;    After preparing the statement, you can execute the query. This
+    means to assign the variables to the prepared statement. To do
+    this, <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Statement_Common.html#methodexecute"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>execute()</B
+></A
+> requires one argument a scalar or
+    array with the values to assign.
+   </P
+><P
+>&#13;    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31537"><P
+><B
+>Example 33-1. Passing scalars to <B
+CLASS="function"
+>execute()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$sth = $mdb2-&#62;prepare('INSERT INTO numbers (number) VALUES (?)', array('integer'), MDB2_PREPARE_MANIP);
+$sth-&#62;execute(1);
+$sth-&#62;execute(8);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    When a prepared statement has multiple placeholders, you must use
+    an array to pass the values to <B
+CLASS="function"
+>execute()</B
+>.
+    The first entry of the array represents the first
+    placeholder, the second the second placeholder, etc.
+    The order is independent of the type of placeholder used.
+   </P
+><P
+>&#13;    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31544"><P
+><B
+>Example 33-2. Passing an array to <B
+CLASS="function"
+>execute()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$types = array('integer', 'text', 'text');
+$sth = $mdb2-&#62;prepare('INSERT INTO numbers VALUES (?, ?, ?)', $types, MDB2_PREPARE_MANIP);
+
+$data = array(1, 'one', 'en');
+$affectedRows = $sth-&#62;execute($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    When using named placeholders the data array needs to be an associative
+    array with the keys matching the placeholder names.
+   </P
+><P
+>&#13;    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31550"><P
+><B
+>Example 33-3. Passing an array to <B
+CLASS="function"
+>execute()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$types = array('integer', 'text', 'text');
+$sth = $mdb2-&#62;prepare('INSERT INTO numbers VALUES (:id, :text, :lang)');
+
+$data = array('id' =&#62; 1, 'name' =&#62; 'one', 'lang' =&#62; 'en');
+$affectedRows = $sth-&#62;execute($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    When using named placeholders the data array needs to be an associative
+    array with the keys matching the placeholder names.
+   </P
+><P
+>&#13;    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31556"><P
+><B
+>Example 33-4. Passing an array to <B
+CLASS="function"
+>execute()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$sth = $mdb2-&#62;prepare('SELECT name, lang FROM numbers WHERE id = ?', array('integer'), array('text', 'text'));
+
+$result = $sth-&#62;execute(1);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+
+   </P
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;     The values passed in <TT
+CLASS="parameter"
+><I
+>$data</I
+></TT
+> must be literals.
+     Do not submit SQL functions (for example <TT
+CLASS="literal"
+>CURDATE()</TT
+>).
+     SQL functions that should be performed at execution time need
+     to be put in the prepared statement. Similarly, identifiers
+     (i.e. table names and column names) can not be used because
+     the names get validated during the prepare phase.
+    </P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.mdb2.intro-execute.desc.executemultiple"
+></A
+><H3
+>ExecuteMultiple</H3
+><P
+>&#13;    MDB2 contains a process for executing several queries at once.
+    So, rather than having to execute them manually, like this:
+
+    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31567"><P
+><B
+>Example 33-5. Passing arrays to <B
+CLASS="function"
+>execute()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// Once you have a valid MDB2 object named $mdb2...
+$alldata = array(array(1, 'one', 'en'),
+                 array(2, 'two', 'to'),
+                 array(3, 'three', 'tre'),
+                 array(4, 'four', 'fire'));
+$sth = $mdb2-&#62;prepare('INSERT INTO numbers VALUES (?, ?, ?)');
+foreach ($alldata as $row) {
+    $mdb2-&#62;execute($sth, $row);
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+
+    which would issue four queries:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>INSERT INTO numbers VALUES ('1', 'one', 'en')
+INSERT INTO numbers VALUES ('2', 'two', 'to')
+INSERT INTO numbers VALUES ('3', 'three', 'tre')
+INSERT INTO numbers VALUES ('4', 'four', 'fire')</PRE
+></TD
+></TR
+></TABLE
+>
+
+    you can use
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Statement_Common.html#methodexecute"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>executeMultiple()</B
+></A
+> to avoid the explicit
+    foreach in the eample above:
+
+    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31574"><P
+><B
+>Example 33-6. 
+      Using <B
+CLASS="function"
+>executeMultiple()</B
+> from the Extended Module
+      instead of <B
+CLASS="function"
+>execute()</B
+>
+     </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// Once you have a valid MDB2 object named $mdb2...
+$mdb-&#62;loadModule('Exended', null, false);
+$alldata = array(array(1, 'one', 'en'),
+                 array(2, 'two', 'to'),
+                 array(3, 'three', 'tre'),
+                 array(4, 'four', 'fire'));
+$sth = $mdb2-&#62;prepare('INSERT INTO numbers VALUES (?, ?, ?)');
+$mdb2-&#62;extended-&#62;executeMultiple($sth, $alldata);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    The result is the same. If one of the records failed, the
+    unfinished records will not be executed.
+   </P
+><P
+>&#13;    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Statement_Common.html#methodexecute"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>execute()</B
+></A
+> has three
+    possible returns:
+    a new MDB2_Result_Common object
+    for queries that return results (such as
+    <B
+CLASS="command"
+>SELECT</B
+> queries),
+    integer for queries that manipulate data (such as
+    <B
+CLASS="command"
+>INSERT</B
+> queries) or a MDB2_Error object on failure
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.mdb2.intro-execute.desc.datatypes"
+></A
+><H3
+>Data types</H3
+><P
+>&#13;    MDB2 supports a number of data types across all drivers. These can be set
+    for prepared placeholders as well as result sets in all relevant methods.
+    You can find an overview of the supported data types and their format
+    <A
+HREF="http://cvs.php.net/viewcvs.cgi/*checkout*/pear/MDB2/docs/datatypes.html"
+TARGET="_top"
+>&#13;    here</A
+>.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.mdb2.intro-execute.desc.free"
+></A
+><H3
+>Freeing Prepares Statements</H3
+><P
+>&#13;    Once you finish using a repared statements, if your script
+    continues for a while, it's a good idea to save
+    memory by freeing the prepared statement set via
+    Use <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Statement_Common.html#methodfree"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>free()</B
+></A
+>.
+    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31594"><P
+><B
+>Example 33-7. Freeing</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$sth = $mdb2-&#62;prepare('SELECT name, lang FROM numbers WHERE id = ?', array('integer'), array('text', 'text'));
+
+$result = $sth-&#62;execute(1);
+
+$sth-&#62;free();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.mdb2.intro-execute.desc.setlimit"
+></A
+><H3
+>Limiting rows and reading from an offset</H3
+><P
+>&#13;    In order to read/write to only a limited number of rows from a result set
+    and/or to start reading from a specific offset the
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodsetLimit"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>setLimit()</B
+></A
+> can be called prior to calling
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodprepare"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>prepare()</B
+></A
+>.
+    The limit and offset will only affected the next method call that
+    will issue a query or prepare a statement and will automatically be reset
+    after issueing the query. This also applies to any internal queries issues
+    inside MDB2. Note that limit may not work with DML statements on RDBMS that
+    emulate limit support and no error will be raised.
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31604"><P
+><B
+>Example 33-8. Using setLimit with prepare</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+// read 20 rows with an offset of 10
+$mdb2-&#62;setLimit(20, 10);
+$sth = $mdb2-&#62;prepare('SELECT name, lang FROM numbers WHERE group_id = ?', array('integer'), array('text', 'text'));
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.intro-fetch.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.intro-transaction.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction - Results</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction - Transaction</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

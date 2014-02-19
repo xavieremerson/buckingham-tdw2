@@ -1,0 +1,248 @@
+<HTML
+><HEAD
+><TITLE
+>Intro</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="I18Nv2"
+HREF="package.internationalization.i18nv2.html"><LINK
+REL="PREVIOUS"
+TITLE="Class Summary I18Nv2"
+HREF="package.internationalization.i18nv2.i18nv2-summary.html"><LINK
+REL="NEXT"
+TITLE="Examples"
+HREF="package.internationalization.i18nv2.examples.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.internationalization.i18nv2.i18nv2-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.internationalization.i18nv2.examples.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.internationalization.i18nv2.intro">Intro</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN76441"
+></A
+>Intro&nbsp;--&nbsp;Introduction to I18Nv2</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.i18nv2.intro.preface"
+></A
+><H2
+>Preface</H2
+><P
+>&#13;   The work on I18Nv2 has actually started as a refactoring of I18N, but after
+   some time I figured out that too many BC breaking changes were applied,
+   so the release of a new major version was suggested.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.i18nv2.intro.comparison"
+></A
+><H2
+>Differences to I18N</H2
+><P
+>&#13;   I18N was modeled after Java OO practice and it provides a bunch of classes
+   for each formatting action (numbers, currencies, dates).
+  </P
+><P
+>&#13;   I18Nv2 takes another approach and provides all formatting functionality
+   within one class, which is 
+   <A
+HREF="package.internationalization.i18nv2.i18nv2-locale-summary.html"
+>&#13;   <B
+CLASS="classname"
+>I18Nv2_Locale</B
+></A
+>.
+  </P
+><P
+>&#13;   <B
+CLASS="classname"
+>I18Nv2_Locale</B
+> is based upon PHPs builtin functionality
+   of <A
+HREF="http://php.net/setlocale"
+TARGET="_top"
+><B
+CLASS="function"
+>setlocale()</B
+>
+   </A
+>, <A
+HREF="http://php.net/localeconv"
+TARGET="_top"
+><B
+CLASS="function"
+>localeconv
+   ()</B
+></A
+> and <A
+HREF="http://php.net/iconv"
+TARGET="_top"
+>iconv</A
+>
+   related functions, while I18N completely depends on user contributed
+   formatting rules.
+  </P
+><P
+>&#13;   I wouldn't say I18Nv2's approach is the better one, because it depends on
+   the internationalization capabilities of the underlying operating system,
+   but it's simpler and faster - though it is in need of user contributed
+   date and time formatting rules.
+  </P
+><P
+>&#13;   I18N's translation functionality was dropped in favour of the new and
+   shiny <A
+HREF="package.internationalization.translation2.html"
+><B
+CLASS="classname"
+>&#13;   Translation2</B
+></A
+>.
+  </P
+><P
+>&#13;   I18Nv2 still provides an <A
+HREF="package.internationalization.i18nv2.i18nv2-negotiator-summary.html"
+>HTTP 
+   negotiator</A
+> to reveal the users preferred language/locale and charset.
+  </P
+><P
+>&#13;   I18Nv2 has translated lists of ISO country and language names for
+   about 50 different languages. See <A
+HREF="package.internationalization.i18nv2.i18nv2-country-summary.html"
+>I18Nv2_Country</A
+>
+   and <A
+HREF="package.internationalization.i18nv2.i18nv2-language-summary.html"
+>I18Nv2_Language</A
+>.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.internationalization.i18nv2.i18nv2-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.internationalization.i18nv2.examples.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Class Summary <B
+CLASS="classname"
+>I18Nv2</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.internationalization.i18nv2.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Examples</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

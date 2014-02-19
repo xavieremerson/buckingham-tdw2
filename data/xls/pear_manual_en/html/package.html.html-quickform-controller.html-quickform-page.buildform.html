@@ -1,0 +1,272 @@
+<HTML
+><HEAD
+><TITLE
+>Page::buildForm()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_QuickForm_Controller"
+HREF="package.html.html-quickform-controller.html"><LINK
+REL="PREVIOUS"
+TITLE="Page::addAction()"
+HREF="package.html.html-quickform-controller.html-quickform-page.addaction.html"><LINK
+REL="NEXT"
+TITLE="Page::getButtonName()"
+HREF="package.html.html-quickform-controller.html-quickform-page.getbuttonname.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform-controller.html-quickform-page.addaction.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform-controller.html-quickform-page.getbuttonname.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform-controller.html-quickform-page.buildform">Page::buildForm()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN66601"
+></A
+>Page::buildForm()&nbsp;--&nbsp;Builds a form.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN66604"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN66605"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/QuickForm/Page.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void      <B
+CLASS="function"
+>HTML_QuickForm_Page::buildForm</B
+></CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform-controller.html-quickform-page.buildform.desc"
+></A
+><H2
+>Description</H2
+><P
+>Builds a form. You should override this method when you subclass <B
+CLASS="classname"
+>HTML_QuickForm_Page</B
+>, 
+      it should contain all the necessary 
+      <A
+HREF="package.html.html-quickform.html-quickform.addelement.html"
+><B
+CLASS="function"
+>addElement()</B
+></A
+>, 
+      <A
+HREF="package.html.html-quickform.html-quickform.applyfilter.html"
+><B
+CLASS="function"
+>applyFilter()</B
+></A
+>, 
+      <A
+HREF="package.html.html-quickform.html-quickform.addrule.html"
+><B
+CLASS="function"
+>addRule()</B
+></A
+>  and possibly 
+      <A
+HREF="package.html.html-quickform.html-quickform.setdefaults.html"
+><B
+CLASS="function"
+>setDefaults()</B
+></A
+> and 
+      <A
+HREF="package.html.html-quickform.html-quickform.setconstants.html"
+><B
+CLASS="function"
+>setConstants()</B
+></A
+> calls. 
+      The method will be  called on demand, so please be sure to set <TT
+CLASS="varname"
+>$_formBuilt</TT
+> property to <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> 
+      to  assure that the method works only once.
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform-controller.html-quickform-page.buildform.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> no exceptions thrown
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform-controller.html-quickform-page.buildform.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform-controller.html-quickform-page.addaction.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform-controller.html-quickform-page.getbuttonname.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Page::addAction()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform-controller.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Page::getButtonName()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

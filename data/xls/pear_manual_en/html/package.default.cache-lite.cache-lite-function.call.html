@@ -1,0 +1,513 @@
+<HTML
+><HEAD
+><TITLE
+>Cache_Lite_Function::call</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Cache_Lite"
+HREF="package.caching.cache-lite.html"><LINK
+REL="PREVIOUS"
+TITLE="constructor Cache_Lite_Function::Cache_Lite_Function"
+HREF="package.default.cache-lite.cache-lite-function.cache-lite-function.html"><LINK
+REL="NEXT"
+TITLE="Cache_Lite_Function::drop"
+HREF="package.default.cache-lite.cache-lite-function.drop.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.default.cache-lite.cache-lite-function.cache-lite-function.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.default.cache-lite.cache-lite-function.drop.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.default.cache-lite.cache-lite-function.call"><B
+CLASS="function"
+>Cache_Lite_Function::call()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN18518"
+></A
+><B
+CLASS="function"
+>Cache_Lite_Function::call()</B
+>&nbsp;--&nbsp;Calls a cacheable function or method (or not if there is already a cache
+for it)</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN18522"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN18523"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Cache/Lite/Function.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed      <B
+CLASS="function"
+>Cache_Lite_Function::call</B
+></CODE
+> (string$functionName, mixed$arg1, mixed$arg2, mixed$arg3, mixed...)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.default.cache-lite.cache-lite-function.call.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;       call the given function with given arguments only if there is no cache about it ;
+       else, the output of the function is read from the cache then send to the browser and
+       the return value if read also from the cache and returned. 
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.default.cache-lite.cache-lite-function.call.returns"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>returns</I
+></SPAN
+> result of the function/method
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.default.cache-lite.cache-lite-function.call.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.caching.cache-lite.cache-lite-function.call.example1"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN18550"><P
+><B
+>Example 30-1. classical using with a function</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+require_once('Cache/Lite/Function.php');
+
+$options = array(
+    'cacheDir' =&#62; '/tmp/',
+    'lifeTime' =&#62; 3600
+);
+
+$cache = new Cache_Lite_Function($options);
+
+$cache-&#62;call('function_to_bench', 12, 45);
+
+function function_to_bench($arg1, $arg2) 
+{
+    echo "This is the output of the function function_to_bench($arg1, $arg2) !&#60;br&#62;";
+    return "This is the result of the function function_to_bench($arg1, $arg2) !&#60;br&#62;";
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.caching.cache-lite.cache-lite-function.call.example2"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN18555"><P
+><B
+>Example 30-2. classical using with a method</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+require_once('Cache/Lite/Function.php');
+
+$options = array(
+    'cacheDir' =&#62; '/tmp/',
+    'lifeTime' =&#62; 3600
+);
+
+$cache = new Cache_Lite_Function($options);
+
+$obj = new bench();
+$obj-&#62;test = 666;
+
+$cache-&#62;call('obj-&#62;method_to_bench', 12, 45);
+
+class bench
+{
+    var $test;
+
+    function method_to_bench($arg1, $arg2)
+    {
+        echo "\$obj-&#62;test = $this-&#62;test and this is the output of the method \$obj-&#62;method_to_bench($arg1, $arg2) !&#60;br&#62;";
+        return "\$obj-&#62;test = $this-&#62;test and this is the result of the method \$obj-&#62;method_to_bench($arg1, $arg2) !&#60;br&#62;";        
+    }
+    
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;     If you try to use Cache_Lite_Function with $this object ($cache-&#62;call('this-&#62;method',...) 
+     for example), have a look first at the last example of this page. 
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.caching.cache-lite.cache-lite-function.call.example3"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN18561"><P
+><B
+>Example 30-3. classical using with a static method</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+require_once('Cache/Lite/Function.php');
+
+$options = array(
+    'cacheDir' =&#62; '/tmp/',
+    'lifeTime' =&#62; 3600
+);
+
+$cache = new Cache_Lite_Function($options);
+
+$cache-&#62;call('bench::static_method_to_bench', 12, 45);
+
+class bench
+{
+    var $test;
+
+    function static_method_to_bench($arg1, $arg2) {
+        echo "This is the output of the function static_method_to_bench($arg1, $arg2) !&#60;br&#62;";
+        return "This is the result of the function static_method_to_bench($arg1, $arg2) !&#60;br&#62;";
+    }
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.caching.cache-lite.cache-lite-function.call.example4"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN18566"><P
+><B
+>Example 30-4. another using with a method (how to use cache $this-&#62;method() calls)</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+// Since Cache_Lite-1.7.0beta2
+
+require_once('Cache/Lite/Function.php');
+
+$options = array(
+    'cacheDir' =&#62; '/tmp/',
+    'lifeTime' =&#62; 3600
+);
+
+$obj = new foo($options);
+
+class foo
+{
+
+    var $test;
+    
+    function foo($options)
+    {
+        $cache = new Cache_Lite_Function($options);
+        $this-&#62;test = 'foobar';
+        $cache-&#62;call(array(&#38;$this, 'method_bar'), 12, 45);
+    }
+    
+    function method_bar($arg1, $arg2)
+    {
+        echo "\$this-&#62;test = $this-&#62;test and this is the output of the method \$this-&#62;method_bar($arg1, $arg2) !&#60;br&#62;";
+        return "\$this-&#62;test = $this-&#62;test and this is the result of the method \$this-&#62;method_bar($arg1, $arg2) !&#60;br&#62;";        
+    }
+
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;     So, for method calls, the best way is to use array(&#38;$object, 'nameOfTheMethod') as first argument instead
+     of '$object-&#62;nameOfTheMethod' which doesn't work with "$this" for example.
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.default.cache-lite.cache-lite-function.cache-lite-function.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.default.cache-lite.cache-lite-function.drop.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>constructor <B
+CLASS="function"
+>Cache_Lite_Function::Cache_Lite_Function()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.caching.cache-lite.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Cache_Lite_Function::drop()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

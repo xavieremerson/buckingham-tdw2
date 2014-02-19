@@ -1,0 +1,365 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;   constructor
+   Gtk2_EntryDialog
+  </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Gtk2_EntryDialog"
+HREF="package.gtk2.entrydialog.html"><LINK
+REL="PREVIOUS"
+TITLE="
+    Class Summary
+    Gtk2_EntryDialog
+   "
+HREF="package.gtk2.entrydialog.entrydialog-summary.html"><LINK
+REL="NEXT"
+TITLE="
+   Gtk2_EntryDialog::new_simple
+  "
+HREF="package.gtk2.entrydialog.newsimple.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.gtk2.entrydialog.entrydialog-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.gtk2.entrydialog.newsimple.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.gtk2.entrydialog.constructor">constructor
+   <B
+CLASS="function"
+>Gtk2_EntryDialog()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN49781"
+></A
+>
+   constructor
+   <B
+CLASS="function"
+>Gtk2_EntryDialog()</B
+>
+  &nbsp;--&nbsp;Create a entry dialog instance.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN49785"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN49786"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Gtk2/EntryDialog.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     void      constructor
+     <B
+CLASS="function"
+>Gtk2_EntryDialog::__construct</B
+>
+    </CODE
+> (GtkWindow $parent, GtkDialogFlags $flags, GtkMessageType $type, GtkButtonsType $buttons, string $message, string $default)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.gtk2.entrydialog.constructor.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Creates a new entry dialog instance. After creating it, you can
+   modify it and finally use the
+   <A
+HREF="package.gtk2.entrydialog.run.html"
+>run()</A
+>
+   to show it and await the input.
+  </P
+><P
+>&#13;   You might want to use a more simple constructor, e.g.
+   <A
+HREF="package.gtk2.entrydialog.get.html"
+>get()</A
+> or
+   <A
+HREF="package.gtk2.entrydialog.newsimple.html"
+>new_simple()</A
+>
+  </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'Gtk2/EntryDialog.php';
+
+$id = new Gtk2_EntryDialog(
+    null,                       //parent window
+    0,                          //flags (GtkDialogFlags)
+    Gtk::MESSAGE_QUESTION,      //type of message
+    Gtk::BUTTONS_OK_CANCEL,     //which buttons shall be there
+    'What\'s your name?',       //the message
+    'Don\'t know'               //The default text
+);
+
+$answer = $id-&#62;run();
+$id-&#62;destroy();
+if ($answer == Gtk::RESPONSE_OK) {
+    echo 'The name is: ';
+    var_dump($id-&#62;get_text());
+} else {
+    echo "You cancelled\r\n";
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.gtk2.entrydialog.constructor.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+><B
+CLASS="classname"
+>GtkWindow</B
+>
+      <TT
+CLASS="parameter"
+><I
+>$parent</I
+></TT
+></DT
+><DD
+><P
+>Parent window (can be null).</P
+></DD
+><DT
+>GtkDialogFlags
+      <TT
+CLASS="parameter"
+><I
+>$flags</I
+></TT
+></DT
+><DD
+><P
+>Dialog flags (use 0 as default)</P
+></DD
+><DT
+>GtkMessageType
+      <TT
+CLASS="parameter"
+><I
+>$type</I
+></TT
+></DT
+><DD
+><P
+>Message type (e.g. Gtk::MESSAGE_QUESTION)</P
+></DD
+><DT
+>GtkButtonsType
+      <TT
+CLASS="parameter"
+><I
+>$buttons</I
+></TT
+></DT
+><DD
+><P
+>Buttons to show (e.g. Gtk::BUTTONS_OK)</P
+></DD
+><DT
+>string
+      <TT
+CLASS="parameter"
+><I
+>$message</I
+></TT
+></DT
+><DD
+><P
+>Message to display.</P
+></DD
+><DT
+>string
+      <TT
+CLASS="parameter"
+><I
+>$default</I
+></TT
+></DT
+><DD
+><P
+>Default text for the entry.</P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.gtk2.entrydialog.entrydialog-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.gtk2.entrydialog.newsimple.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Class Summary
+    <B
+CLASS="classname"
+>Gtk2_EntryDialog</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.gtk2.entrydialog.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Gtk2_EntryDialog::new_simple()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

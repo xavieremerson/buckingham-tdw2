@@ -1,0 +1,282 @@
+<HTML
+><HEAD
+><TITLE
+>DataSources</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Introduction and Features"
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.intro-and-features"><LINK
+REL="PREVIOUS"
+TITLE="Constants"
+HREF="packages.structures.structures-datagrid.constants.html"><LINK
+REL="NEXT"
+TITLE="Rendering the output"
+HREF="package.structures.structures-datagrid.rendering.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="packages.structures.structures-datagrid.constants.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.rendering.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.structures.structures-datagrid.datasources">DataSources</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN93795"
+></A
+>DataSources&nbsp;--&nbsp;What is a DataSource Driver?</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN93798"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      A DataSource has a rather self-explanatory name ; however, a
+      DataSource Driver in context to the DataGrid can become a very essential
+      key to your software.  A DataSource Driver will interact with your data
+      source directly, such as a DB_DataObject or DB_Result object and handle
+      all of the paging and sorting code for you, resulting in very few lines 
+      of code that you will need to write.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN93801"
+></A
+><H2
+>How to use the drivers</H2
+><P
+>&#13;      To use the drivers, you can simply use the bind method, assuming your
+      DataSource is listed below, otherwise you can use the
+      <B
+CLASS="function"
+>bindDataSource()</B
+>
+      method. The 
+      <A
+HREF="package.structures.structures-datagrid.structures-datagrid.bind.html"
+><B
+CLASS="function"
+>bind()</B
+></A
+>
+      method will attempt to detect the datasource type and
+      may not be 100% accurate. Because of this chance for error, you may
+      choose to use the bindDataSource method where you can specifically define
+      the datasource driver to use.  This method is also the method of choice
+      if you are building your own custom DataSource Driver.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN93807"
+></A
+><H2
+>Currently Available DataSource Drivers</H2
+><P
+>&#13;      The following listed drivers are currently packaged in with Structures_DataGrid.
+    </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN93810"
+></A
+><H3
+>PEAR::DB_DataObject Object</H3
+><P
+>&#13;        The DataObject is the most optimal DataSource for the datagrid because
+        it allows the datagrid to only fetch the necessary records upon
+        rendering.  Please note that when binding to a dataobject, do not run
+        the fetch method prior since the datagrid will run the fetch method
+        during the rendering.
+      </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN93813"
+></A
+><H3
+>PEAR::DB_Result Object</H3
+><P
+>&#13;        When using the DB_Result object, please keep in mind that the sorting
+        will not be automatic and must be done in the SQL directly.  Also the 
+        paging will not be optimized since your entire result set will be
+        limitied.  It is best to implement the LIMIT clause manually unless
+        your database platform does not support this.
+      </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN93816"
+></A
+><H3
+>XML File</H3
+><P
+>&#13;        XML can simply be presented via the DataGrid.  You can bind the
+        Datagrid to a URL directly or via the contents of the XML file.
+      </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN93819"
+></A
+><H3
+>CSV File</H3
+><P
+>&#13;        A CSV file can simply be presented via the DataGrid.  You can bind the
+        Datagrid to a URL directly or via the contents of the CSV file.
+      </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN93822"
+></A
+><H3
+>RSS File</H3
+><P
+>&#13;        An RSS feed can simply be presented via the DataGrid.  You can bind the
+        Datagrid to a URL directly or via the contents of the RSS file.
+      </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN93825"
+></A
+><H3
+>Array</H3
+><P
+>&#13;        The core data type that the datagrid uses is an Array.  The Datagrid
+        maintains it's data in a 2-dimension associative array.  The array keys
+        are uses as the column names.  This of couse can be changed by 
+        specifying the columns directly.
+      </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="packages.structures.structures-datagrid.constants.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.rendering.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Constants</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.intro-and-features"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Rendering the output</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

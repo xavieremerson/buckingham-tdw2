@@ -1,0 +1,487 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;   PEAR_ErrorStack::staticPush
+  </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Intelligent Error Handling with PEAR_ErrorStack"
+HREF="core.pear.pear-errorstack.html"><LINK
+REL="PREVIOUS"
+TITLE="PEAR_ErrorStack::staticPopCallback"
+HREF="core.pear.pear-errorstack.staticpopcallback.html"><LINK
+REL="NEXT"
+TITLE="
+   PEAR_ErrorStack::staticPushCallback
+  "
+HREF="core.pear.pear-errorstack.staticpushcallback.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.pear.pear-errorstack.staticpopcallback.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.pear.pear-errorstack.staticpushcallback.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.pear.pear-errorstack.staticpush"><B
+CLASS="function"
+>PEAR_ErrorStack::staticPush()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN6140"
+></A
+>
+   <B
+CLASS="function"
+>PEAR_ErrorStack::staticPush()</B
+>
+  &nbsp;--&nbsp;
+   Static version of 
+   <A
+HREF="core.pear.pear-errorstack.push.html"
+>&#13;    <B
+CLASS="function"
+>push()</B
+>
+   </A
+>
+  </DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN6146"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN6147"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'PEAR/ErrorStack.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     <TT
+CLASS="replaceable"
+><I
+>PEAR_Error|null|Exception</I
+></TT
+>      
+     <B
+CLASS="function"
+>PEAR_ErrorStack::staticPush</B
+>
+    </CODE
+> (string 
+     $package, integer 
+     $code [, string 
+     $level = 'error' [, array 
+     $params = array() [, string 
+     $msg = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> [, array 
+     $repackage = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> [, array 
+     $backtrace = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>]]]]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear-errorstack.staticpush.desc"
+></A
+><H2
+>Description</H2
+><P
+></P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear-errorstack.staticpush.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+      <TT
+CLASS="parameter"
+><I
+>$package</I
+></TT
+></DT
+><DD
+><P
+>&#13;       Package name this error belongs to
+      </P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>integer
+      <TT
+CLASS="parameter"
+><I
+>$code</I
+></TT
+></DT
+><DD
+><P
+>&#13;       Package-specific error code
+      </P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+      <TT
+CLASS="parameter"
+><I
+>$level</I
+></TT
+></DT
+><DD
+><P
+>&#13;       Error level.  This is NOT spell-checked
+      </P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array
+      <TT
+CLASS="parameter"
+><I
+>$params</I
+></TT
+></DT
+><DD
+><P
+>&#13;       associative array of error parameters
+      </P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+      <TT
+CLASS="parameter"
+><I
+>$msg</I
+></TT
+></DT
+><DD
+><P
+>&#13;       Error message, or a portion of 
+       it if the message is to be generated
+      </P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array
+      <TT
+CLASS="parameter"
+><I
+>$repackage</I
+></TT
+></DT
+><DD
+><P
+>&#13;       If this error re-packages an error pushed by                          
+       another package, place the array returned from                          
+       <A
+HREF="core.pear.pear-errorstack.pop.html"
+>&#13;        <B
+CLASS="function"
+>pop()</B
+>
+       </A
+>
+       in this parameter
+      </P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array
+      <TT
+CLASS="parameter"
+><I
+>$backtrace</I
+></TT
+></DT
+><DD
+><P
+>&#13;       Protected parameter: use this to pass in the                          
+       <A
+HREF="http://www.php.net/manual-lookup.php?pattern=debug_backtrace"
+TARGET="_top"
+>debug_backtrace</A
+>
+       that should be used to find error context
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear-errorstack.returns"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>returns</I
+></SPAN
+> 
+   if compatibility mode is on, 
+   a PEAR_Error is also thrown.
+   
+   If the class Exception exists, then one
+   is returned to allow code like:
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php-highlighted"
+>&#60;?php
+1      throw ($stack-&#62;<A
+HREF="core.pear.pear-errorstack.push.html"
+>push</A
+>(MY_ERROR_CODE, 'error', array('username' =&#62; 'grob')));
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear-errorstack.staticpush.throws"
+></A
+><H2
+>Throws</H2
+><P
+>No exceptions thrown.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear-errorstack.staticpush.note"
+></A
+><H2
+>Note</H2
+><P
+>This function should be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.pear.pear-errorstack.staticpopcallback.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.pear.pear-errorstack.staticpushcallback.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_ErrorStack::staticPopCallback()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.pear.pear-errorstack.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_ErrorStack::staticPushCallback()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

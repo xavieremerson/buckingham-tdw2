@@ -1,0 +1,302 @@
+<HTML
+><HEAD
+><TITLE
+>Example - Quick</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Introduction and Features"
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.intro-and-features"><LINK
+REL="PREVIOUS"
+TITLE="Column Formatter"
+HREF="package.structures.structures-datagrid.formatter.html"><LINK
+REL="NEXT"
+TITLE="Example - Complex"
+HREF="package.structures.structures-datagrid.example-advanced.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.formatter.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.example-advanced.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.structures.structures-datagrid.example-simple">Example - Quick</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN93873"
+></A
+>Example - Quick&nbsp;--&nbsp;Quickly retrieve data from a database table</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.example-simple.desc"
+></A
+><H2
+>Description</H2
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.structures.structures-datagrid.example-simple.desc.bind"
+></A
+><H3
+>Binding an SQL query</H3
+><P
+>&#13;     To retrieve the data that the datagrid will display you can begin
+     by passing a simple SQL statement to the 
+     <A
+HREF="package.structures.structures-datagrid.structures-datagrid.bind.html"
+>&#13;       <B
+CLASS="function"
+>bind()</B
+>
+     </A
+> method.
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN93883"><P
+><B
+>Example 55-1. Using an SQL query as datasource</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require 'Structures/DataGrid.php';
+
+// Instantiate the DataGrid
+$datagrid =&#38; new Structures_DataGrid();
+
+// Setup your database connection
+$options = array('dsn' =&#62; 'mysql://user:password@host/db_name');
+
+// Bind a basic SQL statement as datasource
+$test = $datagrid-&#62;bind('SELECT * FROM my_table', $options);
+
+// Print binding error if any
+if (PEAR::isError($test)) {
+    echo $test-&#62;getMessage(); 
+}
+
+// Print the DataGrid with the default renderer (HTML Table)
+$test = $datagrid-&#62;render();
+
+// Print rendering error if any
+if (PEAR::isError($test)) {
+    echo $test-&#62;getMessage(); 
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;    If you are familiar with the SQL language you'll certainly find many ways
+    to adapt the above example to your needs, using more complex queries.
+    </P
+><P
+>&#13;     You can also page through your dataset with the automatic paging feature
+     as shown below. This feature transparently adds <SPAN
+CLASS="acronym"
+>LIMIT</SPAN
+>
+     clauses to your SQL statement, providing optimized database access. 
+    </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN93889"><P
+><B
+>Example 55-2. Automatic paging</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require 'Structures/DataGrid.php';
+
+// 10 records per page
+$datagrid =&#38; new Structures_DataGrid(10);
+
+// Setup your datasource
+$options = array('dsn' =&#62; 'mysql://user:password@host/db_name');
+$test = $datagrid-&#62;bind("SELECT * FROM my_table", $options);
+if (PEAR::isError($test)) {
+    echo $test-&#62;getMessage(); 
+}
+
+// Print the DataGrid with the default renderer (HTML Table)
+$test = $datagrid-&#62;render();
+if (PEAR::isError($test)) {
+    echo $test-&#62;getMessage(); 
+}
+
+// Print the HTML paging links
+$test = $datagrid-&#62;render(DATAGRID_RENDER_PAGER);
+if (PEAR::isError($test)) {
+    echo $test-&#62;getMessage(); 
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.formatter.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.example-advanced.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Column Formatter</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.intro-and-features"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Example - Complex</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

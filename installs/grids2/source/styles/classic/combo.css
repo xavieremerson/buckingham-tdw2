@@ -1,0 +1,81 @@
+/*****************************************************************
+
+	ActiveWidgets 2.0.b3 (beta3)
+	Copyright (C) 2003-2005 ActiveWidgets Ltd. All Rights Reserved. 
+	http://www.activewidgets.com/
+
+	WARNING: This software program is protected by copyright law 
+	and international treaties. Unauthorized reproduction or
+	distribution of this program, or any portion of it, may result
+	in severe civil and criminal penalties, and will be prosecuted
+	to the maximum extent possible under the law.
+
+	FOR TESTING AND EVALUATION ONLY:
+	This software is not free and is licensed to you for testing 
+	and evaluation only. You are not allowed to distribute 
+	or use any parts of this software for any other purposes.
+
+*****************************************************************/
+
+.aw-combo-box {
+	border-color: threedshadow threedlightshadow threedlightshadow threedshadow;
+}
+
+.aw-combo-box .aw-item-box {
+	padding: 0px;
+	border: 1px solid;
+	border-color: threeddarkshadow threedhighlight threedhighlight threeddarkshadow;
+}
+
+.aw-strict .aw-combo-box .aw-item-box {
+	padding: 0px 3px 0px 1px;
+}
+
+.aw-ie .aw-combo-box .aw-item-image {
+	margin-top: -9px;
+}
+
+.aw-combo-button {
+	width: 16px;
+	border-collapse: separate;
+	border: 1px solid;
+	border-color: threedface threeddarkshadow threeddarkshadow threedface;
+	background: url(grid.png) -43px 50%;
+	background-color: threedface;
+}
+
+.aw-strict .aw-combo-button {
+	-moz-box-sizing: border-box;
+}
+
+.aw-combo-button td {
+	overflow: hidden;
+	border: 1px solid;
+	border-color: white threedshadow threedshadow white;
+}
+
+.aw-cb-1, .aw-cb-3 {
+	display: none;
+}
+
+.aw-unix .aw-combo-box {
+	border-color: #777 #ddd #ddd #777;
+}
+
+.aw-unix .aw-combo-box .aw-item-box {
+	border-color: #bbb #fff #fff #bbb;
+}
+
+.aw-unix .aw-combo-button {
+	border-color: #ddd #777 #777 #ddd;
+	background-color: #eee;
+}
+
+.aw-unix .aw-combo-button td {
+	border-color: #fff #bbb #bbb #fff;
+}
+
+.aw-popup-window .aw-mouseover-item {
+	color: highlighttext;
+	background: highlight;
+}

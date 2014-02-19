@@ -1,0 +1,697 @@
+<HTML
+><HEAD
+><TITLE
+>QuickHelp</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Introduction"
+HREF="package.html.html-quickform.html#package.html.html-quickform.introduction"><LINK
+REL="PREVIOUS"
+TITLE="QuickStart"
+HREF="package.html.html-quickform.tutorial.html"><LINK
+REL="NEXT"
+TITLE="QuickForm element types"
+HREF="package.html.html-quickform.intro-elements.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.tutorial.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.intro-elements.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.intro-faq">QuickHelp</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN52368"
+></A
+>QuickHelp&nbsp;--&nbsp;Answers to most Frequently Asked Questions</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.intro-faq.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      This document is based on questions asked on <A
+HREF="mailto:pear-general@lists.php.net"
+TARGET="_top"
+>PEAR 
+      general mailing list</A
+>. You are encouraged to search the list archives to find more 
+      verbose answers and examples.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.intro-faq.content"
+></A
+><H2
+>HTML_QuickForm FAQ</H2
+><DIV
+CLASS="qandaset"
+><DL
+><DT
+>1. <A
+HREF="package.html.html-quickform.intro-faq.html#AEN52379"
+>&#13;            The forms I generate with HTML_QuickForm cannot be submitted. When I look at the 
+            page's HTML source, I see something like <TT
+CLASS="literal"
+>&#60;formArray&#62;</TT
+>.
+          </A
+></DT
+><DT
+>2. <A
+HREF="package.html.html-quickform.intro-faq.html#AEN52395"
+>&#13;            When I pass some GET parameters to the script containing a form, QuickForm thinks
+            that the form was already submitted, displaying validation errors.
+          </A
+></DT
+><DT
+>3. <A
+HREF="package.html.html-quickform.intro-faq.html#AEN52404"
+>&#13;            How do I set default/constant values for <TT
+CLASS="literal"
+>'date'</TT
+> element?
+          </A
+></DT
+><DT
+>4. <A
+HREF="package.html.html-quickform.intro-faq.html#AEN52421"
+>&#13;            I receive weird <TT
+CLASS="literal"
+>"Call to a member function on a non-object"</TT
+>
+            or <TT
+CLASS="literal"
+>"Undefined function"</TT
+> errors, especially when dealing with groups.
+          </A
+></DT
+><DT
+>5. <A
+HREF="package.html.html-quickform.intro-faq.html#AEN52435"
+>&#13;            QuickForm generates code which does not validate as XHTML Strict!
+          </A
+></DT
+><DT
+>6. <A
+HREF="package.html.html-quickform.intro-faq.html#AEN52444"
+>&#13;            The <TT
+CLASS="literal"
+>'required'</TT
+> rule does not work for my elements!
+          </A
+></DT
+><DT
+>7. <A
+HREF="package.html.html-quickform.intro-faq.html#AEN52462"
+>&#13;            How do I change <TT
+CLASS="literal"
+>* denotes required field</TT
+> and <TT
+CLASS="literal"
+>Invalid information entered. / Please correct these fields.</TT
+>
+            validation messages?
+          </A
+></DT
+></DL
+><DIV
+CLASS="qandaentry"
+><B
+><DIV
+CLASS="question"
+><P
+><A
+NAME="AEN52379"
+></A
+><B
+>1. </B
+>
+            The forms I generate with HTML_QuickForm cannot be submitted. When I look at the 
+            page's HTML source, I see something like <TT
+CLASS="literal"
+>&#60;formArray&#62;</TT
+>.
+          </P
+></DIV
+></B
+><DIV
+CLASS="answer"
+><P
+><B
+> </B
+>
+            Recent versions of HTML_QuickForm package require HTML_Common package version 1.2.1
+            (CVS revision 1.8 in <TT
+CLASS="filename"
+>HTML/Common.php</TT
+>) to work properly. If 
+            (and only if) an older version of HTML_Common is loaded, these symptoms occur.
+          </P
+><P
+>&#13;            Please note that 
+            <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="userinput"
+><B
+>&#13;$ pear list
+              </B
+></TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+            command may tell you that you <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>have</I
+></SPAN
+> HTML_Common 1.2.1 installed.
+            In this case you also have an older version of HTML_Common somewhere and are including it instead 
+            of the proper one. Check your <TT
+CLASS="varname"
+>include_path</TT
+> setting in <TT
+CLASS="filename"
+>php.ini</TT
+> 
+            and/or use PHP's <A
+HREF="http://www.php.net/manual-lookup.php?pattern=get_included_files"
+TARGET="_top"
+><B
+CLASS="function"
+>get_included_files()</B
+></A
+>
+            function to find out which file you are <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>really</I
+></SPAN
+> including.
+          </P
+></DIV
+></DIV
+><DIV
+CLASS="qandaentry"
+><B
+><DIV
+CLASS="question"
+><P
+><A
+NAME="AEN52395"
+></A
+><B
+>2. </B
+>
+            When I pass some GET parameters to the script containing a form, QuickForm thinks
+            that the form was already submitted, displaying validation errors.
+          </P
+></DIV
+></B
+><DIV
+CLASS="answer"
+><P
+><B
+> </B
+>
+            <A
+HREF="package.html.html-quickform.html-quickform.html-quickform.html"
+>Constructor</A
+> 
+            of <B
+CLASS="classname"
+>HTML_QuickForm</B
+> accepts a <TT
+CLASS="parameter"
+><I
+>$trackSubmit</I
+></TT
+> parameter.
+            Setting this to <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> will make QuickForm check whether the form was actually submitted. 
+            This also helps if you have several forms defined on one page.
+          </P
+></DIV
+></DIV
+><DIV
+CLASS="qandaentry"
+><B
+><DIV
+CLASS="question"
+><P
+><A
+NAME="AEN52404"
+></A
+><B
+>3. </B
+>
+            How do I set default/constant values for <TT
+CLASS="literal"
+>'date'</TT
+> element?
+          </P
+></DIV
+></B
+><DIV
+CLASS="answer"
+><P
+><B
+> </B
+>
+            <A
+HREF="package.html.html-quickform.html-quickform-date.html"
+>Date</A
+> element is essentially a <A
+HREF="package.html.html-quickform.html-quickform-group.html"
+>group</A
+>
+            of selects, you define the structure of this group
+            in the <TT
+CLASS="literal"
+>'format'</TT
+> option when 
+            <A
+HREF="package.html.html-quickform.html-quickform-date.html-quickform-date.html"
+>creating the element</A
+>:
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$form-&#62;addElement('date', 'foo', 'The date:', array('format' =&#62; 'Y m d'));</PRE
+></TD
+></TR
+></TABLE
+>
+            Thus you pass the defaults as an array, just like you do with any other group:
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$form-&#62;setDefaults(array(
+    'foo' =&#62; array('Y' =&#62; 2004, 'm' =&#62; 9, 'd' =&#62; 29)
+));</PRE
+></TD
+></TR
+></TABLE
+>
+          </P
+><P
+>&#13;            To ease using it with database-backed applications, date element also accepts Unix timestamps
+            (generated by <A
+HREF="http://www.php.net/manual-lookup.php?pattern=mktime"
+TARGET="_top"
+><B
+CLASS="function"
+>mktime()</B
+></A
+>) and
+            strings. The strings are processed by <A
+HREF="http://www.php.net/manual-lookup.php?pattern=strtotime"
+TARGET="_top"
+><B
+CLASS="function"
+>strtotime()</B
+></A
+>
+            functions, so consider its limitations.
+          </P
+></DIV
+></DIV
+><DIV
+CLASS="qandaentry"
+><B
+><DIV
+CLASS="question"
+><P
+><A
+NAME="AEN52421"
+></A
+><B
+>4. </B
+>
+            I receive weird <TT
+CLASS="literal"
+>"Call to a member function on a non-object"</TT
+>
+            or <TT
+CLASS="literal"
+>"Undefined function"</TT
+> errors, especially when dealing with groups.
+          </P
+></DIV
+></B
+><DIV
+CLASS="answer"
+><P
+><B
+> </B
+>
+            These errors tend to appear when you have something which is not a 
+            <B
+CLASS="classname"
+>HTML_QuickForm_element</B
+> in the <TT
+CLASS="parameter"
+><I
+>$elements</I
+></TT
+> array 
+            passed to <A
+HREF="package.html.html-quickform.html-quickform.addgroup.html"
+><B
+CLASS="function"
+>addGroup()</B
+></A
+>.
+            This "something" is usually either a <B
+CLASS="classname"
+>PEAR_Error</B
+> instance (check for these 
+            or setup a handler) or, if <TT
+CLASS="varname"
+>register_globals</TT
+> is switched on in <TT
+CLASS="filename"
+>php.ini</TT
+>, 
+            some submitted values (clear the array before adding elements to it).
+          </P
+></DIV
+></DIV
+><DIV
+CLASS="qandaentry"
+><B
+><DIV
+CLASS="question"
+><P
+><A
+NAME="AEN52435"
+></A
+><B
+>5. </B
+>
+            QuickForm generates code which does not validate as XHTML Strict!
+          </P
+></DIV
+></B
+><DIV
+CLASS="answer"
+><P
+><B
+> </B
+>
+            QuickForm does add a <TT
+CLASS="literal"
+>'name'</TT
+> attribute to the <TT
+CLASS="literal"
+>&#60;form&#62;</TT
+> tag,
+            which is invalid in XHTML Strict. Quickform does not depend on that attribute since release 3.2.2, and it's only
+            kept for backwards compatibility. If you desire XHTML Strict compliance and <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>your</I
+></SPAN
+> code does not depend 
+            on said attribute, you can remove it via <B
+CLASS="function"
+>removeAttribute()</B
+> method.
+          </P
+></DIV
+></DIV
+><DIV
+CLASS="qandaentry"
+><B
+><DIV
+CLASS="question"
+><P
+><A
+NAME="AEN52444"
+></A
+><B
+>6. </B
+>
+            The <TT
+CLASS="literal"
+>'required'</TT
+> rule does not work for my elements!
+          </P
+></DIV
+></B
+><DIV
+CLASS="answer"
+><P
+><B
+> </B
+>
+            <P
+></P
+><UL
+><LI
+><P
+>&#13;                  If your element is a file upload, you should use <TT
+CLASS="literal"
+>'uploadedfile'</TT
+> rule instead.
+                </P
+></LI
+><LI
+><P
+>&#13;                  If your element is a group, you should use 
+                  <A
+HREF="package.html.html-quickform.html-quickform.addgrouprule.html"
+><B
+CLASS="function"
+>addGroupRule()</B
+></A
+>
+                  method instead of
+                  <A
+HREF="package.html.html-quickform.html-quickform.addrule.html"
+><B
+CLASS="function"
+>addRule()</B
+></A
+>.
+                  This applies to group-based elements like <TT
+CLASS="literal"
+>'date'</TT
+> and <TT
+CLASS="literal"
+>'hierselect'</TT
+>
+                  as well.
+                </P
+></LI
+></UL
+>
+            
+          </P
+></DIV
+></DIV
+><DIV
+CLASS="qandaentry"
+><B
+><DIV
+CLASS="question"
+><P
+><A
+NAME="AEN52462"
+></A
+><B
+>7. </B
+>
+            How do I change <TT
+CLASS="literal"
+>* denotes required field</TT
+> and <TT
+CLASS="literal"
+>Invalid information entered. / Please correct these fields.</TT
+>
+            validation messages?
+          </P
+></DIV
+></B
+><DIV
+CLASS="answer"
+><P
+><B
+> </B
+>
+            You should use <A
+HREF="package.html.html-quickform.html-quickform.setrequirednote.html"
+><B
+CLASS="function"
+>setRequiredNote()</B
+></A
+> 
+            and <A
+HREF="package.html.html-quickform.html-quickform.setjswarnings.html"
+><B
+CLASS="function"
+>setJsWarnings()</B
+></A
+>
+            methods, respectively.
+          </P
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.tutorial.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.intro-elements.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>QuickStart</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.introduction"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>QuickForm element types</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

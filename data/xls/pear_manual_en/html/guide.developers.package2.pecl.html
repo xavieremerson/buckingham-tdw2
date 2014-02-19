@@ -1,0 +1,279 @@
+<HTML
+><HEAD
+><TITLE
+>extsrcrelease and extbinrelease changes for PECL developers</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Special information for PECL developers"
+HREF="guide.developers.package2.peclinfo.html"><LINK
+REL="PREVIOUS"
+TITLE="Special information for PECL developers"
+HREF="guide.developers.package2.peclinfo.html"><LINK
+REL="NEXT"
+TITLE="Detailed Tag Reference for package.xml version 2.0"
+HREF="guide.developers.package2.tags.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="guide.developers.package2.peclinfo.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="guide.developers.package2.tags.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="guide.developers.package2.pecl">extsrcrelease and extbinrelease changes for PECL developers</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN2314"
+></A
+>extsrcrelease and extbinrelease changes for PECL developers&nbsp;--&nbsp;PECL-specific details of package.xml 2.0</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="guide.developers.package2.pecl.intro"
+></A
+><H2
+>Special extension package tags</H2
+><P
+>&#13;   Most of the tags for PECL-style PHP extension releases are identical to those for
+   PEAR-style PHP script releases.  There are a few extsrc/extbin-specific tags that
+   all PECL developers must know about.
+  </P
+><P
+>&#13;   <DIV
+CLASS="table"
+><A
+NAME="guide.developers.package2.pecl.intro.chart"><P
+><B
+>Table 16-1. PECL extsrc/extbin-specific tags in package.xml 2.0</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Tag</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description of usage</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        &#60;providesextension&#62;
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        The &#60;providesextension&#62; tag must be right after &#60;dependencies&#62;.  This
+        tag tells the installer the name of the extension provided by the package, allowing
+        different package names from the extension.  This could be important for binary packages
+        (such as PDO and PDO_windows or something along those lines).
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;providesextension&#62;PDO&#60;/providesextension&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        &#60;srcpackage&#62; or &#60;srcuri&#62;
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        &#60;srcpackage&#62; or &#60;srcuri&#62; must follow &#60;providesextension&#62;.
+        Extension binary packages must define either a &#60;srcpackage&#62; tag (for package.xml
+        containing <A
+HREF="guide.developers.package2.channel.html"
+>&#60;channel&#62;</A
+>) or
+        a &#60;srcuri&#62; tag (for package.xml containing
+        <A
+HREF="guide.developers.package2.uri.html"
+>&#60;uri&#62;</A
+>).
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;name&#62;PDO_windowsbin&#60;/name&#62;
+&#60;channel&#62;pecl.php.net&#60;/channel&#62;
+&#60;!-- snip --&#62;
+&#60;providesextension&#62;PDO&#60;/providesextension&#62;
+&#60;srcpackage&#62;PDO&#60;/srcpackage&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+        or,
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;name&#62;Foo_windowsbin&#60;/name&#62;
+&#60;uri&#62;http://www.example.com/Foo_windowsbin-1.5.0.tgz&#60;/uri&#62;
+&#60;!-- snip --&#62;
+&#60;providesextension&#62;Foo&#60;/providesextension&#62;
+&#60;srcuri&#62;http://www.example.com/Foo-1.5.0.tgz&#60;/srcuri&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+       </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.peclinfo.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.tags.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Special information for PECL developers</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.peclinfo.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Detailed Tag Reference for package.xml version 2.0</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,560 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - Sequences</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="MDB2"
+HREF="package.database.mdb2.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction - Portability"
+HREF="package.database.mdb2.intro-portability.html"><LINK
+REL="NEXT"
+TITLE="MDB_QueryTool"
+HREF="package.database.mdb-querytool.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb2.intro-portability.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb-querytool.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.mdb2.intro-sequences">Introduction - Sequences</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN31891"
+></A
+>Introduction - Sequences&nbsp;--&nbsp;Sequences and auto-incrementing</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb2.intro-sequences.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Sequences are a way of offering unique IDs for data rows. If you
+   do most of your work with e.g. MySQL, think of sequences as
+   another way of doing <B
+CLASS="command"
+>AUTO_INCREMENT</B
+>.
+  </P
+><P
+>&#13;   It's quite simple, first you
+   request an ID, and then you insert that value in the ID field of
+   the new row you're creating. You can have more than one sequence
+   for all your tables, just be sure that you always use the same
+   sequence for any particular table. To get the value of this
+   unique ID use <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodnextID"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>nextID()</B
+></A
+>, if a sequence doesn't
+   exists, it will be created automatically.
+  </P
+><P
+>&#13;   The sequence is automatically incremented each time
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodnextID"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>nextID()</B
+></A
+> is called.
+  </P
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31905"><P
+><B
+>Example 33-1. Using a sequence</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$id = $mdb2-&#62;nextID('mySequence');
+if (PEAR::isError($id)) {
+    die($id-&#62;getMessage());
+}
+
+// Use the ID in your INSERT query
+$res =&#38; $mdb2-&#62;query("INSERT INTO myTable (id, text) VALUES ($id, 'foo')");
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb2.intro-sequences.note"
+></A
+><H2
+>Note</H2
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;    When using PEAR MDB2's sequence methods, we strongly advise using
+    these methods for all procedures, including the creation of the
+    sequences. Do not use PEAR MDB2's methods to access
+    sequences that were created directly in the DBMS.
+   </P
+><P
+>&#13;    If you have a compelling reason to ignore this advice, be aware
+    that the <TT
+CLASS="parameter"
+><I
+>$seq_name</I
+></TT
+> argument given to all of
+    PEAR MDB2's sequence methods are modified before MDB2 calls the
+    underlying DBMS.
+   </P
+><P
+>&#13;    <TT
+CLASS="parameter"
+><I
+>$seq_name</I
+></TT
+> is passed through PHP's
+    <B
+CLASS="function"
+>sprintf()</B
+> function using the value from the
+    <TT
+CLASS="varname"
+>seqname_format</TT
+> option as
+    <B
+CLASS="function"
+>sprintf()</B
+>'s format argument.
+    The default <TT
+CLASS="varname"
+>seqname_format</TT
+> is
+    <TT
+CLASS="literal"
+>%s_seq</TT
+>. So, for example, if you use
+    <TT
+CLASS="literal"
+>person_id_sequence</TT
+> as the
+    <TT
+CLASS="parameter"
+><I
+>$seq_name</I
+></TT
+>, PEAR MDB2 will change that
+    name to <TT
+CLASS="literal"
+>person_id_sequence_seq</TT
+> when
+    querying the DBMS about creating/accessing/updating the sequence.
+   </P
+><P
+>&#13;    Also note that the default table layout for sequences emulated in PEAR DB
+    is slightly different in PEAR MDB2. Where PEAR DB calls the column "id" PEAR
+    MDB2 instead calls it "sequence" to make its purpose more clear.
+    For backward compatibility this can be controlled via the
+    <TT
+CLASS="varname"
+>seqcol_name</TT
+> option.
+   </P
+><P
+>&#13;    The <TT
+CLASS="varname"
+>seqname_format</TT
+> and <TT
+CLASS="varname"
+>seqcol_name</TT
+>
+    can be modified when connecting or via
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodsetOption"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>setOption()</B
+></A
+>.
+   </P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb2.intro-sequences.lastinsertid"
+></A
+><H2
+>Getting the last inserted ID</H2
+><P
+>&#13;   If you prefer using <B
+CLASS="command"
+>AUTO_INCREMENT</B
+> you can alternatively
+   use the <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodlastInsertID"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>lastInsertID()</B
+></A
+> method to retrieve the last
+    generated value. This method alternatively also supports getting the
+    current ID from a sequence using the format defined in PostgreSQL's
+    <A
+HREF="http://www.postgresql.org/docs/8.1/interactive/datatype.html#DATATYPE-SERIAL"
+TARGET="_top"
+>&#13;    SERIAL</A
+> data type. MDB2 can emulate this behaviour for RDBMS that
+    do not support autoincrement at table creation time when using the
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Manager_Common.html#methodcreateTable"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>createTable()</B
+></A
+> method.
+  </P
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31941"><P
+><B
+>Example 33-2. Using lastInsertId()</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$res =&#38; $mdb2-&#62;query("INSERT INTO myTable (id, text) VALUES (NULL, 'foo')");
+
+// optionally pass in a table and fieldname in order to call nextId()
+// when autoincrement is not supported
+$id = $mdb2-&#62;lastInsertId('myTable', 'id');
+if (PEAR::isError($id)) {
+    die($id-&#62;getMessage());
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb2.intro-sequences.getbeforeid"
+></A
+><H2
+>Getting around emulation</H2
+><P
+>&#13;   Finally if you prefer using what ever native feature the RDBMS supports you
+   can use the <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Extended.html#methodgetBeforeID"
+TARGET="_top"
+>&#13;   <B
+CLASS="function"
+>getBeforeID()</B
+></A
+> and
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Extended.html#methodgetAfterID"
+TARGET="_top"
+>&#13;   <B
+CLASS="function"
+>getAfterID()</B
+></A
+> methods from the
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Extended.html"
+TARGET="_top"
+>&#13;   Extended</A
+> module. This way MDB2 will automatically use
+   <B
+CLASS="command"
+>AUTO_INCREMENT</B
+> if its natively supported. If not MDB2 will
+   instead use a sequence to get the next id.
+  </P
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31954"><P
+><B
+>Example 33-3. Using getBeforeId()/getAfterId()</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+// $id may either be a quoted integer or php null
+$id = $mdb2-&#62;getBeforeID('myTable', 'id', true, true);
+if (PEAR::isError($id)) {
+    die($id-&#62;getMessage());
+}
+
+$res =&#38; $mdb2-&#62;query("INSERT INTO myTable (id, text) VALUES ($id, 'foo')");
+
+// $id is now equivalent to the value in the id field that was inserted
+$id = $mdb2-&#62;getAfterID($id, 'myTable', 'id');
+if (PEAR::isError($id)) {
+    die($id-&#62;getMessage());
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb2.intro-sequences.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Manager_Common.html#methodcreateSequence"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>createSequence()</B
+></A
+>,
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Manager_Common.html#methoddropSequence"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>dropSequence()</B
+></A
+>,
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Manager_Common.html#methodlistSequences"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>listSequences()</B
+></A
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.intro-portability.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.mdb-querytool.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction - Portability</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>MDB_QueryTool</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

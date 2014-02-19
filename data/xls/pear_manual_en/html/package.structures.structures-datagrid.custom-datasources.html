@@ -1,0 +1,786 @@
+<HTML
+><HEAD
+><TITLE
+>Custom DataSources</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Introduction and Features"
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.intro-and-features"><LINK
+REL="PREVIOUS"
+TITLE="Example - Complex"
+HREF="package.structures.structures-datagrid.example-advanced.html"><LINK
+REL="NEXT"
+TITLE="Custom Renderers"
+HREF="package.structures.structures-datagrid.custom-renderers.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.example-advanced.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.custom-renderers.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.structures.structures-datagrid.custom-datasources">Custom DataSources</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN93907"
+></A
+>Custom DataSources&nbsp;--&nbsp;
+    How to write your own DataSource driver.
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.custom-datasources.intro"
+></A
+><H2
+>Introduction</H2
+><P
+>Writing your own DataSource driver is the way to go when none
+  of the existing driver suit your needs. It is actually pretty easy,
+  and allows for great flexibility.</P
+><P
+>Of course, if you're trying to fetch data from an
+  <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>exotic source</I
+></SPAN
+>, writing your own driver is
+  required. But, sometimes it's also the best way to achieve the best
+  <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>optimization</I
+></SPAN
+>, especially (but not only) with
+  databases.</P
+><P
+>This document will present you the DataSource interface, and
+  how to implement it.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.custom-datasources.def"
+></A
+><H2
+>Definitions</H2
+><P
+><SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>A DataSource driver</I
+></SPAN
+> is a descendent of
+  the <B
+CLASS="classname"
+>Structures_DataGrid_DataSource</B
+> class,
+  which implements the <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>DataSource interface</I
+></SPAN
+>.</P
+><P
+><SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>DataSource</I
+></SPAN
+> is a synomym for
+  <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>DataSource driver</I
+></SPAN
+>.</P
+><P
+>The <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>DataSource interface</I
+></SPAN
+> consists in a set
+  of methods that drivers must or may overload and protected properties
+  that drivers can use, as well as recommended practices.</P
+><P
+>A <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>DataSource container</I
+></SPAN
+> is a constant or
+  a variable of any type (string, array, object, etc...) that either
+  contains data or describes how to retrieve data.</P
+><P
+>Every <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>DataSource driver</I
+></SPAN
+> is specific to,
+  and knows how to handle, a given <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>DataSource container</I
+></SPAN
+>
+  type.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.custom-datasources.interface"
+></A
+><H2
+>The DataSource interface</H2
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.structures.structures-datagrid.custom-datasources.interface.properties"
+></A
+><H3
+>Properties available to drivers</H3
+><P
+><TT
+CLASS="parameter"
+><I
+>array $_options</I
+></TT
+> - Data binding options as an 
+  associative array. You can read the content of this property but you
+  shouldn't change it directly.</P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.structures.structures-datagrid.custom-datasources.interface.methods"
+></A
+><H3
+>Methods that must or may be implemented in drivers</H3
+><P
+>&#13;     <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN93942"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><B
+CLASS="function"
+>constructor</B
+></CODE
+> (void)</CODE
+></P
+><P
+></P
+></DIV
+>
+     The constructor must set default options, if any, and call the parent
+     constructor. This method is optional.
+     </P
+><P
+>&#13;     <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN93948"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>object <B
+CLASS="function"
+>bind</B
+></CODE
+> (mixed container, array options)</CODE
+></P
+><P
+></P
+></DIV
+>
+     <B
+CLASS="function"
+>bind()</B
+> is reponsible for loading a DataSource
+     <TT
+CLASS="parameter"
+><I
+>container</I
+></TT
+> into the driver, according to some
+     binding <TT
+CLASS="parameter"
+><I
+>options</I
+></TT
+>. This method is optional.
+     It must return a <B
+CLASS="classname"
+>PEAR_Error</B
+> object in case
+     of failure.
+     </P
+><P
+>&#13;     <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN93961"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>object <B
+CLASS="function"
+>count</B
+></CODE
+> (void)</CODE
+></P
+><P
+></P
+></DIV
+>
+     <B
+CLASS="function"
+>count()</B
+> must return the total number or records
+     found in the container. This method is required, and is always called
+     before <B
+CLASS="function"
+>fetch()</B
+>.
+     It must return a <B
+CLASS="classname"
+>PEAR_Error</B
+> object in case of failure.
+     </P
+><P
+>&#13;     <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN93970"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>object <B
+CLASS="function"
+>sort</B
+></CODE
+> (mixed sortSpec, array sortDir)</CODE
+></P
+><P
+></P
+></DIV
+>
+     <B
+CLASS="function"
+>sort()</B
+> must sort the data according
+     to <TT
+CLASS="parameter"
+><I
+>sortSpec</I
+></TT
+> and the optional
+     <TT
+CLASS="parameter"
+><I
+>sortDir</I
+></TT
+>. This method is required, and is
+     always called before <B
+CLASS="function"
+>fetch()</B
+>.  It must return
+     a <B
+CLASS="classname"
+>PEAR_Error</B
+> object in case of failure.
+     </P
+><P
+>&#13;     <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN93984"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>fetch</B
+></CODE
+> (integer offset, integer len)</CODE
+></P
+><P
+></P
+></DIV
+>
+     <B
+CLASS="function"
+>fetch()</B
+> must return a 2-dimension array of data, 
+     starting from record <TT
+CLASS="parameter"
+><I
+>offset</I
+></TT
+>, containing 
+     <TT
+CLASS="parameter"
+><I
+>len</I
+></TT
+> records..This method is required
+     It must return a <B
+CLASS="classname"
+>PEAR_Error</B
+> object in case of failure.
+     </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.structures.structures-datagrid.custom-datasources.interface.methods-avail"
+></A
+><H3
+>Protected methods that drivers can use</H3
+><P
+>&#13;     <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN93999"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>_addDefaultOptions</B
+></CODE
+> (array options)</CODE
+></P
+><P
+></P
+></DIV
+>
+     <B
+CLASS="function"
+>_addDefaultOptions()</B
+> is used to declare the
+     driver-specific options, if any, as well as their default values. 
+     It must be called from the constructor.
+     </P
+><P
+>&#13;     <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN94007"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>setOptions</B
+></CODE
+> (array options)</CODE
+></P
+><P
+></P
+></DIV
+>
+     <B
+CLASS="function"
+>setOptions()</B
+> is a public method used to set
+     options. If they ever need to change options, drivers should use this
+     method. 
+     </P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN94014"
+></A
+><H2
+>A simple driver</H2
+><P
+>Let's start with a very simple driver. It is rather readable and you
+ shouldn't have much trouble understanding it. It is not extremely useful
+ to write a custom driver for a such simple SQL query, but it should get
+ you started.</P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN94017"><P
+><B
+>Example 55-1. A simple SQL adaptor</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require 'Structures/DataGrid/DataSource.php';
+require_once 'DB.php';
+
+class MyDataSource extends Structures_DataGrid_DataSource {
+ 
+    var $db;
+    var $orderBy = '';
+ 
+    function MyDataSource() {
+        $dsn = 'mysql://someuser:apasswd@localhost/thedb';
+        $this-&#62;db =&#38; DB::connect($dsn);
+    }
+
+    function count() {
+        $query = "SELECT * FROM animals WHERE species='cat'";
+        return $this-&#62;db-&#62;getOne($query);
+    }
+
+    function sort($sortSpec, $sortDir = 'ASC') {
+        $this-&#62;orderBy = "ORDER BY $sortSpec $sortDir"; 
+    }
+
+    function fetch($offset = 0, $len = null) {
+        
+        $limit = is_null($len) ? "LIMIT $offset,18446744073709551615" 
+                               : "LIMIT $offset,$len";
+    
+        $query  = "SELECT * FROM animals WHERE species='cat' ";
+        $query .= $this-&#62;_orderBy . " $limit";
+
+        return $this-&#62;db-&#62;getAll($query);
+    }
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.custom-datasources.test"
+></A
+><H2
+>Testing your driver</H2
+><P
+>Before going live, it is very recommended to test your driver with the
+ <B
+CLASS="function"
+>dump()</B
+> method.</P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN94024"><P
+><B
+>Example 55-2. Testing with <B
+CLASS="function"
+>dump()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+$datasource = new MyDataSource();
+
+$count = $datasource-&#62;count();
+echo "There are $count cats in the farm\n\n";
+
+$datasource-&#62;sort('weight');
+
+echo "Here are the 5 lightest ones: \n";
+
+// dump() accepts the same $offset and $len argument as fetch()
+$datasource-&#62;dump(0,5);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>That should output a nicely formated ascii table like:</P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>There are 23 cats in the farm.
+
+Here are the 5 lightest ones:
++---------+---------+-----------+--------+
+| name    | species | birthDate | weight |
++---------+---------+-----------+--------+
+| sarge   | cat     | 20021220  | 1.8    |
+| etch    | cat     | 20000509  | 2.5    |
+| potato  | cat     | 19980128  | 3.8    |
+| sid     | cat     | 20011101  | 4.1    |
+| woody   | cat     | 19970712  | 6.0    |
++---------+---------+-----------+--------+</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.custom-datasources.use"
+></A
+><H2
+>Using your new driver</H2
+><P
+>Okay, so you have written a driver that's tailored to your needs, and tested
+ it. It is now time to connect it to
+ <B
+CLASS="classname"
+>Structures_DataGrid</B
+>.</P
+><P
+>For this purpose we're going to use the 
+    <A
+HREF="package.structures.structures-datagrid.structures-datagrid.binddatasource.html"
+><B
+CLASS="function"
+>bindDataSource()</B
+></A
+>
+    method.</P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN94037"><P
+><B
+>Example 55-3. Binding a custom datasource</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+$datagrid =&#38; new Structures_DataGrid(); 
+
+$datasource = new MyDataSource();
+
+$datagrid-&#62;bindDataSource($datasource);
+
+$datagrid-&#62;render();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>That should output a sortable HTML table.</P
+><P
+>Of course, the usual features of
+   <B
+CLASS="classname"
+>Structures_DataGrid</B
+> are now
+   available to you: paging, other output formats as XML, MS-Excel,
+   etc...</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.example-advanced.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.custom-renderers.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Example - Complex</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.intro-and-features"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Custom Renderers</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

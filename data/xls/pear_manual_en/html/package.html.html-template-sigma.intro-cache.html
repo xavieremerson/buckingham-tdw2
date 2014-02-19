@@ -1,0 +1,438 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - cache</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_Sigma"
+HREF="package.html.html-template-sigma.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction - template syntax"
+HREF="package.html.html-template-sigma.intro-syntax.html"><LINK
+REL="NEXT"
+TITLE="constructor HTML_Template_Sigma()"
+HREF="package.html.html-template-sigma.html-template-sigma.html-template-sigma.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-sigma.intro-syntax.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.html-template-sigma.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-sigma.intro-cache">Introduction - cache</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN70708"
+></A
+>Introduction - cache&nbsp;--&nbsp;How Sigma caches the "prepared" templates</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.intro-cache.faq"
+></A
+><H2
+>Cache FAQ</H2
+><DIV
+CLASS="qandaset"
+><DL
+><DT
+>1. <A
+HREF="package.html.html-template-sigma.intro-cache.html#AEN70715"
+>What exactly is this cache feature?</A
+></DT
+><DT
+>2. <A
+HREF="package.html.html-template-sigma.intro-cache.html#AEN70722"
+>What about data?</A
+></DT
+><DT
+>3. <A
+HREF="package.html.html-template-sigma.intro-cache.html#AEN70729"
+>Is the cached version regenerated when the template changes?</A
+></DT
+><DT
+>4. <A
+HREF="package.html.html-template-sigma.intro-cache.html#AEN70734"
+>Is there any TTL setting?</A
+></DT
+><DT
+>5. <A
+HREF="package.html.html-template-sigma.intro-cache.html#AEN70739"
+>Any way to flush the cache?</A
+></DT
+><DT
+>6. <A
+HREF="package.html.html-template-sigma.intro-cache.html#AEN70744"
+>&#13;             Does this give significant performance gains?
+           </A
+></DT
+></DL
+><DIV
+CLASS="qandaentry"
+><B
+><DIV
+CLASS="question"
+><P
+><A
+NAME="AEN70715"
+></A
+><B
+>1. </B
+>What exactly is this cache feature?</P
+></DIV
+></B
+><DIV
+CLASS="answer"
+><P
+><B
+> </B
+>
+             This is the way to bypass RegExp parsing on template load. Instead of
+             parsing the original template on every request, we keep its internal
+             representation (a serialized array, essentially) and load it instead.
+           </P
+></DIV
+><DIV
+CLASS="answer"
+><P
+><B
+> </B
+>
+             Think about template compilation in Smarty. Only Sigma does not compile
+             templates to PHP code.
+           </P
+></DIV
+></DIV
+><DIV
+CLASS="qandaentry"
+><B
+><DIV
+CLASS="question"
+><P
+><A
+NAME="AEN70722"
+></A
+><B
+>2. </B
+>What about data?</P
+></DIV
+></B
+><DIV
+CLASS="answer"
+><P
+><B
+> </B
+>
+             <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>No</I
+></SPAN
+> data caching is taking place. If you want to do this, consider using
+             some of the PEAR's <A
+HREF="package.caching.html"
+>cache packages</A
+>.
+           </P
+></DIV
+></DIV
+><DIV
+CLASS="qandaentry"
+><B
+><DIV
+CLASS="question"
+><P
+><A
+NAME="AEN70729"
+></A
+><B
+>3. </B
+>Is the cached version regenerated when the template changes?</P
+></DIV
+></B
+><DIV
+CLASS="answer"
+><P
+><B
+> </B
+>Yes.</P
+></DIV
+></DIV
+><DIV
+CLASS="qandaentry"
+><B
+><DIV
+CLASS="question"
+><P
+><A
+NAME="AEN70734"
+></A
+><B
+>4. </B
+>Is there any TTL setting?</P
+></DIV
+></B
+><DIV
+CLASS="answer"
+><P
+><B
+> </B
+>No. Cached version is considered valid until the source template changes.</P
+></DIV
+></DIV
+><DIV
+CLASS="qandaentry"
+><B
+><DIV
+CLASS="question"
+><P
+><A
+NAME="AEN70739"
+></A
+><B
+>5. </B
+>Any way to flush the cache?</P
+></DIV
+></B
+><DIV
+CLASS="answer"
+><P
+><B
+> </B
+>
+             Yes, just delete all the files in the cache dir.
+           </P
+></DIV
+></DIV
+><DIV
+CLASS="qandaentry"
+><B
+><DIV
+CLASS="question"
+><P
+><A
+NAME="AEN70744"
+></A
+><B
+>6. </B
+>
+             Does this give significant performance gains?
+           </P
+></DIV
+></B
+><DIV
+CLASS="answer"
+><P
+><B
+> </B
+>Yes. The answer is based on personal experience.
+           </P
+></DIV
+><DIV
+CLASS="answer"
+><P
+><B
+> </B
+>
+             If you are going to perform some benchmarks, then use some real-world
+             complex templates, not artificial ones. The performance gain will be
+             greater with bigger and more complex (dozens of blocks) ones.
+           </P
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.intro-cache.desc"
+></A
+><H2
+>Cache usage</H2
+><P
+>Caching is completely transparent. To take advantage of this feature you only have to either pass a second parameter to the <A
+HREF="package.html.html-template-sigma.html-template-sigma.html-template-sigma.html"
+>constructor</A
+> or call a <A
+HREF="package.html.html-template-sigma.html-template-sigma.setcacheroot.html"
+><B
+CLASS="function"
+>setCacheRoot()</B
+></A
+> method later.
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'HTML/Template/Sigma.php';
+
+$tpl =&#38; new HTML_Template_Sigma('./templates', './templates/prepared');
+
+$tpl-&#62;loadTemplateFile('default.html');
+
+// go on
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+     </P
+><P
+>&#13;     For each distinct template file in <TT
+CLASS="filename"
+>./templates</TT
+> loaded with either <A
+HREF="package.html.html-template-sigma.html-template-sigma.loadtemplatefile.html"
+><B
+CLASS="function"
+>loadTemplatefile()</B
+></A
+>, <A
+HREF="package.html.html-template-sigma.html-template-sigma.addblockfile.html"
+><B
+CLASS="function"
+>addBlockfile()</B
+></A
+>, <A
+HREF="package.html.html-template-sigma.html-template-sigma.replaceblockfile.html"
+><B
+CLASS="function"
+>replaceBlockfile()</B
+></A
+> or <A
+HREF="package.html.html-template-sigma.intro-syntax.html#package.html.html-template-sigma.intro-syntax.include"
+>&#60;!-- INCLUDE --&#62;</A
+> a prepared version will be generated in <TT
+CLASS="filename"
+>./templates/prepared</TT
+>.
+     </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-sigma.intro-syntax.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.html-template-sigma.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction - template syntax</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-sigma.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>constructor HTML_Template_Sigma()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

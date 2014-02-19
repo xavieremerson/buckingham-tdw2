@@ -1,0 +1,52 @@
+
+
+
+
+
+
+042213
+
+<br>Checking if the Bloomberg Client Orders file exists in local Location at D:\tdw\tdw\auto\bloomberg\client_orders\files\
+<br>
+<br>Files exist. Proceeding.
+<br>insert into client_orders_street 
+				(
+					R,
+					Ticker,
+					Quantity,
+					fill_price,
+					limit_price,
+					buy_sell,
+					Exchange,
+					customer_id,
+					app_id,
+					Datez,
+					Timez,
+					Firm,
+					Branch,
+					seq_num,
+					Leaves,
+					stop_price,
+					trading_account,
+					customer_acct,
+					give_up,
+					Basket,
+					Major_id,
+					Comm_rate,
+					Comm_type,
+					Markup,
+					Comment,
+					exec_broker,
+					busted_flag,
+					contra_specialist,
+					contra_mnemonic,
+					contra_badge,
+					contra_qty,
+					contra_date,
+					contra_time,
+					tran_id,
+					parent_id,
+					minor_id
+				) values  ('R','HAL','168755','0.0000','0.0000','BUY','UN','ALGRX','','2013-04-22','2013-04-22 09:31:15','','','','0','0.0000','','ALGRX','','','1362369','','T','0','','MULTI','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1362190','0'), ('R','POOL','15000','47.8000','47.8000','BUY','UQ','NBERX','','2013-04-22','2013-04-22 09:31:49','','','','15000','0.0000','','NBERX','','','1362373','','T','0','','BCAL','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1362373','0'), ('R','TYPE','10000','0.0000','0.0000','BUY','UQ','NBERX','','2013-04-22','2013-04-22 09:33:38','','','','10000','0.0000','','NBERX','','','1363348','','T','0','','BCAL','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1363348','0')
+<br>Rows Processed : 4
+<br> Process Time 0.00 s.

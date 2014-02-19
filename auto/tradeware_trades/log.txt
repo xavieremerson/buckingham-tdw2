@@ -1,0 +1,36 @@
+2013-04-19<br>Today is not a holiday or weekend, hence proceeding with program execution!<br>Proceeding after holiday/weekend check....<br>
+04-19-2013 22:00:00pm
+
+trade_date_to_process: 2013-04-19
+
+
+Date to Process: 041913
+
+Checking if the Tradeware Marketcenter files exist
+
+Files exist. Proceeding.
+
+Rows Processed : 11678
+
+insert into tradeware_trades_consolidated select 
+												NULL,
+												Ticker,
+												sum(Quantity),
+												avg(fill_price),
+												buy_sell,
+												max(Exchange),
+												count(distinct(Exchange)),
+												customer_id,
+												Datez,
+												max(exec_broker),
+												count(distinct(exec_broker)),
+												min(manual_time),
+												max(manual_time),
+												min(parent_id),
+												count(distinct(parent_id))
+												from tradeware_trades
+												WHERE Datez = '2013-04-19' 
+												 group by Ticker, buy_sell,customer_id,Datez
+												 order by Datez, Ticker
+Process Time 7.00 s.
+Tradeware File TWreports041913.xfr exists and successfully processed.<br>

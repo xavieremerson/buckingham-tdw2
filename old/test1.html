@@ -1,0 +1,1425 @@
+
+
+<html>
+<head>
+<link REL="SHORTCUT ICON" HREF="favicon.ico"> 
+<title>CompSys</title>
+<script language="JavaScript" src="includes/highlight_tables/tigra_tables.js"></script>
+<script language='JavaScript' src='includes/javascript.js'></script>
+<script language="JavaScript" src="includes/popup.js"></script>
+<script language="JavaScript" src="includes/sorttable.js"></script>
+<link rel="stylesheet" type="text/css" href="includes/styles.css">
+</head>
+<body background="images/bk1.jpg" leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0">
+<!-- TOP LEVEL TABLE -->
+<table width="100%" height="100%" border="3" cellpadding="0" cellspacing="0" bordercolor="#333333" bordercolorlight="#999999" bordercolordark="#000000" background="images/bk1.jpg">
+	<tr valign="top">
+    <td height="20"> 
+
+<div id="dhtmltooltip"></div>
+<script language='JavaScript' src='includes/tooltip.js'></script>
+<!-- background="images/table_bkground_grey.jpg" -->
+<table width="100%"  border="0" cellpadding="0" cellspacing="0" background="images/bk2.jpg" >
+  <tr> 
+    <!-- <td width="50" height="50"><img src="images/compliancelogo_v1.gif" ></td> -->
+	<td width="50" height="50"><img src="images/compliancelogo_new.gif" ></td>
+    <td align="right" valign="top"> <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td> <table width="100%"  border="0" cellspacing="1" cellpadding="1">
+              <tr> 
+                <td align="left" valign="top"><a class="CompanyName">&nbsp;&nbsp;Hunter Global Investors, L.P.</a></td>
+                <td align="right" valign="top"><a class="links10top">User: Pravin Prasad</a> (<a href="logout.php" class="links10top">Logout</a>) </td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+					<td>
+						<table width="100%">
+							<tr>
+          			<td align="left" nowrap><a class="AppName">&nbsp;&nbsp;&nbsp;&nbsp;CompSys v 2.0</a></td>
+								<td align="right" nowrap><a class="links10top">Demostration Version (Some features not available)</a></td>
+							</tr>
+						</table>
+					</td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<!-- Menu bar. -->
+
+    <div class="menuBar" style="width:100%;"> 
+      <!-- onclick="return buttonClick(event, 'homeMenu');"  -->
+      <!--onclick="return buttonClick(event, 'tradesMenu');" -->
+      <a class="menuButton"
+    href="main.php"
+    onmouseover="buttonMouseover(event, 'homeMenu');"> <img src="images/buttons/home.jpg" border="0"> 
+      Home </a> <a class="menuButton"
+    href="actionitems.php"> <img src="images/buttons/tasks.jpg" border="0"> My Action 
+      Items </a> <a class="menuButton"
+    href=""
+    onclick="return buttonClick(event, 'tradesMenu');"
+    onmouseover="buttonMouseover(event, 'tradesMenu');"> Trades </a> <a class="menuButton"
+    href="view_trades_m.php"
+	onclick="return buttonClick(event, 'accountsMenu');" 
+    onmouseover="buttonMouseover(event, 'accountsMenu');"> <img src="images/buttons/accts.jpg" border="0"> 
+      Accounts </a> <a class="menuButton"
+    href="" 
+    onclick="return buttonClick(event, 'stocklistMenu');"
+    onmouseover="buttonMouseover(event, 'stocklistMenu');"> <img src="images/buttons/lists.jpg" border="0"> 
+      Stock Lists </a> <a class="menuButton"
+    href=""
+    onclick="return buttonClick(event, 'reportsMenu');"
+    onmouseover="buttonMouseover(event, 'reportsMenu');"> <img src="images/buttons/reports.jpg" border="0"> 
+      Reports </a> <a class="menuButton"
+    href=""
+    onclick="return buttonClick(event, 'administrationMenu');"
+    onmouseover="buttonMouseover(event, 'administrationMenu');"> <img src="images/buttons/admin.jpg" border="0"> 
+      Administration </a> <a class="menuButton"
+    href=""
+    onclick="return buttonClick(event, 'helpMenu');"
+    onmouseover="buttonMouseover(event, 'helpMenu');"> <img src="images/buttons/help.jpg" border="0"> 
+      Help </a> </div>
+
+<!-- Main menus. -->
+<!-- <div id="homeMenu" class="menu" onmouseover="menuMouseover(event)">
+<a class="menuItem" href="welc.php">Main Page</a>
+</div>
+ -->
+
+
+<!-- <div id="tradesMenu" class="menu" onmouseover="menuMouseover(event)">
+<a class="menuItem" href="view_trades_m.php">View Trades</a>
+<a class="menuItem" href="view_trades.php" onMouseover="ddrivetip('This module is to be deactivated/removed. <BR> It contains trades downloaded from RBC Dain. Please use the <b><i>View Trades</i></b> menu instead.','yellow', 300)"; onMouseout="hideddrivetip()">View Trades (From RBC Dain)</a>
+</div>
+ -->
+ 
+    <div id="tradesMenu" class="menu"> <a class="menuItem" href="view_trades_mult.php">View 
+      Trades</a> <a class="menuItem" href="piggyback.php">Front-running/Piggy-backing</a> 
+    </div> 
+ 
+    <div id="accountsMenu" class="menu"> <a class="menuItem" href="accounts.php">View 
+      Accounts</a> <a class="menuItem" href="expempaccts_csv.php">Export Accounts 
+      <B>(Excel/CSV)</B></a> </div>
+
+    <div id="stocklistMenu" class="menu"> <a class="menuItem" href="lists.php?list_type=1">Watch 
+      List</a> <a class="menuItem" href="lists.php?list_type=2">Gray List</a> <a class="menuItem" href="lists.php?list_type=3">Restricted 
+      List</a> 
+      <!-- <a class="menuItem" href="lists.php?list_type=watch">Watch List</a>
+<a class="menuItem" href="lists.php?list_type=gray">Gray List</a>
+ -->
+      <div class="menuItemSep"></div>
+      <a class="menuItem" href="lists_es.php?list_type=m">Marketmaker Stock List</a> 
+      <a class="menuItem" href="lists_es.php?list_type=b">Banker Stock List</a> <a class="menuItem" href="lists_es.php?list_type=a">Analyst 
+      Stock List</a> </div>
+
+    <div id="reportsMenu" class="menu"> <a class="menuItem" href="rep_srv.php?repfile=rep_cr.php">Current 
+      Compliance Report</a> <a class="menuItem" href="rep_srv.php?repfile=rep_tr.php">Current 
+      Trades Report</a> 
+      <div class="menuItemSep"></div>
+      <a class="menuItem" href="rep_srv.php?repfile=rep_hs.php">Historical Reports</a> 
+      <div class="menuItemSep"></div>
+      <a class="menuItem" href="rep_srv.php?repfile=rep_sl.php">Stock Lists</a> <a class="menuItem" href="rep_srv.php?repfile=rep_ea.php">Employee 
+      Accounts</a> 
+      <!-- <div class="menuItemSep"></div>
+<a class="menuItem" href="sysmsgmain.php?msgval=_tm_futurerelease&headingval=Info"><font color="#FF0000"><B>&Oslash; Report (Open)</B></font></a> 
+
+<a class="menuItem" href="trades_report_m_hist.php"><input class="Text" name="symbol_list" type="text" size="20" maxlength="60"></a>  -->
+    </div>
+
+    <div id="administrationMenu" class="menu"> 
+      <!-- <a class="menuItem" href="trade_upload.php">Upload Trade File (.csv)</a>
+<div class="menuItemSep"></div>
+ -->
+      <a class="menuItem" href="myprofile.php">My Profile / Preferences</a> <a class="menuItem" href="javascript:CreateWnd('changepassword.php?ID=79', 350, 250, false);">Change 
+      Password</a> 
+      <div class="menuItemSep"></div>
+      <a class="menuItem" href="ad_hoc_rep.php">Custom Reports</a> 
+      <div class="menuItemSep"></div>
+      <!-- <a class="menuItem" href="sysmsgmain.php?msgval=_tm_underconstruction&headingval=Info"><font color="#FF0000"><B>&Oslash; System Defaults</B></font></a>-->
+      <!-- <a class="menuItem" href="sysmsgmain.php?msgval=_tm_underconstruction&headingval=Info"><font color="#FF0000"><B>&Oslash; Look & Feel</B></font></a> -->
+      <a class="menuItem" href="user_mgmt.php?type=create&headingval=Info">Create 
+      User</a> <a class="menuItem" href="user_mgmt.php?type=manage&headingval=Info">Manage 
+      User</a> 
+      <div class="menuItemSep"></div>
+      <a class="menuItem" href="dyn_lists.php?type=create">Create List</a> <a class="menuItem" href="dyn_lists.php?type=manage">Manage 
+      List</a> 
+      <div class="menuItemSep"></div>
+      <a class="menuItem" href="admin.php">Demo Administration</a> <a class="menuItem" href="mysql.php">Database 
+      Administration</a> 
+      <div class="menuItemSep"></div>
+      <a class="menuItem" href="user_lists.php?type=create">Create <B>My List</B></a> 
+    </div>
+
+    <div id="helpMenu" class="menu"> <a class="menuItem" href="trak/?do=newtask&project=1">Technical 
+      Support</a> <a class="menuItem" href="mailto:support@centersysgroup.com?Subject=Technical Support Request (Client: DEMO)&Body=Problem Description:%0D--------------------%0D%0D%0D%0DSeverity:%0D---------%0D%0D%0D%0DMy Contact Information:%0D-----------------------">Email 
+      Technical Support</a> 
+      <div class="menuItemSep"></div>
+      <a class="menuItem" href="trak/"><font color="#0000FF"><B>TrakSYS</B></font></a> 
+      <div class="menuItemSep"></div>
+      <a class="menuItem" href="http://nasd.complinet.com/nasd/display/index.html" target="_blank"><B>NASD 
+      Manual Online</B></a> <a class="menuItem" href="http://www.sec.gov/rules/final.shtml" target="_blank"><B>SEC 
+      Rules</B></a> 
+      <div class="menuItemSep"></div>
+      <a class="menuItem" href="about_ly.php">About CompSys</a> </div>
+
+<!-- End Menu bar -->
+<!--<br><br>-->
+
+	</td>
+</tr>
+<tr valign="top">
+	<td valign="top">
+	
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+<!-- TEMP PPRA -->
+
+<script type="text/javascript">
+<!--
+function removeClassName (elem, className) {
+	elem.className = elem.className.replace(className, "").trim();
+}
+
+function addCSSClass (elem, className) {
+	removeClassName (elem, className);
+	elem.className = (elem.className + " " + className).trim();
+}
+
+String.prototype.trim = function() {
+	return this.replace( /^\s+|\s+$/, "" );
+}
+
+function stripedTable() {
+	if (document.getElementById && document.getElementsByTagName) {  
+		var allTables = document.getElementsByTagName('table');
+		if (!allTables) { return; }
+
+		for (var i = 0; i < allTables.length; i++) {
+			if (allTables[i].className.match(/[\w\s ]*scrollTable[\w\s ]*/)) {
+				var trs = allTables[i].getElementsByTagName("tr");
+				for (var j = 0; j < trs.length; j++) {
+					removeClassName(trs[j], 'alternateRow');
+					addCSSClass(trs[j], 'normalRow');
+				}
+				for (var k = 0; k < trs.length; k += 2) {
+					removeClassName(trs[k], 'normalRow');
+					addCSSClass(trs[k], 'alternateRow');
+				}
+			}
+		}
+	}
+}
+
+window.onload = function() { stripedTable(); }
+-->
+</script>
+<style type="text/css">
+<!--
+body {
+	background: #FFF;
+	color: #000;
+	font: normal normal 12px Verdana, Geneva, Arial, Helvetica, sans-serif;
+	margin: 10px;
+	padding: 0
+}
+
+table, td, a {
+	color: #000;
+	font: normal normal 12px Verdana, Geneva, Arial, Helvetica, sans-serif
+}
+
+h1 {
+	font: normal normal 18px Verdana, Geneva, Arial, Helvetica, sans-serif;
+	margin: 0 0 5px 0
+}
+
+h2 {
+	font: normal normal 16px Verdana, Geneva, Arial, Helvetica, sans-serif;
+	margin: 0 0 5px 0
+}
+
+h3 n.c
+	font: normal normal 13px Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #008000;
+	margin: 0 0 15px 0
+}
+
+/* define height and width of scrollable area. Add 16px to width for scrollbar          */
+div.tableContainer1 {
+	clear: both;
+	border: 1px solid #EEEEEE;
+	height: 167px;
+	overflow: auto;
+	width: 330px
+	/*756px*/	
+}
+
+/* Reset overflow value to hidden for all non-IE browsers. */
+html>body div.tableContainer1 {
+	overflow: hidden;
+	width: 330px
+	/*756px*/
+}
+
+/* define width of table. IE browsers only                 */
+div.tableContainer1 table {
+	float: left;
+	width: 328px
+	/*740px*/
+}
+
+/* define width of table. Add 16px to width for scrollbar.           */
+/* All other non-IE browsers.                                        */
+html>body div.tableContainer1 table {
+	width: 330px
+	/*756px*/
+}
+
+/*******************************************************************************************/
+/* define height and width of scrollable area. Add 16px to width for scrollbar          */
+div.tableContainer2 {
+	clear: both;
+	border: 1px solid #EEEEEE;
+	height: 65px;
+	overflow: auto;
+	width: 330px
+	/*756px*/	
+}
+
+/* Reset overflow value to hidden for all non-IE browsers. */
+html>body div.tableContainer2 {
+	overflow: hidden;
+	width: 330px
+	/*756px*/
+}
+
+/* define width of table. IE browsers only                 */
+div.tableContainer2 table {
+	float: left;
+	width: 328px
+	/*740px*/
+}
+
+/* define width of table. Add 16px to width for scrollbar.           */
+/* All other non-IE browsers.                                        */
+html>body div.tableContainer2 table {
+	width: 330px
+	/*756px*/
+}
+
+
+
+/* FOR ALERTS */
+/*******************************************************************************************/
+/* define height and width of scrollable area. Add 16px to width for scrollbar          */
+div.tableContainer2a {
+	clear: both;
+	border: 1px solid #EEEEEE;
+	height: 107px;
+	overflow: auto;
+	width: 330px
+	/*756px*/	
+}
+
+/* Reset overflow value to hidden for all non-IE browsers. */
+html>body div.tableContainer2a {
+	overflow: hidden;
+	width: 330px
+	/*756px*/
+}
+
+/* define width of table. IE browsers only                 */
+div.tableContainer2a table {
+	float: left;
+	width: 328px
+	/*740px*/
+}
+
+/* define width of table. Add 16px to width for scrollbar.           */
+/* All other non-IE browsers.                                        */
+html>body div.tableContainer2a table {
+	width: 330px
+	/*756px*/
+}
+
+
+/* FOR ORDER AUTHORIZATION */
+/*******************************************************************************************/
+/* define height and width of scrollable area. Add 16px to width for scrollbar          */
+div.tableContainer2b {
+	clear: both;
+	border: 1px solid #EEEEEE;
+	height: 110px;
+	overflow: auto;
+	width: 330px
+	/*756px*/	
+}
+
+/* Reset overflow value to hidden for all non-IE browsers. */
+html>body div.tableContainer2b {
+	overflow: hidden;
+	width: 330px
+	/*756px*/
+}
+
+/* define width of table. IE browsers only                 */
+div.tableContainer2b table {
+	float: left;
+	width: 328px
+	/*740px*/
+}
+
+/* define width of table. Add 16px to width for scrollbar.           */
+/* All other non-IE browsers.                                        */
+html>body div.tableContainer2b table {
+	width: 330px
+	/*756px*/
+}
+
+
+
+
+
+
+
+/*******************************************************************************************/
+/* define height and width of scrollable area. Add 16px to width for scrollbar          */
+div.tableContainer3 {
+	clear: both;
+	border: 1px solid #EEEEEE;
+	height: 285px;
+	overflow: auto;
+	width: 330px
+	/*756px*/	
+}
+
+/* Reset overflow value to hidden for all non-IE browsers. */
+html>body div.tableContainer3 {
+	overflow: hidden;
+	width: 330px
+	/*756px*/
+}
+
+/* define width of table. IE browsers only                 */
+div.tableContainer3 table {
+	float: left;
+	width: 310px
+	/*740px*/
+}
+
+/* define width of table. Add 16px to width for scrollbar.           */
+/* All other non-IE browsers.                                        */
+html>body div.tableContainer3 table {
+	width: 330px
+	/*756px*/
+}
+
+/*******************************************************************************************/
+/* define height and width of scrollable area. Add 16px to width for scrollbar          */
+div.tableContainer4 {
+	clear: both;
+	border: 1px solid #000099;
+	height: 285px;
+	overflow: auto;
+	width: 630px
+	/*756px*/	
+}
+
+/* Reset overflow value to hidden for all non-IE browsers. */
+html>body div.tableContainer4 {
+	overflow: hidden;
+	width: 630px
+	/*756px*/
+}
+
+/* define width of table. IE browsers only                 */
+div.tableContainer4 table {
+	float: left;
+	width: 630px
+	/*740px*/
+}
+
+/* define width of table. Add 16px to width for scrollbar.           */
+/* All other non-IE browsers.                                        */
+html>body div.tableContainer4 table {
+	width: 630px
+	/*756px*/
+}
+
+/*******************************************************************************************/
+
+
+
+
+/* set table header to a fixed position. WinIE 6.x only                                       */
+/* In WinIE 6.x, any element with a position property set to relative and is a child of       */
+/* an element that has an overflow property set, the relative value translates into fixed.    */
+/* Ex: parent element DIV with a class of tableContainer has an overflow property set to auto */
+thead.fixedHeader tr {
+	position: relative
+}
+
+/* set THEAD element to have block level attributes. All other non-IE browsers            */
+/* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
+html>body thead.fixedHeader tr {
+	display: block
+}
+
+/* make the TH elements pretty */
+thead.fixedHeader th {
+	background: #404040;
+	border-left: 1px solid #333333;
+	border-right: 1px solid #333333;
+	border-top: 1px solid #000066;
+	font-weight: bold;
+	padding: 4px 3px;
+	text-align: left;
+	color: #FFFFFF;
+	border-bottom-color: #000066;
+	/*993333*/
+}
+
+/* make the A elements pretty. makes for nice clickable headers                */
+thead.fixedHeader a, thead.fixedHeader a:link, thead.fixedHeader a:visited {
+	color: #FFF;
+	display: block;
+	text-decoration: none;
+	width: 100%
+}
+
+/* make the A elements pretty. makes for nice clickable headers                */
+/* WARNING: swapping the background on hover may cause problems in WinIE 6.x   */
+thead.fixedHeader a:hover {
+	color: #FFF;
+	display: block;
+	text-decoration: underline;
+	width: 100%
+}
+
+/* define the table content to be scrollable                                              */
+/* set TBODY element to have block level attributes. All other non-IE browsers            */
+/* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
+/* induced side effect is that child TDs no longer accept width: auto                     */
+html>body tbody.scrollContent1 {
+	display: block;
+	height: 262px;
+	overflow: auto;
+	width: 100%
+}
+
+/* make TD elements pretty. Provide alternating classes for striping the table */
+/* http://www.alistapart.com/articles/zebratables/                             */
+tbody.scrollContent1 td, tbody.scrollContent1 tr.normalRow td {
+	background: #FFF;
+	border-bottom: none;
+	border-left: none;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #DDD;
+	padding: 2px 3px 3px 4px
+}
+
+tbody.scrollContent1 tr.alternateRow td {
+	background: #EEE;
+	border-bottom: none;
+	border-left: none;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #DDD;
+	padding: 2px 3px 3px 4px
+}
+
+/*******************************************************************************************************/
+/* define the table content to be scrollable                                              */
+/* set TBODY element to have block level attributes. All other non-IE browsers            */
+/* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
+/* induced side effect is that child TDs no longer accept width: auto                     */
+html>body tbody.scrollContent2 {
+	display: block;
+	height: 262px;
+	overflow: auto;
+	width: 100%
+}
+
+
+/* make TD elements pretty. Provide alternating classes for striping the table */
+/* http://www.alistapart.com/articles/zebratables/                             */
+tbody.scrollContent2 td, tbody.scrollContent2 tr.normalRow td {
+	background: #FFF;
+	border-bottom: none;
+	border-left: none;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #DDD;
+	padding: 2px 3px 3px 4px
+}
+
+tbody.scrollContent2 tr.alternateRow td {
+	background: #EEE;
+	border-bottom: none;
+	border-left: none;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #DDD;
+	padding: 2px 3px 3px 4px
+}
+
+
+
+
+
+
+/* FOR ALERTS*/
+html>body tbody.scrollContent2a {
+	display: block;
+	height: 262px;
+	overflow: auto;
+	width: 100%
+}
+
+/* make TD elements pretty. Provide alternating classes for striping the table */
+/* http://www.alistapart.com/articles/zebratables/                             */
+tbody.scrollContent2a td, tbody.scrollContent2a tr.normalRow td {
+	background: #FFF;
+	border-bottom: none;
+	border-left: none;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #DDD;
+	padding: 2px 3px 3px 4px
+}
+
+tbody.scrollContent2a tr.alternateRow td {
+	background: #EEE;
+	border-bottom: none;
+	border-left: none;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #DDD;
+	padding: 2px 3px 3px 4px
+}
+
+
+/* FOR ORDER AUTHORIZATION */
+html>body tbody.scrollContent2b {
+	display: block;
+	height: 262px;
+	overflow: auto;
+	width: 100%
+}
+
+/* make TD elements pretty. Provide alternating classes for striping the table */
+/* http://www.alistapart.com/articles/zebratables/                             */
+tbody.scrollContent2b td, tbody.scrollContent2b tr.normalRow td {
+	background: #FFF;
+	border-bottom: none;
+	border-left: none;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #DDD;
+	padding: 2px 3px 3px 4px
+}
+
+tbody.scrollContent2b tr.alternateRow td {
+	background: #EEE;
+	border-bottom: none;
+	border-left: none;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #DDD;
+	padding: 2px 3px 3px 4px
+}
+
+
+
+/* define width of TH elements: 1st, 2nd, and 3rd respectively.          */
+/* Add 16px to last TH for scrollbar padding. All other non-IE browsers. */
+/* http://www.w3.org/TR/REC-CSS2/selector.html#adjacent-selectors        */
+html>body thead.fixedHeader th {
+	width: 150px
+	/* 200px*/
+}
+
+html>body thead.fixedHeader th + th {
+	width: 200px
+	/* 240px*/
+}
+
+html>body thead.fixedHeader th + th + th {
+	width: 250px 
+	/* 316px*/
+}
+
+/* define width of TD elements: 1st, 2nd, and 3rd respectively.          */
+/* All other non-IE browsers.                                            */
+/* http://www.w3.org/TR/REC-CSS2/selector.html#adjacent-selectors        */
+html>body tbody.scrollContent td {
+	width: 150px
+}
+
+html>body tbody.scrollContent td + td {
+	width: 200px
+}
+
+html>body tbody.scrollContent td + td + td {
+	width: 250px
+}
+-->
+</style>
+<!-- TEMP PPRA -->
+<tr>	
+	<td valign="top">
+		<!-- START TABLE 1 -->
+		<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr> 
+				<td><!--Main Page<BR>User logged in: <B>pprasad</B>--></td>
+			</tr>
+			<tr valign="top"> 
+				<td valign="top" nowrap width="1050">
+					<!-- START TABLE 2 -->
+					<table width="100%" height="100%"  border="0" cellspacing="0" cellpadding="10">
+						<tr valign="top"> 
+							<td valign="top" width="350" height="100%" nowrap>  <!-- 350 -->
+							
+															
+																<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="9" height="9" background="images/tables2/lt.gif"></td>
+    <td background="images/tables2/ts.jpg"></td>
+    <td width="9" height="9" background="images/tables2/rt.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="9" background="images/tables2/ls.jpg"></td>
+    <td valign="top">								<div id="tableContainer1" class="tableContainer1">
+								<!-- START TABLE 3 -->
+								<table cellpadding="0", cellspacing="0" width="100%" height="100%">
+									<tr>
+										<td valign="top" width="100%">
+											<!--TABLE 4 START-->
+											<table class="scrollTable" width="100%" cellspacing="0">
+												<thead class="fixedHeader">
+												  <tr valign="top"> 
+													<th align="left" nowrap height="20" width="210">Trades in Lists</th>
+													<th align="left" nowrap>#</th>
+												  </tr>
+												</thead>
+												<tbody class="scrollContent1">
+																									<tr class="tablerow" onClick="javascript:parent.location.href='lists_display.php?list_type=1&type=1'"> 
+														<td height="20"><a class="emptrades1" href="lists_display.php?list_type=1&type=1">Market Maker List</a></td>
+														<td><a class="emptrades1">6</a></td>
+													</tr>
+													
+																									<tr class="tablerow" onClick="javascript:parent.location.href='lists_display.php?list_type=1&type=2'"> 
+														<td height="20"><a class="emptrades1" href="lists_display.php?list_type=1&type=2">Analyst List</a></td>
+														<td><a class="emptrades1">2</a></td>
+													</tr>
+													
+																									<tr class="tablerow" onClick="javascript:parent.location.href='lists_display.php?list_type=1&type=3'"> 
+														<td height="20"><a class="emptrades1" href="lists_display.php?list_type=1&type=3">Banker List</a></td>
+														<td><a class="emptrades1">4</a></td>
+													</tr>
+													
+																									<tr class="tablerow" onClick="javascript:parent.location.href='lists_display.php?list_type=1&type=4'"> 
+														<td height="20"><a class="emptrades1" href="lists_display.php?list_type=1&type=4">Holding Period Violation List</a></td>
+														<td><a class="emptrades1">4</a></td>
+													</tr>
+													
+																								
+																									<tr class="tablerow" onClick="javascript:parent.location.href='lists_display.php?list_type=2&type=1'"> 
+														<td height="20"><a class="emptrades2" href="lists_display.php?list_type=2&type=1">Watch List</a></td>
+														<td><a class="emptrades2">11</a></td>
+													</tr>
+																									<tr class="tablerow" onClick="javascript:parent.location.href='lists_display.php?list_type=2&type=2'"> 
+														<td height="20"><a class="emptrades2" href="lists_display.php?list_type=2&type=2">Gray List</a></td>
+														<td><a class="emptrades2">0</a></td>
+													</tr>
+																									<tr class="tablerow" onClick="javascript:parent.location.href='lists_display.php?list_type=2&type=3'"> 
+														<td height="20"><a class="emptrades2" href="lists_display.php?list_type=2&type=3">Restricted List</a></td>
+														<td><a class="emptrades2">9</a></td>
+													</tr>
+																								
+												 												</tbody>
+											</table>
+										<!-- TABLE 4 END -->
+										
+										<script language="JavaScript">
+										<!--
+										///////////////////////tigra_tables('accounts_table', 3, 1, '#ffffff', '#ffffcc', '#ffcc66', '#cccccc');
+										//tigra_tables('accounts_table', 1, 0, '#ffffff', '#F3F1FF', '#B8D6FE', '#cccccc');
+										// -->
+										</script>
+										</td>
+									</tr>
+								</table>
+								<!-- TABLE 3 END -->
+								</div>
+								<!--<p class="LocOps"><a class="LocOps" href="addaccount.php">Add Account</a> : <a class="LocOps" href="/demo/compliance/main.php?SortBy=Name1">Sort By Name1</a> : <b>Sorted By Name2</b> </p>-->
+								</td>
+    <td width="9" background="images/tables2/rs.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="9" height="9" background="images/tables2/lb.jpg"></td>
+    <td background="images/tables2/bs.jpg"></td>
+    <td width="9" height="9" background="images/tables2/rb.gif"></td>
+  </tr>
+</table>																<br>
+								<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="9" height="9" background="images/tables2/lt.gif"></td>
+    <td background="images/tables2/ts.jpg"></td>
+    <td width="9" height="9" background="images/tables2/rt.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="9" background="images/tables2/ls.jpg"></td>
+    <td valign="top">								<div id="tableContainer2" class="tableContainer2">
+								<!-- START TABLE 5 -->
+								<table cellpadding="0", cellspacing="0" width="100%" height="100%">
+									<tr>
+										<td valign="top">
+										<!--START TABLE 6-->
+										<table class="scrollTable"  width="100%"  cellspacing="0">
+											<thead class="fixedHeader">
+											<tr valign="top"> 
+											<th colspan="2" align="center" nowrap height="20">Action Items</th>
+											</tr>
+											</thead>
+											<tbody class="scrollContent2">
+											<tr class="tablerow" onClick="javascript:parent.location.href='actionitems.php'"> 
+												<td height="20" width="50"><a class="emptrades" href="actionitems.php">Open</a></td>
+												<td width="30"><a class="emptrades">0</a></td>
+											</tr>
+											<tr class="tablerow" onClick="javascript:parent.location.href='actionitems_close.php'"> 
+												<td height="20"><a class="emptrades" href="actionitems_close.php">Closed</a></td>
+												<td><a class="emptrades">0</a></td>
+											</tr>
+										</table>
+										<!-- END TABLE 6 -->
+										
+										<script language="JavaScript">
+										<!--
+										///////////////////////tigra_tables('accounts_table', 3, 1, '#ffffff', '#ffffcc', '#ffcc66', '#cccccc');
+										//tigra_tables('accounts_table', 1, 0, '#ffffff', '#F3F1FF', '#B8D6FE', '#cccccc');
+										// -->
+										</script>
+										</td>
+									</tr>
+								</table>
+								<!-- TABLE 5 END -->
+								<!--<p class="LocOps"><a class="LocOps" href="addaccount.php">Add Account</a> : <a class="LocOps" href="/demo/compliance/main.php?SortBy=Name1">Sort By Name1</a> : <b>Sorted By Name2</b> </p>-->
+								</div>
+								</td>
+    <td width="9" background="images/tables2/rs.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="9" height="9" background="images/tables2/lb.jpg"></td>
+    <td background="images/tables2/bs.jpg"></td>
+    <td width="9" height="9" background="images/tables2/rb.gif"></td>
+  </tr>
+</table>																<br>
+								<!-- ALERTS -->
+								<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="9" height="9" background="images/tables2/lt.gif"></td>
+    <td background="images/tables2/ts.jpg"></td>
+    <td width="9" height="9" background="images/tables2/rt.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="9" background="images/tables2/ls.jpg"></td>
+    <td valign="top">								<div id="tableContainer2a" class="tableContainer2a">
+								<!-- START TABLE 5 -->
+								<table cellpadding="0", cellspacing="0" width="100%" height="100%">
+									<tr>
+										<td valign="top">
+											<!--START TABLE 6-->
+											<table class="scrollTable"  width="100%"  cellspacing="0">
+												<thead class="fixedHeader">
+												  
+												
+                  <tr valign="top"> 
+                    <th colspan="2" align="center" nowrap height="20">Alerts</th>
+                  </tr>
+												</thead>
+												<tbody class="scrollContent2a">
+																										<tr class="tablerow" onClick=""> 
+															<td  width="100%"><b>Intel</b> in <b>Large Cap. A</b> is above threshold.</td>
+														</tr>
+																										<tr class="tablerow" onClick=""> 
+															<td  width="100%"><b>FD</b> in <b>Large Cap. B</b> is above threshold.</td>
+														</tr>
+																										<tr class="tablerow" onClick=""> 
+															<td  width="100%"><b>CSCO</b> in <b>Large Cap C</b> is above threshold.</td>
+														</tr>
+																							</table>
+											<!-- END TABLE 6 -->
+										
+										<script language="JavaScript">
+										<!--
+										///////////////////////tigra_tables('accounts_table', 3, 1, '#ffffff', '#ffffcc', '#ffcc66', '#cccccc');
+										//tigra_tables('accounts_table', 1, 0, '#ffffff', '#F3F1FF', '#B8D6FE', '#cccccc');
+										// -->
+										</script>
+										</td>
+									</tr>
+								</table>
+								<!-- TABLE 5 END -->
+								<!--<p class="LocOps"><a class="LocOps" href="addaccount.php">Add Account</a> : <a class="LocOps" href="/demo/compliance/main.php?SortBy=Name1">Sort By Name1</a> : <b>Sorted By Name2</b> </p>-->
+								</div>
+								</td>
+    <td width="9" background="images/tables2/rs.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="9" height="9" background="images/tables2/lb.jpg"></td>
+    <td background="images/tables2/bs.jpg"></td>
+    <td width="9" height="9" background="images/tables2/rb.gif"></td>
+  </tr>
+</table>																	<br>
+									<!-- ORDER AUTHORIZATION -->
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="9" height="9" background="images/tables2/lt.gif"></td>
+    <td background="images/tables2/ts.jpg"></td>
+    <td width="9" height="9" background="images/tables2/rt.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="9" background="images/tables2/ls.jpg"></td>
+    <td valign="top">									<div id="tableContainer2b" class="tableContainer2b">
+									<!-- START TABLE 5A -->
+									<table cellpadding="0", cellspacing="0" width="100%" height="100%">
+										<tr>
+											<td valign="top">
+												<!--START TABLE 6A -->
+												<table class="scrollTable"  width="100%"  cellspacing="0">
+													<thead class="fixedHeader">
+													  
+														
+													  
+                  <tr valign="top"> 
+                    <th colspan="2" align="center" nowrap height="20">Order Authorization</th>
+                  </tr>
+													</thead>
+													<tbody class="scrollContent2b">
+																												<tr class="tablerow" onClick="javascript:CreateWnd('pop_order_authorize.php?id=9&user_id=79&flag=1>', 680, 430, false);"> 
+																<td>
+																	<b>Sell&nbsp;342</b> of <b>INFY</b>
+																</td>
+															</tr>
+																																										<tr class="tablerow" onClick="javascript:CreateWnd('pop_order_authorize.php?id=13&user_id=79&flag=1>', 680, 430, false);"> 
+																<td>
+																	<b>Buy&nbsp;30000</b> of <b>SIRI</b>
+																</td>
+															</tr>
+																																										<tr class="tablerow" onClick="javascript:CreateWnd('pop_order_authorize.php?id=14&user_id=79&flag=1>', 680, 430, false);"> 
+																<td>
+																	<b>Buy&nbsp;600</b> of <b>GOOG</b>
+																</td>
+															</tr>
+																																										<tr class="tablerow" onClick="javascript:CreateWnd('pop_order_authorize.php?id=21&user_id=79&flag=1>', 680, 430, false);"> 
+																<td>
+																	<b>Buy&nbsp;10000</b> of <b>LCCI</b>
+																</td>
+															</tr>
+																																							</table>
+												<!-- END TABLE 6A -->
+											
+											<script language="JavaScript">
+											<!--
+											///////////////////////tigra_tables('accounts_table', 3, 1, '#ffffff', '#ffffcc', '#ffcc66', '#cccccc');
+											//tigra_tables('accounts_table', 1, 0, '#ffffff', '#F3F1FF', '#B8D6FE', '#cccccc');
+											// -->
+											</script>
+											</td>
+										</tr>
+									</table>
+									<!-- TABLE 5A END -->
+									<!--<p class="LocOps"><a class="LocOps" href="addaccount.php">Add Account</a> : <a class="LocOps" href="/demo/compliance/main.php?SortBy=Name1">Sort By Name1</a> : <b>Sorted By Name2</b> </p>-->
+									</div>
+									</td>
+    <td width="9" background="images/tables2/rs.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="9" height="9" background="images/tables2/lb.jpg"></td>
+    <td background="images/tables2/bs.jpg"></td>
+    <td width="9" height="9" background="images/tables2/rb.gif"></td>
+  </tr>
+</table>																	
+								<br>
+								
+								<!-- emp/cust trades table here -->
+										<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="9" height="9" background="images/tables2/lt.gif"></td>
+    <td background="images/tables2/ts.jpg"></td>
+    <td width="9" height="9" background="images/tables2/rt.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="9" background="images/tables2/ls.jpg"></td>
+    <td valign="top">										<div id="tableContainer3" class="tableContainer3">
+										<!-- START TABLE 7 -->
+										<table border="0" cellpadding="0" cellspacing="0" width="100%" class="scrollTable">
+										<thead class="fixedHeader">
+											
+											
+            <tr> 
+              <th width="80">Symbol</th>
+              <th>Cust. Trades</th>
+              <th>Emp. Trades</th>
+            </tr>
+										</thead>
+										<tbody class="scrollContent2">
+										
+																				
+										<tr>
+											<td>ADS</td>
+											<td>2</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>AMAT</td>
+											<td>1</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>ARB</td>
+											<td>0</td>
+											<td>2</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>ARBA</td>
+											<td>2</td>
+											<td>1</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>ATML</td>
+											<td>2</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>BEAS</td>
+											<td>1</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>BGO</td>
+											<td>1</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>CKFR</td>
+											<td>1</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>CSCO</td>
+											<td>3</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>DELL</td>
+											<td>1</td>
+											<td>1</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>EFII</td>
+											<td>1</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>FARM</td>
+											<td>1</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>FD</td>
+											<td>2</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>FDO</td>
+											<td>3</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>FIC</td>
+											<td>2</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>FNM</td>
+											<td>1</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>GILD</td>
+											<td>6</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>HRB</td>
+											<td>1</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>IBM</td>
+											<td>3</td>
+											<td>2</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>INTC</td>
+											<td>3</td>
+											<td>2</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>ISON</td>
+											<td>2</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>JCOM</td>
+											<td>2</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>JDSU</td>
+											<td>1</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>JNPR</td>
+											<td>2</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>KBH</td>
+											<td>2</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>KDN</td>
+											<td>1</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>KSU</td>
+											<td>1</td>
+											<td>1</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>LEXR</td>
+											<td>3</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>LVLT</td>
+											<td>1</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>MLNM</td>
+											<td>0</td>
+											<td>2</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>MSFT</td>
+											<td>0</td>
+											<td>2</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>ORCL</td>
+											<td>3</td>
+											<td>1</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>PCLE</td>
+											<td>1</td>
+											<td>1</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>SIRI</td>
+											<td>1</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>SPLS</td>
+											<td>0</td>
+											<td>2</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>SUNW</td>
+											<td>3</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>XATA</td>
+											<td>3</td>
+											<td>1</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>XRX</td>
+											<td>3</td>
+											<td>1</td>
+										</tr>
+										
+																				
+										<tr>
+											<td>YHOO</td>
+											<td>3</td>
+											<td>0</td>
+										</tr>
+										
+																				
+										
+									
+									<!-- 	<select class="Text1" name="tickers" multiple size="24" style="width: 320"> -->
+																																																																																																																																																																																																																																																																																																																																																																																																																										
+										</td>
+									</tr>
+								</table>
+								<!-- END TABLE 7 -->
+								
+								</div>
+								</td>
+    <td width="9" background="images/tables2/rs.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="9" height="9" background="images/tables2/lb.jpg"></td>
+    <td background="images/tables2/bs.jpg"></td>
+    <td width="9" height="9" background="images/tables2/rb.gif"></td>
+  </tr>
+</table>								
+
+							</td>
+							<td valign="top" width="650" nowrap>   <!-- 645 -->
+								<!-- START TABLE 8 -->	
+								<table width="540" border="0" cellpadding="0" cellspacing="0">
+																		<tr>
+										<td>
+										<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="9" height="9" background="images/tables2/lt.gif"></td>
+    <td background="images/tables2/ts.jpg"></td>
+    <td width="9" height="9" background="images/tables2/rt.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="9" background="images/tables2/ls.jpg"></td>
+    <td valign="top">											<img src="inc_graph_data.php" border="1">
+										</td>
+    <td width="9" background="images/tables2/rs.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="9" height="9" background="images/tables2/lb.jpg"></td>
+    <td background="images/tables2/bs.jpg"></td>
+    <td width="9" height="9" background="images/tables2/rb.gif"></td>
+  </tr>
+</table>										</td>
+									</tr>
+								</table>
+								<br>
+								<table>
+																		<tr>
+										<td>
+										<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="9" height="9" background="images/tables2/lt.gif"></td>
+    <td background="images/tables2/ts.jpg"></td>
+    <td width="9" height="9" background="images/tables2/rt.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="9" background="images/tables2/ls.jpg"></td>
+    <td valign="top">											<!-- START TABLE 9 -->
+											<table>
+												<tr>
+													<td>
+														<img src="inc_pie_chart1.php" border="1">
+													</td>
+													<td>
+														<img src="inc_pie_chart2.php" border="1">
+													</td>
+												</tr>
+											</table>
+											<!-- END TABLE 9 -->
+										</td>
+    <td width="9" background="images/tables2/rs.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="9" height="9" background="images/tables2/lb.jpg"></td>
+    <td background="images/tables2/bs.jpg"></td>
+    <td width="9" height="9" background="images/tables2/rb.gif"></td>
+  </tr>
+</table>										</td>
+									</tr>
+								</table>
+								<br>
+								<table>
+																		<form name="port_frm" action="main.php" method="post">
+									<tr>
+										<td>
+										<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="9" height="9" background="images/tables2/lt.gif"></td>
+    <td background="images/tables2/ts.jpg"></td>
+    <td width="9" height="9" background="images/tables2/rt.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="9" background="images/tables2/ls.jpg"></td>
+    <td valign="top">											<table border="0" align="center" width="550" cellpadding="0" cellspacing="0">
+												<tr> 
+													<td width="100%">
+														<fieldset style="BORDER-RIGHT: #9999ff 1px solid; 
+														BORDER-TOP: #9999ff 1px solid; 
+														BORDER-LEFT: #9999ff 1px solid;
+														PADDING: 2px;
+														WIDTH: 550px; 
+														HEIGHT: 30px;
+														COLOR: #555555; 
+														BORDER-BOTTOM: #9999ff 1px solid"> 
+	
+														<a class="links12">Select Portfolio :</a>
+														&nbsp;&nbsp;
+														<select class="Text" name="port_id">
+														<option value='1'selected>Large Cap. A</option>
+<option value='2'>Large Cap. B</option>
+<option value='3'>Large Cap C</option>
+<option value='4'>Large Cap D</option>
+														</select>
+														&nbsp;&nbsp;
+														<input class="submit" type="submit" value=" Go ">
+														
+														</fieldset>
+													</td>
+												</tr>
+											
+												<tr>
+													<td width="100%">
+															<fieldset style="BORDER-RIGHT: #9999ff 1px solid; 
+															BORDER-TOP: #9999ff 1px solid; 
+															BORDER-LEFT: #9999ff 1px solid;
+															PADDING: 0px;
+															WIDTH: 550px; 
+															HEIGHT: 220px;
+															COLOR: #555555; 
+															BORDER-BOTTOM: #9999ff 1px solid"> 
+
+															<img src="inc_pie_chart3.php?pid=" border="0">
+															</fieldset>
+													</td>
+												</tr>
+											</table>
+										</td>
+    <td width="9" background="images/tables2/rs.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="9" height="9" background="images/tables2/lb.jpg"></td>
+    <td background="images/tables2/bs.jpg"></td>
+    <td width="9" height="9" background="images/tables2/rb.gif"></td>
+  </tr>
+</table>										</td>
+									</tr>
+																		</form>
+								</table>
+								<!-- END TABLE 8 -->
+							</td>
+						</tr>
+<!-- 						<tr valign="bottom"> 
+							<td valign="top" width="350" nowrap>&nbsp;
+							
+							</td>
+							<td valign="top" width="645" nowrap>&nbsp;
+							
+							</td>
+						</tr>
+ -->
+					</table>
+				<!-- END TABLE 2 -->		
+				</td>
+			</tr>
+		</table>
+		<!-- END TABLE 1 -->
+	</td>
+</tr>
+<tr valign="bottom">
+<td>
+	<table width="100%" height="20">
+		<tr valign="top">
+		<td align="center" valign="bottom">
+			<table width="100%" height="20" border="0" cellpadding="0" cellspacing="0">
+				<tr valign="top"> 
+				<td align="center" valign="bottom">
+						<hr align="center" size="1" color="#CCCCCC" noshade>
+						<center><a class="centersys">&copy; 2002-2004 </a>
+						<a class="centersys" href="http://www.centersysgroup.com" target="_blank">CenterSys Group, Inc.</a></center>
+				</td>
+				</tr>
+			</table>
+		</td>
+		</tr>
+	</table>
+</td>
+</tr>
+</table>
+</body>
+</html>

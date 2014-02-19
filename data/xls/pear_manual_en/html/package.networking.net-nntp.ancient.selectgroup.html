@@ -1,0 +1,423 @@
+<HTML
+><HEAD
+><TITLE
+>Net_NNTP::selectGroup()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_NNTP"
+HREF="package.networking.net-nntp.html#package.networking.net-nntp.ancient"><LINK
+REL="PREVIOUS"
+TITLE="Net_NNTP::quit()"
+HREF="package.networking.net-nntp.ancient.quit.html"><LINK
+REL="NEXT"
+TITLE="Net_NNTP::setDebug()"
+HREF="package.networking.net-nntp.ancient.setdebug.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-nntp.ancient.quit.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-nntp.ancient.setdebug.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-nntp.ancient.selectgroup">Net_NNTP::selectGroup()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN86667"
+></A
+>Net_NNTP::selectGroup()&nbsp;--&nbsp;select a newsgroup</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN86670"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN86671"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Net/NNTP.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>Net_NNTP::selectGroup</B
+></CODE
+> (string $newsgroup)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.ancient.selectgroup.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Selects a specific newsgroup on the news server
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.ancient.selectgroup.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        string <TT
+CLASS="parameter"
+><I
+>$newsgroup</I
+></TT
+> - Name of the newsgroup to
+        access
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.ancient.selectgroup.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>array</I
+></TT
+> - If the newsgroup exists an array
+     containing the message number of the first 
+     (array key: <TT
+CLASS="parameter"
+><I
+>['first']</I
+></TT
+>) 
+     and the last message id (array key: <TT
+CLASS="parameter"
+><I
+>['last']</I
+></TT
+>) 
+     or a <B
+CLASS="classname"
+>PEAR_Error</B
+>, if fail.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.ancient.selectgroup.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN86698"><P
+><B
+>Table 48-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Different error messages
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          The messages are directly passed from the news server, in the 
+          most cases caused by calling a non existing article
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Check the article ID or if your are still connected to the
+          server (<A
+HREF="package.networking.net-nntp.ancient.isconnected.html"
+>&#13;           <B
+CLASS="function"
+>Net_NNTP::isConnected()</B
+></A
+>)
+         </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.ancient.selectgroup.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.ancient.selectgroup.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;     <A
+HREF="package.networking.net-nntp.ancient.connect.html"
+>&#13;      <B
+CLASS="function"
+>Net_NNTP::connect()</B
+>
+     </A
+>,
+     <A
+HREF="package.networking.net-nntp.ancient.getgroups.html"
+>&#13;      <B
+CLASS="function"
+>Net_NNTP::getGroups()</B
+>
+     </A
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.ancient.selectgroup.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN86728"><P
+><B
+>Example 48-1. Using <B
+CLASS="function"
+>selectGroup()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>...
+$ret = $nntp-&#62;connect("news.php.net");
+if( PEAR::isError($ret)) {
+ // handle error
+} else {
+ // success
+ $data = $nntp-&#62;selectGroup("php.pear.dev");
+ // Print the count of articles
+ echo "Count: ", $data['last'] - $data['first'];
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-nntp.ancient.quit.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-nntp.ancient.setdebug.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Net_NNTP::quit()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-nntp.html#package.networking.net-nntp.ancient"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Net_NNTP::setDebug()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

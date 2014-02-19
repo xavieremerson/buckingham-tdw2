@@ -1,0 +1,274 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_DNSBL"
+HREF="package.networking.net-dnsbl.html"><LINK
+REL="PREVIOUS"
+TITLE="Net_DNSBL"
+HREF="package.networking.net-dnsbl.html"><LINK
+REL="NEXT"
+TITLE="Net_Finger"
+HREF="package.networking.net-finger.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-dnsbl.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-finger.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-dnsbl.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN82321"
+></A
+>Introduction&nbsp;--&nbsp;Introduction to Net_DNSBL</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-dnsbl.intro.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   PEAR::Net_DNSBL provides an easy way to check if a given Host or URL
+   is listed on an DNS-based Blackhole List (DNSBL, Real-time Blackhole
+   List or RBL) or Spam URI Realtime Blocklist (SURBL).
+  </P
+><P
+>&#13;   Please not that this currently only works with IPv4 IPs.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-dnsbl.intro.usage"
+></A
+><H2
+>Usage</H2
+><P
+>&#13;    Let's start with a simple example to check if the remote host is
+    listed in two blacklists:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'Net/DNSBL.php';
+$dnsbl = new Net_DNSBL();
+$remoteIP = $_SERVER['REMOTE_ADDR'];
+$remoteIP = '81.70.69.193';
+$dnsbl-&#62;setBlacklists(array('sbl-xbl.spamhaus.org', 'bl.spamcop.net'));
+if ($dnsbl-&#62;isListed($remoteIP)) {
+    // do something
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><P
+>&#13;    This example shows how to check if an URL is listed in a SURBL:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'Net/DNSBL/SURBL.php';
+$surbl = new Net_DNSBL_SURBL();
+if ($surbl-&#62;isListed($addData['url'])) {
+    // do something
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+    An example how to extract URLS from a text can be found on
+    http://www.phpfreaks.com/quickcode/Extract_All_URLs_on_a_Page/15.php
+    and be used this way:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+foreach ($extracted_urls as $surbl_check_url) {
+    if ($surbl-&#62;isListed($surbl_check_url)) {
+        // do something
+        break;
+    }
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><P
+>&#13;    Let's get some details, if our host is listed:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'Net/DNSBL.php';
+$dnsbl = new Net_DNSBL();
+$dnsbl-&#62;setBlacklists(array('sbl-xbl.spamhaus.org', 'bl.spamcop.net'));
+if ($dnsbl-&#62;isListed($_SERVER['REMOTE_ADDR'])) {
+   var_dump($dnsbl-&#62;getDetails($_SERVER['REMOTE_ADDR']));
+   var_dump($dnsbl-&#62;getListingBl($_SERVER['REMOTE_ADDR']));
+   var_dump($dnsbl-&#62;getListingRecord($_SERVER['REMOTE_ADDR']);
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-dnsbl.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-finger.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Net_DNSBL</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-dnsbl.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Net_Finger</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

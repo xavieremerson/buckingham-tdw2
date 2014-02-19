@@ -1,0 +1,485 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_RPC2"
+HREF="package.webservices.xml-rpc2.html"><LINK
+REL="PREVIOUS"
+TITLE="XML_RPC2"
+HREF="package.webservices.xml-rpc2.html"><LINK
+REL="NEXT"
+TITLE="Client Side"
+HREF="package.webservices.xml-rpc2.client.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.webservices.xml-rpc2.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.webservices.xml-rpc2.client.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.webservices.xml-rpc2.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN101963"
+></A
+>Introduction&nbsp;--&nbsp;</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc2.intro.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   XML_RPC2 is a "PHP5 only" implementation of the XMLRPC protocol. This package
+   provides the client and the server side of the protocol. An optimized cache 
+   is also available for both parts. 
+  </P
+><P
+>&#13;   As a client library, XML_RPC2 is capable of creating a proxy class which 
+   exposes the methods exported by the server. So it's very easy and 
+   natural to call XMLRPC exported methods. Like in Python language, the classic
+   way to use XML_RPC2 client side is :
+  </P
+><P
+></P
+><UL
+><LI
+><P
+>&#13;     We make a XML_RCP2_Client object with server informations as arguments.
+    </P
+></LI
+><LI
+><P
+>&#13;     In a classic way, we call a method of this object.
+    </P
+></LI
+><LI
+><P
+>&#13;     Then, the method call is XMLRPC encoded, sent to the server, the response 
+     is decoded into PHP native types and we get the result of the call (all this
+     logic is made by the library in a completely transparent way). 
+    </P
+></LI
+></UL
+><P
+>&#13;   As a server library, XML_RPC2 is capable of exposing methods from a class or 
+   object instance, seamlessly capable of exposing methods from a class or 
+   object instance, seamlessly exporting local methods as remotely callable 
+   procedures. Method signatures are automatically determined and checked by using
+   the reflection API and PHPDOC comments. An automatic documentation about
+   XMLRPC exported methods is dynamically built and available at the server URL
+   (with a simple HTTP GET).
+  </P
+><P
+>&#13;   For both sides, an optimized cache based on Cache_Lite can be set. It can
+   be really usefull especially on public XMLRPC servers.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc2.intro.requirements"
+></A
+><H2
+>Requirements</H2
+><P
+>&#13;   XML_RCP2 need PHP5 and the CURL extension. To avoid in next version, the CURL
+   dependency, we are waiting for a PHP5 E_STRICT PEAR module for HTTP_Request.
+  </P
+><P
+>&#13;   If you want to use the integrated cache, you will also need the Cache_Lite 
+   PEAR module but it's of course an optional dependency.
+  </P
+><P
+>&#13;   XML_RPC2 can use two backends for the XMLRPC encoding/decoding :
+  </P
+><P
+></P
+><UL
+><LI
+><P
+>&#13;     XMLRPCEXT, which of course need this PHP extension (probably the better
+     choice but it's an additional dependency) ;
+    </P
+></LI
+><LI
+><P
+>&#13;     PHP, which doesn't need the XMLRPCEXT extension at all (this is full PHP 
+     but slower).
+    </P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc2.intro.exampleclient"
+></A
+><H2
+>A first example of the client side use</H2
+><P
+>&#13;   Let's start with a XMLRPC call to the pear.php.net XMLRPC server :   
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+require_once 'XML/RPC2/Client.php';
+
+$options = array(
+	'prefix' =&#62; 'package.'
+);
+
+// We make the XML_RPC2_Client object (as the backend is not specified, XMLRPCEXT
+// will be used if available (full PHP else))
+$client = XML_RPC2_Client::create('http://pear.php.net/xmlrpc.php', $options);
+
+try {
+
+    // Because of the prefix specified in the $options array, indeed,  we will call
+    // the package.info() method with a single argument (the string 'XML_RPC2')
+    $result = $client-&#62;info('XML_RPC2'); 
+    
+    // $result is a complex PHP type (no XMLRPC decoding needed, it's already done) 
+    print_r($result);
+
+} catch (XML_RPC2_FaultException $e) {
+
+    // The XMLRPC server returns a XMLRPC error
+    die('Exception #' . $result-&#62;getFaultCode() . ' : ' . $e-&#62;getFaultString());
+
+} catch (Exception $e) {  
+
+    // Other errors (HTTP or networking problems...)
+    die('Exception : ' . $e-&#62;getFaultString());
+
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>  
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc2.intro.exampleserver"
+></A
+><H2
+>A first example of the server side use</H2
+><P
+>&#13;   Let's build a XMLRPC "echo server" :
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+require_once 'XML/RPC2/Server.php';
+
+// Let's define a class with public static methods
+// PHPDOC comments are really important because they are used for automatic
+// signature checking
+
+class EchoServer {
+
+    /**
+     * echoes the message received
+     *
+     * @param string  Message
+     * @return string The echo
+     */
+    public static function echoecho($string) {
+        return $string;
+    }
+    
+}
+
+$options = array(
+    'prefix' =&#62; 'test.' // we define a sort of "namespace" for the server
+);
+
+// Let's build the server object with the name of the Echo class 
+$server = XML_RPC2_Server::create('EchoServer', $options);
+$server-&#62;handleCall();
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>  
+   If you do a simple HTTP GET on the server URL, you will get an automatic
+   HTML documentation about the echoecho function. If you make a XMLRPC client
+   request on the same URL about the "test.echoecho()" method (with one argument),
+   you will get your argument as a response. If you call another method or with a
+   bad arguments number, you will get an error (because of automatic method 
+   signature checking).   
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc2.intro.examplecachedclient"
+></A
+><H2
+>A first example of the client side use (with integrated cache)</H2
+><P
+>&#13;   As the caching process is completely transparent, this is very similar to the standard client side use :
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+require_once 'XML/RPC2/CachedClient.php';
+
+$options = array(
+	'prefix' =&#62; 'package.',
+    'cacheDebug' =&#62; false, // with cacheDebug set to true, it's very easy to get an indication about the cache using (or not)
+    'cacheOptions' =&#62; array(
+        'cacheDir' =&#62; '/tmp/',
+        'lifetime' =&#62; 3600,      // during this lifetime, the local cache will be used 
+        'cacheByDefault' =&#62; true // all methods call will be cached (but a more precise way is possible)
+    )
+);
+
+// We make the XML_RPC2_CachedClient object (same syntax than XML_RPC2_Client)
+$client = XML_RPC2_CachedClient::create('http://pear.php.net/xmlrpc.php', $options);
+
+try {
+
+    // First call, the cache won't be used
+    $result = $client-&#62;info('XML_RPC2'); 
+    print_r($result);
+    
+    // Second call, the cache will be used  (in a transparent way) and no
+    // additional HTTP request will be sent to the server
+    $result = $client-&#62;info('XML_RPC2'); 
+    print_r($result);    
+
+} catch (XML_RPC2_FaultException $e) {
+
+    // The XMLRPC server returns a XMLRPC error
+    die('Exception #' . $result-&#62;getFaultCode() . ' : ' . $e-&#62;getFaultString());
+
+} catch (Exception $e) {  
+
+    // Other errors (HTTP or networking problems...)
+    die('Exception : ' . $e-&#62;getFaultString());
+
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>  
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc2.intro.examplecachedserver"
+></A
+><H2
+>A first example of the server side use (with integrated cache)</H2
+><P
+>&#13;   As the caching process is completely transparent, this is very similar to the standard server side use :
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+ 
+require_once 'XML/RPC2/CachedServer.php';
+
+// Let's define a class with public static methods
+// PHPDOC comments are really important because they are used for automatic
+// signature checking
+
+// IMPORTANT : note the @xmlrpc.caching PHPDOC tags to indicate that the method has to be cached
+
+class EchoServer {
+
+    /**
+     * echoes the message received
+     *
+     * @param string  Message
+     * @return string The echo
+     * @xmlrpc.caching true
+     */
+    public static function echoecho($string) {
+        return $string;
+    }
+    
+} 
+
+$options = array(
+	'prefix' =&#62; 'test..',
+    'cacheDebug' =&#62; false, // with cacheDebug set to true, it's very easy to get an indication about the cache using (or not)
+	'cacheOptions' =&#62; array(
+		'cacheDir' =&#62; '/tmp/',
+		'lifetime' =&#62; 3600,
+        'cacheByDefault' =&#62; false // we don't cache by default (only methods with @xmlrpc.caching true)
+	)
+);
+
+$server = XML_RPC2_CachedServer::create('EchoServer', $options);  
+$server-&#62;handleCall();
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>    
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.webservices.xml-rpc2.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.webservices.xml-rpc2.client.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>XML_RPC2</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.webservices.xml-rpc2.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Client Side</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

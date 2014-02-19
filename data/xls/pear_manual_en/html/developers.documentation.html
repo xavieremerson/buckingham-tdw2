@@ -1,0 +1,913 @@
+<HTML
+><HEAD
+><TITLE
+>Writing documentation</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Developer Guide"
+HREF="guide-developers.html"><LINK
+REL="PREVIOUS"
+TITLE="
+    Color Representation inside PEAR Packages
+   "
+HREF="developers.faq.colorrepresentation.html"><LINK
+REL="NEXT"
+TITLE="Tips for good documentation"
+HREF="developers.documentation.tips.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="chapter"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="developers.faq.colorrepresentation.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="developers.documentation.tips.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="chapter"
+><H1
+><A
+NAME="developers.documentation"
+>Chapter 20. Writing documentation</A
+></H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="developers.documentation.html#developers.documentation.docbook"
+>The DocBook XML format</A
+></DT
+><DT
+><A
+HREF="developers.documentation.tips.html"
+>Tips for good documentation</A
+></DT
+></DL
+></DIV
+><P
+>&#13;   This chapter provides a detailed description how to write
+   documentation using one of the supported formats. It is aimed at both
+   PEAR developers that are already maintaining packages in PEAR and at
+   people who are planning to contribute a new package.
+  </P
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="developers.documentation.docbook">The DocBook XML format</H1
+><P
+>&#13;    <A
+HREF="http://www.oasis-open.org/docbook/xml/"
+TARGET="_top"
+>DocBook</A
+> is an XML dialect
+    that is used by a wide range of projects to maintain their
+    documentation. Examples for DocBook usage in OpenSource projects are
+    the documentations of <A
+HREF="http://www.kde.org/"
+TARGET="_top"
+>KDE</A
+> and 
+    <A
+HREF="http://www.php.net/"
+TARGET="_top"
+>PHP</A
+>. PEAR has opted for using
+    DocBook, because we believe that it provides a solid foundation for
+    the technical documentation for PEAR packages.
+   </P
+><P
+>&#13;    The trade-off for using DocBook is that it is relatively hard to
+    use. Testing documentation requires a number of tools to be
+    installed and one needs to learn a (not very complicated) XML
+    dialect. Once one is familiar with how DocBook works, they will
+    enjoy writing documentation with it though.  
+   </P
+><P
+>&#13;    The book <A
+HREF="http://www.docbook.org/"
+TARGET="_top"
+>[<SPAN
+CLASS="citation"
+>DocBook: The
+    Definitive Guide</SPAN
+>]</A
+>, written by Norman Walsh and
+    Leonard Muellner and published by <A
+HREF="http://www.oreilly.com/"
+TARGET="_top"
+>O'Reilly &#38; Associates, Inc.</A
+>, is
+    <A
+HREF="http://www.docbook.org/tdg/"
+TARGET="_top"
+>available online</A
+> and it
+    makes up a great resource for people interested in learning DocBook.
+   </P
+><P
+>&#13;    Definitely check out the book's
+    <A
+HREF="http://www.docbook.org/tdg/en/html-ng/part2.html"
+TARGET="_top"
+>&#13;     <SPAN
+CLASS="QUOTE"
+>"DocBook Element Reference"</SPAN
+></A
+> section.
+    This portion provides detailed information about
+    <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>each</I
+></SPAN
+> element, including which elements
+    can (and must) be used as parents and children.
+   </P
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="developers.documentation.software">Required software</H2
+><P
+>&#13;     Even if DocBook XML can (like any other XML file) be written using
+     a normal text editor, it is optimal for users
+     to install some software on their
+     machine in order to test the validity of the documenting
+     efforts. A list of the required software and a installation
+     instruction can be found in the 
+     <A
+HREF="http://www.php.net/dochowto"
+TARGET="_top"
+>PHP Documentation
+     HOWTO</A
+>. Apart from providing information about the software,
+     this HOWTO also provides a ton of other useful
+     information that goes far beyond this chapter. One is encouraged to
+     completely read it. (Chapter II can be skipped, because it only
+     contains information that is very PHP specific.)
+    </P
+><P
+>&#13;     Unfortunately, installing that software can be difficult
+     under some circumstances. If you are unable to get it
+     working, don't use that as an excuse for not writing
+
+     documentation. There is a test server that every
+     two hours automatically downloads peardoc from CVS and
+     builds the manual. Any parsing errors your changes cause
+     will show up in the logs the next time the build happens:
+     <P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>&#13;       <A
+HREF="http://www.appelsiini.net/~tuupola/php/peardoc2/peardoc.txt"
+TARGET="_top"
+>&#13;        http://www.appelsiini.net/~tuupola/php/peardoc2/peardoc.txt</A
+>
+       (time zone: EET = UTC+2, EEST = UTC+3)
+      </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+
+
+     This automatic build also gives you
+     an idea of what your changes will look like in
+     the actual manual. This is helpful because the
+     manual on the PEAR website is only built once
+     per week (Sundays ~12:00 UTC).
+     <P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>&#13;       <A
+HREF="http://www.appelsiini.net/~tuupola/doc/peardoc/"
+TARGET="_top"
+>&#13;        http://www.appelsiini.net/~tuupola/doc/peardoc/</A
+>
+      </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+
+     <DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;       The manual on the PEAR website is built only once
+       per week. Any XML validation errors will cause the
+       build to fail. If the main build fails, the old
+       version remains in place, meaning the manual will
+       be out of date. Therefore, <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>always</I
+></SPAN
+>
+       check the test build logs to ensure your changes are
+       valid. More importantly, <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>do not commit
+       updates shortly before the main build happens
+       (Sundays ~12:00 UTC).</I
+></SPAN
+>
+      </P
+></TD
+></TR
+></TABLE
+></DIV
+>
+    </P
+><P
+>&#13;     Once the necessary software is in place, one has to get the latest
+     version of the XML sources from PEAR's CVS repository:
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="userinput"
+><B
+>&#13;$ cvs -d :pserver:&#60;user&#62;@cvs.php.net:/repository login
+     </B
+></TT
+>
+     <TT
+CLASS="replaceable"
+><I
+>&#13;[password]
+     </I
+></TT
+>
+     <TT
+CLASS="userinput"
+><B
+>&#13;$ cvs -d :pserver:&#60;user&#62;@cvs.php.net:/repository co peardoc
+     </B
+></TT
+></PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;     If you do not own an account for cvs.php.net, please choose
+     <TT
+CLASS="userinput"
+><B
+>cvsread</B
+></TT
+> as the username. When asked for the
+     password, type <TT
+CLASS="userinput"
+><B
+>phpfi</B
+></TT
+>.
+    </P
+><P
+>&#13;     After that the directory <TT
+CLASS="filename"
+>./peardoc</TT
+> will
+     contain a local copy (<SPAN
+CLASS="QUOTE"
+>"sandbox"</SPAN
+>) of the latest
+     sources. If you are not yet familiar with CVS, then the online
+     book <A
+HREF="http://cvsbook.red-bean.com/"
+TARGET="_top"
+><SPAN
+CLASS="QUOTE"
+>"Open Source Development
+     with CVS"</SPAN
+></A
+> will provide you with all the necessary
+     information.
+    </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="developers.documentation.structure">Directory structure</H2
+><P
+>&#13;     This chapter will not describe all the details about the directory
+     structure, because one can find out the essentials about it by
+     browsing the previously created directory
+     <TT
+CLASS="filename"
+>peardoc</TT
+>. As a starting point for package
+     documentors <TT
+CLASS="filename"
+>peardoc/en/package/</TT
+> fits well. If
+     one has further questions concerning the directory structure, they
+     can ask on the <A
+HREF="mailto:pear-doc@lists.php.net"
+TARGET="_top"
+>documentation
+     mailinglist</A
+>.
+    </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="developers.documentation.writing">Writing documentation</H2
+><P
+>&#13;     Instead of a long and boring description for writing documentation
+     using DocBook, we would like to point you to a bunch of
+     <SPAN
+CLASS="QUOTE"
+>"reference documents"</SPAN
+>, from which you should be
+     able to learn quickly:
+
+     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <A
+HREF="http://cvs.php.net/cvs.php/peardoc/en/authoring/"
+TARGET="_top"
+>peardoc/authoring</A
+>
+       </P
+><P
+>&#13;        The CVS tree has a complete set of DocBook XML templates.
+        These files provide the standard of how PEAR
+        documentation should look.
+       </P
+><P
+>&#13;        The simplest way to utilize them is to copy them to
+        your working directory, rename them accordingly, edit
+        the contents to match the reality of your program and
+        then upload them to your package's directory in the
+        repository.
+       </P
+></LI
+><LI
+><P
+>&#13;        <A
+HREF="http://cvs.php.net/cvs.php/peardoc/en/package/http/http-request/"
+TARGET="_top"
+>HTTP
+        Request</A
+>
+       </P
+><P
+>&#13;        The documentation for <B
+CLASS="classname"
+>HTTP_Request</B
+>, which
+        is a relatively small package, only consists of a bunch of
+        end-user documentation, which describes all of the basic
+        features of the package. Each feature description includes at
+        least one example. For small packages with only a handful of
+        methods this documentation type is absolutely enough.
+       </P
+></LI
+><LI
+><P
+>&#13;        <A
+HREF="http://cvs.php.net/cvs.php/peardoc/en/package/xml/xml-beautifier/"
+TARGET="_top"
+>XML
+        Beautifier</A
+>
+       </P
+><P
+>&#13;        <B
+CLASS="classname"
+>XML_Beautifier</B
+> is a package that is also
+        relatively compact, but which supports different configuration
+        options. These options are described in the documentation
+        Additionally the documentation gives usage examples and
+        (unlike <B
+CLASS="classname"
+>HTTP_Request</B
+>) also
+        includes API documentation for its methods.
+       </P
+></LI
+><LI
+><P
+>&#13;        <A
+HREF="http://cvs.php.net/cvs.php/peardoc/en/package/database/db/"
+TARGET="_top"
+>DB</A
+>
+       </P
+><P
+>&#13;        <B
+CLASS="classname"
+>DB</B
+> is a large PEAR package and has
+        excellent documentation, including usage examples.
+        The <B
+CLASS="classname"
+>DB</B
+> docs carefully adhere
+        to the formatting specified in peardoc/authoring.
+        The link above goes to the DocBook source code in
+        the CVS repository. It might be helpful to examine
+        <A
+HREF="package.database.db.html"
+>the HTML generated therefrom</A
+>.
+       </P
+></LI
+></UL
+>
+    </P
+><P
+>&#13;     In addition to the examples above, you will find much more
+     documentation examples by browsing the <TT
+CLASS="filename"
+>peardoc</TT
+>
+     directory, which contains your local version of the CVS
+     tree. Especially the directory
+     <TT
+CLASS="filename"
+>peardoc/en/packages/</TT
+> should be of interest for
+     you. You can also browse the CVS module using the <A
+HREF="http://cvs.php.net/cvs.php/peardoc/"
+TARGET="_top"
+>web interface</A
+>, including the
+     <A
+HREF="http://cvs.php.net/cvs.php/peardoc/en/guide/developers/documentation.xml"
+TARGET="_top"
+>raw
+     XML for the file you are presently reading</A
+>.
+    </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="developers.documentation.testing">Testing documentation</H2
+><DIV
+CLASS="sect3"
+><H3
+CLASS="sect3"
+><A
+NAME="developers.documentation.testing.make">Using <SPAN
+CLASS="acronym"
+>GNU</SPAN
+> <B
+CLASS="command"
+>make</B
+></H3
+><P
+>&#13;        Generating human-readable versions of the DocBook sources requires
+        the existance of the above-mentioned software.  The PEAR
+        documentation system uses Unix style makefiles:
+      </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="userinput"
+><B
+>&#13;peardoc$ autoconf
+peardoc$ ./configure --with-lang=<TT
+CLASS="replaceable"
+><I
+>en</I
+></TT
+>
+peardoc$ make html
+        </B
+></TT
+></PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;        If you want to build a language other than English,
+        change <TT
+CLASS="literal"
+>en</TT
+>, above, to
+        the appropriate language code.
+      </P
+><P
+>&#13;        This will generate a "raw" <SPAN
+CLASS="acronym"
+>HTML</SPAN
+>
+        version of the whole manual.  The result will be placed in the
+        subdirectory <TT
+CLASS="filename"
+>html/</TT
+>.
+      </P
+><P
+>&#13;        The command <B
+CLASS="command"
+>make test</B
+> does not generate any
+        human-readable result, but it can be used to make sure that the 
+        <SPAN
+CLASS="acronym"
+>XML</SPAN
+> is syntactically correct and that the build
+        runs fine. And it is much faster than <B
+CLASS="command"
+>make html</B
+>.
+      </P
+></DIV
+><DIV
+CLASS="sect3"
+><H3
+CLASS="sect3"
+><A
+NAME="developers.documentation.testing.xmllint">Using <B
+CLASS="command"
+>xmllint</B
+></H3
+><P
+>&#13;         Alternatively one can use the 
+         <B
+CLASS="command"
+><A
+HREF="http://www.xmlsoft.org/xmllint.html"
+TARGET="_top"
+>xmllint</A
+></B
+>
+         program that is part of the <A
+HREF="http://www.xmlsoft.org/"
+TARGET="_top"
+>libxml2 
+         toolkit</A
+>.  This is especially useful for systems where
+         the <SPAN
+CLASS="acronym"
+>DSSSL</SPAN
+>/<B
+CLASS="command"
+>make</B
+> setup 
+         does not work properly.
+       </P
+><P
+>&#13;         In addition to testing the well-formedness of the DocBook sources, 
+         <B
+CLASS="command"
+>xmllint</B
+> can also check the semantical 
+         correctness with the help of RELAX NG schemas.  The schema files
+         for DocBook are available as a ZIP package from 
+         <A
+HREF="http://www.docbook.org/rng/4.3/"
+TARGET="_top"
+>docbook.org</A
+>.  
+         After unzipping the package into the directory 
+         <TT
+CLASS="filename"
+>relaxng/</TT
+> inside the <TT
+CLASS="filename"
+>peardoc</TT
+>
+         source folder, one can run <B
+CLASS="command"
+>xmllint</B
+> from the root
+         folder of the PEAR documentation as follows:
+       </P
+><P
+>&#13;         <B
+CLASS="command"
+>&#13;           <TT
+CLASS="userinput"
+><B
+>&#13;             xmllint --valid --noout --relaxng relaxng/ manual.xml
+           </B
+></TT
+>
+         </B
+>
+       </P
+></DIV
+><DIV
+CLASS="sect3"
+><H3
+CLASS="sect3"
+><A
+NAME="developers.documentation.testing.partial">Partial builds</H3
+><P
+>&#13;         The build process (not the test builds, which are reasonably
+         quick) actually takes a very long time which makes
+         debugging and testing a very hard task.  In order to increase build
+         performance, the script <TT
+CLASS="filename"
+>make-partial.php</TT
+> in
+         the root directory of the documentation module may be used.  This
+         is an interactive command line script that will enable to you to
+         selectively include the different parts of the manual.  In the
+         following example a version of the manual is generated which only
+         contains a certain part of the Developer's Guide and the
+         documentation for the <SPAN
+CLASS="acronym"
+>HTTP</SPAN
+> packages.  Using
+         these partial builds reduces the build time dramatically.
+       </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="userinput"
+><B
+>&#13;peardoc$ ./make-partial.php
+Include about-pear? [NO] 
+Include guide-newmaint? [NO] 
+Include guide-developers? [NO] y
+Include guide.developers.intro? [NO] 
+Include guide.developers.meaning? [NO] 
+Include guide.developers.contributing? [NO] 
+Include guide.developers.packagedef? [NO] 
+Include guide.developers.release? [NO] 
+Include guide.developers.supporting? [NO] 
+Include guide.developers.recommendations? [NO] 
+Include guide.developers.documentation? [NO] y
+Include core? [NO] 
+Include packages? [NO] y
+Include package.authentication? [NO] 
+Include package.benchmarking? [NO] 
+Include package.caching? [NO] 
+Include package.configuration? [NO] 
+Include package.console? [NO] 
+Include package.database? [NO] 
+Include package.datetime? [NO] 
+Include package.encryption? [NO] 
+Include package.fileformats? [NO] 
+Include package.filesystem? [NO] 
+Include package.gtk? [NO] 
+Include package.html? [NO] 
+Include package.http? [NO] y
+Include package.images? [NO] 
+Include package.internationalization? [NO] 
+Include package.logging? [NO] 
+Include package.mail? [NO] 
+Include package.math? [NO] 
+Include package.networking? [NO] 
+Include package.numbers? [NO] 
+Include package.payment? [NO] 
+Include package.pear? [NO] 
+Include package.php? [NO] 
+Include package.science? [NO] 
+Include package.streams? [NO] 
+Include package.structures? [NO] 
+Include package.system? [NO] 
+Include package.text? [NO] 
+Include package.tools? [NO] 
+Include package.xml? [NO] 
+Include package.webservices? [NO] 
+Include pecl? [NO] 
+CONFIG_FILES=manual.xml CONFIG_HEADERS= ./config.status
+creating manual.xml
+/usr/bin/jade -wno-idref  -d html.dsl -V use-output-dir -t sgml ./phpdocxml.dcl manual.xml
+         </B
+></TT
+></PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="developers.documentation.translating">Translating documentation</H2
+><P
+>&#13;     Translating documentation is another important task.
+     Not only does new documentation need to be translated
+     into the existing languages, additional languages are
+     welcome. Also, existing translations need to be brought
+     up to date because the English versions have been changed.
+     Help on how to perform the translation process is in the <A
+HREF="faq.translators-revision-tracking.html"
+>Revision Tracking</A
+>
+     section of the manual.
+    </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="developers.documentation.questions">Questions?</H2
+><P
+>&#13;     We are well aware that we cannot cover all questions about writing
+     DocBook documentation in this chapter. If you have more questions
+     or problems, do not hesitate to get in touch with the documentation
+     team at <A
+HREF="mailto:pear-doc@lists.php.net"
+TARGET="_top"
+>pear-doc@lists.php.net</A
+>.
+     To join the pear-doc list send an email to <A
+HREF="mailto:pear-doc-subscribe@lists.php.net"
+TARGET="_top"
+>pear-doc-subscribe@lists.php.net</A
+>.
+    </P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="developers.faq.colorrepresentation.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="developers.documentation.tips.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Color Representation inside PEAR Packages</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="guide-developers.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Tips for good documentation</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

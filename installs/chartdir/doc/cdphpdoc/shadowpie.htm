@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+<Title>3D Shadow Mode</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">3D Shadow Mode</p>
+<hr class="separator">
+<div class="content">
+<img src="images/shadowpie0.png">&nbsp;&nbsp;<img src="images/shadowpie1.png">&nbsp;&nbsp;<img src="images/shadowpie2.png">&nbsp;&nbsp;<img src="images/shadowpie3.png">
+<br><br>
+The standard way to draw a pie chart in 3D is to view the chart from an inclined angle. Using this method, the surface of a 3D pie will become an ellipse.<br><br>
+ChartDirector supports an alternative way to draw a pie chart in 3D - to draw the 3D portion like a shadow. The 3D pie will remain perfectly circular, and the sector areas will correctly reflect its percentages.<br><br>
+The 3D drawing method is configured using <a href="PieChart.set3D.htm">PieChart.set3D</a>.
+</div>
+<p class="heading2">Source Code Listing</p>
+<div class="content">
+[File: phpdemo/shadowpie.php]<br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp><?php
+include("phpchartdir.php");
+
+#the tilt angle of the pie
+$angle = $HTTP_GET_VARS["img"] * 90 + 45;
+
+#The data for the pie chart
+$data = array(25, 18, 15, 12, 8, 30, 35);
+
+#Create a PieChart object of size 100 x 110 pixels
+$c = new PieChart(100, 110);
+
+#Set the center of the pie at (50, 55) and the radius to 36 pixels
+$c->setPieSize(50, 55, 36);
+
+#Set the depth, tilt angle and 3D mode of the 3D pie (-1 means auto depth,
+#"true" means the 3D effect is in shadow mode)
+$c->set3D(-1, $angle, true);
+
+#Add a title showing the shadow angle
+$c->addTitle("Shadow @ $angle deg", "arial.ttf", 8);
+
+#Set the pie data
+$c->setData($data);
+
+#Disable the sector labels by setting the color to Transparent
+$c->setLabelStyle("", 8, Transparent);
+
+#output the chart
+header("Content-type: image/png");
+print($c->makeChart2(PNG));
+?></xmp>
+</td></tr></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

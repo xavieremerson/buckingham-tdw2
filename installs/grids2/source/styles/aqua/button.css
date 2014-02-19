@@ -1,0 +1,60 @@
+/*****************************************************************
+
+	ActiveWidgets 2.0.b3 (beta3)
+	Copyright (C) 2003-2005 ActiveWidgets Ltd. All Rights Reserved. 
+	http://www.activewidgets.com/
+
+	WARNING: This software program is protected by copyright law 
+	and international treaties. Unauthorized reproduction or
+	distribution of this program, or any portion of it, may result
+	in severe civil and criminal penalties, and will be prosecuted
+	to the maximum extent possible under the law.
+
+	FOR TESTING AND EVALUATION ONLY:
+	This software is not free and is licensed to you for testing 
+	and evaluation only. You are not allowed to distribute 
+	or use any parts of this software for any other purposes.
+
+*****************************************************************/
+.aw-ui-button {
+	height: 23px!important;
+	background: url(button.png) 100% 0px no-repeat;
+	_background-attachment: fixed; /* ie right margin fix */
+	padding-right: 8px;
+}
+
+.aw-strict .aw-ui-button {
+	height: 19px!important;
+}
+
+.aw-ui-button .aw-item-box {
+	padding: 0px;
+	text-indent: 8px;
+	background: url(button.png) 0px -50px no-repeat;
+}
+
+.aw-strict .aw-ui-button .aw-item-box {
+	margin:  0px 0px -4px 0px;
+	padding: 0px 0px 4px 0px;
+}
+
+.aw-strict.aw-safari .aw-ui-button .aw-item-box {
+	width: auto;
+}
+
+.aw-mouseover-button {
+	background-position: 100% -100px;
+}
+
+.aw-mouseover-button .aw-item-box {
+	background-position: 0px -150px;
+}
+
+.aw-mousedown-button {
+	background-position: 100% -200px;
+}
+
+.aw-mousedown-button .aw-item-box {
+	background-position: 0px -250px;
+}
+

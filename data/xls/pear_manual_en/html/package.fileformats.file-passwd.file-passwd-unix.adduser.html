@@ -1,0 +1,373 @@
+<HTML
+><HEAD
+><TITLE
+>File_Passwd_Unix::addUser</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File_Passwd_Unix"
+HREF="package.fileformats.file-passwd.html#package.fileformats.file-passwd.file-passwd-unix"><LINK
+REL="PREVIOUS"
+TITLE="File_Passwd_Unix::save"
+HREF="package.fileformats.file-passwd.file-passwd-unix.save.html"><LINK
+REL="NEXT"
+TITLE="File_Passwd_Unix::modUser"
+HREF="package.fileformats.file-passwd.file-passwd-unix.moduser.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.save.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.moduser.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.fileformats.file-passwd.file-passwd-unix.adduser"><B
+CLASS="function"
+>File_Passwd_Unix::addUser()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN38744"
+></A
+><B
+CLASS="function"
+>File_Passwd_Unix::addUser()</B
+>&nbsp;--&nbsp;Add an user</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN38748"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN38749"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>File_Passwd_Unix::addUser</B
+></CODE
+> (string $user, string $pass [, array $extra = array()])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-passwd.file-passwd-unix.adduser.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   The username must start with an alphabetical character and must NOT
+   contain any other characters than alphanumerics, the underline and dash.
+  </P
+><P
+>&#13;   If you use the 'name map' you should also use these naming in
+   the supplied extra array, because your values would get mixed up
+   if they are in the wrong order, which is always true if you
+   DON'T use the 'name map'!
+  </P
+><P
+>So be warned and USE the 'name map'!</P
+><P
+>&#13;   If the passwd file is shadowed, the user will be added though, but
+   with an 'x' as password, and a PEAR_Error will be returned, too.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-passwd.file-passwd-unix.adduser.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+       <TT
+CLASS="parameter"
+><I
+>$user</I
+></TT
+></DT
+><DD
+><P
+>&#13;       the name of the user to add
+      </P
+></DD
+><DT
+>string
+       <TT
+CLASS="parameter"
+><I
+>$pass</I
+></TT
+></DT
+><DD
+><P
+>&#13;       the password of the user to add
+      </P
+></DD
+><DT
+>array
+       <TT
+CLASS="parameter"
+><I
+>$extra</I
+></TT
+></DT
+><DD
+><P
+>&#13;       extra properties of user to add
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-passwd.file-passwd-unix.adduser.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;    Returns <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> on success,
+<B
+CLASS="classname"
+>PEAR_Error</B
+> on failure.
+  </P
+><P
+>&#13;    <DIV
+CLASS="table"
+><A
+NAME="AEN38794"><P
+><B
+>Table 37-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error Code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Summary</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>FILE_PASSWD_E_ALREADY_EXISTS</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>user already exists</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>FILE_PASSWD_E_INVALID_CHARS</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>username contains illegal characters</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>FILE_PASSWD_E_INVALID_CHARS</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>any of the extra proporties contains a colon</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>FILE_PASSWD_E_INVALID_ENC_MODE</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>actual encryption mode is not supported</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>FILE_PASSWD_E_UNDEFINED</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>if passwd file is shadowed</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-passwd.file-passwd-unix.adduser.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.save.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.moduser.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>File_Passwd_Unix::save()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-passwd.html#package.fileformats.file-passwd.file-passwd-unix"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>File_Passwd_Unix::modUser()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

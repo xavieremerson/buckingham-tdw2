@@ -1,0 +1,315 @@
+<HTML
+><HEAD
+><TITLE
+>Subpackages</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Introduction"
+HREF="package.html.html-quickform.html#package.html.html-quickform.introduction"><LINK
+REL="PREVIOUS"
+TITLE="Migration to version 3.2"
+HREF="package.html.html-quickform.intro-migration32.html"><LINK
+REL="NEXT"
+TITLE="HTML_QuickForm_Controller"
+HREF="package.html.html-quickform-controller.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.intro-migration32.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform-controller.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.intro-subpackages">Subpackages</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN52765"
+></A
+>Subpackages&nbsp;--&nbsp;An overview about subpackages and packages that use QuickForm</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.intro-subpackages.subpackages"
+></A
+><H2
+>Subpackages for HTML_QuickForm</H2
+><P
+>&#13;   This section describes the available subpackages for HTML_QuickForm, e.g.
+   custom elements or renderers.
+  </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform.intro-subpackages.subpackages.advmultiselect"
+></A
+><H3
+>HTML_QuickForm_advmultiselect</H3
+><P
+>&#13;    A custom element that emulates via two select boxes a select box that allows
+    selecting of multiple options.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform.intro-subpackages.subpackages.dhtmlrulestableless"
+></A
+><H3
+>HTML_QuickForm_DHTMLRulesTableless</H3
+><P
+>&#13;    If you use the Tableless renderer (see below, HTML_QuickForm_Renderer_Tableless),
+    this subpackage replaces the default client-side validation with a JavaScript
+    alert window by dynamic (using DHTML) error messages that are printed
+    directly above each erroneous element. 
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform.intro-subpackages.subpackages.livesearch"
+></A
+><H3
+>HTML_QuickForm_Livesearch</H3
+><P
+>&#13;    This is another custom element. It creates an HTML input text element that at
+    every keypressed javascript event, returns a list of options in a dynamic
+    dropdown select box (especially useful to emulate a select box with a huge
+    number of options). This element uses the AJAX technology.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform.intro-subpackages.subpackages.renderertableless"
+></A
+><H3
+>HTML_QuickForm_Renderer_Tableless</H3
+><P
+>&#13;    This is a replacement for the default renderer that uses only XHTML and CSS
+    but no table tags. 
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform.intro-subpackages.subpackages.selectfilter"
+></A
+><H3
+>HTML_QuickForm_SelectFilter</H3
+><P
+>&#13;    Another custom element that is used to define dynamic filters on the
+    client-side for select elements.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform.intro-subpackages.subpackages.more"
+></A
+><H3
+>More subpackages</H3
+><P
+>&#13;    There are some more subpackages available that were not yet proposed as PEAR
+    packages. An example is a DHTMLRules subpackage for forms using the default
+    renderer by Justin Patrin that was not yet proposed as a PEAR package.
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.intro-subpackages.packages"
+></A
+><H2
+>Packages that use HTML_QuickForm</H2
+><P
+>&#13;   This section describes some packages that makes working with HTML_QuickForm
+   easier, either in the case of working with databases or in the case of
+   forms that have multiple pages.
+  </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform.intro-subpackages.packages.formbuilder"
+></A
+><H3
+>DB_DataObject_FormBuilder</H3
+><P
+>&#13;    FormBuilder aids in rapid application development using the packages
+    DB_DataObject and HTML_QuickForm.
+    (<A
+HREF="package.database.db-dataobject-formbuilder.html"
+>documentation</A
+>)
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform.intro-subpackages.packages.dbtable"
+></A
+><H3
+>DB_Table</H3
+><P
+>&#13;    This is a package that builds on PEAR DB and MDB2 to abstract datatypes and
+    automate table creation, data validation, insert, update, delete, and select.
+    It combines these with HTML_QuickForm to automatically generate input forms
+    that match the table column definitions.
+    (<A
+HREF="package.database.db-table.html"
+>documentation</A
+>)
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform.intro-subpackages.packages.qfcontroller"
+></A
+><H3
+>HTML_QuickForm_Controller</H3
+><P
+>&#13;    If you want to create forms with multiple pages, this is the right package
+    for you. It is an implementation of a PageController pattern.
+    (<A
+HREF="package.html.html-quickform-controller.html"
+>documentation</A
+>)
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform.intro-subpackages.packages.more"
+></A
+><H3
+>More packages</H3
+><P
+>&#13;    You can find more packages that have optional or required dependencies on
+    HTML_QuickForm on the <A
+HREF="http://pear.php.net/package/HTML_QuickForm"
+TARGET="_top"
+>package
+    site</A
+>.
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.intro-migration32.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform-controller.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Migration to version 3.2</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.introduction"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_QuickForm_Controller</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

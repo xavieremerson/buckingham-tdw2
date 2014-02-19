@@ -1,0 +1,289 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="MDB_QueryTool"
+HREF="package.database.mdb-querytool.html"><LINK
+REL="PREVIOUS"
+TITLE="MDB_QueryTool"
+HREF="package.database.mdb-querytool.html"><LINK
+REL="NEXT"
+TITLE="Quick API reference"
+HREF="package.database.mdb-querytool.api.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb-querytool.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb-querytool.api.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.mdb-querytool.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN31970"
+></A
+>Introduction&nbsp;--&nbsp;
+	   An OO-interface for easily retreiving and modifying data in a DB
+      </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb-querytool.intro.description"
+></A
+><H2
+>MDB_QueryTool Description</H2
+><P
+>&#13;        This package is an OO-abstraction to the SQL-Query language, it provides 
+        methods such as setWhere, setOrder, setGroup, setJoin, etc. to easily 
+        build queries.
+        It also provides an easy to learn interface that interacts nicely with 
+        HTML-forms using arrays that contain the column data, that shall be 
+        updated/added in a DB.
+        This package bases on an SQL-Builder which lets you easily build
+        SQL-Statements and execute them.
+        It supports all the db engines supported by <B
+CLASS="classname"
+>MDB</B
+>.
+      </P
+><P
+>&#13;	    Since it's a 1:1 port of <B
+CLASS="classname"
+>DB_QueryTool</B
+>,
+        it has the same API, the only difference being the class name
+        (and the constructor name, of course).
+    Unfortunately, complete documentation is not available at the moment.
+      </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb-querytool.intro.example1"
+></A
+><H2
+>Example 1</H2
+><P
+>&#13;     The best way to use <B
+CLASS="classname"
+>MDB_QueryTool</B
+> is creating
+     a class that extends it. Here's a sample usage:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'MDB/QueryTool.php';
+define('TABLE_CARS', 'cars');
+$dsn = 'mysql://user:pass@host/dbname';
+
+/**
+ * Let's suppose the "car" table has the following fields:
+ * (id, model, hp, color, clima, price)
+ */
+class Car extends MDB_QueryTool
+{
+    var $table        = TABLE_CARS;
+    var $sequenceName = TABLE_CARS;
+
+    // this is default, but to demonstrate it here ...
+    var $primaryCol =   'id';
+
+    /**
+     * This table spec assigns a short name to a table name
+     * this short name is needed in case the table name changes
+     * i.e. when u put the application on a provider's db, where you have to
+     * prefix each table, and you dont need to change the entire application to
+     * where you refer to joined table columns, for that joined results the
+     * short name is used instead of the table name
+     */
+    var $tableSpec = array(
+        array('name'  =&#62; TABLE_CARS, 'shortName' =&#62;  'cars'),
+        //array('name'  =&#62; TABLE_TIME, 'shortName' =&#62;  'time'),
+    );
+}
+
+
+//instanciate an object of the Car class
+$car = new Car($dsn);
+
+//get the car #3
+$car-&#62;reset();     // reset the query-builder, so no where, order, etc. are set
+$res = $car-&#62;get(3);
+var_dump($res);
+
+//get all the cars
+$car-&#62;reset();     // reset the query-builder, so no where, order, etc. are set
+$res = $car-&#62;getAll();
+var_dump($res);
+
+// get the first 10 cars
+$car-&#62;reset();     // reset the query-builder, so no where, order, etc. are set
+$res = $car-&#62;getAll(0, 10);
+var_dump($res);
+
+//get all the red cars with clima, sorted by price
+$car-&#62;reset();
+$car-&#62;setWhere('color="red"');
+$car-&#62;setWhere('clima=1');
+$car-&#62;setOrder('price');
+$res = $car-&#62;getAll();
+var_dump($res);
+
+//add a new car to the database
+$data = array(
+    'model' =&#62; 'Super Trooper',
+    'hp'    =&#62; 140,
+    'color' =&#62; 'black',
+    'clima' =&#62; 0,
+    'price' =&#62; 19000
+);
+$newCarId = $car-&#62;save($data);
+var_dump($newCarId);
+
+//update an existing car
+$data = array(
+    'id'    =&#62; $newCarId,
+    'clima' =&#62; 1,
+    'price' =&#62; 20000,
+);
+$res = $car-&#62;save($data);   //equivalent to $car-&#62;update($data);
+var_dump($res);
+
+
+//remove the car from the database
+$res = $car-&#62;remove($newCarId);
+var_dump($res);</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.mdb-querytool.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.mdb-querytool.api.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>MDB_QueryTool</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.mdb-querytool.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Quick API reference</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,122 @@
+<HTML>
+<HEAD>
+<Title>Font Specification</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">Font Specification</p>
+<hr class="separator">
+<p class="heading2a">Font File</p>
+<div class="content">
+In ChartDirector, a font can be specified by specifying the file name that
+contains the font. For example, under the Windows platform, the "Arial"
+font is specified as "arial.ttf", while the "Arial Bold" font is specified
+as "arialbd.ttf".
+<br><br>
+ChartDirector also supports several special keywords for specifying the
+fonts indirectly. The actual font file name is looked up from a font
+table based on the keywords. The keywords are as follows:
+<br><br>
+<table width="98%" border="1" cellpadding="5" cellspacing="0">
+<tr><th width="19%">Keywords</th><th width="79%">Description</th></tr>
+<tr><td>
+"normal"
+</td><td>
+This default normal font, which is the same as the first font in the font table.
+ChartDirector will draw text using this font unless otherwise specified.
+</td></tr><tr><td>
+"bold"
+</td><td>
+The default bold font, which is the same as the second font in the font table.
+</td></tr><tr><td>
+"italic"
+</td><td>
+The default italic font, which is the same as the third font in the font table.
+</td></tr><tr><td>
+"boldItalic"
+</td><td>
+The default bold-italic font, which is the same as the fourth font in the font table.
+</td></tr><tr><td>
+"font{N}"
+</td><td>
+The (N + 1)th font in the font table (the first font is "font0").
+</td></tr></table><br>
+The default font table contains 4 fonts. They are "arial.ttf" for "normal",
+"arialbd.ttf" for "bold", "ariali.ttf" for "italic" and "arialbi.ttf" for
+"boldItalic". The font table can be modified using <a href="BaseChart.setFontTable.htm">BaseChart.setFontTable</a>
+or <a href="DrawArea.setFontTable.htm">DrawArea.setFontTable</a>.
+<br><br>
+The advantages of using fonts in the font table is that you can defined and
+modified all fonts in your chart in one place.
+<br><br>
+ChartDirector on Windows does not come with any font files. It relies on the
+operating system's font files in the "%systemroot%\Fonts" directory, where
+%systemroot% is the operating system installation directory. To see
+what fonts are installed in your operating system and their file names, use the
+File Explorer to view that directory.
+<br><br>
+ChartDirector on Linux/FreeBSD/Solaris assumes the fonts files are in the
+"fonts" directory under the directory where the ChartDirector shared object
+"libchartdir.so" is installed. ChartDirector on Linux/FreeBSD/Solaris comes
+with a number of font files in the "fonts" directory.
+<br><br>
+To keep the download size small, ChartDirector on Linux/FreeBSD/Solaris only
+comes with some commonly used fonts. You may donwload additional fonts from the
+Internet. In particular, the Microsoft fonts at <a href="http://sourceforge.net/project/showfiles.php?group_id=34153&release_id=105355">
+http://sourceforge.net/project/showfiles.php?group_id=34153&release_id=105355</a>
+is highly recommended. Please refer to <a href="http://www.microsoft.com/typography/faq/faq8.htm">
+http://www.microsoft.com/typography/faq/faq8.htm</a> on how you could use the fonts
+legally in your system.
+<br><br>
+ChartDirector supports True Type fonts (.ttf), Type 1 fonts (.pfa and .pfb),
+Windows bitmap fonts (.fon), and Portable Compiled Fonts (.pcf fonts). The PCF
+fonts are supported on Linux/FreeBSD/Solaris only, while the other fonts types
+are supported on both Windows and Linux/FreeBSD/Solaris.
+<br><br>
+If you want ChartDirector to search other directories for the font files, you
+may list the directories in an environment variable called "FONTPATH".
+<br><br>
+If you specify an absolute path name for the font file, ChartDirector will use
+the absolute path name and will not search other directories.
+</div>
+<p class="heading2">Font Index</p>
+<div class="content">
+In practice, most font files contain only one font. However, in theory, a font
+file may contain more than one font. In this case, the font index can be used to
+specify which font to use.
+<br><br>
+By default, the font index is 0, which means the first font in the font file
+will be used.
+</div>
+<p class="heading2">Font Size, Font Height and Font Width</p>
+<div class="content">
+The font size decides how big a font will appear in the image. The font size is
+expressed in a font unit called points. This is the same unit used in common
+word processors.
+<br><br>
+When you specify a font size, both the font height and font width will be scaled
+by the same factor. ChartDirector also supports using different point sizes for
+font height and font width to create special effects. For example,
+<a href="TextBox.setFontSize.htm">TextBox.setFontSize</a> allows you to specify different font height and font width.
+</div>
+<p class="heading2">Font Color</p>
+<div class="content">
+This is the color to draw the font. (See <a href="colorspec.htm">Color Specification</a> on how colors are represented in ChartDirector.)
+</div>
+<p class="heading2">Font Angle</p>
+<div class="content">
+This is the angle in degrees by which the font should be rotated anti-clockwise.
+</div>
+<p class="heading2">Vertical Layout</p>
+<div class="content">
+By default, text are laid out horizontally, with characters being drawn from left
+to right.
+<br><br>
+ChartDirector also supports vertical layout, with characters being drawn from
+top to bottom. For example, you may use <a href="BaseChart.addText.htm">BaseChart.addText</a> to add text that are
+laid out vertically. Vertical layout is common for oriental languages such as
+Chinese, Japanese and Korean.
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div></body>
+</HTML>

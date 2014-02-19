@@ -1,0 +1,266 @@
+<HTML
+><HEAD
+><TITLE
+>-&#62;table()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB_DataObject"
+HREF="package.database.db-dataobject.html"><LINK
+REL="PREVIOUS"
+TITLE="->database()"
+HREF="package.database.db-dataobject.db-dataobject.database.html"><LINK
+REL="NEXT"
+TITLE="->keys()"
+HREF="package.database.db-dataobject.db-dataobject.keys.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.database.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.keys.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db-dataobject.db-dataobject.table">-&#62;table()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN27270"
+></A
+>-&#62;table()&nbsp;--&nbsp;Get or set the table schema</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN27273"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN27274"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>object <B
+CLASS="function"
+>$DB_DataObject-&#62;table</B
+></CODE
+> ([array $schema])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.table.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Without any argument, it returns the table schema that the object deals with. With an array, it will
+     set the table schema for the instance of the object.
+    </P
+><P
+>&#13;    The default schema is normally stored in the database.ini file described in the Autobuilding section.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.table.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.table.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN27290"><P
+><B
+>Example 33-1. getting the connection</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$person = new DataObjects_Person;
+print_r($person-&#62;table());
+//
+// array(
+//     'id'     =&#62;  1  // == DB_DATAOBJECT_INT
+//     'name'   =&#62;  2  // == DB_DATAOBJECT_STR
+//     'bday'   =&#62;  6  // == DB_DATAOBJECT_STR + DB_DATAOBJECT_DATE
+//     'last'   =&#62;  14 // == DB_DATAOBJECT_STR + DB_DATAOBJECT_DATE + DB_DATAOBJECT_TIME
+//     'active' =&#62;  17 // == DB_DATAOBJECT_INT + DB_DATAOBJECT_BOOL
+//     'desc'   =&#62;  34 // == DB_DATAOBJECT_STR + DB_DATAOBJECT_TXT
+//     'photo'  =&#62;  64 // == DB_DATAOBJECT_STR + DB_DATAOBJECT_BLOB 
+// )
+//
+
+
+ 
+
+// now use it to define a on the fly database table...
+
+$d = new DB_DataObject;
+$d-&#62;tableName('person');
+$d-&#62;table(array(
+  'id'   =&#62; DB_DATAOBJECT_INT,
+  'name' =&#62; DB_DATAOBJECT_STRING,
+));
+$d-&#62;keys(array('id'));
+
+$d-&#62;id = 12;
+$d-&#62;find(true);
+// should do the same as above..!</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.database.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.keys.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>-&#62;database()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>-&#62;keys()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

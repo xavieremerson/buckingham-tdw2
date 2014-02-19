@@ -1,0 +1,218 @@
+<HTML>
+<HEAD>
+<Title>Class Library</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">Class Library</p>
+<hr class="separator">
+<p class="heading2a">phpchartdir</p>
+<div class="content">
+<a href="phpchartdir.htm">phpchartdir</a> is the PHP module for interface with ChartDirector. It
+includes all ChartDirector classes, general informational functions and
+pre-defined constants.
+</div>
+<p class="heading2">Fundamental Classes</p>
+<div class="content">
+<table width="98%" border="1" cellpadding="5" cellspacing="0">
+<tr><th width="28%">Class</th><th width="70%">Description</th></tr>
+<tr><td>
+<a href="Box.htm">Box</a>
+</td><td>
+The Box class represents boxes. It is used as the base class for more
+complex classes (such as the <a href="TextBox.htm">TextBox</a> class).
+</td></tr><tr><td>
+<a href="TextBox.htm">TextBox</a>
+</td><td>
+The TextBox class represents text boxes. It is a subclass of <a href="Box.htm">Box</a>.
+</td></tr><tr><td>
+<a href="Line.htm">Line</a>
+</td><td>
+The Line class represents straight lines.
+</td></tr></table>
+</div>
+<p class="heading2">General Charts</p>
+<div class="content">
+<table width="98%" border="1" cellpadding="5" cellspacing="0">
+<tr><th width="28%">Class</th><th width="70%">Description</th></tr>
+<tr><td>
+<a href="BaseChart.htm">BaseChart</a>
+</td><td>
+The BaseChart class is an abstract class containing methods that are common to
+all chart types.
+</td></tr><tr><td>
+<a href="MultiChart.htm">MultiChart</a>
+</td><td>
+The MultiChart class represents multi-charts. A multi-chart is a container to
+contain multiple charts. MultiChart is a subclass of <a href="BaseChart.htm">BaseChart</a>.
+</td></tr><tr><td>
+<a href="LegendBox.htm">LegendBox</a>
+</td><td>
+The class LegendBox represents legend boxes. It is a subclass of <a href="TextBox.htm">TextBox</a>.
+</td></tr></table>
+</div>
+<p class="heading2">Pie Charts Related</p>
+<div class="content">
+<table width="98%" border="1" cellpadding="5" cellspacing="0">
+<tr><th width="28%">Class</th><th width="70%">Description</th></tr>
+<tr><td>
+<a href="PieChart.htm">PieChart</a>
+</td><td>
+The PieChart class represents pie charts. It is a subclass of <a href="BaseChart.htm">BaseChart</a>.
+</td></tr><tr><td>
+<a href="Sector.htm">Sector</a>
+</td><td>
+The Sector class represents sectors.
+</td></tr></table>
+</div>
+<p class="heading2">XY Charts Related</p>
+<div class="content">
+<table width="98%" border="1" cellpadding="5" cellspacing="0">
+<tr><th width="28%">Class</th><th width="70%">Description</th></tr>
+<tr><td>
+<a href="XYChart.htm">XYChart</a>
+</td><td>
+The XYChart class represents XY charts. The XYChart class is a subclass of
+<a href="BaseChart.htm">BaseChart</a>.
+</td></tr><tr><td>
+<a href="PlotArea.htm">PlotArea</a>
+</td><td>
+The PlotArea class represents plot areas in XY charts.
+</td></tr><tr><td>
+<a href="Axis.htm">Axis</a>
+</td><td>
+The Axis class represents x and y axes in XY charts.
+</td></tr><tr><td>
+<a href="Mark.htm">Mark</a>
+</td><td>
+The Mark class represents mark lines. It is a subclass of <a href="TextBox.htm">TextBox</a>. Mark
+objects are created using <a href="Axis.addMark.htm">Axis.addMark</a>.
+</td></tr><tr><td>
+<a href="Layer.htm">Layer</a>
+</td><td>
+The Layer class is the base class for all <a href="XYChart.htm">XYChart</a> layer classes.
+</td></tr><tr><td>
+<a href="BarLayer.htm">BarLayer</a>
+</td><td>
+The BarLayer class represents bar layers. BarLayer is a subclass of <a href="Layer.htm">Layer</a>.
+</td></tr><tr><td>
+<a href="LineLayer.htm">LineLayer</a>
+</td><td>
+The LineLayer class represents line layers. LineLayer is a subclass of <a href="Layer.htm">Layer</a>.
+</td></tr><tr><td>
+<a href="SplineLayer.htm">SplineLayer</a>
+</td><td>
+The SplineLayer class represents spline layers. SplineLayer is a subclass of <a href="LineLayer.htm">LineLayer</a>.
+</td></tr><tr><td>
+<a href="StepLineLayer.htm">StepLineLayer</a>
+</td><td>
+The StepLineLayer class represents step line layers. StepLineLayer is a subclass of <a href="LineLayer.htm">LineLayer</a>.
+</td></tr><tr><td>
+<a href="TrendLayer.htm">TrendLayer</a>
+</td><td>
+The TrendLayer class represents trend layers. TrendLayer is a subclass <a href="Layer.htm">Layer</a>.
+</td></tr><tr><td>
+<a href="InterLineLayer.htm">InterLineLayer</a>
+</td><td>
+The InterLineLayer class represents interline layers. InterLineLayer is a subclass of <a href="Layer.htm">Layer</a>.
+</td></tr><tr><td>
+<a href="ScatterLayer.htm">ScatterLayer</a>
+</td><td>
+The ScatterLayer class represents scatter layers. ScatterLayer is a subclass of <a href="Layer.htm">Layer</a>.
+</td></tr><tr><td>
+<a href="AreaLayer.htm">AreaLayer</a>
+</td><td>
+The AreaLayer class represents area layers. AreaLayer is a subclass of <a href="Layer.htm">Layer</a>.
+</td></tr><tr><td>
+<a href="HLOCLayer.htm">HLOCLayer</a>
+</td><td>
+The HLOCLayer class represents high-low-open-close layers. HLOCLayer is a subclass of <a href="Layer.htm">Layer</a>.
+</td></tr><tr><td>
+<a href="CandleStickLayer.htm">CandleStickLayer</a>
+</td><td>
+The CandleStickLayer class represents candlestick layers. CandleStickLayer
+is a subclass of <a href="Layer.htm">Layer</a>.
+</td></tr><tr><td>
+<a href="BoxWhiskerLayer.htm">BoxWhiskerLayer</a>
+</td><td>
+The BoxWhiskerLayer class represents box-whisker layers. BoxWhiskerLayer
+is a subclass of <a href="Layer.htm">Layer</a>.
+</td></tr><tr><td>
+<a href="DataSet.htm">DataSet</a>
+</td><td>
+The DataSet class represents data sets.
+</td></tr></table>
+</div>
+<p class="heading2">Polar Charts Related</p>
+<div class="content">
+<table width="98%" border="1" cellpadding="5" cellspacing="0">
+<tr><th width="28%">Class</th><th width="70%">Description</th></tr>
+<tr><td>
+<a href="PolarChart.htm">PolarChart</a>
+</td><td>
+The PolarChart class represents polar charts (including radar charts). The
+PolarChart class is a subclass of <a href="BaseChart.htm">BaseChart</a>.
+</td></tr><tr><td>
+<a href="RadialAxis.htm">RadialAxis</a>
+</td><td>
+The RadialAxis class represents radial axes in polar charts. The radial axis
+is the axis representing the radius component of a polar coordinate.
+</td></tr><tr><td>
+<a href="AngularAxis.htm">AngularAxis</a>
+</td><td>
+The AngularAxis class represents angular axes in polar charts. The angular axis
+is the axis representing the angular component of a polar coordinate.
+</td></tr><tr><td>
+<a href="PolarLayer.htm">PolarLayer</a>
+</td><td>
+The PolarLayer class is the base class for all <a href="PolarChart.htm">PolarChart</a> layer classes.
+</td></tr><tr><td>
+<a href="PolarLineLayer.htm">PolarLineLayer</a>
+</td><td>
+The PolarLineLayer class represents polar area layers. PolarLineLayer is a subclass of <a href="PolarLayer.htm">PolarLayer</a>.
+</td></tr><tr><td>
+<a href="PolarAreaLayer.htm">PolarAreaLayer</a>
+</td><td>
+The PolarAreaLayer class represents polar area layers. PolarAreaLayer is a subclass of <a href="PolarLayer.htm">PolarLayer</a>.
+</td></tr><tr><td>
+<a href="PolarSplineLineLayer.htm">PolarSplineLineLayer</a>
+</td><td>
+The PolarSplineLineLayer class represents polar spline line layers. PolarSplineLineLayer is a subclass of <a href="PolarLineLayer.htm">PolarLineLayer</a>.
+</td></tr><tr><td>
+<a href="PolarSplineAreaLayer.htm">PolarSplineAreaLayer</a>
+</td><td>
+The PolarSplineAreaLayer class represents polar spline area layers. PolarSplineAreaLayer is a subclass of <a href="PolarAreaLayer.htm">PolarAreaLayer</a>.
+</td></tr></table>
+</div>
+<p class="heading2">Graphics Primitives</p>
+<div class="content">
+<table width="98%" border="1" cellpadding="5" cellspacing="0">
+<tr><th width="28%">Class</th><th width="70%">Description</th></tr>
+<tr><td>
+<a href="DrawArea.htm">DrawArea</a>
+</td><td>
+The DrawArea class represents drawing surfaces, with methods for performing graphics
+primitives (such as drawing lines, shapes and texts) and the surfaces.
+</td></tr><tr><td>
+<a href="TTFText.htm">TTFText</a>
+</td><td>
+The TTFText class represents text blocks.
+</td></tr></table>
+</div>
+<p class="heading2">Utility Classes</p>
+<div class="content">
+<table width="98%" border="1" cellpadding="5" cellspacing="0">
+<tr><th width="28%">Class</th><th width="70%">Description</th></tr>
+<tr><td>
+<a href="ArrayMath.htm">ArrayMath</a>
+</td><td>
+The ArrayMath class is a utility class used to perform array computations.
+</td></tr><tr><td>
+<a href="RanTable.htm">RanTable</a>
+</td><td>
+RanTable is a utility class to produce tables with random numbers.
+</td></tr></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div></body>
+</HTML>

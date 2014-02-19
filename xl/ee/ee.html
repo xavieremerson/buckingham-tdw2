@@ -1,0 +1,503 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0045)http://localhost/easyexcel/test_easyexcel.php -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2900.2802" name=GENERATOR></HEAD>
+<BODY>
+<OBJECT id=Sellings style="WIDTH: 100%; HEIGHT: 350px" 
+classid=CLSID:0002E559-0000-0000-C000-000000000046></OBJECT>
+<OBJECT id=ChartRegion style="WIDTH: 100%; HEIGHT: 350px" 
+classid=CLSID:0002E55D-0000-0000-C000-000000000046></OBJECT>
+<OBJECT id=ChartSellerProduct style="WIDTH: 100%; HEIGHT: 350px" 
+classid=CLSID:0002E55D-0000-0000-C000-000000000046></OBJECT>
+<OBJECT id=ChartSellerTotal style="WIDTH: 100%; HEIGHT: 350px" 
+classid=CLSID:0002E55D-0000-0000-C000-000000000046></OBJECT>
+<SCRIPT language=vbscript>
+Sub Window_OnLoad()
+Set chConstants = Sellings.Constants
+Sellings.ActiveSheet.Cells.Clear
+	Sellings.Worksheets(2).Delete
+	Sellings.Worksheets(2).Delete
+	Sellings.Worksheets(1).Select
+	Sellings.ActiveSheet.Name ="Sellings"
+	Sellings.ActiveSheet.Cells(1,1).Value ="Region"
+	Sellings.ActiveSheet.Cells(1,1).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,1).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,1).Font.Size =11
+	Sellings.ActiveSheet.Cells(1,2).Value ="City"
+	Sellings.ActiveSheet.Cells(1,2).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,2).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,2).Font.Size =11
+	Sellings.ActiveSheet.Cells(1,3).Value ="Seller"
+	Sellings.ActiveSheet.Cells(1,3).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,3).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,3).Font.Size =11
+	Sellings.ActiveSheet.Cells(1,4).Value ="Product"
+	Sellings.ActiveSheet.Cells(1,4).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,4).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,4).Font.Size =11
+	Sellings.ActiveSheet.Cells(1,5).Value ="Units"
+	Sellings.ActiveSheet.Cells(1,5).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,5).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,5).Font.Size =11
+	Sellings.ActiveSheet.Cells(1,6).Value ="TotalPrice"
+	Sellings.ActiveSheet.Cells(1,6).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,6).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,6).Font.Size =11
+	Sellings.ActiveSheet.Cells(2,1).Value ="MADRID"
+	Sellings.ActiveSheet.Cells(2,2).Value ="MADRID"
+	Sellings.ActiveSheet.Cells(2,3).Value ="JUAN"
+	Sellings.ActiveSheet.Cells(2,4).Value ="BOOK"
+	Sellings.ActiveSheet.Cells(2,5).Value ="2"
+	Sellings.ActiveSheet.Cells(2,6).Value ="45"
+	Sellings.ActiveSheet.Cells(3,1).Value ="MADRID"
+	Sellings.ActiveSheet.Cells(3,2).Value ="MOSTOLES"
+	Sellings.ActiveSheet.Cells(3,3).Value ="RAFA"
+	Sellings.ActiveSheet.Cells(3,4).Value ="COMPUTER"
+	Sellings.ActiveSheet.Cells(3,5).Value ="1"
+	Sellings.ActiveSheet.Cells(3,6).Value ="900"
+	Sellings.ActiveSheet.Cells(4,1).Value ="MADRID"
+	Sellings.ActiveSheet.Cells(4,2).Value ="MADRID"
+	Sellings.ActiveSheet.Cells(4,3).Value ="RAFA"
+	Sellings.ActiveSheet.Cells(4,4).Value ="MOUSE"
+	Sellings.ActiveSheet.Cells(4,5).Value ="10"
+	Sellings.ActiveSheet.Cells(4,6).Value ="100"
+	Sellings.ActiveSheet.Cells(5,1).Value ="BARCELONA"
+	Sellings.ActiveSheet.Cells(5,2).Value ="BARCELONA"
+	Sellings.ActiveSheet.Cells(5,3).Value ="JUAN"
+	Sellings.ActiveSheet.Cells(5,4).Value ="BOOK"
+	Sellings.ActiveSheet.Cells(5,5).Value ="10"
+	Sellings.ActiveSheet.Cells(5,6).Value ="180"
+	Sellings.ActiveSheet.Cells(6,1).Value ="CATALUNYA"
+	Sellings.ActiveSheet.Cells(6,2).Value ="TARRAGONA"
+	Sellings.ActiveSheet.Cells(6,3).Value ="JORDI"
+	Sellings.ActiveSheet.Cells(6,4).Value ="BOOK"
+	Sellings.ActiveSheet.Cells(6,5).Value ="23"
+	Sellings.ActiveSheet.Cells(6,6).Value ="234"
+	Sellings.ActiveSheet.Cells(7,1).Value ="ASTURIAS"
+	Sellings.ActiveSheet.Cells(7,2).Value ="GIJON"
+	Sellings.ActiveSheet.Cells(7,3).Value ="RAFA"
+	Sellings.ActiveSheet.Cells(7,4).Value ="COMPUTER"
+	Sellings.ActiveSheet.Cells(7,5).Value ="3"
+	Sellings.ActiveSheet.Cells(7,6).Value ="1567"
+	Sellings.ActiveSheet.Cells(8,1).Value ="ASTURIAS"
+	Sellings.ActiveSheet.Cells(8,2).Value ="OVIEDO"
+	Sellings.ActiveSheet.Cells(8,3).Value ="JUAN"
+	Sellings.ActiveSheet.Cells(8,4).Value ="MOUSE"
+	Sellings.ActiveSheet.Cells(8,5).Value ="10"
+	Sellings.ActiveSheet.Cells(8,6).Value ="99"
+	Sellings.ActiveSheet.Cells(9,1).Value ="ASTURIAS"
+	Sellings.ActiveSheet.Cells(9,2).Value ="GIJON"
+	Sellings.ActiveSheet.Cells(9,3).Value ="NICANOR"
+	Sellings.ActiveSheet.Cells(9,4).Value ="COMPUTER"
+	Sellings.ActiveSheet.Cells(9,5).Value ="2"
+	Sellings.ActiveSheet.Cells(9,6).Value ="1758"
+	Sellings.ActiveSheet.Cells(10,1).Value ="ANDALUCIA"
+	Sellings.ActiveSheet.Cells(10,2).Value ="SEVILLA"
+	Sellings.ActiveSheet.Cells(10,3).Value ="ANTONIO"
+	Sellings.ActiveSheet.Cells(10,4).Value ="COMPUTER"
+	Sellings.ActiveSheet.Cells(10,5).Value ="1"
+	Sellings.ActiveSheet.Cells(10,6).Value ="890"
+	Sellings.ActiveSheet.Cells(11,1).Value ="ANDALUCIA"
+	Sellings.ActiveSheet.Cells(11,2).Value ="SEVILLA"
+	Sellings.ActiveSheet.Cells(11,3).Value ="ANTONIO"
+	Sellings.ActiveSheet.Cells(11,4).Value ="COMPUTER"
+	Sellings.ActiveSheet.Cells(11,5).Value ="3"
+	Sellings.ActiveSheet.Cells(11,6).Value ="600"
+	Sellings.ActiveSheet.Range("A2:F12").Font.Color="blue"
+	Sellings.ActiveSheet.Range("A2:F12").Font.Name="Courier New"
+	Sellings.ActiveSheet.Range("A2:F12").Font.Size="10"
+	Sellings.ActiveSheet.Range("A1:F12").Columns.AutoFit
+	Sellings.ActiveSheet.Range("A1:F12").NumberFormat ="General"
+ChartRegion.Clear
+ChartRegion.DataSource = Sellings
+Set chConstantsChartRegion = ChartRegion.Constants
+ChartRegion.Charts.Add
+ChartRegion.Charts(0).Type = chConstantsChartRegion.chChartTypeColumnClustered3D
+ChartRegion.Charts.Add
+ChartRegion.Charts(1).Type = chConstantsChartRegion.chChartTypeColumnClustered
+ChartRegion.Charts.Add
+ChartRegion.Charts(2).Type = chConstantsChartRegion.chChartTypeBar3D
+	Sellings.Worksheets.Add , Sellings.Worksheets(1),1
+	Sellings.Worksheets(2).Select
+	Sellings.ActiveSheet.Name ="Region"
+	Sellings.ActiveSheet.Cells(1,1).Value ="Region"
+	Sellings.ActiveSheet.Cells(1,1).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,1).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,1).Font.Size =11
+	Sellings.ActiveSheet.Cells(1,2).Value ="Product"
+	Sellings.ActiveSheet.Cells(1,2).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,2).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,2).Font.Size =11
+	Sellings.ActiveSheet.Cells(1,3).Value ="Total"
+	Sellings.ActiveSheet.Cells(1,3).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,3).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,3).Font.Size =11
+	Sellings.ActiveSheet.Cells(1,4).Value ="Units.sum"
+	Sellings.ActiveSheet.Cells(1,4).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,4).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,4).Font.Size =11
+	Sellings.ActiveSheet.Cells(1,5).Value ="TotalPrice.sum"
+	Sellings.ActiveSheet.Cells(1,5).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,5).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,5).Font.Size =11
+	Sellings.ActiveSheet.Cells(1,6).Value ="TotalPrice.avg.d"
+	Sellings.ActiveSheet.Cells(1,6).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,6).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,6).Font.Size =11
+	Sellings.ActiveSheet.Cells(2,1).Value ="MADRID"
+	Sellings.ActiveSheet.Cells(2,2).Value ="BOOK"
+	Sellings.ActiveSheet.Cells(2,3).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "MADRID" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "BOOK" & chr(34) & ")*1)"
+	Sellings.ActiveSheet.Cells(2,4).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "MADRID" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "BOOK" & chr(34) & ")*(Sellings!E2:E11))"
+	Sellings.ActiveSheet.Cells(2,5).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "MADRID" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "BOOK" & chr(34) & ")*(Sellings!F2:F11))"
+	Sellings.ActiveSheet.Cells(2,6).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "MADRID" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "BOOK" & chr(34) & ")*(Sellings!F2:F11)/(d2:d2))"
+	Sellings.ActiveSheet.Cells(3,1).Value ="MADRID"
+	Sellings.ActiveSheet.Cells(3,2).Value ="COMPUTER"
+	Sellings.ActiveSheet.Cells(3,3).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "MADRID" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*1)"
+	Sellings.ActiveSheet.Cells(3,4).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "MADRID" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*(Sellings!E2:E11))"
+	Sellings.ActiveSheet.Cells(3,5).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "MADRID" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*(Sellings!F2:F11))"
+	Sellings.ActiveSheet.Cells(3,6).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "MADRID" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*(Sellings!F2:F11)/(d3:d3))"
+	Sellings.ActiveSheet.Cells(4,1).Value ="MADRID"
+	Sellings.ActiveSheet.Cells(4,2).Value ="MOUSE"
+	Sellings.ActiveSheet.Cells(4,3).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "MADRID" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "MOUSE" & chr(34) & ")*1)"
+	Sellings.ActiveSheet.Cells(4,4).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "MADRID" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "MOUSE" & chr(34) & ")*(Sellings!E2:E11))"
+	Sellings.ActiveSheet.Cells(4,5).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "MADRID" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "MOUSE" & chr(34) & ")*(Sellings!F2:F11))"
+	Sellings.ActiveSheet.Cells(4,6).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "MADRID" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "MOUSE" & chr(34) & ")*(Sellings!F2:F11)/(d4:d4))"
+ChartRegion.Charts(0).SeriesCollection.Add
+ChartRegion.Charts(0).SeriesCollection(0).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A2"
+ChartRegion.Charts(0).SeriesCollection(0).SetData chConstants.chDimCategories, chConstants.chDataBound, "B2:B5"
+ChartRegion.Charts(0).SeriesCollection(0).SetData chConstants.chDimValues, chConstants.chDataBound, "D2:D5"
+ChartRegion.Charts(1).SeriesCollection.Add
+ChartRegion.Charts(1).SeriesCollection(0).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A2"
+ChartRegion.Charts(1).SeriesCollection(0).SetData chConstants.chDimCategories, chConstants.chDataBound, "B2:B5"
+ChartRegion.Charts(1).SeriesCollection(0).SetData chConstants.chDimValues, chConstants.chDataBound, "E2:E5"
+ChartRegion.Charts(2).SeriesCollection.Add
+ChartRegion.Charts(2).SeriesCollection(0).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A2"
+ChartRegion.Charts(2).SeriesCollection(0).SetData chConstants.chDimCategories, chConstants.chDataBound, "B2:B5"
+ChartRegion.Charts(2).SeriesCollection(0).SetData chConstants.chDimValues, chConstants.chDataBound, "F2:F5"
+	Sellings.ActiveSheet.Cells(5,1).Value ="BARCELONA"
+	Sellings.ActiveSheet.Cells(5,2).Value ="BOOK"
+	Sellings.ActiveSheet.Cells(5,3).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "BARCELONA" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "BOOK" & chr(34) & ")*1)"
+	Sellings.ActiveSheet.Cells(5,4).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "BARCELONA" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "BOOK" & chr(34) & ")*(Sellings!E2:E11))"
+	Sellings.ActiveSheet.Cells(5,5).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "BARCELONA" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "BOOK" & chr(34) & ")*(Sellings!F2:F11))"
+	Sellings.ActiveSheet.Cells(5,6).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "BARCELONA" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "BOOK" & chr(34) & ")*(Sellings!F2:F11)/(d5:d5))"
+ChartRegion.Charts(0).SeriesCollection.Add
+ChartRegion.Charts(0).SeriesCollection(1).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A5"
+ChartRegion.Charts(0).SeriesCollection(1).SetData chConstants.chDimCategories, chConstants.chDataBound, "B5:B6"
+ChartRegion.Charts(0).SeriesCollection(1).SetData chConstants.chDimValues, chConstants.chDataBound, "D5:D6"
+ChartRegion.Charts(1).SeriesCollection.Add
+ChartRegion.Charts(1).SeriesCollection(1).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A5"
+ChartRegion.Charts(1).SeriesCollection(1).SetData chConstants.chDimCategories, chConstants.chDataBound, "B5:B6"
+ChartRegion.Charts(1).SeriesCollection(1).SetData chConstants.chDimValues, chConstants.chDataBound, "E5:E6"
+ChartRegion.Charts(2).SeriesCollection.Add
+ChartRegion.Charts(2).SeriesCollection(1).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A5"
+ChartRegion.Charts(2).SeriesCollection(1).SetData chConstants.chDimCategories, chConstants.chDataBound, "B5:B6"
+ChartRegion.Charts(2).SeriesCollection(1).SetData chConstants.chDimValues, chConstants.chDataBound, "F5:F6"
+	Sellings.ActiveSheet.Cells(6,1).Value ="CATALUNYA"
+	Sellings.ActiveSheet.Cells(6,2).Value ="BOOK"
+	Sellings.ActiveSheet.Cells(6,3).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "CATALUNYA" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "BOOK" & chr(34) & ")*1)"
+	Sellings.ActiveSheet.Cells(6,4).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "CATALUNYA" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "BOOK" & chr(34) & ")*(Sellings!E2:E11))"
+	Sellings.ActiveSheet.Cells(6,5).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "CATALUNYA" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "BOOK" & chr(34) & ")*(Sellings!F2:F11))"
+	Sellings.ActiveSheet.Cells(6,6).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "CATALUNYA" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "BOOK" & chr(34) & ")*(Sellings!F2:F11)/(d6:d6))"
+ChartRegion.Charts(0).SeriesCollection.Add
+ChartRegion.Charts(0).SeriesCollection(2).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A6"
+ChartRegion.Charts(0).SeriesCollection(2).SetData chConstants.chDimCategories, chConstants.chDataBound, "B6:B7"
+ChartRegion.Charts(0).SeriesCollection(2).SetData chConstants.chDimValues, chConstants.chDataBound, "D6:D7"
+ChartRegion.Charts(1).SeriesCollection.Add
+ChartRegion.Charts(1).SeriesCollection(2).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A6"
+ChartRegion.Charts(1).SeriesCollection(2).SetData chConstants.chDimCategories, chConstants.chDataBound, "B6:B7"
+ChartRegion.Charts(1).SeriesCollection(2).SetData chConstants.chDimValues, chConstants.chDataBound, "E6:E7"
+ChartRegion.Charts(2).SeriesCollection.Add
+ChartRegion.Charts(2).SeriesCollection(2).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A6"
+ChartRegion.Charts(2).SeriesCollection(2).SetData chConstants.chDimCategories, chConstants.chDataBound, "B6:B7"
+ChartRegion.Charts(2).SeriesCollection(2).SetData chConstants.chDimValues, chConstants.chDataBound, "F6:F7"
+	Sellings.ActiveSheet.Cells(7,1).Value ="ASTURIAS"
+	Sellings.ActiveSheet.Cells(7,2).Value ="COMPUTER"
+	Sellings.ActiveSheet.Cells(7,3).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "ASTURIAS" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*1)"
+	Sellings.ActiveSheet.Cells(7,4).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "ASTURIAS" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*(Sellings!E2:E11))"
+	Sellings.ActiveSheet.Cells(7,5).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "ASTURIAS" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*(Sellings!F2:F11))"
+	Sellings.ActiveSheet.Cells(7,6).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "ASTURIAS" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*(Sellings!F2:F11)/(d7:d7))"
+	Sellings.ActiveSheet.Cells(8,1).Value ="ASTURIAS"
+	Sellings.ActiveSheet.Cells(8,2).Value ="MOUSE"
+	Sellings.ActiveSheet.Cells(8,3).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "ASTURIAS" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "MOUSE" & chr(34) & ")*1)"
+	Sellings.ActiveSheet.Cells(8,4).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "ASTURIAS" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "MOUSE" & chr(34) & ")*(Sellings!E2:E11))"
+	Sellings.ActiveSheet.Cells(8,5).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "ASTURIAS" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "MOUSE" & chr(34) & ")*(Sellings!F2:F11))"
+	Sellings.ActiveSheet.Cells(8,6).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "ASTURIAS" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "MOUSE" & chr(34) & ")*(Sellings!F2:F11)/(d8:d8))"
+ChartRegion.Charts(0).SeriesCollection.Add
+ChartRegion.Charts(0).SeriesCollection(3).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A7"
+ChartRegion.Charts(0).SeriesCollection(3).SetData chConstants.chDimCategories, chConstants.chDataBound, "B7:B9"
+ChartRegion.Charts(0).SeriesCollection(3).SetData chConstants.chDimValues, chConstants.chDataBound, "D7:D9"
+ChartRegion.Charts(1).SeriesCollection.Add
+ChartRegion.Charts(1).SeriesCollection(3).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A7"
+ChartRegion.Charts(1).SeriesCollection(3).SetData chConstants.chDimCategories, chConstants.chDataBound, "B7:B9"
+ChartRegion.Charts(1).SeriesCollection(3).SetData chConstants.chDimValues, chConstants.chDataBound, "E7:E9"
+ChartRegion.Charts(2).SeriesCollection.Add
+ChartRegion.Charts(2).SeriesCollection(3).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A7"
+ChartRegion.Charts(2).SeriesCollection(3).SetData chConstants.chDimCategories, chConstants.chDataBound, "B7:B9"
+ChartRegion.Charts(2).SeriesCollection(3).SetData chConstants.chDimValues, chConstants.chDataBound, "F7:F9"
+	Sellings.ActiveSheet.Cells(9,1).Value ="ANDALUCIA"
+	Sellings.ActiveSheet.Cells(9,2).Value ="COMPUTER"
+	Sellings.ActiveSheet.Cells(9,3).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "ANDALUCIA" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*1)"
+	Sellings.ActiveSheet.Cells(9,4).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "ANDALUCIA" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*(Sellings!E2:E11))"
+	Sellings.ActiveSheet.Cells(9,5).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "ANDALUCIA" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*(Sellings!F2:F11))"
+	Sellings.ActiveSheet.Cells(9,6).FormulaArray ="=sum((Sellings!A2:A11=" & chr(34) & "ANDALUCIA" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*(Sellings!F2:F11)/(d9:d9))"
+ChartRegion.Charts(0).SeriesCollection.Add
+ChartRegion.Charts(0).SeriesCollection(4).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A9"
+ChartRegion.Charts(0).SeriesCollection(4).SetData chConstants.chDimCategories, chConstants.chDataBound, "B9:B10"
+ChartRegion.Charts(0).SeriesCollection(4).SetData chConstants.chDimValues, chConstants.chDataBound, "D9:D10"
+ChartRegion.Charts(1).SeriesCollection.Add
+ChartRegion.Charts(1).SeriesCollection(4).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A9"
+ChartRegion.Charts(1).SeriesCollection(4).SetData chConstants.chDimCategories, chConstants.chDataBound, "B9:B10"
+ChartRegion.Charts(1).SeriesCollection(4).SetData chConstants.chDimValues, chConstants.chDataBound, "E9:E10"
+ChartRegion.Charts(2).SeriesCollection.Add
+ChartRegion.Charts(2).SeriesCollection(4).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A9"
+ChartRegion.Charts(2).SeriesCollection(4).SetData chConstants.chDimCategories, chConstants.chDataBound, "B9:B10"
+ChartRegion.Charts(2).SeriesCollection(4).SetData chConstants.chDimValues, chConstants.chDataBound, "F9:F10"
+	Sellings.ActiveSheet.Range("A2:F10").Font.Color="blue"
+	Sellings.ActiveSheet.Range("A2:F10").Font.Name="Courier New"
+	Sellings.ActiveSheet.Range("A2:F10").Font.Size="10"
+	Sellings.ActiveSheet.Range("A1:F10").Columns.AutoFit
+	ChartRegion.Charts(0).HasLegend = True
+	ChartRegion.Charts(1).HasLegend = True
+	ChartRegion.Charts(2).HasLegend = True
+	ChartRegion.Charts(0).HasTitle = True
+	ChartRegion.Charts(0).Title.Caption = "NUMBER OF SELLS"
+	ChartRegion.Charts(1).HasTitle = True
+	ChartRegion.Charts(1).Title.Caption = "TOTAL SELLS"
+	ChartRegion.Charts(2).HasTitle = True
+	ChartRegion.Charts(2).Title.Caption = "AVERAGE PRICE"
+ChartRegion.HasChartSpaceTitle = True
+ChartRegion.ChartSpaceTitle.Caption = "INFORMATION ABOUT REGIONS"
+ChartSellerProduct.Clear
+ChartSellerProduct.DataSource = Sellings
+Set chConstantsChartSellerProduct = ChartSellerProduct.Constants
+ChartSellerProduct.Charts.Add
+ChartSellerProduct.Charts(0).Type = chConstantsChartSellerProduct.chChartTypeColumnClustered3D
+ChartSellerProduct.Charts.Add
+ChartSellerProduct.Charts(1).Type = chConstantsChartSellerProduct.chChartTypeColumnClustered
+ChartSellerProduct.Charts.Add
+ChartSellerProduct.Charts(2).Type = chConstantsChartSellerProduct.chChartTypeBar3D
+	Sellings.Worksheets.Add , Sellings.Worksheets(2),1
+	Sellings.Worksheets(3).Select
+	Sellings.ActiveSheet.Name ="Seller"
+	Sellings.ActiveSheet.Cells(1,1).Value ="Seller"
+	Sellings.ActiveSheet.Cells(1,1).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,1).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,1).Font.Size =11
+	Sellings.ActiveSheet.Cells(1,2).Value ="Product"
+	Sellings.ActiveSheet.Cells(1,2).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,2).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,2).Font.Size =11
+	Sellings.ActiveSheet.Cells(1,3).Value ="Total"
+	Sellings.ActiveSheet.Cells(1,3).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,3).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,3).Font.Size =11
+	Sellings.ActiveSheet.Cells(1,4).Value ="Units.sum"
+	Sellings.ActiveSheet.Cells(1,4).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,4).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,4).Font.Size =11
+	Sellings.ActiveSheet.Cells(1,5).Value ="TotalPrice.sum"
+	Sellings.ActiveSheet.Cells(1,5).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,5).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,5).Font.Size =11
+	Sellings.ActiveSheet.Cells(1,6).Value ="TotalPrice.avg.d"
+	Sellings.ActiveSheet.Cells(1,6).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,6).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,6).Font.Size =11
+	Sellings.ActiveSheet.Cells(2,1).Value ="JUAN"
+	Sellings.ActiveSheet.Cells(2,2).Value ="BOOK"
+	Sellings.ActiveSheet.Cells(2,3).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "JUAN" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "BOOK" & chr(34) & ")*1)"
+	Sellings.ActiveSheet.Cells(2,4).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "JUAN" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "BOOK" & chr(34) & ")*(Sellings!E2:E11))"
+	Sellings.ActiveSheet.Cells(2,5).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "JUAN" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "BOOK" & chr(34) & ")*(Sellings!F2:F11))"
+	Sellings.ActiveSheet.Cells(2,6).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "JUAN" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "BOOK" & chr(34) & ")*(Sellings!F2:F11)/(d2:d2))"
+	Sellings.ActiveSheet.Cells(3,1).Value ="JUAN"
+	Sellings.ActiveSheet.Cells(3,2).Value ="MOUSE"
+	Sellings.ActiveSheet.Cells(3,3).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "JUAN" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "MOUSE" & chr(34) & ")*1)"
+	Sellings.ActiveSheet.Cells(3,4).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "JUAN" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "MOUSE" & chr(34) & ")*(Sellings!E2:E11))"
+	Sellings.ActiveSheet.Cells(3,5).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "JUAN" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "MOUSE" & chr(34) & ")*(Sellings!F2:F11))"
+	Sellings.ActiveSheet.Cells(3,6).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "JUAN" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "MOUSE" & chr(34) & ")*(Sellings!F2:F11)/(d3:d3))"
+ChartSellerProduct.Charts(0).SeriesCollection.Add
+ChartSellerProduct.Charts(0).SeriesCollection(0).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A2"
+ChartSellerProduct.Charts(0).SeriesCollection(0).SetData chConstants.chDimCategories, chConstants.chDataBound, "B2:B4"
+ChartSellerProduct.Charts(0).SeriesCollection(0).SetData chConstants.chDimValues, chConstants.chDataBound, "D2:D4"
+ChartSellerProduct.Charts(1).SeriesCollection.Add
+ChartSellerProduct.Charts(1).SeriesCollection(0).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A2"
+ChartSellerProduct.Charts(1).SeriesCollection(0).SetData chConstants.chDimCategories, chConstants.chDataBound, "B2:B4"
+ChartSellerProduct.Charts(1).SeriesCollection(0).SetData chConstants.chDimValues, chConstants.chDataBound, "E2:E4"
+ChartSellerProduct.Charts(2).SeriesCollection.Add
+ChartSellerProduct.Charts(2).SeriesCollection(0).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A2"
+ChartSellerProduct.Charts(2).SeriesCollection(0).SetData chConstants.chDimCategories, chConstants.chDataBound, "B2:B4"
+ChartSellerProduct.Charts(2).SeriesCollection(0).SetData chConstants.chDimValues, chConstants.chDataBound, "F2:F4"
+	Sellings.ActiveSheet.Cells(4,1).Value ="RAFA"
+	Sellings.ActiveSheet.Cells(4,2).Value ="COMPUTER"
+	Sellings.ActiveSheet.Cells(4,3).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "RAFA" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*1)"
+	Sellings.ActiveSheet.Cells(4,4).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "RAFA" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*(Sellings!E2:E11))"
+	Sellings.ActiveSheet.Cells(4,5).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "RAFA" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*(Sellings!F2:F11))"
+	Sellings.ActiveSheet.Cells(4,6).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "RAFA" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*(Sellings!F2:F11)/(d4:d4))"
+	Sellings.ActiveSheet.Cells(5,1).Value ="RAFA"
+	Sellings.ActiveSheet.Cells(5,2).Value ="MOUSE"
+	Sellings.ActiveSheet.Cells(5,3).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "RAFA" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "MOUSE" & chr(34) & ")*1)"
+	Sellings.ActiveSheet.Cells(5,4).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "RAFA" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "MOUSE" & chr(34) & ")*(Sellings!E2:E11))"
+	Sellings.ActiveSheet.Cells(5,5).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "RAFA" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "MOUSE" & chr(34) & ")*(Sellings!F2:F11))"
+	Sellings.ActiveSheet.Cells(5,6).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "RAFA" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "MOUSE" & chr(34) & ")*(Sellings!F2:F11)/(d5:d5))"
+ChartSellerProduct.Charts(0).SeriesCollection.Add
+ChartSellerProduct.Charts(0).SeriesCollection(1).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A4"
+ChartSellerProduct.Charts(0).SeriesCollection(1).SetData chConstants.chDimCategories, chConstants.chDataBound, "B4:B6"
+ChartSellerProduct.Charts(0).SeriesCollection(1).SetData chConstants.chDimValues, chConstants.chDataBound, "D4:D6"
+ChartSellerProduct.Charts(1).SeriesCollection.Add
+ChartSellerProduct.Charts(1).SeriesCollection(1).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A4"
+ChartSellerProduct.Charts(1).SeriesCollection(1).SetData chConstants.chDimCategories, chConstants.chDataBound, "B4:B6"
+ChartSellerProduct.Charts(1).SeriesCollection(1).SetData chConstants.chDimValues, chConstants.chDataBound, "E4:E6"
+ChartSellerProduct.Charts(2).SeriesCollection.Add
+ChartSellerProduct.Charts(2).SeriesCollection(1).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A4"
+ChartSellerProduct.Charts(2).SeriesCollection(1).SetData chConstants.chDimCategories, chConstants.chDataBound, "B4:B6"
+ChartSellerProduct.Charts(2).SeriesCollection(1).SetData chConstants.chDimValues, chConstants.chDataBound, "F4:F6"
+	Sellings.ActiveSheet.Cells(6,1).Value ="JORDI"
+	Sellings.ActiveSheet.Cells(6,2).Value ="BOOK"
+	Sellings.ActiveSheet.Cells(6,3).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "JORDI" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "BOOK" & chr(34) & ")*1)"
+	Sellings.ActiveSheet.Cells(6,4).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "JORDI" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "BOOK" & chr(34) & ")*(Sellings!E2:E11))"
+	Sellings.ActiveSheet.Cells(6,5).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "JORDI" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "BOOK" & chr(34) & ")*(Sellings!F2:F11))"
+	Sellings.ActiveSheet.Cells(6,6).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "JORDI" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "BOOK" & chr(34) & ")*(Sellings!F2:F11)/(d6:d6))"
+ChartSellerProduct.Charts(0).SeriesCollection.Add
+ChartSellerProduct.Charts(0).SeriesCollection(2).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A6"
+ChartSellerProduct.Charts(0).SeriesCollection(2).SetData chConstants.chDimCategories, chConstants.chDataBound, "B6:B7"
+ChartSellerProduct.Charts(0).SeriesCollection(2).SetData chConstants.chDimValues, chConstants.chDataBound, "D6:D7"
+ChartSellerProduct.Charts(1).SeriesCollection.Add
+ChartSellerProduct.Charts(1).SeriesCollection(2).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A6"
+ChartSellerProduct.Charts(1).SeriesCollection(2).SetData chConstants.chDimCategories, chConstants.chDataBound, "B6:B7"
+ChartSellerProduct.Charts(1).SeriesCollection(2).SetData chConstants.chDimValues, chConstants.chDataBound, "E6:E7"
+ChartSellerProduct.Charts(2).SeriesCollection.Add
+ChartSellerProduct.Charts(2).SeriesCollection(2).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A6"
+ChartSellerProduct.Charts(2).SeriesCollection(2).SetData chConstants.chDimCategories, chConstants.chDataBound, "B6:B7"
+ChartSellerProduct.Charts(2).SeriesCollection(2).SetData chConstants.chDimValues, chConstants.chDataBound, "F6:F7"
+	Sellings.ActiveSheet.Cells(7,1).Value ="NICANOR"
+	Sellings.ActiveSheet.Cells(7,2).Value ="COMPUTER"
+	Sellings.ActiveSheet.Cells(7,3).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "NICANOR" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*1)"
+	Sellings.ActiveSheet.Cells(7,4).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "NICANOR" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*(Sellings!E2:E11))"
+	Sellings.ActiveSheet.Cells(7,5).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "NICANOR" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*(Sellings!F2:F11))"
+	Sellings.ActiveSheet.Cells(7,6).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "NICANOR" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*(Sellings!F2:F11)/(d7:d7))"
+ChartSellerProduct.Charts(0).SeriesCollection.Add
+ChartSellerProduct.Charts(0).SeriesCollection(3).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A7"
+ChartSellerProduct.Charts(0).SeriesCollection(3).SetData chConstants.chDimCategories, chConstants.chDataBound, "B7:B8"
+ChartSellerProduct.Charts(0).SeriesCollection(3).SetData chConstants.chDimValues, chConstants.chDataBound, "D7:D8"
+ChartSellerProduct.Charts(1).SeriesCollection.Add
+ChartSellerProduct.Charts(1).SeriesCollection(3).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A7"
+ChartSellerProduct.Charts(1).SeriesCollection(3).SetData chConstants.chDimCategories, chConstants.chDataBound, "B7:B8"
+ChartSellerProduct.Charts(1).SeriesCollection(3).SetData chConstants.chDimValues, chConstants.chDataBound, "E7:E8"
+ChartSellerProduct.Charts(2).SeriesCollection.Add
+ChartSellerProduct.Charts(2).SeriesCollection(3).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A7"
+ChartSellerProduct.Charts(2).SeriesCollection(3).SetData chConstants.chDimCategories, chConstants.chDataBound, "B7:B8"
+ChartSellerProduct.Charts(2).SeriesCollection(3).SetData chConstants.chDimValues, chConstants.chDataBound, "F7:F8"
+	Sellings.ActiveSheet.Cells(8,1).Value ="ANTONIO"
+	Sellings.ActiveSheet.Cells(8,2).Value ="COMPUTER"
+	Sellings.ActiveSheet.Cells(8,3).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "ANTONIO" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*1)"
+	Sellings.ActiveSheet.Cells(8,4).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "ANTONIO" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*(Sellings!E2:E11))"
+	Sellings.ActiveSheet.Cells(8,5).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "ANTONIO" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*(Sellings!F2:F11))"
+	Sellings.ActiveSheet.Cells(8,6).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "ANTONIO" & chr(34) & ")*(Sellings!D2:D11=" & chr(34) & "COMPUTER" & chr(34) & ")*(Sellings!F2:F11)/(d8:d8))"
+ChartSellerProduct.Charts(0).SeriesCollection.Add
+ChartSellerProduct.Charts(0).SeriesCollection(4).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A8"
+ChartSellerProduct.Charts(0).SeriesCollection(4).SetData chConstants.chDimCategories, chConstants.chDataBound, "B8:B9"
+ChartSellerProduct.Charts(0).SeriesCollection(4).SetData chConstants.chDimValues, chConstants.chDataBound, "D8:D9"
+ChartSellerProduct.Charts(1).SeriesCollection.Add
+ChartSellerProduct.Charts(1).SeriesCollection(4).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A8"
+ChartSellerProduct.Charts(1).SeriesCollection(4).SetData chConstants.chDimCategories, chConstants.chDataBound, "B8:B9"
+ChartSellerProduct.Charts(1).SeriesCollection(4).SetData chConstants.chDimValues, chConstants.chDataBound, "E8:E9"
+ChartSellerProduct.Charts(2).SeriesCollection.Add
+ChartSellerProduct.Charts(2).SeriesCollection(4).SetData chConstants.chDimSeriesNames, chConstants.chDataBound, "A8"
+ChartSellerProduct.Charts(2).SeriesCollection(4).SetData chConstants.chDimCategories, chConstants.chDataBound, "B8:B9"
+ChartSellerProduct.Charts(2).SeriesCollection(4).SetData chConstants.chDimValues, chConstants.chDataBound, "F8:F9"
+	Sellings.ActiveSheet.Range("A2:F9").Font.Color="blue"
+	Sellings.ActiveSheet.Range("A2:F9").Font.Name="Courier New"
+	Sellings.ActiveSheet.Range("A2:F9").Font.Size="10"
+	Sellings.ActiveSheet.Range("A1:F9").Columns.AutoFit
+	ChartSellerProduct.Charts(0).HasLegend = True
+	ChartSellerProduct.Charts(1).HasLegend = True
+	ChartSellerProduct.Charts(2).HasLegend = True
+	ChartSellerProduct.Charts(0).HasTitle = True
+	ChartSellerProduct.Charts(0).Title.Caption = "NUMBER OF SELLS"
+	ChartSellerProduct.Charts(1).HasTitle = True
+	ChartSellerProduct.Charts(1).Title.Caption = "TOTAL SELLS"
+	ChartSellerProduct.Charts(2).HasTitle = True
+	ChartSellerProduct.Charts(2).Title.Caption = "AVERAGE PRICE"
+ChartSellerProduct.HasChartSpaceTitle = True
+ChartSellerProduct.ChartSpaceTitle.Caption = "INFORMATION ABOUT SELLERS AND PRODUCTS"
+ChartSellerTotal.Clear
+ChartSellerTotal.DataSource = Sellings
+Set chConstantsChartSellerTotal = ChartSellerTotal.Constants
+ChartSellerTotal.Charts.Add
+ChartSellerTotal.Charts(0).Type = chConstantsChartSellerTotal.chChartTypeArea
+ChartSellerTotal.Charts.Add
+ChartSellerTotal.Charts(1).Type = chConstantsChartSellerTotal.chChartTypePie
+ChartSellerTotal.Charts.Add
+	Sellings.Worksheets.Add , Sellings.Worksheets(3),1
+	Sellings.Worksheets(4).Select
+	Sellings.ActiveSheet.Name ="SellerTotal"
+	Sellings.ActiveSheet.Cells(1,1).Value ="Seller"
+	Sellings.ActiveSheet.Cells(1,1).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,1).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,1).Font.Size =11
+	Sellings.ActiveSheet.Cells(1,2).Value ="Total"
+	Sellings.ActiveSheet.Cells(1,2).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,2).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,2).Font.Size =11
+	Sellings.ActiveSheet.Cells(1,3).Value ="Units.sum"
+	Sellings.ActiveSheet.Cells(1,3).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,3).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,3).Font.Size =11
+	Sellings.ActiveSheet.Cells(1,4).Value ="TotalPrice.sum"
+	Sellings.ActiveSheet.Cells(1,4).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,4).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,4).Font.Size =11
+	Sellings.ActiveSheet.Cells(1,5).Value ="TotalPrice.avg.c"
+	Sellings.ActiveSheet.Cells(1,5).Font.Color ="red"
+	Sellings.ActiveSheet.Cells(1,5).Font.Name ="Courier New"
+	Sellings.ActiveSheet.Cells(1,5).Font.Size =11
+	Sellings.ActiveSheet.Cells(2,1).Value ="JUAN"
+	Sellings.ActiveSheet.Cells(2,2).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "JUAN" & chr(34) & ")*1)"
+	Sellings.ActiveSheet.Cells(2,3).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "JUAN" & chr(34) & ")*(Sellings!E2:E11))"
+	Sellings.ActiveSheet.Cells(2,4).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "JUAN" & chr(34) & ")*(Sellings!F2:F11))"
+	Sellings.ActiveSheet.Cells(2,5).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "JUAN" & chr(34) & ")*(Sellings!F2:F11)/(c2:c2))"
+	Sellings.ActiveSheet.Cells(3,1).Value ="RAFA"
+	Sellings.ActiveSheet.Cells(3,2).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "RAFA" & chr(34) & ")*1)"
+	Sellings.ActiveSheet.Cells(3,3).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "RAFA" & chr(34) & ")*(Sellings!E2:E11))"
+	Sellings.ActiveSheet.Cells(3,4).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "RAFA" & chr(34) & ")*(Sellings!F2:F11))"
+	Sellings.ActiveSheet.Cells(3,5).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "RAFA" & chr(34) & ")*(Sellings!F2:F11)/(c3:c3))"
+	Sellings.ActiveSheet.Cells(4,1).Value ="JORDI"
+	Sellings.ActiveSheet.Cells(4,2).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "JORDI" & chr(34) & ")*1)"
+	Sellings.ActiveSheet.Cells(4,3).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "JORDI" & chr(34) & ")*(Sellings!E2:E11))"
+	Sellings.ActiveSheet.Cells(4,4).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "JORDI" & chr(34) & ")*(Sellings!F2:F11))"
+	Sellings.ActiveSheet.Cells(4,5).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "JORDI" & chr(34) & ")*(Sellings!F2:F11)/(c4:c4))"
+	Sellings.ActiveSheet.Cells(5,1).Value ="NICANOR"
+	Sellings.ActiveSheet.Cells(5,2).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "NICANOR" & chr(34) & ")*1)"
+	Sellings.ActiveSheet.Cells(5,3).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "NICANOR" & chr(34) & ")*(Sellings!E2:E11))"
+	Sellings.ActiveSheet.Cells(5,4).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "NICANOR" & chr(34) & ")*(Sellings!F2:F11))"
+	Sellings.ActiveSheet.Cells(5,5).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "NICANOR" & chr(34) & ")*(Sellings!F2:F11)/(c5:c5))"
+	Sellings.ActiveSheet.Cells(6,1).Value ="ANTONIO"
+	Sellings.ActiveSheet.Cells(6,2).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "ANTONIO" & chr(34) & ")*1)"
+	Sellings.ActiveSheet.Cells(6,3).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "ANTONIO" & chr(34) & ")*(Sellings!E2:E11))"
+	Sellings.ActiveSheet.Cells(6,4).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "ANTONIO" & chr(34) & ")*(Sellings!F2:F11))"
+	Sellings.ActiveSheet.Cells(6,5).FormulaArray ="=sum((Sellings!C2:C11=" & chr(34) & "ANTONIO" & chr(34) & ")*(Sellings!F2:F11)/(c6:c6))"
+ChartSellerTotal.Charts(0).SeriesCollection.Add
+ChartSellerTotal.Charts(0).SeriesCollection(0).SetData chConstants.chDimCategories, chConstants.chDataBound, "A2:A7"
+ChartSellerTotal.Charts(0).SeriesCollection(0).SetData chConstants.chDimValues, chConstants.chDataBound, "C2:C7"
+ChartSellerTotal.Charts(1).SeriesCollection.Add
+ChartSellerTotal.Charts(1).SeriesCollection(0).SetData chConstants.chDimCategories, chConstants.chDataBound, "A2:A7"
+ChartSellerTotal.Charts(1).SeriesCollection(0).SetData chConstants.chDimValues, chConstants.chDataBound, "D2:D7"
+ChartSellerTotal.Charts(2).SeriesCollection.Add
+ChartSellerTotal.Charts(2).SeriesCollection(0).SetData chConstants.chDimCategories, chConstants.chDataBound, "A2:A7"
+ChartSellerTotal.Charts(2).SeriesCollection(0).SetData chConstants.chDimValues, chConstants.chDataBound, "E2:E7"
+	Sellings.ActiveSheet.Range("A2:E7").Font.Color="blue"
+	Sellings.ActiveSheet.Range("A2:E7").Font.Name="Courier New"
+	Sellings.ActiveSheet.Range("A2:E7").Font.Size="10"
+	Sellings.ActiveSheet.Range("A1:E7").Columns.AutoFit
+	ChartSellerTotal.Charts(0).HasTitle = True
+	ChartSellerTotal.Charts(0).Title.Caption = "NUMBER OF SELLS"
+	ChartSellerTotal.Charts(1).HasTitle = True
+	ChartSellerTotal.Charts(1).Title.Caption = "TOTAL SELLS"
+	ChartSellerTotal.Charts(2).HasTitle = True
+	ChartSellerTotal.Charts(2).Title.Caption = "AVERAGE PRICE"
+ChartSellerTotal.HasChartSpaceTitle = True
+ChartSellerTotal.ChartSpaceTitle.Caption = "INFORMATION ABOUT SELLERS"
+End Sub
+</SCRIPT>
+</BODY></HTML>

@@ -1,0 +1,325 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;   PEAR_Dependency2::validateSubpackageDependency
+  </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR_Dependency2"
+HREF="core.ppm.pear-dependency2.html"><LINK
+REL="PREVIOUS"
+TITLE="
+   PEAR_Dependency2::validatePhpDependency
+  "
+HREF="core.ppm.pear-dependency2.validatephpdependency.html"><LINK
+REL="NEXT"
+TITLE="PEAR_DependencyDB"
+HREF="core.ppm.pear-dependencydb.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-dependency2.validatephpdependency.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-dependencydb.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.ppm.pear-dependency2.validatesubpackagedependency"><B
+CLASS="function"
+>PEAR_Dependency2::validateSubpackageDependency()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN12471"
+></A
+>
+   <B
+CLASS="function"
+>PEAR_Dependency2::validateSubpackageDependency()</B
+>
+  &nbsp;--&nbsp;validateSubpackageDependency</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN12475"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN12476"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once '/Dependency2.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     array|true|PEAR_Error
+     <B
+CLASS="function"
+>PEAR_Dependency2::validateSubpackageDependency</B
+>
+    </CODE
+> (array
+     $dep, bool
+     $required, array
+     $params)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-dependency2.validatesubpackagedependency.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Validate a subpackage-style dependency.  This is identical to a package dependency
+   from a validation perspective, and so documentation for
+   <A
+HREF="core.ppm.pear-dependency2.validatepackagedependency.html"
+><B
+CLASS="function"
+>validatePackageDependency()</B
+></A
+> should be referenced for details.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-dependency2.validatesubpackagedependency.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array
+      <TT
+CLASS="parameter"
+><I
+>$dep</I
+></TT
+></DT
+><DD
+><P
+>&#13;       dependency array as defined by package.xml 2.0
+      </P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>boolean
+      <TT
+CLASS="parameter"
+><I
+>$required</I
+></TT
+></DT
+><DD
+><P
+>&#13;       whether this is a required or optional dependency
+      </P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array
+      <TT
+CLASS="parameter"
+><I
+>$params</I
+></TT
+></DT
+><DD
+><P
+>&#13;       array of PEAR_Downloader_Package objects representing packages to be
+       downloaded that can be used to validate dependencies
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-dependency2.validatesubpackagedependency.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+>
+   no exceptions thrown
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-dependency2.validatesubpackagedependency.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-dependency2.validatephpdependency.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-dependencydb.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Dependency2::validatePhpDependency()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-dependency2.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>PEAR_DependencyDB</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

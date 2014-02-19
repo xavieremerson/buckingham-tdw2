@@ -1,0 +1,414 @@
+
+
+
+
+
+
+021814
+
+<br>Checking if the Bloomberg Client Orders file exists in local Location at D:\tdw\tdw\auto\bloomberg\client_orders\files\
+<br>
+<br>Files exist. Proceeding.
+<br>date field = [20140218 15:58:57]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','ANN','13408','33.5000','33.5000','SELL','UN','TYVOX','','2014-02-18','2014-02-18 09:13:09','','','','0','0.0000','','TYVOX','','','1978471','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1978471','0','2014-02-18 15:58:57')
+
+date field = [20140218 15:00:19]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','BIG','20000','27.0500','27.0500','SELL','UN','TYVOX','','2014-02-18','2014-02-18 09:13:26','','','','7780','0.0000','','TYVOX','','','1978472','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1978472','0','2014-02-18 15:00:19')
+
+date field = [20140218 15:59:45]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','ROG','28200','0.0000','0.0000','BUY','UN','NBERX','','2014-02-18','2014-02-18 09:16:52','','','','21870','0.0000','','NBERX','','','1978483','','T','0','','MULTI','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1978483','0','2014-02-18 15:59:45')
+
+date field = []
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','WSM','10000','56.0000','56.0000','SSL','UN','TYVOX','','2014-02-18','2014-02-18 09:17:54','','','','10000','0.0000','','TYVOX','','','1978484','','T','0','','','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1978484','0','2014-02-18 18:45:07')
+
+date field = [20140218 16:04:19]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','LTM','100000','0.0000','0.0000','SSL','UN','BALYAM','','2014-02-18','2014-02-18 09:29:40','','','','0','0.0000','','BALYAM','','','1978496','','T','0','','NYSE','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1978496','0','2014-02-18 16:04:19')
+
+date field = [20140218 15:59:15]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','AWI','15000','0.0000','0.0000','SELL','UN','BALYAM','','2014-02-18','2014-02-18 09:29:41','','','','0','0.0000','','BALYAM','','','1978495','','T','0','','NYSE','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1978495','0','2014-02-18 15:59:15')
+
+date field = [20140218 15:59:20]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','MAS','25000','0.0000','0.0000','SSL','UN','BALYAM','','2014-02-18','2014-02-18 09:29:41','','','','0','0.0000','','BALYAM','','','1978494','','T','0','','NYSE','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1978494','0','2014-02-18 15:59:20')
+
+date field = [20140218 10:01:14]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','GD','23575','0.0000','0.0000','BUY','UN','FORTX','','2014-02-18','2014-02-18 09:34:52','','','','0','0.0000','','FORTX','','','1978630','','T','0','','MULTI','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1978630','0','2014-02-18 10:01:14')
+
+date field = [20140218 15:59:04]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','PCP','19150','0.0000','0.0000','SELL','UN','FORTX','','2014-02-18','2014-02-18 09:40:22','','','','0','0.0000','','FORTX','','','1978881','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1978848','0','2014-02-18 15:59:04')
+
+date field = [20140218 15:58:53]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','COL','63775','0.0000','0.0000','BUY','UN','FORTX','','2014-02-18','2014-02-18 09:40:58','','','','0','0.0000','','FORTX','','','1978900','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1978900','0','2014-02-18 15:58:53')
+
+date field = [20140218 15:59:34]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','MOS','25000','0.0000','0.0000','SELL','UN','SACCX','','2014-02-18','2014-02-18 09:44:57','','','','0','0.0000','','SACCX','','','1979072','','T','0','','NYSE','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1979072','0','2014-02-18 15:59:34')
+
+date field = [20140218 10:12:08]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','JWN','15000','0.0000','0.0000','SSL','UN','SCOPX','','2014-02-18','2014-02-18 10:01:00','','','','0','0.0000','','SCOPX','','','1979807','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1998234','0','2014-02-18 10:12:08')
+
+date field = [20140218 15:55:31]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','WAB','150000','0.0000','0.0000','SELL','UN','SANRX','','2014-02-18','2014-02-18 10:08:51','','','','0','0.0000','','SANRX','','','1980286','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1980286','0','2014-02-18 15:55:31')
+
+date field = [20140218 10:43:24]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','RJF','5237','0.0000','0.0000','BUY','UN','WAGOX','','2014-02-18','2014-02-18 10:09:05','','','','0','0.0000','','WAGOX','','','1980297','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1980297','0','2014-02-18 10:43:24')
+
+date field = [20140218 10:10:41]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','AXL','10000','0.0000','0.0000','BUY','UN','ROSEX','','2014-02-18','2014-02-18 10:10:05','','','','0','0.0000','','ROSEX','','','1980353','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1980353','0','2014-02-18 10:10:41')
+
+date field = [20140218 10:21:37]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','JWN','10000','0.0000','0.0000','SSL','UN','SCOPX','','2014-02-18','2014-02-18 10:13:44','','','','0','0.0000','','SCOPX','','','1980688','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1998234','0','2014-02-18 10:21:37')
+
+date field = [20140218 15:43:51]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','CLI','150000','0.0000','0.0000','SELL','UN','SENAX','','2014-02-18','2014-02-18 10:15:07','','','','31320','0.0000','','SENAX','','','1980733','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1980733','0','2014-02-18 15:43:51')
+
+date field = [20140218 12:30:11]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','CSII','25000','35.6500','35.6500','SELL','UQ','SACCX','','2014-02-18','2014-02-18 10:22:14','','','','0','0.0000','','SACCX','','','1981174','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1981174','0','2014-02-18 12:30:11')
+
+date field = [20140218 11:10:42]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','GIL','15000','0.0000','0.0000','SELL','UN','CORTX','','2014-02-18','2014-02-18 10:22:49','','','','0','0.0000','','CORTX','','','1981203','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1981203','0','2014-02-18 11:10:42')
+
+date field = [20140218 12:18:27]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','CMCSA','5000','53.5000','53.5000','BUY','UQ','TWINX','','2014-02-18','2014-02-18 10:31:31','','','','0','0.0000','','TWINX','','','1981773','','T','0','','INCD','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1981773','0','2014-02-18 12:18:27')
+
+date field = [20140218 10:35:13]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','HTZ','10000','25.6000','25.6000','BUY','UN','TWINX','','2014-02-18','2014-02-18 10:34:15','','','','0','0.0000','','TWINX','','','1981930','','T','0','','INCD','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1981930','0','2014-02-18 10:35:13')
+
+date field = [20140218 11:04:34]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','IWM','2000','0.0000','0.0000','SSL','UP','ROVEX','','2014-02-18','2014-02-18 11:04:18','','','','0','0.0000','','ROVEX','','','1983442','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1983442','0','2014-02-18 11:04:34')
+
+date field = [20140218 15:58:58]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','EXPR','30000','17.5000','17.5000','SELL','UN','TYVOX','','2014-02-18','2014-02-18 11:15:42','','','','0','0.0000','','TYVOX','','','1983949','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1978476','0','2014-02-18 15:58:58')
+
+date field = [20140218 11:35:39]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','FOR','10000','0.0000','0.0000','BUY','UN','PROSX','','2014-02-18','2014-02-18 11:25:44','','','','0','0.0000','','PROSX','','','1984355','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1984355','0','2014-02-18 11:35:39')
+
+date field = [20140218 15:59:43]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','ETN','25000','0.0000','0.0000','BUY','UN','BRONX','','2014-02-18','2014-02-18 11:30:09','','','','0','0.0000','','BRONX','','','1984558','','T','0','','NYSE','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1984558','0','2014-02-18 15:59:43')
+
+date field = [20140218 11:55:59]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','SIRI','20000','0.0000','0.0000','BUY','UQ','FNYLX','','2014-02-18','2014-02-18 11:55:51','','','','0','0.0000','','FNYLX','','','1985658','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1985658','0','2014-02-18 11:55:59')
+
+date field = [20140218 12:48:20]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','AOS','20625','0.0000','0.0000','SELL','UN','FODPX','','2014-02-18','2014-02-18 11:59:41','','','','0','0.0000','','FODPX','','','1985803','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1985803','0','2014-02-18 12:48:20')
+
+date field = [20140218 15:58:52]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','VIAB','12030','0.0000','0.0000','BUY','UQ','SYMPX','','2014-02-18','2014-02-18 12:37:38','','','','0','0.0000','','SYMPX','','','1987110','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1987110','0','2014-02-18 15:58:52')
+
+date field = [20140218 15:59:03]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','FNSR','11887','0.0000','0.0000','BUY','UQ','SYMPX','','2014-02-18','2014-02-18 12:37:38','','','','0','0.0000','','SYMPX','','','1987108','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1987108','0','2014-02-18 15:59:03')
+
+date field = [20140218 12:40:05]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','SM','245','0.0000','0.0000','BUY','UN','SYMPX','','2014-02-18','2014-02-18 12:37:38','','','','0','0.0000','','SYMPX','','','1987109','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1987109','0','2014-02-18 12:40:05')
+
+date field = [20140218 13:00:15]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','IACI','22000','0.0000','0.0000','BUY','UQ','LOMAX','','2014-02-18','2014-02-18 12:55:33','','','','0','0.0000','','LOMAX','','','1987716','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1987716','0','2014-02-18 13:00:15')
+
+date field = [20140218 13:34:07]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','FRX','50000','92.5000','92.5000','BUY','UN','HOPLX','','2014-02-18','2014-02-18 13:27:54','','','','0','0.0000','','HOPLX','','','1988865','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1988865','0','2014-02-18 13:34:07')
+
+date field = [20140218 15:09:07]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','DAN','29310','0.0000','0.0000','BUY','UN','EATOX','','2014-02-18','2014-02-18 13:54:49','','','','0','0.0000','','EATOX','','','1990102','','T','0','','MULTI','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1995769','0','2014-02-18 15:09:07')
+
+date field = [20140218 15:38:58]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','FRC','21935','0.0000','0.0000','BUY','UN','EATOX','','2014-02-18','2014-02-18 13:55:45','','','','6967','0.0000','','EATOX','','','1990147','','T','0','','MULTI','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1990147','0','2014-02-18 15:38:58')
+
+date field = [20140218 14:34:01]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','CHD','50400','0.0000','0.0000','BUY','UN','EVRGX','','2014-02-18','2014-02-18 14:29:42','','','','0','0.0000','','EVRGX','','','1991540','','T','0','','MULTI','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1978470','0','2014-02-18 14:34:01')
+
+date field = []
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','FRC','20000','0.0000','0.0000','BUY','UN','EATOX','','2014-02-18','2014-02-18 15:17:59','','','','20000','0.0000','','EATOX','','','1993631','','T','0','','','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1993631','0','2014-02-18 18:45:07')
+
+date field = [20140218 15:59:06]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','BWLD','15000','135.0000','135.0000','BUY','UQ','TYVOX','','2014-02-18','2014-02-18 15:21:45','','','','0','0.0000','','TYVOX','','','1993942','','T','0','','ETGO','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1978473','0','2014-02-18 15:59:06')
+
+date field = [20140218 15:31:04]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','EMR','39000','0.0000','0.0000','SELL','UN','FORTX','','2014-02-18','2014-02-18 15:27:59','','','','0','0.0000','','FORTX','','','1994473','','T','0','','MULTI','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1982798','0','2014-02-18 15:31:04')
+
+date field = [20140218 15:59:01]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','DAN','35000','0.0000','0.0000','BUY','UN','EATOX','','2014-02-18','2014-02-18 15:42:00','','','','0','0.0000','','EATOX','','','1995788','','T','0','','MULTI','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1995788','0','2014-02-18 15:59:01')
+
+date field = [20140218 16:09:53]
+
+>>>>
+
+insert into client_orders_street 
+				(R,		Ticker, 	Quantity,		fill_price,		limit_price,		buy_sell,		Exchange,		customer_id,		app_id,		Datez,		Timez,
+		Firm,		Branch,		seq_num,		Leaves,		stop_price,		trading_account,		customer_acct,		give_up,		Basket,		Major_id,
+		Comm_rate,		Comm_type,		Markup,		Comment,		exec_broker,		busted_flag,		contra_specialist,		contra_mnemonic,		contra_badge,
+		contra_qty,		contra_date,		contra_time,		tran_id,		parent_id,		minor_id,		last_trade) values  ('R','FRC','28000','0.0000','0.0000','BUY','UN','EATOX','','2014-02-18','2014-02-18 15:43:33','','','','0','0.0000','','EATOX','','','1995946','','T','0','','BCAL','N','','','0','0','0000-00-00','00:00:00','0000-00-00','1995946','0','2014-02-18 16:09:53')
+
+
+<br>Rows Processed : 40
+<br> Process Time 1.00 s.

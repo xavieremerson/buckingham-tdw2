@@ -1,0 +1,280 @@
+<HTML
+><HEAD
+><TITLE
+>Auth_PrefManager</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Authentication"
+HREF="package.authentication.html"><LINK
+REL="PREVIOUS"
+TITLE="Auth_HTTP::start()"
+HREF="package.authentication.auth-http.auth-http.start.html"><LINK
+REL="NEXT"
+TITLE="
+    Introduction to
+    Auth_PrefManager
+   "
+HREF="package.authentication.auth-prefmanager.intro.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.authentication.auth-http.auth-http.start.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 28. Authentication</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.authentication.auth-prefmanager.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.authentication.auth-prefmanager">Auth_PrefManager</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.authentication.auth-prefmanager.intro.html"
+>Introduction to
+    <B
+CLASS="classname"
+>Auth_PrefManager</B
+></A
+>&nbsp;--&nbsp;
+    <B
+CLASS="classname"
+>Auth_PrefManager</B
+> is a simple class to manage user or application preferences from a <A
+HREF="package.database.db.html"
+><B
+CLASS="classname"
+>DB</B
+></A
+> compatible database.
+   </DT
+><DT
+><A
+HREF="package.authentication.auth-prefmanager.tutorial.html"
+>Tutorial</A
+>&nbsp;--&nbsp;
+    A short guide to using <B
+CLASS="classname"
+>Auth_PrefManager</B
+>
+   </DT
+><DT
+><A
+HREF="package.authentication.auth-prefmanager.auth-prefmanager.auth-prefmanager.html"
+>constructor
+   <B
+CLASS="function"
+>Auth_PrefManager::Auth_PrefManager()</B
+></A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.authentication.auth-prefmanager.auth-prefmanager.clearcache.html"
+><B
+CLASS="function"
+>Auth_PrefManager::clearCache()</B
+></A
+>&nbsp;--&nbsp;Cleans out the cache.</DT
+><DT
+><A
+HREF="package.authentication.auth-prefmanager.auth-prefmanager.deletedefaultpref.html"
+><B
+CLASS="function"
+>Auth_PrefManager::deleteDefaultPref()</B
+></A
+>&nbsp;--&nbsp;Deletes a preference for the default user.</DT
+><DT
+><A
+HREF="package.authentication.auth-prefmanager.auth-prefmanager.deletepref.html"
+><B
+CLASS="function"
+>Auth_PrefManager::deletePref()</B
+></A
+>&nbsp;--&nbsp;Deletes a preference for the specified user.</DT
+><DT
+><A
+HREF="package.authentication.auth-prefmanager.auth-prefmanager.getdefaultpref.html"
+><B
+CLASS="function"
+>Auth_PrefManager::getDefaultPref()</B
+></A
+>&nbsp;--&nbsp;
+   Retrieves a default value.
+</DT
+><DT
+><A
+HREF="package.authentication.auth-prefmanager.auth-prefmanager.getpref.html"
+><B
+CLASS="function"
+>Auth_PrefManager::getPref()</B
+></A
+>&nbsp;--&nbsp;
+   Get a preference.
+</DT
+><DT
+><A
+HREF="package.authentication.auth-prefmanager.auth-prefmanager.setdefaultpref.html"
+><B
+CLASS="function"
+>Auth_PrefManager::setDefaultPref()</B
+></A
+>&nbsp;--&nbsp;Set the default value for a preference.</DT
+><DT
+><A
+HREF="package.authentication.auth-prefmanager.auth-prefmanager.setpref.html"
+><B
+CLASS="function"
+>Auth_PrefManager::setPref()</B
+></A
+>&nbsp;--&nbsp;Set a preference.</DT
+><DT
+><A
+HREF="package.authentication.auth-prefmanager.auth-prefmanager.setreturndefaults.html"
+><B
+CLASS="function"
+>Auth_PrefManager::setReturnDefaults()</B
+></A
+>&nbsp;--&nbsp;
+    Set whether to return default values.
+  </DT
+><DT
+><A
+HREF="package.authentication.auth-prefmanager.auth-prefmanager.usecache.html"
+><B
+CLASS="function"
+>Auth_PrefManager::useCache()</B
+></A
+>&nbsp;--&nbsp;Sets whether the cache should be used.</DT
+></DL
+></DIV
+><P
+>&#13;  Provides a framework for managing preferences in applications.
+ </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.authentication.auth-http.auth-http.start.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.authentication.auth-prefmanager.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Auth_HTTP::start()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.authentication.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction to
+    <B
+CLASS="classname"
+>Auth_PrefManager</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

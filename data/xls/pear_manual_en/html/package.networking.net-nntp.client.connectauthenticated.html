@@ -1,0 +1,579 @@
+<HTML
+><HEAD
+><TITLE
+>Net_NNTP_Client::connectAuthenticated()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_NNTP_Client"
+HREF="package.networking.net-nntp.html#package.networking.net-nntp.client"><LINK
+REL="PREVIOUS"
+TITLE="Net_NNTP_Client::connect()"
+HREF="package.networking.net-nntp.client.connect.html"><LINK
+REL="NEXT"
+TITLE="Net_NNTP_Client::count()"
+HREF="package.networking.net-nntp.client.count.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-nntp.client.connect.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-nntp.client.count.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-nntp.client.connectauthenticated">Net_NNTP_Client::connectAuthenticated()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN84384"
+></A
+>Net_NNTP_Client::connectAuthenticated()&nbsp;--&nbsp;Connect and authenticate to a NNTP-server</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN84387"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN84388"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Net/NNTP/Client.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>boolean <B
+CLASS="function"
+>Net_NNTP_Client::connectAuthenticated</B
+></CODE
+> ([integer $user = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> [, integer $pass = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> [, string $host = <A
+HREF="package.networking.net-nntp.client.constants.html#package.networking.net-nntp.client.constants.net-nntp-protocol-default-host"
+><TT
+CLASS="constant"
+><B
+>NET_NNTP_PROTOCOL_DEFAULT_HOST</B
+></TT
+></A
+> [, integer $port = <A
+HREF="package.networking.net-nntp.client.constants.html#package.networking.net-nntp.client.constants.net-nntp-protocol-default-port"
+><TT
+CLASS="constant"
+><B
+>NET_NNTP_PROTOCOL_DEFAULT_PORT</B
+></TT
+></A
+> [, integer $authmode = <A
+HREF="package.networking.net-nntp.client.constants.html#package.networking.net-nntp.client.constants.net-nntp-authoriginal"
+><TT
+CLASS="constant"
+><B
+>NET_NNTP_AUTHORIGINAL</B
+></TT
+></A
+>]]]]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.client.connectauthenticated.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Connect and authenticate to a specific NNTP-server
+    </P
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>This function is
+<SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>deprecated</I
+></SPAN
+>. That means that future versions of
+this package may not support it anymore.</P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.client.connectauthenticated.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>$user</I
+></TT
+> - Username to authenticate
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>$pass</I
+></TT
+> - Password to authenticate
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>$host</I
+></TT
+> - Hostname of the NNTP-server. Default=<A
+HREF="package.networking.net-nntp.client.constants.html#package.networking.net-nntp.client.constants.net-nntp-protocol-default-host"
+><TT
+CLASS="constant"
+><B
+>NET_NNTP_PROTOCOL_DEFAULT_HOST</B
+></TT
+></A
+>
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>$port</I
+></TT
+> - Port, where the NNTP-server listens. Default=<A
+HREF="package.networking.net-nntp.client.constants.html#package.networking.net-nntp.client.constants.net-nntp-protocol-default-port"
+><TT
+CLASS="constant"
+><B
+>NET_NNTP_PROTOCOL_DEFAULT_PORT</B
+></TT
+></A
+>
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>$authmode</I
+></TT
+> - Type of authentication. Default=<A
+HREF="package.networking.net-nntp.client.constants.html#package.networking.net-nntp.client.constants.net-nntp-authoriginal"
+><TT
+CLASS="constant"
+><B
+>NET_NNTP_AUTHORIGINAL</B
+></TT
+></A
+>
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.client.connectauthenticated.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>boolean</I
+></TT
+> - 
+     Returns <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> on success,
+<B
+CLASS="classname"
+>PEAR_Error</B
+> on failure.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.client.connectauthenticated.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN84456"><P
+><B
+>Table 48-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <TT
+CLASS="parameter"
+><I
+>"Could not connect to NNTP-server $host"
+         </I
+></TT
+> or
+          <TT
+CLASS="parameter"
+><I
+>"Not connected"</I
+></TT
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          The connection couldn't be established because
+          <P
+></P
+><UL
+><LI
+><P
+>wrong hostname/ip-address or port</P
+></LI
+><LI
+><P
+>the host itself isn't linked to a network</P
+></LI
+><LI
+><P
+>a firewall doesn't allow access</P
+></LI
+></UL
+>            
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Check for server name, the connection to the net and possible
+          firewalls on client or server side.
+         </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.client.connectauthenticated.note"
+></A
+><H2
+>Note</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>since</I
+></SPAN
+> 0.3
+    </P
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.client.connectauthenticated.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;     <A
+HREF="package.networking.net-nntp.client.connect.html"
+>&#13;      <B
+CLASS="function"
+>Net_NNTP_Client::connect()</B
+></A
+>
+     <A
+HREF="package.networking.net-nntp.client.quit.html"
+>&#13;      <B
+CLASS="function"
+>Net_NNTP_Client::quit()</B
+></A
+>,
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.client.connectauthenticated.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN84495"><P
+><B
+>Example 48-1. Using <B
+CLASS="function"
+>connectauthenticated()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Net/NNTP/Client.php';
+
+$nntp = new Net_NNTP_Client();
+$ret = $nntp-&#62;connectAuthenticated('news.php.net');
+if( PEAR::isError($ret)) {
+    // handle error
+} else {
+    // success
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-nntp.client.connect.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-nntp.client.count.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Net_NNTP_Client::connect()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-nntp.html#package.networking.net-nntp.client"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="classname"
+>Net_NNTP_Client</B
+>::<TT
+CLASS="methodname"
+>count</TT
+>()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

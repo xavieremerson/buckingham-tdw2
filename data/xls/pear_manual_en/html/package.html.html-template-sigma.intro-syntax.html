@@ -1,0 +1,873 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - template syntax</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_Sigma"
+HREF="package.html.html-template-sigma.html"><LINK
+REL="PREVIOUS"
+TITLE="HTML_Template_Sigma"
+HREF="package.html.html-template-sigma.html"><LINK
+REL="NEXT"
+TITLE="Introduction - cache"
+HREF="package.html.html-template-sigma.intro-cache.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-sigma.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-sigma.intro-cache.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-sigma.intro-syntax">Introduction - template syntax</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN70595"
+></A
+>Introduction - template syntax&nbsp;--&nbsp;Creating and editing templates</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.intro-syntax.placeholder"
+></A
+><H2
+>Placeholders</H2
+><P
+>&#13;    The default format of placeholder is
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>{[0-9A-Za-z_-]+}</PRE
+></TD
+></TR
+></TABLE
+>
+    This means, the name of the placeholder can consist of upper- and lowercase
+    letters, underscores and hyphens. The name must be placed between curly
+    brackets without any spaces.
+   </P
+><P
+>&#13;    Actual values for the placeholders are set using <A
+HREF="package.html.html-template-sigma.html-template-sigma.setvariable.html"
+><B
+CLASS="function"
+>setVariable()</B
+></A
+> and <A
+HREF="package.html.html-template-sigma.html-template-sigma.setglobalvariable.html"
+><B
+CLASS="function"
+>setGlobalVariable()</B
+></A
+> methods. Placeholders for which no values were set are removed from output by default.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.intro-syntax.block"
+></A
+><H2
+>Blocks</H2
+><P
+>&#13;    The format of a block is
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#60;!-- BEGIN [0-9A-Za-z_-]+ --&#62;
+... block content ...
+&#60;!-- END [0-9A-Za-z_-]+ --&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+    The rules for the block name are the same like for placeholders.
+    In contrast to placeholders the spaces in the block markup are
+    required.
+   </P
+><P
+>&#13;    The nesting of blocks is permitted, but be careful while
+    parsing. You have to <A
+HREF="package.html.html-template-sigma.html-template-sigma.parse.html"
+><B
+CLASS="function"
+>parse()</B
+></A
+> the innermost block first and then go from inner to outer.
+   </P
+><P
+>&#13;    In Sigma the whole template itself is treated as a virtual block called
+    <TT
+CLASS="literal"
+>"__global__"</TT
+>. Most block-related functions use this block
+    name as default.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.intro-syntax.include"
+></A
+><H2
+>&#60;!-- INCLUDE --&#62; statements</H2
+><P
+>&#13;      It is possible to include a template file from within another template file using an <TT
+CLASS="literal"
+>&#60;!-- INCLUDE filename --&#62;</TT
+> statement:
+      <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>... some content ...
+&#60;!-- INCLUDE filename.html --&#62;
+... some more content ...</PRE
+></TD
+></TR
+></TABLE
+>
+      When such a template file gets loaded, the <TT
+CLASS="literal"
+>&#60;!-- INCLUDE filename.html --&#62;</TT
+> will be replaced by contents of <TT
+CLASS="filename"
+>filename.html</TT
+>.
+    </P
+><P
+>&#13;    Some things to note:
+    <P
+></P
+><UL
+><LI
+><P
+>Although this functionality is implemented using <A
+HREF="package.html.html-template-sigma.html-template-sigma.addblockfile.html"
+><B
+CLASS="function"
+>addBlockfile()</B
+></A
+>, unlike <B
+CLASS="function"
+>addBlockfile()</B
+> no new blocks are created in the template.</P
+></LI
+><LI
+><P
+><TT
+CLASS="literal"
+>&#60;!-- INCLUDE --&#62;</TT
+> calls are processed before any variable substitution can take place. So <TT
+CLASS="literal"
+>&#60;!-- INCLUDE {placeholder} --&#62;</TT
+> will not work unless you actually have a file named <TT
+CLASS="filename"
+>{placeholder}</TT
+> and want to load it.</P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.intro-syntax.callback"
+></A
+><H2
+>Template functions</H2
+><P
+>&#13;      Sigma templates can contain simple function calls. This means that the  author of the template can add a special placeholder to it
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>... some content ...
+func_h1("embedded in h1")
+... some more content ...</PRE
+></TD
+></TR
+></TABLE
+>
+Sigma will parse the template for these placeholders and will allow  you to define a callback function for them via <A
+HREF="package.html.html-template-sigma.html-template-sigma.setcallbackfunction.html"
+><B
+CLASS="function"
+>setCallbackFunction()</B
+></A
+>. Callback will be called  automatically when the block containing such function call is <A
+HREF="package.html.html-template-sigma.html-template-sigma.parse.html"
+><B
+CLASS="function"
+>parse()</B
+></A
+>'d.
+    </P
+><P
+>&#13;    Format of such function name is as follows
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>func_[_a-zA-Z]+[A-Za-z_0-9]*</PRE
+></TD
+></TR
+></TABLE
+>
+that means that it should start with a 'func_' prefix, then has a letter or an undercore and then a sequence of letters, digits or underscores. Arguments to these template functions can contain  variable placeholders
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>func_translate('Hello, {username}')</PRE
+></TD
+></TR
+></TABLE
+>
+     but not  blocks or other function calls.
+    </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-template-sigma.intro-syntax.callback.quoting"
+></A
+><H3
+>Quoting of template function arguments</H3
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+          The information in this section applies to <B
+CLASS="classname"
+>HTML_Template_Sigma</B
+>
+          version 1.1.2 and later, please upgrade if you have problems with template 
+          function arguments in previous versions.
+        </P
+></BLOCKQUOTE
+></DIV
+><P
+>&#13;        Quoting of function arguments is not mandatory, the following is a perfectly
+        valid template function:
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>func_uppercase(Some unquoted text)</PRE
+></TD
+></TR
+></TABLE
+>
+        But consider the following: function arguments are contained within 
+        parentheses and separated by commas. Therefore if closing parenthesis
+        <TT
+CLASS="literal"
+>')'</TT
+> or comma <TT
+CLASS="literal"
+>','</TT
+> 
+        appears in function argument, it should be quoted.
+      </P
+><P
+>&#13;        The next thing to consider is that <B
+CLASS="classname"
+>HTML_Template_Sigma</B
+>
+        is mostly targeted for generating <SPAN
+CLASS="acronym"
+>HTML</SPAN
+>. Therefore a quoted
+        string within an argument is most probably a tag attribute. The contents of
+        such strings are <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>not</I
+></SPAN
+> parsed for commas and parentheses.
+        Therefore the following is also a perfectly valid template function:
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>func_foo(&#60;a href="javascript:foo(bar, baz)"&#62;Do foo&#60;/a&#62;)</PRE
+></TD
+></TR
+></TABLE
+>
+        But if you have an unmatched single or double quote in your argument or if the
+        argument starts with a quote, it should be quoted.
+      </P
+><P
+>&#13;        Finally, the argument should be quoted if it is an empty string or if its 
+        leading or trailing whitespace is significant (leading and trailing whitespace 
+        will be removed from unquoted arguments).
+      </P
+><P
+>&#13;        The arguments can be quoted using either single or double quotes. If an
+        argument contains a quote of the same type, then it should be escaped using
+        the backslash symbol <TT
+CLASS="literal"
+>'\'</TT
+>. The backslash symbol
+        itself should also be escaped,
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>func_foo('O\'really')
+func_foo('AC\\DC')</PRE
+></TD
+></TR
+></TABLE
+>
+        will pass <TT
+CLASS="literal"
+>O'really</TT
+> and <TT
+CLASS="literal"
+>AC\DC</TT
+> to
+        the relevant callbacks.
+      </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN70666"><P
+><B
+>Example 41-1. Valid and invalid template function arguments</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>Valid arguments:
+func_foo(Some unquoted text)
+func_foo("Some quoted text")
+func_foo(&#60;a href="javascript:foo(bar, baz)"&#62;Do foo&#60;/a&#62;)
+func_foo('O\'really')
+func_foo('AC\\DC')
+
+Invalid arguments:
+func_foo(Hello, {username}) contains a comma, will yield two arguments instead of one
+func_foo(O'really) unmatched single quote
+func_foo('O'really') unescaped single quote
+func_foo(, 'whatever') empty arguments should be quoted</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.intro-syntax.callback-shorthand"
+></A
+><H2
+>Shorthand for template functions</H2
+><P
+>&#13;    Since release 1.1.0, instead of using
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>func_callback({var})</PRE
+></TD
+></TR
+></TABLE
+>
+    you can write
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>{var:callback}</PRE
+></TD
+></TR
+></TABLE
+>
+    There are 3 automatically registered template functions
+<P
+></P
+><UL
+><LI
+><P
+>'h' for <A
+HREF="http://www.php.net/manual-lookup.php?pattern=htmlspecialchars"
+TARGET="_top"
+><B
+CLASS="function"
+>htmlspecialchars()</B
+></A
+></P
+></LI
+><LI
+><P
+>'u' for <A
+HREF="http://www.php.net/manual-lookup.php?pattern=urlencode"
+TARGET="_top"
+><B
+CLASS="function"
+>urlencode()</B
+></A
+></P
+></LI
+><LI
+><P
+>'j' for a method of <B
+CLASS="classname"
+>Sigma</B
+> that escapes the string for usage in Javascript string constants.</P
+></LI
+></UL
+>
+    </P
+><P
+>Thus, if you add <TT
+CLASS="literal"
+>{var:h}</TT
+> placeholder to the template, var will be have unsafe characters replaced by corresponding HTML entitites.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.intro-syntax.example"
+></A
+><H2
+>Usage Example</H2
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Other usage examples: </B
+>There are several usage examples in the package archive that cover most of its functionality. You are encouraged to review them along with the docs.</P
+></BLOCKQUOTE
+></DIV
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN70693"><P
+><B
+>Example 41-2. The <TT
+CLASS="filename"
+>table.html</TT
+> template file</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#60;html&#62;
+&#60;body&#62;
+&#60;table cellpadding="2" cellspacing="0" border="1"&#62;
+&#60;!-- INCLUDE table_header.html --&#62;
+&#60;!-- BEGIN table_row --&#62;
+    &#60;tr&#62;
+        &#60;td bgcolor="func_bgcolor('#CCCCCC', '#F0F0F0')"&#62;{first_name}&#60;/td&#62;
+        &#60;td bgcolor="func_bgcolor('#CCCCCC', '#F0F0F0')"&#62;{last_name}&#60;/td&#62;
+    &#60;/tr&#62;
+&#60;!-- END table_row --&#62;
+&#60;/table&#62;
+&#60;/body&#62;
+&#60;/acronym&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN70697"><P
+><B
+>Example 41-3. The <TT
+CLASS="filename"
+>table_header.html</TT
+> template file</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#60;tr&#62;
+        &#60;th&#62;First name&#60;/th&#62;
+        &#60;th&#62;Last name&#60;/th&#62;
+    &#60;/tr&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN70701"><P
+><B
+>Example 41-4. The script</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+require_once 'HTML/Template/Sigma.php';
+
+function toggle($item1, $item2)
+{
+    static $i = 1;
+
+    return $i++ % 2? $item1: $item2;
+}
+
+$data = array (
+    array("Stig", "Bakken"),
+    array("Martin", "Jansen"),
+    array("Alexander", "Merz")
+);
+
+$tpl =&#38; new HTML_Template_Sigma('.');
+
+$tpl-&#62;loadTemplateFile('table.html');
+
+$tpl-&#62;setCallbackFunction('bgcolor', 'toggle');
+
+foreach ($data as $name) {
+    // assign data
+    $tpl-&#62;setVariable(array(
+        'first_name'  =&#62; $name[0],
+        'last_name' =&#62; $name[1]
+    ));
+    // process the block
+    $tpl-&#62;parse('table_row');
+}
+
+// print out the output
+$tpl-&#62;show();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN70704"><P
+><B
+>Example 41-5. The output</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#60;html&#62;
+&#60;body&#62;
+&#60;table cellpadding="2" cellspacing="0" border="1"&#62;
+    &#60;tr&#62;
+        &#60;th&#62;First name&#60;/th&#62;
+        &#60;th&#62;Last name&#60;/th&#62;
+    &#60;/tr&#62;
+
+
+    &#60;tr&#62;
+        &#60;td bgcolor="#CCCCCC"&#62;Stig&#60;/td&#62;
+        &#60;td bgcolor="#CCCCCC"&#62;Bakken&#60;/td&#62;
+    &#60;/tr&#62;
+
+    &#60;tr&#62;
+        &#60;td bgcolor="#F0F0F0"&#62;Martin&#60;/td&#62;
+        &#60;td bgcolor="#F0F0F0"&#62;Jansen&#60;/td&#62;
+    &#60;/tr&#62;
+
+    &#60;tr&#62;
+        &#60;td bgcolor="#CCCCCC"&#62;Alexander&#60;/td&#62;
+        &#60;td bgcolor="#CCCCCC"&#62;Merz&#60;/td&#62;
+    &#60;/tr&#62;
+
+&#60;/table&#62;
+&#60;/body&#62;
+&#60;/html&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-sigma.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-sigma.intro-cache.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_Template_Sigma</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-sigma.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction - cache</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,340 @@
+<HTML
+><HEAD
+><TITLE
+>Translation2_Admin::add</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Translation2"
+HREF="package.internationalization.translation2.html"><LINK
+REL="PREVIOUS"
+TITLE="Translation2_Admin::removeLang"
+HREF="package.internationalization.translation2.translation2-admin.removelang.html"><LINK
+REL="NEXT"
+TITLE="Translation2_Admin::remove"
+HREF="package.internationalization.translation2.translation2-admin.remove.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.internationalization.translation2.translation2-admin.removelang.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.internationalization.translation2.translation2-admin.remove.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.internationalization.translation2.translation2-admin.add"><B
+CLASS="function"
+>Translation2_Admin::add()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN79175"
+></A
+><B
+CLASS="function"
+>Translation2_Admin::add()</B
+>&nbsp;--&nbsp;add a new translation</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN79179"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN79180"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Admin.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed      <B
+CLASS="function"
+>Translation2_Admin::add</B
+></CODE
+> (string $stringID [, string $pageID = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>, array $stringArray])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.translation2.translation2-admin.add.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      Add a new translated string (or a set of translated strings) for a given
+      <TT
+CLASS="parameter"
+><I
+>stringID</I
+></TT
+>. For instance, to add the English, Spanish and Italian
+      translations for the stringID 'example', use the following code:
+      <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$stringArray = array(
+    'en' =&#62; 'example',
+    'es' =&#62; 'ejemplo',
+    'it' =&#62; 'esempio',
+);
+$tr-&#62;add('example', 'mypage', $stringArray);</PRE
+></TD
+></TR
+></TABLE
+>
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.translation2.translation2-admin.add.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+         <TT
+CLASS="parameter"
+><I
+>$stringID</I
+></TT
+></DT
+><DD
+><P
+>&#13;         identificator for the string
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+         <TT
+CLASS="parameter"
+><I
+>$pageID</I
+></TT
+></DT
+><DD
+><P
+>&#13;         destination pageID, i.e. the group of strings where this string belongs to.
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array
+        <TT
+CLASS="parameter"
+><I
+>$stringArray</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Associative array with string translations.
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.translation2.translation2-admin.add.returns"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>returns</I
+></SPAN
+> true on success, PEAR_Error on failure
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.translation2.translation2-admin.add.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.internationalization.translation2.translation2-admin.removelang.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.internationalization.translation2.translation2-admin.remove.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>Translation2_Admin::removeLang()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.internationalization.translation2.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Translation2_Admin::remove()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,330 @@
+<HTML
+><HEAD
+><TITLE
+>File_Find::search()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File_Find"
+HREF="package.filesystem.file-find.html"><LINK
+REL="PREVIOUS"
+TITLE="File_Find::mapTreeMultiple()"
+HREF="package.filesystem.file-find.maptreemultiple.html"><LINK
+REL="NEXT"
+TITLE="File_SMBPasswd"
+HREF="package.filesystem.file-smbpasswd.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-find.maptreemultiple.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-smbpasswd.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.filesystem.file-find.search">File_Find::search()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN47479"
+></A
+>File_Find::search()&nbsp;--&nbsp;find matches for a pattern in a directory</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN47482"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN47483"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'File/Find.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array
+      <B
+CLASS="function"
+>&#38;File_Find::search</B
+></CODE
+> (string $pattern, string $dirpath [, string $pattern_type = 'php' [, bool $fullpath = true [, string $match = 'files']]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-find.search.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Search the directory to find matches for the specified pattern.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-find.search.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;    <P
+></P
+><UL
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>$pattern</I
+></TT
+> - a string containing the pattern
+       to search the directory for.
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>$dirpath</I
+></TT
+> - a string containing the
+       directory path to search.
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>$pattern_type</I
+></TT
+> - a string containing the type
+       of pattern matching functions to use (can either be 'php', 'perl' or 'shell').
+      </P
+><P
+>&#13;       The format of the <TT
+CLASS="parameter"
+><I
+>$pattern</I
+></TT
+> depends on the
+       <TT
+CLASS="parameter"
+><I
+>$pattern_type</I
+></TT
+>-value. For more information see
+       <A
+HREF="package.filesystem.file-find.searchmethods.html"
+>search methods</A
+>
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>$fullpath</I
+></TT
+> - whether the string should be
+       matched against the full path or only against the filename
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>$match</I
+></TT
+> -  can be either 'files', 'dirs' or
+       'both' to specify the kind of list to return 
+      </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-find.search.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>array</I
+></TT
+> - 
+      an array containing all filenames
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-find.search.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-find.search.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;     <A
+HREF="package.filesystem.file-find.glob.html"
+>&#13;      <B
+CLASS="function"
+>File_Find::glob()</B
+>
+     </A
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-find.maptreemultiple.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-smbpasswd.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>File_Find::mapTreeMultiple()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-find.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>File_SMBPasswd</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

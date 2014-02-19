@@ -1,0 +1,216 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - Sequences</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="MDB"
+HREF="package.database.mdb.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction - Fetch"
+HREF="package.database.mdb.intro-fetch.html"><LINK
+REL="NEXT"
+TITLE="Introduction - Execute"
+HREF="package.database.mdb.intro-executequery.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb.intro-fetch.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb.intro-executequery.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.mdb.intro-sequences">Introduction - Sequences</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN27786"
+></A
+>Introduction - Sequences&nbsp;--&nbsp;Database sequences</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb.intro-sequences.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Sequences are a way of offering unique IDs for data rows. If you
+     do most of your work with e.g. MySQL, think of sequences as
+     another way of doing <TT
+CLASS="constant"
+><B
+>AUTO_INCREMENT</B
+></TT
+>.
+     It's quite simple, first you
+     request an ID, and then you insert that value in the ID field of
+     the new row you're creating. You can have more than one sequence
+     for all your tables, just be sure that you always use the same
+     sequence for any particular table. To get the value of this
+     unique ID use <A
+HREF="package.database.mdb.mdb-common.nextid.html"
+>&#13;    <B
+CLASS="function"
+>nextId()</B
+>
+   </A
+>, if a sequence doesn't
+     exists, it will be created automaticlly.
+     <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN27795"><P
+><B
+>Example 33-1. Using a sequence</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>...
+$id = $db-&#62;nextId('mySequence');
+// Use the ID in your INSERT query
+$res = $db-&#62;query("INSERT INTO myTable (id,text) VALUES ($id,'foo')");
+...</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.mdb.intro-fetch.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.mdb.intro-executequery.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction - Fetch</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.mdb.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction - Execute</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

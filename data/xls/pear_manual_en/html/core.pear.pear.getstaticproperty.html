@@ -1,0 +1,363 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR::getStaticProperty()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR"
+HREF="core.pear.html#core.pear.pear"><LINK
+REL="PREVIOUS"
+TITLE="PEAR::_PEAR()"
+HREF="core.pear.pear.-pear.html"><LINK
+REL="NEXT"
+TITLE="PEAR::registerShutdownFunc()"
+HREF="core.pear.pear.registershutdownfunc.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.pear.pear.-pear.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.pear.pear.registershutdownfunc.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.pear.pear.getstaticproperty">PEAR::getStaticProperty()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN4240"
+></A
+>PEAR::getStaticProperty()&nbsp;--&nbsp;handle static properties (package developer related)</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN4243"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN4244"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'PEAR.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>&#38;PEAR::getStaticProperty</B
+></CODE
+> (string $class, string $var)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear.getstaticproperty.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     If you have a class that's mostly/entirely static, and you need static
+     properties, you can use this method to simulate them. Eg. in your method(s)
+     do this: 
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$myVar = &#38;PEAR::getStaticProperty('myVar');</PRE
+></TD
+></TR
+></TABLE
+>
+     You <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>must</I
+></SPAN
+> use a reference, or they will not persist!
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear.getstaticproperty.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $class</I
+></TT
+> - the name of your class, where you
+        call <B
+CLASS="function"
+>getStaticProperty()</B
+>
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $var</I
+></TT
+> the variable to retrieve.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear.getstaticproperty.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>mixed</I
+></TT
+> -
+     A reference to the variable. If not set, it will be 
+     auto initialised to <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear.getstaticproperty.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN4276"><P
+><B
+>Example 26-1. Using <B
+CLASS="function"
+>getStaticProperty()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+require_once 'PEAR.php';
+
+class myClass {
+
+function setValue( $set) 
+{
+ $foo = &#38;PEAR::getStaticProperty('myClass', "foo");
+ $foo = $set;
+}
+
+function view()
+{
+ print PEAR::getStaticProperty('myClass', "foo");
+}
+
+}
+
+myClass::setValue('value = foo');
+myClass::view();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;      This would print
+     </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>value = foo</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.pear.pear.-pear.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.pear.pear.registershutdownfunc.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>PEAR::_PEAR()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.pear.html#core.pear.pear"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>PEAR::registerShutdownFunc()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

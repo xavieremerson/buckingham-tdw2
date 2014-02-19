@@ -1,0 +1,302 @@
+<HTML
+><HEAD
+><TITLE
+>Custom File Tasks</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="New features in PEAR 1.4"
+HREF="guide-migrating.html"><LINK
+REL="PREVIOUS"
+TITLE="Defining a customized role for use in a package.xml"
+HREF="guide.migrating.customroles.defining.html"><LINK
+REL="NEXT"
+TITLE="Creating customized tasks in PHP"
+HREF="guide.migrating.customtasks.php.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="chapter"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="guide.migrating.customroles.defining.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="guide.migrating.customtasks.php.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="chapter"
+><H1
+><A
+NAME="guide.migrating.customtasks"
+>Chapter 24. Custom File Tasks</A
+></H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="guide.migrating.customtasks.html#guide.migrating.customtasks.xml"
+>Using a customized task in a package.xml</A
+></DT
+><DT
+><A
+HREF="guide.migrating.customtasks.php.html"
+>Creating customized tasks in PHP</A
+></DT
+></DL
+></DIV
+><P
+>&#13;  For many small library packages, very little customization is needed.  Just install
+  and go.  package.xml 1.0 is very good at this task.  As packages grow in size and
+  complexity, it is often necessary to make slight changes to the contents of files,
+  and occasionally to external components such as databases.
+ </P
+><P
+>&#13;  package.xml 1.0 provides a single undocumented system of customizing file contents through
+  the &#60;replace&#62; tag, like so:
+ </P
+><P
+>&#13;  <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;file name="blah.php" role="php"&#62;
+ &#60;replace from="@token@" to="version" type="package-info"/&#62;
+ &#60;replace from="@anothertoken@" to="php_dir" type="pear-config"/&#62;
+&#60;/file&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+ </P
+><P
+>&#13;  This example above would scan the blah.php file at installation, and then use
+  <A
+HREF="http://www.php.net/manual/str_replace"
+TARGET="_top"
+><B
+CLASS="function"
+>str_replace()</B
+></A
+>
+  to replace all occurences of the string <TT
+CLASS="literal"
+>@token@</TT
+> with the package's
+  version number.  Then, it would replace all occurences of the string
+  <TT
+CLASS="literal"
+>@anothertoken@</TT
+> with the value of the user's php_dir configuration
+  variable.
+ </P
+><P
+>&#13;  Although powerful, the replace tag is the only customization tag available in package.xml
+  version 1.0.  When developing package.xml version 2.0, the replace tag and innovative work
+  of other projects such as <A
+HREF="http://phing.info/"
+TARGET="_top"
+>Phing</A
+> became the inspiration
+  for an expanded kind customization called a "task".
+ </P
+><P
+>&#13;  Tasks are defined by xml children of a
+  <A
+HREF="guide.developers.package2.file.html"
+>&#60;file&#62;</A
+> tag.  Tasks are
+  implemented by extending the <B
+CLASS="classname"
+>PEAR_Task_Common</B
+> task.
+ </P
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="guide.migrating.customtasks.xml">Using a customized task in a package.xml</H1
+><P
+>&#13;   Tasks are defined in package.xml through the tasks namespace, which is currently
+   <FONT
+COLOR="RED"
+>http://pear.php.net/dtd/tasks-1.0</FONT
+>.  The current tasks
+   namespace is defined by <A
+HREF="http://pear.php.net/dtd/tasks-1.0.xsd"
+TARGET="_top"
+>http://pear.php.net/dtd/tasks-1.0.xsd</A
+>.
+   Custom tasks bundled with PEAR include:
+  </P
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      <A
+HREF="guide.developers.package2.tasks.html#guide.developers.package2.tasks.replace"
+>&#60;tasks:replace&#62;</A
+>
+     </P
+></LI
+><LI
+><P
+>&#13;      <A
+HREF="guide.developers.package2.tasks.html#guide.developers.package2.tasks.unixeol"
+>&#60;tasks:unixeol&#62;</A
+>
+     </P
+></LI
+><LI
+><P
+>&#13;      <A
+HREF="guide.developers.package2.tasks.html#guide.developers.package2.tasks.windowseol"
+>&#60;tasks:windowseol&#62;</A
+>
+     </P
+></LI
+><LI
+><P
+>&#13;      <A
+HREF="guide.developers.package2.tasks.html#guide.developers.package2.tasks.postinstallscript"
+>&#60;tasks:postinstallscript&#62;</A
+>
+     </P
+></LI
+></UL
+>
+  </P
+><P
+>&#13;   The xml for each of these tasks is documented
+   <A
+HREF="guide.developers.package2.tasks.html"
+>here</A
+>.
+  </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="guide.migrating.customroles.defining.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="guide.migrating.customtasks.php.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Defining a customized role for use in a package.xml</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="guide-migrating.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Creating customized tasks in PHP</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

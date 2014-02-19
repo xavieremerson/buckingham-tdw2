@@ -1,0 +1,539 @@
+<HTML
+><HEAD
+><TITLE
+>DB_common::nextId()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="DB_common::limitQuery()"
+HREF="package.database.db.db-common.limitquery.html"><LINK
+REL="NEXT"
+TITLE="DB_common::prepare()"
+HREF="package.database.db.db-common.prepare.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.limitquery.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.prepare.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.db-common.nextid">DB_common::nextId()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN24124"
+></A
+>DB_common::nextId()&nbsp;--&nbsp;Returns the next number from a sequence</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN24127"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN24128"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>integer <B
+CLASS="function"
+>nextId</B
+></CODE
+> (string $seq_name, boolean <TT
+CLASS="option"
+>$onDemand = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+></TT
+>)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.nextid.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Returns the next available number from a sequence.
+   The sequence is automatically incremented each time
+   this method is called.
+  </P
+><P
+>&#13;   See <A
+HREF="package.database.db.intro-sequences.html"
+><SPAN
+CLASS="QUOTE"
+>"Intro -
+    Sequences"</SPAN
+></A
+> for a more complete discusion.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.nextid.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+      <TT
+CLASS="parameter"
+><I
+>$seq_name</I
+></TT
+></DT
+><DD
+><P
+>&#13;       name of the sequence
+      </P
+><P
+>&#13;       To avoid problems with various database systems,
+       sequence names should start with a letter and only
+       contain letters, numbers and the underscore character.
+      </P
+></DD
+><DT
+>boolean
+      <TT
+CLASS="parameter"
+><I
+>$onDemand</I
+></TT
+></DT
+><DD
+><P
+>&#13;       When <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, the sequence is automatically created
+       if it does not exist yet.
+      </P
+><P
+>&#13;       The on demand creation process necessitates
+       the database user specified in the script
+       having the database permissions needed to create
+       a table or sequence.  The exact privileges involved
+       depends on the DBMS being used.
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.nextid.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   integer - a free id number
+   or a <A
+HREF="package.database.db.db-error.html"
+><B
+CLASS="classname"
+>DB_Error</B
+></A
+> object on failure
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.nextid.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <DIV
+CLASS="table"
+><A
+NAME="AEN24172"><P
+><B
+>Table 33-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_NOT_CAPABLE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        DB backend not capable
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Function is not supported by the database backend
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Switch to another database system, if you really
+        need this feature.
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_NOT_LOCKED</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        not locked
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Locking of sequence table fails
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Database specific, check documentation of your
+        database,
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_NOSUCHTABLE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        no such table
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Sequence table was not found
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Try to create a new sequence or if you are sure, a sequence
+        was already create, check database integrity
+       </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.nextid.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;    When using PEAR DB's sequence methods, we strongly advise using
+    these methods for all procedures, including the creation of the
+    sequences.  Do not use PEAR DB's methods to access
+    sequences that were created directly in the DBMS. <A
+HREF="package.database.db.intro-sequences.html#package.database.db.intro-sequences.note"
+>See the warning
+     on the <SPAN
+CLASS="QUOTE"
+>"Intro - Sequences"</SPAN
+> page</A
+>
+    complete information.
+   </P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.nextid.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN24209"><P
+><B
+>Example 33-1. Using <B
+CLASS="function"
+>nextId()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$id = $db-&#62;nextId('mySequence');
+if (PEAR::isError($id)) {
+    die($id-&#62;getMessage());
+}
+
+// Use the ID in your INSERT query
+$res =&#38; $db-&#62;query("INSERT INTO myTable (id, text) VALUES ($id, 'foo')");
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.nextid.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="package.database.db.intro-sequences.html"
+><SPAN
+CLASS="QUOTE"
+>"Intro -
+    Sequences"</SPAN
+></A
+>,
+   <A
+HREF="package.database.db.db-common.createsequence.html"
+>&#13;    <B
+CLASS="function"
+>createSequence()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-common.dropsequence.html"
+>&#13;    <B
+CLASS="function"
+>dropSequence()</B
+></A
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.limitquery.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.prepare.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>DB_common::limitQuery()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>DB_common::prepare()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

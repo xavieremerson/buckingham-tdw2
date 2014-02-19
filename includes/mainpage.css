@@ -1,0 +1,297 @@
+/* CSS Document */
+
+.mainpage_tablehead {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #000099;
+}
+
+
+
+
+/* FOR ALERTS */
+/*******************************************************************************************/
+
+
+/* FOR ORDER AUTHORIZATION */
+/*******************************************************************************************/
+
+
+
+
+
+
+/*******************************************************************************************/
+/* define height and width of scrollable area. Add 16px to width for scrollbar          */
+div.tableContainer3 {
+	clear: both;
+	border: 1px solid #EEEEEE;
+	height: 282px;
+	overflow: auto;
+	width: 230px
+	/*756px*/	
+}
+
+/* Reset overflow value to hidden for all non-IE browsers. */
+html>body div.tableContainer3 {
+	overflow: hidden;
+	width: 230px
+	/*756px*/
+}
+
+/* define width of table. IE browsers only                 */
+div.tableContainer3 table {
+	float: left;
+	width: 200px
+	/*740px*/
+}
+
+/* define width of table. Add 16px to width for scrollbar.           */
+/* All other non-IE browsers.                                        */
+html>body div.tableContainer3 table {
+	width: 230px
+	/*756px*/
+}
+/*******************************************************************************************/
+/* define height and width of scrollable area. Add 16px to width for scrollbar          */
+div.tableContainer4 {
+	clear: both;
+	border: 1px solid #000099;
+	height: 285px;
+	overflow: auto;
+	width: 630px
+	/*756px*/	
+}
+
+/* Reset overflow value to hidden for all non-IE browsers. */
+html>body div.tableContainer4 {
+	overflow: hidden;
+	width: 630px
+	/*756px*/
+}
+
+/* define width of table. IE browsers only                 */
+div.tableContainer4 table {
+	float: left;
+	width: 630px
+	/*740px*/
+}
+
+/* define width of table. Add 16px to width for scrollbar.           */
+/* All other non-IE browsers.                                        */
+html>body div.tableContainer4 table {
+	width: 630px
+	/*756px*/
+}
+
+/*******************************************************************************************/
+
+
+
+
+/* set table header to a fixed position. WinIE 6.x only                                       */
+/* In WinIE 6.x, any element with a position property set to relative and is a child of       */
+/* an element that has an overflow property set, the relative value translates into fixed.    */
+/* Ex: parent element DIV with a class of tableContainer has an overflow property set to auto */
+thead.fixedHeader tr {
+	position: relative
+}
+
+/* set THEAD element to have block level attributes. All other non-IE browsers            */
+/* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
+html>body thead.fixedHeader tr {
+	display: block
+}
+
+/* make the TH elements pretty */
+thead.fixedHeader th {
+	background: #404040;
+	border-left: 1px solid #333333;
+	border-right: 1px solid #333333;
+	border-top: 1px solid #000066;
+	font-weight: bold;
+	padding: 4px 3px;
+	text-align: left;
+	color: #FFFFFF;
+	border-bottom-color: #000066;
+	/*993333*/
+}
+
+/* make the A elements pretty. makes for nice clickable headers                */
+thead.fixedHeader a, thead.fixedHeader a:link, thead.fixedHeader a:visited {
+	color: #FFF;
+	display: block;
+	text-decoration: none;
+	width: 100%
+}
+
+/* make the A elements pretty. makes for nice clickable headers                */
+/* WARNING: swapping the background on hover may cause problems in WinIE 6.x   */
+thead.fixedHeader a:hover {
+	color: #FFF;
+	display: block;
+	text-decoration: underline;
+	width: 100%
+}
+
+/* define the table content to be scrollable                                              */
+/* set TBODY element to have block level attributes. All other non-IE browsers            */
+/* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
+/* induced side effect is that child TDs no longer accept width: auto                     */
+html>body tbody.scrollContent1 {
+	display: block;
+	height: 262px;
+	overflow: auto;
+	width: 100%
+}
+
+/* make TD elements pretty. Provide alternating classes for striping the table */
+/* http://www.alistapart.com/articles/zebratables/                             */
+tbody.scrollContent1 td, tbody.scrollContent1 tr.normalRow td {
+	background: #FFF;
+	border-bottom: none;
+	border-left: none;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #DDD;
+	padding: 2px 3px 3px 4px
+}
+
+tbody.scrollContent1 tr.alternateRow td {
+	background: #EEE;
+	border-bottom: none;
+	border-left: none;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #DDD;
+	padding: 2px 3px 3px 4px
+}
+
+/*******************************************************************************************************/
+/* define the table content to be scrollable                                              */
+/* set TBODY element to have block level attributes. All other non-IE browsers            */
+/* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
+/* induced side effect is that child TDs no longer accept width: auto                     */
+html>body tbody.scrollContent2 {
+	display: block;
+	height: 262px;
+	overflow: auto;
+	width: 100%
+}
+
+
+/* make TD elements pretty. Provide alternating classes for striping the table */
+/* http://www.alistapart.com/articles/zebratables/                             */
+tbody.scrollContent2 td, tbody.scrollContent2 tr.normalRow td {
+	background: #FFF;
+	border-bottom: none;
+	border-left: none;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #DDD;
+	padding: 2px 3px 3px 4px
+}
+
+tbody.scrollContent2 tr.alternateRow td {
+	background: #EEE;
+	border-bottom: none;
+	border-left: none;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #DDD;
+	padding: 2px 3px 3px 4px
+}
+
+
+
+
+
+
+/* FOR ALERTS*/
+html>body tbody.scrollContent2a {
+	display: block;
+	height: 262px;
+	overflow: auto;
+	width: 100%
+}
+
+/* make TD elements pretty. Provide alternating classes for striping the table */
+/* http://www.alistapart.com/articles/zebratables/                             */
+tbody.scrollContent2a td, tbody.scrollContent2a tr.normalRow td {
+	background: #FFF;
+	border-bottom: none;
+	border-left: none;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #DDD;
+	padding: 2px 3px 3px 4px
+}
+
+tbody.scrollContent2a tr.alternateRow td {
+	background: #EEE;
+	border-bottom: none;
+	border-left: none;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #DDD;
+	padding: 2px 3px 3px 4px
+}
+
+
+/* FOR ORDER AUTHORIZATION */
+html>body tbody.scrollContent2b {
+	display: block;
+	height: 262px;
+	overflow: auto;
+	width: 100%
+}
+
+/* make TD elements pretty. Provide alternating classes for striping the table */
+/* http://www.alistapart.com/articles/zebratables/                             */
+tbody.scrollContent2b td, tbody.scrollContent2b tr.normalRow td {
+	background: #FFF;
+	border-bottom: none;
+	border-left: none;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #DDD;
+	padding: 2px 3px 3px 4px
+}
+
+tbody.scrollContent2b tr.alternateRow td {
+	background: #EEE;
+	border-bottom: none;
+	border-left: none;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #DDD;
+	padding: 2px 3px 3px 4px
+}
+
+
+
+/* define width of TH elements: 1st, 2nd, and 3rd respectively.          */
+/* Add 16px to last TH for scrollbar padding. All other non-IE browsers. */
+/* http://www.w3.org/TR/REC-CSS2/selector.html#adjacent-selectors        */
+html>body thead.fixedHeader th {
+	width: 150px
+	/* 200px*/
+}
+
+html>body thead.fixedHeader th + th {
+	width: 200px
+	/* 240px*/
+}
+
+html>body thead.fixedHeader th + th + th {
+	width: 250px 
+	/* 316px*/
+}
+
+/* define width of TD elements: 1st, 2nd, and 3rd respectively.          */
+/* All other non-IE browsers.                                            */
+/* http://www.w3.org/TR/REC-CSS2/selector.html#adjacent-selectors        */
+html>body tbody.scrollContent td {
+	width: 150px
+}
+
+html>body tbody.scrollContent td + td {
+	width: 200px
+}
+
+html>body tbody.scrollContent td + td + td {
+	width: 250px
+}

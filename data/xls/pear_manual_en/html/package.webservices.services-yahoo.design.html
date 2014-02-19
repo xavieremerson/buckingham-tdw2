@@ -1,0 +1,224 @@
+<HTML
+><HEAD
+><TITLE
+>Design</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Services_Yahoo"
+HREF="package.webservices.services-yahoo.html"><LINK
+REL="PREVIOUS"
+TITLE="Examples"
+HREF="package.webservices.services-yahoo.examples.html"><LINK
+REL="NEXT"
+TITLE="UDDI"
+HREF="package.webservices.uddi.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.webservices.services-yahoo.examples.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.webservices.uddi.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.webservices.services-yahoo.design">Design</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN101150"
+></A
+>Design&nbsp;--&nbsp;
+   <B
+CLASS="classname"
+>Services_Yahoo</B
+>'s design
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.services-yahoo.design.overview"
+></A
+><H2
+>Overview</H2
+><P
+>&#13;   <B
+CLASS="classname"
+>Services_Yahoo</B
+> is split up into chunks that
+   group similar functionality.  Currently there are chunks for the
+   interfaces to Yahoo Search and to the Content Analysis functions.
+  </P
+><P
+>&#13;   Each chunk basically contains two top-level element in the source
+   tree:  A <TT
+CLASS="filename"
+>.php</TT
+> file and a directory that holds
+   the implementation of the chunk.  The file is a class that contains
+   only one method which implements that <A
+HREF="http://c2.com/cgi/wiki?AbstractFactoryPattern"
+TARGET="_top"
+>factory
+   pattern</A
+>.  This method dynamically loads the right file from
+   the related directory and returns an instance of the class that
+   implements the desired function.
+  </P
+><P
+>&#13;   Due to this modular layout <B
+CLASS="classname"
+>Services_Yahoo</B
+> can
+   easily be extended when Yahoo adds new functions to their
+   <SPAN
+CLASS="acronym"
+>API</SPAN
+>.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN101164"
+></A
+><H2
+>More information</H2
+><P
+>&#13;   If you would like to study the code of the package, you can do so by
+   either downloading a release from the <A
+HREF="http://pear.php.net/package/Services_Yahoo"
+TARGET="_top"
+>package homepage</A
+> or
+   by <A
+HREF="http://cvs.php.net/pear/Services_Yahoo"
+TARGET="_top"
+>browsing the
+    code in CVS</A
+>.
+  </P
+><P
+>&#13;   Also the automatically generated <A
+HREF="http://pear.php.net/package/Services_Yahoo/docs"
+TARGET="_top"
+>API
+    documentation</A
+> should help you.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.webservices.services-yahoo.examples.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.webservices.uddi.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Examples</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.webservices.services-yahoo.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>UDDI</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,350 @@
+<HTML
+><HEAD
+><TITLE
+>Using CVS</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Coding Standards"
+HREF="standards.html"><LINK
+REL="PREVIOUS"
+TITLE="Header Comment Blocks"
+HREF="standards.header.html"><LINK
+REL="NEXT"
+TITLE="Example URLs"
+HREF="standards.exampleurls.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="standards.header.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 4. Coding Standards</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="standards.exampleurls.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="standards.cvs">Using CVS</H1
+><P
+>&#13;    This section applies only to packages using CVS at cvs.php.net.
+   </P
+><P
+>&#13;    Include the $Id$ CVS keyword in each file.  As each file
+    is edited, add this tag if it's not yet present (or replace
+    existing forms such as <SPAN
+CLASS="QUOTE"
+>"Last Modified:"</SPAN
+>, etc.).
+
+   </P
+><P
+>&#13;    The rest of this section assumes that you have basic knowledge
+    about CVS tags and branches.
+   </P
+><P
+>&#13;    CVS tags are used to label which revisions of the files in your
+    package belong to a given release.  Below is a list of the
+    required and suggested CVS tags:
+
+    <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>RELEASE_<TT
+CLASS="replaceable"
+><I
+>n_n_n</I
+></TT
+></DT
+><DD
+><P
+>&#13;        (required) Used for tagging a release.  If you don't use it,
+        there's no way to go back and retrieve your package from the
+        CVS server in the state it was in at the time of the release.
+       </P
+></DD
+><DT
+>QA_<TT
+CLASS="replaceable"
+><I
+>n_n_n</I
+></TT
+></DT
+><DD
+><P
+>&#13;        (branch, optional) If you feel you need to roll out a
+        release candidate before releasing, it's a good idea to make a
+        branch for it so you can isolate the release and apply only
+        those critical fixes before the actual release.  Meanwhile,
+        normal development may continue on the main trunk.
+       </P
+></DD
+><DT
+>MAINT_<TT
+CLASS="replaceable"
+><I
+>n_n_n</I
+></TT
+></DT
+><DD
+><P
+>&#13;        (branch, optional) If you need to make
+        <SPAN
+CLASS="QUOTE"
+>"micro-releases"</SPAN
+> (for
+        example 1.2.1 and so on after 1.2.0), you can use a branch for
+        that too, if your main trunk is very active and you want only
+        minor changes between your micro-releases.
+       </P
+></DD
+></DL
+></DIV
+>
+    Only the RELEASE tag is required, the rest are recommended for
+    your convenience.
+   </P
+><P
+>&#13;    Below is an example of how to tag the 1.2.0 release of the
+    <B
+CLASS="classname"
+>Money_Fast</B
+> package:
+    <DIV
+CLASS="informalexample"
+><A
+NAME="AEN1095"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="prompt"
+>$ </TT
+><B
+CLASS="command"
+>cd pear/Money_Fast</B
+>
+<TT
+CLASS="prompt"
+>$ </TT
+><B
+CLASS="command"
+>cvs tag RELEASE_1_2_0</B
+>
+<TT
+CLASS="computeroutput"
+>T Fast.php
+T README
+T package.xml
+</TT
+></PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+>
+    By doing this you make it possible for the PEAR web site to take
+    you through the rest of your release process.
+   </P
+><P
+>&#13;    Here's an example of how to create a QA branch:
+    <DIV
+CLASS="informalexample"
+><A
+NAME="AEN1103"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="prompt"
+>$ </TT
+><B
+CLASS="command"
+>cvs tag QA_2_0_0_BP</B
+>
+...
+<TT
+CLASS="prompt"
+>$ </TT
+><B
+CLASS="command"
+>cvs rtag -b -r QA_2_0_0_BP QA_2_0_0</B
+>
+<TT
+CLASS="prompt"
+>$ </TT
+><B
+CLASS="command"
+>cvs update -r QA_2_0_0</B
+>
+<TT
+CLASS="prompt"
+>$ </TT
+><B
+CLASS="command"
+>cvs tag RELEASE_2_0_0RC1</B
+>
+...and then the actual release, from the same branch:
+<TT
+CLASS="prompt"
+>$ </TT
+><B
+CLASS="command"
+>cvs tag RELEASE_2_0_0</B
+></PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+>
+    The <TT
+CLASS="literal"
+>QA_2_0_0_BP</TT
+> tag is a
+    <SPAN
+CLASS="QUOTE"
+>"branch point"</SPAN
+> tag, which is the start
+    point of the tag.  It's always a good idea to start a CVS branch
+    from such branch points.  MAINT branches may use the RELEASE tag
+    as their branch point.
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="standards.header.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="standards.exampleurls.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Header Comment Blocks</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="standards.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Example URLs</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

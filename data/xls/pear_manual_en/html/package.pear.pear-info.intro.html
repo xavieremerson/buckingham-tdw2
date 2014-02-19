@@ -1,0 +1,225 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR_Info"
+HREF="package.pear-info.html"><LINK
+REL="PREVIOUS"
+TITLE="PEAR_Info"
+HREF="package.pear-info.html"><LINK
+REL="NEXT"
+TITLE="PEAR_Info::PEAR_Info"
+HREF="package.pear.pear-info.pear-info.pear-info.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.pear-info.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.pear.pear-info.pear-info.pear-info.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.pear.pear-info.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN91058"
+></A
+>Introduction&nbsp;--&nbsp;Introduction to PEAR_Info</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-info.intro.refsect1"
+></A
+><H2
+>Introduction to PEAR_Info</H2
+><P
+>&#13;    PEAR_Info obtains and displays information about your current PEAR 
+    Install.
+    The PEAR_Info page features an A-Z index for easy searching, aswell 
+    as anchors for each package in the form of pkg_Package_Name (i.e. 
+    url.tld/pearinfo.php#pkg_PEAR_Info) PEAR_Info also features a full 'PEAR 
+    Credits' page, with information about the authors of the packages you 
+    currently have installed. PEAR_Info will also display any later versions 
+    that are available from PEAR to help keep you up to date.
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="packages.pear.pear-info.intro.example"><P
+><B
+>Example 51-1. Using PEAR_Info</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+    require_once 'PEAR/Info.php';
+
+    /* 
+    If you need to set a http_proxy value at run-time you can use the 
+    following, this must be called BEFORE instantiating the PEAR_Info object
+    */
+
+    PEAR_Info::setProxy('your.proxy.here');
+
+    /* 
+    Optional pear_dir variable, allows you to choose where your PEAR 
+    install is, in case its not found 
+    */
+
+    $pear_dir = "/path/to/your/pear/files";
+
+    /*
+    Instantiate PEAR_Info object
+    */
+
+    $info = new PEAR_Info($pear_dir);
+
+    /*
+    Show PEAR_Info output
+    */
+
+    $info-&#62;show();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.pear-info.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.pear.pear-info.pear-info.pear-info.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>PEAR_Info</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.pear-info.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>PEAR_Info::PEAR_Info</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

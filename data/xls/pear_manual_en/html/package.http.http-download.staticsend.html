@@ -1,0 +1,496 @@
+<HTML
+><HEAD
+><TITLE
+>HTTP_Download::staticSend</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTTP_Download"
+HREF="package.http.http-download.html"><LINK
+REL="PREVIOUS"
+TITLE="HTTP_Download::send"
+HREF="package.http.http-download.send.html"><LINK
+REL="NEXT"
+TITLE="HTTP_Download::sendArchive"
+HREF="package.http.http-download.sendarchive.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.http.http-download.send.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.http.http-download.sendarchive.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.http.http-download.staticsend"><B
+CLASS="function"
+>HTTP_Download::staticSend()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN75416"
+></A
+><B
+CLASS="function"
+>HTTP_Download::staticSend()</B
+>&nbsp;--&nbsp;
+   Static send
+  </DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN75420"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN75421"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     mixed
+     <B
+CLASS="function"
+>HTTP_Download::staticSend</B
+>
+    </CODE
+> (array
+     $params, bool
+     [$guess = false])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.staticsend.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Send a download statically without instantiating an HTTP_Download object.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.staticsend.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      array <TT
+CLASS="parameter"
+><I
+>$params</I
+></TT
+>
+      - An associative array of parameters:
+      <P
+></P
+><UL
+><LI
+><P
+>&#13;        one of:
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params['file']</I
+></TT
+>
+           - filepath
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params['data']</I
+></TT
+>
+           - raw data
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params['resource']</I
+></TT
+>
+           - resource handle
+          </P
+></LI
+></UL
+>
+        </P
+></LI
+><LI
+><P
+>&#13;        and any of:
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params['gzip']</I
+></TT
+>
+           - whether to gzip the download
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params['cache']</I
+></TT
+>
+           - whether to allow client side caching of the download
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params['lastmodified']</I
+></TT
+>
+           - unix timestamp of last modification
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params['contenttype']</I
+></TT
+>
+           - content type
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params['contentdisposition']</I
+></TT
+>
+           - content disposition
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params['buffersize']</I
+></TT
+>
+           - amount of bytes read at once from files or resources
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params['throttledelay']</I
+></TT
+>
+           - amount of seconds to sleep after each chunk that has been sent
+          </P
+></LI
+></UL
+>
+        </P
+></LI
+></UL
+>
+     </P
+></LI
+><LI
+><P
+>&#13;      bool
+      <TT
+CLASS="parameter"
+><I
+>&#13;       [$guess = false]
+      </I
+></TT
+>
+      - whether to call
+      <A
+HREF="package.http.http-download.guesscontenttype.html"
+>guessContentType</A
+>()
+     </P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.staticsend.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   See also
+   <A
+HREF="package.http.http-download.setfile.html"
+><B
+CLASS="function"
+>setFile()</B
+></A
+>,
+   <A
+HREF="package.http.http-download.setdata.html"
+><B
+CLASS="function"
+>setData()</B
+></A
+>,
+   <A
+HREF="package.http.http-download.setresource.html"
+><B
+CLASS="function"
+>setResource()</B
+></A
+>,
+   <A
+HREF="package.http.http-download.setgzip.html"
+><B
+CLASS="function"
+>setGzip()</B
+></A
+>,
+   <A
+HREF="package.http.http-download.setcache.html"
+><B
+CLASS="function"
+>setCache()</B
+></A
+>,
+   <A
+HREF="package.http.http-download.setcontenttype.html"
+><B
+CLASS="function"
+>setContentType()</B
+></A
+>,
+   <A
+HREF="package.http.http-download.setlastmodified.html"
+><B
+CLASS="function"
+>setLastModified()</B
+></A
+>,
+   <A
+HREF="package.http.http-download.setcontentdisposition.html"
+><B
+CLASS="function"
+>setContentDisposition()</B
+></A
+>,
+   <A
+HREF="package.http.http-download.setbuffersize.html"
+><B
+CLASS="function"
+>setBufferSize()</B
+></A
+>,
+   <A
+HREF="package.http.http-download.setthrottledelay.html"
+><B
+CLASS="function"
+>setThrottleDelay()</B
+></A
+>,
+   <A
+HREF="package.http.http-download.setparams.html"
+><B
+CLASS="function"
+>setParams()</B
+></A
+>.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.staticsend.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   Returns <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> on success,
+<B
+CLASS="classname"
+>PEAR_Error</B
+> on failure.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.staticsend.note"
+></A
+><H2
+>Note</H2
+><P
+>This function should be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.http.http-download.send.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.http.http-download.sendarchive.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>HTTP_Download::send()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.http.http-download.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>HTTP_Download::sendArchive()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

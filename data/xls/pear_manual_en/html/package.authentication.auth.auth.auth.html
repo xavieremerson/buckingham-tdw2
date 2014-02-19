@@ -1,0 +1,434 @@
+<HTML
+><HEAD
+><TITLE
+>Auth::Auth()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Auth"
+HREF="package.authentication.auth.html"><LINK
+REL="PREVIOUS"
+TITLE="Storage drivers"
+HREF="package.authentication.auth.intro-storage.html"><LINK
+REL="NEXT"
+TITLE="Auth::getAuth()"
+HREF="package.authentication.auth.auth.getauth.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.authentication.auth.intro-storage.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.authentication.auth.auth.getauth.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.authentication.auth.auth.auth">Auth::Auth()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN16563"
+></A
+>Auth::Auth()&nbsp;--&nbsp;constructor</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN16566"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN16567"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><B
+CLASS="function"
+>Auth::Auth</B
+></CODE
+> (mixed $storageDriver = "DB", mixed $options = "", string $loginFunction = "" [, boolean $showLogin = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth.auth.auth.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Constructor for the authentication system.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth.auth.auth.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$storageDriver</I
+></TT
+></DT
+><DD
+><P
+>&#13;         name of the storage driver that should be used,
+         alternatively you can pass a custom Auth_Container object.
+        </P
+></DD
+><DT
+>mixed
+        <TT
+CLASS="parameter"
+><I
+>$options</I
+></TT
+></DT
+><DD
+><P
+>&#13;         the options that are passed to the storage container
+        </P
+></DD
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$loginFunction</I
+></TT
+></DT
+><DD
+><P
+>&#13;         the name of a user-defined function that
+         prints the login screen
+        </P
+></DD
+><DT
+>boolean
+        <TT
+CLASS="parameter"
+><I
+>$showLogin</I
+></TT
+></DT
+><DD
+><P
+>&#13;         defines if the login is optional
+         or not
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth.auth.auth.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth.auth.auth.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;     <A
+HREF="package.authentication.auth.intro-storage.html"
+>&#13;      Introduction - The storage drivers
+     </A
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth.auth.auth.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN16621"><P
+><B
+>Example 28-1. Using different DB parameters</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once "Auth/Auth.php";
+
+function myOutput($username, $status)
+{
+    ...  /* See example 1 for the full listing */
+}
+
+$params = array(
+            "dsn" =&#62; "mysql://martin:test@localhost/auth",
+            "table" =&#62; "myAuth",
+            "usernamecol" =&#62; "myUserColumn",
+            "passwordcol" =&#62; "myPasswordColumn"
+            );
+
+$a = new Auth("DB", $params, "myOutput");
+
+$a-&#62;start();
+
+if ($a-&#62;getAuth()) {
+    echo "You have been authenticated successfully.";
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;    This example shows you how you can specifiy alternative
+    names for the database table and the column names. In our
+    example, we use the table myAuth, select the username from
+    the field myUserColumn and the password from the field
+    myPasswordColumn. The default values for this fields are
+    auth, username and password. Note that you can also specify
+    an existing DB object with the dsn parameter instead of a DSN.
+   </P
+><P
+>&#13;    This feature is necessary if you want to use PEAR::Auth
+    with a database layout that is different from the one
+    PEAR::Auth uses by default.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth.auth.auth.example-customcont"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN16628"><P
+><B
+>Example 28-2. Using different DB parameters</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once "Auth/Auth.php";
+
+function myOutput($username, $status)
+{
+    ...  /* See example 1 for the full listing */
+}
+
+$a = new Auth(new CustomAuthContainer($options), null, "myOutput");
+
+$a-&#62;start();
+
+if ($a-&#62;getAuth()) {
+    echo "You have been authenticated successfully.";
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;    This example shows you how you can pass your 
+    own storage container to Auth.
+   </P
+><P
+>&#13;    If the storage containers supplied with Auth are not capable 
+    of fulfilling your requirements, you can easliy create your own 
+    storage container.
+    Read the storage containers section for more info
+     <A
+HREF="package.authentication.auth.intro-storage.html"
+>&#13;      Introduction - The storage drivers
+     </A
+>
+     
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.authentication.auth.intro-storage.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.authentication.auth.auth.getauth.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Storage drivers</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.authentication.auth.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Auth::getAuth()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

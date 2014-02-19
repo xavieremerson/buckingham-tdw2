@@ -1,0 +1,1019 @@
+<HTML
+><HEAD
+><TITLE
+>File_Passwd</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File Formats"
+HREF="package.fileformats.html"><LINK
+REL="PREVIOUS"
+TITLE="Saving"
+HREF="package.fileformats.file-fstab.saving.html"><LINK
+REL="NEXT"
+TITLE="MP3_Id"
+HREF="package.fileformats.mp3-id.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.file-fstab.saving.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 37. File Formats</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.mp3-id.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.fileformats.file-passwd">File_Passwd</H1
+><P
+>Package to manage passwd-style files</P
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.fileformats.file-passwd.intro">Introduction</H2
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.intro.introduction.html"
+>Introduction</A
+>&nbsp;--&nbsp;</DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.fileformats.file-passwd.file-passwd">File_Passwd</H2
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.constants.html"
+>File_Passwd Constants</A
+>&nbsp;--&nbsp;Constants used by File_Passwd</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd.apiversion.html"
+><B
+CLASS="function"
+>File_Passwd::apiVersion()</B
+></A
+>&nbsp;--&nbsp;Get API version</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd.factory.html"
+><B
+CLASS="function"
+>File_Passwd::factory()</B
+></A
+>&nbsp;--&nbsp;Factory for extensions</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd.staticauth.html"
+><B
+CLASS="function"
+>File_Passwd::staticAuth()</B
+></A
+>&nbsp;--&nbsp;Fast authentication</DT
+></DL
+></DIV
+><P
+>&#13;  The <B
+CLASS="classname"
+>File_Passwd</B
+> class provides
+  a factory for all special purpose classes, static authentication
+  and common encryption methods.
+ </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.fileformats.file-passwd.file-passwd-common">File_Passwd_Common</H2
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-common-childs.html"
+>Childs</A
+>&nbsp;--&nbsp;Classes that extend File_Passwd_Common and their inherited methods</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-common.deluser.html"
+><B
+CLASS="function"
+>File_Passwd_Common::delUser()</B
+></A
+>&nbsp;--&nbsp;Delete a certain user</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-common.listuser.html"
+><B
+CLASS="function"
+>File_Passwd_Common::listUser()</B
+></A
+>&nbsp;--&nbsp;List user</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-common.userexists.html"
+><B
+CLASS="function"
+>File_Passwd_Common::userExists()</B
+></A
+>&nbsp;--&nbsp;Check if user exists</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-common.getfile.html"
+><B
+CLASS="function"
+>File_Passwd_Common::getFile()</B
+></A
+>&nbsp;--&nbsp;Get path of passwd file</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-common.setfile.html"
+><B
+CLASS="function"
+>File_Passwd_Common::setFile()</B
+></A
+>&nbsp;--&nbsp;Set path to passwd file</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-common.load.html"
+><B
+CLASS="function"
+>File_Passwd_Common::load()</B
+></A
+>&nbsp;--&nbsp;Loads the file</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-common.parse.html"
+><B
+CLASS="function"
+>File_Passwd_Common::parse()</B
+></A
+>&nbsp;--&nbsp;Parse the content of the file</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-common.save.html"
+><B
+CLASS="function"
+>File_Passwd_Common::save()</B
+></A
+>&nbsp;--&nbsp;Apply changes and rewrite passwd file</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-common.-auth.html"
+><B
+CLASS="function"
+>File_Passwd_Common::_auth()</B
+></A
+>&nbsp;--&nbsp;Base method for File_Passwd::staticAuth()</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-common.-open.html"
+><B
+CLASS="function"
+>File_Passwd_Common::_open()</B
+></A
+>&nbsp;--&nbsp;Open a file</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-common.-close.html"
+><B
+CLASS="function"
+>File_Passwd_Common::_close()</B
+></A
+>&nbsp;--&nbsp;Closes a prior opened and locked file handle</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-common.-save.html"
+><B
+CLASS="function"
+>File_Passwd_Common::_save()</B
+></A
+>&nbsp;--&nbsp;Save the modified content to the passwd file</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-common.--construct.html"
+><B
+CLASS="function"
+>File_Passwd_Common::__construct()</B
+></A
+>&nbsp;--&nbsp;Constructor (ZE2)</DT
+></DL
+></DIV
+><P
+>&#13;  Base class for worker class extensions.
+ </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.fileformats.file-passwd.file-passwd-custom">File_Passwd_Custom</H2
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-custom.staticauth.html"
+><B
+CLASS="function"
+>File_Passwd_Custom::staticAuth()</B
+></A
+>&nbsp;--&nbsp;Fast authentication</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-custom.file-passwd-custom.html"
+><B
+CLASS="function"
+>File_Passwd_Custom::File_Passwd_Custom()</B
+></A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-custom.parse.html"
+><B
+CLASS="function"
+>File_Passwd_Custom::parse()</B
+></A
+>&nbsp;--&nbsp;Parse passwd file</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-custom.save.html"
+><B
+CLASS="function"
+>File_Passwd_Custom::save()</B
+></A
+>&nbsp;--&nbsp;Save changes</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-custom.adduser.html"
+><B
+CLASS="function"
+>File_Passwd_Custom::addUser()</B
+></A
+>&nbsp;--&nbsp;Add an user</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-custom.moduser.html"
+><B
+CLASS="function"
+>File_Passwd_Custom::modUser()</B
+></A
+>&nbsp;--&nbsp;Modify user</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-custom.changepasswd.html"
+><B
+CLASS="function"
+>File_Passwd_Custom::changePasswd()</B
+></A
+>&nbsp;--&nbsp;Change password</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-custom.verifypasswd.html"
+><B
+CLASS="function"
+>File_Passwd_Custom::verifyPasswd()</B
+></A
+>&nbsp;--&nbsp;Verify password</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-custom.usemap.html"
+><B
+CLASS="function"
+>File_Passwd_Custom::useMap()</B
+></A
+>&nbsp;--&nbsp;Whether to use the 'name map'</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-custom.getmap.html"
+><B
+CLASS="function"
+>File_Passwd_Custom::getMap()</B
+></A
+>&nbsp;--&nbsp;Get 'name map'</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-custom.setmap.html"
+><B
+CLASS="function"
+>File_Passwd_Custom::setMap()</B
+></A
+>&nbsp;--&nbsp;Set 'name map'</DT
+></DL
+></DIV
+><P
+>Manipulate custom formatted passwd files.  (<A
+HREF="package.fileformats.file-passwd.file-passwd-common-childs.html#package.fileformats.file-passwd.file-passwd-common-childs.methods"
+>inherited methods</A
+>)</P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.fileformats.file-passwd.file-passwd-unix">File_Passwd_Unix</H2
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.staticauth.html"
+><B
+CLASS="function"
+>File_Passwd_Unix::staticAuth()</B
+></A
+>&nbsp;--&nbsp;Fast authentication</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.file-passwd-unix.html"
+><B
+CLASS="function"
+>File_Passwd_Unix::File_Passwd_Unix()</B
+></A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.parse.html"
+><B
+CLASS="function"
+>File_Passwd_Unix::parse()</B
+></A
+>&nbsp;--&nbsp;Parse passwd file</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.save.html"
+><B
+CLASS="function"
+>File_Passwd_Unix::save()</B
+></A
+>&nbsp;--&nbsp;Save changes</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.adduser.html"
+><B
+CLASS="function"
+>File_Passwd_Unix::addUser()</B
+></A
+>&nbsp;--&nbsp;Add an user</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.moduser.html"
+><B
+CLASS="function"
+>File_Passwd_Unix::modUser()</B
+></A
+>&nbsp;--&nbsp;Modify user</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.changepasswd.html"
+><B
+CLASS="function"
+>File_Passwd_Unix::changePasswd()</B
+></A
+>&nbsp;--&nbsp;Change password</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.verifypasswd.html"
+><B
+CLASS="function"
+>File_Passwd_Unix::verifyPasswd()</B
+></A
+>&nbsp;--&nbsp;Verify password</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.usemap.html"
+><B
+CLASS="function"
+>File_Passwd_Unix::useMap()</B
+></A
+>&nbsp;--&nbsp;Whether to use the 'name map'</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.getmap.html"
+><B
+CLASS="function"
+>File_Passwd_Unix::getMap()</B
+></A
+>&nbsp;--&nbsp;Get 'name map'</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.setmap.html"
+><B
+CLASS="function"
+>File_Passwd_Unix::setMap()</B
+></A
+>&nbsp;--&nbsp;Set 'name map'</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.getmode.html"
+><B
+CLASS="function"
+>File_Passwd_Unix::getMode()</B
+></A
+>&nbsp;--&nbsp;Get actual encryption mode</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.setmode.html"
+><B
+CLASS="function"
+>File_Passwd_Unix::setMode()</B
+></A
+>&nbsp;--&nbsp;Set encryption mode</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.listmodes.html"
+><B
+CLASS="function"
+>File_Passwd_Unix::listModes()</B
+></A
+>&nbsp;--&nbsp;Get supported encryption modes</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.isshadowed.html"
+><B
+CLASS="function"
+>File_Passwd_Unix::isShadowed()</B
+></A
+>&nbsp;--&nbsp;Check if passwd file is shadowed</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.generatepassword.html"
+><B
+CLASS="function"
+>File_Passwd_Unix::generatePassword()</B
+></A
+>&nbsp;--&nbsp;Generate password</DT
+></DL
+></DIV
+><P
+>Manipulate standard Unix passwd files.  (<A
+HREF="package.fileformats.file-passwd.file-passwd-common-childs.html#package.fileformats.file-passwd.file-passwd-common-childs.methods"
+>inherited methods</A
+>)</P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.fileformats.file-passwd.file-passwd-cvs">File_Passwd_Cvs</H2
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-cvs.staticauth.html"
+><B
+CLASS="function"
+>File_Passwd_Cvs::staticAuth()</B
+></A
+>&nbsp;--&nbsp;Fast authentication</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-cvs.file-passwd-cvs.html"
+><B
+CLASS="function"
+>File_Passwd_Cvs::File_Passwd_Cvs()</B
+></A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-cvs.parse.html"
+><B
+CLASS="function"
+>File_Passwd_Cvs::parse()</B
+></A
+>&nbsp;--&nbsp;Parse file</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-cvs.save.html"
+><B
+CLASS="function"
+>File_Passwd_Cvs::save()</B
+></A
+>&nbsp;--&nbsp;Save changes</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-cvs.adduser.html"
+><B
+CLASS="function"
+>File_Passwd_Cvs::addUser()</B
+></A
+>&nbsp;--&nbsp;Add an user</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-cvs.changesysuser.html"
+><B
+CLASS="function"
+>File_Passwd_Cvs::changeSysUser()</B
+></A
+>&nbsp;--&nbsp;Change syste user</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-cvs.changepasswd.html"
+><B
+CLASS="function"
+>File_Passwd_Cvs::changePasswd()</B
+></A
+>&nbsp;--&nbsp;Change password</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-cvs.verifypasswd.html"
+><B
+CLASS="function"
+>File_Passwd_Cvs::verifyPasswd()</B
+></A
+>&nbsp;--&nbsp;Verify password</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-cvs.generatepassword.html"
+><B
+CLASS="function"
+>File_Passwd_Cvs::generatePassword()</B
+></A
+>&nbsp;--&nbsp;Generate password</DT
+></DL
+></DIV
+><P
+>Manipulate CVS pserver passwd files.  (<A
+HREF="package.fileformats.file-passwd.file-passwd-common-childs.html#package.fileformats.file-passwd.file-passwd-common-childs.methods"
+>inherited methods</A
+>)</P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.fileformats.file-passwd.file-passwd-smb">File_Passwd_Smb</H2
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-smb.staticauth.html"
+><B
+CLASS="function"
+>File_Passwd_Smb::staticAuth()</B
+></A
+>&nbsp;--&nbsp;Fast authentication</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-smb.file-passwd-smb.html"
+><B
+CLASS="function"
+>File_Passwd_Smb::File_Passwd_Smb()</B
+></A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-smb.parse.html"
+><B
+CLASS="function"
+>File_Passwd_Smb::parse()</B
+></A
+>&nbsp;--&nbsp;Parse file</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-smb.save.html"
+><B
+CLASS="function"
+>File_Passwd_Smb::save()</B
+></A
+>&nbsp;--&nbsp;Save changes</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-smb.adduser.html"
+><B
+CLASS="function"
+>File_Passwd_Smb::addUser()</B
+></A
+>&nbsp;--&nbsp;Add an user</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-smb.moduser.html"
+><B
+CLASS="function"
+>File_Passwd_Smb::modUser()</B
+></A
+>&nbsp;--&nbsp;Modify a user</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-smb.changepasswd.html"
+><B
+CLASS="function"
+>File_Passwd_Smb::changePasswd()</B
+></A
+>&nbsp;--&nbsp;Change password</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-smb.verifypasswd.html"
+><B
+CLASS="function"
+>File_Passwd_Smb::verifyPasswd()</B
+></A
+>&nbsp;--&nbsp;Verify password</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-smb.verifyencryptedpasswd.html"
+><B
+CLASS="function"
+>File_Passwd_Smb::verifyEncryptedPasswd()</B
+></A
+>&nbsp;--&nbsp;Verify encrypted password</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-smb.generatepassword.html"
+><B
+CLASS="function"
+>File_Passwd_Smb::generatePassword()</B
+></A
+>&nbsp;--&nbsp;Generate password</DT
+></DL
+></DIV
+><P
+>Manipulate SMB server passwd files.  (<A
+HREF="package.fileformats.file-passwd.file-passwd-common-childs.html#package.fileformats.file-passwd.file-passwd-common-childs.methods"
+>inherited methods</A
+>)</P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.fileformats.file-passwd.file-passwd-authbasic">File_Passwd_Authbasic</H2
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-authbasic.staticauth.html"
+><B
+CLASS="function"
+>File_Passwd_Authbasic::staticAuth()</B
+></A
+>&nbsp;--&nbsp;Fast authentication</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-authbasic.file-passwd-authbasic.html"
+><B
+CLASS="function"
+>File_Passwd_Authbasic::File_Passwd_Authbasic()</B
+></A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-authbasic.parse.html"
+><B
+CLASS="function"
+>File_Passwd_Authbasic::parse()</B
+></A
+>&nbsp;--&nbsp;Parse the AuthUserFile</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-authbasic.save.html"
+><B
+CLASS="function"
+>File_Passwd_Authbasic::save()</B
+></A
+>&nbsp;--&nbsp;Save changes</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-authbasic.adduser.html"
+><B
+CLASS="function"
+>File_Passwd_Authbasic::addUser()</B
+></A
+>&nbsp;--&nbsp;Add an user</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-authbasic.changepasswd.html"
+><B
+CLASS="function"
+>File_Passwd_Authbasic::changePasswd()</B
+></A
+>&nbsp;--&nbsp;Change password</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-authbasic.verifypasswd.html"
+><B
+CLASS="function"
+>File_Passwd_Authbasic::verifyPasswd()</B
+></A
+>&nbsp;--&nbsp;Verify password</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-authbasic.getmode.html"
+><B
+CLASS="function"
+>File_Passwd_Authbasic::getMode()</B
+></A
+>&nbsp;--&nbsp;Get actual encryption mode</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-authbasic.setmode.html"
+><B
+CLASS="function"
+>File_Passwd_Authbasic::setMode()</B
+></A
+>&nbsp;--&nbsp;Set the encryption mode</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-authbasic.listmodes.html"
+><B
+CLASS="function"
+>File_Passwd_Authbasic::listModes()</B
+></A
+>&nbsp;--&nbsp;Get supported encryption modes</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-authbasic.generatepassword.html"
+><B
+CLASS="function"
+>File_Passwd_Authbasic::generatePassword()</B
+></A
+>&nbsp;--&nbsp;Generate password</DT
+></DL
+></DIV
+><P
+>&#13;  Manipulate AuthUserFiles. (<A
+HREF="package.fileformats.file-passwd.file-passwd-common-childs.html#package.fileformats.file-passwd.file-passwd-common-childs.methods"
+>inherited methods</A
+>)
+ </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.fileformats.file-passwd.file-passwd-authdigest">File_Passwd_Authdigest</H2
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-authdigest.staticauth.html"
+><B
+CLASS="function"
+>File_Passwd_Authdigest::staticAuth()</B
+></A
+>&nbsp;--&nbsp;Fast authentication</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-authdigest.file-passwd-authdigest.html"
+><B
+CLASS="function"
+>File_Passwd_Authdigest::File_Passwd_Authdigest()</B
+></A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-authdigest.parse.html"
+><B
+CLASS="function"
+>File_Passwd_Authdigest::parse()</B
+></A
+>&nbsp;--&nbsp;Parse the AuthDigestFile</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-authdigest.save.html"
+><B
+CLASS="function"
+>File_Passwd_Authdigest::save()</B
+></A
+>&nbsp;--&nbsp;Save changes</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-authdigest.adduser.html"
+><B
+CLASS="function"
+>File_Passwd_Authdigest::addUser()</B
+></A
+>&nbsp;--&nbsp;Add an user</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-authdigest.changepasswd.html"
+><B
+CLASS="function"
+>File_Passwd_Authdigest::changePasswd()</B
+></A
+>&nbsp;--&nbsp;Change password</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-authdigest.verifypasswd.html"
+><B
+CLASS="function"
+>File_Passwd_Authdigest::verifyPasswd()</B
+></A
+>&nbsp;--&nbsp;Verifiy password</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-authdigest.deluserinrealm.html"
+><B
+CLASS="function"
+>File_Passwd_Authdigest::delUserInRealm()</B
+></A
+>&nbsp;--&nbsp;Delete a user</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-authdigest.listuserinrealm.html"
+><B
+CLASS="function"
+>File_Passwd_Authdigest::listUserInRealm()</B
+></A
+>&nbsp;--&nbsp;List user</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-authdigest.userinrealm.html"
+><B
+CLASS="function"
+>File_Passwd_Authdigest::userInRealm()</B
+></A
+>&nbsp;--&nbsp;Ckeck if a certain user is in a specific realm</DT
+><DT
+><A
+HREF="package.fileformats.file-passwd.file-passwd-authdigest.generatepassword.html"
+><B
+CLASS="function"
+>File_Passwd_Authdigest::generatePassword()</B
+></A
+>&nbsp;--&nbsp;Generate password</DT
+></DL
+></DIV
+><P
+>Manipulate AuthDigestFiles.  (<A
+HREF="package.fileformats.file-passwd.file-passwd-common-childs.html#package.fileformats.file-passwd.file-passwd-common-childs.methods"
+>inherited methods</A
+>)</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-fstab.saving.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.fileformats.mp3-id.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Saving</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.fileformats.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>MP3_Id</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

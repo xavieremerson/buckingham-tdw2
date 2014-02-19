@@ -1,0 +1,331 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="System"
+HREF="core.pear.system.html"><LINK
+REL="PREVIOUS"
+TITLE="System"
+HREF="core.pear.system.html"><LINK
+REL="NEXT"
+TITLE="System::rm"
+HREF="core.pear.system.rm.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.pear.system.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.pear.system.rm.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.pear.system.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN6396"
+></A
+>Introduction&nbsp;--&nbsp;General usage informations</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.system.intro.clistyle"
+></A
+><H2
+>Command line style</H2
+><P
+>&#13;     The <B
+CLASS="classname"
+>System</B
+> functions are called like there
+     commandline pendants
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>if (!System::rm('-r file1 dir1')) {
+	print "Could not delete all the files";
+}</PRE
+></TD
+></TR
+></TABLE
+>
+     The arguments of the functions can be introduced as string or array:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>System::rm(array('-r', 'file1', 'dir1'));</PRE
+></TD
+></TR
+></TABLE
+>
+	System works like any other PHP function and will return
+	<TT
+CLASS="parameter"
+><I
+>FALSE</I
+></TT
+>,
+	when the operation could not be completed enterely or partially. System
+	won't stop when a error is found, it will try to continue. For example,
+	if you are trying to delete three files and the first one can't be deleted,
+	the next two files will be deleted but the function will return
+	<TT
+CLASS="parameter"
+><I
+>FALSE</I
+></TT
+>.
+    </P
+><P
+>&#13;  Errors will be printed out using the PHP function 
+  <B
+CLASS="function"
+>trigger_error()()</B
+> so all
+	the System methods can be silenced prefix a '@' sign before the function
+ call (for example: <B
+CLASS="command"
+>@System::mkdir('-p dir1/dir2/dir3');</B
+>).
+	</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.system.intro.compatibility"
+></A
+><H2
+>Compatibility</H2
+><P
+>&#13;     <B
+CLASS="classname"
+>System</B
+> provides file system functions.
+     They are named like the file system commands on Unix systems
+     and supports the same options <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>independent</I
+></SPAN
+>
+     of your operation system.
+    </P
+><P
+>&#13;     At the moment the functions are tested under Linux and Windows. Further
+     reports about compatibility on other systems are welcome.
+    </P
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;      In earlier versions of PHP 4, <B
+CLASS="function"
+>unlink()</B
+> may fail
+      on Windows. This bug is already fixed in up-to-date versions.
+     </P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.system.intro.manpages"
+></A
+><H2
+>Man Pages</H2
+><P
+>&#13;     This manual describes the parameters of the <B
+CLASS="classname"
+>System</B
+>
+     functions, most only a string. The arguments and options of the specific
+     command are <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>not</I
+></SPAN
+> documented in the manual. Please take
+     a look on the man-pages on unix-like systems
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+><B
+CLASS="command"
+>man</B
+> <TT
+CLASS="parameter"
+><I
+>commandname</I
+></TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+     or when man-pages not avaible on your system, visit the
+     <A
+HREF="http://unixhelp.ed.ac.uk/alphabetical/index.html"
+TARGET="_top"
+>On-line UNIX manual pages</A
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.pear.system.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.pear.system.rm.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>System</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.pear.system.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>System::rm</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,95 @@
+<HTML>
+<HEAD>
+<Title>Installing ChartDirector for PHP</Title>
+<link type='text/css' rel='Stylesheet' href="maxchartapi.css" />
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+<p class="heading0">ChartDirector Ver 5.0 (PHP Edition)</p>
+<p class="heading1">Installing ChartDirector for PHP</p>
+<hr class="separator">
+<p class="heading1aa">PHP Version Compatibility</p><div class="content">
+ChartDirector for PHP requires at least PHP 4.0.4pl1, and has been tested up to PHP 5.2.8 (the latest PHP release as of the date of this document).<br><br>
+<b>Note:</b> ChartDirector for PHP on Mac OS X, Solaris (x86) and FreeBSD (AMD64) only supports PHP 4.2.1 or above.
+</div><p class="heading1a">Extracting the ChartDirector Distribution</p><div class="content">
+ChartDirector for PHP is released on Windows, Linux, FreeBSD, Mac OS X and Solaris. Before we start installation, you may want to verify the ChartDirector distribution you have downloaded is for your operating system by using the table below. If you do not know what is your operating system (eg. you are using a remote host), you may use <a href="phpconcepts.htm#phpinfo">phpinfo</a> to find out.<br><br>
+<table border="1" cellpadding="5" cellspacing="0"> <tr><th>Operating System</th><th>File Name</th> <tr><td>Windows</td><td>chartdir_php_win32.zip</td></tr> <tr><td>Linux (i386)</td><td>chartdir_php_linux.tar.gz</td></tr> <tr><td>Linux (x86_64 - 64bit OS)</td><td>chartdir_php_linux_64.tar.gz</td></tr> <tr><td>FreeBSD (i386)</td><td>chartdir_php_freebsd.tar.gz</td></tr> <tr><td>FreeBSD (amd64)</td><td>chartdir_php_freebsd_64.tar.gz</td></tr> <tr><td>Mac OS X (Power PC/Intel)</td><td>chartdir_php_mac.tar.gz</td></tr> <tr><td>Solaris (Sparc)</td><td>chartdir_php_sunos.tar.gz</td></tr> <tr><td>Solaris (x86)</td><td>chartdir_php_sunos_86.tar.gz</td></tr> </table><br>
+To install ChartDirector for PHP, extract the files from the ChartDirector distribution to your web server HTML directory (or any directory that allow PHP scripts to execute):<br><br>
+<ul>
+<li>If you are using Windows, you may use Winzip or similar tools to unzip the ChartDirector distribution.<br><br>
+<li>If you are using Linux, FreeBSD, Mac OS X or Solaris, first copy the ChartDirector distribution to your web server HTML directory, then change to your web server HTML directory, and issue the following commands:<br><br>
+<div style="margin-left:25;font-family:courier new,courier">
+<pre>gunzip [chartdir_file_name].tar.gz
+tar xvf [chartdir_file_name].tar</pre> </div><br>
+</ul>
+If you cannot access the command prompt (eg. you are using a remote host with no telnet access), you may extract ChartDirector on a local machine first (eg. using Winzip), then upload the files to your host using FTP.<br><br>
+If the connection to your remote host is not fast, you may consider to upload only the "ChartDirector/phpdemo" and "ChartDirector/lib" subdirectories, while keeping the documentation "ChartDirector/doc" in your local machine.
+</div><p class="heading1a"><a name="verify"></a>Verifying Your PHP Configuration</p><div class="content">
+ChartDirector for PHP is implemented as a PHP extension, which consists of everything in "ChartDirector/lib". The method used by a PHP system to load an extension differs depending on the PHP system is configured.<br><br>
+<ol>
+<li> Some PHP systems can dynamically load extensions from the web document directory. If you are using this type of PHP system, no further installation step is necessary. You may proceed to <a href="#sample">Running ChartDirector Sample Scripts</a>.<br><br>
+<li> Some PHP systems can only dynamically load extensions from the <a href="phpconcepts.htm#extdir">PHP extension directory</a>. If you are using this type of PHP system, you would need to <a href="#phpcopy">copy ChartDirector to the PHP extension directory</a>.<br><br>
+<li> Some PHP systems cannot dynamically load any extension at all. If you are using this type of PHP system, you would need to <a href="#phpcopy">copy ChartDirector to the PHP extension directory</a>, and <a href="#preload">use extension statement to load ChartDirector</a>.<br><br>
+</ol>
+If you are not sure the type of PHP system you are using, you may use <a href="phpconcepts.htm#phpinfo">phpinfo</a> to examine your PHP configuration. For your convenience, the ChartDirector distribution includes a phpinfo page at (note: the exact URL depends on where you have extracted ChartDirector to):<br><br>
+<div style="margin-left:25;font-family:courier new,courier">
+<pre>http://aaa.bbb.ccc.ddd/ChartDirector/phpdemo/phpinfo.php</pre> </div><br>
+If your PHP system has any of the following characteristics, it is of type (3) mentioned above, that is, it cannot dynamically load any extension.<br><br>
+<ul>
+<li> The PHP is intentionally configured to disable dynamic loading of extensions, such as by setting "enable_dl = No", or "safe_mode = Yes", or by including "dl" in the disable function list.<br><br>
+<li> The PHP is configured with "Thread Safety = enabled", and the "Server API" is not "CGI" or "FastCGI". (This type of configuration is common on Windows, but uncommon in other operating systems).<br><br>
+</ul>
+If your PHP system has any of the following characteristics, it is of type (2) mentioned above. It can only dynamically load extensions from the PHP extension directory.<br><br>
+<ul>
+<li> The PHP version 5.2.5 or above. Since PHP 5.2.5, PHP is restricted to only load extensions in the PHP extension directory.<br><br>
+<li> The PHP is running on Windows, and the web server HTML directory is not on the same hard disk volume as the PHP extension directory (eg. PHP is installed in "C:", but the web document directory is at "D:").<br><br>
+</ul>
+If your PHP system does not have any of the above characteristics, it is likely to be of type (1) mentioned above. It can load extensions from the web document directory.
+</div><p class="heading1a"><a name="phpcopy"></a>Copying ChartDirector to the PHP Extension Directory</p><div class="content">
+<div style="background-color:#cccccc;width:99%;padding:10px">
+<b>Note:</b> This step is only necessary if your PHP cannot dynamically load extensions from the web document directory. Otherwise this step is optional. See <a href="#verify">Verifying Your PHP Configuration</a> for details.
+</div><br>
+To copy ChartDirector to the <a href="phpconcepts.htm#extdir">PHP extension directory</a>, please copy everything in "ChartDirector/lib" (including the fonts subdirectory in Linux, FreeBSD and Solaris versions of ChartDirector) to the PHP extension directory.
+</div><p class="heading1a"><a name="preload"></a>Using Extension Statement to Load ChartDirector</p><div class="content">
+<div style="background-color:#cccccc;width:99%;padding:10px">
+<b>Note:</b> This step is only necessary if your PHP cannot dynamically load any extension. Otherwise this step is optional. See <a href="#verify">Verifying Your PHP Configuration</a> for details.<br><br>
+Using extension statements may improve performance for PHP that uses SAPI. It is because instead of dynamically loading an extension on demand, PHP will pre-load it once during initialization. So it is not uncommon for installations to use extension statements, even if it is not mandatory.
+</div><br>
+To use extension statement to load ChartDirector, please ensure you have already <a href="#phpcopy">copied ChartDirector to the PHP extension directory</a>. Then add the following line to your <a href="phpconcepts.htm#inifile">php.ini</a>.<br><br>
+<div style="margin-left:25;font-family:courier new,courier"> <code>extension=phpchartdir###.dll</code> </div><br>
+In the above, the "phpchartdir###.dll" depends on your PHP version, operating system, and PHP thread safety settings. Please use the following table to determine the "phpchartdir###.dll" to use:<br><br>
+<div style="width:99%"> <table border="1" cellpadding="5" cellspacing="0" width="100%"> <tr><th rowspan="2">PHP Version</th><th colspan="2" style="text-align:center">Windows</th><th colspan="2" style="text-align:center">Linux, FreeBSD, Mac OS X, Solaris</th></tr> <tr><th style="text-align:center">Non-Thread-Safe</th><th style="text-align:center">Thread-Safe</th><th style="text-align:center">Non-Thread-Safe</th><th style="text-align:center">Thread-Safe</th></tr> <tr><td width="20%">4.0.4pl1</td><td width="20%" style="text-align:center">N/A</td><td width="20%" style="text-align:center">phpchartdir404.dll</td><td width="20%" style="text-align:center">phpchartdir404.dll</td><td width="20%" style="text-align:center">phpchartdir404mt.dll</td></tr> <tr><td>4.0.5 - 4.0.6</td><td style="text-align:center">N/A</td><td style="text-align:center">phpchartdir405.dll</td><td style="text-align:center">phpchartdir405.dll</td><td style="text-align:center">phpchartdir405mt.dll</td></tr> <tr><td>4.1.0 - 4.2.0</td><td style="text-align:center">N/A</td><td style="text-align:center">phpchartdir410.dll</td><td style="text-align:center">phpchartdir410.dll</td><td style="text-align:center">phpchartdir410mt.dll</td></tr> <tr><td>4.2.1 - 4.x.x</td><td style="text-align:center">N/A</td><td style="text-align:center">phpchartdir421.dll</td><td style="text-align:center">phpchartdir421.dll</td><td style="text-align:center">phpchartdir421mt.dll</td></tr> <tr><td>5.0.0 - 5.0.2</td><td style="text-align:center">N/A</td><td style="text-align:center">phpchartdir500.dll</td><td style="text-align:center">phpchartdir500.dll</td><td style="text-align:center">phpchartdir500mt.dll</td></tr> <tr><td>5.0.3 - 5.0.5</td><td style="text-align:center">N/A</td><td style="text-align:center">phpchartdir503.dll</td><td style="text-align:center">phpchartdir503.dll</td><td style="text-align:center">phpchartdir503mt.dll</td></tr> <tr><td>5.1.x</td><td style="text-align:center">N/A</td><td style="text-align:center">phpchartdir510.dll</td><td style="text-align:center">phpchartdir510.dll</td><td style="text-align:center">phpchartdir510mt.dll</td></tr> <tr><td>5.2.0 or above</td><td style="text-align:center">phpchartdir520nts.dll</td><td style="text-align:center">phpchartdir520.dll</td><td style="text-align:center">phpchartdir520.dll</td><td style="text-align:center">phpchartdir520mt.dll</td></tr> </table> </div><br>
+If your PHP "Server API" is not "CGI", you would need to restart you web server for any modification to "php.ini" to take effect.
+</div><p class="heading1a"><a name="sample"></a>Running ChartDirector Sample Scripts</p><div class="content">
+ChartDirector for PHP comes with a number of sample PHP scripts under the "ChartDirector/phpdemo" directory. They are good examples and tutorials on how to use ChartDirector.<br><br>
+To try the sample scripts, use the following URL to view the sample scripts index page (note: the exact URL depends on where you have extracted ChartDirector to).<br><br>
+<div style="margin-left:25;font-family:courier new,courier">
+<pre>http://aaa.bbb.ccc.ddd/ChartDirector/phpdemo/index.php</pre> </div><br>
+In the sample scripts index page, there is a "check installation" link in the right window. Please click on that link. If it displays the ChartDirector version with some other information, it can be confirmed that ChartDirector is installed successfully.<br><br>
+If the "check installation" link returns an error message, please refer to <a href="phpdiag.htm">Trouble-Shooting ChartDirector for PHP Installation</a> for instructions on how to resolve the problem. Note that messages in the "Boot Log" or the "Font Loading Test" are informational only and are not error messages.<br><br>
+After confirming that ChartDirector is installed successfully, you may click the links in the left window to see the sample charts.
+</div><p class="heading1a">Using ChartDirector for PHP in Your Own Scripts</p><div class="content">
+To use ChartDirector, please include the ChartDirector script "phpchartdir.php" in your own script using the PHP "require_once" statement. For example, all ChartDirector sample scripts use the following line to include "phpchartdir.php":<br><br>
+<div style="margin-left:25;font-family:courier new,courier">
+<pre>require_once("../lib/phpchartdir.php");</pre> </div><br>
+For your own scripts, you may copy everything in "ChartDirector/lib" (including the fonts subdirectory in Linux, FreeBSD, and Solaris versions) to your script directory. You may then use the following line to include "phpchartdir.php":<br><br>
+<div style="margin-left:25;font-family:courier new,courier">
+<pre>require_once("phpchartdir.php");</pre> </div><br>
+If the ChartDirector PHP extension has been copied to the PHP extension directory, you just need to copy one file "phpchartdir.php" to your script directory (instead of everything in "ChartDirector/lib").<br><br>
+<div style="background-color:#cccccc;width:99%;padding:10px">
+Note that require_once assume the path is a file system path. If you use an absolute path name (eg. a path name starting with a slash "/"), the root is the file system root directory, not the web server root directory.
+</div><br>
+</div><p class="heading1a">Installing the ChartDirector License</p><div class="content">
+If you have purchased a license to use ChartDirector, you should have a license code delivered to your via email and postal mail.<br><br>
+If your license key is for upgrading from a previous version of ChartDirector, you need to append the upgrade license key to the previous version license key, and use the combined license key.<br><br>
+There are two alternative methods to install the license key.<br><br>
+<ul>
+<li>Create a one-line ASCII file using Notepad or other text editor, and put the license code in that line. The whole file should contain only the license code. Name that file "chartdir.lic" and put the file in the same directory as the active "libchartdir.so" (for Linux, FreeBSD, Mac OS X  and Solaris) or "chartdir.dll" (for Windows), which should be in the "ChartDirector/lib" directory or your PHP extension directory.<br><br>
+If the license file appears to have no effect (does not disable the yellow banner line), and you are running on a web server environment, please make sure the web server "anonymous user" has read access to the "chartdir.lic" file. You may copy the file "ChartDirector/phpdemo/cdinfo.php" to your web server and access it using a browser. It will display a diagnostic page explaining why the license cannot be loaded.<br><br>
+<div style="background-color:#cccccc;width:99%;padding:10px">
+Make sure your license file is called "chartdir.lic". In particular, Notepad may automatically append ".txt" to the file name when creating a new file. So even if the file is saved as "chartdir.lic", it may end up as "chartdir.lic.txt". If this is the case, please rename the file back to "chartdir.lic".
+</div><br>
+<li>An alternative method is to hard code the license key into the source code by using the <a href="phpchartdir.setLicenseCode.htm">setLicenseCode</a> API. This method is recommended if your are redistributing ChartDirector, because your customer will then be unable to see the license key (unless your software is open source).<br><br>
+<div style="margin-left:25;font-family:courier new,courier"> setLicenseCode(".....your-license-key....."); </div><br>
+</ul></div><br>
+<hr class="separator"><div class="copyright">&copy; 2008 Advanced Software Engineering Limited. All rights reserved.</div></body>
+</HTML>

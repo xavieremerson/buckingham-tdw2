@@ -1,0 +1,524 @@
+<HTML
+><HEAD
+><TITLE
+>File::read()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File"
+HREF="package.filesystem.file.html"><LINK
+REL="PREVIOUS"
+TITLE="File::isAbsolute()"
+HREF="package.filesystem.file.isabsolute.html"><LINK
+REL="NEXT"
+TITLE="File::readAll()"
+HREF="package.filesystem.file.readall.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file.isabsolute.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file.readall.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.filesystem.file.read">File::read()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN46692"
+></A
+>File::read()&nbsp;--&nbsp;read bytes from a file</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN46695"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN46696"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'File.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>File::read</B
+></CODE
+> (string $filename [, int $size = <A
+HREF="package.filesystem.file.constants.html#package.filesystem.file.constants.file-default-readsize"
+><TT
+CLASS="constant"
+><B
+>FILE_DEFAULT_READSIZE</B
+></TT
+></A
+> [, mixed $lock = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.read.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   <B
+CLASS="function"
+>File::read()</B
+> reads a specific amount of bytes from a
+   specified file and returns them to the user.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.read.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>string $filename</I
+></TT
+> - the file to read from
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>int $size</I
+></TT
+> - the number of bytes to read from the
+      file (defaults to <A
+HREF="package.filesystem.file.constants.html#package.filesystem.file.constants.file-default-readsize"
+><TT
+CLASS="constant"
+><B
+>FILE_DEFAULT_READSIZE</B
+></TT
+></A
+>)
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>mixed $lock</I
+></TT
+> - lock type to use, <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> if none
+     </P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.read.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   <TT
+CLASS="parameter"
+><I
+>mixed</I
+></TT
+> - this function returns the requested bytes
+   from the file if there were no errors, <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> if it reached EOF or
+   a <A
+HREF="core.pear.pear-error.html"
+><B
+CLASS="classname"
+>PEAR_Error</B
+></A
+> object if an error has occured during reading from file.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.read.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <DIV
+CLASS="table"
+><A
+NAME="AEN46742"><P
+><B
+>Table 38-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error Code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error Value</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Meaning</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>"File does not exist: <TT
+CLASS="parameter"
+><I
+>$filename</I
+></TT
+>"</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The file <TT
+CLASS="parameter"
+><I
+>$filename</I
+></TT
+> does not exist.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Check if the path that is passed to the function is
+       correct.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>"Failed to open file: <TT
+CLASS="parameter"
+><I
+>$filename</I
+></TT
+>"</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>There are few possible things that might cause that error,
+       usually it's caused by  wrong permissions or bad sectors on the harddisk.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Check the permissions of the file (<B
+CLASS="command"
+>ls -l
+       {file}</B
+> on UNIX systems) and change them so the file is
+       readable by PHP, check if the harddisk is working properly and
+       has no bad sectors.</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.read.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.read.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+HREF="package.filesystem.file.readchar.html"
+><B
+CLASS="function"
+>File::readChar()</B
+></A
+></TD
+></TR
+><TR
+><TD
+><A
+HREF="package.filesystem.file.readline.html"
+><B
+CLASS="function"
+>File::readLine()</B
+></A
+></TD
+></TR
+><TR
+><TD
+><A
+HREF="package.filesystem.file.readall.html"
+><B
+CLASS="function"
+>File::readAll()</B
+></A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.read.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN46786"><P
+><B
+>Example 38-1. Using <B
+CLASS="function"
+>File::read()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'File.php';
+
+//output 40 bytes of file foo.bar
+echo File::read("/path/to/foo.bar", 40);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.filesystem.file.isabsolute.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.filesystem.file.readall.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>File::isAbsolute()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.filesystem.file.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>File::readAll()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

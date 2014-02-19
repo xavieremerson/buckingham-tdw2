@@ -1,0 +1,521 @@
+<HTML
+><HEAD
+><TITLE
+>Formatting Tutorial</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Spreadsheet_Excel_Writer"
+HREF="package.fileformats.spreadsheet-excel-writer.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.fileformats.spreadsheet-excel-writer.intro.html"><LINK
+REL="NEXT"
+TITLE="Workbook::close"
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-workbook.close.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-workbook.close.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.intro-format">Formatting Tutorial</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN42014"
+></A
+>Formatting Tutorial&nbsp;--&nbsp;how to format cells in a spreadsheet</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.intro-format.whatis"
+></A
+><H2
+>What is a format?</H2
+><P
+>&#13;    A format is an object of type <B
+CLASS="classname"
+>Spreadsheet_Excel_Writer_Format</B
+>.
+    This format can be applied to cells inside a spreadsheet so that these
+    cells inherit the properties of the format (text alignment, background
+    color, border colors, etc...).
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.intro-format.using-it"
+></A
+><H2
+>Using it</H2
+><P
+>&#13;    Formats can't be created directly by a <I
+CLASS="citetitle"
+>new</I
+> call.
+    You have to create a format using the <A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-workbook.addformat.html"
+>&#13;    <B
+CLASS="function"
+>addFormat()</B
+></A
+> method from a Workbook, which
+    associates your Format with this Workbook (you can't use the Format
+    with another Workbook).
+   </P
+><P
+>&#13;    Let's see how <A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-workbook.addformat.html"
+>&#13;    <B
+CLASS="function"
+>addFormat()</B
+></A
+> is used:
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN42030"><P
+><B
+>Example 37-1. addFormat usage</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'Spreadsheet/Excel/Writer.php';
+
+// Creating a workbook
+$workbook = new Spreadsheet_Excel_Writer();
+
+// Creating the format
+$format_bold =&#38; $workbook-&#62;addFormat();
+$format_bold-&#62;setBold();
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   There, we just created a bold format. Notice the ampersand sign (&#38;) that
+   appears when we created our format. If you don't create your format like
+   that it will appear as if all the format's properties you set are ignored.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.intro-format.something-useful"
+></A
+><H2
+>Making something useful</H2
+><P
+>&#13;     Well, we just created our first format, but we didn't use it. Not very
+     smart. So let's do something useful with a format.
+   </P
+><P
+>&#13;     Let's say you want to make your regular data filled spreadsheet. Only this
+     time, when you proudly present your beautiful creation to your boss, the
+     thing you most dread happens:
+     <A
+NAME="AEN42038"><BLOCKQUOTE
+CLASS="BLOCKQUOTE"
+><P
+><B
+CLASS="classname"
+>Pointy haired boss</B
+> - Mmmmhhh, seems OK.</P
+><P
+><B
+CLASS="classname"
+>You</B
+> - Yes, I added those totals as you
+     requested.</P
+><P
+><B
+CLASS="classname"
+>Pointy haired boss</B
+> - Mmmmhhh, you know, there's
+     going to be a lot of customers using this spreadsheet...</P
+><P
+><B
+CLASS="classname"
+>You</B
+> - So...</P
+><P
+><B
+CLASS="classname"
+>Pointy haired boss</B
+> - Mmmmhhh, what do you think of
+     changing the style for those headers there?</P
+><P
+><B
+CLASS="classname"
+>You</B
+> - ...</P
+></BLOCKQUOTE
+>
+     Of course it won't be just those headers: "why don't we center this title
+     here?", "Could you merge those cells over there?", "what do you think of
+     using the company's colors for those titles?".
+   </P
+><P
+>&#13;     There are a number of ways for dealing with this situation, but in
+     this tutorial we will stick to the one which will keep your job.
+   </P
+><P
+>&#13;     So let's begin work on the spreadsheet for DotCom.com.
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN42053"><P
+><B
+>Example 37-2. First example</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'Spreadsheet/Excel/Writer.php';
+$workbook = new Spreadsheet_Excel_Writer();
+
+$format_bold =&#38; $workbook-&#62;addFormat();
+$format_bold-&#62;setBold();
+
+// We need a worksheet in which to put our data
+$worksheet =&#38; $workbook-&#62;addWorksheet();
+// This is our title
+$worksheet-&#62;write(0, 0, "Profits for Dotcom.Com", $format_bold);
+// And now the data
+$worksheet-&#62;write(0, 0, 0);
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   There. Now all of those VC's out there are going to be calling like crazy
+   asking for an oportunity to invest on DotCom.com.
+   Wait a minute. These are not regular VC's we are talking about. These are
+   very selective guys who wouldn't trust their money to the first start-up they
+   happen to see on the internet. I know! Let's put the company's colors in
+   there!
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN42057"><P
+><B
+>Example 37-3. Second example</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'Spreadsheet/Excel/Writer.php';
+$workbook = new Spreadsheet_Excel_Writer();
+
+$format_bold =&#38; $workbook-&#62;addFormat();
+$format_bold-&#62;setBold();
+
+$format_title =&#38; $workbook-&#62;addFormat();
+$format_title-&#62;setBold();
+$format_title-&#62;setColor('yellow');
+$format_title-&#62;setPattern(1);
+$format_title-&#62;setFgColor('blue');
+
+$worksheet =&#38; $workbook-&#62;addWorksheet();
+$worksheet-&#62;write(0, 0, "Quarterly Profits for Dotcom.Com", $format_title);
+// While we are at it, why not throw some more numbers around
+$worksheet-&#62;write(1, 0, "Quarter", $format_bold);
+$worksheet-&#62;write(1, 1, "Profit", $format_bold);
+$worksheet-&#62;write(2, 0, "Q1");
+$worksheet-&#62;write(2, 1, 0);
+$worksheet-&#62;write(3, 0, "Q2");
+$worksheet-&#62;write(3, 1, 0);
+
+$workbook-&#62;send('test.xls');
+$workbook-&#62;close();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.intro-format.merging-cells"
+></A
+><H2
+>Merging cells</H2
+><P
+>&#13;     If you just tested the previous example you might have noticed that the
+     title would need several cells to be seen correctly, but the format we
+     applied only works for the first cell. So our title does not look very
+     nice.
+   </P
+><P
+>&#13;     What can we do to fix that? Well, you could tell your boss that the title
+     looks ok to you, and that he really needs to visit an ophthalmologist.
+     Or you could use cell merging in order to make the title spread over
+     several cells.
+   </P
+><P
+>&#13;     For this you have to use the <A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setalign.html"
+>&#13;     <B
+CLASS="function"
+>setAlign()</B
+></A
+> method with 'merge' as argument,
+     and create some empty cells so the title can 'use' them as a sort of
+     background (there will be a better way to do this in a future version of
+     <B
+CLASS="classname"
+>Spreadsheet_Excel_Writer</B
+>).
+   </P
+><P
+>&#13;     Applying merging to our example script, we would have this:
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN42069"><P
+><B
+>Example 37-4. Merging cells</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'Spreadsheet/Excel/Writer.php';
+$workbook = new Spreadsheet_Excel_Writer();
+
+$format_bold =&#38; $workbook-&#62;addFormat();
+$format_bold-&#62;setBold();
+
+$format_title =&#38; $workbook-&#62;addFormat();
+$format_title-&#62;setBold();
+$format_title-&#62;setColor('yellow');
+$format_title-&#62;setPattern(1);
+$format_title-&#62;setFgColor('blue');
+// let's merge
+$format_title-&#62;setAlign('merge');
+
+$worksheet =&#38; $workbook-&#62;addWorksheet();
+$worksheet-&#62;write(0, 0, "Quarterly Profits for Dotcom.Com", $format_title);
+// Couple of empty cells to make it look better
+$worksheet-&#62;write(0, 1, "", $format_title);
+$worksheet-&#62;write(0, 2, "", $format_title);
+$worksheet-&#62;write(1, 0, "Quarter", $format_bold);
+$worksheet-&#62;write(1, 1, "Profit", $format_bold);
+$worksheet-&#62;write(2, 0, "Q1");
+$worksheet-&#62;write(2, 1, 0);
+$worksheet-&#62;write(3, 0, "Q2");
+$worksheet-&#62;write(3, 1, 0);
+
+$workbook-&#62;send('test.xls');
+$workbook-&#62;close();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-workbook.close.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Workbook::close</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

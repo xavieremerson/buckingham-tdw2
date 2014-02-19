@@ -1,0 +1,434 @@
+<HTML
+><HEAD
+><TITLE
+>DB_common::quoteIdentifier()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="DB_common::quote()"
+HREF="package.database.db.db-common.quote.html"><LINK
+REL="NEXT"
+TITLE="DB_common::quoteSmart()"
+HREF="package.database.db.db-common.quotesmart.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.quote.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.quotesmart.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.db-common.quoteidentifier">DB_common::quoteIdentifier()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN24499"
+></A
+>DB_common::quoteIdentifier()&nbsp;--&nbsp;Formats a string so it can be safely used as an identifier</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN24502"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN24503"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>string <B
+CLASS="function"
+>quoteIdentifier</B
+></CODE
+> (string $str)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.quoteidentifier.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Format input so it can be safely used as a delimited identifier
+   in a query.  Identifiers are objects such as table or column names.
+  </P
+><P
+>&#13;   The format returned depends on the database type being used.
+  </P
+><P
+>&#13;   Delimited identifiers are known to generally work correctly under
+   the following drivers:
+   <P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>mssql</TD
+></TR
+><TR
+><TD
+>mysql</TD
+></TR
+><TR
+><TD
+>mysqli</TD
+></TR
+><TR
+><TD
+>oci8</TD
+></TR
+><TR
+><TD
+>odbc(access)</TD
+></TR
+><TR
+><TD
+>odbc(db2)</TD
+></TR
+><TR
+><TD
+>pgsql</TD
+></TR
+><TR
+><TD
+>sqlite</TD
+></TR
+><TR
+><TD
+>sybase</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+  </P
+><P
+>&#13;   InterBase doesn't seem to be able to use delimited identifiers
+   via PHP 4.  They work fine under PHP 5.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.quoteidentifier.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+      <TT
+CLASS="parameter"
+><I
+>$str</I
+></TT
+></DT
+><DD
+><P
+>&#13;       the input to be quoted
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.quoteidentifier.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   string - the formatted string
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.quoteidentifier.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+>&#13;   Function available since: Release 1.6.0
+  </P
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;    Just because you CAN use delimited identifiers doesn't mean
+    you SHOULD use them.  In general, they end up causing way more
+    problems than they solve.
+   </P
+><P
+>&#13;    Portability is broken by using the following characters inside
+    delimited identifiers:
+    <P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>backtick (<TT
+CLASS="literal"
+>`</TT
+>) -- due to MySQL</TD
+></TR
+><TR
+><TD
+>double quote (<TT
+CLASS="literal"
+>"</TT
+>) -- due to Oracle</TD
+></TR
+><TR
+><TD
+>brackets (<TT
+CLASS="literal"
+>[</TT
+> or <TT
+CLASS="literal"
+>]</TT
+>) -- due to Access</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+   </P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.quoteidentifier.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN24556"><P
+><B
+>Example 33-1. Using <B
+CLASS="function"
+>quoteIdentifier()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$sql = 'SELECT ' . $db-&#62;quoteIdentifier('company name')
+       . ', address FROM clients';
+
+$res =&#38; $db-&#62;query($sql);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.quoteidentifier.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="package.database.db.db-common.quotesmart.html"
+>&#13;    <B
+CLASS="function"
+>quoteSmart()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-common.escapesimple.html"
+>&#13;    <B
+CLASS="function"
+>escapeSimple()</B
+></A
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.quote.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.quotesmart.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>DB_common::quote()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>DB_common::quoteSmart()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

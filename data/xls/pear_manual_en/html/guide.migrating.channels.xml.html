@@ -1,0 +1,580 @@
+<HTML
+><HEAD
+><TITLE
+>channel.xml</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Channels"
+HREF="guide.migrating.channels.html"><LINK
+REL="PREVIOUS"
+TITLE="Channels"
+HREF="guide.migrating.channels.html"><LINK
+REL="NEXT"
+TITLE="XML-RPC functions"
+HREF="guide.migrating.channels.xmlrpcfunctions.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="guide.migrating.channels.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="guide.migrating.channels.xmlrpcfunctions.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="guide.migrating.channels.xml">channel.xml</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN3151"
+></A
+>channel.xml&nbsp;--&nbsp;The channel definition file</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="guide.migrating.channels.xml.intro"
+></A
+><H2
+>How to describe a channel</H2
+><P
+>&#13;   Discovery of a channel's capabilities is extremely flexible.  The XSD schema
+   defining channel.xml can be found at
+   <A
+HREF="http://pear.php.net/dtd/channel-1.0.xsd"
+TARGET="_top"
+>http://pear.php.net/dtd/channel-1.0.xsd</A
+>.
+   Channel.xml defines:
+   <P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>&#13;      the channel name
+     </P
+></LI
+><LI
+><P
+>&#13;      an optional suggested user alias for the channel
+     </P
+></LI
+><LI
+><P
+>&#13;     a brief summary of the channel's purpose
+     </P
+></LI
+><LI
+><P
+>&#13;      an optional package to perform custom validation of packages on
+      both download and packaging
+     </P
+></LI
+><LI
+><P
+>&#13;      a list of protocols supported by a channel (XML-RPC, SOAP, and REST are supported)
+     </P
+></LI
+><LI
+><P
+>&#13;      a list of mirrors and the protocols they support.
+     </P
+></LI
+></OL
+>
+  </P
+><P
+>&#13;   Here is a sample channel.xml with all elements:
+  </P
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;channel version="1.0"
+         xsi:schemaLocation="http://pear.php.net/channel-1.0
+                             http://pear.php.net/dtd/channel-1.0.xsd"&#62;
+ <A
+HREF="guide.migrating.channels.xml.html#guide.migrating.channels.xml.name"
+>&#60;name&#62;</A
+>pear.example.com&#60;/name&#62;
+ <A
+HREF="guide.migrating.channels.xml.html#guide.migrating.channels.xml.suggestedalias"
+>&#60;suggestedalias&#62;</A
+>foo&#60;/suggestedalias&#62;
+ <A
+HREF="guide.migrating.channels.xml.html#guide.migrating.channels.xml.summary"
+>&#60;summary&#62;</A
+>Example channel.xml&#60;/summary&#62;
+ <A
+HREF="guide.migrating.channels.xml.html#guide.migrating.channels.xml.validatepackage"
+>&#60;validatepackage</A
+> version="1.3.4"&#62;Foo_Validate&#60;/validatepackage&#62;
+ <A
+HREF="guide.migrating.channels.xml.html#guide.migrating.channels.xml.mirrors"
+>&#60;servers&#62;</A
+>
+  <A
+HREF="guide.migrating.channels.xml.html#guide.migrating.channels.xml.mirrors"
+>&#60;primary</A
+> port="8080" ssl="yes"&#62;
+   <A
+HREF="guide.migrating.channels.xml.html#guide.migrating.channels.xml.protocols"
+>&#60;xmlrpc&#62;</A
+> &#60;!-- default path is xmlrpc.php --&#62;
+    &#60;function version="1.0"&#62;logintest&#60;/function&#62;
+    &#60;function version="1.0"&#62;package.listLatestReleases&#60;/function&#62;
+    &#60;function version="1.0"&#62;package.listAll&#60;/function&#62;
+    &#60;function version="1.0"&#62;package.info&#60;/function&#62;
+    &#60;function version="1.0"&#62;package.getDownloadURL&#60;/function&#62;
+    &#60;function version="1.1"&#62;package.getDownloadURL&#60;/function&#62;
+    &#60;function version="1.0"&#62;package.getDepDownloadURL&#60;/function&#62;
+    &#60;function version="1.1"&#62;package.getDepDownloadURL&#60;/function&#62;
+    &#60;function version="1.0"&#62;package.search&#60;/function&#62;
+    &#60;function version="1.0"&#62;channel.listAll&#60;/function&#62;
+   &#60;/xmlrpc&#62;
+   <A
+HREF="guide.migrating.channels.xml.html#guide.migrating.channels.xml.protocols"
+>&#60;rest&#62;</A
+> &#60;!-- no default path, all must be defined in baseurl --&#62;
+    &#60;baseurl type="package"&#62;http://pear.example.com/rest/1.0/package&#60;/baseurl&#62;
+    &#60;baseurl type="category"&#62;http://pear.example.com/rest/1.0/category&#60;/baseurl&#62;
+   &#60;/rest&#62; 
+   <A
+HREF="guide.migrating.channels.xml.html#guide.migrating.channels.xml.protocols"
+>&#60;soap</A
+> path="soapy.php"&#62; &#60;!-- default path is soap.php --&#62;
+    &#60;function version="1.0"&#62;package.listAll&#60;/function&#62;
+   &#60;/soap&#62;
+  &#60;/primary&#62;
+  <A
+HREF="guide.migrating.channels.xml.html#guide.migrating.channels.xml.mirrors"
+>&#60;mirror</A
+> server="foo2.example.com/pearmirror"&#62;
+   &#60;xmlrpc path="mirrorxmlrpc.php"&#62; &#60;!-- default path is xmlrpc.php --&#62;
+    &#60;function version="1.0"&#62;package.listLatestReleases&#60;/function&#62;
+    &#60;function version="1.0"&#62;package.listAll&#60;/function&#62;
+    &#60;function version="1.0"&#62;package.info&#60;/function&#62;
+    &#60;function version="1.0"&#62;package.getDownloadURL&#60;/function&#62;
+    &#60;function version="1.1"&#62;package.getDownloadURL&#60;/function&#62;
+    &#60;function version="1.0"&#62;package.getDepDownloadURL&#60;/function&#62;
+    &#60;function version="1.1"&#62;package.getDepDownloadURL&#60;/function&#62;
+    &#60;function version="1.0"&#62;package.search&#60;/function&#62;
+   &#60;/xmlrpc&#62;
+   &#60;rest&#62; &#60;!-- no default path, all must be defined in baseurl --&#62;
+    &#60;baseurl type="package"&#62;http://foo2.example.com/rest/1.0/package&#60;/baseurl&#62;
+   &#60;/rest&#62; 
+  &#60;/mirror&#62;
+ &#60;/servers&#62;
+&#60;/channel&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="guide.migrating.channels.xml.name"
+></A
+><H3
+>&#60;name&#62;</H3
+><P
+>&#13;    A channel's name should be the name of the server that users would browse to in order
+    to learn more about the packages being offered.  For instance, PEAR packages are
+    located in the pear.php.net channel.  PECL packages are located in the pecl.php.net
+    channel.  Note that for backwards compatibility, all existing packages based on
+    package.xml version 1.0 are in the pear.php.net channel.
+   </P
+><P
+>&#13;    The benefit that comes from using the server name as the channel name is that
+    auto-discovery becomes a real possibility, as well as ease of locating packages
+    increases dramatically.
+   </P
+><P
+>&#13;    A channel need not be located in the document root, a channel can contain a path.  This
+    is a perfectly valid channel name:
+    <TT
+CLASS="filename"
+>foo.example.com/path/to/pear</TT
+>.
+    Note that users would have to type:
+   </P
+><P
+>&#13;    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>$ pear install foo.example.com/path/to/pear/Packagename</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    Unless you provide a &#60;suggestedalias&#62;.
+   </P
+><P
+>&#13;    The channel's definition file "channel.xml" must be placed in the root channel
+    directory.  If a channel is "pear.example.com", the channel.xml must be located
+    in "http://pear.example.com/channel.xml".  If the channel is
+    "pear.example.com/path/to/pear", then the channel.xml must be located in
+    "http://pear.example.com/path/to/pear/channel.xml"
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="guide.migrating.channels.xml.suggestedalias"
+></A
+><H3
+>&#60;suggestedalias&#62;</H3
+><P
+>&#13;    &#60;suggestedalias&#62; defines a shorter, more friendly name to use when installing
+    packages from a channel.  For instance, the pear.php.net channel's suggested alias is
+    "pear".  The best aliases for a channel will be no more than 6 characters long -
+    remember, a user must type them often when installing or upgrading, and this can be
+    tedious for longer aliases.
+   </P
+><P
+>&#13;    Rather than call this tag &#60;alias&#62;, as it was originally named, the tag
+    is named &#60;suggestedalias&#62; in order to provide the user some latitude.  If
+    the user does not like the alias suggested by the channel owners, he or she can
+    easily re-alias a channel through the channel-alias command.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="guide.migrating.channels.xml.summary"
+></A
+><H3
+>&#60;summary&#62;</H3
+><P
+>&#13;    This tag provides a short description of what packages the user should expect to
+    find on this channel.  The summary is what users will see when the use the list-channels
+    command.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="guide.migrating.channels.xml.validatepackage"
+></A
+><H3
+>&#60;validatepackage&#62;</H3
+><P
+>&#13;    Most channels will be satisfied with the restrictions placed upon package naming,
+    versioning, and so on that PEAR provides by default.  However, for some channels,
+    the validation will be too strict, and others, too relaxed.  The &#60;validatepackage&#62;
+    tag provides the next level of customization.
+   </P
+><P
+>&#13;    If omitted, the installer assumed that the <B
+CLASS="classname"
+>PEAR_Validate</B
+> class
+    should be used.  Note that a looser version validation is provided by the
+    <B
+CLASS="classname"
+>PEAR_Validate_PECL</B
+> class, for channels like pecl.php.net that do
+    not wish to deal with PEAR's warnings on version transgressions.
+   </P
+><P
+>&#13;    &#60;validatepackage&#62; requires a version attribute and text content.  The text content
+    must be the name of a package that can be installed via:
+   </P
+><P
+>&#13;    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>$ pear install channelname.example.com/Packagename-version</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    as in:
+   </P
+><P
+>&#13;    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>$ pear install pear.example.com/Foo_Validate-1.3.4</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    for the sample channel.xml at the beginning of this section.  In addition, the package
+    must provide a single class named after the package in a file using the PEAR naming
+    conventions (all underscores "_" converted into path separators "/"
+    so that Foo_Validate is located in Foo/Validate.php), and this class should extend
+    PEAR_Validate.  Methods beginning with "validate" like
+    <B
+CLASS="function"
+>validateVersion()</B
+> are intended to be overridden by validation classes
+    for use in extending existing validation functionality.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="guide.migrating.channels.xml.mirrors"
+></A
+><H3
+>&#60;servers&#62;: &#60;primary&#62; and &#60;mirror&#62;</H3
+><P
+>&#13;    Mirroring is explicitly supported in channel.xml and in the PEAR installer.  Users can
+    choose their favorite mirror via the <TT
+CLASS="filename"
+>default_channel</TT
+> configuration
+    option, and channel.xml can list all the possible mirrors using the (surprise)
+    &#60;mirror&#62; tag.
+   </P
+><P
+>&#13;    The &#60;primary&#62; tag is used to define the location of protocols, and to list
+    the protocols that are supported by the main channel server.  Optional attributes
+    can be used to modify how the PEAR installer will attempt to connect to the server.
+    The "port" attribute can be used to define how the installer will connect
+    to XML-RPC and SOAP services.  REST services are always controlled by the individual
+    &#60;baseurl&#62; tags.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="guide.migrating.channels.xml.protocols"
+></A
+><H3
+>&#60;xmlrpc&#62;, &#60;soap&#62;, &#60;rest&#62;</H3
+><P
+>&#13;    channel.xml knows about the XML-RPC, SOAP, and REST protocols for web services.
+    However, the PEAR installer only supports XML-RPC currently, and may support
+    REST shortly.  No support for SOAP is planned for the near future.  However, should
+    it ever be implemented, channel.xml is ready.
+   </P
+><P
+>&#13;    The &#60;xmlrpc&#62; and &#60;soap&#62; tags have identical formats.  Both tags can contain
+    an optional attribute "path" that tells the PEAR installer which URL to
+    query.  By default, the path is protocol.php, as in xmlrpc.php or soap.php.  In other
+    words, to access XML-RPC functions for the pear.example.com channel defined in the sample
+    channel.xml, the installer would query
+    <TT
+CLASS="filename"
+>https://pear.example.com:8080/xmlrpc.php</TT
+> for XML-RPC functions, but
+    would query <TT
+CLASS="filename"
+>https://pear.example.com:8080/soapy.php</TT
+> for SOAP
+    functions.
+   </P
+><P
+>&#13;    The &#60;rest&#62; tag reflects the design concept behind REST: each resource is
+    defined by a base URL in tag &#60;baseurl&#62; that is then used by the installer
+    along with hyperlinks to glean the same information that XML-RPC or SOAP would
+    provide.  Required attribute "type" tells the installer what kind of
+    information is provided by the base URL, and how to parse that information.
+   </P
+><DIV
+CLASS="refsect3"
+><A
+NAME="guide.migrating.channels.xml.protocols.function"
+></A
+><H4
+>&#60;function&#62;</H4
+><P
+>&#13;     The &#60;function&#62; tag is quite simple.  A required version attribute informs the
+     installer what the API is, and the text content informs the installer what the name
+     of the function is.  Note that multiple functions with different versions can co-exist
+     peacefully, as in:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;function version="1.0"&#62;package.getDownloadURL&#60;/function&#62;
+&#60;function version="1.1"&#62;package.getDownloadURL&#60;/function&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+     If a newer API is backwards-compatible, always define every possible API version
+     in order to prevent older installer versions from giving up.
+    </P
+></DIV
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="guide.migrating.channels.xml.whynotwsdl"
+></A
+><H3
+>Why not use a standard such as wsdl?</H3
+><P
+>&#13;    Some of you may be asking "why create another standard for web
+    services discovery?"  The answer is simple: channel.xml does not
+    supplant the role that WSDL has for java, or XML-RPC introspection occupies.
+    channnel.xml is a layer on top of these technologies.  The point is to quickly
+    list the remote protocols that are supported, not to describe what they do.
+   </P
+><P
+>&#13;    The PEAR installer is specialized enough that a generic listing of parameters and
+    return values is entirely unnecessary: the installer knows exactly what xml-rpc
+    function package.info version 1.0 requires and what it returns.  Any other information
+    simply adds wasted bandwidth and disk space.
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="guide.migrating.channels.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="guide.migrating.channels.xmlrpcfunctions.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Channels</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="guide.migrating.channels.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>XML-RPC functions</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

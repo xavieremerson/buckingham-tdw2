@@ -1,0 +1,479 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - DSN</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="MDB"
+HREF="package.database.mdb.html"><LINK
+REL="PREVIOUS"
+TITLE="MDB"
+HREF="package.database.mdb.html"><LINK
+REL="NEXT"
+TITLE="Introduction - Connect"
+HREF="package.database.mdb.intro-connect.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb.intro-connect.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.mdb.intro-dsn">Introduction - DSN</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN27578"
+></A
+>Introduction - DSN&nbsp;--&nbsp;The Data Source Name</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb.intro-dsn.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   To connect to a database through PEAR::MDB, you have to create a
+   valid <SPAN
+CLASS="acronym"
+>DSN - data source name</SPAN
+>. This DSN
+   consists in the following parts:
+  </P
+><P
+>&#13;   <P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>&#13;     <TT
+CLASS="parameter"
+><I
+>phptype</I
+></TT
+>:
+     Database backend used in PHP (i.e. <TT
+CLASS="parameter"
+><I
+>mysql</I
+></TT
+>
+     , <TT
+CLASS="parameter"
+><I
+>odbc</I
+></TT
+> etc.)
+    </TD
+></TR
+><TR
+><TD
+>&#13;     <TT
+CLASS="parameter"
+><I
+>dbsyntax</I
+></TT
+>:
+     Database used with regards to SQL syntax etc.
+    </TD
+></TR
+><TR
+><TD
+>&#13;     <TT
+CLASS="parameter"
+><I
+>protocol</I
+></TT
+>:
+     Communication protocol to use ( i.e. <TT
+CLASS="parameter"
+><I
+>tcp</I
+></TT
+>,
+     <TT
+CLASS="parameter"
+><I
+>unix</I
+></TT
+> etc.)
+    </TD
+></TR
+><TR
+><TD
+>&#13;     <TT
+CLASS="parameter"
+><I
+>hostspec</I
+></TT
+>:
+     Host specification (<TT
+CLASS="parameter"
+><I
+>hostname[:port]</I
+></TT
+>)
+    </TD
+></TR
+><TR
+><TD
+>&#13;     <TT
+CLASS="parameter"
+><I
+>database</I
+></TT
+>:
+     Database to use on the DBMS server
+    </TD
+></TR
+><TR
+><TD
+>&#13;     <TT
+CLASS="parameter"
+><I
+>username</I
+></TT
+>:
+     User name for login
+    </TD
+></TR
+><TR
+><TD
+>&#13;     <TT
+CLASS="parameter"
+><I
+>password</I
+></TT
+>:
+     Password for login
+    </TD
+></TR
+><TR
+><TD
+>&#13;     <TT
+CLASS="parameter"
+><I
+>proto_opts</I
+></TT
+>:
+     Maybe used with <TT
+CLASS="parameter"
+><I
+>protocol</I
+></TT
+>
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+  </P
+><P
+>&#13;   The format of the supplied DSN is in its fullest form:
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="url"
+>phptype(dbsyntax)://username:password@protocol+hostspec/database</PRE
+></TD
+></TR
+></TABLE
+>
+   Most variations are allowed:
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="url"
+>phptype://username:password@protocol+hostspec:110//usr/db_file.mdb
+phptype://username:password@hostspec/database_name
+phptype://username:password@hostspec
+phptype://username@hostspec
+phptype://hostspec/database
+phptype://hostspec
+phptype(dbsyntax)
+phptype</PRE
+></TD
+></TR
+></TABLE
+>
+   The currently supported database backends are:
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="configure"
+>mysql  -&#62; MySQL
+pgsql  -&#62; PostgreSQL
+ibase  -&#62; InterBase
+mssql  -&#62; Microsoft SQL Server
+oci8   -&#62; Oracle 7/8/8i
+fbsql  -&#62; FrontBase</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><P
+>&#13;   With an up-to-date version of <B
+CLASS="classname"
+>MDB</B
+>, you can use a
+   second DSN format
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="url"
+>phptype(syntax)://user:pass@protocol(proto_opts)/database</PRE
+></TD
+></TR
+></TABLE
+>
+   <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN27616"><P
+><B
+>Example 33-1. Connect to database through a socket</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="url"
+>mysql://user@unix(/path/to/socket)/pear</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN27619"><P
+><B
+>Example 33-2. Connect to database on a non standard port</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="url"
+>pgsql://user:pass@word@tcp(localhost:5555)/pear</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+  </P
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;    Please note, that some features may be not supported by all
+    database backends. Please refer to the PEAR MDB extensions
+    status document located at:
+    <TT
+CLASS="filename"
+>&#60;pear base dir&#62;/MDB/STATUS</TT
+>
+    to get a detailed list about what features are supported by which
+    backend.
+   </P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.mdb.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.mdb.intro-connect.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>MDB</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.mdb.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction - Connect</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

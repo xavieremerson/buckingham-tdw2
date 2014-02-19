@@ -1,0 +1,294 @@
+<HTML
+><HEAD
+><TITLE
+>System_WinDrives::getDrivesInformation()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="System_WinDrives"
+HREF="package.system.windrives.html"><LINK
+REL="PREVIOUS"
+TITLE="System_WinDrives::getDriveName()"
+HREF="package.system.windrives.windrives.getdrivename.html"><LINK
+REL="NEXT"
+TITLE="System_WinDrives::getDriveType()"
+HREF="package.system.windrives.windrives.getdrivetype.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.system.windrives.windrives.getdrivename.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.system.windrives.windrives.getdrivetype.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.system.windrives.windrives.getdrivesinformation">System_WinDrives::getDrivesInformation()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN98323"
+></A
+>System_WinDrives::getDrivesInformation()&nbsp;--&nbsp;Gets information about all drives</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN98326"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN98327"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'System/WinDrives.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>System_WinDrives::getDrivesInformation</B
+></CODE
+> (void)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.system.windrives.windrives.getdrivesinformation.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Returns an array with all pieces of information one can get for
+   the drives.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.system.windrives.windrives.getdrivesinformation.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   array - Array of little objects. Key is the drive path, the value
+   is an object with the following values: <TT
+CLASS="literal"
+>type</TT
+>,
+   <TT
+CLASS="literal"
+>name</TT
+> and <TT
+CLASS="literal"
+>typetitle</TT
+>.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.system.windrives.windrives.getdrivesinformation.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN98345"><P
+><B
+>Example 56-1. Using <B
+CLASS="function"
+>myFunction()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'System/WinDrives.php';
+
+$swd = new System_WinDrives();
+$arInfo = $swd-&#62;getDrivesInformation();
+foreach ($arInfo as $strPath =&#62; $objInfo) {
+    echo 'Drive ' . $strPath . "\r\n";
+    echo '    type: ' . $objInfo-&#62;type . '(' . $objInfo-&#62;typetitle . ")\r\n";
+    echo '    name: ' . $objInfo-&#62;name . "\r\n";
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Output:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Drive A:\
+    2 (Removable)
+    diskette
+Drive C:\
+    3 Harddisk
+    Windisk</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.system.windrives.windrives.getdrivename.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.system.windrives.windrives.getdrivetype.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>System_WinDrives::getDriveName()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.system.windrives.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>System_WinDrives::getDriveType()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

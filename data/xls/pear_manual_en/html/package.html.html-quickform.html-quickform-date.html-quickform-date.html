@@ -1,0 +1,533 @@
+<HTML
+><HEAD
+><TITLE
+>constructor HTML_QuickForm_date()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Custom elements"
+HREF="package.html.html-quickform.html#package.html.html-quickform.elements.custom"><LINK
+REL="PREVIOUS"
+TITLE="Class Summary HTML_QuickForm_date"
+HREF="package.html.html-quickform.html-quickform-date.html"><LINK
+REL="NEXT"
+TITLE="Class Summary HTML_QuickForm_header"
+HREF="package.html.html-quickform.html-quickform-header.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-date.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-header.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.html-quickform-date.html-quickform-date">constructor HTML_QuickForm_date()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN60007"
+></A
+>constructor HTML_QuickForm_date()&nbsp;--&nbsp;Class constructor</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN60010"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN60011"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/QuickForm/date.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void      constructor <B
+CLASS="function"
+>HTML_QuickForm_date::HTML_QuickForm_date</B
+></CODE
+> ([string $elementName = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> [, mixed $elementLabel = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> [, array $options = array() [, mixed $attributes = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>]]]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-date.html-quickform-date.desc"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="parameter"
+><I
+>$options</I
+></TT
+> parameter controls the element's appearance. It is an associative array of the form 'option name' =&#62; 'option value'.</P
+><P
+></P
+><DIV
+CLASS="variablelist"
+><P
+><B
+>Recognised option names</B
+></P
+><DL
+><DT
+><TT
+CLASS="literal"
+>'language'</TT
+></DT
+><DD
+><P
+>&#13;    Language code to use for display. Default is <TT
+CLASS="literal"
+>'en'</TT
+>.
+   </P
+><P
+>&#13;    date element supports many languages. If your one is not supported, send us the translation, we'll gladly include it.
+   </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'format'</TT
+></DT
+><DD
+><P
+>&#13;    Format string for the date, based on PHP's <A
+HREF="http://www.php.net/manual-lookup.php?pattern=date"
+TARGET="_top"
+><B
+CLASS="function"
+>date()</B
+></A
+> function. The following characters are recognised:
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>D =&#62; Short names of days
+l =&#62; Long names of days
+d =&#62; Day numbers
+M =&#62; Short names of months
+F =&#62; Long names of months
+m =&#62; Month numbers
+Y =&#62; Four digit year
+y =&#62; Two digit year
+h =&#62; 12 hour format
+H =&#62; 23 hour  format
+i =&#62; Minutes
+s =&#62; Seconds
+a =&#62; am/pm
+A =&#62; AM/PM
+g =&#62; 12 hour format w/o leading zeroes
+W =&#62; week of the year</PRE
+></TD
+></TR
+></TABLE
+>
+    Default is <TT
+CLASS="literal"
+>'dMY'</TT
+>.
+   </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'minYear'</TT
+></DT
+><DD
+><P
+>&#13;    Minimum year in year select. Default is 2001.
+   </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'maxYear'</TT
+></DT
+><DD
+><P
+>&#13;    Maximum year in year select. Default is 2010.
+   </P
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>On <TT
+CLASS="literal"
+>'minYear'</TT
+> and <TT
+CLASS="literal"
+>'maxYear'</TT
+>: </B
+>When <TT
+CLASS="literal"
+>'minYear'</TT
+> &#62; <TT
+CLASS="literal"
+>'maxYear'</TT
+> the years in the select will be displayed in descending order.</P
+></BLOCKQUOTE
+></DIV
+></DD
+><DT
+><TT
+CLASS="literal"
+>'addEmptyOption'</TT
+></DT
+><DD
+><P
+>&#13;    Should an empty option be added to the top of each select box? Default is <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>.
+    This may be set for individual fields also, if one passes an array of the form
+    array('format char' =&#62; <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, ..., 'another format char' =&#62; <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>)
+   </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'emptyOptionValue'</TT
+></DT
+><DD
+><P
+>&#13;    The value passed by the empty option. Default is <TT
+CLASS="literal"
+>''</TT
+>.
+   </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'emptyOptionText'</TT
+></DT
+><DD
+><P
+>&#13;    The text displayed for the empty option. Default is <TT
+CLASS="literal"
+>'&#38;nbsp;'</TT
+>.
+    This may be set for individual fields also, if one passes an array of the form
+    array('format char' =&#62; 'some text', ..., 'another format char' =&#62; 'some other text')
+   </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'optionIncrement'</TT
+></DT
+><DD
+><P
+>&#13;    Step to increase the option values by. Works for <TT
+CLASS="literal"
+>'i'</TT
+> and <TT
+CLASS="literal"
+>'s'</TT
+> formats currently. Default is array('i' =&#62; 1, 's' =&#62; 1).
+   </P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-date.html-quickform-date.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+                 <TT
+CLASS="parameter"
+><I
+>$elementName</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Element's name
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>mixed
+                 <TT
+CLASS="parameter"
+><I
+>$elementLabel</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Label(s) for an element
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array
+                 <TT
+CLASS="parameter"
+><I
+>$options</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Options to control the element's display
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>mixed
+                 <TT
+CLASS="parameter"
+><I
+>$attributes</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Either a typical HTML attribute string or an associative array
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-date.html-quickform-date.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> no exceptions thrown
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-date.html-quickform-date.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-date.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-header.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_date</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.elements.custom"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_header</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

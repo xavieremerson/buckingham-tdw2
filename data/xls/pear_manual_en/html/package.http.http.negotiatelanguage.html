@@ -1,0 +1,374 @@
+<HTML
+><HEAD
+><TITLE
+>HTTP::negotiateLanguage</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTTP"
+HREF="package.http.http.html"><LINK
+REL="PREVIOUS"
+TITLE="HTTP::head"
+HREF="package.http.http.head.html"><LINK
+REL="NEXT"
+TITLE="HTTP::redirect"
+HREF="package.http.http.redirect.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.http.http.head.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.http.http.redirect.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.http.http.negotiatelanguage">HTTP::negotiateLanguage</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN73945"
+></A
+>HTTP::negotiateLanguage&nbsp;--&nbsp;Negotiate language with the user's browser</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN73948"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN73949"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTTP.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>string <B
+CLASS="function"
+>HTTP::negotiateLanguage</B
+></CODE
+> (array $supported, string $default = 'en_US')</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http.negotiatelanguage.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Negotiate language with the user's browser through the
+     Accept-Language HTTP header or the user's host address.
+     Language codes are generally in the form "ll" for a language
+     spoken in only one country, or "ll-CC" for a language spoken in
+     a particular country.  For example, U.S. English is "en-US",
+     while British English is "en-UK".  Portugese as spoken in
+     Portugal is "pt-PT", while Brazilian Portugese is "pt-BR".
+     Two-letter country codes can be found in the ISO 3166 standard.
+    </P
+><P
+>&#13;     Quantities in the <TT
+CLASS="literal"
+>Accept-Language:</TT
+> header are
+     supported, for example:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>Accept-Language: en-UK;q=0.7, en-US;q=0.6, no;q=1.0, dk;q=0.8</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http.negotiatelanguage.example"
+></A
+><H2
+>Example</H2
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN73967"><P
+><B
+>Example 42-1. Usage example</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "HTTP.php";
+
+$supported = array("de" =&#62; true, "en-US" =&#62; true);
+
+echo HTTP::negotiateLanguage($supported);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>&#13;     This example negotiates with the user agent if any of the
+     languages, which are specified in <TT
+CLASS="varname"
+>supported</TT
+>,
+     are supported on the user's system. If the negotiation has a
+     positive result, the language code of the most preferred language
+     is printed. Otherwise the default language code (en-US) is
+     printed.
+    </P
+><P
+>&#13;     Being able to perform language negotiation is a big help when
+     developing internationalized website with pages, that are available
+     in more than one language. Using negotiation, the user will always
+     get pages in the language which he prefers. (Assuming that their
+     user agent is configured properly.)
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http.negotiatelanguage.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>array $supported</I
+></TT
+> - an
+        associative array indexed by language codes (country codes)
+        supported by the application.  Values must evaluate to <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>.
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $default</I
+></TT
+> -  the default 
+        language that should be used if none of the other languages
+        are found during negotiation.        
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http.negotiatelanguage.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>string</I
+></TT
+> - a language code        
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http.negotiatelanguage.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can be called
+statically.</P
+><P
+>&#13;     The returned language is only a hint! Sending the
+     accepted languages by the client is optional. The language settings
+     of the browser do not have to meet the user's native language -
+     for example a german traveller in a spanish internet cafe. You
+     can improve your result by combining it with the result of the 
+     <B
+CLASS="classname"
+>Net_Geo</B
+> package.  Apart from that, you should
+     still give the user the chance to manually choose their preferred
+     language menu.
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.http.http.head.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.http.http.redirect.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTTP::head</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.http.http.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTTP::redirect</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

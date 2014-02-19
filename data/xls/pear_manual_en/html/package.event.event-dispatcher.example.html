@@ -1,0 +1,356 @@
+<HTML
+><HEAD
+><TITLE
+>Examples</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Event_Dispatcher"
+HREF="package.event.event-dispatcher.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.event.event-dispatcher.intro.html"><LINK
+REL="NEXT"
+TITLE="Event_Dispatcher::getInstance"
+HREF="package.event.event-dispatcher.event-dispatcher.getinstance.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.event.event-dispatcher.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.event.event-dispatcher.event-dispatcher.getinstance.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.event.event-dispatcher.example">Examples</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN35950"
+></A
+>Examples&nbsp;--&nbsp;Examples for the usage of Event_Dispatcher</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.event.event-dispatcher.example.example1"
+></A
+><H2
+>Examples usage of Event_Dispatcher</H2
+><P
+>&#13;    The following examples show you how to use Event_Dispatcher to
+    create more flexible applications.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN35956"><P
+><B
+>Example 36-1. Basic example</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Event/Dispatcher.php';
+    
+/**
+ * Dummy class that simulated authentication
+ */
+class Auth
+{
+    var $_dispatcher = null;
+    var $_user;
+    
+    function Auth(&#38;$dispatcher)
+    {
+         $this-&#62;_dispatcher = &#38;$dispatcher;
+    }
+    
+    function login($username, $password)
+    {
+        // Your code that authenticates goes here
+        // ....
+        // imagine $this-&#62;_user contains a User object
+        
+        $this-&#62;_dispatcher-&#62;post($this-&#62;_user, 'onLogin');
+    }
+}
+
+function logAuth(&#38;$notification)
+{
+    $user = &#38;$notification-&#62;getNotificationObject();
+    $username = $user-&#62;getUsername();
+    
+    // write logfile
+    error_log("$username logged in.", 3, '/tmp/auth.log');
+}
+
+$dispatcher = &#38;Event_Dispatcher::getInstance();
+
+// catch all onLogin events to write a logfile
+$dispatcher-&#62;addObserver('logAuth', 'onLogin');
+
+$auth = &#38;new Auth($dispatcher);
+
+// simulate login
+$auth-&#62;login($_GET['user'], $_GET['pass']);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    In this example, <B
+CLASS="classname"
+>Event_Dispatcher</B
+> is used to
+    allow observers to hook into the authentication process. Whenever a 
+    user authenticates, a notification <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>onLogin</I
+></SPAN
+> is
+    sent.
+   </P
+><P
+>&#13;    This can be used to write logfiles or block the application for
+    other users.
+   </P
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN35963"><P
+><B
+>Example 36-2. Cancelling notifications</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Event/Dispatcher.php';
+    
+/**
+ * Dummy class that simulated authentication
+ */
+class Auth
+{
+    var $_dispatcher = null;
+    var $_user;
+    
+    function Auth(&#38;$dispatcher)
+    {
+         $this-&#62;_dispatcher = &#38;$dispatcher;
+    }
+    
+    function login($username, $password)
+    {
+        // Your code that authenticates goes here
+        // ....
+        // imagine $this-&#62;_user contains a User object
+        
+        $notification = $this-&#62;_dispatcher-&#62;post($this-&#62;_user, 'onLogin');
+        
+        if ($notification-&#62;isNotificationCancelled()) {
+            echo "You are not allowed to login";
+            $this-&#62;_user-&#62;logout();
+        }
+    }
+}
+
+function logAuth(&#38;$notification)
+{
+    $user = &#38;$notification-&#62;getNotificationObject();
+    $username = $user-&#62;getUsername();
+    
+    // If a special user authenticated, cancel
+    // the notification
+    if ($username === 'foo') {
+        $notification-&#62;cancelNotification();
+    } else {
+        // write logfile
+        error_log("$username logged in.", 3, '/tmp/auth.log');
+    }
+}
+
+$dispatcher = &#38;Event_Dispatcher::getInstance();
+
+// catch all onLogin events to write a logfile
+$dispatcher-&#62;addObserver('logAuth', 'onLogin');
+
+$auth = &#38;new Auth($dispatcher);
+
+// simulate login
+$auth-&#62;login($_GET['user'], $_GET['pass']);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    In this case, the <B
+CLASS="function"
+>cancelNotification()</B
+> method is
+    used to cancel the notification if a certain user tries to
+    authenticate.
+   </P
+><P
+>&#13;    The login method has been changed as well to check whether the notification
+    has been cancelled and to take the necessary steps.
+   </P
+><P
+>&#13;    This allows you to add some flexible rules to your authentication system.
+   </P
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.event.event-dispatcher.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.event.event-dispatcher.event-dispatcher.getinstance.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.event.event-dispatcher.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Event_Dispatcher::getInstance()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

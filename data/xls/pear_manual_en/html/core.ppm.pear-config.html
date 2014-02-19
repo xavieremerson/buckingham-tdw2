@@ -1,0 +1,492 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR_Config</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR Installer classes"
+HREF="core.ppm.html"><LINK
+REL="PREVIOUS"
+TITLE="PEAR_Common::xmlFromInfo"
+HREF="core.ppm.pear-common.xmlfrominfo.html"><LINK
+REL="NEXT"
+TITLE="PEAR_Config::PEAR_Config"
+HREF="core.ppm.pear-config.pear-config.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-common.xmlfrominfo.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 27. PEAR Installer classes</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-config.pear-config.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="core.ppm.pear-config">PEAR_Config</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="core.ppm.pear-config.pear-config.html"
+><B
+CLASS="function"
+>PEAR_Config::PEAR_Config()</B
+></A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="core.ppm.pear-config.apiversion.html"
+><B
+CLASS="function"
+>PEAR_Config::apiVersion()</B
+></A
+>&nbsp;--&nbsp;return API version (1.1 as of PEAR 1.4.0)</DT
+><DT
+><A
+HREF="core.ppm.pear-config.definedby.html"
+><B
+CLASS="function"
+>PEAR_Config::definedBy()</B
+></A
+>&nbsp;--&nbsp;Tells what config layer that gets to define a key</DT
+><DT
+><A
+HREF="core.ppm.pear-config.deletechannel.html"
+><B
+CLASS="function"
+>PEAR_Config::deleteChannel()</B
+></A
+>&nbsp;--&nbsp;deleteChannel</DT
+><DT
+><A
+HREF="core.ppm.pear-config.get.html"
+><B
+CLASS="function"
+>PEAR_Config::get()</B
+></A
+>&nbsp;--&nbsp;Returns a configuration value</DT
+><DT
+><A
+HREF="core.ppm.pear-config.getconffile.html"
+><B
+CLASS="function"
+>PEAR_Config::getConfFile()</B
+></A
+>&nbsp;--&nbsp;Gets the file used for storing the config for a layer</DT
+><DT
+><A
+HREF="core.ppm.pear-config.getdefaultchannel.html"
+><B
+CLASS="function"
+>PEAR_Config::getDefaultChannel()</B
+></A
+>&nbsp;--&nbsp;Retrieve the default channel.</DT
+><DT
+><A
+HREF="core.ppm.pear-config.getdocs.html"
+><B
+CLASS="function"
+>PEAR_Config::getDocs()</B
+></A
+>&nbsp;--&nbsp;Get the documentation for a config value</DT
+><DT
+><A
+HREF="core.ppm.pear-config.getftp.html"
+><B
+CLASS="function"
+>PEAR_Config::getFTP()</B
+></A
+>&nbsp;--&nbsp;The ftp server is set in <A
+HREF="core.ppm.pear-config.readftpconfigfile.html"
+><B
+CLASS="function"
+>readFTPConfigFile()</B
+></A
+>.
+     It exists only if a remote configuration file has been specified
+    </DT
+><DT
+><A
+HREF="core.ppm.pear-config.getgroup.html"
+><B
+CLASS="function"
+>PEAR_Config::getGroup()</B
+></A
+>&nbsp;--&nbsp;Get the parameter group for a config key</DT
+><DT
+><A
+HREF="core.ppm.pear-config.getgroupkeys.html"
+><B
+CLASS="function"
+>PEAR_Config::getGroupKeys()</B
+></A
+>&nbsp;--&nbsp;Get the list of the parameters in a group</DT
+><DT
+><A
+HREF="core.ppm.pear-config.getgroups.html"
+><B
+CLASS="function"
+>PEAR_Config::getGroups()</B
+></A
+>&nbsp;--&nbsp;Get the list of parameter groups</DT
+><DT
+><A
+HREF="core.ppm.pear-config.getkeys.html"
+><B
+CLASS="function"
+>PEAR_Config::getKeys()</B
+></A
+>&nbsp;--&nbsp;Get all the current config keys</DT
+><DT
+><A
+HREF="core.ppm.pear-config.getlayers.html"
+><B
+CLASS="function"
+>PEAR_Config::getLayers()</B
+></A
+>&nbsp;--&nbsp;Returns the layers defined</DT
+><DT
+><A
+HREF="core.ppm.pear-config.getprompt.html"
+><B
+CLASS="function"
+>PEAR_Config::getPrompt()</B
+></A
+>&nbsp;--&nbsp;Get short documentation for a config value</DT
+><DT
+><A
+HREF="core.ppm.pear-config.getregistry.html"
+><B
+CLASS="function"
+>PEAR_Config::getRegistry()</B
+></A
+>&nbsp;--&nbsp;getRegistry</DT
+><DT
+><A
+HREF="core.ppm.pear-config.getremote.html"
+><B
+CLASS="function"
+>PEAR_Config::getRemote()</B
+></A
+>&nbsp;--&nbsp;getRemote</DT
+><DT
+><A
+HREF="core.ppm.pear-config.getrest.html"
+><B
+CLASS="function"
+>PEAR_Config::getREST()</B
+></A
+>&nbsp;--&nbsp;getREST</DT
+><DT
+><A
+HREF="core.ppm.pear-config.getsetvalues.html"
+><B
+CLASS="function"
+>PEAR_Config::getSetValues()</B
+></A
+>&nbsp;--&nbsp;Get the list of allowed set values for a config value</DT
+><DT
+><A
+HREF="core.ppm.pear-config.gettype.html"
+><B
+CLASS="function"
+>PEAR_Config::getType()</B
+></A
+>&nbsp;--&nbsp;Get the type of a config value</DT
+><DT
+><A
+HREF="core.ppm.pear-config.isdefined.html"
+><B
+CLASS="function"
+>PEAR_Config::isDefined()</B
+></A
+>&nbsp;--&nbsp;Tells whether a key exists as config value</DT
+><DT
+><A
+HREF="core.ppm.pear-config.isdefinedlayer.html"
+><B
+CLASS="function"
+>PEAR_Config::isDefinedLayer()</B
+></A
+>&nbsp;--&nbsp;Tells whether a config layer exists</DT
+><DT
+><A
+HREF="core.ppm.pear-config.mergeconfigfile.html"
+><B
+CLASS="function"
+>PEAR_Config::mergeConfigFile()</B
+></A
+>&nbsp;--&nbsp;Merges data into a config layer from a file</DT
+><DT
+><A
+HREF="core.ppm.pear-config.noregistry.html"
+><B
+CLASS="function"
+>PEAR_Config::noRegistry()</B
+></A
+>&nbsp;--&nbsp;noRegistry</DT
+><DT
+><A
+HREF="core.ppm.pear-config.readconfigfile.html"
+><B
+CLASS="function"
+>PEAR_Config::readConfigFile()</B
+></A
+>&nbsp;--&nbsp;Reads configuration data from a file</DT
+><DT
+><A
+HREF="core.ppm.pear-config.readftpconfigfile.html"
+><B
+CLASS="function"
+>PEAR_Config::readFTPConfigFile()</B
+></A
+>&nbsp;--&nbsp;readFTPConfigFile</DT
+><DT
+><A
+HREF="core.ppm.pear-config.remove.html"
+><B
+CLASS="function"
+>PEAR_Config::remove()</B
+></A
+>&nbsp;--&nbsp;Remove a config key from a config layer</DT
+><DT
+><A
+HREF="core.ppm.pear-config.removelayer.html"
+><B
+CLASS="function"
+>PEAR_Config::removeLayer()</B
+></A
+>&nbsp;--&nbsp;Temporarily remove an entire config layer</DT
+><DT
+><A
+HREF="core.ppm.pear-config.set.html"
+><B
+CLASS="function"
+>PEAR_Config::set()</B
+></A
+>&nbsp;--&nbsp;Set config value in specific layer</DT
+><DT
+><A
+HREF="core.ppm.pear-config.setchannels.html"
+><B
+CLASS="function"
+>PEAR_Config::setChannels()</B
+></A
+>&nbsp;--&nbsp;Set the list of channels.</DT
+><DT
+><A
+HREF="core.ppm.pear-config.setinstallroot.html"
+><B
+CLASS="function"
+>PEAR_Config::setInstallRoot()</B
+></A
+>&nbsp;--&nbsp;setInstallRoot</DT
+><DT
+><A
+HREF="core.ppm.pear-config.setregistry.html"
+><B
+CLASS="function"
+>PEAR_Config::setRegistry()</B
+></A
+>&nbsp;--&nbsp;This is to allow customization like the use of installroot</DT
+><DT
+><A
+HREF="core.ppm.pear-config.singleton.html"
+><B
+CLASS="function"
+>PEAR_Config::singleton()</B
+></A
+>&nbsp;--&nbsp;Return a reference of a PEAR_Config object</DT
+><DT
+><A
+HREF="core.ppm.pear-config.store.html"
+><B
+CLASS="function"
+>PEAR_Config::store()</B
+></A
+>&nbsp;--&nbsp;Stores configuration data in a layer</DT
+><DT
+><A
+HREF="core.ppm.pear-config.todefault.html"
+><B
+CLASS="function"
+>PEAR_Config::toDefault()</B
+></A
+>&nbsp;--&nbsp;Revert value of config key to the system-defined one</DT
+><DT
+><A
+HREF="core.ppm.pear-config.validconfiguration.html"
+><B
+CLASS="function"
+>PEAR_Config::validConfiguration()</B
+></A
+>&nbsp;--&nbsp;Determine whether any configuration files have been detected, and whether a
+ registry object can be retrieved from this configuration.</DT
+><DT
+><A
+HREF="core.ppm.pear-config.writeconfigfile.html"
+><B
+CLASS="function"
+>PEAR_Config::writeConfigFile()</B
+></A
+>&nbsp;--&nbsp;Write data into config layer from file</DT
+></DL
+></DIV
+><P
+>&#13;  Class Trees for <B
+CLASS="function"
+>PEAR_Config()</B
+>
+ </P
+><P
+>&#13;  <P
+></P
+><UL
+><LI
+><P
+>&#13;     PEAR
+     <P
+></P
+><UL
+><LI
+><P
+>&#13;        PEAR_Config
+       </P
+></LI
+></UL
+>
+    </P
+></LI
+></UL
+>
+ </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-common.xmlfrominfo.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-config.pear-config.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Common::xmlFromInfo()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.ppm.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Config::PEAR_Config()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

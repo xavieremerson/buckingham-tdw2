@@ -1,0 +1,758 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;      Class Summary Net_DNS_RR
+     </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_DNS"
+HREF="package.networking.net-dns.html"><LINK
+REL="PREVIOUS"
+TITLE="
+     Class Summary Net_DNS_Packet
+    "
+HREF="package.networking.net-dns.net-dns-packet-summary.html"><LINK
+REL="NEXT"
+TITLE="Examples -- DNS Updates"
+HREF="package.networking.net-dns.net-dns-updates-example.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-dns.net-dns-packet-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-dns.net-dns-updates-example.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-dns.net-dns-rr-intro">Class Summary <B
+CLASS="classname"
+>Net_DNS_RR</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN82128"
+></A
+>
+      Class Summary <B
+CLASS="classname"
+>Net_DNS_RR</B
+>
+     &nbsp;--&nbsp;
+      Provides resource record parsing and creation
+     </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN82132"
+></A
+><H2
+>Net_DNS_RR</H2
+><P
+>&#13;     The Net_DNS_RR class provides methods of parsing
+     resource records returned by a nameserver, creation of
+     resource record objects to be sent to a nameserver, and
+     the ability to access each component of an RR as an
+     object property.
+    </P
+><P
+>&#13;     Each resource record object MUST contain the following properties:
+     <P
+></P
+><UL
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>name</I
+></TT
+> - The DNS name of the RR</P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>type</I
+></TT
+> - The RR type</P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>class</I
+></TT
+> - The RR class (normally IN)</P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>ttl</I
+></TT
+> - The RR time to live</P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>rdlength</I
+></TT
+> - The amount of data (in bytes) of the rdata section</P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>rdata</I
+></TT
+> - The data (uncompressed) of the right hand side of the RR</P
+></LI
+></UL
+>
+    </P
+><P
+>&#13;     If <TT
+CLASS="parameter"
+><I
+>type</I
+></TT
+> is a supported RR type,
+     it will automatically be decompressed and/or decoded
+     into its appropriate property values.  The values inside
+     of an RR object will vary based on the type of RR.
+    </P
+><P
+>&#13;     Supported RR types:
+     <P
+></P
+><UL
+><LI
+><P
+>&#13;        A
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           string <TT
+CLASS="parameter"
+><I
+>address</I
+></TT
+> - IPv4 style address
+          </P
+></LI
+></UL
+>
+       </P
+></LI
+><LI
+><P
+>&#13;        AAAA
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           string <TT
+CLASS="parameter"
+><I
+>address</I
+></TT
+> - IPv6 style address
+          </P
+></LI
+></UL
+>
+       </P
+></LI
+><LI
+><P
+>&#13;        CNAME
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           string <TT
+CLASS="parameter"
+><I
+>cname</I
+></TT
+> - The canonical name of the queried host
+          </P
+></LI
+></UL
+>
+       </P
+></LI
+><LI
+><P
+>&#13;        HINFO
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           string <TT
+CLASS="parameter"
+><I
+>cpu</I
+></TT
+> - The host CPU type
+          </P
+></LI
+><LI
+><P
+>&#13;           string <TT
+CLASS="parameter"
+><I
+>os</I
+></TT
+> - Type host operating system
+          </P
+></LI
+></UL
+>
+       </P
+></LI
+><LI
+><P
+>&#13;        MX
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           integer <TT
+CLASS="parameter"
+><I
+>preference</I
+></TT
+> - The MX preference (lower takes priority
+          </P
+></LI
+><LI
+><P
+>&#13;           string <TT
+CLASS="parameter"
+><I
+>exchange</I
+></TT
+> - The name of the mail exchange host
+          </P
+></LI
+></UL
+>
+       </P
+></LI
+><LI
+><P
+>&#13;        NAPTR
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           unknown <TT
+CLASS="parameter"
+><I
+>order</I
+></TT
+> - unknown
+          </P
+></LI
+><LI
+><P
+>&#13;           unknown <TT
+CLASS="parameter"
+><I
+>preference</I
+></TT
+> - unknown
+          </P
+></LI
+><LI
+><P
+>&#13;           unknown <TT
+CLASS="parameter"
+><I
+>flags</I
+></TT
+> - unknown
+          </P
+></LI
+><LI
+><P
+>&#13;           unknown <TT
+CLASS="parameter"
+><I
+>services</I
+></TT
+> - unknown
+          </P
+></LI
+><LI
+><P
+>&#13;           unknown <TT
+CLASS="parameter"
+><I
+>regex</I
+></TT
+> - unknown
+          </P
+></LI
+><LI
+><P
+>&#13;           unknown <TT
+CLASS="parameter"
+><I
+>replacement</I
+></TT
+> - unknown
+          </P
+></LI
+></UL
+>
+       </P
+></LI
+><LI
+><P
+>&#13;        NS
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           string <TT
+CLASS="parameter"
+><I
+>nsdname</I
+></TT
+> - The name of the NS record nameserver
+          </P
+></LI
+></UL
+>
+       </P
+></LI
+><LI
+><P
+>&#13;        PTR
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           string <TT
+CLASS="parameter"
+><I
+>ptrdname</I
+></TT
+> - The name for the queried IP address
+          </P
+></LI
+></UL
+>
+       </P
+></LI
+><LI
+><P
+>&#13;        SOA
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           string <TT
+CLASS="parameter"
+><I
+>mname</I
+></TT
+> - Master nameserver hostname as
+           specified in the SOA record - not neccessarily accurate
+          </P
+></LI
+><LI
+><P
+>&#13;           string <TT
+CLASS="parameter"
+><I
+>rname</I
+></TT
+> - Email address of the person
+           responsible for the zone - not neccessarily accurate
+          </P
+></LI
+><LI
+><P
+>&#13;           string <TT
+CLASS="parameter"
+><I
+>serial</I
+></TT
+> - The serial number (version
+           number) of the retrieved zone
+          </P
+></LI
+><LI
+><P
+>&#13;           string <TT
+CLASS="parameter"
+><I
+>refresh</I
+></TT
+> - The length of time before
+           the zone should be refresed
+          </P
+></LI
+><LI
+><P
+>&#13;           string <TT
+CLASS="parameter"
+><I
+>retry</I
+></TT
+> - The length of time between
+           retries for slave servers to refresh the zone
+          </P
+></LI
+><LI
+><P
+>&#13;           string <TT
+CLASS="parameter"
+><I
+>expire</I
+></TT
+> - The length of time before
+           slave servers should consider the data invalid without refreshing
+           the zone data.
+          </P
+></LI
+><LI
+><P
+>&#13;           string <TT
+CLASS="parameter"
+><I
+>minimum</I
+></TT
+> - The default TTL for RRs
+           inside of the zone that are not otherwise specified.
+          </P
+></LI
+></UL
+>
+       </P
+></LI
+><LI
+><P
+>&#13;        SRV
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           unknown <TT
+CLASS="parameter"
+><I
+>preference</I
+></TT
+> - unknown
+          </P
+></LI
+><LI
+><P
+>&#13;           unknown <TT
+CLASS="parameter"
+><I
+>weight</I
+></TT
+> - unknown
+          </P
+></LI
+><LI
+><P
+>&#13;           unknown <TT
+CLASS="parameter"
+><I
+>port</I
+></TT
+> - unknown
+          </P
+></LI
+><LI
+><P
+>&#13;           unknown <TT
+CLASS="parameter"
+><I
+>target</I
+></TT
+> - unknown
+          </P
+></LI
+></UL
+>
+       </P
+></LI
+><LI
+><P
+>&#13;        TSIG
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           integer <TT
+CLASS="parameter"
+><I
+>time_signed</I
+></TT
+> - The time the signature
+           has was created
+          </P
+></LI
+><LI
+><P
+>&#13;           integer <TT
+CLASS="parameter"
+><I
+>fudge</I
+></TT
+> - The time offset that is
+           acceptable between the client and the server
+          </P
+></LI
+><LI
+><P
+>&#13;           integer <TT
+CLASS="parameter"
+><I
+>mac_size</I
+></TT
+> - The size of the following
+           signature data
+          </P
+></LI
+><LI
+><P
+>&#13;           string/binary <TT
+CLASS="parameter"
+><I
+>mac</I
+></TT
+> - The data containing the
+           has sent by the client/server
+          </P
+></LI
+><LI
+><P
+>&#13;           integer <TT
+CLASS="parameter"
+><I
+>original_id</I
+></TT
+> - The ID sent to or
+           received from the server identifying this query.
+          </P
+></LI
+><LI
+><P
+>&#13;           integer <TT
+CLASS="parameter"
+><I
+>error</I
+></TT
+> - The value of the error
+           calculating or verifying the signature.
+          </P
+></LI
+><LI
+><P
+>&#13;           integer <TT
+CLASS="parameter"
+><I
+>other_len</I
+></TT
+> - The amount of data (in
+           bytes) additional to the signature
+          </P
+></LI
+><LI
+><P
+>&#13;           string <TT
+CLASS="parameter"
+><I
+>other_data</I
+></TT
+> - Additional data required
+           by the nameserver for the signature.
+          </P
+></LI
+><LI
+><P
+>&#13;           string <TT
+CLASS="parameter"
+><I
+>key</I
+></TT
+> - The key shared by the client and
+           the server to validate authorization.
+          </P
+></LI
+></UL
+>
+       </P
+></LI
+><LI
+><P
+>&#13;        TXT
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           string <TT
+CLASS="parameter"
+><I
+>text</I
+></TT
+> - The text defined in the record
+          </P
+></LI
+></UL
+>
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-dns.net-dns-packet-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-dns.net-dns-updates-example.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Class Summary <B
+CLASS="classname"
+>Net_DNS_Packet</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-dns.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Examples -- <B
+CLASS="classname"
+>DNS Updates</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

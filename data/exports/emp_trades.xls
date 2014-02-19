@@ -1,0 +1,440 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+				<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+				<body><table border="1" cellspacing="0" cellpadding="0">
+					<tr>
+							<td width="85">Trd Date</td>
+							<td width="160">Employee</td>
+							<td width="165">Acct. Name</td>
+							<td width="100">Account</td> 
+							<td width="160">Custodian</td> 
+							<td width="60">Symbol</td>
+							<td width="100">Cusip</td> 
+							<td width="180">Sec. Description</td>
+							<td width="40">Buy/Sell</td>
+							<td align="right">Quantity</td>
+							<td align="right" width="100">Price</td>
+							<td width="80" align="right">Ord Entry</td>
+							<td width="75" align="right">Ord Exec</td>
+							<td></td>
+					</tr><tr> 
+ 							<td>02/14/2014</td><td>Mario Sapienza</td> 
+							<td>MARIO  SAPIENZA</td>
+							<td>168503576</td>
+							<td>Fidelity</td>
+							<td>SIL</td>
+							<td>37950E853</td>
+							<td>GLOBAL X FDS GLOBAL X SI</td>
+							<td>B</td>
+							<td align="right">1,000</td>
+							<td align="right">14.53</td>
+							<td align="right">1:32PM</td>
+							<td align="right">1:32PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td><td>Yanai Frank</td> 
+							<td>YANAI A FRANK</td>
+							<td>X66826401</td>
+							<td>Fidelity</td>
+							<td>ONNN</td>
+							<td>682189105</td>
+							<td>ON SEMICONDUCTOR CRP </td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;S</td>
+							<td align="right">3,000</td>
+							<td align="right">9.40</td>
+							<td align="right">2:46PM</td>
+							<td align="right">2:46PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td><td>Tiffany Kanaga</td> 
+							<td>TIFFANY  KANAGA</td>
+							<td>X66874509</td>
+							<td>Fidelity</td>
+							<td>SWY</td>
+							<td>786514208</td>
+							<td>SAFEWAY INC COM NEW</td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;S</td>
+							<td align="right">450</td>
+							<td align="right">33.35</td>
+							<td align="right">11:08AM</td>
+							<td align="right">11:08AM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td><td>John Timoni</td> 
+							<td>JOHN  TIMONI</td>
+							<td>X82693724</td>
+							<td>Fidelity</td>
+							<td>LSG</td>
+							<td>510728108</td>
+							<td>LAKE SHORE GOLD CORPORAT</td>
+							<td>B</td>
+							<td align="right">650</td>
+							<td align="right">0.83</td>
+							<td align="right">11:07AM</td>
+							<td align="right">11:07AM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td><td>John Timoni</td> 
+							<td>JOHN  TIMONI</td>
+							<td>X82693724</td>
+							<td>Fidelity</td>
+							<td>XPH</td>
+							<td>78464A722</td>
+							<td>SPDR SER TR S&P PHARMACE</td>
+							<td>B</td>
+							<td align="right">4</td>
+							<td align="right">94.06</td>
+							<td align="right">11:18AM</td>
+							<td align="right">11:18AM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td><td>David Buck</td> 
+							<td>DAVID GEORGE BUCK</td>
+							<td>Z72364134</td>
+							<td>Fidelity</td>
+							<td></td>
+							<td>9643893E8</td>
+							<td>WHITE PLAINS N Y PUB IMP</td>
+							<td>B</td>
+							<td align="right">30,000</td>
+							<td align="right">99.48</td>
+							<td align="right">12:00AM</td>
+							<td align="right">8:21AM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td><td>David Buck</td> 
+							<td>DAVID GEORGE BUCK</td>
+							<td>Z72364134</td>
+							<td>Fidelity</td>
+							<td>AMZN</td>
+							<td>1869439LH</td>
+							<td>PUT (AMZN) AMAZON.COM IN</td>
+							<td>B</td>
+							<td align="right">10</td>
+							<td align="right">3.44</td>
+							<td align="right">2:46PM</td>
+							<td align="right">2:46PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td><td>David Buck</td> 
+							<td>DAVID GEORGE BUCK</td>
+							<td>Z72364134</td>
+							<td>Fidelity</td>
+							<td>FCNTX</td>
+							<td>316071109</td>
+							<td>FIDELITY CONTRAFUND PROS</td>
+							<td>B</td>
+							<td align="right">1,037</td>
+							<td align="right">96.46</td>
+							<td align="right">3:58PM</td>
+							<td align="right">4:00PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td><td>David Buck</td> 
+							<td>DAVID GEORGE BUCK</td>
+							<td>Z72364134</td>
+							<td>Fidelity</td>
+							<td>GM</td>
+							<td>1649929NN</td>
+							<td>CALL (GM) GENERAL MOTORS</td>
+							<td>B</td>
+							<td align="right">2,020</td>
+							<td align="right">19.46</td>
+							<td align="right">1:58PM</td>
+							<td align="right">1:58PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td><td>David Buck</td> 
+							<td>DAVID GEORGE BUCK</td>
+							<td>Z72364134</td>
+							<td>Fidelity</td>
+							<td>LNKD</td>
+							<td>53578A108</td>
+							<td>LINKEDIN CORP COM USD0.0</td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;S</td>
+							<td align="right">1,000</td>
+							<td align="right">188.73</td>
+							<td align="right">1:19PM</td>
+							<td align="right">1:19PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td><td>William Gault</td> 
+							<td>WILLIAM J GAULT</td>
+							<td>Z72369497</td>
+							<td>Fidelity</td>
+							<td>DRL</td>
+							<td>25811P852</td>
+							<td>DORAL FINANCIAL CORP COM</td>
+							<td>B</td>
+							<td align="right">2,000</td>
+							<td align="right">11.08</td>
+							<td align="right">11:18AM</td>
+							<td align="right">11:18AM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td><td>William Gault</td> 
+							<td>WILLIAM J GAULT</td>
+							<td>Z72369497</td>
+							<td>Fidelity</td>
+							<td>EWZ</td>
+							<td>464286400</td>
+							<td>ISHARES MSCI BRAZIL ETF</td>
+							<td>B</td>
+							<td align="right">1,000</td>
+							<td align="right">40.75</td>
+							<td align="right">11:17AM</td>
+							<td align="right">11:17AM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td><td>William Gault</td> 
+							<td>WILLIAM J GAULT</td>
+							<td>Z72369497</td>
+							<td>Fidelity</td>
+							<td>PBR</td>
+							<td>71654V408</td>
+							<td>PETROLEO BRASILEIRO SA P</td>
+							<td>B</td>
+							<td align="right">2,000</td>
+							<td align="right">11.48</td>
+							<td align="right">11:17AM</td>
+							<td align="right">11:17AM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td><td>Mark Gronet</td> 
+							<td>MARK ANTHONY GRONE</td>
+							<td>Z72409863</td>
+							<td>Fidelity</td>
+							<td>LSG</td>
+							<td>510728108</td>
+							<td>LAKE SHORE GOLD CORPORAT</td>
+							<td>B</td>
+							<td align="right">20,000</td>
+							<td align="right">0.83</td>
+							<td align="right">11:18AM</td>
+							<td align="right">11:18AM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td>
+							<td>James Mitchell</td>
+							<td>James Mitchell</td>
+							<td>825-92G30</td>
+							<td>Merill Lynch</td>
+							<td>EEM</td>
+							<td></td>
+							<td></td>
+							<td>B</td>
+							<td align="right">130</td>
+							<td align="right">39.73</td>
+							<td align="right"></td>
+							<td align="right"></td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td>
+							<td>James Mitchell</td>
+							<td>James Mitchell</td>
+							<td>825-92G30</td>
+							<td>Merill Lynch</td>
+							<td>VGK</td>
+							<td></td>
+							<td></td>
+							<td>B</td>
+							<td align="right">255</td>
+							<td align="right">59.07</td>
+							<td align="right"></td>
+							<td align="right"></td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td>
+							<td>James Mitchell</td>
+							<td>James Mitchell</td>
+							<td>825-92G30</td>
+							<td>Merill Lynch</td>
+							<td>EZU</td>
+							<td></td>
+							<td></td>
+							<td>B</td>
+							<td align="right">600</td>
+							<td align="right">41.50</td>
+							<td align="right"></td>
+							<td align="right"></td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td>
+							<td>James Mitchell</td>
+							<td>James Mitchell</td>
+							<td>825-92G30</td>
+							<td>Merill Lynch</td>
+							<td>XLE</td>
+							<td></td>
+							<td></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;S</td>
+							<td align="right">105</td>
+							<td align="right">85.68</td>
+							<td align="right"></td>
+							<td align="right"></td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td>
+							<td>James Mitchell</td>
+							<td>James Mitchell</td>
+							<td>825-92G31</td>
+							<td>Merill Lynch</td>
+							<td>EEM</td>
+							<td></td>
+							<td></td>
+							<td>B</td>
+							<td align="right">50</td>
+							<td align="right">39.71</td>
+							<td align="right"></td>
+							<td align="right"></td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td>
+							<td>James Mitchell</td>
+							<td>James Mitchell</td>
+							<td>825-92G31</td>
+							<td>Merill Lynch</td>
+							<td>VGK</td>
+							<td></td>
+							<td></td>
+							<td>B</td>
+							<td align="right">85</td>
+							<td align="right">59.06</td>
+							<td align="right"></td>
+							<td align="right"></td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td>
+							<td>James Mitchell</td>
+							<td>James Mitchell</td>
+							<td>825-92G31</td>
+							<td>Merill Lynch</td>
+							<td>EZU</td>
+							<td></td>
+							<td></td>
+							<td>B</td>
+							<td align="right">195</td>
+							<td align="right">41.52</td>
+							<td align="right"></td>
+							<td align="right"></td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td>
+							<td>James Mitchell</td>
+							<td>James Mitchell</td>
+							<td>825-92G31</td>
+							<td>Merill Lynch</td>
+							<td>XLE</td>
+							<td></td>
+							<td></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;S</td>
+							<td align="right">23</td>
+							<td align="right">85.68</td>
+							<td align="right"></td>
+							<td align="right"></td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td>
+							<td>James Mitchell</td>
+							<td>James Mitchell</td>
+							<td>825-49F30</td>
+							<td>Merill Lynch</td>
+							<td>IWM</td>
+							<td></td>
+							<td></td>
+							<td>B</td>
+							<td align="right">300</td>
+							<td align="right">113.72</td>
+							<td align="right"></td>
+							<td align="right"></td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td>
+							<td>James Mitchell</td>
+							<td>James Mitchell</td>
+							<td>825-49F30</td>
+							<td>Merill Lynch</td>
+							<td>EWW</td>
+							<td></td>
+							<td></td>
+							<td>B</td>
+							<td align="right">240</td>
+							<td align="right">63.17</td>
+							<td align="right"></td>
+							<td align="right"></td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td>
+							<td>James Mitchell</td>
+							<td>James Mitchell</td>
+							<td>825-49F30</td>
+							<td>Merill Lynch</td>
+							<td>VGK</td>
+							<td></td>
+							<td></td>
+							<td>B</td>
+							<td align="right">340</td>
+							<td align="right">59.05</td>
+							<td align="right"></td>
+							<td align="right"></td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td>
+							<td>James Mitchell</td>
+							<td>James Mitchell</td>
+							<td>825-49F30</td>
+							<td>Merill Lynch</td>
+							<td>EZU</td>
+							<td></td>
+							<td></td>
+							<td>B</td>
+							<td align="right">1,330</td>
+							<td align="right">41.51</td>
+							<td align="right"></td>
+							<td align="right"></td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td>
+							<td>James Mitchell</td>
+							<td>James Mitchell</td>
+							<td>825-49F30</td>
+							<td>Merill Lynch</td>
+							<td>XLE</td>
+							<td></td>
+							<td></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;S</td>
+							<td align="right">260</td>
+							<td align="right">85.74</td>
+							<td align="right"></td>
+							<td align="right"></td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td>
+							<td>Jack Chernus</td>
+							<td>Jack Chernus</td>
+							<td>4160-4999</td>
+							<td>Charles Schwab</td>
+							<td>GILD</td>
+							<td></td>
+							<td></td>
+							<td>B</td>
+							<td align="right">300</td>
+							<td align="right">81.16</td>
+							<td align="right"></td>
+							<td align="right"></td>
+							<td></td>
+						</tr><tr> 
+ 							<td>02/14/2014</td>
+							<td>Jack Chernus</td>
+							<td>Jack Chernus</td>
+							<td>4160-4999</td>
+							<td>Charles Schwab</td>
+							<td>GILD</td>
+							<td></td>
+							<td></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;S</td>
+							<td align="right">3</td>
+							<td align="right">1.36</td>
+							<td align="right"></td>
+							<td align="right"></td>
+							<td></td>
+						</tr></table></body></html>

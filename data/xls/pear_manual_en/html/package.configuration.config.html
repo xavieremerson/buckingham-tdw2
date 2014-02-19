@@ -1,0 +1,470 @@
+<HTML
+><HEAD
+><TITLE
+>Config</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Configuration"
+HREF="package.configuration.html"><LINK
+REL="PREVIOUS"
+TITLE="Configuration"
+HREF="package.configuration.html"><LINK
+REL="NEXT"
+TITLE="Introduction"
+HREF="package.configuration.config.intro.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.configuration.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 31. Configuration</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.configuration.config.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.configuration.config">Config</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.configuration.config.intro.html"
+>Introduction</A
+>&nbsp;--&nbsp;
+   What Config can do
+  </DT
+><DT
+><A
+HREF="package.configuration.config.intro-editing.html"
+>Editing a configuration</A
+>&nbsp;--&nbsp;
+        How to manipulate your configuration content
+      </DT
+><DT
+><A
+HREF="package.configuration.config.avail-container.html"
+>Available Containers</A
+>&nbsp;--&nbsp;
+   Supported formats
+  </DT
+><DT
+><A
+HREF="package.configuration.config.config.config.html"
+><B
+CLASS="function"
+>Config::Config()</B
+></A
+>&nbsp;--&nbsp;constructor</DT
+><DT
+><A
+HREF="package.configuration.config.config.getroot.html"
+><B
+CLASS="function"
+>Config::getRoot()</B
+></A
+>&nbsp;--&nbsp;Return root container for config object</DT
+><DT
+><A
+HREF="package.configuration.config.config.isconfigtyperegistered.html"
+><B
+CLASS="function"
+>Config::isConfigTypeRegistered()</B
+></A
+>&nbsp;--&nbsp;Returns <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> if container is registered</DT
+><DT
+><A
+HREF="package.configuration.config.config.parseconfig.html"
+><B
+CLASS="function"
+>Config::parseConfig()</B
+></A
+>&nbsp;--&nbsp;Parse datasource contents</DT
+><DT
+><A
+HREF="package.configuration.config.config.setroot.html"
+><B
+CLASS="function"
+>Config::setRoot()</B
+></A
+>&nbsp;--&nbsp;Set content of root Config_container object</DT
+><DT
+><A
+HREF="package.configuration.config.config.writeconfig.html"
+><B
+CLASS="function"
+>Config::writeConfig()</B
+></A
+>&nbsp;--&nbsp;Write container content to datasource</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.config-container.html"
+><B
+CLASS="function"
+>Config_Container::Config_Container()</B
+></A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.additem.html"
+><B
+CLASS="function"
+>Config_Container::addItem()</B
+></A
+>&nbsp;--&nbsp;Add item to this item.</DT
+><DT
+><A
+HREF="package.config.config-container.countchildren.html"
+><B
+CLASS="function"
+>Config_Container::countChildren()</B
+></A
+>&nbsp;--&nbsp;Count children of container</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.createblank.html"
+><B
+CLASS="function"
+>Config_Container::createBlank()</B
+></A
+>&nbsp;--&nbsp;Add blank line to item</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.createcomment.html"
+><B
+CLASS="function"
+>Config_Container::createComment()</B
+></A
+>&nbsp;--&nbsp;Add comment to item</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.createdirective.html"
+><B
+CLASS="function"
+>Config_Container::createDirective()</B
+></A
+>&nbsp;--&nbsp;Add directive to item</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.createitem.html"
+><B
+CLASS="function"
+>Config_Container::createItem()</B
+></A
+>&nbsp;--&nbsp;Create new child for section item</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.createsection.html"
+><B
+CLASS="function"
+>Config_Container::createSection()</B
+></A
+>&nbsp;--&nbsp;Add section to item</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.getattribute.html"
+><B
+CLASS="function"
+>Config_Container::getAttribute()</B
+></A
+>&nbsp;--&nbsp;Get attribute value of item</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.getattributes.html"
+><B
+CLASS="function"
+>Config_Container::getAttributes()</B
+></A
+>&nbsp;--&nbsp;Get item attributes</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.getchild.html"
+><B
+CLASS="function"
+>Config_Container::getChild()</B
+></A
+>&nbsp;--&nbsp;Return child object at specified index.</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.getcontent.html"
+><B
+CLASS="function"
+>Config_Container::getContent()</B
+></A
+>&nbsp;--&nbsp;Get item content</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.getitem.html"
+><B
+CLASS="function"
+>Config_Container::getItem()</B
+></A
+>&nbsp;--&nbsp;Tries to find specific items</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.getitemindex.html"
+><B
+CLASS="function"
+>Config_Container::getItemIndex()</B
+></A
+>&nbsp;--&nbsp;Return item index in its parent children array</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.getitemposition.html"
+><B
+CLASS="function"
+>Config_Container::getItemPosition()</B
+></A
+>&nbsp;--&nbsp;Return item rank in its parent children array</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.getname.html"
+><B
+CLASS="function"
+>Config_Container::getName()</B
+></A
+>&nbsp;--&nbsp;Get item name</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.getparent.html"
+><B
+CLASS="function"
+>Config_Container::getParent()</B
+></A
+>&nbsp;--&nbsp;Return item parent object</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.gettype.html"
+><B
+CLASS="function"
+>Config_Container::getType()</B
+></A
+>&nbsp;--&nbsp;Get item type</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.isroot.html"
+><B
+CLASS="function"
+>Config_Container::isRoot()</B
+></A
+>&nbsp;--&nbsp;Check for root item</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.removeitem.html"
+><B
+CLASS="function"
+>Config_Container::removeItem()</B
+></A
+>&nbsp;--&nbsp;Deletes an item from the object</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.searchpath.html"
+><B
+CLASS="function"
+>Config_Container::searchPath()</B
+></A
+>&nbsp;--&nbsp;Finds a node using XPATH like format</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.setattributes.html"
+><B
+CLASS="function"
+>Config_Container::setAttributes()</B
+></A
+>&nbsp;--&nbsp;Set item attributes</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.setcontent.html"
+><B
+CLASS="function"
+>Config_Container::setContent()</B
+></A
+>&nbsp;--&nbsp;Set item content</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.setdirective.html"
+><B
+CLASS="function"
+>Config_Container::setDirective()</B
+></A
+>&nbsp;--&nbsp;Set child directive content or create new directive</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.setname.html"
+><B
+CLASS="function"
+>Config_Container::setName()</B
+></A
+>&nbsp;--&nbsp;Set item name</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.settype.html"
+><B
+CLASS="function"
+>Config_Container::setType()</B
+></A
+>&nbsp;--&nbsp;Set item type</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.toarray.html"
+><B
+CLASS="function"
+>Config_Container::toArray()</B
+></A
+>&nbsp;--&nbsp;Return key/value pair array of container and its children</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.tostring.html"
+><B
+CLASS="function"
+>Config_Container::toString()</B
+></A
+>&nbsp;--&nbsp;Return string representation</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.updateattributes.html"
+><B
+CLASS="function"
+>Config_Container::updateAttributes()</B
+></A
+>&nbsp;--&nbsp;Update item attributes</DT
+><DT
+><A
+HREF="package.configuration.config.config-container.writedatasrc.html"
+><B
+CLASS="function"
+>Config_Container::writeDatasrc()</B
+></A
+>&nbsp;--&nbsp;Write item to file</DT
+></DL
+></DIV
+><P
+>&#13; The Config package provides methods for configuration manipulation.
+</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.configuration.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.configuration.config.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Configuration</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.configuration.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

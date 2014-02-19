@@ -1,0 +1,1857 @@
+<!-- DocType -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<!-- trade_StockInit.jsp -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Fidelity: Trade Stocks - Standard Session</title>
+<meta http-equiv="Cache-Control" CONTENT="no-cache">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="-1">
+<style type="text/css">
+@import url("https://www.fidelity.com/static/common/css/version_3.1.0/optimized/ofmasterstylesadvanced_fidelity.css");
+@import url("https://www.fidelity.com/static/OLTX/css/ofATAdditionalStylesAdvancedRetailOnly.css");
+</style>
+<style type="text/css">
+.ofFootnote p,
+td .ofFootnote p {
+padding-bottom: 8px;
+}
+.ofOffScreen {
+position:absolute;
+left:-5000px;
+width:1px;
+height:1px;
+overflow:hidden;
+}
+
+div.AnTIpoParticipate {
+font:bold 11px Verdana;color:white;background:#3F8800;padding-left:5px;padding-top:2px
+}
+.AnTIpoOrderNumber {height:23px; width:90px}
+</style>
+<style type="text/css" media="print" >
+.screen-only {display:none}
+</style>
+<script language="JavaScript" type="text/javascript">
+var env_CommonImageHost = 'https://content.members.fidelity.com';
+
+
+
+var env_HelpHost = 'https://scs.fidelity.com/webxpress/help/topics';
+
+
+var dom = "fidelity.com";
+var sec = "secure";
+function popWin(url)
+{
+if (screen.width <= 640)
+{
+window.open(url,'infowindow','width=245,height=420,left=380,top=20,location=no,resizable=yes,menubar=no,status=no,toolbar=no,scrollbars=yes');
+}
+else
+{
+if (screen.width <= 800)
+{
+window.open(url,'infowindow','width=245,height=420,left=540,top=20,location=no,resizable=yes,menubar=no,status=no,toolbar=no,scrollbars=yes');
+}
+else
+{
+window.open(url,'infowindow','width=245,height=420,left=680,top=190,location=no,resizable=yes,menubar=no,status=no,toolbar=no,scrollbars=yes');
+}
+}
+}
+function popLargerWin(url)
+{
+var wlarge =  window.open(url,'infowindowlarge','width=617,height=380,left=80,top=80,location=no,resizable=yes,menubar=no,status=no,toolbar=no,scrollbars=yes');
+wlarge.focus();
+}
+function popLargerMenubarWin(url)
+{
+var wlargeMenu =  window.open(url,'infowindowlargeMenu','width=617,height=380,left=80,top=80,location=no,resizable=yes,menubar=yes,status=no,toolbar=no,scrollbars=yes');
+wlargeMenu.focus();
+}
+function popWPSWin(url){
+var wWPS =  window.open(url,'infowindowWPS','width=422,height=380,left=80,top=80,location=no,resizable=yes,menubar=no,status=no,toolbar=no,scrollbars=yes,fullscreen=no');
+wWPS.focus();
+}
+function popupHelp ( filename)
+{
+helpfilename = env_HelpHost + '/' + filename;
+popLargerWin(helpfilename);
+}
+function popMarginCalcWin(url){
+var wMarginCalc =  window.open(url,'infowindowMarginCalc','width=650,height=380,left=80,top=80,location=no,resizable=yes,menubar=yes,status=no,toolbar=no,scrollbars=yes,fullscreen=no');
+wMarginCalc.focus();
+}
+function popupQuickWin(url){
+var wQuick =  window.open(url,'infowindowQuick','width=352,height=438,left=80,top=80,location=no,resizable=yes,menubar=no,status=no,toolbar=no,scrollbars=yes,fullscreen=no');
+wQuick.focus();
+}
+function setFocusToFirstVisibleField( theForm )
+{
+var a=0;
+if (!theForm) return;
+if (navigator.appName.indexOf("Internet Explorer")!= -1) return;
+if (navigator.appName == "" ) return;
+for(a=0 ; a < theForm.elements.length ; a++)
+{
+var t="";
+t+=theForm.elements[a];
+if (t.indexOf("\"hidden\"") == -1)
+{
+theForm.elements[a].focus();
+break;
+}
+}
+}
+function leaveFidelity()
+{
+var message = "You are about to leave the Fidelity web site for a web site that is unaffiliated with Fidelity. Fidelity has not been involved in the preparation of the content supplied at the unaffiliated site and does not guarantee or assume any responsibility for its content."
+if (confirm(message))
+{
+window.open ("http://www.adobe.com/products/acrobat/readstep2.html", "newwindow", config="height=380,width=617,toolbar=yes,menubar=yes,scrollbars=yes,resizable=yes,location=no,directories=no,status=no");
+}
+}
+function getFlash(message,URL) {
+if (confirm(message)) {
+callupWindow = window.open (URL,"newwindow","height=380,width=617,left=80,top=80,toolbar=yes,menubar=yes,scrollbars=yes,resizable=yes,location=no,directories=no,status=no");
+}
+}
+function toc_clear_eot(){
+var vc_val = "null";
+document.cookie="e_o_t_vc=" + vc_val + "; domain=" + dom + "; path=/ftgw; " + sec;
+}
+var commonPatternSymbol = /^\s*[-\.\/0-9a-zA-Z]+\s*$/;
+var commonPatternLeadingCharsSymbol = /^\s*/;
+var commonPatternTrailingCharsSymbol = /\s*$/;
+var commonPatternNumber = /^(\s*[$]?\s*[0-9]{1,3}((([0-9]*)([.][0-9]+)?\s*$)|(([,]{1}[0-9]{3})*([.][0-9]+)?\s*$)))|(^\s*[.][0-9]+\s*$)/;
+var commonPatternLeadingCharsNumber = /^([$]|[0]|\s)*/;
+var commonPatternTrailingCharsNumber = /([.][0]+)?\s*$/;
+var commonPatternMoreThan0Decimals = /[.]/
+var commonPatternMoreThan2Decimals = /[.][0-9]{3,}/
+var commonPatternMoreThan3Decimals = /[.][0-9]{4,}/
+var commonPatternMoreThan4Decimals = /[.][0-9]{5,}/
+var commonPatternMoreThan10Decimals = /[.][0-9]{11,}/
+var commonPatternCommas = /[,]/g;
+
+function commonTextboxIsEmpty(textbox){
+
+var x = textbox.value;
+x = x.replace(commonPatternLeadingCharsSymbol,'');
+x = x.replace(commonPatternTrailingCharsSymbol,'');
+if(x != ''){
+return false;
+}
+return true;
+}
+
+function commonTrimTextbox(textbox){
+
+var x = textbox.value;
+x = x.replace(commonPatternLeadingCharsSymbol,'');
+x = x.replace(commonPatternTrailingCharsSymbol,'');
+return x;
+}
+
+function commonSymbolIsValid(symbol,symbolType){
+
+var x = symbol.value;
+if (x.search(commonPatternSymbol)== -1){
+return false;
+}
+x = x.replace(commonPatternLeadingCharsSymbol,'');
+x = x.replace(commonPatternTrailingCharsSymbol,'');
+if((symbolType == '1') && (x.charAt(0) != '-')){
+return false;
+}
+if((symbolType == '2') && (x.charAt(0) == '-')){
+return false;
+}
+symbol.value = x.toUpperCase();
+return true;
+}
+
+function commonNumberIsValid(number,decimals,isCurrency){
+
+var x = number.value;
+if (x.search(commonPatternNumber) == -1){
+return false;
+}
+if ((!isCurrency) && (x.indexOf('$') != -1)){
+return false;
+}
+if(decimals == '0' && (x.search(commonPatternMoreThan0Decimals) != -1)){
+return false;
+}
+if(decimals == '2' && (x.search(commonPatternMoreThan2Decimals) != -1)){
+return false;
+}
+if(decimals == '3' && (x.search(commonPatternMoreThan3Decimals) != -1)){
+return false;
+}
+if(decimals == '4' && (x.search(commonPatternMoreThan4Decimals) != -1)){
+return false;
+}
+if(decimals == '10' && (x.search(commonPatternMoreThan10Decimals) != -1)){
+return false;
+}
+x = x.replace(commonPatternCommas,'');
+x = x.replace(commonPatternLeadingCharsNumber,'');
+x = x.replace(commonPatternTrailingCharsNumber,'');
+if(x == ''){
+x = '0';
+}
+number.value = x;
+return true;
+}
+
+
+
+function SmoothMovement(position, target, velocity){
+// initialise the position, target, and velocity
+position = Math.round(position);
+target   = Math.round(target);
+velocity = (velocity ? Math.round(velocity) : 0);
+
+this.updatePosition = function(){
+position += velocity;
+if (velocity < 0){
+if (position - velocity * (velocity  - 1) / 2 < target){
+velocity++;
+}else if (position - (velocity - 1) * (velocity - 2) / 2 >= target){
+velocity--;
+}
+}else{
+if (position + velocity * (velocity + 1) / 2 > target){
+velocity--;
+}else if (position + (velocity + 1) * (velocity + 2) / 2 <= target){
+velocity++;
+}
+}
+return position;
+}
+
+this.changeTarget = function(newTarget){
+target = Math.round(newTarget);
+}
+
+this.getPosition = function(){
+return position;
+}
+
+this.getVelocity = function(){
+return velocity;
+}
+
+this.hasStopped = function(){
+return (position == target && velocity == 0);
+}
+}
+
+
+
+</script>
+<style type="text/css">
+#iqtfrm{height: 0px;padding: 0;font-size: 0;overflow: hidden;line-height: 0;margin: 0}
+div.ofWrapper tr td, div.ofWrapper tr td{padding:4 0 4 0}
+</style>
+<script>
+var pageHasFinishedOnloadEvent=false;
+
+var iqtfrm;
+var demonstration = new SmoothMovement(0,0);
+function updateDemonstration(){	iqtfrm.style.height  = demonstration.updatePosition() + 'px';}
+function slideQuoteGrow(){demonstration.changeTarget(236);}
+function slideQuoteShrink(){demonstration.changeTarget(0);}
+
+
+
+
+
+var amount = '';
+
+
+
+
+
+
+
+
+
+var trailingValueType = '';
+
+
+
+var useGetElementById = false;
+if(document.getElementById){
+useGetElementById = true;
+}
+
+function showPositionIframe(){
+with(document.entryForm)
+{
+if(useGetElementById)
+{
+document.getElementById('temppositions').style.display = 'none';
+document.getElementById('positions').style.display = 'inline';
+}
+}
+return true;
+}
+
+function refreshPositionIframe(){
+with(document.entryForm){
+if(useGetElementById){
+url = 'https://oltx.fidelity.com/ftgw/fbc/ofpositions/brokerageAccountPositionsIframe?ACCOUNT=Z72368954&iframe=r&POPUP=N';
+document.getElementById('iposordbal').src = url;
+}
+}
+return true;
+}
+
+function onLoad(){
+if (pageHasFinishedOnloadEvent) {
+
+iframeunloaded();
+}
+if (document.getElementById('TradeStockInitPageContent').style.display == 'inline'){
+
+document.entryForm.SYMBOL.focus();
+}
+//setPriceType(false);
+setOrderAction();
+with(document.entryForm){
+if(!commonTextboxIsEmpty(SYMBOL)){
+setSymbol();
+}
+}
+resetTradingAccountNumber(document.entryForm.accountList);
+showPositionIframe();
+
+setButtonText();
+
+pageHasFinishedOnloadEvent=true;
+}
+
+function checkEntryForm(){
+with(document.entryForm){
+if(TEMP_ORDER_ACTION.selectedIndex == 0){
+alert('Before placing an order please select an Order Action of Buy, Buy to Cover, Sell, or Sell Short. Please review your order or click on the Help/Glossary for a more detailed description.');
+TEMP_ORDER_ACTION.focus();
+return false;
+}
+if(!commonSymbolIsValid(SYMBOL,'2')){
+alert('Before placing an order please enter the trading symbol of the security that you wish to trade.\n\nIf you do not know the symbol name you may use Symbol Lookup on the trade screen.');
+SYMBOL.focus();
+return false;
+}
+
+if(TEMP_ORDER_ACTION.options[TEMP_ORDER_ACTION.selectedIndex].value != 'SA' && commonTextboxIsEmpty(QTY)){
+alert('Before placing an order please enter the number of shares you wish to trade.');
+QTY.focus();
+return false;
+}
+if(TEMP_ORDER_ACTION.options[TEMP_ORDER_ACTION.selectedIndex].value != 'SA' && !commonNumberIsValid(QTY,'',false)){
+alert('Quantity must be a positive, numeric value. Please review your order.');
+QTY.focus();
+return false;
+}
+if(TEMP_ORDER_ACTION.options[TEMP_ORDER_ACTION.selectedIndex].value != 'SA' && !commonNumberIsValid(QTY,'0',false)){
+alert('Trade Error\nThe quantity you entered is invalid. Orders for equities must be in whole shares only. If you have fractional shares and are attempting to sell your entire position, enter the whole share quantity. If your sell order is executed, the fractional shares will be sold automatically, on settlement date, at the same execution price you received for the whole shares. There is no additional commission for the fractional share transaction. Please review your order or call a Fidelity Representative at 800-544-6666 with additional questions.');
+QTY.focus();
+return false;
+}
+if(PRICE_TYPE.selectedIndex == 0){
+alert('Before placing an order please select an Order Type of Market, Limit, Stop Loss, Stop Limit, Trailing Stop Limit or Trailing Stop Loss. Please review your order.');
+PRICE_TYPE.focus();
+return false;
+}
+if(TRAILING_VALUE_TYPE.selectedIndex == 0 &&
+(PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TSD'  ||
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TSP'  ||
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TLD'  ||
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TLP')){
+alert('Before placing an order please select Based On of Last, Bid or Ask for Trailing Stop Loss/Limit orders. Please review your order.');
+TRAILING_VALUE_TYPE.focus();
+return false;
+}
+if(PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'L'){
+if(!commonNumberIsValid(AMOUNT,'',true)){
+alert('The Limit Price $ must be a positive, numeric value. Please review your order.');
+AMOUNT.focus();
+return false;
+}
+if(!commonNumberIsValid(AMOUNT,'4',true)){
+alert('The Limit Price you entered is greater than 4 decimal places.  The Amount fields support up to 4 decimal places, please review your order.');
+AMOUNT.focus();
+return false;
+}
+}
+if(PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'S'){
+if(!commonNumberIsValid(AMOUNT,'',true)){
+alert('The Stop Price $ must be a positive, numeric value. Please review your order.');
+AMOUNT.focus();
+return false;
+}
+if(!commonNumberIsValid(AMOUNT,'4',true)){
+alert('The Stop Price you entered is greater than 4 decimal places.  The Amount fields support up to 4 decimal places, please review your order.');
+AMOUNT.focus();
+return false;
+}
+}
+if(PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'SL'){
+if(!commonNumberIsValid(STOP_PRICE,'',true)){
+alert('The Stop Price $ must be a positive, numeric value. Please review your order.');
+STOP_PRICE.focus();
+return false;
+}
+if(!commonNumberIsValid(AMOUNT,'',true)){
+alert('The Limit Price $ must be a positive, numeric value. Please review your order.');
+AMOUNT.focus();
+return false;
+}
+if(!commonNumberIsValid(STOP_PRICE,'4',true)){
+alert('The Stop Price you entered is greater than 4 decimal places.  The Amount fields support up to 4 decimal places, please review your order.');
+STOP_PRICE.focus();
+return false;
+}
+if(!commonNumberIsValid(AMOUNT,'4',true)){
+alert('The Limit Price you entered is greater than 4 decimal places.  The Amount fields support up to 4 decimal places, please review your order.');
+AMOUNT.focus();
+return false;
+}
+}
+
+if(PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TSD'  ||
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TLD'){
+if(!commonNumberIsValid(AMOUNT,'',true)){
+alert('Trailing Amount $ must be a positive, numeric value. Please review your order.');
+AMOUNT.focus();
+return false;
+}
+if(!commonNumberIsValid(AMOUNT,'2',true)){
+alert('The Trailing Amount $ you entered is greater than 2 decimal places, please review your order.');
+AMOUNT.focus();
+return false;
+}
+}
+if(PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TSP'  ||
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TLP'){
+if(!commonNumberIsValid(AMOUNT,'0',false)){
+alert('Trailing Amount % must be a positive, whole number. Please review your order.');
+AMOUNT.focus();
+return false;
+}
+}
+if((TIME_IN_FORCE.options[TIME_IN_FORCE.selectedIndex].value != 'D') && (TEMP_ORDER_ACTION.options[TEMP_ORDER_ACTION.selectedIndex].value == 'SH')){
+alert('Short Sell orders may only be placed with a Time in Force of Day.  Please review your order.');
+TIME_IN_FORCE.focus();
+return false;
+}
+if((TIME_IN_FORCE.options[TIME_IN_FORCE.selectedIndex].value == 'F') && (PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value != 'L')){
+alert('A Time in Force of Fill or Kill is only eligible on Limit orders.\nPlease review your order or click on the Help/Glossary for a more detailed description.');
+TIME_IN_FORCE.focus();
+return false;
+}
+if((TIME_IN_FORCE.options[TIME_IN_FORCE.selectedIndex].value == 'I') && (PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value != 'L')){
+alert('A Time in Force of Immediate or Cancel is only eligible for Limit orders.\nPlease review your order or click on the Help/Glossary for a more detailed description.');
+TIME_IN_FORCE.focus();
+return false;
+}
+if((TIME_IN_FORCE.options[TIME_IN_FORCE.selectedIndex].value == 'C') && (PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value != 'M')){
+alert('A Time in Force of On the Close is only eligible for Market orders.\nPlease review your order or click on the Help/Glossary for a more detailed description.');
+TIME_IN_FORCE.focus();
+return false;
+}
+if((TIME_IN_FORCE.options[TIME_IN_FORCE.selectedIndex].value == 'O') && ((PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'S') || (PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'SL'))){
+alert('A Time in Force of On the Open is eligible for Market or Limit orders only.\nPlease review your order or click on the Help/Glossary for a more detailed description.');
+TIME_IN_FORCE.focus();
+return false;
+}
+if((TIME_IN_FORCE.options[TIME_IN_FORCE.selectedIndex].value == 'G') && (PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'M')){
+alert('A Market order should not have a Time in Force of Good \'til Canceled, Fill or Kill or Immediate or Cancel.  Please review your order or click on the Help/Glossary for a more detailed description.');
+TIME_IN_FORCE.focus();
+return false;
+}
+if(((CONDITIONS.options[CONDITIONS.selectedIndex].value == 'R') || (CONDITIONS.options[CONDITIONS.selectedIndex].value == 'A/R')) && (TIME_IN_FORCE.options[TIME_IN_FORCE.selectedIndex].value == 'D') && (PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'SL') && (TEMP_ORDER_ACTION.options[TEMP_ORDER_ACTION.selectedIndex].value == 'S')){
+alert('An order with a Time in Force of Day is not eligible with the Condition of Do not Reduce.  Please review your order or click on the Help/Glossary for a more detailed description.');
+CONDITIONS.focus();
+return false;
+}
+if((CONDITIONS.options[CONDITIONS.selectedIndex].value != '') && (PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'M')){
+alert('Market orders are not eligible for additional order Conditions.\nPlease review your order or click on the Help/Glossary for a more detailed description.');
+CONDITIONS.focus();
+return false;
+}
+if(((CONDITIONS.options[CONDITIONS.selectedIndex].value == 'A') || (CONDITIONS.options[CONDITIONS.selectedIndex].value == 'A/R')) && (PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'S')){
+alert('Stop Loss orders are not eligible with the condition of All or None.\nPlease review your order or click on the Help/Glossary for a more detailed description.');
+CONDITIONS.focus();
+return false;
+}
+if((CONDITIONS.options[CONDITIONS.selectedIndex].value != '') && (PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'S') && (TEMP_ORDER_ACTION.options[TEMP_ORDER_ACTION.selectedIndex].value != 'S')){
+alert('Buy Stop Loss orders are not eligible for additional order conditions.\nPlease review your order or click on the Help/Glossary for a more detailed description.');
+CONDITIONS.focus();
+return false;
+}
+if((CONDITIONS.options[CONDITIONS.selectedIndex].value != '') && (TIME_IN_FORCE.options[TIME_IN_FORCE.selectedIndex].value == 'D') && (PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'S') && (TEMP_ORDER_ACTION.options[TEMP_ORDER_ACTION.selectedIndex].value == 'S')){
+alert('Stop Loss orders with a Time in Force of Day are not eligible with additional order conditions.\nPlease review your order or click on the Help/Glossary for a more detailed description.');
+CONDITIONS.focus();
+return false;
+}
+if(((CONDITIONS.options[CONDITIONS.selectedIndex].value == 'R') || (CONDITIONS.options[CONDITIONS.selectedIndex].value == 'A/R')) && (PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'SL') && (TEMP_ORDER_ACTION.options[TEMP_ORDER_ACTION.selectedIndex].value != 'S')){
+alert('Stop Limit orders with the Condition of Do not Reduce are only eligible when the Action equals Sell.\nPlease review your order or click on the Help/Glossary for a more detailed description.');
+CONDITIONS.focus();
+return false;
+}
+if((CONDITIONS.options[CONDITIONS.selectedIndex].value != '') && ((TIME_IN_FORCE.options[TIME_IN_FORCE.selectedIndex].value == 'I') || (TIME_IN_FORCE.options[TIME_IN_FORCE.selectedIndex].value == 'F')) && (PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'L')){
+alert('Fill or Kill and Immediate or Cancel orders are not eligible with additional order conditions.\nPlease review your order or click on the Help/Glossary for a more detailed description.');
+CONDITIONS.focus();
+return false;
+}
+if(((CONDITIONS.options[CONDITIONS.selectedIndex].value == 'R') || (CONDITIONS.options[CONDITIONS.selectedIndex].value == 'A/R')) && ((TIME_IN_FORCE.options[TIME_IN_FORCE.selectedIndex].value == 'D') || (TIME_IN_FORCE.options[TIME_IN_FORCE.selectedIndex].value == 'O')) && (PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'L')){
+alert('Orders with a Time in Force of Day or On the Open are not eligible with the Condition of Do Not Reduce.\nPlease review your order or click on the Help/Glossary for a more detailed description.');
+CONDITIONS.focus();
+return false;
+}
+if(((CONDITIONS.options[CONDITIONS.selectedIndex].value == 'R') || (CONDITIONS.options[CONDITIONS.selectedIndex].value == 'A/R')) && (TIME_IN_FORCE.options[TIME_IN_FORCE.selectedIndex].value == 'G') && (PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'L') && (TEMP_ORDER_ACTION.options[TEMP_ORDER_ACTION.selectedIndex].value == 'S')){
+alert('Sell orders with a Time in Force of Good \'til Canceled are not eligible with the condition of Do Not Reduce. \nPlease review your order or click on the Help/Glossary for a more detailed description.');
+CONDITIONS.focus();
+return false;
+}
+if(PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TSD'  ||
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TSP'  ||
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TLD'  ||
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TLP'){
+if(TEMP_ORDER_ACTION.options[TEMP_ORDER_ACTION.selectedIndex].value == 'SH'){
+alert('Cannot Sell Short a Trailing Stop.');
+PRICE_TYPE.focus();
+return false;
+}
+}
+if((AMOUNT.value != '') && (PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'M')){
+alert('The Amount does not apply to a Market order.');
+SELECTED_PRICE_TYPE.focus();
+return false;
+}
+if(TEMP_ORDER_ACTION.options[TEMP_ORDER_ACTION.selectedIndex].value == 'BH' ||
+TEMP_ORDER_ACTION.options[TEMP_ORDER_ACTION.selectedIndex].value == 'SH'){
+ACCT_TYPE.value = 'S';
+}else{
+
+
+
+ACCT_TYPE.value = 'C';
+
+
+}
+if(PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TSD' ||
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TLD'){
+TRAILING_VALUE_IND.value = 'D';
+}else{
+if(PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TSP' ||
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TLP'){
+TRAILING_VALUE_IND.value = 'P';
+}else{
+TRAILING_VALUE_IND.value = '';
+}
+}
+
+if((PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == "TLD") ||
+(PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == "TSD") ||
+(PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == "TSP") ||
+(PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == "TLP") )
+{
+TRAILING_VALUE.value = AMOUNT.value;
+LIMIT_STOP_PRICE.value = "";
+}
+else if(PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value != "M")
+{
+TRAILING_VALUE.value = "";
+LIMIT_STOP_PRICE.value = AMOUNT.value;
+}
+else
+{
+TRAILING_VALUE.value = "";
+LIMIT_STOP_PRICE.value = "";
+}
+
+var verifyGoesToIframe='Y'
+
+
+if(SS.checked){
+SPECIFIC_SHARES.value = 'Y';
+action = '/ftgw/fbc/oftrade/stockDisplaySelectCriteria';
+target = '_top';
+verifyGoesToIframe='N';
+}
+
+if (USE_VERIFY_IFRAME.value=='N'){
+
+verifyGoesToIframe='N';
+target = '_top';
+}
+if(verifyGoesToIframe=='Y'){
+target='VerifyPage';
+}
+USE_VERIFY_IFRAME.value='N';
+SUBMIT_BUTTON.value = 'Processing';
+SUBMIT_BUTTON.disabled = true;
+INPUT_TIMESTAMP.value = new Date().getTime();
+AMOUNT.disabled = false;
+
+if(TEMP_ORDER_ACTION.options[TEMP_ORDER_ACTION.selectedIndex].value == 'SA'){
+QTY_TYPE.value='A';
+ORDER_ACTION.value='S';
+}else{
+QTY_TYPE.value='S';
+ORDER_ACTION.value=TEMP_ORDER_ACTION.options[TEMP_ORDER_ACTION.selectedIndex].value;
+}
+}
+return true;
+}
+
+function iframeloaded() {
+if (document.getElementById('TradeStockInitPageContent')){
+document.getElementById('TradeStockInitPageContent').style.display = 'none';
+document.getElementById('TradeStockVerifyPageContent').style.display = 'inline';
+document.entryForm.USE_VERIFY_IFRAME.value="N";
+}
+}
+
+function uninit(){
+if(document.entryForm.USE_VERIFY_IFRAME.value=="N"){
+document.getElementById('TradeStockVerifyPageContent').innerHTML = '';
+}
+}
+
+function iframeunloaded()  {
+if (document.getElementById('TradeStockInitPageContent')){
+document.getElementById('TradeStockInitPageContent').style.display = 'inline';
+document.getElementById('TradeStockVerifyPageContent').style.display = 'none';
+}
+scrollTo(0,0)
+with(document.entryForm)
+{
+setButtonText();
+SUBMIT_BUTTON.disabled = false;
+}
+}
+
+function cancelTradeClickedFromVerify() {
+iframeunloaded();
+with(document.entryForm)
+{
+SYMBOL.value = "";
+TEMP_ORDER_ACTION.selectedIndex = 0;
+QTY.value = "";
+PRICE_TYPE.selectedIndex = 0;
+TIME_IN_FORCE.selectedIndex = 0;
+CONDITIONS.selectedIndex = 0;
+setButtonText();
+SUBMIT_BUTTON.disabled = false;
+refreshQuoteIframe();
+onChangePriceType(true);
+}
+}
+function editTradeClickedFromVerify() {
+iframeunloaded();
+}
+
+
+
+
+function onChangeOrderAction(){
+setOrderAction();
+setTrailingValueType();
+}
+
+function setOrderAction()
+{
+with(document.entryForm){
+if(TEMP_ORDER_ACTION.options[TEMP_ORDER_ACTION.selectedIndex].value == 'SA'){
+QTY.value = "";
+QTY.disabled = true;
+if(useGetElementById){
+document.getElementById('QTY').style.backgroundColor = '#eeeeee';
+}
+}else{
+QTY.disabled = false;
+if(useGetElementById){
+document.getElementById('QTY').style.backgroundColor = '#ffffff';
+}
+}
+}
+
+
+setSpecificShares();
+
+
+}
+
+function setTrailingValueType(){
+with(document.entryForm){
+var symbol = SYMBOL.value;
+if(PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TSD' ||
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TSP' ||
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TLD' ||
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TLP'){
+if((symbol != '') && (symbol.indexOf('-') == -1) && (symbol.length >= 4) && (TEMP_ORDER_ACTION.options[TEMP_ORDER_ACTION.selectedIndex].value == 'B')){
+document.getElementById('TRAILING_VALUE_TYPE').options[3].selected=true;
+}
+else if((symbol != '') && (symbol.indexOf('-') == -1) && (symbol.length >= 4) && (TEMP_ORDER_ACTION.options[TEMP_ORDER_ACTION.selectedIndex].value == 'S')){
+document.getElementById('TRAILING_VALUE_TYPE').options[2].selected=true;
+}
+else if((symbol != '') && (symbol.indexOf('-') == -1) && (symbol.length <= 3)){
+document.getElementById('TRAILING_VALUE_TYPE').options[1].selected=true;
+}
+else{
+document.getElementById('TRAILING_VALUE_TYPE').options[0].selected=true;
+}
+}
+}
+onChangeTrailingValueType();
+}
+
+function onChangeSymbol(){
+setSymbol();
+setTrailingValueType();
+}
+
+function setSymbol()
+{
+refreshQuoteIframe(false);
+
+}
+
+
+function onChangePriceType(clearInputBox){
+clearAll(); 
+automateDivVisibility(); 
+
+setTrailingValueType();
+}
+
+function automateDivVisibility(){
+with(document.entryForm){
+if(useGetElementById){
+if(PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'L'){
+document.getElementById('trailAmount').style.display = '';
+document.getElementById('amountLabel').innerHTML = 'Limit Price';
+document.getElementById('AMOUNT').style.backgroundColor = '#ffffff';
+document.getElementById('AMOUNT').value = '';
+document.getElementById('dlrAmt').style.display = '';
+document.getElementById('trailingValueTypeSpan').style.display = 'none';
+}
+if(PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'S'){
+document.getElementById('stopPrice').style.display = 'none';
+document.getElementById('STOP_PRICE').value = '';
+document.getElementById('trailAmount').style.display = '';
+document.getElementById('amountLabel').innerHTML = 'Stop Price';
+document.getElementById('AMOUNT').style.backgroundColor = '#ffffff';
+document.getElementById('AMOUNT').value = '';
+document.getElementById('dlrAmt').style.display = '';
+document.getElementById('trailingValueTypeSpan').style.display = 'none';
+}
+if(PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'SL'){
+document.getElementById('stopPrice').style.display = '';
+document.getElementById('trailAmount').style.display = '';
+document.getElementById('amountLabel').innerHTML = 'Limit Price';
+document.getElementById('AMOUNT').style.backgroundColor = '#ffffff';
+document.getElementById('STOP_PRICE').value = '';
+document.getElementById('AMOUNT').value = '';
+document.getElementById('dlrAmt').style.display = '';
+document.getElementById('trailingValueTypeSpan').style.display = 'none';
+}
+if(PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TSD' ||
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TLD' ){
+document.getElementById('trailAmount').style.display = '';
+document.getElementById('dlrAmt').style.display = '';
+document.getElementById('AMOUNT').style.backgroundColor = '#ffffff';
+document.getElementById('AMOUNT').value = '';
+document.getElementById('TRAILING_VALUE_TYPE').style.backgroundColor = '#ffffff';
+document.getElementById('amountLabel').innerHTML = 'Trail Amount';
+document.getElementById('trailingValueTypeSpan').style.display = '';
+}
+if(PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TSP' ||
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TLP'){
+document.getElementById('trailAmount').style.display = '';
+document.getElementById('pctAmt').style.display = '';
+document.getElementById('AMOUNT').style.backgroundColor = '#ffffff';
+document.getElementById('AMOUNT').value = '';
+document.getElementById('TRAILING_VALUE_TYPE').style.backgroundColor = '#ffffff';
+document.getElementById('amountLabel').innerHTML = 'Trail Amount';
+document.getElementById('trailingValueTypeSpan').style.display = '';
+}
+}else{
+
+}
+}
+}
+
+function setPriceType(clearInputBox)
+{
+with(document.entryForm){
+if(PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value != 'L' &&
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value != 'S' &&
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value != 'SL' &&
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value != 'TSD' &&
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value != 'TSP' &&
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value != 'TLD' &&
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value != 'TLP'){
+AMOUNT.value='';
+AMOUNT.disabled=true;
+TRAILING_VALUE_TYPE.disabled=true;
+if(useGetElementById){
+document.getElementById('TRAILING_VALUE_TYPE').options[0].selected=true;
+document.getElementById('AMOUNT').style.backgroundColor = '#eeeeee';
+document.getElementById('amountText').style.color = '#999999';
+document.getElementById('amountText').style.paddingRight = '4px';
+document.getElementById('dlrAmt').style.color = '#999999';
+document.getElementById('pctAmt').style.color = '#999999';
+document.getElementById('TRAILING_VALUE_TYPE').style.backgroundColor = '#eeeeee';
+}
+}else{
+if (clearInputBox){
+AMOUNT.value='';
+}
+AMOUNT.disabled=false;
+
+if(useGetElementById){
+document.getElementById('AMOUNT').style.backgroundColor = '#ffffff';
+document.getElementById('amountText').style.color = '#666666';
+document.getElementById('dlrAmt').style.color = '#666666';
+document.getElementById('pctAmt').style.color = '#666666';
+}
+if(
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value != 'TSD' &&
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value != 'TSP' &&
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value != 'TLD' &&
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value != 'TLP')
+{
+TRAILING_VALUE_TYPE.disabled=true;
+if(useGetElementById){
+document.getElementById('TRAILING_VALUE_TYPE').options[0].selected=true;
+document.getElementById('TRAILING_VALUE_TYPE').style.backgroundColor = '#eeeeee';
+document.getElementById('trailBasedOn').style.color = '#999999';
+}
+}
+else
+{
+TRAILING_VALUE_TYPE.disabled=false;
+document.getElementById('trailBasedOn').style.color = '#666666';
+document.getElementById('TRAILING_VALUE_TYPE').style.backgroundColor = '#ffffff';
+}
+}
+
+if(PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TSP' ||
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TLP'){
+if(useGetElementById){
+document.getElementById('amountText').style.paddingRight = '0px';
+document.getElementById('dlrAmt').style.display = 'none';
+document.getElementById('pctAmt').style.display = 'inline';
+}
+}else{
+if(useGetElementById){
+document.getElementById('amountText').style.paddingRight = '4px';
+document.getElementById('pctAmt').style.display = 'none';
+document.getElementById('dlrAmt').style.display = '';
+document.getElementById('dlrAmt').style.paddingLeft = '1px';
+}
+}
+}
+
+
+setSpecificShares();
+
+}
+
+function clearAll()
+{
+if(useGetElementById){
+document.getElementById('AMOUNT').value="";
+document.getElementById('STOP_PRICE').value="";
+document.getElementById('stopPrice').style.display = 'none';
+document.getElementById('trailAmount').style.display = 'none';
+document.getElementById('dlrAmt').style.display = 'none';
+document.getElementById('pctAmt').style.display = 'none';
+return;
+}
+}
+
+
+
+
+
+
+function setSpecificShares(){
+with(document.entryForm){
+if((TEMP_ORDER_ACTION.options[TEMP_ORDER_ACTION.selectedIndex].value != 'BH' &&
+TEMP_ORDER_ACTION.options[TEMP_ORDER_ACTION.selectedIndex].value != 'S') ||
+(PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TSD'    ||
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TSP'    ||
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TLD'    ||
+PRICE_TYPE.options[PRICE_TYPE.selectedIndex].value == 'TLP')){
+SS.checked = false;
+SS.disabled = true;
+document.getElementById('taxLotCheckBox').style.display = 'none';
+document.getElementById('taxLotLabel').style.display = 'none';
+}else{
+SS.disabled = false;
+document.getElementById('taxLotCheckBox').style.display = 'inline';
+document.getElementById('taxLotLabel').style.display = 'inline';
+}
+}
+setButtonText();
+}
+
+
+
+function setButtonText(){
+var buttonText = 'Preview Order';
+with(document.entryForm){
+
+
+if(SS.checked){
+buttonText = 'Continue';
+}
+
+SUBMIT_BUTTON.value = buttonText;
+}
+}
+
+
+function refreshQuoteIframe(clickedGetQuote){
+var url = 'https://www.fidelity.com/images/clear.gif';
+var urlForSymbol = false;
+var styleDisplay = 'none';
+with(document.entryForm){
+if(commonSymbolIsValid(SYMBOL,'2')){
+urlForSymbol = true;
+url = 'https://fastquote.fidelity.com/webxpress/quick_quote.phtml?SID_VALUE_ID=' + SYMBOL.value + '&productid=trade&basedon=' + trailingValueType + '&version=2';
+styleDisplay = 'inline';
+}else{
+if(!commonTextboxIsEmpty(SYMBOL)){
+urlForSymbol = true;
+url = 'https://fastquote.fidelity.com/webxpress/quick_quote.phtml?SID_VALUE_ID=' + escape(commonTrimTextbox(SYMBOL)) + '&productid=trade&basedon=' + trailingValueType + '&version=2';
+styleDisplay = 'inline';
+}
+}
+if(urlForSymbol){
+if(clickedGetQuote){
+url = url+'&Ref_at=stockInitR';
+}else{
+url = url+'&Ref_at=stockInit';
+}
+}
+if(useGetElementById){
+if(clickedGetQuote || (document.getElementById('iqtfrm').src != url)){
+if(styleDisplay == 'none') {
+SmoothMovement(240,0);
+window.setInterval(updateDemonstration, 20);
+slideQuoteShrink();
+document.getElementById('iqtfrm').src = url;
+}else{
+document.getElementById('iqtfrm').src = url;
+document.getElementById('quote').style.display = styleDisplay;
+slideQuoteGrow();
+}
+document.getElementById('getQuoteLink').style.display = styleDisplay;
+}
+}
+}
+return true;
+}
+
+
+function onChangeTrailingValueType()
+{
+with(document.entryForm){
+if(TRAILING_VALUE_TYPE.options[TRAILING_VALUE_TYPE.selectedIndex].value == 'T')
+trailingValueType = 'last';
+else if(TRAILING_VALUE_TYPE.options[TRAILING_VALUE_TYPE.selectedIndex].value == 'B')
+trailingValueType = 'bid';
+else if(TRAILING_VALUE_TYPE.options[TRAILING_VALUE_TYPE.selectedIndex].value == 'A')
+trailingValueType = 'ask';
+else
+trailingValueType = '';
+
+refreshQuoteIframe(false);
+}
+}
+</script>
+</head>
+<body onLoad='onLoad()'  onunLoad='uninit()' >
+<div id="TradeStockInitPageContent">
+<div id="navbar" class="screen-only">
+  <style type="text/css">
+td.nav{font-size:10px;text-align:center}
+A{font-family: Verdana;}
+A.t{font:bold 11px Verdana;color:#FFF!important;text-decoration:none !important;}
+A.logs{font:bold 11px Verdana;color:white !important;text-decoration:underline !important;}
+A.logs:hover{color:white;}
+A.logs:visited{color:white;}
+A.off{background-color:transparent;color:#000;font:10px Verdana;text-decoration:underline}
+A.off:visited{color:#000;}
+A:hover.off{color:#00F}
+A.bk,A:hover.bk{font:800 12px Arial}
+A.bk{color:#000}
+A:hover.bk{color:#00F}
+.pipe{font:11px Verdana}
+.topLine {font: 100 11px Verdana,Arial,Helvetica;color:white;text-decoration:underline;}
+.topLine:hover{font: 100 11px Verdana,Arial,Helvetica;color:white !important;text-decoration:underline;}
+.topLine:visited{color:#FFF;}
+.time{font:100 10px Verdana;background:#97B7C8}
+.fmbut{font: 100 11px Verdana,Arial,Helvetica;}
+.fm2but{width:60px;font: 100 11px Verdana,Arial,Helvetica; }
+.fm2but_dpi{width:47px;font: 100 11px Verdana,Arial,Helvetica; }
+.srch{width:135px;height:13px;font: normal 11px Verdana,Arial,Helvetica;margin-top:1px;}
+.srchdpi{width:137px;height:18px;font: normal 11px Verdana,Arial,Helvetica;}
+.qut{height:13px;font: normal 11px Verdana,Arial,Helvetica;margin-top:1px;}
+.qutdpi{height:18px;font: normal 11px Verdana,Arial,Helvetica;}
+#dgbg{top:0px;left:0px;width:1004px;height:32px;clip:rect(0 1004 32 0);background-color:#79B400;layer-background-color:#79B400;position:absolute;}
+#gbg{top:32px;left:0px;width:1004px;height:43px;clip:rect(0 1004 43 0);background-color:#97B7C8;layer-background-color:#97B7C8;position:absolute;}
+#Lgo{left:2px;top:3px;width:138px;height:27px;clip:rect(0 138 27 0);position:absolute;}
+#opacct{left:207px;top:10px;height:14px;width:113px;clip:rect(0 113 14 0);z-index:4;background-color:#79B400;layer-background-color:#79B400;position:absolute;}
+#login{position:absolute;left:151px;top:10px;width:38px;height:20px;clip:rect(0 38 14 0);z-index:5;background-color:#79B400;layer-background-color:#79B400;}
+#logout{position:absolute;left:146px;top:10px;width:48px;height:20px;clip:rect(0 48 14 0);z-index:5;background-color:#79B400;layer-background-color:#79B400;}
+#fm{left:344px;top:5px;width:212px;height:18px;z-index:6;position:absolute;}
+#fmdpi{left:337px;top:4px;width:230px;height:18px;z-index:6;position:absolute;}
+#fm2{left:563px;top:5px;width:147px;height:18px;z-index:6;position:absolute;}
+#fm2dpi{left:571px;top:5px;width:147px;height:18px;z-index:6;position:absolute;}
+#contact{left:701px;top:10px;width:76px;height:22px;clip:rect(0 86 32 0);z-index:6;background-color:#79B400;layer-background-color:#79B400;position:absolute;}
+#tday{left:590px;top:56px;position:absolute;}
+#Tab20,#Tab21,#Tab22,#Tab23,#Tab24,#Tab25{top:32px;height:18px;visibility:hidden;layer-visibility:hide;z-index:7;position:absolute;}
+#Tab20{left:0px;width:132px;clip:rect(0 132 20 0);position:absolute;}
+#Tab21{left:131px;width:83px;clip:rect(0 83 20 0);position:absolute;}
+#Tab22{left:213px;width:164px;clip:rect(0 164 20 0);position:absolute;}
+#Tab23{left:376px;width:157px;clip:rect(0 157 20 0);position:absolute;}
+#Tab24{left:532px;width:103px;clip:rect(0 103 20 0);position:absolute;}
+#Tab25{left:633px;width:147px;clip:rect(0 147 20 0);position:absolute;}
+#Tab0,#Tab1,#Tab2,#Tab3,#Tab4,#Tab5{text-align:center;padding-top:2px;top:33px;height:16px;z-index:7;position:absolute;}
+#Tab0{left:1px;width:130px;clip:rect(0 130 18 0);position:absolute;}
+#Tab1{left:132px;width:81px;clip:rect(0 81 18 0);position:absolute;}
+#Tab2{left:214px;width:162px;clip:rect(0 162 18 0);position:absolute;}
+#Tab3{left:377px;width:155px;clip:rect(0 155 18 0);position:absolute;}
+#Tab4{left:533px;width:101px;clip:rect(0 101 18 0);position:absolute;}
+#Tab5{left:635px;width:144px;clip:rect(0 144 18 0);position:absolute;}
+#bg20,#bg21,#bg22,#bg23,#bg24,#bg25{left:0px;top:0px;height:19px;position:absolute;}
+#bg20{width:132px;clip:rect(0 132 19 0);position:absolute;}
+#bg21{width:83px;clip:rect(0 83 19 0);position:absolute;}
+#bg22{width:164px;clip:rect(0 164 19 0);position:absolute;}
+#bg23{width:157px;clip:rect(0 157 19 0);position:absolute;}
+#bg24{width:103px;clip:rect(0 103 19 0);position:absolute;}
+#bg25{width:147px;clip:rect(0 147 19 0);position:absolute;}
+#but20,#but21,#but22,#but23,#but24,#but25{font:800 12px verdana;text-align:center;left:1px;top:1px;height:18px;position:absolute;}
+#but20{width:130px;clip:rect(0 130 18 0);position:absolute;}
+#but21{width:81px;clip:rect(0 81 18 0);position:absolute;}
+#but22{width:162px;clip:rect(0 162 18 0);position:absolute;}
+#but23{width:155px;clip:rect(0 155 18 0);position:absolute;}
+#but24{width:101px;clip:rect(0 101 18 0);position:absolute;}
+#but25{width:145px;clip:rect(0 145 18 0);position:absolute;}
+#selTab20,#selTab21,#selTab22,#selTab23,#selTab24,#selTab25{top:50px;height:20px;visibility:hidden;layer-visibility:hide;z-index:7;position:absolute;}
+#selTab20{left:0px;width:718px;clip:rect(0 718 20 0);position:absolute;}
+#selTab21{left:14px;width:760px;clip:rect(0 760 20 0);position:absolute;}
+#selTab22{left:1px;width:780px;clip:rect(0 780 20 0);position:absolute;}
+#selTab23{left:1px;width:780px;clip:rect(0 780 20 0);position:absolute;}
+#selTab24{left:15px;width:740px;clip:rect(0 740 20 0);position:absolute;}
+#selTab25{left:492px;width:290px;clip:rect(0 290 20 0);position:absolute;}
+#selbg20,#selbg21,#selbg22,#selbg23,#selbg24,#selbg25{left:0px;top:0px;height:20px;position:absolute;}
+#selbg20{width:716px;clip:rect(0 716 20 0);position:absolute;}
+#selbg21{width:758px;clip:rect(0 758 20 0);position:absolute;}
+#selbg22{width:778px;clip:rect(0 778 20 0);position:absolute;}
+#selbg23{width:778px;clip:rect(0 778 20 0);position:absolute;}
+#selbg24{width:738px;clip:rect(0 738 20 0);position:absolute;}
+#selbg25{width:288px;clip:rect(0 288 20 0);position:absolute;}
+#subbg20,#subbg21,#subbg22,#subbg23,#subbg24,#subbg25{left:1px;top:1px;height:18px;position:absolute;}
+#subbg20{width:714px;clip:rect(0 714 18 0);position:absolute;}
+#subbg21{width:756px;clip:rect(0 756 18 0);position:absolute;}
+#subbg22{width:776px;clip:rect(0 776 18 0);position:absolute;}
+#subbg23{width:776px;clip:rect(0 776 18 0);position:absolute;}
+#subbg24{width:736px;clip:rect(0 736 18 0);position:absolute;}
+#subbg25{width:286px;clip:rect(0 286 18 0);position:absolute;}
+#SM0,#SM1,#SM2,#SM3,#SM4,#SM5{font-size:10px;left:4px;top:2px;position:absolute;}
+</style>
+  <!--[if IE]>
+<style>
+#Tab0,#Tab1,#Tab2,#Tab3,#Tab4,#Tab5{text-align:center;padding-top:2px;top:33px;height:18px;z-index:7;position:absolute;}
+.srch{width:139px;height:19px;font: normal 11px Verdana,Arial,Helvetica;}
+.qut{height:19px;font: normal 11px Verdana,Arial,Helvetica;}
+.fmbut{font: 100 11px Verdana,Arial,Helvetica;padding-left:0px;padding-right:0px;}
+#tday{left:590px;top:55px;position:absolute;}
+#contact{top:12px;};
+#opacct{top:12px;};
+#login{top:12px;};
+#logout{top:12px;};
+</style><![endif]-->
+  <script type="text/javascript" language="javascript">
+if(screen.width<1024) {
+document.write('<style type="text/css">#dgbg{top:0px;left:0px;width:779px;height:32px;clip:rect(0 779 32 0);background-color:#79B400;layer-background-color:#79B400}#gbg{top:32px;left:0px;width:779px;height:43px;clip:rect(0 779 43 0);background-color:#97B7C8;layer-background-color:#97B7C8}</style>');
+}
+
+function cssReset () {
+document.write('<style>#opacct{top:8px;}.pipe{font:10px Arial;padding-left:2px;}.fmbut{font: 100 11px Verdana,Arial,Helvetica;padding-left:6px;padding-right:6px;vertical-align:middle;margin-top:1px;}.fm2but{width:60px;font: 100 11px Verdana,Arial,Helvetica; padding-left:6px;padding-right:6px;vertical-align:middle;margin-top:1px;}.fm2but_dpi{width:47px;font: 100 11px Verdana,Arial,Helvetica;padding-left:6px;padding-right:6px;vertical-align:middle;margin-top:1px;}.srch{width:135px;height:15px;font: normal 11px Verdana,Arial,Helvetica;vertical-align:middle;margin-top:1px;}.srchdpi{width:137px;height:14px;font: normal 11px Verdana,Arial,Helvetica;}.qut{height:15px;font: normal 11px Verdana,Arial,Helvetica;vertical-align:middle;margin-top:1px;}.qutdpi{height:14px;font: normal 11px Verdana,Arial,Helvetica;vertical-align:middle;margin-top:1px;}#login{position:absolute;left:151px;top:8px;width:38px;height:20px;clip:rect(0 38 14 0);z-index:5;background-color:#79B400;layer-background-color:#79B400;}#logout{position:absolute;left:146px;top:8px;width:48px;height:20px;clip:rect(0 48 14 0);z-index:5;background-color:#79B400;layer-background-color:#79B400;}#contact{left:701px;top:8px;width:76px;height:22px;clip:rect(0 86 32 0);z-index:6;background-color:#79B400;layer-background-color:#79B400;position:absolute;}#tday{left:590px;top:53px;position:absolute;}#Tab20,#Tab21,#Tab22,#Tab23,#Tab24,#Tab25{top:32px;height:16px;visibility:hidden;layer-visibility:hide;z-index:7;position:absolute;}#Tab0,#Tab1,#Tab2,#Tab3,#Tab4,#Tab5{text-align:center;padding-top:0px;top:33px;height:18px;z-index:7;position:absolute;}#bg20,#bg21,#bg22,#bg23,#bg24,#bg25{left:0px;top:0px;height:18px;position:absolute;}#selTab20,#selTab21,#selTab22,#selTab23,#selTab24,#selTab25{top:50px;height:18px;visibility:hidden;layer-visibility:hide;z-index:7;position:absolute;}#SM0,#SM1,#SM2,#SM3,#SM4,#SM5{font-size:10px;left:4px;top:3px;position:absolute;}#contact{top:8px;}</style><!--[if IE]><style>#Tab0,#Tab1,#Tab2,#Tab3,#Tab4,#Tab5{text-align:center;padding-top:2px;top:33px;height:16px;z-index:7;position:absolute;}.srch{width:134px;height:15px;font: normal 11px Verdana,Arial,Helvetica;}.fmbut{font: 100 11px Verdana,Arial,Helvetica;padding-left:0px;padding-right:0px;vertical-align:middle;margin-top:0px;}#tday{left:590px;top:55px;position:absolute;}#contact{top:10px;}#opacct{top:10px;}#opacct:hover{color:white;}#login{top:10px;}#logout{top:10px;}.srch{margin-top:0px}.qut{margin-top:0px;}</style><![endif]-->');
+}
+</script>
+  <script type="text/javascript" language="javascript">
+NN6=((parseInt(navigator.appVersion)>=5)&&(navigator.appName.indexOf("Netscape")!=-1))?1:0
+MS4=((parseInt(navigator.appVersion)>=4)&&(navigator.appName.indexOf("Microsoft")!=-1))?1:0
+OP9=((parseInt(navigator.appVersion)>=9)&&(navigator.appName.indexOf("Opera")!=-1))?1:0;
+
+var lg='#8CD600'
+var dg='#3F8800'
+var ly='#E5EFEF'
+var bk='#000000'
+var h1='hidden'
+var h2='hide'
+var d=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday")
+var m=new Array("January","February","March","April","May","June","July","August","September","October","November","December")
+var now=new Date()
+var y=now.getFullYear()
+
+function T(){
+s='<span class=time>'+d[now.getDay()]+',&nbsp;'+m[now.getMonth()]+'&nbsp;'+now.getDate()+',&nbsp;'+y+'</span>'
+i='tday'
+if(NN6 || OP9)document.getElementById(i).innerHTML=s
+else document.all[i].innerHTML=s}
+
+function SB(id,c){
+i="Tab"+id
+if(NN6 || OP9){
+if(c==1)Bme=lg
+else if(c==0)Bme=dg
+document.getElementById(i).style.backgroundColor=Bme}
+else if(MS4){ 
+if(c==1)Bme=lg
+else if(c==0)Bme=dg
+document.all[i].style.backgroundColor=Bme}
+}
+
+function SBA(){
+var flTab="Tab"
+var flbg="bg"
+for(i=0;i<=5;i++){
+flTab="Tab"+i
+flbg="bg"+i
+if(NN6 || OP9){
+document.getElementById(flTab).style.backgroundColor=dg
+document.getElementById(flbg).style.backgroundColor=bk
+}else if(MS4){
+document.all[flTab].style.backgroundColor=dg
+document.all[flbg].style.backgroundColor=bk
+}}
+var box="Tab"
+var selbox="selTab"
+var slBg="bg"
+var slBut="but"
+var selBg="selbg"
+var subBg="subbg"
+for(i=20;i<=25;i++){
+box="Tab"+i
+selbox="selTab"+i
+slBg="bg"+i
+slBut="but"+i
+selBg="selbg"+i
+subBg="subbg"+i
+if(NN6 || OP9){
+document.getElementById(slBg).style.backgroundColor=bk
+document.getElementById(slBut).style.backgroundColor=ly
+document.getElementById(selBg).style.backgroundColor=bk
+document.getElementById(subBg).style.backgroundColor=ly
+}else if(MS4){
+document.all[slBg].style.backgroundColor=bk
+document.all[slBut].style.backgroundColor=ly
+document.all[selBg].style.backgroundColor=bk
+document.all[subBg].style.backgroundColor=ly
+}}}
+
+function ST(i,c){
+if(MS4){
+if(c==1)Cme='visible'
+else if(c==0)Cme=h1
+document.all[i].style.visibility=Cme
+}else if(NN6 || OP9){
+if(c==1)Cme='visible'
+else if(c==0)Cme=h1
+document.getElementById(i).style.visibility=Cme
+}}
+
+function SLT(n){
+n=parseInt(n)
+ST("Tab2"+n,1)
+ST("selTab2"+n,1)
+for(i=parseInt(n)-1;i>=0;i--){
+ST("Tab2"+i,0)
+ST("selTab2"+i,0)
+}
+for(i=parseInt(n)+1;i<=5;i++){
+ST("Tab2"+i,0)
+ST("selTab2"+i,0)
+}}
+
+function HA() {
+var t="Tab"
+var st="selTab"
+for(i=20;i<=25;i++){
+t="Tab"+i
+st="selTab"+i
+if(NN6 || OP9){
+document.getElementById(t).style.visibility=h1
+document.getElementById(st).style.visibility=h1
+}else{
+document.all[t].style.visibility=h1
+document.all[st].style.visibility=h1
+
+}}}
+
+function openPopup(u){
+h=455
+w=250
+if(openPopup.arguments.length==3){
+w=openPopup.arguments[1]
+h=openPopup.arguments[2]}
+window.open(u,'infowindow','width='+w+',height='+h+',left=480,top=190,location=no,resizable=yes,menubar=no,status=no,toolbar=no,scrollbars=yes')}
+
+function getCookie(name) {
+var dc = document.cookie;
+var prefix = name + "=";
+var begin = dc.indexOf("; " + prefix);
+if (begin == -1) {
+begin = dc.indexOf(prefix);
+if (begin != 0) return null;
+} else
+begin += 2;
+var end = document.cookie.indexOf(";", begin);
+if (end == -1) end = dc.length;
+return unescape(dc.substring(begin + prefix.length, end));
+}
+function getAnswer() {
+        with(document.question_form.question) {
+                if (value == '') {
+                        alert("Please type a word, phrase or question.");
+                        select();
+                        focus();
+                        return false;
+                }
+                else {
+                return true;
+                }
+        }
+}
+
+var ecn = "";
+function gq() {
+
+if(NN6) {V = document.forms[1].elements[0].value;}
+else if(MS4) {V=document.popup_quote_form.SID_VALUE_ID.value;}
+if(V.indexOf(" ")!=-1) {alert("Please enter only one symbol.");	}
+else {
+var p="https://fastquote.fidelity.com/webxpress/popup_frameset.phtml?SID_VALUE_ID="+V;
+if(ecn=="after") {
+p="https://fastquote.fidelity.com/webxpress/popup_frameset.phtml?page=ecn&ecn=after&SID_VALUE_ID="+V;
+}
+else if(ecn=="pre") {
+p="https://fastquote.fidelity.com/webxpress/popup_frameset.phtml?page=ecn&ecn=pre&SID_VALUE_ID="+V;
+}
+openPopup(p) } }
+function rS() {
+var query;
+	if(NN6) {query=document.forms[0].elements[0].value; } 
+	if(MS4) {query=document.question_form.question.value; } 
+	parent.top.location="http://personal.fidelity.com/global/search/inquira/resultsindex.shtml?question="+query; return;
+}
+function goLogin() { window.open('https://login.fidelity.com/ftgw/Fas/Fidelity/RtlCust/Login/Init?AuthRedUrl=https://oltx.fidelity.com/ftgw/fbc/ofsummary/defaultPage', '_top');
+}
+function goLogout() { window.open('https://login.fidelity.com/ftgw/Fidelity/RtlCust/Logout/Init?AuthRedUrl=https://www.fidelity.com/tpv/logout_webxpress.shtml', '_top'); 
+}
+</script>
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="wrapperTable">
+    <tr>
+      <td height="75" id="navspacer"><a href="https://www.fidelity.com/frameless_c.shtml#navskip" accesskey="2" tabindex="1"><img src="https://www.fidelity.com/images/clear.gif" alt="skip to end of navigation" border="0" /></a>
+        <div id="dgbg"></div>
+        <div id="gbg"></div>
+        <div id="Lgo"><a href="https://www.fidelity.com/?bar=p" onclick="HA()" tabindex="1"><img src="https://www.fidelity.com/nav/images/fidelitylogo.gif" width="138" height="27" alt="" border="0" /></a></div>
+        <div id="opacct"><a class="logs" href="http://www.fidelity.com/goto/metrics/navbar/openacct/?bar=p" tabindex="3">Open an Account</a></div>
+        <div id="tday"></div>
+        <script type="text/javascript">
+var constNorm = 96;
+MS4=((parseInt(navigator.appVersion)>=4)&&(navigator.appName.indexOf("Microsoft")!=-1))?1:0
+MACIE=((parseInt(navigator.appVersion)>=4)&&(navigator.appName.indexOf("Microsoft")!=-1)&&(navigator.platform == 'MacPPC'))?1:0
+
+	if (!MACIE && MS4 && screen.deviceXDPI && (screen.deviceXDPI == screen.logicalXDPI) && (screen.deviceXDPI > constNorm))
+    {	
+	document.write('<div id="fm"><form action="http://personal.fidelity.com/global/search/inquira/resultsindex.shtml" name="question_form" onSubmit="rS();"><input class="srchdpi" size="12" maxlength="64" id="site_search" name="question" title="Search text" type="text" value="" tabindex="4">&nbsp;<input class="fmbut" value="Search" name="Search" type="submit" onclick="return getAnswer()" tabindex="5"></form></div>');
+	}
+	else
+	{
+document.write('<div id="fm"><form action="http://personal.fidelity.com/global/search/inquira/resultsindex.shtml" name="question_form" onSubmit="rS();" style="height:19px;"><input class="srch" size="20" maxlength="64" id="site_search" name="question" title="Search text" type="text" value="" tabindex="4">&nbsp;<input class="fmbut" value="Search" name="Search" type="submit" onclick="return getAnswer()" tabindex="5"></form></div>');
+	}
+
+</script>
+        <script type="text/javascript">
+var constNorm = 96;
+MS4=((parseInt(navigator.appVersion)>=4)&&(navigator.appName.indexOf("Microsoft")!=-1))?1:0
+MACIE=((parseInt(navigator.appVersion)>=4)&&(navigator.appName.indexOf("Microsoft")!=-1)&&(navigator.platform == 'MacPPC'))?1:0
+	if (!MACIE && MS4 && screen.deviceXDPI && (screen.deviceXDPI == screen.logicalXDPI) && (screen.deviceXDPI > constNorm))
+    {	
+	document.write('<div id="fm2dpi"><form name="popup_quote_form" method="post" action="javascript:gq()"><input type="text" name="SID_VALUE_ID" value="" size="6" maxlength="8" title="Quote text" class="qut" tabindex="6">&nbsp;<input type="submit" class="fm2but_dpi" value="Quotes" tabindex="7"></form></div>');
+	}
+	else
+	{
+document.write('<div id="fm2"><form name="popup_quote_form" method="post" action="javascript:gq()"><input type="text" name="SID_VALUE_ID" value="" size="7" maxlength="8" title="Quote text" class="qut" tabindex="6">&nbsp;<input type="submit" class="fm2but" value="Quotes" tabindex="7"></form></div>');
+	}
+</script>
+        <div id="contact"><a href="http://www.fidelity.com/goto/metrics/navbar/contact/?bar=p" class="topLine" tabindex="8">Contact Us</a></div>
+        <div id="bg0"></div>
+        <div id="Tab0" onmouseover="SB(0,1)" onmouseout="SB(0,0)" onclick="SLT(0)"><a href="javascript:void(0);" class="t" onkeypress="return SLT(0)" tabindex="9">Accounts &amp; Trade</a></div>
+        <div id="bg1"></div>
+        <div id="Tab1" onmouseover="SB(1,1)" onmouseout="SB(1,0)" onclick="SLT(1)"><a href="javascript:void(0);" class="t" onkeypress="return SLT(1)" tabindex="10">Research</a></div>
+        <div id="bg2"></div>
+        <div id="Tab2" onmouseover="SB(2,1)" onmouseout="SB(2,0)" onclick="SLT(2)"><a href="javascript:void(0);" class="t" onkeypress="return SLT(2)" tabindex="11">Retirement &amp; Guidance</a></div>
+        <div id="bg3"></div>
+        <div id="Tab3" onmouseover="SB(3,1)" onmouseout="SB(3,0)" onclick="SLT(3)"><a href="javascript:void(0);" class="t" onkeypress="return SLT(3)" tabindex="12">Investment Products</a></div>
+        <div id="bg4"></div>
+        <div id="Tab4" onmouseover="SB(4,1)" onmouseout="SB(4,0)" onclick="SLT(4)"><a href="javascript:void(0);" class="t" onkeypress="return SLT(4)" tabindex="13">Your Profile</a></div>
+        <div id="bg5"></div>
+        <div id="Tab5" onmouseover="SB(5,1)" onmouseout="SB(5,0)" onclick="SLT(5)"><a href="javascript:void(0);" class="t" onkeypress="return SLT(5)" tabindex="14">Customer Service</a></div>
+        <div id="selTab20">
+          <div id="selbg20"></div>
+          <div id="subbg20"></div>
+          <div id="SM0">
+            <table width="706" cellpadding="1" cellspacing="0" border="0">
+              <tr>
+                <td class="nav" nowrap><a class="off" href="https://scs.fidelity.com/customeronly/portfolio.shtml?bar=p" onclick="HA()" tabindex="20">Portfolio</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="https://scs.fidelity.com/customeronly/accountposition.shtml?bar=p"  onclick="HA()" tabindex="21">Account Positions</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="https://scs.fidelity.com/customeronly/trade.shtml?bar=p" onclick="HA()" tabindex="22">Trade</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="https://scs.fidelity.com/customeronly/trans.shtml?bar=p" onclick="HA()" tabindex="23">Transfer Money/Shares</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="https://scs.fidelity.com/customeronly/billpay.shtml?bar=p" onclick="HA()" tabindex="24">BillPay</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/accounts/services/updateacctsframe.shtml?bar=p" onclick="HA()" tabindex="25">Update Accounts/Features</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="https://scs.fidelity.com/customeronly/statements.shtml?bar=p" onclick="HA()" tabindex="26">Statements</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="https://scs.fidelity.com/customeronly/fullview.shtml?bar=p" onclick="HA()" tabindex="27">Full View</a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div id="Tab20">
+          <div id="bg20"></div>
+          <div id="but20">Accounts &amp; Trade</div>
+        </div>
+        <div id="selTab21">
+          <div id="selbg21"></div>
+          <div id="subbg21"></div>
+          <div id="SM1">
+            <table width="750" cellpadding="1" cellspacing="0" border="0">
+              <tr>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/research/research_overview.shtml.cvsr?bar=p" onclick="HA()" tabindex="30">Overview</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="https://scs.fidelity.com/customeronly/watchlist.shtml?bar=p" onclick="HA()" tabindex="31">Watch List</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="https://scs.fidelity.com/research/alerts/alerts_frame.shtml?bar=p" onclick="HA()" tabindex="32">Alerts</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/news/quotes/?bar=p" onclick="HA()" tabindex="33">Quotes</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://eresearch.fidelity.com/eresearch/goto/markets_sectors/landing.jhtml?bar=p" onclick="HA()" tabindex="34">Markets &amp; Sectors</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/research/stocks/content/stocksindex.shtml?bar=p" onclick="HA()" tabindex="35">Stocks</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/research/options/optionindex.shtml.cvsr?bar=p" onclick="HA()" tabindex="36">Options</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/research/etf/?bar=p" onclick="HA()" tabindex="37">ETFs</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/research/funds/?bar=p" onclick="HA()" tabindex="38">Mutual Funds</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/research/fixedincome/fixedincome_frame.shtml?bar=p" onclick="HA()" tabindex="39">Fixed Income</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/news/calendars/?bar=p" onclick="HA()" tabindex="40">IPOs</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/research/annuities/?bar=p" onclick="HA()" tabindex="41">Annuities</a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div id="Tab21">
+          <div id="bg21"></div>
+          <div id="but21">Research</div>
+        </div>
+        <div id="selTab22">
+          <div id="selbg22"></div>
+          <div id="subbg22"></div>
+          <div id="SM2">
+            <table width="770" cellpadding="1" cellspacing="0" border="0">
+              <tr>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/planning/guidance_overview.shtml.cvsr?bar=p" onclick="HA()" tabindex="50">Overview</a></td>
+                <td width="6" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/planning/retirement/retirement_planning.shtml.cvsr?bar=p" onclick="HA()" tabindex="51">Retirement</a></td>
+                <td width="6" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/planning/college/college_frame.shtml.cvsr?bar=p" onclick="HA()" tabindex="52">College</a></td>
+                <td width="6" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/planning/retirement/investment_overview.shtml.cvsr?bar=p" onclick="HA()" tabindex="53">Investment Guidance</a></td>
+                <td width="6" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/planning/retirement/insurance_overview.shtml.cvsr?bar=p" onclick="HA()" tabindex="54">Insurance</a></td>
+                <td width="6" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/planning/estate/?bar=p" onclick="HA()" tabindex="55">Trusts &amp; Estates</a></td>
+                <td width="6" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/planning/tax/?bar=p" onclick="HA()" tabindex="56">Tax Center</a></td>
+                <td width="6" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/planning/charitable/?bar=p" onclick="HA()" tabindex="57">Charitable Giving</a></td>
+                <td width="6" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://myfidelity.members.fidelity.com/investorsWeekly/index.html?bar=p" onclick="HA()" tabindex="58">Investor's Weekly</a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div id="Tab22">
+          <div id="bg22"></div>
+          <div id="but22">Retirement &amp; Guidance</div>
+        </div>
+        <div id="selTab23">
+          <div id="selbg23"></div>
+          <div id="subbg23"></div>
+          <div id="SM3">
+            <table width="770" cellpadding="1" cellspacing="0" border="0">
+              <tr>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/products/products_overview.shtml.cvsr?bar=p" onclick="HA()" tabindex="60">Overview</a></td>
+                <td width="6" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/products/funds/?bar=p" onclick="HA()" tabindex="61">Mutual Funds</a></td>
+                <td width="6" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/products/trading/?bar=p" onclick="HA()" tabindex="62">Trading</a></td>
+                <td width="6" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/products/incomesolutions/index_content.shtml.cvsr?bar=p" onclick="HA()" tabindex="64">Income Products</a></td>
+                <td width="6" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/products/checking/?bar=p" onclick="HA()" tabindex="65">Cash Management</a></td>
+                <td width="6" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/products/annuities/?bar=p" onclick="HA()" tabindex="66">Annuities</a></td>
+                <td width="6" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/products/insurance/?bar=p" onclick="HA()" tabindex="67">Insurance</a></td>
+                <td width="6" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/products/retirement/?bar=p" onclick="HA()" tabindex="68">Retirement</a></td>
+                <td width="6" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/products/wealth/?bar=p" onclick="HA()" tabindex="69">Managed Portfolios</a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div id="Tab23">
+          <div id="bg23"></div>
+          <div id="but23">Investment Products</div>
+        </div>
+        <div id="selTab24">
+          <div id="selbg24"></div>
+          <div id="subbg24"></div>
+          <div id="SM4">
+            <table width="730" cellpadding="1" cellspacing="0" border="0">
+              <tr>
+                <td class="nav" nowrap><a class="off" href="https://scs.fidelity.com/customeronly/personalsum.shtml?bar=p" onclick="HA()" tabindex="70">Personal Info/Address</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="https://scs.fidelity.com/customeronly/personal3.shtml?bar=p" onclick="HA()" tabindex="71">Beneficiaries</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="https://scs.fidelity.com/customeronly/commissionlevel.shtml?bar=p" onclick="HA()" tabindex="72">Commission Level</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="https://scs.fidelity.com/customeronly/features.shtml?bar=p" onclick="HA()" tabindex="73">Features by Account</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/accounts/services/content/pinchange2.shtml.cvsr?bar=p" onclick="HA()" tabindex="74">Login/PIN</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="https://scs.fidelity.com/customeronly/planning.shtml?bar=p" onclick="HA()" tabindex="75">Planning Information</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="https://scs.fidelity.com/customeronly/preferences.shtml?bar=p" onclick="HA()" tabindex="76">Preferences</a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div id="Tab24">
+          <div id="bg24"></div>
+          <div id="but24">Your Profile</div>
+        </div>
+        <div id="selTab25">
+          <div id="selbg25"></div>
+          <div id="subbg25"></div>
+          <div id="SM5">
+            <table width="280" cellpadding="1" cellspacing="0" border="0">
+              <tr>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/accounts/services/commonrequestsframe.shtml?bar=p" onclick="HA()" tabindex="81">Overview</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/accounts/services/index_sitemap.html?bar=p" onclick="HA()" tabindex="82">Site Map</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/accounts/services/content/listcategory.shtml.cvsr?bar=p" onclick="HA()" tabindex="84">Find a Form</a></td>
+                <td width="8" class="pipe">|</td>
+                <td class="nav" nowrap><a class="off" href="http://personal.fidelity.com/accounts/services/contact/?bar=p" onclick="HA()" tabindex="85">Contact Us</a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div id="Tab25">
+          <div id="bg25"></div>
+          <div id="but25">Customer Service</div>
+        </div>
+        <div id="loginbg" style="position:absolute;left:146px;top:10px;width:48px;height:17px;clip:rect(0 48 14 0);z-index:4;background-color:#79B400;layer-background-color:#79B400;"></div>
+        <div id="logout"><a class="topLine" href="javascript:goLogout()" accesskey="3" tabindex="2">Log Out</a></div>
+        <script type="text/javascript">
+T();SBA();
+</script>
+      </td>
+    </tr>
+  </table>
+</div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+if ( top.location != self.location )
+{document.getElementById("navbar").style.display = "none"; window.name = "mainwindow"; }
+// --> </script>
+<table class="ofLTable393Toc" cellspacing="0">
+  <tr>
+    <td id="ofTopicPath" colspan="3"><!-- include breadcrumb jsp -->
+      <a name="top"></a>
+      <div class="ofTopicPath">
+        <ul>
+          <li class="ofFirstChild">Accounts &amp; Trade </li>
+          <li> &gt; <a class="ofTopicLink" target="_top" href="https://oltx.fidelity.com/ftgw/fbc/ofsummary/summary">Portfolio</a> &gt;</li>
+          <span class="ofOffScreen">This screen features a trade form, secondary navigation links, and information within frames: Summary Balances, Positions, Orders, Balances, and Quote Information. To navigate between frames, display the frame list and arrow through the list items.</span>
+        </ul>
+      </div></td>
+  </tr>
+  <!--2nd TR for the TOC & Page Title -->
+  <tr>
+    <td class="ofGridWidth3Toc screen-only" rowspan="2" valign="top" width="179px"><!-- include toc jsp -->
+      <div class="ofToc" id="toc"><a href="#top" accesskey="2" title="Skip Navigation"></a>
+        <h2>CORPORATION<br/>
+          (Z72368954)</h2>
+        <div class="ofWrapper">
+          <h3>View</h3>
+          <ul >
+            <li class="ofFirstChild"><a href="https://oltx.fidelity.com/ftgw/fbc/ofaccounts/BrokerageBalances?ACCOUNT=Z72368954&Ref_at=stockInit_toc" target="_top" onclick="toc_clear_eot();">Balances</a></li>
+            <li><a href="https://oltx.fidelity.com/ftgw/fbc/ofpositions/brokerageAccountPositions?ACCOUNT=Z72368954&Ref_at=stockInit_toc" target="_top" onclick="toc_clear_eot();">Positions</a></li>
+            <li><a href="https://oltx.fidelity.com/ftgw/fbc/oftrade/orderStatus?ACCOUNT=Z72368954&Ref_at=stockInit_toc" target="_top" onclick="toc_clear_eot();">Orders</a></li>
+            <li><a href="https://oltx.fidelity.com/ftgw/fbc/ofaccounts/brokerageAccountHistory?ACCOUNT=Z72368954&Ref_at=stockInit_toc" target="_top" onclick="toc_clear_eot();">History</a></li>
+            <li><a href="https://oltx.fidelity.com/ftgw/fbc/ofaccounts/taxInfoSummary?ACCOUNT=Z72368954&SELECTED_YEAR_IND=0&TRS_TRAN_TYPE=INC-SUM-API&txs=A&Ref_at=stockInit_toc" target="_top" onclick="toc_clear_eot();">Tax Info (Year-to-Date)</a></li>
+            <li class="ofLastChild"><a href="https://scs.fidelity.com/customeronly/statements.shtml?ACCOUNT=Z72368954&Ref_at=stockInit_toc" target="_top" onclick="toc_clear_eot();">Statements/Records</a></li>
+          </ul>
+          <h3>Act</h3>
+          <ul >
+            <li class="selected ofFirstChild">Trade Stocks</li>
+            <li><a href="https://oltx.fidelity.com/ftgw/fbc/oftrade/displayMFSelectionCriteria?ACCOUNT=Z72368954&ORDER_TYPE=M&Ref_at=stockInit_toc" target="_top" onclick="toc_clear_eot();">Trade Mutual Funds</a></li>
+            <li><a href="https://oltx.fidelity.com/ftgw/fbc/oftrade/fixedIncomeBuffer?ACCOUNT=Z72368954&ORDER_TYPE=F&Ref_at=stockInit_toc" target="_top" onclick="toc_clear_eot();">Trade Fixed Income</a></li>
+            <li><a href="https://oltx.fidelity.com/ftgw/fbc/oftrade/conditionalInit?ACCOUNT=Z72368954&Ref_at=stockInit_toc" target="_top" onclick="toc_clear_eot();">Trade Conditional</a></li>
+            <li><a href="https://oltx.fidelity.com/ftgw/fbc/ofoltx/basketList?ACCOUNT=Z72368954&ORDER_TYPE=BT&Ref_at=stockInit_toc" target="_top" onclick="toc_clear_eot();">Trade/View Baskets</a></li>
+            <li><a href="https://oltx.fidelity.com/ftgw/fbc/oftrade/ecnExtendedHrsInit?ACCOUNT=Z72368954&ORDER_TYPE=ECN&Ref_at=stockInit_toc" target="_top" onclick="toc_clear_eot();">Trade Extended Hours</a></li>
+            <li><a href="https://moneymovement.fidelity.com/ftgw/fbc/mm/mmBuffer?ACCOUNT=Z72368954&Ref_at=stockInit_toc" target="_top" onclick="toc_clear_eot();">Transfer Money/Shares</a></li>
+            <li class="ofLastChild"><a href="http://personal.fidelity.com/accounts/services/updateacctsframe.shtml?bar=c&Ref_at=stockInit_toc" target="_top" onclick="toc_clear_eot();">Update Accounts/Features</a></li>
+          </ul>
+          <h3>Analyze</h3>
+          <ul class="ofLastChild">
+            <li class="ofFirstChild"><a href="https://oltx.fidelity.com/ftgw/fbc/ofsummary/summaryFrameset?MAINFRAME=https://myanalysis.fidelity.com/ftgw/analysis/entry.jsp&from=account&account=Z72368954&Ref_at=stockInit_toc" target="_top" onclick="toc_clear_eot();">Portfolio Analysis</a></li>
+            <li><a href="https://portfolioreview.fidelity.com/standalone/hypo/index.jhtml?from=account&account=Z72368954&Ref_at=stockInit_toc" target="_top" onclick="toc_clear_eot();">Hypothetical Trade</a></li>
+          </ul>
+        </div>
+      </div></td>
+    <td id="ofPageTitle" colspan="2"><a name="top"></a>
+      <!-- include page title jsp -->
+      <div class="ofPageTitle">
+        <h1>Trade Stocks - Standard Session</h1>
+        <ul class="ofAuxLink">
+          <li><a accesskey="6" href="javascript:popupHelp('learn_trading_stocks.shtml?Ref_at=stockInit')">Help/Glossary</a></li>
+        </ul>
+      </div></td>
+  </tr>
+  <!--3rd TR for the Page Body and related links -->
+  <tr>
+    <td class="ofGridWidth7" height="515px"><!-- include page body jsp -->
+      <form name="entryForm" method="post" action="/ftgw/fbc/oftrade/stockVerify" target="VerifyPage" onsubmit="return checkEntryForm();">
+        <input type='hidden' name='INPUT_TIMESTAMP' value='-1'>
+        <input type="hidden" name="ACCOUNT" value="Z72368954">
+        <input type="hidden" name="at.dat.tradeData" value="BFtvSrE*rrI1rqevImGXur8Fw3oOLuGn0z9NqQIObHiWmSZHtjS44uCVEIVWk7zLtAYVlFm*1Kg9nIjneDCxTdY9HNx6ZunXxXFJMeHaqbNQl3w3Mll3rQwb0rObvveN/Vczb7xDgROI4zVM/0FRDXOuRYrKLBXeBRA63bUmItKcWpqj9/zEIMnfwcgIHSrMDYJ9BCeekz41i0W*2Myam8Gu7Hd1hiW5fYmXox7u50laZbLYCZEs*NDt6HHrvMQviH9AsJYVtQQedINLa/rYQ*6RtWT*iontE*fKJ0EpEdCxe71tG8WZkE6nfMKA/vMXcGld3Xlk*LXuaXrzEWlISZ9QoS/ulWiFPDLcva4w5N5ndsDJ6BMXGy9gaVbg3wP495khEg8u0RgGUuy9jcci36V1RCDaf*YH2AamSg*P/Y8h68WD20gZEvi8UlUILE9xNSIsybFF4PhjA3pvTe1UA/Ix/tR59Gtvk4nBOVsWBCu34mbxCkvLq7j5FKdhDwvPAjyqk81pixEIJZM*5m3r2BSkSjrxeFHu**czLCuiAalB45LCpMyr6PvWxOClFmUiveSMIQemVZBlzqwVM8VBz8DchdQnvVsSbPKrT8Z4Ozi6fEoVSZRGJyP/YgMqxDpC8RGCYIma74tWg/bFcDK4b4mGxITck9s0RZM/0Es3P0JUzcbfN40kOOodqMy43SIoy0SgvQmTxUpg99jsQmMJ5SGzb/jhR77rbiZHK6v8VLxRcpjPhaW*xtNiWqKW6snALJklX0WcEIRQ6c8R9JqVgoohFagAQVmGhY46BtoUdwwohJ0FRKEzULofNvZKSxoo/mRCN34VOV1kAd8bOsPTENwFnIBUlTJseug2pNINT9dapoTQwOrgpHKOOli2WLCxJxBbLrlVKrch7i3rYnQ3x*s9AYi4umOvxv8K5Gcy*HL0IhBHc5T*5auUd6qEmz1vqrWVpsOT3dfY3/BmZeI6JoA5GzrAOWTj6fxh/6jeEpaUlt0yrxuVjwf9pNnegHxsHpnjvz2Jzg1FGluPA1B2TPkQ59moYAQwdytV3gYoDkeSd1OctOr*JjOS2SUuitBWw1vea84R7cn07msykRW9C7GIIIMSp5bUtwCWRXMDK9jKytiFy6GL3PsL426zrdNpn0x7lbLTW2MTkr*2OrS2AEibY6NBQGM/asn22vTcZKBw8QVZauF1CkFRfBzHNTOYTpLE8RTgIANA8hNnTTk28R3Bt3wEPgAOR6zm91Y1UjMIZn0zfnqWyrL5nX/31EGOr29Au6tQTwWAJJ64luYPnl2Yzgl2TuyMZN1sarQJFzDvAmGblPCjwYSRwu69Wgk4zST/1yqe*ZUBBM5CvAUFpl1U4Rnveu6xouEJMhlzisNoRadAJ4Kthh4rE5ewVN3pRcxKuKEskaqhVv/2NyFTsWot13n0vtHVr5sjj1FPjP8tBkq2*TWJWFNOgm9zs7g6Ag20IWxlbM/QghJfcFlvxGpiKN2FAnpnORu/Jj4NjVukHz90jVCUBFbqfRS/lnM0BHOm8EdGKxeAdHrD/mKNvGh9RQ0OEYts77o*DAeN/3Qg2EqZi9/3kcQijfwQM8u6rWnE4NfzT9xAW3bNcn5z3O*24LtAfyyY1UESmvcJmF69kotr95DEtya1LGSZydoWlFO4Pv1aAu26QkO6fcpgGcWBtOTvh/JR7A/PvgFqGUJJCIqA4HsggLK1AyHkQOH03eWE27B3PZqysiQ*vmKQmtuoYCLTd5eTr5S/rsXTvcON0bo8JBOS1A==">
+        <input type="hidden" name="ACCT_TYPE" value=""/>
+        <input type="hidden" name="TRAILING_VALUE_IND" value=""/>
+        <input type="hidden" name="SPECIFIC_SHARES" value="N"/>
+        <input type="hidden" name="SKIP_ORDER_PREVIEW" value="N"/>
+        <input type="hidden" name="TRAILING_VALUE" value="" />
+        <input type="hidden" name="LIMIT_STOP_PRICE" value="" />
+        <input type="hidden" name="QTY_TYPE" value="" />
+        <input type="hidden" name="ORDER_ACTION" value="" />
+        <input type="hidden" name="USE_VERIFY_IFRAME" value="Y" />
+        <div class="ofTable">
+          <div class="ofAlt4BorderThick ofAltBorderColorD2 ofLastChild">
+            <div class="ofWrapper">
+              <div class="ofEntryForm">
+                <div class="ofViewChanger" style="margin: 0;">
+                  <div class="ofViewChangerAccount">
+                    <div class="ofWrapper ofLastChild" style="border:0px!important;padding-left: 0px;padding-right: 0px; background-color:#dddddd; height:32px">
+                      <label for="accountList" style="padding-left: 11px;">Account<span class="ofOffScreen">: Press Alt plus down arrow to open dropdown. Navigates between your accounts.</span></label>
+                      <script>
+function switchAccount(dropdown){
+var selectedValue = dropdown.options[dropdown.selectedIndex].value;
+
+if(selectedValue == ""){
+return;
+}
+
+var selectedValueArray = selectedValue.split("||");
+var target = selectedValueArray[0];
+var url = selectedValueArray[1];
+
+if(url == ""){
+return;
+}
+
+if(target == "_top"){
+window.open(url, target);
+}else{
+location.href=url;
+}
+}
+function resetTradingAccountNumber ( selectAccountList )
+{
+if (selectAccountList != null)
+{
+with(selectAccountList)
+{
+if ( options[selectedIndex].text.indexOf ( "Z72368954" ) == -1 )
+{
+for (a=0; a < options.length ;a++)
+{
+if ( options[a].text.indexOf ( "Z72368954" ) != -1 )
+{
+selectedIndex = a;
+}
+}
+}
+}
+}
+}
+</script>
+                      <select name="accountList" id="accountList" tabindex="1005" onChange="switchAccount(this);" style="font-size:inherit;">
+                        <option selected="selected" value="_top||https://oltx.fidelity.com/ftgw/fbc/oftrade/stockInit?CURRENT_PAGE=TradeStocks&ACCOUNT=Z72368954&ORDER_TYPE=E&Ref_at=stockInit_act">CORPORATION (Z72368954)</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="ofCallout ofLastChild" style="border-bottom:1px #666666 solid">
+                  <iframe name="ibalfrm" id="ibalfrm" title="Summary Balances." width="437" height="54" scrolling="no" src="https://oltx.fidelity.com/ftgw/fbc/ofaccounts/BrokerageBalancesTop?ACCOUNT=Z72368954&Ref_at=stockInit" marginHeight="0" marginWidth="0" frameborder="0"></iframe>
+                </div>
+                <table summary="This trade form contains a number of dynamic form elements. Each one contains instructions for how to navigate. For example, entering a symbol into the Symbol field populates the Quote Information frame.">
+                  <tr>
+                    <th scope="row"><label for="SYMBOL">Symbol<span class="ofOffScreen">: Populates the Quote Information frame.</span></label></th>
+                    <td><input type="text" name="SYMBOL" id="SYMBOL" tabindex="1010" size="8" maxlength="15" value="" onChange="onChangeSymbol();"/>
+                      &nbsp;&nbsp;<a style="font:100 10px verdana" tabindex="1209" href="javascript:popWin('https://fastquote.fidelity.com/webxpress/popup_frameset.phtml?page=lookup&Ref_at=stockInit');">Symbol Lookup</a>&nbsp;&nbsp;
+                      <div name="getQuoteLink" id="getQuoteLink" style="display:none;"><a style="font:100 10px verdana;" href="#" onClick="refreshQuoteIframe(true);return false;" tabindex="1210">Get Quote</a></div></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><label for="TEMP_ORDER_ACTION">Action<span class="ofOffScreen">: Press Alt plus down arrow to open dropdown.</span></label></th>
+                    <td><select name="TEMP_ORDER_ACTION" id="TEMP_ORDER_ACTION" tabindex="1040" title="Select Action" onChange="onChangeOrderAction();">
+                        <option value="">Select</option>
+                        <option  value="B">Buy</option>
+                        <option  value="S">Sell</option>
+                        <option  value="SA">Sell all Shares</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" style="padding-top:8px;" valign="top"><label for="QTY">Quantity</label></th>
+                    <td class="ofNoWrap"><input name="QTY" id="QTY" tabindex="1060" type="text"  size="8" maxlength="14">
+                      Shares <br/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><label for="PRICE_TYPE">Order Type<span class="ofOffScreen">: Press Alt plus down arrow to open dropdown. Determines whether Amount and or Based On fields are available.</span></label></th>
+                    <td><select name="PRICE_TYPE" id="PRICE_TYPE" tabindex="1080" title="Select Order Type" style="width:163px;" onChange="onChangePriceType(true);">
+                        <option value="">Select</option>
+                        <option  value="M">Market Order</option>
+                        <option  value="L">Limit Order</option>
+                        <option  value="S">Stop Loss</option>
+                        <option  value="SL">Stop Limit</option>
+                        <option  value="TSD">Trailing Stop Loss ($)</option>
+                        <option  value="TSP">Trailing Stop Loss (%)</option>
+                        <option  value="TLD">Trailing Stop Limit ($)</option>
+                        <option  value="TLP">Trailing Stop Limit (%)</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr id="stopPrice" style="display:none;">
+                    <th scope="row"> <label for="STOP_PRICE">Stop Price</label>
+                    </th>
+                    <td class="ofNoWrap"><span id="stopPriceDlrAmt">$</span>
+                      <input type="text" name="STOP_PRICE" id="STOP_PRICE" tabindex="1090" size="8" maxlength="13" value="" style="background-color:#ffffff;"/>
+                      <br />
+                    </td>
+                  </tr>
+                  <tr id="trailAmount" style="display:none;">
+                    <th scope="row"> <span id="amountText" style=";color:#666666">
+                      <label for="AMOUNT" id="amountLabel"></label>
+                      </span> </th>
+                    <td class="ofNoWrap"><span id="dlrAmt" style="display:none;">$</span>
+                      <input type="text" name="AMOUNT" id="AMOUNT" tabindex="1090" size="8" maxlength="13" value="" style="background-color:#ffffff;"/>
+                      <span id="pctAmt" style="display:none;">%</span> <span id="trailingValueTypeSpan" style="display:none;"> <span id="trailBasedOn" style="padding-right:5px;color:#999999;"><strong>
+                      <label for="TRAILING_VALUE_TYPE">Based On<span class="ofOffScreen">: Press Alt plus down arrow to open dropdown.</span></label>
+                      </strong></span>
+                      <select style="background-color:#eeeeee;" name="TRAILING_VALUE_TYPE" id="TRAILING_VALUE_TYPE" title="Select Trailing Based on" tabindex="1100" onChange="onChangeTrailingValueType()">
+                        <option value="">Select</option>
+                        <option  value="T">Last</option>
+                        <option  value="B">Bid</option>
+                        <option  value="A">Ask</option>
+                      </select>
+                      </span> </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><label for="TIME_IN_FORCE">Time in Force<span class="ofOffScreen">: Press Alt plus down arrow to open dropdown.</span></label></th>
+                    <td><select name="TIME_IN_FORCE" id="TIME_IN_FORCE" tabindex="1110" title="Select Time in Force">
+                        <option  value="D">Day</option>
+                        <option  value="G">Good 'til Canceled</option>
+                        <option  value="F">Fill or Kill</option>
+                        <option  value="I">Immediate or Cancel</option>
+                        <option  value="O">On the Open</option>
+                        <option  value="C">On the Close</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><label for="CONDITIONS">Conditions<span class="ofOffScreen">: Press Alt plus down arrow to open dropdown.</span></label></th>
+                    <td style="padding-right: 75px;"><select name="CONDITIONS" id="CONDITIONS" tabindex="1120" title="Select Conditions">
+                        <option value="">None</option>
+                        <option  value="A">All or None</option>
+                        <option  value="R">Do Not Reduce</option>
+                        <option  value="A/R">All or None/Do Not Reduce</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><div id="taxLotLabel" style="display:none;">
+                        <label>Tax Lots</label>
+                      </div></th>
+                    <td class="ofLeft"><div id="taxLotCheckBox" style="display:none;">
+                        <input type="checkbox" name="SS" id="SS" tabindex="1150"   disabled="disabled" class="ofCheckRadio" value="Y" onClick="setButtonText();"/>
+                        <abbr title="Specific Shares requires an Action of 'Sell'. Otherwise, you are returned to the Action field." style="border-bottom:0px;">
+                        <label for="SS">&nbsp;Choose&nbsp;Specific&nbsp;Shares&nbsp;&nbsp;<span class="ofOffScreen">: Changes Preview Order button to Continue.</span></label>
+                        </abbr></div></td>
+                  </tr>
+                  <tr>
+                    <th colspan="2" height="11"></th>
+                  </tr>
+                </table>
+                <div class="ofTable ofLastChild" style="padding-bottom:200px;">
+                  <div class="ofExtFormButtons ofLastChild">
+                    <table class="ofLastChild">
+                      <tr>
+                        <td nowrap="nowrap" style="text-align:right!important; background-color:#eeeeee; padding-right:158px; padding-bottom:8px!important"><input type="submit" name="SUBMIT_BUTTON" id="SUBMIT_BUTTON" accesskey="5" tabindex="1170" value="Preview Order" style="width:120px;"/></td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="ofFootnote ofLastChild">
+        <p><strong>Use caution with market orders</strong> as securities prices can change sharply. <strong>Consider limit orders</strong> in volatile markets or with limited assets for transaction payment,
+          since account assets may be liquidated to pay for transactions.</p>
+        <p><strong>Real-time quotes and balances</strong> may not reflect current market prices during heavy trading,
+          market volatility or other events. <strong>Verify order information and all selections</strong> before submission;
+          some fields are pre-filled. </p>
+      </div>
+      <!-- Dynamic Major Version = 8  -->
+      <!-- Dynamic Minor Version = 1ST  -->
+    </td>
+    <td class="ofGridWidth5" valign="top" width="309px"><!-- include related links jsp -->
+      <div id="quote" style="">
+        <iframe style="padding-bottom:0px;" name="iqtfrm" id="iqtfrm" title="Quote." width="315" frameborder="0" height="0px" marginwidth="0" marginheight="0" src="https://www.fidelity.com/images/clear.gif"></iframe>
+      </div>
+      <script>
+window.setInterval(updateDemonstration, 20);
+iqtfrm = document.getElementById("iqtfrm");
+</script>
+      <DIV id="temppositions" style="display:inline;" style="height:220px; padding-bottom:18px!important">
+      <TABLE summary="Temporary table that will be replaced with iframe when 'Position' information is retrieved.">
+        <TR>
+          <TD valign="top" ><DIV class="ofTab ofLastChild">
+              <DIV class="ofTertiary">
+                <UL>
+                  <LI class="ofSelected"><A href="#" disabled="true">Positions</A></LI>
+                  <LI><A href="#" disabled="true">Orders</A></LI>
+                  <LI><A href="#" disabled="true">Balances</A></LI>
+                </UL>
+              </DIV>
+            </DIV>
+            <DIV style="border:1px #666666 solid; border-top:none;">
+              <DIV class="ofViewChanger" style="margin: 0;">
+                <DIV class="ofViewChangerAccount">
+                  <DIV class="ofWrapper ofLastChild">
+                    <DIV class="ofTextBlock ofLastChild">
+                      <TABLE width="283">
+                        <TR>
+                          <TD style="font-size:10px;">&nbsp;</TD>
+                          <TD style="font-size:10px;text-align:right;"><A href="#" disabled="true">Refresh</A></TD>
+                        </TR>
+                        <TR>
+                          <TD style="height:27px" colspan="2"><LABEL for="REQUESTED_SHOW_TYPE_IND">View</LABEL>
+                            <SELECT name="REQUESTED_SHOW_TYPE_IND" id="REQUESTED_SHOW_TYPE_IND" disabled="true">
+                              <OPTION selected value="0">All Securities</OPTION>
+                            </SELECT>
+                            &nbsp;&nbsp;0 positions </TD>
+                        </TR>
+                      </TABLE>
+                    </DIV>
+                  </DIV>
+                </DIV>
+              </DIV>
+              <DIV id="container" style="overflow:auto; height:178px;width:307px;">
+                <DIV class="ofTable ofLastChild">
+                  <DIV class="ofSpreadSheet">
+                    <TABLE style="margin-bottom:0px!important"  >
+                      <TBODY class="ofNoCellBorder ofAltBorderColorD9">
+                        <TR>
+                          <TD class="ofTxt" style="padding:10px;"><STRONG>Thank you for your patience while "Position" information is retrieved. You may place a trade at any point during this process.</STRONG></TD>
+                        </TR>
+                      </TBODY>
+                    </TABLE>
+                  </DIV>
+                </DIV>
+              </DIV>
+            </DIV></TD>
+        </TR>
+      </TABLE>
+  </DIV>
+  
+  <div id="positions" style="display:none;">
+    <iframe style="margin: 0 0 14px 0;padding-top:0px;" name="iposordbal" id="iposordbal" title="Positions, Orders, and Balances." width="309" height="260" frameborder="0" marginwidth="0" marginheight="0" src="https://oltx.fidelity.com/ftgw/fbc/ofpositions/brokerageAccountPositionsIframe?ACCOUNT=Z72368954&iframe=r&POPUP=N&Ref_at=stockInit"></iframe>
+  </div>
+  <div class="ofCallout">
+    <div class="ofRelLinks">
+      <h2>Related Links</h2>
+      <div class="ofWrapper">
+        <div>
+          <ul>
+            <li class="ofC2BulletWithIcons"><a tabindex="1400" href="http://personal.fidelity.com/products/trading/Trading_Platforms_Tools/faq-brokerage.shtml.cvsr?Ref_at=stockInit" target="_top">Learn about Brokerage Orders</a></li>
+            <li><a tabindex="1400" href="http://personal.fidelity.com/products/stocksbonds/content/margin1.shtml.cvsr?Ref_at=stockInit" target="_top">Learn More About Margin</a></li>
+            <li class="ofLastChild"><a tabindex="1410" href="https://oltx.fidelity.com/ftgw/fbc/oftrade/restoreFrameset?bodyUrl=https%3A%2F%2Falertable.fidelity.com%2Fftgw%2Falerts%2FGetTriggersList&amp;Ref_at=stockInit" target="_top">Activate Price Triggers</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  </td>
+  
+  </tr>
+  
+  <!--4th TR for the Footer  -->
+  <tr>
+    <td id="ofFooter" colspan="3"><!-- include footer jsp -->
+      <div class="ofFooterV3 ofSmartMove"> <img src="https://www.fidelity.com/static/common/images/smartmove_trans.gif" border="0" alt="Fidelity Investments. Smart move." class="ofFooterLogo" /> Copyright 1998&#150;2008 FMR LLC.<br />
+        All rights reserved.<br />
+        <a href="http://personal.fidelity.com/misc/legal/index_legal.shtml?Ref_at=stockInit" target="_top" class="ofFooterLink">Terms of Use</a>&nbsp; <a href="http://personal.fidelity.com/accounts/services/findanswer/content/index_privacy.shtml?Ref_at=stockInit" target="_top" class="ofFooterLink">Privacy</a>&nbsp; <a href="http://personal.fidelity.com/accounts/services/findanswer/content/index_security.shtml?Ref_at=stockInit" target="_top" class="ofFooterLink">Security</a>&nbsp; <a href="http://personal.fidelity.com/accounts/services/index_sitemap.html?Ref_at=stockInit" target="_top" class="ofFooterLink">Site Map</a> </div></td>
+  </tr>
+</table>
+<!-- use jsp include for "Interactive Message" info -->
+</div>
+</div>
+<div id="TradeStockVerifyPageContent" style="display:none;">
+  <iframe style="margin:0px;padding:0px;" name="VerifyPage" id="VerifyPage" title="Trade Stocks Verification" width="100%" height="1000" frameborder="0" marginwidth="0" marginheight="0" src="https://www.fidelity.com/images/clear.gif"></iframe>
+</div>
+<!-- ServerName: ws_nodename_trade_2_feboltxwas111.fmr.com -->
+<!-- /WEB-INF/content/jsp/fidelity/trade_StockInit.jsp -->
+</body>
+</html>

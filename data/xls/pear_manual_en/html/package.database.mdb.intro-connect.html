@@ -1,0 +1,248 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - Connect</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="MDB"
+HREF="package.database.mdb.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction - DSN"
+HREF="package.database.mdb.intro-dsn.html"><LINK
+REL="NEXT"
+TITLE="Introduction - Query"
+HREF="package.database.mdb.intro-query.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb.intro-dsn.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb.intro-query.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.mdb.intro-connect">Introduction - Connect</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN27626"
+></A
+>Introduction - Connect&nbsp;--&nbsp;Connecting and disconnecting a database</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb.intro-connect.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   To connect to a database you have to use the function
+   <A
+HREF="package.database.mdb.mdb.connect.html"
+>&#13;    <B
+CLASS="function"
+>MDB::connect()</B
+>
+   </A
+>, which requires a valid
+   <A
+HREF="package.database.mdb.intro-dsn.html"
+>DSN</A
+>
+   as parameter and
+   optional a boolean value, which determines wether to use a
+   persistent connection or not. In case of  success you get a new
+   instance of the database class. It is strongly recommened to
+   check this return value with <A
+HREF="package.database.mdb.mdb.iserror.html"
+>&#13;    <B
+CLASS="function"
+>MDB::isError()</B
+>
+   </A
+>.
+   To disconnect use the method <A
+HREF="package.database.mdb.mdb-common.disconnect.html"
+>&#13;    <B
+CLASS="function"
+>disconnect()</B
+>
+   </A
+>
+   from your database class instance.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN27639"><P
+><B
+>Example 33-1. Connect and disconnect</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'MDB.php';
+
+$user = 'foo';
+$pass = 'bar';
+$host = 'localhost';
+$db_name = 'clients_db';
+
+// Data Source Name: This is the universal connection string
+$dsn = "mysql://$user:$pass@$host/$db_name";
+
+// MDB::connect will return a PEAR MDB object on success
+// or an PEAR MDB Error object on error
+
+$db = MDB::connect($dsn);
+
+// With MDB::isError you can differentiate between an error or
+// a valid connection.
+if (MDB::isError($db)) {
+    die ($db-&#62;getMessage());
+}
+
+....
+// close conection
+$db-&#62;disconnect();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.mdb.intro-dsn.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.mdb.intro-query.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction - DSN</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.mdb.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction - Query</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

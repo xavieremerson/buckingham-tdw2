@@ -1,0 +1,303 @@
+<HTML
+><HEAD
+><TITLE
+>Widget support</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Gtk2_FileDrop"
+HREF="package.gtk2.filedrop.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.gtk2.filedrop.intro.html"><LINK
+REL="NEXT"
+TITLE="Example"
+HREF="package.gtk2.filedrop.example.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.gtk2.filedrop.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.gtk2.filedrop.example.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.gtk2.filedrop.widgetsupport">Widget support</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN50059"
+></A
+>Widget support&nbsp;--&nbsp;
+   Drops handled on different widget types
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN50062"
+></A
+><H2
+>Natively supported widgets</H2
+><P
+>&#13;    By default, the dropped files are displayed in the widget,
+    e.g. if you drop a file over a <TT
+CLASS="literal"
+>GtkEntry</TT
+>, the
+    text value of the widget will be overwritten to the filename.
+  </P
+><P
+>&#13;   As not all widgets have such simple values, Gtk2_FileDrop has built-in
+   support for a number of widget classes and acts different on 
+   different types.
+  </P
+><DIV
+CLASS="table"
+><A
+NAME="AEN50067"><P
+><B
+>Table 40-1. Widget support</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Widget class</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Action taken</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>GtkEntry</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Entry value is replaced with first file</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>GtkLabel</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Label text is replaced with first file</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>GtkButton</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Label text is replaced with first file if the first and
+      only child is a GtkLabel</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>GtkToggleButton</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Label text is replaced with first file if the first and
+      only child is a GtkLabel</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>GtkRadioButton</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Label text is replaced with first file if the first and
+      only child is a GtkLabel</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>GtkCheckButton</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Label text is replaced with first file if the first and
+      only child is a GtkLabel</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>GtkCombo</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The entry text is replaced with the first file. The list
+      is not affected.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>GtkFileSelection</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>File name of the file dialog is set to the first dropped 
+      file. The directory is changed to the directory name of the file,
+      and the file name (without directory) is set in the file name 
+      entry.
+      </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>GtkList</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Every accepted file is appended at the end of the list.
+      </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>&#13;   Beside the automatic actions, you can specify a callback as the third
+   parameter of the <TT
+CLASS="literal"
+>attach</TT
+> function which is called
+   with the widget itself and an array of accepted files as parameters.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.gtk2.filedrop.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.gtk2.filedrop.example.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.gtk2.filedrop.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Example</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

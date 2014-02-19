@@ -1,0 +1,452 @@
+<HTML
+><HEAD
+><TITLE
+>Structures_DataGrid::fill</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Class Structures_DataGrid"
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.class-structures-datagrid"><LINK
+REL="PREVIOUS"
+TITLE="Structures_DataGrid::dataSourceFactory"
+HREF="package.structures.structures-datagrid.structures-datagrid.datasourcefactory.html"><LINK
+REL="NEXT"
+TITLE="Structures_DataGrid::getColumnByField"
+HREF="package.structures.structures-datagrid.structures-datagrid.getcolumnbyfield.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.datasourcefactory.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.getcolumnbyfield.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid.fill"><B
+CLASS="function"
+>Structures_DataGrid::fill()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN94613"
+></A
+><B
+CLASS="function"
+>Structures_DataGrid::fill()</B
+>&nbsp;--&nbsp;Fill a rendering container with data</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN94617"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN94618"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Structures/DataGrid.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed      <B
+CLASS="function"
+>Structures_DataGrid::fill</B
+></CODE
+> (object &#38;$container [, array $options = array() [, string $type = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid.fill.desc"
+></A
+><H2
+>Description</H2
+><P
+>This package is not documented yet.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid.fill.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>object
+                         <TT
+CLASS="parameter"
+><I
+>&#38;$container</I
+></TT
+></DT
+><DD
+><P
+>&#13;         A rendering container of any of the supported                          
+types (example: an HTML_Table object,                           a
+Spreadsheet_Excel_Writer object, etc...)
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array
+                         <TT
+CLASS="parameter"
+><I
+>$options</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Options for the corresponding rendering driver
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+                         <TT
+CLASS="parameter"
+><I
+>$type</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Explicit type in case the container type                          
+can't be detected
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid.fill.returns"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>returns</I
+></SPAN
+> Either true or a PEAR_Error object
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid.fill.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> no exceptions thrown
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid.fill.example"
+></A
+><H2
+>Examples</H2
+><P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN94670"><P
+><B
+>Example 55-1. Filling a Pager object</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php-highlighted"
+>&#60;?php
+
+require_once 'Pager/Pager.php';
+
+// Create a Pager object with your own options
+$pager =&#38; Pager::factory($options);
+
+// fill() sets the $pager object up, according to your data and settings
+$datagrid-&#62;<A
+HREF="package.structures.structures-datagrid.structures-datagrid.fill.html"
+>fill</A
+>($pager);
+
+// Render the paging links 
+echo $pager-&#62;links;
+
+// Or a select field if you like that
+echo $pager-&#62;getpageselectbox();
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></P
+><P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN94675"><P
+><B
+>Example 55-2. Fill a form with sort fields</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php-highlighted"
+>&#60;?php
+require_once 'HTML/QuickForm.php';
+
+// Create an empty form with your settings
+$form = new HTML_QuickForm('myForm', 'POST');
+
+// Customize it, add a header, text field, etc..
+$form-&#62;addElement('header', null, 'Search &#38; Sort Form Example');
+$form-&#62;addElement('text', 'my_search', 'Search for:');
+
+// Let the datagrid add sort fields, radio style
+$options = array('directionStyle' =&#62; 'radio');
+$datagrid-&#62;<A
+HREF="package.structures.structures-datagrid.structures-datagrid.fill.html"
+>fill</A
+>($form, $options);
+
+// You must add a submit button. fill() never does this
+$form-&#62;addElement('submit', null, 'Submit');
+
+// Use the native HTML_QuickForm::display() to print your form
+$form-&#62;display();
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid.fill.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.datasourcefactory.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.getcolumnbyfield.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>Structures_DataGrid::dataSourceFactory()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.class-structures-datagrid"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Structures_DataGrid::getColumnByField()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

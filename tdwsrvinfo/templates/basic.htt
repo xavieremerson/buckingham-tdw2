@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>SysInfo</title>
+</head>
+<body>
+Server Statistics
+
+<br />
+Memory status:<br />
+Used: <!--MEMORY_USED--><br />
+Free: <!--MEMORY_FREE--><br />
+Total: <!--MEMORY_TOTAL--><br />
+
+<!--SECTION_DISKINFO-->
+Drive: <!--DISK_NAME--><br />
+Free space: <!--DISK_FREE--><img src="templates/template_images/default/bar.gif" width="<!--DISK_PERCENTFREE-->" height="16"><br />
+Used space: <!--DISK_USED--><img src="templates/template_images/default/bar.gif" width="<!--DISK_PERCENTUSED-->" height="16"><br />
+Total space:<!--DISK_SPACE--><br />
+<br />
+<!--/SECTION_DISKINFO-->
+Total disk space: <!--DISK_TOTALDISKSPACE--><br />
+
+Uptime: <!--UPTIME--><br />
+CPU: <!--CPU_INFO-->
+
+<br /><br />
+Current time: <!--SERVER_INFO_TIME--><br />
+Hostname: <!--SERVER_INFO_HOSTNAME--><br />
+IP: <!--SERVER_INFO_IP--><br />
+OS: <!--SERVER_INFO_OS--><br />
+Software: <!--SERVER_INFO_SOFTWARE--><br />
+Protocol: <!--SERVER_INFO_PROTOCOL--><br />
+Port: <!--SERVER_INFO_PORT--><br />
+Admin: <!--SERVER_INFO_ADMIN--><br />
+<br /><br />
+Network statistics:<br />
+Sent: <!--NETWORK_INFO_SENT--><br />
+Received: <!--NETWORK_INFO_RECEIVED--><br />
+<br /><br />
+
+</body>
+</html>

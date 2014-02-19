@@ -1,0 +1,689 @@
+<HTML
+><HEAD
+><TITLE
+>Package Overview</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Calendar"
+HREF="package.datetime.calendar.html"><LINK
+REL="PREVIOUS"
+TITLE="In A Hurry"
+HREF="package.datetime.calendar.intro-inahurry.html"><LINK
+REL="NEXT"
+TITLE="Method Overview"
+HREF="package.datetime.calendar.intro-overview-methods.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.datetime.calendar.intro-inahurry.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.datetime.calendar.intro-overview-methods.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.datetime.calendar.intro-overview">Package Overview</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN32285"
+></A
+>Package Overview&nbsp;--&nbsp;
+        Summary of Calendar Classes
+      </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32288"
+></A
+><H2
+>Package Overview</H2
+><P
+>&#13;       When working with PEAR::Calendar, there are a total of 12 (public) classes available for you to use, depending on the particular problem you are trying to solve.
+       They can be grouped in date classes, tabular date classes, validation classes and decorators.
+       </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32291"
+></A
+><H2
+>Date Classes</H2
+><P
+>Providing representations of all basic human date units. All are subclasses of <B
+CLASS="classname"
+>Calendar</B
+> so provide the methods defined there.</P
+><P
+>&#13;        <P
+></P
+><UL
+><LI
+><P
+><B
+CLASS="classname"
+>Calendar_Year</B
+> - represents a year and can build <B
+CLASS="classname"
+>Calendar_Month</B
+>, <B
+CLASS="classname"
+>Calendar_Month_Weekdays</B
+> and <B
+CLASS="classname"
+>Calendar_Month_Weeks</B
+> objects.
+            </P
+><P
+>Include with <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Calendar/Year.php';</PRE
+></TD
+></TR
+></TABLE
+>.</P
+></LI
+><LI
+><P
+><B
+CLASS="classname"
+>Calendar_Month</B
+> - represents a month and can build <B
+CLASS="classname"
+>Calendar_Day</B
+> objects.
+            </P
+><P
+>Include with <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Calendar/Month.php';</PRE
+></TD
+></TR
+></TABLE
+>.</P
+></LI
+><LI
+><P
+><B
+CLASS="classname"
+>Calendar_Day</B
+> - represents a day and can build <B
+CLASS="classname"
+>Calendar_Hour</B
+> objects.
+            </P
+><P
+>Include with <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Calendar/Day.php';</PRE
+></TD
+></TR
+></TABLE
+>.</P
+></LI
+><LI
+><P
+><B
+CLASS="classname"
+>Calendar_Hour</B
+> - represents a hour and can build <B
+CLASS="classname"
+>Calendar_Minute</B
+> objects.
+            </P
+><P
+>Include with <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Calendar/Hour.php';</PRE
+></TD
+></TR
+></TABLE
+>.</P
+></LI
+><LI
+><P
+><B
+CLASS="classname"
+>Calendar_Minute</B
+> - represents a minute and can build <B
+CLASS="classname"
+>Calendar_Second</B
+> objects.
+            </P
+><P
+>Include with <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Calendar/Minute.php';</PRE
+></TD
+></TR
+></TABLE
+>.</P
+></LI
+><LI
+><P
+><B
+CLASS="classname"
+>Calendar_Second</B
+> - represents a second but cannot build anything.
+            </P
+><P
+>Include with <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Calendar/Second.php';</PRE
+></TD
+></TR
+></TABLE
+>.</P
+></LI
+></UL
+>
+       </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.datetime.calendar.intro-overview.tabular"
+></A
+><H2
+>Tabular Date Classes</H2
+><P
+>Designed for building calendars in tabular format. All are subclasses of <B
+CLASS="classname"
+>Calendar</B
+> so provide the methods defined there.</P
+><P
+>&#13;        <P
+></P
+><UL
+><LI
+><P
+><B
+CLASS="classname"
+>Calendar_Month_Weekdays</B
+> - builds <B
+CLASS="classname"
+>Calendar_Day</B
+> objects setting the <B
+CLASS="function"
+>isFirst()</B
+>, <B
+CLASS="function"
+>isLast()</B
+> and <B
+CLASS="function"
+>isEmpty()</B
+> states, to display a month in tabular form.
+            </P
+><P
+>Include with <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Calendar/Month/Weekdays.php';</PRE
+></TD
+></TR
+></TABLE
+>.</P
+></LI
+><LI
+><P
+><B
+CLASS="classname"
+>Calendar_Month_Weeks</B
+> - builds <B
+CLASS="classname"
+>Calendar_Week</B
+> objects, representing a month in terms of the tabular weeks it contains (see FAQ for what a week represents).
+            </P
+><P
+>Include with <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Calendar/Month/Weeks.php';</PRE
+></TD
+></TR
+></TABLE
+>.</P
+></LI
+><LI
+><P
+><B
+CLASS="classname"
+>Calendar_Week</B
+> - builds a collection of seven <B
+CLASS="classname"
+>Calendar_Day</B
+> objects. If extended by a Calendar_Month_Weeks object, it represents a tabular week in a month and it sets the <B
+CLASS="function"
+>isEmpty()</B
+> state for the appropriate days, if necessary.
+            </P
+><P
+>Include with <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Calendar/Week.php';</PRE
+></TD
+></TR
+></TABLE
+>.</P
+></LI
+></UL
+>
+       </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.datetime.calendar.intro-overview.validation"
+></A
+><H2
+>Validation Classes</H2
+><P
+>Used to validate dates. <B
+CLASS="classname"
+>Calendar</B
+> provides the methods <B
+CLASS="function"
+>isValid()</B
+> to perform a simple check on any date and <B
+CLASS="function"
+>getValidator()</B
+> to return an instance of <B
+CLASS="classname"
+>Calendar_Validator</B
+> for fine grained validation.</P
+><P
+>&#13;        <P
+></P
+><UL
+><LI
+><P
+><B
+CLASS="classname"
+>Calendar_Validator</B
+> - is not instantiated by your code directly (you need need specifically include / create it) but instead returned from the <B
+CLASS="classname"
+>Calendar</B
+>::<B
+CLASS="function"
+>getValidator()</B
+> method you can call on any subclass of <B
+CLASS="classname"
+>Calendar</B
+>. It is used to provide fine grained validation of a date to find out exactly what's wrong with it (for simple validation just call <B
+CLASS="function"
+>isValid()</B
+> on any Date object or Tabular Date object, to know if it was created with valid values.
+            </P
+></LI
+><LI
+><P
+><B
+CLASS="classname"
+>Calendar_Validation_Error</B
+> - represents a validation error, providing methods to determine what went wrong. Available methods are <B
+CLASS="function"
+>getUnit()</B
+> (e.g. returns Year or Month), <B
+CLASS="function"
+>getValue()</B
+> (the value it failed with), <B
+CLASS="function"
+>getMessage()</B
+> (the validation error message) and <B
+CLASS="function"
+>toString()</B
+> which returns a combination of all the three preceding methods. The default validation error messages are in English but stored in the constants <TT
+CLASS="constant"
+><B
+>CALENDAR_VALUE_TOOSMALL</B
+></TT
+> and <TT
+CLASS="constant"
+><B
+>CALENDAR_VALUE_TOOLARGE</B
+></TT
+> which you can redefine in your code.
+            </P
+></LI
+></UL
+>
+       </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.datetime.calendar.intro-overview.decorators"
+></A
+><H2
+>Decorators</H2
+><P
+>Provide a mechanism to add functionality to the main calendar objects (the subclasses of <B
+CLASS="classname"
+>Calendar</B
+>) without needing to directly extend them (and risk overwriting fields accidentally). When you create a decorator, you pass its constructor an instance of an existing calendar object. You can then make calls to the decorator in exactly the same way as you make calls to the original calendar object. This allows you to "overwrite" calendar methods, add new methods or even apply multiple decorators to the same calendar object. Decorators a typically either "injected" (via selection or the <B
+CLASS="classname"
+>Calendar_Decorator_Wrapper</B
+> decorator) into the loop where the calendar is rendered and / or to alter the output content (e.g. convert a numeric month into a textual month: 1 =&#62; January).</P
+><P
+>&#13;       PEAR::Calendar provides some decorator implementations for you, to help with common tasks. These are not designed to suit everyone and hence are provided as optional code for you to use as needed (avoiding the performance cost associated with parsing code you're not using).
+       </P
+><P
+>&#13;        <P
+></P
+><UL
+><LI
+><P
+><B
+CLASS="classname"
+>Calendar_Decorator</B
+> - this is the base decorator class which you should extend with your own. It provides the same API as the calendar object it is decorating, and simply routes calls through to it. Example;
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Calendar/Decorator.php';
+
+class ChristmasDecorator extends Calendar_Decorator
+{
+    function ChristmasDecorator(&#38;$Calendar)
+    {
+        parent::Calendar_Decorator($Calendar);
+    }
+    // Some method I've added
+    function getDaysToChristmas()
+    {
+        $today = parent::thisDay(true);
+        $Christmas = new Calendar_Day(date('Y'), 12, 25);
+        $xmasday = $Christmas-&#62;thisDay(TRUE);
+        $diff = $xmasday - $today;
+        if ($diff &#60; 0) {
+            $NextChristmas = new Calendar_Day($Christmas-&#62;nextYear(), 12, 25);
+            $nextxmasday = $NextChristmas-&#62;thisDay(true);
+            $diff = $today - $nextxmasday;
+        }
+        return ($diff / 86400);
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+>
+            </P
+></LI
+><LI
+><P
+><B
+CLASS="classname"
+>Calendar_Decorator_Uri</B
+> - provides a decorator to help with generating URLs (for example next / prev URLs).
+            </P
+><P
+>Include with <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Calendar/Decorator/Uri.php';</PRE
+></TD
+></TR
+></TABLE
+>.</P
+></LI
+><LI
+><P
+><B
+CLASS="classname"
+>Calendar_Decorator_Textual</B
+> - helps with obtaining textual month names and weekday names from a calendar object.
+            </P
+><P
+>Include with <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Calendar/Decorator/Textual.php';</PRE
+></TD
+></TR
+></TABLE
+>.</P
+></LI
+><LI
+><P
+><B
+CLASS="classname"
+>Calendar_Decorator_Wrapper</B
+> - is intended to help you add decorators to the children of the calendar object you are working with. It will wrap the children in the decorator you specify at the point <B
+CLASS="function"
+>fetch()</B
+> or <B
+CLASS="function"
+>fetchAll()</B
+> is called, after a build <B
+CLASS="function"
+>build()</B
+> call.
+            </P
+><P
+>Include with <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Calendar/Decorator/Wrapper.php';</PRE
+></TD
+></TR
+></TABLE
+>.</P
+></LI
+></UL
+>
+       </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.datetime.calendar.intro-inahurry.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.datetime.calendar.intro-overview-methods.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>In A Hurry</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.datetime.calendar.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Method Overview</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

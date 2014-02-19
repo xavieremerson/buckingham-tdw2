@@ -1,0 +1,35 @@
+del /Q d:\tdw\tdw\auto\bloomberg\client_orders_trades\files\temp\*.*
+Date to process: 20140218
+Orders_Trades20140218Initiating download of file [Orders_Trades20140218]
+
+Downloaded file Orders_Trades20140218.FTP Connection is now closed.unique_zip_name = [20140218.zip]
+cmd_zip = [wzzip d:\tdw\tdw\auto\bloomberg\client_orders_trades\files\temp\20140218.zip d:\tdw\tdw\auto\bloomberg\client_orders_trades\files\temp\*.*]
+<pre>WinZip(R) Command Line Support Add-On Version 2.0 (Build 6663)
+Copyright (c) WinZip International LLC 1991-2005 - All Rights Reserved
+
+  Adding Orders_Trades20140218
+creating Zip file d:\tdw\tdw\auto\bloomberg\client_orders_trades\files\temp\20140218.zip
+</pre>cmd_copy = [copy d:\tdw\tdw\auto\bloomberg\client_orders_trades\files\temp\20140218.zip \\buckfilesrv\e$\BloombergArchive\ClientOrdersTrades\20140218]
+cmd_copy = [copy d:\tdw\tdw\auto\bloomberg\client_orders_trades\files\temp\Orders_Trades20140218 d:\tdw\tdw\auto\bloomberg\client_orders_trades\files\Orders_Trades20140218]
+del /Q d:\tdw\tdw\auto\bloomberg\client_orders_trades\files\temp\*.*
+tech support = [pprasad@centersys.com]
+2014-02-18
+Today is not a holiday or weekend, hence proceeding with program execution!
+Proceeding after holiday/weekend check....
+
+02-18-2014 23:00:09pm
+
+trade_date_to_process: 2014-02-18
+
+
+Date to Process: 20140218
+
+Checking if the Bloomberg files exist
+
+Files exist. Proceeding.
+
+Rows Processed : 9347
+
+Rows Inserted : 9306
+Process Time 10.00 s.
+Bloomberg File Orders_Trades20140218 exists and successfully processed.

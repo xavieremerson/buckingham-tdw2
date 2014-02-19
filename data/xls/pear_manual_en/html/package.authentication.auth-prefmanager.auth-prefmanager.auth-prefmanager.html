@@ -1,0 +1,424 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;   constructor
+   Auth_PrefManager::Auth_PrefManager
+  </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Auth_PrefManager"
+HREF="package.authentication.auth-prefmanager.html"><LINK
+REL="PREVIOUS"
+TITLE="
+    Tutorial
+   "
+HREF="package.authentication.auth-prefmanager.tutorial.html"><LINK
+REL="NEXT"
+TITLE="
+   Auth_PrefManager::clearCache
+  "
+HREF="package.authentication.auth-prefmanager.auth-prefmanager.clearcache.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.authentication.auth-prefmanager.tutorial.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.authentication.auth-prefmanager.auth-prefmanager.clearcache.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.authentication.auth-prefmanager.auth-prefmanager.auth-prefmanager">constructor
+   <B
+CLASS="function"
+>Auth_PrefManager::Auth_PrefManager()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN17100"
+></A
+>
+   constructor
+   <B
+CLASS="function"
+>Auth_PrefManager::Auth_PrefManager()</B
+>
+  &nbsp;--&nbsp;Constructor</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN17104"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN17105"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once '/PrefManager.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     bool constructor
+     <B
+CLASS="function"
+>Auth_PrefManager::Auth_PrefManager</B
+>
+    </CODE
+> (string
+     $dsn, array
+     [$properties = NULL], string
+     $defaultUser)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth-prefmanager.auth-prefmanager.auth-prefmanager.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;    The <TT
+CLASS="parameter"
+><I
+>$properties</I
+></TT
+> property should be an associative array, with the structure below. Any options not set will be set to the default.
+  </P
+><P
+>&#13;    <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+><TT
+CLASS="literal"
+>'table'</TT
+></DT
+><DD
+><P
+>The table to retrieve preferences from. [preferences]</P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'userColumn'</TT
+></DT
+><DD
+><P
+>The field to use for matching user IDs. [user_id]</P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'nameColumn'</TT
+></DT
+><DD
+><P
+>The field to use for matching preference names. [pref_name]</P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'valueColumn'</TT
+></DT
+><DD
+><P
+>The field to retrieve preference values from. [pref_value]</P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'defaultUser'</TT
+></DT
+><DD
+><P
+>The user ID to use for retrieving default values. [__default__]</P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'cacheName'</TT
+></DT
+><DD
+><P
+>The key to use for the cache in <TT
+CLASS="parameter"
+><I
+>$_SESSION</I
+></TT
+>. [prefsCache]</P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'useCache'</TT
+></DT
+><DD
+><P
+>Should values be cached for later use. [true]</P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'serialize'</TT
+></DT
+><DD
+><P
+>Should values be serialized before saving to the database, and unserialized on retrieval. [false]</P
+></DD
+></DL
+></DIV
+>
+  </P
+><P
+>Options:   table: The table to get prefs from. [preferences]   userColumn: The field name to search for userid's [user_id]   nameColumn: The field name to search for preference names [pref_name]   valueColumn: The field name to search for preference values [pref_value]   defaultUser: The userid assigned to default values [__default__]   cacheName: The name of cache in the session variable ($_SESSION[cacheName]) [prefsCache]   useCache: Whether or not values should be cached.   serialize: Should preference values be serialzed before saving?</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth-prefmanager.auth-prefmanager.auth-prefmanager.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+      <TT
+CLASS="parameter"
+><I
+>$dsn</I
+></TT
+></DT
+><DD
+><P
+>The DSN of the database connection to make, or a DB object.</P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array
+      <TT
+CLASS="parameter"
+><I
+>$properties</I
+></TT
+></DT
+><DD
+><P
+>An array of properties to set.</P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+      <TT
+CLASS="parameter"
+><I
+>$defaultUser</I
+></TT
+></DT
+><DD
+><P
+>The default user to manage for.</P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth-prefmanager.auth-prefmanager.auth-prefmanager.returns"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>returns</I
+></SPAN
+>
+   Success or failure.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth-prefmanager.auth-prefmanager.auth-prefmanager.throws"
+></A
+><H2
+>Throws</H2
+><P
+>No exceptions thrown.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth-prefmanager.auth-prefmanager.auth-prefmanager.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+>Users with preferences created using Auth_PrefManager 1.0.4 or earlier shouldn't enable the serialize option, as it may result in data loss.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.authentication.auth-prefmanager.tutorial.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.authentication.auth-prefmanager.auth-prefmanager.clearcache.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Tutorial</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.authentication.auth-prefmanager.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Auth_PrefManager::clearCache()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

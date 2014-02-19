@@ -1,0 +1,202 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;   How do I install a package when I get the error message
+   "No release with state equal to: 'stable' found for 'Packagename'"?
+  </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="FAQ - Frequently Asked Questions"
+HREF="faq.html"><LINK
+REL="PREVIOUS"
+TITLE="
+    I've got an old installation of PEAR and don't have the permissions to install a new version - what now?
+   "
+HREF="faq.pearinhomedir.html"><LINK
+REL="NEXT"
+TITLE="
+    How do I become a PEAR contributor and/or how do I get CVS access to
+    PEAR?
+   "
+HREF="faq.contributor.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="faq.pearinhomedir.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 6. FAQ - Frequently Asked Questions</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="faq.contributor.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="faq.noreleasesfound">How do I install a package when I get the error message
+   "No release with state equal to: 'stable' found for 'Packagename'"?</H1
+><P
+>&#13;   answer by Greg Beaver
+  </P
+><P
+>&#13;   The package in question does have releases, but none that are stable.  
+   There are two solutions.
+  </P
+><P
+>&#13;   <P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>&#13;      Set preferred_state to alpha or beta and then install
+     </P
+><P
+>&#13;      <B
+CLASS="command"
+>$ pear config-set preferred_state alpha</B
+>
+     </P
+><P
+>&#13;      <B
+CLASS="command"
+>$ pear install Packagename</B
+>
+     </P
+></LI
+><LI
+><P
+>&#13;      Find out the stability or version number of the latest release and install it directly.
+     </P
+><P
+>&#13;      <B
+CLASS="command"
+>$ pear install Packagename-alpha</B
+>
+     </P
+><P
+>&#13;      <B
+CLASS="command"
+>$ pear install Packagename-1.5.3</B
+>
+     </P
+></LI
+></OL
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="faq.pearinhomedir.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="faq.contributor.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>I've got an old installation of PEAR and don't have the permissions to install a new version - what now?</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="faq.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>How do I become a PEAR contributor and/or how do I get CVS access to
+    PEAR?</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

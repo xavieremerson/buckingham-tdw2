@@ -1,0 +1,313 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_QuickForm_Renderer</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Renderer infrastructure"
+HREF="package.html.html-quickform.html#package.html.html-quickform.output.renderer-doc"><LINK
+REL="PREVIOUS"
+TITLE="HTML_QuickForm"
+HREF="package.html.html-quickform.html"><LINK
+REL="NEXT"
+TITLE="HTML_QuickForm_Renderer::startForm()"
+HREF="package.html.html-quickform.html-quickform-renderer.startform.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer.startform.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.html-quickform-renderer"><B
+CLASS="classname"
+>HTML_QuickForm_Renderer</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN65150"
+></A
+><B
+CLASS="classname"
+>HTML_QuickForm_Renderer</B
+>&nbsp;--&nbsp;Abstract base class for renderers (package developer related)</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-renderer.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;Defines the abstract methods that should be implemented by child classes.
+    </P
+><P
+>&#13;QuickForm renderers implement the Visitor design pattern. That means that each 
+form element has an <B
+CLASS="function"
+>accept()</B
+> method that is called with a renderer 
+instance as a parameter. This method does the following:
+<P
+></P
+><UL
+><LI
+><P
+>&#13;    If the element contains other elements (<B
+CLASS="classname"
+>HTML_QuickForm_group</B
+> 
+    and <B
+CLASS="classname"
+>HTML_QuickForm</B
+> itself) then it iterates over them calling
+    each element's <B
+CLASS="function"
+>accept()</B
+> method and calls the methods for rendering 
+    the container itself (e.g. <A
+HREF="package.html.html-quickform.html-quickform-renderer.startform.html"
+><B
+CLASS="function"
+>startForm()</B
+></A
+> 
+    and <A
+HREF="package.html.html-quickform.html-quickform-renderer.finishform.html"
+><B
+CLASS="function"
+>finishForm()</B
+></A
+>).
+  </P
+></LI
+><LI
+><P
+>&#13;    If the element is simple, then it calls the renderer's method for rendering itself
+    (e.g. <A
+HREF="package.html.html-quickform.html-quickform-renderer.renderheader.html"
+><B
+CLASS="function"
+>renderHeader()</B
+></A
+>).
+  </P
+></LI
+></UL
+>
+    </P
+><P
+>&#13;It may seem that renderer object has to have a <B
+CLASS="function"
+>renderConcreteElement()</B
+> method
+for each <B
+CLASS="classname"
+>HTML_QuickForm_concreteElement</B
+> it may visit, but fortunately 
+most of the elements have fairly similar rendering needs, so instead of separate <B
+CLASS="function"
+>renderTextarea()</B
+> 
+and <B
+CLASS="function"
+>renderCheckbox()</B
+> we have a generic 
+<A
+HREF="package.html.html-quickform.html-quickform-renderer.renderelement.html"
+><B
+CLASS="function"
+>renderElement()</B
+></A
+> method.
+    </P
+><P
+>&#13;The renderer should take care of "accumulating" the information passed to its
+methods and of generating some type of output based on it. How this is implemented internally
+depends on the renderer type.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-renderer.own"
+></A
+><H2
+>Creating your own renderer</H2
+><P
+>&#13;The first thing you have to decide upon is how your renderer will accumulate the information.
+You'll probably have to create some data structures to keep it (unless you are going to pass
+the information to e.g. a template object at once).
+    </P
+><P
+>&#13;Then you have to make concrete implementations for all the abstract 
+methods defined in <B
+CLASS="classname"
+>HTML_QuickForm_Renderer</B
+>. One notable 
+exception is <A
+HREF="package.html.html-quickform.html-quickform-renderer.renderhtml.html"
+><B
+CLASS="function"
+>renderHtml()</B
+></A
+> method
+that is implemented only in the Default renderer and will probably stay this way.
+    </P
+><P
+>&#13;You'll probably also want to add some public methods for customizing the output and getting the 
+results of the renderer's work. But this depends on the type of the renderer very much.
+    </P
+><P
+>&#13;If you want to contribute the renderer you made to QuickForm, consider the following
+<P
+></P
+><UL
+><LI
+><P
+>Your code should be useful to other people (e.g. renderer for some obscure private template engine is a bad contribution).</P
+></LI
+><LI
+><P
+>Your renderer should have non-trivial usage examples.</P
+></LI
+><LI
+><P
+>And last but not least, you code will have to conform to PEAR coding standards.</P
+></LI
+></UL
+>
+    </P
+><DIV
+CLASS="tip"
+><BLOCKQUOTE
+CLASS="tip"
+><P
+><B
+>Tip: </B
+>
+If you have examples for additional uses of an existing renderer, that will be
+a welcome contribution, too.
+    </P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer.startform.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_QuickForm</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.output.renderer-doc"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_QuickForm_Renderer::startForm()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

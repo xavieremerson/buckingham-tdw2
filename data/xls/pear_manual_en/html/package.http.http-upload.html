@@ -1,0 +1,529 @@
+<HTML
+><HEAD
+><TITLE
+>HTTP_Upload</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTTP"
+HREF="package.http.html"><LINK
+REL="PREVIOUS"
+TITLE="Response Evaluation"
+HREF="package.http.http-request.response-eval.html"><LINK
+REL="NEXT"
+TITLE="Images"
+HREF="package.images.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.http.http-request.response-eval.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 42. HTTP</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.images.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.http.http-upload">HTTP_Upload</H1
+><P
+>&#13;   Easy and secure managment of files submitted via 
+   <SPAN
+CLASS="acronym"
+>HTML</SPAN
+> forms.
+ </P
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.http.http-upload.intro">Introduction</H2
+><P
+>&#13;    This package provides an advanced system for managing uploads of 
+    files via <SPAN
+CLASS="acronym"
+>HTML</SPAN
+> <TT
+CLASS="literal"
+>&#60;input type="file" /&#62;</TT
+>
+    fields.  Features include:
+  </P
+><P
+></P
+><UL
+><LI
+><P
+>&#13;        <A
+HREF="package.http.http-upload.html#package.http.http-upload.examples.multiple"
+>&#13;          Handling of multiple file uploads at a time
+        </A
+>
+      </P
+></LI
+><LI
+><P
+>&#13;        Safe file copying/moving from temporary directories
+      </P
+></LI
+><LI
+><P
+>&#13;        Upload validaton mechanisms
+      </P
+></LI
+><LI
+><P
+>&#13;        <A
+HREF="package.http.http-upload.html#package.http.http-upload.information"
+>&#13;          Extensive information about uploaded files
+        </A
+>
+      </P
+></LI
+><LI
+><P
+>&#13;        Renaming uploaded files
+      </P
+></LI
+><LI
+><P
+>&#13;        <A
+HREF="package.http.http-upload.html#package.http.http-upload.i18n"
+>Internationalized error messages</A
+>
+      </P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.http.http-upload.examples">Examples</H2
+><P
+>&#13;    In the following examples it is assumed that you are using an
+    <SPAN
+CLASS="acronym"
+>HTML</SPAN
+> form field <TT
+CLASS="literal"
+>&#60;input type="file" name="f" /&#62;</TT
+>
+    in order to upload files.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN75770"><P
+><B
+>Example 42-22. Simple file upload</B
+></P
+><P
+>&#13;      The following code looks at the request and checks if a valid 
+      file was uploaded through the form.  If that is the case, the
+      file is moved to the subdirectory <TT
+CLASS="filename"
+>uploads</TT
+>.
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "HTTP/Upload.php";
+
+$upload = new HTTP_Upload("en");
+$file = $upload-&#62;getFiles("f");
+
+if ($file-&#62;isValid()) {
+    $moved = $file-&#62;moveTo("uploads/");
+    if (!PEAR::isError($moved)) {
+        echo "File was moved to uploads/";
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.http.http-upload.examples.multiple"><P
+><B
+>Example 42-23. Multiple files, more extensive checks</B
+></P
+><P
+>&#13;      Multiple files can uploaded by replacing the name of the form
+      field (<TT
+CLASS="literal"
+>f</TT
+>) with <TT
+CLASS="literal"
+>f[]</TT
+> and
+      creating multiple <TT
+CLASS="literal"
+>&#60;input /&#62;</TT
+> fields
+      with this name.
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$upload = new HTTP_Upload("en");
+$files = $upload-&#62;getFiles();
+
+foreach($files as $file){
+    if (PEAR::isError($file)) {
+        echo $file-&#62;getMessage();
+    }
+
+    if ($file-&#62;isValid()) {
+        $file-&#62;setName("uniq");
+        $dest_name = $file-&#62;moveTo("uploads/");
+
+        if (PEAR::isError($dest_name)) {
+            echo $dest_name-&#62;getMessage();
+        }
+
+        $real = $file-&#62;getProp("real");
+
+    } elseif ($file-&#62;isMissing()) {
+        echo "No file was provided.";
+    } elseif ($file-&#62;isError()) {
+        echo $file-&#62;errorMsg();
+    }
+
+    print_r($file-&#62;getProp());
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.http.http-upload.information">Extensive information about uploaded files</H2
+><P
+>&#13;    <B
+CLASS="classname"
+>HTTP_Upload</B
+> provides extensive information
+    about uploaded files via the <B
+CLASS="function"
+>getProp()</B
+> method:
+
+    <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN75787"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;          mixed <B
+CLASS="function"
+>HTTP_Upload_File::getProp</B
+>
+        </CODE
+> ([name])</CODE
+></P
+><P
+></P
+></DIV
+>
+  </P
+><P
+>&#13;    If no value for <TT
+CLASS="parameter"
+><I
+>name</I
+></TT
+> is provided, then this
+    method will return an array containing all available information
+    about the uploaded file.  Otherwise the information identified by
+    the value of this parameter will be returned as a string.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN75795"><P
+><B
+>Example 42-24. Extensive information via <B
+CLASS="function"
+>getProp()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "HTTP/Upload.php";
+
+$upload = new HTTP_Upload("en");
+$file = $upload-&#62;getFiles("f");
+
+if ($file-&#62;isValid()) {
+    echo "&#60;pre&#62;";
+    print_r($file-&#62;getProp());
+    echo "&#60;/pre&#62;";
+
+    printf("The uploaded file has the extension %s.", $file-&#62;getProp("ext"));
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.http.http-upload.i18n">Internationalized Error Messages</H2
+><P
+>&#13;    Another handy feature of <B
+CLASS="classname"
+>HTTP_Upload</B
+> is 
+    support for internationalized error messages.  This means that if
+    an error (like an invalid file upload) is detected, the programmer
+    can choose in which the language the error messages should be returned
+    by <B
+CLASS="classname"
+>HTTP_Upload</B
+>.
+  </P
+><P
+>&#13;    The first parameter of the constructor method for 
+    <B
+CLASS="classname"
+>HTTP_Upload</B
+> determines the language to be 
+    used.  This is illustrated in the following example:
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN75806"><P
+><B
+>Example 42-25. Example</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// German error messages
+$language = "de";
+
+require_once "HTTP/Upload.php";
+
+$upload = new HTTP_Upload($language);
+$file = $upload-&#62;getFiles("f");
+
+if ($file-&#62;isValid()) {
+    $moved = $file-&#62;moveTo("uploads/");
+    if (!PEAR::isError($moved)) {
+        echo "File was moved to uploads/";
+    } else {
+        // This will print a german error message
+        echo "An error was detected: " . $moved-&#62;getMessage() . "&#60;br /&#62;";
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.http.http-request.response-eval.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.images.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Response Evaluation</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.http.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Images</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

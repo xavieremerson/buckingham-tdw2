@@ -1,0 +1,301 @@
+<HTML
+><HEAD
+><TITLE
+>Mail_mimeDecode::uudecode()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Mail_Mime"
+HREF="package.mail.mail-mime.html"><LINK
+REL="PREVIOUS"
+TITLE="Mail_mimeDecode::decode()"
+HREF="package.mail.mail-mimedecode.decode.html"><LINK
+REL="NEXT"
+TITLE="Mail_mimeDecode::getXML()"
+HREF="package.mail.mail-mimedecode.getxml.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-mimedecode.decode.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-mimedecode.getxml.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.mail.mail-mimedecode.uudecode">Mail_mimeDecode::uudecode()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN81239"
+></A
+>Mail_mimeDecode::uudecode()&nbsp;--&nbsp;decode of UU-coded data</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN81242"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN81243"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Mail/mimeDecode.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>&#38;uudecode</B
+></CODE
+> (string $input)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mimedecode.uudecode.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Decodes UU-coded data. 'Unix-to-Unix'-Encoding is used to send 
+     binary files (eg. programs, graphics) over 7bit-ASCII-only
+     media, like email.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mimedecode.uudecode.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $input</I
+></TT
+> - 
+        data to decode
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mimedecode.uudecode.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>array</I
+></TT
+> - 
+     the decoded data
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>string $return[]['filename']</I
+></TT
+> - 
+           the name of the UUencoded file.
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>string $return[]['fileperm']</I
+></TT
+> - 
+            the file permissions of the UUencoded file, if given.
+            The format is unix-styled, ie. <TT
+CLASS="parameter"
+><I
+>"0666"</I
+></TT
+>
+            or <TT
+CLASS="parameter"
+><I
+>"666"</I
+></TT
+>.
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>string $return[]['filedata']</I
+></TT
+> - 
+           the decoded content of the UUencoded file.
+          </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mimedecode.uudecode.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mimedecode.decode.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mimedecode.getxml.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Mail_mimeDecode::decode()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mime.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Mail_mimeDecode::getXML()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,346 @@
+<HTML
+><HEAD
+><TITLE
+>Worksheet::writeFormula</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Spreadsheet_Excel_Writer"
+HREF="package.fileformats.spreadsheet-excel-writer.html"><LINK
+REL="PREVIOUS"
+TITLE="Worksheet::writeBlank"
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.writeblank.html"><LINK
+REL="NEXT"
+TITLE="Worksheet::writeUrl"
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.writeurl.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.writeblank.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.writeurl.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.writeformula">Worksheet::writeFormula</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN43665"
+></A
+>Worksheet::writeFormula&nbsp;--&nbsp;Write a formula to the specified row and column (zero indexed).</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN43668"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN43669"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once "Spreadsheet/Excel/Writer.php";</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>integer <B
+CLASS="function"
+>Worksheet::writeFormula</B
+></CODE
+> (integer $row, integer $col, string $formula [, mixed $format=0])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.writeformula.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Write a formula to the specified row and column (zero indexed).  In case
+     of error it will write the error message (instead of the formula) in the
+     corresponding row and column.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.writeformula.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>integer $row</I
+></TT
+> -
+        Zero indexed row
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>integer $col</I
+></TT
+> -
+        Zero indexed column
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $formula</I
+></TT
+> -
+        The formula text string
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>mixed $format</I
+></TT
+> -
+        The optional XF format
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.writeformula.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>integer</I
+></TT
+> - 0 for normal termination, -1 for an error in
+     the formula, -2 for row or column out of range.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.writeformula.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+>&#13;    Formulas must start with an equal sign ('=').
+    </P
+><P
+>&#13;    Arguments given to an Excel function should be separated by comas (','),
+    not by semicolons (';').
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.writeformula.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN43713"><P
+><B
+>Example 37-1. Using <B
+CLASS="function"
+>writeFormula()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Spreadsheet/Excel/Writer.php';
+
+$workbook = new Spreadsheet_Excel_Writer('formula.xls');
+$worksheet =&#38; $workbook-&#62;addWorksheet();
+
+$worksheet-&#62;write(0, 0, 2);
+$worksheet-&#62;write(0, 1, "and");
+$worksheet-&#62;write(0, 2, 2);
+$worksheet-&#62;write(0, 3, "makes");
+$worksheet-&#62;writeFormula(0, 4, "=SUM(A1,C1)");
+
+$workbook-&#62;close();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.writeblank.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.writeurl.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Worksheet::writeBlank</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Worksheet::writeUrl</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

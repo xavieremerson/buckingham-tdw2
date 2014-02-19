@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<Title>PolarChart.addExtraField</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1"><a href="PolarChart.htm">PolarChart</a>.addExtraField</p>
+<hr class="separator">
+<p class="heading2a">Usage</p>
+<div class="content">
+addExtraField(texts)
+</div>
+<p class="heading2">Description</p>
+<div class="content">
+Associate an extra text to each data item or layer.<br><br>
+An extra field is an array of texts that can be associated with data item (the first element with the first data item, the second element with the second data item, and so on), or with layers (the first element with the first layer, the second element with the second layer, and so on). These texts can be used in methods that supports <a href="paramsub.htm">parameter substitution and formatting</a>.<br><br>
+One common usage of extra field is to associate a hidden ID to each data item, so that when the user clicks on the data item, the hidden ID is passed to the handler as query parameters.<br><br>
+To do this, the hidden IDs can be provided to ChartDirector as an array of text using addExtraField. The extra field can then be included in HTML image maps using <a href="BaseChart.getHTMLImageMap.htm">BaseChart.getHTMLImageMap</a>.<br><br>
+Another common usage is to include additional information in data labels. The additional information can be provided to ChartDirector as an array of text using addExtraField, and be included in data labels using <a href="PolarLayer.setDataLabelFormat.htm">PolarLayer.setDataLabelFormat</a>.
+</div>
+<p class="heading2">Arguments</p>
+
+<div class="content">
+<table border="1" cellpadding="5" cellspacing="0" width="98%"> 
+<tr>
+<th width="19%">Argument</th><th width="19%">Default</th><th width="60%">Description</th>
+</tr>
+<tr>
+<td>texts</td><td>(Mandatory)</td><td>An array of text containing the extra fields.</td>
+</tr>
+</table>
+</div>
+
+<p class="heading2">Return Value</p>
+<div class="content">
+None
+</div>
+<br><hr class="separator">
+<div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

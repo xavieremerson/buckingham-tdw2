@@ -1,0 +1,476 @@
+<HTML
+><HEAD
+><TITLE
+>HTTP_Download::HTTP_Download</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTTP_Download"
+HREF="package.http.http-download.html"><LINK
+REL="PREVIOUS"
+TITLE="Intro"
+HREF="package.http.http-download.intro.html"><LINK
+REL="NEXT"
+TITLE="HTTP_Download::setParams"
+HREF="package.http.http-download.setparams.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.http.http-download.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.http.http-download.setparams.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.http.http-download.http-download"><B
+CLASS="function"
+>HTTP_Download::HTTP_Download()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN74780"
+></A
+><B
+CLASS="function"
+>HTTP_Download::HTTP_Download()</B
+>&nbsp;--&nbsp;Constructor</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN74784"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN74785"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTTP/Download.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     object <B
+CLASS="function"
+>new HTTP_Download</B
+>
+    </CODE
+> ([array $params = array()])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.http-download.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Creates an instance of an <B
+CLASS="classname"
+>HTTP_Download</B
+> object
+   and sets supplied parameters.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.http-download.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      array <TT
+CLASS="parameter"
+><I
+>$params</I
+></TT
+>
+      - An associative array of parameters:
+      <P
+></P
+><UL
+><LI
+><P
+>&#13;        one of:
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params['file']</I
+></TT
+>
+           - filepath
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params['data']</I
+></TT
+>
+           - raw data
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params['resource']</I
+></TT
+>
+           - resource handle
+          </P
+></LI
+></UL
+>
+        </P
+></LI
+><LI
+><P
+>&#13;        and any of:
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params['gzip']</I
+></TT
+>
+           - whether to gzip the download
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params['cache']</I
+></TT
+>
+           - whether to allow client side caching of the download
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params['lastmodified']</I
+></TT
+>
+           - unix timestamp of last modification
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params['contenttype']</I
+></TT
+>
+           - content type
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params['contentdisposition']</I
+></TT
+>
+           - content disposition
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params['buffersize']</I
+></TT
+>
+           - amount of bytes read at once from files or resources
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params['throttledelay']</I
+></TT
+>
+           - amount of seconds to sleep after each chunk that has been sent
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>$params['cachecontrol']</I
+></TT
+>
+           - cache privacy and validity
+          </P
+></LI
+></UL
+>
+        </P
+></LI
+></UL
+>
+     </P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.http-download.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   See also
+   <A
+HREF="package.http.http-download.setfile.html"
+><B
+CLASS="function"
+>setFile()</B
+></A
+>,
+   <A
+HREF="package.http.http-download.setdata.html"
+><B
+CLASS="function"
+>setData()</B
+></A
+>,
+   <A
+HREF="package.http.http-download.setresource.html"
+><B
+CLASS="function"
+>setResource()</B
+></A
+>,
+   <A
+HREF="package.http.http-download.setgzip.html"
+><B
+CLASS="function"
+>setGzip()</B
+></A
+>,
+   <A
+HREF="package.http.http-download.setcache.html"
+><B
+CLASS="function"
+>setCache()</B
+></A
+>,
+   <A
+HREF="package.http.http-download.setcontenttype.html"
+><B
+CLASS="function"
+>setContentType()</B
+></A
+>,
+   <A
+HREF="package.http.http-download.setlastmodified.html"
+><B
+CLASS="function"
+>setLastModified()</B
+></A
+>,
+   <A
+HREF="package.http.http-download.setcontentdisposition.html"
+><B
+CLASS="function"
+>setContentDisposition()</B
+></A
+>,
+   <A
+HREF="package.http.http-download.setbuffersize.html"
+><B
+CLASS="function"
+>setBufferSize()</B
+></A
+>,
+   <A
+HREF="package.http.http-download.setthrottledelay.html"
+><B
+CLASS="function"
+>setThrottleDelay()</B
+></A
+>,
+   <A
+HREF="package.http.http-download.setcachecontrol.html"
+><B
+CLASS="function"
+>setCacheControl()</B
+></A
+>,
+   <A
+HREF="package.http.http-download.setparams.html"
+><B
+CLASS="function"
+>setParams()</B
+></A
+>.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.http.http-download.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.http.http-download.setparams.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Intro</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.http.http-download.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>HTTP_Download::setParams()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

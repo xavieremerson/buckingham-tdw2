@@ -1,0 +1,1211 @@
+<HTML
+><HEAD
+><TITLE
+>Command line installer</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Installation"
+HREF="installation.html"><LINK
+REL="PREVIOUS"
+TITLE="Getting the manager"
+HREF="installation.getting.html"><LINK
+REL="NEXT"
+TITLE="Installation of a local PEAR copy on a shared host"
+HREF="installation.shared.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="installation.getting.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 2. Installation</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="installation.shared.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="installation.cli">Command line installer</H1
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+><A
+NAME="installation.cli.prerequesite">Prerequisites</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;     The following description requires the latest version of the
+     <A
+HREF="installation.getting.html"
+>PEAR package manager</A
+>
+     to be installed.
+    </P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>&#13;    The command line installer is the easiest way to install PEAR
+	packages on your system: It connects to the PEAR package server
+	via a simple HTTP connection, loads the package on your system
+	and installs it to the desired location.
+   </P
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="AEN362">Fully-automatic installation</H2
+><P
+>&#13;     Using the command line installer is pretty straightforward and
+	 easy to use. Simply run the following line on your shell:
+    </P
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="userinput"
+><B
+>&#13;$ pear install &#60;package&#62;
+      </B
+></TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>&#13;     &#60;package&#62; has to be replaced with the name of the package
+     you want to install (e.g. HTTP_Upload). To get a list of the
+     available packages, you can point your browser to the <A
+HREF="http://pear.php.net/packages.php"
+TARGET="_top"
+>PEAR package browser</A
+> or you
+     can run:
+    </P
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="userinput"
+><B
+>&#13;$ pear remote-list
+      </B
+></TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>&#13;     This command returns a list of all packages that are available in
+     PEAR at the moment.
+    </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="AEN374">Semi-automatic installation</H2
+><P
+>&#13;     If you have downloaded a package release from <A
+HREF="      http://pear.php.net/"
+TARGET="_top"
+>http://pear.php.net/</A
+> as a gzipped tar
+     archive, you can also install it locally. To do this, run the
+     following line on your shell:
+    </P
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="userinput"
+><B
+>&#13;$ pear install &#60;file&#62;.tgz
+      </B
+></TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>&#13;     This command will automatically install the package and does not
+     require an online connection. <TT
+CLASS="filename"
+>&#60;file&#62;.tgz</TT
+>
+     has to be replaced with the name of the downloaded
+     file.
+    </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="AEN383">Commands and Variables</H2
+><P
+>&#13;     Here's a list of commands available to the pear command line tool.  Many 
+     of these commands may require root access to the server.
+    </P
+><P
+>&#13;     <DIV
+CLASS="informaltable"
+><A
+NAME="AEN387"><P
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Command</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>build</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Build the extension from source</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>bundle</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Download and unpack a <A
+HREF="http://pecl.php.net/"
+TARGET="_top"
+>PECL</A
+> 
+          extension
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>channel-add</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Add a Channel (PEAR 1.4+)</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>channel-alias</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Specify an alias to a channel name (PEAR 1.4+)</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>channel-delete</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Remove a channel from the list (PEAR 1.4+)</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>channel-discover</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Initialize a channel from its server name (PEAR 1.4+)</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>channel-info</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Retrieve information on a channel (PEAR 1.4+)</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>channel-update</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Update an existing channel (PEAR 1.4+)</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>clear-cache</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Clear the XML-RPC cache</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>config-create</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Create a default configuration file (PEAR 1.4+)</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>config-get</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Echo a specific configuration setting</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>config-help</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Show information about a setting</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>config-set</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Set a specific configuration setting value</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>config-show</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Show all configuration setting values</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>convert</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Convert a package.xml 1.0 format to package.xml 2.0 format (PEAR 1.4+)</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>cvsdiff</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Execute and display a "<TT
+CLASS="literal"
+>cvs diff -u</TT
+>" on all files
+          within the package
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>cvstag</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Set a CVS release tag</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>download</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Download a package but not install it</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>download-all</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Downloads every available package</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>info</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Display information about a package</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>install</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Install a package, will report with success or failure</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>list</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>List installed packages</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>list-all</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>List all packages, packaged and/or available</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>list-channels</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>List available channels (PEAR 1.4+)</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>list-files</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>List files in an installed package (PEAR 1.4+)</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>list-upgrades</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>List available upgrades for the installed packages</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>login</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Connects and authenticates to the remote PEAR server</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>logout</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Logs out from the remote PEAR server</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>makerpm</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Builds a RPM spec file from a PEAR package</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>package</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Build a package</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>package-dependencies</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Show package dependencies</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>package-validate</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Validate package consistency</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>remote-info</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Information about remote packages</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>remote-list</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>List remote packages</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>run-scripts</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Run post-install scripts bundled with a package (PEAR 1.4+)</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>run-tests</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Run regression tests</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>search</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Search the remote package database</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>shell-test</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Do a shell script test</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>sign</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Sign a package distribution file</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>uninstall</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Uninstall and remove a package</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>update-channels</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Update the channel list (PEAR 1.4+)</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>upgrade</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Upgrade a package to the current version (see also:
+          preferred_state)
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>upgrade-all</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Upgrade all packages (see also: list-upgrades)</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+>
+    </P
+><P
+>&#13;     And here's a list of available PEAR configuration variables.  Use the 
+     <TT
+CLASS="literal"
+>config-get</TT
+>, <TT
+CLASS="literal"
+>config-help</TT
+>, 
+     <TT
+CLASS="literal"
+>config-set</TT
+>, and <TT
+CLASS="literal"
+>config-show</TT
+> command 
+     options to use these configuration variables.  While installing PEAR on 
+     the system, PEAR will attempt to replace the default values with values 
+     specific to the given server.  Adjust accordingly.
+    </P
+><P
+>&#13;     <DIV
+CLASS="informaltable"
+><A
+NAME="AEN531"><P
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Variable Name</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Default Value</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>bin_dir</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Directory where executables are installed</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="filename"
+>/usr/bin</TT
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>doc_dir</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Directory where documentation is installed</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="filename"
+>/usr/lib/php/docs</TT
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>ext_dir</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Directory where loadable extensions are installed</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="filename"
+>./</TT
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>php_dir</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Directory where PHP files are installed (like PEAR files)
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="filename"
+>/usr/lib/php</TT
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>cache_dir</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>PEAR installer cache directory, and used by XMLRPC</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="filename"
+>/tmp/pear/cache</TT
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>data_dir</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Directory where data files are installed</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="filename"
+>/usr/lib/php/data</TT
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>php_bin</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The PHP CLI or CGI binary for executing scripts</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="filename"
+>/usr/bin/php</TT
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>test_dir</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Directory where regression tests are installed</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="filename"
+>/usr/lib/php/tests</TT
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>cache_ttk</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Number of seconds that the local cache is used, and not updated 
+          (Time To Kill)
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>3600</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>preferred_state</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Preferred package state: stable, beta, alpha, devel, or snapshot
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>stable</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>umask</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          umask used when creating files (Unix-like systems only)
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>22</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>verbose</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Debug log level: 0-3 where 3 is full debug mode.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>1</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>http_proxy</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          The optional HTTP proxy address (host:port) used when downloading 
+          packages
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>remote_config</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Remote configuration file, used to mirror a local installation on a remote server
+          through ftp. (PEAR 1.4+)
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>auto_discover</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Auto-discover new channels from command line or dependencies</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>0</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>default_channel</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Default channel (PEAR 1.4+)</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>pear.php.net (pecl.php.net if using the pecl command)</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>preferred_mirror</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Preferred channel mirror (PEAR 1.4+)</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>pear.php.net (pecl.php.net if using the pecl command)</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>master_server</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>PEAR server [deprecated in PEAR 1.4+]</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>pear.php.net</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>password</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>PEAR password (used by maintainers)</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>sig_bin</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Signature handling program</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="filename"
+>/sw/bin/gpg</TT
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>sig_keydir</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Signature key directory</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="filename"
+>/etc/pearkeys</TT
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>sig_keyid</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The key used for signing</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>sig_type</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Package signature type (only gpg)</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>gpg</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>username</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>PEAR username (used by maintainers)</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+>
+    </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="installation.getting.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="installation.shared.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Getting the manager</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="installation.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Installation of a local PEAR copy on a shared host</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

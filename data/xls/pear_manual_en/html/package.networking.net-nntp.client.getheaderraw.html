@@ -1,0 +1,431 @@
+<HTML
+><HEAD
+><TITLE
+>Net_NNTP_Client::getHeaderRaw()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_NNTP_Client"
+HREF="package.networking.net-nntp.html#package.networking.net-nntp.client"><LINK
+REL="PREVIOUS"
+TITLE="Net_NNTP_Client::getHeader()"
+HREF="package.networking.net-nntp.client.getheader.html"><LINK
+REL="NEXT"
+TITLE="Net_NNTP_Client::getNewGroups()"
+HREF="package.networking.net-nntp.client.getnewgroups.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-nntp.client.getheader.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-nntp.client.getnewgroups.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-nntp.client.getheaderraw">Net_NNTP_Client::getHeaderRaw()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN84903"
+></A
+>Net_NNTP_Client::getHeaderRaw()&nbsp;--&nbsp;fetch message header</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN84906"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN84907"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Net/NNTP/Client.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>string <B
+CLASS="function"
+>Net_NNTP_Client::getHeaderRaw</B
+></CODE
+> (string $article, boolean $implode = false)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.client.getheaderraw.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Returns the whole header of an article in the currently selected newsgroup
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.client.getheaderraw.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $article</I
+></TT
+> - article number or Message-ID of the article to fetch
+       </P
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>boolean $implode</I
+></TT
+> - Determines if the resulting array is to be imploded into a string.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.client.getheaderraw.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>array/string</I
+></TT
+> - If message exists the header 
+     or a <B
+CLASS="classname"
+>PEAR_Error</B
+>, if fail.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.client.getheaderraw.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN84936"><P
+><B
+>Table 48-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Different error messages
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          The messages are directly passed from the news server, in the 
+          most cases caused by calling a non existing article
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.client.getheaderraw.note"
+></A
+><H2
+>Note</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>since</I
+></SPAN
+> 0.3
+    </P
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.client.getheaderraw.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;      <A
+HREF="package.networking.net-nntp.client.getheader.html"
+>&#13;       <B
+CLASS="function"
+>Net_NNTP_Client::getHeader()</B
+>
+      </A
+>,
+      <A
+HREF="package.networking.net-nntp.client.getarticleraw.html"
+>&#13;       <B
+CLASS="function"
+>Net_NNTP_Client::getArticleRaw()</B
+>
+      </A
+>,
+      <A
+HREF="package.networking.net-nntp.client.getbodyraw.html"
+>&#13;       <B
+CLASS="function"
+>Net_NNTP_Client::getBodyRaw()</B
+>
+      </A
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-nntp.client.getheaderraw.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN84968"><P
+><B
+>Example 48-1. Using <B
+CLASS="function"
+>getHeaderRaw()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>...
+
+$headers = $nntp-&#62;getHeaderRaw($msgId);
+if( PEAR::isError($headers)) {
+    // handle error
+} else {
+    // success - split the string into a array
+    $headersArray = explode( "\n", $headers);
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-nntp.client.getheader.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-nntp.client.getnewgroups.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Net_NNTP_Client::getHeader()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-nntp.html#package.networking.net-nntp.client"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="classname"
+>Net_NNTP_Client</B
+>::<TT
+CLASS="methodname"
+>getNewGroups</TT
+>()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

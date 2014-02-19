@@ -1,0 +1,563 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_sql2xml"
+HREF="package.xml.xml-sql2xml.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.xml.xml-sql2xml.intro-simple.html"><LINK
+REL="NEXT"
+TITLE="Introduction"
+HREF="package.xml.xml-sql2xml.intro-xpath.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-sql2xml.intro-simple.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-sql2xml.intro-xpath.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.xml.xml-sql2xml.intro-passing">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN103994"
+></A
+>Introduction&nbsp;--&nbsp;Passing the data to transform</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-sql2xml.intro-passing.overview"
+></A
+><H2
+>Overview</H2
+><P
+>&#13;    There are three ways to pass the data for transforming to the object:
+    <P
+></P
+><UL
+><LI
+><P
+>&#13;       <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>with a direct query</I
+></SPAN
+>
+      </P
+><P
+>&#13;       This way you see in the <A
+HREF="package.xml.xml-sql2xml.intro-simple.html"
+>first part</A
+> of the introduction already.
+
+      </P
+></LI
+><LI
+><P
+>&#13;       <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>with an existing <A
+HREF="package.database.db.db-result.html"
+><B
+CLASS="classname"
+>DB_result</B
+></A
+> object</I
+></SPAN
+>      
+      </P
+><P
+>&#13;       If you need the full power of the <A
+HREF="package.database.db.html"
+><B
+CLASS="classname"
+>PEAR::DB</B
+></A
+>
+       or <B
+CLASS="classname"
+>PEAR::MDB</B
+> API, you should choose this way. 
+      </P
+></LI
+><LI
+><P
+>&#13;       <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>with an array</I
+></SPAN
+>
+      </P
+><P
+>&#13;       This is not directly an SQL to XML transformation; if you pass an
+       indice array to the instance, the keys of the array are transformed
+       into XML tags, their values into the tag content.
+       This feature his helpful for adding data to an XML transformed result set.
+      </P
+></LI
+></UL
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-sql2xml.intro-passing.query"
+></A
+><H2
+>Direct query</H2
+><P
+>&#13;    This behavoir does connecting to the DBMS, quering and
+    fetching he result automatically. 
+    <B
+CLASS="classname"
+>XML_sql2xml</B
+> requires an valid
+    <A
+HREF="package.database.db.intro-dsn.html"
+>DSN</A
+> as <A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.xml-sql2xml.html"
+>construtor</A
+> parameter. 
+    The query has to be passed to the <A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.getxml.html"
+><B
+CLASS="function"
+>getXML()</B
+></A
+>
+    or <A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.getxml.html"
+><B
+CLASS="function"
+>add()</B
+></A
+>
+    method.
+   </P
+><P
+>&#13;    Take a look into the <A
+HREF="package.xml.xml-sql2xml.intro-simple.html"
+>first part</A
+> of the introduction
+    for examples.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-sql2xml.intro-passing.db-result"
+></A
+><H2
+>Passing an DB_Result object</H2
+><P
+>&#13;    <A
+HREF="package.database.db.html"
+><B
+CLASS="classname"
+>PEAR::DB</B
+></A
+>
+    and <B
+CLASS="classname"
+>PEAR::MDB</B
+> return the result set of a query
+    as <A
+HREF="package.database.db.db-result.html"
+><B
+CLASS="classname"
+>DB_result</B
+></A
+> object. You have to provide a <A
+HREF="package.database.db.db-common.html"
+><B
+CLASS="classname"
+>DB_common</B
+></A
+>
+    instance to the <A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.xml-sql2xml.html"
+>construtor</A
+>
+    and the <A
+HREF="package.database.db.db-result.html"
+><B
+CLASS="classname"
+>DB_result</B
+></A
+> instance to <A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.getxml.html"
+><B
+CLASS="function"
+>getXML()</B
+></A
+>
+    or <A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.getxml.html"
+><B
+CLASS="function"
+>add()</B
+></A
+>.
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN104048"><P
+><B
+>Example 61-1. Passing a DB_Result object</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once "XML/sql2xml.php";
+require_once "DB.php";
+
+$db = db::connect("mysql://username:password@localhost/xmltest");
+$result = $db-&#62;query("select * from bands");
+
+$sql2xmlclass = new xml_sql2xml($db);
+$xmlstring = $sql2xmlclass-&#62;getxml($result);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;    The XML output in <TT
+CLASS="parameter"
+><I
+>$xmlstring</I
+></TT
+> is equal to the
+    example in
+    <A
+HREF="package.xml.xml-sql2xml.intro-simple.html#package.xml.xml-sql2xml.intro-simple.simple"
+>&#13;    "The typical using"</A
+>.
+   </P
+><P
+>&#13;    This way is the only one, if you want to benefit from all the 
+    features of the database APIs.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-sql2xml.intro-passing.array"
+></A
+><H2
+>Passing an array</H2
+><P
+>&#13;    If you pass an nested array to <A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.getxml.html"
+><B
+CLASS="function"
+>getXML()</B
+></A
+>
+    or <A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.getxml.html"
+><B
+CLASS="function"
+>add()</B
+></A
+>,
+    it will be transformed into an XML document.
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN104062"><P
+><B
+>Example 61-2. Passing an array</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once "XML/sql2xml.php";
+
+$sql2xmlclass = new xml_sql2xml();
+
+$array = array (
+            array("name"=&#62;"The Blabbers",
+                  "birth_year"=&#62;"1998",
+                  "birth_place"=&#62;"London",
+                  "genre"=&#62;"Rock'n'Roll"),
+            array("name"=&#62;"Only Stupids",
+                  "birth_year"=&#62;"1997",
+                  "birth_place"=&#62;"New York",
+                  "genre"=&#62;"hiphop")
+);
+
+$xmlstring = $sql2xmlclass-&#62;getXML($array);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The XML output in <TT
+CLASS="parameter"
+><I
+>$xmlstring</I
+></TT
+>:</P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?xml version="1.0"?&#62;
+    &#60;root&#62;
+        &#60;result&#62;
+            &#60;row&#62;
+                &#60;name&#62;The Blabbers&#60;/name&#62;
+                &#60;birth_year&#62;1998&#60;/birth_year&#62;
+                &#60;birth_place&#62;London&#60;/birth_place&#62;
+                &#60;genre&#62;Rock'n'Roll&#60;/genre&#62;
+            &#60;/row&#62;
+            &#60;row&#62;
+                &#60;name&#62;Only Stupids&#60;/name&#62;
+                &#60;birth_year&#62;1997&#60;/birth_year&#62;
+                &#60;birth_place&#62;New York&#60;/birth_place&#62;
+                &#60;genre&#62;hiphop&#60;/genre&#62;
+            &#60;/row&#62;
+        &#60;/result&#62;
+    &#60;/root&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-sql2xml.intro-passing.passcount"
+></A
+><H2
+>Passing more then one result set</H2
+><P
+>&#13;    You can call <A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.add.html"
+><B
+CLASS="function"
+>add()</B
+></A
+>
+    several result sets to XML document. Just
+    call the method for every result set; if you have added all result sets,
+    call <A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.getxml.html"
+><B
+CLASS="function"
+>getXml()</B
+></A
+>
+    without any arguments to get the XML document.
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN104075"><P
+><B
+>Example 61-3. Adding result sets</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$sql2xmlclass-&#62;add("select * from bands");
+$sql2xmlclass-&#62;add("select * from albums");
+$xmlstring= $sql2xmlclass-&#62;getxml();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-sql2xml.intro-simple.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-sql2xml.intro-xpath.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.xml-sql2xml.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,51 @@
+INSERT INTO chk_totals_level_a 
+															(auto_id,
+															chk_check_date,
+															chk_advisor_code,
+															chk_advisor_name,
+															chk_total,
+															chk_mtd,
+															chk_qtd,
+															chk_ytd,
+															chk_isactive) 
+														VALUES (
+														NULL , 
+														'2012-01-10', 
+														'ADJ 251', 
+														'', 
+														'-13476.24', 
+														'-13476.24', 
+														'-13476.24', 
+														'-13476.24', 
+														'1'
+														)<hr><table class="msgtbl_3" cellspacing="2" cellpadding = "0">
+								<tr>
+									<td valign="top">
+						       <img src="images/info_3.png" border="0"> 
+									</td>
+									<td valign="top"> <b>TDW encountered a serious data error</b>.
+<br>Query: INSERT INTO chk_totals_level_a 
+															(auto_id,
+															chk_check_date,
+															chk_advisor_code,
+															chk_advisor_name,
+															chk_total,
+															chk_mtd,
+															chk_qtd,
+															chk_ytd,
+															chk_isactive) 
+														VALUES (
+														NULL , 
+														'2012-01-10', 
+														'ADJ 251', 
+														'', 
+														'-13476.24', 
+														'-13476.24', 
+														'-13476.24', 
+														'-13476.24', 
+														'1'
+														)<br>
+Error: (1406) Data too long for column 'chk_advisor_code' at row 1
+									</td>
+								</tr>
+							</table>

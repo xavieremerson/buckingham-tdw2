@@ -1,0 +1,437 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Config"
+HREF="package.configuration.config.html"><LINK
+REL="PREVIOUS"
+TITLE="Config"
+HREF="package.configuration.config.html"><LINK
+REL="NEXT"
+TITLE="Editing a configuration"
+HREF="package.configuration.config.intro-editing.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.configuration.config.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.configuration.config.intro-editing.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.configuration.config.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN18716"
+></A
+>Introduction&nbsp;--&nbsp;
+   What Config can do
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN18719"
+></A
+><H2
+>Introduction</H2
+><P
+>&#13;   <B
+CLASS="classname"
+>Config</B
+> 
+   helps you manipulate your configuration whether they are stored in XML files, 
+   PHP arrays or other kind of datasources. 
+   
+   It supports these features:
+  </P
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>Parse different configuration formats.</P
+></LI
+><LI
+><P
+>Manipulate sections, directives, comments, blanks the way you want.</P
+></LI
+><LI
+><P
+>Write them back to a datasource in your preferred format.</P
+></LI
+></UL
+>
+  </P
+><P
+>&#13;   The <B
+CLASS="classname"
+>Config</B
+> object acts as a container 
+   for other <B
+CLASS="classname"
+>Config_Container</B
+> objects. 
+
+   It doesn't do much but makes handling IO operations easier. 
+
+   It contains the root <B
+CLASS="classname"
+>Config_Container</B
+> object which in 
+   turn contains a child <B
+CLASS="classname"
+>Config_Container</B
+> object. 
+   
+   <B
+CLASS="classname"
+>Config_Container</B
+> objects store references to their 
+   parent and have an array of children. 
+   
+   This structure makes it easy to access the different 
+   containers and their contents. 
+  </P
+><P
+>&#13;   A <B
+CLASS="classname"
+>Config_Container</B
+> object can be of different type:
+   <P
+></P
+><UL
+><LI
+><P
+>Section: a section contains other <B
+CLASS="classname"
+>Config_Container</B
+> objects.</P
+></LI
+><LI
+><P
+>Directive: a directive does not contain any other object but has content and a name. See them as key-value pairs.</P
+></LI
+><LI
+><P
+>Comment: just like directives, comments have content but they don't have a name. They are rendered in a special way according to the configuration type you choosed.</P
+></LI
+><LI
+><P
+>Blank: they don't have neither content or name but are used to indicate blank lines if your renderer uses them.</P
+></LI
+></UL
+>
+  </P
+><P
+>&#13;   When using the <B
+CLASS="classname"
+>Config</B
+> package, 
+   most of the work is done with <B
+CLASS="classname"
+>Config_Container</B
+> objects.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN18752"><P
+><B
+>Example 31-1. An example that will create a new <B
+CLASS="classname"
+>Config_Container</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// initialize a Config_Container object
+
+require_once('Config.php');
+$conf =&#38; new Config_Container('section', 'conf');
+$conf_DB =&#38; $conf-&#62;createSection('DB');
+$conf_DB-&#62;createDirective('type', 'mysql');
+$conf_DB-&#62;createDirective('host', 'localhost');
+$conf_DB-&#62;createDirective('user', 'root');
+$conf_DB-&#62;createDirective('pass', 'root');
+
+// set this container as our root container child in Config
+
+$config = new Config();
+$config-&#62;setRoot($conf);
+
+// write the container to a php array
+  
+$config-&#62;writeConfig('/tmp/config_test.php', 'phparray',
+                     array('name' =&#62; 'test'));
+
+// print the content of our conf section to screen
+  
+echo $conf-&#62;toString('phparray', array('name' =&#62; 'test'));</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   The above example illustrates how <B
+CLASS="classname"
+>Config</B
+> 
+   and <B
+CLASS="classname"
+>Config_Container</B
+> can interact. 
+   
+   There are other ways. 
+   
+   You could have for example first created the Config object and then used 
+   <A
+HREF="package.configuration.config.config.getroot.html"
+><B
+CLASS="function"
+>$config-&#62;getRoot()</B
+></A
+> 
+   to add sections and directives to the returned object reference.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN18761"><P
+><B
+>Example 31-2. Reading configuration from an XML file</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Config.php';
+
+$conf = new Config;
+$root =&#38; $conf-&#62;parseConfig('config.xml', 'XML');
+
+if (PEAR::isError($root)) {
+    die('Error while reading configuration: ' . $root-&#62;getMessage());
+}
+
+$settings = $root-&#62;toArray();
+
+printf('User settings: &#60;a href="%s"&#62;%s %s&#60;/a&#62;',
+       $settings['root']['conf']['www'],
+       $settings['root']['conf']['firstname'],
+       $settings['root']['conf']['lastname']
+       );</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    In this example the XML file <TT
+CLASS="filename"
+>config.xml</TT
+>
+    looks like this:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;?xml version="1.0" encoding="UTF-8"?&#62;
+
+&#60;conf&#62;
+  &#60;firstname&#62;John&#60;/firstname&#62;
+  &#60;lastname&#62;Doe&#60;/lastname&#62;
+
+  &#60;www&#62;http://example.com/&#60;/www&#62;
+&#60;/conf&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   For more information,
+   You can read 
+   <A
+HREF="http://pear.php.net/package/Config/docs"
+TARGET="_top"
+>API doc</A
+>,
+   <A
+HREF="http://cvs.php.net/cvs.php/pear/Config/docs"
+TARGET="_top"
+>sample of package</A
+>,
+   <A
+HREF="http://cvs.php.net/cvs.php/pear/Config/test"
+TARGET="_top"
+>tests of package</A
+>,
+   and a great 
+   <A
+HREF="http://www.devshed.com/c/a/PHP/Configuration-Manipulation-With-PHP-Config/"
+TARGET="_top"
+>tutorial</A
+> 
+   of DevShed about the Config package.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.configuration.config.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.configuration.config.intro-editing.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Config</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.configuration.config.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Editing a configuration</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

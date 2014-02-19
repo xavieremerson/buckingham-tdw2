@@ -1,0 +1,481 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_QuickForm::addRule()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Validation and filters"
+HREF="package.html.html-quickform.html#package.html.html-quickform.values.validation"><LINK
+REL="PREVIOUS"
+TITLE="Introduction - validation and filters"
+HREF="package.html.html-quickform.intro-validation.html"><LINK
+REL="NEXT"
+TITLE="HTML_QuickForm::addGroupRule()"
+HREF="package.html.html-quickform.html-quickform.addgrouprule.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.intro-validation.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform.addgrouprule.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.html-quickform.addrule">HTML_QuickForm::addRule()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN63019"
+></A
+>HTML_QuickForm::addRule()&nbsp;--&nbsp;Adds a validation rule for the given field</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN63022"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN63023"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/QuickForm.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void       <B
+CLASS="function"
+>HTML_QuickForm::addRule</B
+></CODE
+> (mixed $element, string $message, string $type [, string $format = '' [, string $validation = 'server' [, boolean $reset = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> [, boolean $force = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>]]]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform.addrule.desc"
+></A
+><H2
+>Description</H2
+><P
+>If the element is in fact a group, it will be considered as a whole, an array of group elements' values will be passed to validation function. To validate grouped elements as separate entities, use <A
+HREF="package.html.html-quickform.html-quickform.addgrouprule.html"
+><B
+CLASS="function"
+>addGroupRule()</B
+></A
+>.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform.addrule.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>mixed
+         <TT
+CLASS="parameter"
+><I
+>$element</I
+></TT
+></DT
+><DD
+><P
+>&#13;        Form element name(s). Currently the only builtin rule that expects and correctly handles an array here is <TT
+CLASS="varname"
+>compare</TT
+>:
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$form-&#62;addElement('password', 'cmpPasswd', 'Password:');
+$form-&#62;addElement('password', 'cmpRepeat', 'Repeat password:');
+$form-&#62;addRule(array('cmpPasswd', 'cmpRepeat'), 'The passwords do not match', 'compare', null, 'client');</PRE
+></TD
+></TR
+></TABLE
+>
+All other builtin rules will only handle a single element name.
+       </P
+></DD
+><DT
+>string
+         <TT
+CLASS="parameter"
+><I
+>$message</I
+></TT
+></DT
+><DD
+><P
+>&#13;        Message to display for invalid data
+       </P
+></DD
+><DT
+>string
+         <TT
+CLASS="parameter"
+><I
+>$type</I
+></TT
+></DT
+><DD
+><P
+>&#13;        Rule type, use <A
+HREF="package.html.html-quickform.html-quickform.getregisteredrules.html"
+><B
+CLASS="function"
+>getRegisteredRules()</B
+></A
+> to get types. You can also pass a classname for a descendant of <B
+CLASS="classname"
+>HTML_QuickForm_Rule</B
+> or an instance of such class.
+       </P
+></DD
+><DT
+>string
+         <TT
+CLASS="parameter"
+><I
+>$format</I
+></TT
+></DT
+><DD
+><P
+>&#13;        (optional) Required for extra rule data
+       </P
+></DD
+><DT
+>string
+         <TT
+CLASS="parameter"
+><I
+>$validation</I
+></TT
+></DT
+><DD
+><P
+>&#13;        (optional) Where to perform validation: "server", "client"
+       </P
+></DD
+><DT
+>boolean
+         <TT
+CLASS="parameter"
+><I
+>$reset</I
+></TT
+></DT
+><DD
+><P
+>&#13;        For client-side validation: reset the form element to it's original value if there is an error?
+       </P
+></DD
+><DT
+>boolean
+         <TT
+CLASS="parameter"
+><I
+>$force</I
+></TT
+></DT
+><DD
+><P
+>&#13;        Force the rule to be applied, even if the target form element does not exist
+       </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform.addrule.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN63107"><P
+><B
+>Table 41-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>QUICKFORM_NONEXIST_ELEMENT</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Element '<TT
+CLASS="parameter"
+><I
+>$element</I
+></TT
+>' does not exist in HTML_QuickForm::addRule()</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Tried to add a rule for a non-existant element</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Check the element's name spelling or use <TT
+CLASS="parameter"
+><I
+>$force</I
+></TT
+> to suppress the error.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>QUICKFORM_INVALID_RULE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Rule '<TT
+CLASS="parameter"
+><I
+>$type</I
+></TT
+>' is not registered in HTML_QuickForm::addRule()</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Rule is not known to QuickForm</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Check rule type spelling or use <A
+HREF="package.html.html-quickform.html-quickform.registerrule.html"
+><B
+CLASS="function"
+>HTML_QuickForm::registerRule()</B
+></A
+>.</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform.addrule.note"
+></A
+><H2
+>Note</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>since</I
+></SPAN
+> 1.0
+    </P
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.intro-validation.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform.addgrouprule.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction - validation and filters</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.values.validation"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_QuickForm::addGroupRule()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

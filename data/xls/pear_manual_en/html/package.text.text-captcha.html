@@ -1,0 +1,421 @@
+<HTML
+><HEAD
+><TITLE
+>Text_CAPTCHA</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Text"
+HREF="package.text.html"><LINK
+REL="PREVIOUS"
+TITLE="Text"
+HREF="package.text.html"><LINK
+REL="NEXT"
+TITLE="Text_Highlighter"
+HREF="package.text.text-highlighter.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.text.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 57. Text</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.text.text-highlighter.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.text.text-captcha">Text_CAPTCHA</H1
+><P
+>&#13;   Implementation of  
+   <SPAN
+CLASS="acronym"
+>CAPTCHAs</SPAN
+> (Completely Automated Public Turing
+   tests to tell Computers and Humans Apart).
+ </P
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.text.text-captcha.intro">Introduction</H2
+><P
+>&#13;    This package provides the functionality to create 
+    <SPAN
+CLASS="acronym"
+>CAPTCHAs</SPAN
+> (Completely Automated Public Turing
+   tests to tell Computers and Humans Apart). Features include:
+  </P
+><P
+></P
+><UL
+><LI
+><P
+>&#13;        Creating graphical CAPTCHAs using GD2
+      </P
+></LI
+><LI
+><P
+>&#13;        Pluggable driver architecture using factory pattern
+      </P
+></LI
+><LI
+><P
+>&#13;        <A
+HREF="package.text.text-captcha.html#package.text.text-captcha.information"
+>&#13;          Generic information about the CAPTCHA
+        </A
+>
+      </P
+></LI
+></UL
+><P
+>&#13;    The package creates <SPAN
+CLASS="acronym"
+>CAPTCHAs</SPAN
+>; due to the 
+    stateless nature of the HTTP protocol, the logic to secure a
+    webpage using the package must be specifically implemented. 
+    See the <A
+HREF="package.text.text-captcha.html#package.text.text-captcha.example"
+>usage example</A
+>
+    for detailled information. 
+  </P
+><P
+>&#13;    Currently, the graphical CAPTCHA driver depends on Image_Text which in turn 
+    requires TTF support to be compiled into PHP. 
+  </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.text.text-captcha.example">Example</H2
+><P
+>&#13;    The following example implements the standard use of a CAPTCHA:
+    Submitted form data is only evaluated when a CAPTCHA has been
+    solved correctly. 
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.text.text-captcha.example.create"><P
+><B
+>Example 57-1. Creating a CAPTCHA</B
+></P
+><P
+>&#13;      The following code creates a CAPTCHA, provides the relevant
+      information for the package, anhd retrieves the CAPTCHA as a 
+      PNG image.
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Text/CAPTCHA.php';
+
+// Set CAPTCHA options (font must exist!)
+$options = array(
+    'font_size' =&#62; 24,
+    'font_path' =&#62; './',
+    'font_file' =&#62; 'COUR.TTF'
+);
+           
+// Generate a new Text_CAPTCHA object, Image driver
+$c = Text_CAPTCHA::factory('Image');
+$retval = $c-&#62;init(200, 80, null, $options);
+if (PEAR::isError($retval)) {
+    echo 'Error generating CAPTCHA!';
+    exit;
+}
+
+// Get CAPTCHA secret passphrase
+$_SESSION['phrase'] = $c-&#62;getPhrase();
+
+// Get CAPTCHA image (as PNG)
+$png = $c-&#62;getCAPTCHAAsPNG();
+if (PEAR::isError($png)) {
+    echo 'Error generating CAPTCHA!';
+    exit;
+}
+file_put_contents(md5(session_id()) . '.png', $png);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.text.text-captcha.example.secure"><P
+><B
+>Example 57-2. Securing a form with a CAPTCHA</B
+></P
+><P
+>&#13;      The following code implements the functionality to check whether
+      a CAPTCHA was solved correctly or not. for this, the
+      CAPTCHA's phrase is stored in a session variable to
+      retain this information between requests. It is
+      important to unset the session after solving the 
+      CAPTCHA to avoid the reuse of the session ID.
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>session_start();
+$ok = false;
+$msg = 'Please enter the text in the image in the field below!';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['phrase']) &#38;&#38; isset($_SESSION['phrase']) &#38;&#38;
+        strlen($_POST['phrase']) &#62; 0 &#38;&#38; strlen($_SESSION['phrase']) &#62; 0 &#38;&#38;
+        $_POST['phrase'] == $_SESSION['phrase']) {
+        $msg = 'OK!';
+        $ok = true;
+        unset($_SESSION['phrase']);
+    } else {
+        $msg = 'Please try again!';
+    }
+    unlink(md5(session_id()) . '.png');
+}
+print "&#60;p&#62;$msg&#60;/p&#62;";
+
+if (!$ok) {
+    // create the CAPTCHA as seen above
+    // and send it to the client
+}</PRE
+></TD
+></TR
+></TABLE
+><P
+>See the file <TT
+CLASS="filename"
+>CAPTCHA_test.php</TT
+>
+    in the package distribution for a full, working
+    example (GD and TTF support required).</P
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.text.text-captcha.information">Information about the CAPTCHA and inner workings</H2
+><P
+>&#13;    <B
+CLASS="classname"
+>Text_CAPTCHA</B
+> provides information
+    about the CAPTCHA and makes its inner workings accessible
+    using several functions defined in the base
+    class; the specific implementation of them is up to
+    the driver.
+  </P
+><P
+></P
+><UL
+><LI
+><P
+>&#13;        <B
+CLASS="function"
+>init()</B
+> is used to initialize the CAPTCHA and provide
+        further information, like <B
+CLASS="classname"
+>Image_Text</B
+>
+        parameters. 
+      </P
+></LI
+><LI
+><P
+>&#13;        <B
+CLASS="function"
+>_createCAPTCHA()</B
+> generates the CAPTCHA, but is called
+        internally by <B
+CLASS="function"
+>init()</B
+>.
+      </P
+><P
+>&#13;        <B
+CLASS="function"
+>getPhrase()</B
+> returns the CAPTCHA's phrase.
+      </P
+></LI
+><LI
+><P
+>&#13;        <B
+CLASS="function"
+>_createPhrase()</B
+> creates a phrase for the CAPTCHA,
+        but is used internally.
+      </P
+></LI
+><LI
+><P
+>&#13;        <B
+CLASS="function"
+>getCAPTCHA()</B
+> returns the CAPTCHA, the format used
+        depends on the driver implementation. 
+      </P
+></LI
+></UL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.text.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.text.text-highlighter.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Text</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.text.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Text_Highlighter</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

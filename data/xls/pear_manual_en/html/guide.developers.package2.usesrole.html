@@ -1,0 +1,274 @@
+<HTML
+><HEAD
+><TITLE
+>&#60;usesrole&#62;</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Detailed Tag Reference for package.xml version 2.0"
+HREF="guide.developers.package2.tags.html"><LINK
+REL="PREVIOUS"
+TITLE="<dependencies>"
+HREF="guide.developers.package2.dependencies.html"><LINK
+REL="NEXT"
+TITLE="<usestask>"
+HREF="guide.developers.package2.usestask.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="guide.developers.package2.dependencies.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="guide.developers.package2.usestask.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="guide.developers.package2.usesrole">&#60;usesrole&#62;</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN2751"
+></A
+>&#60;usesrole&#62;&nbsp;--&nbsp;documenting custom file roles used in &#60;contents&#62;</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="guide.developers.package2.usesrole.purpose"
+></A
+><H2
+>Documenting custom file roles</H2
+><P
+>&#13;   Standard file roles provided by default with PEAR are:
+  </P
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      php
+     </P
+></LI
+><LI
+><P
+>&#13;      data
+     </P
+></LI
+><LI
+><P
+>&#13;      doc
+     </P
+></LI
+><LI
+><P
+>&#13;      test
+     </P
+></LI
+><LI
+><P
+>&#13;      script
+     </P
+></LI
+><LI
+><P
+>&#13;      src
+     </P
+></LI
+><LI
+><P
+>&#13;      ext
+     </P
+></LI
+></UL
+>
+  </P
+><P
+>&#13;   If your package chooses to use a role provided by a third party that implements some
+   more advanced file installation handling, all you need to do is specify the role in
+   the xml for the &#60;file&#62; tag that contains it like so:
+  </P
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;file role="foo"/&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><P
+>&#13;   However, if a user does not have the package installed that provides the custom role
+   "foo", then the error message on installation will simply say "unknown
+   role 'foo'", which is not very helpful.
+  </P
+><P
+>&#13;   The &#60;usesrole&#62; tag instead prompts the installer to tell the user "this package
+   uses the custom role 'foo', install package pear.example.com/Foo to use"
+  </P
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;usesrole&#62;
+ &#60;role&#62;foo&#60;/role&#62;
+ &#60;package&#62;Foo&#60;/package&#62;
+ &#60;channel&#62;pear.example.com&#60;/channel&#62;
+&#60;/usesrole&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><P
+>&#13;   Note that static URI packages (channel-less packages) are also supported:
+  </P
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;usesrole&#62;
+ &#60;role&#62;foo&#60;/role&#62;
+ &#60;uri&#62;http://pear.example.com/Foo-1.2.0&#60;/uri&#62;
+&#60;/usesrole&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.dependencies.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.usestask.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&#60;dependencies&#62;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.tags.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>&#60;usestask&#62;</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,489 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction and Quick Start</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Services_Technorati"
+HREF="package.webservices.services-technorati.html"><LINK
+REL="PREVIOUS"
+TITLE="Services_Technorati"
+HREF="package.webservices.services-technorati.html"><LINK
+REL="NEXT"
+TITLE="Services_Yahoo"
+HREF="package.webservices.services-yahoo.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.webservices.services-technorati.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.webservices.services-yahoo.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.webservices.services_technorati.intro">Introduction and Quick Start</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN100985"
+></A
+>Introduction and Quick Start&nbsp;--&nbsp;Overview of Services_Technorati</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.services_technorati.intro.desc"
+></A
+><H2
+>Description</H2
+><P
+>Technorati is a blog search engine. By indexing blogs and exploring links between them, they provide tools for monitoring online conversations taking place on and between blogs. By far the richest source of this information is through their REST-based API, to which this module provides an OO PHP interface. Full documentation for Technorati's API is available on their <A
+HREF="http://developers.technorati.com/wiki/TechnoratiApi"
+TARGET="_top"
+>developers' wiki</A
+>. To use the API you will need an <A
+HREF="http://technorati.com/developers/apikey.html"
+TARGET="_top"
+>API key</A
+>.
+</P
+><P
+>&#13;To protect against future changes to the underlying API it is accessed using a factory method:
+
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$tapi =&#38; Services_Technorati::factory($api_key);</PRE
+></TD
+></TR
+></TABLE
+>
+</P
+><P
+>The Technorati API limits you to 500 queries per day so those wishing to use it in a high-demand environment will want to employ some caching. Services_Technorati provides support for any caching system with a Cache_Lite-like API. To use a cache, you will need to create it and then pass it to the class in the factory:
+
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$tapi =&#38; Services_Technorati::factory($api_key, $cache_object);</PRE
+></TD
+></TR
+></TABLE
+>
+</P
+><P
+>&#13;Once you have instantiated the object you can start passing in queries. Each call takes the form of methodName(keyParameter, options) where options is an array.
+
+<DIV
+CLASS="table"
+><A
+NAME="AEN100998"><P
+><B
+>Table 60-1. Query types and their options</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Query Name</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Key Parameter</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Permitted Options</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>cosmos</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>url</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>type, limit, start, current, claim, highlight</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>search</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>query keywords</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>start, limit, claim</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>outbound</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>url</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>start</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>tag</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>tag</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>limit, start, format, excerptsize, topexcerptsize</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>topTags</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>-</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>limit, start</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>blogPostTags</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>url</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>limit</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>getInfo</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>username</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>-</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>blogInfo</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>url</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>-</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+
+(NB. Support for Technorati's attention.XML services is also included in accordance with the spec, but those services are currently in a state of flux so cannot be relied upon.)
+</P
+><P
+>&#13;The value returned from each query will be either an array representing the unserialized XML or a PEAR Error.
+</P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN101040"><P
+><B
+>Example 60-1. 
+    An example return from the blogInfo query (for 'jystewart') is:
+   </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>Array
+(
+    [version] =&#62; 1.0
+    [document] =&#62; Array
+        (
+            [result] =&#62; Array
+                (
+                    [username] =&#62; jystewart
+                    [firstname] =&#62; James
+                    [lastname] =&#62; Stewart
+                )
+
+            [item] =&#62; Array
+                (
+                    [0] =&#62; Array
+                        (
+                            [weblog] =&#62; Array
+                                (
+                                    [name] =&#62; little more than a placeholder
+                                    [url] =&#62; http://james.anthropiccollective.org
+                                    [rssurl] =&#62; http://james.anthropiccollective.org/index.rdf
+                                    [atomurl] =&#62; http://james.anthropiccollective.org/atom.xml
+                                    [inboundblogs] =&#62; 52
+                                    [inboundlinks] =&#62; 82
+                                    [lastupdate] =&#62; 2005-08-27 09:01:42 GMT
+                                    [rank] =&#62; 7483
+                                    [lat] =&#62; 0
+                                    [lon] =&#62; 0
+                                    [lang] =&#62; 26110
+                                    [foafurl] =&#62; http://jystewart.net/foaf.rdf
+                                )
+
+                        )
+
+                    [1] =&#62; Array
+                        (
+                            [weblog] =&#62; Array
+                                (
+                                    [name] =&#62; something approaching a photo album
+                                    [url] =&#62; http://approach.anthropiccollective.org
+                                    [rssurl] =&#62; 
+                                    [atomurl] =&#62; 
+                                    [inboundblogs] =&#62; 1
+                                    [inboundlinks] =&#62; 1
+                                    [lastupdate] =&#62; 2004-08-13 17:40:02 GMT
+                                    [rank] =&#62; 240760
+                                    [lat] =&#62; 0
+                                    [lon] =&#62; 0
+                                    [lang] =&#62; 0
+                                )
+
+                        )
+
+                    [2] =&#62; Array
+                        (
+                            [weblog] =&#62; Array
+                                (
+                                    [name] =&#62; grwifi.net : wireless internet (wifi) in grand rapids, michigan
+                                    [url] =&#62; http://grwifi.net
+                                    [rssurl] =&#62; 
+                                    [atomurl] =&#62; http://grwifi.net/atom/
+                                    [inboundblogs] =&#62; 9
+                                    [inboundlinks] =&#62; 11
+                                    [lastupdate] =&#62; 2005-04-15 19:44:46 GMT
+                                    [rank] =&#62; 50688
+                                    [lat] =&#62; 0
+                                    [lon] =&#62; 0
+                                    [lang] =&#62; 26110
+                                )
+
+                        )
+
+                    [3] =&#62; Array
+                        (
+                            [weblog] =&#62; Array
+                                (
+                                    [name] =&#62; a work on process
+                                    [url] =&#62; http://jystewart.net/process
+                                    [rssurl] =&#62; http://jystewart.net/process/feed/
+                                    [atomurl] =&#62; http://jystewart.net/process/feed/atom/
+                                    [inboundblogs] =&#62; 3
+                                    [inboundlinks] =&#62; 3
+                                    [lastupdate] =&#62; 2005-08-31 20:44:38 GMT
+                                    [rank] =&#62; 132735
+                                    [lat] =&#62; 0
+                                    [lon] =&#62; 0
+                                    [lang] =&#62; 26110
+                                    [foafurl] =&#62; http://jystewart.net/foaf.rdf
+                                )
+                        )
+                )
+        )
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;Full details of the XML returned by Technorati is included on the <A
+HREF="http://developers.technorati.com/wiki/TechnoratiApi"
+TARGET="_top"
+>developers' wiki</A
+>
+</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.webservices.services-technorati.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.webservices.services-yahoo.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Services_Technorati</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.webservices.services-technorati.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Services_Yahoo</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

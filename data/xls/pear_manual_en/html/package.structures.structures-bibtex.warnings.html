@@ -1,0 +1,422 @@
+<HTML
+><HEAD
+><TITLE
+>Warnings</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Structures_BibTex"
+HREF="package.structures.structures-bibtex.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.structures.structures-bibtex.intro.html"><LINK
+REL="NEXT"
+TITLE="Exporting"
+HREF="package.structures.structures-bibtex.exporting.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-bibtex.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-bibtex.exporting.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.structures.structures-bibtex.warnings">Warnings</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN93467"
+></A
+>Warnings&nbsp;--&nbsp;
+   Usage of warnings when using <B
+CLASS="classname"
+>Structures_BibTex</B
+>
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-bibtex.warnings.overview"
+></A
+><H2
+>Overview</H2
+><P
+>&#13;   The class <B
+CLASS="classname"
+>Structures_BibTex</B
+> introduces a system to collect warnings that may happen during parsing.
+   Warnings are things in the BibTex source which are not correct but do not cause the parser to fail.
+One example would be a double cite entry.
+   These warnings should help to improve the quality of your BibTex code.
+   Whether warnings are generated or not is controlled by the option validate.
+   Per default warnings are generated.
+   If you want to not generate warnings you should use the <B
+CLASS="function"
+>setOption()</B
+> method like this.
+   <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN93476"><P
+><B
+>Example 55-1. Switching off creation of warnings</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Structures/BibTex.php';
+$bibtex = new Structures_BibTex();
+$bibtex-&#62;setOption('validate', false);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-bibtex.warnings.usage"
+></A
+><H2
+>Usage</H2
+><P
+>&#13;   The warnings are stored in an array called warnings which is public accessible.
+   To check is a warning exists you can use the method <B
+CLASS="function"
+>hasWarning()</B
+>.
+   This method returns true if there are warnings and false otherwise.
+   <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN93483"><P
+><B
+>Example 55-2. Checking for warnings</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Structures/BibTex.php';
+$bibtex = new Structures_BibTex();
+$ret    = $bibtex-&#62;loadFile('foo.bib');
+if (PEAR::isError($ret)) {
+    die($ret-&#62;getMessage());
+}
+$bibtex-&#62;parse();
+if ($bibtex-&#62;hasWarning()) {
+    print 'There are warnings!&#60;br /&#62;';
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   Every warning itself is hash table with the following keys:
+   <P
+></P
+><UL
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>warning</I
+></TT
+> - Type of the warning
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>entry</I
+></TT
+> - The line that caused the warning
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>wholeentry</I
+></TT
+> - The whole entry in which the warning occurred
+     </P
+></LI
+></UL
+>
+   To print every warning with type and line that caused the warning you could do something like this:
+   <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN93496"><P
+><B
+>Example 55-3. Checking for warnings</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Structures/BibTex.php';
+$bibtex = new Structures_BibTex();
+$ret    = $bibtex-&#62;loadFile('foo.bib');
+if (PEAR::isError($ret)) {
+    die($ret-&#62;getMessage());
+}
+$bibtex-&#62;parse();
+if ($bibtex-&#62;hasWarning()) {
+    foreach ($bibtex-&#62;warnings as $warning) {
+        echo 'Warning: '.$warning['warning'].'&#60;br /&#62;';
+        echo 'Line: '.$warning['entry'].'&#60;hr /&#62;';
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   Finally if you want to clear all warnings you can use the method <B
+CLASS="function"
+>clearWarnings()</B
+>.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-bibtex.warnings.wanringtypes"
+></A
+><H2
+>Types of Warnings</H2
+><P
+>&#13;   The following Warnings are known: 
+   <P
+></P
+><UL
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>WARNING_AT_IN_BRACES</I
+></TT
+> - A Value is delimited by Braces. Then inside a @ is not allowed.
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>WARNING_ESCAPED_DOUBLE_QUOTE_INSIDE_DOUBLE_QUOTES</I
+></TT
+> - A Value is delimited by double quotes. Then inside no escaped double quote is allowed.
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>WARNING_UNBALANCED_AMOUNT_OF_BRACES</I
+></TT
+> - The amount of braces inside a value is not equal (opening and closing). The parses fails if in the complete entry this amount is not correct. But if only on an entry it is not correct then this is only a warning. As a matter of fact of the parser does not fail but there is an unbalanced amount of braces in an entry this warning has to be generated something times two.
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>WARNING_MULTIPLE_ENTRIES</I
+></TT
+> - Every entry is identified by a unique string. This warning is created if there are at least two entries with the same identification.
+     </P
+></LI
+><LI
+><P
+>&#13;            <TT
+CLASS="parameter"
+><I
+>WARNING_LINE_WAS_NOT_CONVERTED</I
+></TT
+> - This warning is created if during exporting (for example in RTF or HTML) one entry was ignored because of no matching data in the entry. At least one of the following entries have to exist in the entry to get converted: title, journal, year or authors.
+        </P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.structures.structures-bibtex.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.structures.structures-bibtex.exporting.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.structures.structures-bibtex.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Exporting</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

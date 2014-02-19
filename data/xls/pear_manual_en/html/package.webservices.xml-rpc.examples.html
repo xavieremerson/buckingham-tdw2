@@ -1,0 +1,422 @@
+<HTML
+><HEAD
+><TITLE
+>Examples</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_RPC"
+HREF="package.webservices.xml-rpc.html"><LINK
+REL="PREVIOUS"
+TITLE="Support"
+HREF="package.webservices.xml-rpc.support.html"><LINK
+REL="NEXT"
+TITLE="API"
+HREF="package.webservices.xml-rpc.api.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.webservices.xml-rpc.support.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.webservices.xml-rpc.api.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.webservices.xml-rpc.examples">Examples</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN101274"
+></A
+>Examples&nbsp;--&nbsp;Usage examples for the XML_RPC package</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc.examples.latest"
+></A
+><H2
+>&#13;   Using a Client to Get Info About the Latest PEAR Release
+  </H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN101279"><P
+><B
+>Example 60-1. </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'XML/RPC.php';
+
+/*
+ * Get info about the most recently released PEAR package
+ */
+$params = array(new XML_RPC_Value(1, 'int'));
+$msg = new XML_RPC_Message('release.getRecent', $params);
+
+$cli = new XML_RPC_Client('/xmlrpc.php', 'pear.php.net');
+
+// If you want to turn debugging on...
+// $cli-&#62;setDebug(1);
+
+// If your payload requires extra lines to stay in tact...
+// NOTE: The $remove_extra_lines property was added in Version 1.4.6.
+// $cli-&#62;remove_extra_lines = false;
+
+// If inspect the XML request sent to the server...
+// $msg-&#62;createPayload();
+// logit($msg-&#62;payload);  // Hypothetical function.
+
+$resp = $cli-&#62;send($msg);
+
+if (!$resp) {
+    echo 'Communication error: ' . $cli-&#62;errstr;
+    exit;
+}
+
+if (!$resp-&#62;faultCode()) {
+    $val = $resp-&#62;value();
+    $data = XML_RPC_decode($val);
+    echo $data[0]['name'] . ' is at version ' . $data[0]['version'];
+} else {
+    /*
+     * Display problems that have been gracefully cought and
+     * reported by the xmlrpc.php script
+     */
+    echo 'Fault Code: ' . $resp-&#62;faultCode() . "\n";
+    echo 'Fault Reason: ' . $resp-&#62;faultString() . "\n";
+}
+
+// To inspect the XML response from the server...
+// NOTE: The $response_payload property was added in Version 1.4.6.
+// logit($msg-&#62;response_payload);  // Hypothetical function.</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc.examples.complete"
+></A
+><H2
+>A Complete Client and Server Combination</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN101284"><P
+><B
+>Example 60-2. </B
+></P
+><P
+>&#13;    Here is the server script.  It's named xmlrpc.php and located
+    in the document root of the web server at localhost:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'XML/RPC/Server.php';
+
+/*
+ * Declare the functions, etc.
+ */
+function returnTimes2($params) {
+    $obj = new some_class_name;
+    return $obj-&#62;returnTimes2($params);
+}
+
+class some_class_name {
+    function returnTimes2($params) {
+        $param = $params-&#62;getParam(0);
+
+        // This error checking syntax was added in Release 1.3.0
+        if (!XML_RPC_Value::isValue($param)) {
+            return $param;
+        }
+
+        $val = new XML_RPC_Value($param-&#62;scalarval() * 2, 'int'); 
+        return new XML_RPC_Response($val);
+    }
+}
+
+$some_object = new some_class_name;
+
+
+/*
+ * Establish the dispatch map and XML_RPC server instance.
+ */
+$server = new XML_RPC_Server(
+    array(
+        'function_times2' =&#62; array(
+            'function' =&#62; 'returnTimes2'
+        ),
+        'class_paamayim_nekudotayim_times2' =&#62; array(
+            'function' =&#62; 'some_class_name::returnTimes2'
+        ),
+        'class_times2' =&#62; array(
+            'function' =&#62; array('some_class_name', 'returnTimes2')
+        ),
+        'object_times2' =&#62; array(
+            'function' =&#62; array($some_object, 'returnTimes2')
+        ),
+    ),
+    1  // serviceNow
+);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    And here is the client script:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'XML/RPC.php';
+
+$input = 8;
+$params = array(new XML_RPC_Value($input, 'int'));
+$msg = new XML_RPC_Message('function_times2', $params);
+
+$cli = new XML_RPC_Client('/xmlrpc.php', 'localhost');
+// $cli-&#62;setDebug(1);
+$resp = $cli-&#62;send($msg);
+
+if (!$resp) {
+    echo 'Communication error: ' . $cli-&#62;errstr;
+    exit;
+}
+
+if (!$resp-&#62;faultCode()) {
+    $val = $resp-&#62;value();
+    echo $input . ' times 2 is ' . $val-&#62;scalarval();
+} else {
+    /*
+     * Display problems that have been gracefully cought and
+     * reported by the xmlrpc.php script.
+     */
+    echo 'Fault Code: ' . $resp-&#62;faultCode() . "\n";
+    echo 'Fault Reason: ' . $resp-&#62;faultString() . "\n";
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc.examples.encode"
+></A
+><H2
+>Automatically encoding data</H2
+><P
+>&#13;   The <B
+CLASS="function"
+>XML_RPC_encode()</B
+> function automatically converts
+   PHP data into the format needed by the XML_RPC library.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN101294"><P
+><B
+>Example 60-3. </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'XML/RPC.php';
+
+$data = fetch_row_from_db();  //  Hypothetical example.
+
+$params = array(XML_RPC_encode($data));
+$msg = new XML_RPC_Message('some_function_name', $params);
+
+$cli = new XML_RPC_Client('/xmlrpc.php', 'pear.php.net');
+$resp = $cli-&#62;send($msg);
+
+// Process the same way as the other examples...</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.webservices.xml-rpc.support.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.webservices.xml-rpc.api.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Support</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.webservices.xml-rpc.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>API</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

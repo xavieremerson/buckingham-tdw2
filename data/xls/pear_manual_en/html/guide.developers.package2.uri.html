@@ -1,0 +1,183 @@
+<HTML
+><HEAD
+><TITLE
+>&#60;uri&#62;</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Detailed Tag Reference for package.xml version 2.0"
+HREF="guide.developers.package2.tags.html"><LINK
+REL="PREVIOUS"
+TITLE="<channel>"
+HREF="guide.developers.package2.channel.html"><LINK
+REL="NEXT"
+TITLE="<lead>, <developer>, <contributor>, and <helper>"
+HREF="guide.developers.package2.developers.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="guide.developers.package2.channel.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="guide.developers.package2.developers.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="guide.developers.package2.uri">&#60;uri&#62;</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN2358"
+></A
+>&#60;uri&#62;&nbsp;--&nbsp;When should I use &#60;uri&#62;?</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="guide.developers.package2.uri.intro"
+></A
+><H2
+>When to use &#60;uri&#62; instead of &#60;channel&#62;</H2
+><P
+>&#13;   If you do not have a channel server and wish to serve your packages so that others
+   can depend on them, use &#60;uri&#62;.  This should contain a static uri that links
+   to a single package version's downloadable .tgz
+  </P
+><P
+>&#13;   If you do not need to allow external remote dependencies, then simply use the pear.php.net
+   channel as your package's channel.
+  </P
+><P
+>&#13;   For instance, if you wish to serve package Foo version 1.1.0 from www.example.com, use the
+   uri "http://www.example.com/Foo-1.1.0".  Note that the uri must contain the
+   full path MINUS THE EXTENSION.  Provide both Foo-1.1.0.tgz and Foo-1.1.0.tar for users without
+   gzip.
+  </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN2366"
+></A
+><H3
+>See also:</H3
+><P
+>&#13;   <A
+HREF="guide.developers.package2.channel.html"
+>&#60;channel&#62;</A
+>
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.channel.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.developers.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&#60;channel&#62;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.tags.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>&#60;lead&#62;, &#60;developer&#62;, &#60;contributor&#62;, and &#60;helper&#62;</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

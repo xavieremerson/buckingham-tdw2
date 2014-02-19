@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<Title>Donut Width</Title>
+<link type='text/css' rel='Stylesheet' href="maxchartapi.css" />
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 5.0 (PHP Edition)</p>
+<p class="heading1">Donut Width</p>
+<hr class="separator">
+<div class="content">
+<img src="images/donutwidth0.png">&nbsp;&nbsp;<img src="images/donutwidth1.png">&nbsp;&nbsp;<img src="images/donutwidth2.png">&nbsp;&nbsp;<img src="images/donutwidth3.png">&nbsp;&nbsp;<img src="images/donutwidth4.png">
+<br><br>
+This example demonstrates the effects of different donut widths.<br><br>
+Donut widths are configured by using different inner and outer radii when calling <a href="PieChart.setDonutSize.htm">PieChart.setDonutSize</a>.
+</div>
+<p class="heading1a">Source Code Listing</p>
+<div class="content">
+<b>[File: phpdemo/donutwidth.php]</b>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc"><pre>&lt;?php
+require_once("../lib/phpchartdir.php");
+
+# Determine the donut inner radius (as percentage of outer radius) based on input
+# parameter
+$donutRadius = (int)($_REQUEST["img"]) * 25;
+
+# The data for the pie chart
+$data = array(10, 10, 10, 10, 10);
+
+# The labels for the pie chart
+$labels = array("Marble", "Wood", "Granite", "Plastic", "Metal");
+
+# Create a PieChart object of size 150 x 120 pixels, with a grey (EEEEEE) background,
+# black border and 1 pixel 3D border effect
+$c = new PieChart(150, 120, 0xeeeeee, 0x000000, 1);
+
+# Set donut center at (75, 65) and the outer radius to 50 pixels. Inner radius is
+# computed according donutWidth
+$c-&gt;setDonutSize(75, 60, 50, (int)(50 * $donutRadius / 100));
+
+# Add a title to show the donut width
+$textBoxObj = $c-&gt;addTitle("Inner Radius = $donutRadius %", "Arial", 10);
+$textBoxObj-&gt;setBackground(0xcccccc, 0);
+
+# Draw the pie in 3D
+$c-&gt;set3D(12);
+
+# Set the pie data and the pie labels
+$c-&gt;setData($data, $labels);
+
+# Disable the sector labels by setting the color to Transparent
+$c-&gt;setLabelStyle("", 8, Transparent);
+
+# Output the chart
+header("Content-type: image/png");
+print($c-&gt;makeChart2(PNG));
+?&gt;</pre></tr></td></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2008 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

@@ -1,0 +1,340 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_Template_Flexy</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML"
+HREF="package.html.html"><LINK
+REL="PREVIOUS"
+TITLE="HTML_Table::updateRowAttributes"
+HREF="package.html.html-table.html-table.updaterowattributes.html"><LINK
+REL="NEXT"
+TITLE="Introduction"
+HREF="package.html.html-template-flexy.intro.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-table.html-table.updaterowattributes.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 41. HTML</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.html.html-template-flexy">HTML_Template_Flexy</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.html.html-template-flexy.intro.html"
+>Introduction</A
+>&nbsp;--&nbsp;
+        What HTML_Template_Flexy can do
+      </DT
+><DT
+><A
+HREF="package.html.html-template-flexy.configuration.html"
+>Configuration Options</A
+>&nbsp;--&nbsp;
+       Setting the defaults for HTML_Template_Flexy
+      </DT
+><DT
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.html-template-flexy.html"
+>new HTML_Template_Flexy</A
+>&nbsp;--&nbsp;constructor</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.compile.html"
+>$flexy-&#62;compile()</A
+>&nbsp;--&nbsp;Converts a template from markup to PHP if required</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.outputobject.html"
+>$flexy-&#62;outputObject()</A
+>&nbsp;--&nbsp;Merges a controller object with the template and outputs the result</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.bufferedoutputobject.html"
+>$flexy-&#62;bufferedOutputObject()</A
+>&nbsp;--&nbsp;Merges a controller object with the template and returns the result</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.getelements.html"
+>$flexy-&#62;getElements()</A
+>&nbsp;--&nbsp;Fetch Dynamic HTML Elements from template </DT
+><DT
+><A
+HREF="package.html.html-template-flexy.element.html-template-flexy-element.html"
+>new  HTML_Template_Flexy_Element</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.element.setvalue.html"
+>$element-&#62;setValue()</A
+>&nbsp;--&nbsp;Utility function to set or store values from common tag types.</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.element.setoptions.html"
+>$element-&#62;setOptions()</A
+>&nbsp;--&nbsp;Utility function equivilant to HTML_Select - loadArray **</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.element.removeattributes.html"
+>$element-&#62;removeAttributes()</A
+>&nbsp;--&nbsp;Removes an attributes</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.element.setattributes.html"
+>$element-&#62;setAttributes()</A
+>&nbsp;--&nbsp;Sets the HTML attributes</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.element.tohtml.html"
+>$element-&#62;toHtml</A
+>&nbsp;--&nbsp;Output HTML and children</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.element.tohtmlnoclose.html"
+>$element-&#62;toHtmlnoClose()</A
+>&nbsp;--&nbsp;Output Open Tag and any children and not Child tag (designed for use with &#60;form + hidden elements&#62;</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.factory.freeze.html"
+>$factory-&#62;freeze()</A
+>&nbsp;--&nbsp;freeze - freeze's an element. - just copies the value to the override.</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.factory.fromarray.html"
+>$factory-&#62;fromArray()</A
+>&nbsp;--&nbsp;fromArray - builds a set of elements from a key=&#62;value array (eg. DO-&#62;toArray())  the second parameter is an optional HTML_Element array to merge it into.</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.factory.fromarrayprefixed.html"
+>$factory-&#62;fromArrayPrefixed()</A
+>&nbsp;--&nbsp;fromArrayPrefixed - takes a multi dimensional array, and builds the 'xxx[sss][xx]' =&#62; value</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.factory.seterrors.html"
+>$factory-&#62;setErrors()</A
+>&nbsp;--&nbsp;setErrors - sets the suffix of an element to a value..</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.factory.setrequired.html"
+>$factory-&#62;setRequired()</A
+>&nbsp;--&nbsp;setRequired - sets the prefix of an element to a value..</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.tag.variable.html"
+>{variable}</A
+>&nbsp;--&nbsp;creates PHP code to echo a variable</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.tag.method.html"
+>{method(arguments,#quoted arguments#)}</A
+>&nbsp;--&nbsp;creates a PHP method call, and echos the results</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.tag.foreach.html"
+>{foreach:variable,key,value}</A
+>&nbsp;--&nbsp;creates a PHP foreach loop</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.tag.if.html"
+>{if:variable}</A
+>&nbsp;--&nbsp;creates a PHP if statement</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.tag.end.html"
+>{end:}</A
+>&nbsp;--&nbsp;closes an if or foreach block</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.tag.else.html"
+>{else:}</A
+>&nbsp;--&nbsp;adds an PHP else in an if block</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.tag.form.html"
+>&#60;FORM NAME="name"</A
+>&nbsp;--&nbsp;configures automatic form elements</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.attribute.input.html"
+>&#60;INPUT NAME="name"&#62;</A
+>&nbsp;--&nbsp;creates PHP variable for input values</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.attribute.textarea.html"
+>&#60;TEXTAREA NAME="name"&#62;</A
+>&nbsp;--&nbsp;creates PHP variable for textarea value</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.attribute.select.html"
+>&#60;SELECT NAME="name"&#62;</A
+>&nbsp;--&nbsp;creates PHP variable and code for select lists</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.attribute.if.html"
+>flexy:if="variable or method()"</A
+>&nbsp;--&nbsp;creates a PHP if conditional tag</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.attribute.foreach.html"
+>flexy:foreach="variable,key,value"</A
+>&nbsp;--&nbsp;creates a PHP foreach loop using a html attribute</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.attribute.flexystart.html"
+>flexy:start="here"</A
+>&nbsp;--&nbsp;Start the output, using this tag and it's children.</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.attribute.flexystartchildren.html"
+>flexy:startchildren="here"</A
+>&nbsp;--&nbsp;Start the output using it's children.</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.attribute.flexyignore.html"
+>flexy:ignore="yes"</A
+>&nbsp;--&nbsp;Prevent Automatic form value replacement</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.attribute.nameuses.html"
+>flexy:nameuses="variable"</A
+>&nbsp;--&nbsp;Use a variable in the name for a flexy form element</DT
+><DT
+><A
+HREF="package.html.html-template-flexy.attribute.tojavascript.html"
+>&#60;FLEXY:TOJAVASCRIPT JSVAR="PHPVAR"&#62; ...</A
+>&nbsp;--&nbsp;Provides a simple way to pass data from PHP to Javascript</DT
+></DL
+></DIV
+><P
+>&#13;  An extremely flexible Template core, with multiple engines. 
+ </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-table.html-table.updaterowattributes.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_Table::updateRowAttributes</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,386 @@
+<HTML
+><HEAD
+><TITLE
+>flexy:nameuses="variable"</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_Flexy"
+HREF="package.html.html-template-flexy.html"><LINK
+REL="PREVIOUS"
+TITLE='flexy:ignore="yes"'
+HREF="package.html.html-template-flexy.attribute.flexyignore.html"><LINK
+REL="NEXT"
+TITLE='<FLEXY:TOJAVASCRIPT JSVAR="PHPVAR"> ...'
+HREF="package.html.html-template-flexy.attribute.tojavascript.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.attribute.flexyignore.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.attribute.tojavascript.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-flexy.attribute.nameuses">flexy:nameuses="variable"</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN69864"
+></A
+>flexy:nameuses="variable"&nbsp;--&nbsp;Use a variable in the name for a flexy form element</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN69867"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN69868"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     <B
+CLASS="function"
+>Usage</B
+></CODE
+> (flexy:nameuses="variable" name="sometag[%s]")</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.attribute.nameuses.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     If you have a form with multiple input boxes (eg. group members), which are dynamically generated,
+     then this attribute can be used to generate flexy elements based on sprintf'ing the variable value 
+     into the name attribute value.
+     
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.attribute.nameuses.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69879"><P
+><B
+>Example 41-1. Template with flexy:ignore</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>&#60;html&#62;
+  &#60;head&#62;
+    &#60;title&#62;Example of name Uses&#60;/title&#62;
+  &#60;/head&#62;
+  &#60;body&#62;
+    &#60;form name="formtest"&#62;
+      &#60;span flexy:foreach="data,key,row"&#62;
+        {key}: &#60;input name="data%s" flexy:nameuses="key" type="hidden" size="10"&#62;&#60;br&#62;
+      &#60;/span&#62;
+    &#60;/form&#62;
+  &#60;/body&#62;
+&#60;/html&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69882"><P
+><B
+>Example 41-2. Backend Code Snippet</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+$this-&#62;data = array();
+$elem = array();
+$elem['formtest'] = &#38;new HTML_Template_Flexy_Element();
+$elem['formtest']-&#62;attributes['method'] = 'post';
+$elem['formtest']-&#62;attributes['action'] = 'test';  
+
+for($i = 0; $i &#60; 10; $i++) {
+        $this-&#62;data[$i] = $i;
+       
+        $elem["data$i"] = new HTML_Template_Flexy_Element();
+        $elem["data$i"]-&#62;attributes['type'] = 'text';
+        $elem["data$i"]-&#62;attributes['size'] = $i;
+
+}
+$flexy-&#62;outputObject($this, $elem);
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69885"><P
+><B
+>Example 41-3. Compiled template</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;html&#62;
+  &#60;head&#62;
+    &#60;title&#62;Example of name Uses&#60;/title&#62;
+  &#60;/head&#62;
+  &#60;body&#62;
+    &#60;?php echo $this-&#62;elements['formtest']-&#62;toHtmlnoClose();?&#62;
+&#60;?php if ($this-&#62;options['strict'] || (is_array($t-&#62;data)  || is_object($t-&#62;data)))
+foreach($t-&#62;data as $key =&#62; $row) {?&#62;
+      &#60;?php echo htmlspecialchars($key);?&#62;: &#60;?php if (!isset($this-&#62;elements[sprintf('data%s',$key)])) $this-&#62;elements[sprintf('data%s',$key)]= $this-&#62;elements['data%s'];
+                $this-&#62;elements[sprintf('data%s',$key)] = $this-&#62;mergeElement($this-&#62;elements['data%s'],$this-&#62;elements[sprintf('data%s',$key)]);
+                $this-&#62;elements[sprintf('data%s',$key)]-&#62;attributes['name'] = sprintf('data%s',$key);
+                echo $this-&#62;elements[sprintf('data%s',$key)]-&#62;toHtml();?&#62;&#60;br&#62;
+&#60;?php }?&#62;
+    &#60;/form&#62;
+  &#60;/body&#62;
+&#60;/html&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69888"><P
+><B
+>Example 41-4. Resulting Output</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>&#60;html&#62;
+  &#60;head&#62;
+    &#60;title&#62;test for PEAR bug#4683&#60;/title&#62;
+    &#60;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&#62;
+  &#60;/head&#62;
+  &#60;body&#62;
+    &#60;form name="formtest" method="post" action="test"&#62;      
+      0: &#60;input name="data0" type="text" size="0"&#62;&#60;br&#62;
+      1: &#60;input name="data1" type="text" size="1"&#62;&#60;br&#62;
+      2: &#60;input name="data2" type="text" size="2"&#62;&#60;br&#62;
+      3: &#60;input name="data3" type="text" size="3"&#62;&#60;br&#62;
+      4: &#60;input name="data4" type="text" size="4"&#62;&#60;br&#62;
+      5: &#60;input name="data5" type="text" size="5"&#62;&#60;br&#62;
+      6: &#60;input name="data6" type="text" size="6"&#62;&#60;br&#62;
+      7: &#60;input name="data7" type="text" size="7"&#62;&#60;br&#62;
+      8: &#60;input name="data8" type="text" size="8"&#62;&#60;br&#62;
+      9: &#60;input name="data9" type="text" size="9"&#62;&#60;br&#62;
+    &#60;/form&#62;
+  &#60;/body&#62;
+&#60;/html&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.attribute.flexyignore.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.attribute.tojavascript.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>flexy:ignore="yes"</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>&#60;FLEXY:TOJAVASCRIPT JSVAR="PHPVAR"&#62; ...</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

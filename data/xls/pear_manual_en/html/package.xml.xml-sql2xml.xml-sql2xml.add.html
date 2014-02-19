@@ -1,0 +1,340 @@
+<HTML
+><HEAD
+><TITLE
+>XML_sql2xml::add</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_sql2xml"
+HREF="package.xml.xml-sql2xml.html"><LINK
+REL="PREVIOUS"
+TITLE="XML_sql2xml::XML_sql2xml"
+HREF="package.xml.xml-sql2xml.xml-sql2xml.xml-sql2xml.html"><LINK
+REL="NEXT"
+TITLE="XML_sql2xml::addXmlFile"
+HREF="package.xml.xml-sql2xml.xml-sql2xml.addxmlfile.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.xml-sql2xml.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.addxmlfile.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.xml.xml-sql2xml.xml-sql2xml.add">XML_sql2xml::add</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN104171"
+></A
+>XML_sql2xml::add&nbsp;--&nbsp;General method for adding new result sets</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN104174"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN104175"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once "XML/sql2xml.php";</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>XML_sql2xml::add</B
+></CODE
+> (string $resultset [, mixed $params = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-sql2xml.xml-sql2xml.add.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     General method for adding new result sets to the object.
+     Give a SQL statment, a PEAR::<A
+HREF="package.database.db.db-result.html"
+><B
+CLASS="classname"
+>DB_result</B
+></A
+> object or an array as 
+     input parameter and the method calls the appropriate method for this
+     input.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-sql2xml.xml-sql2xml.add.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $resultset</I
+></TT
+> -
+        SQL statment, an <A
+HREF="package.database.db.db-result.html"
+><B
+CLASS="classname"
+>DB_result</B
+></A
+> object or an array
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>mixed $params</I
+></TT
+> -
+        parameters for the following functions
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-sql2xml.xml-sql2xml.add.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+></P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-sql2xml.xml-sql2xml.add.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;    	
+    	<A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.addresult.html"
+>XML_sql2xml::addResult()</A
+>,
+     
+    	<A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.addsql.html"
+>XML_sql2xml::addSql()</A
+>,
+     
+    	<A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.addarray.html"
+>XML_sql2xml::addArray()</A
+>,
+     
+    	<A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.addxmlfile.html"
+>XML_sql2xml::addXmlFile()</A
+>
+     
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-sql2xml.xml-sql2xml.add.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN104216"><P
+><B
+>Example 61-1. Using <B
+CLASS="function"
+>add()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$sql2xml-&#62;Add("select * from bands");</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.xml-sql2xml.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.addxmlfile.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>XML_sql2xml::XML_sql2xml</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.xml-sql2xml.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>XML_sql2xml::addXmlFile</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

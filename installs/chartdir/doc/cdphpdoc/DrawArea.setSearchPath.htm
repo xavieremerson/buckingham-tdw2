@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<Title>DrawArea.setSearchPath</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1"><a href="DrawArea.htm">DrawArea</a>.setSearchPath</p>
+<hr class="separator">
+<p class="heading2a">Usage</p>
+<div class="content">
+setSearchPath(path)
+</div>
+<p class="heading2">Description</p>
+<div class="content">
+Set the search path for loading image files.<br><br>
+By default, if a relative path name or just a file name is used for an image file, ChartDirector will load it relative to the "current directory".<br><br>
+For many applications, it is common to put all images in a dedicated "images" directory. The setSearchPath method can be used to inform ChartDirector to use that directory for loading image files.<br><br>
+Also, for applications running under Microsoft IIS, the "current directory" is in a non-intuitive location. It is the directory where IIS is installed (usually inside [system32]). To tell ChartDirector to load images relative to the "current URL directory", use:<br><br>
+<div style="margin-left:25">c.setSearchPath(Server.MapPath("."))</div><br> You may specify more than one directory to search for the image files by separating the directories with semi-colons.
+</div>
+<p class="heading2">Arguments</p>
+
+<div class="content">
+<table border="1" cellpadding="5" cellspacing="0" width="98%"> 
+<tr>
+<th width="19%">Argument</th><th width="19%">Default</th><th width="60%">Description</th>
+</tr>
+<tr>
+<td>path</td><td>(Mandatory)</td><td>A list of directories, separated by semi-colons, acting as the search path for loading image files.</td>
+</tr>
+</table>
+</div>
+
+<p class="heading2">Return Value</p>
+<div class="content">
+None
+</div>
+<br><hr class="separator">
+<div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

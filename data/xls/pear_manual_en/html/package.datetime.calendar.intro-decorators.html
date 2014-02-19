@@ -1,0 +1,752 @@
+<HTML
+><HEAD
+><TITLE
+>Calendar Decorators</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Calendar"
+HREF="package.datetime.calendar.html"><LINK
+REL="PREVIOUS"
+TITLE="Method Overview"
+HREF="package.datetime.calendar.intro-overview-methods.html"><LINK
+REL="NEXT"
+TITLE="FAQ"
+HREF="package.datetime.calendar.faq.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.datetime.calendar.intro-overview-methods.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.datetime.calendar.faq.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.datetime.calendar.intro-decorators">Calendar Decorators</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN32536"
+></A
+>Calendar Decorators&nbsp;--&nbsp;
+        What <B
+CLASS="classname"
+>Calendar_Decorator</B
+> is for
+      </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32540"
+></A
+><H2
+>Calendar Decorators</H2
+><P
+>&#13;        The <B
+CLASS="classname"
+>Calendar_Decorator</B
+> is provided to allow you
+        to attach functionality to existing Calendar objects without needing
+        to subclass them.
+        This helps in a number of situations, such as allowing results from,
+        say, a database query to be rendered in the calendar or to modify the
+        values returned from Calendar methods (perhaps converting a numeric month
+        into its textual name).
+       </P
+><P
+>&#13;        Some concrete decorators are provided with PEAR::<B
+CLASS="classname"
+>Calendar</B
+>,
+        to address what may be common problems you encounter in using the library.
+        These are not designed to suit everyone but instead focus on solving
+        a more narrow problem domain.
+        They will only be parsed by the PHP engine should you explicitly include them
+        in your code. An example of why decorators can be useful:
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Calendar/Day.php';
+require_once 'Calendar/Decorator.php';
+
+class WorkingDay extends Calendar_Decorator {
+    function WorkingDay(&#38; $Calendar) {
+        parent::Calendar_Decorator($Calendar);
+    }
+
+    // Overides the default fetch method of the calendar object
+    function fetch() {
+        if ($Hour = parent::fetch()) {
+
+            // Recursive fetch, return only hours between 8am and 6pm
+            if ($Hour-&#62;thisHour() &#60; 8 || $Hour-&#62;thisHour() &#62; 18) {
+                return $this-&#62;fetch();
+            } else {
+                return $Hour;
+            }
+        } else {
+            // Make sure to return FALSE when the real fetch returned nothing
+            // or you will get an infinite loop
+            return FALSE;
+        }
+    }
+}
+
+// Create a normal day and build the hours
+$Day = new Calendar_Day(date('Y'), date('n'), date('d'));
+$Day-&#62;build();
+
+// Create the decorator, passing it the normal day
+$WorkingDay = new WorkingDay($Day);
+
+// Only hours in a working day are displayed...
+while ($Hour = $WorkingDay-&#62;fetch()) {
+    echo $Hour-&#62;thisHour().'&#60;br /&#62;';
+}</PRE
+></TD
+></TR
+></TABLE
+>
+       </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32547"
+></A
+><H2
+>The base Calendar_Decorator</H2
+><P
+>&#13;        The base class <B
+CLASS="classname"
+>Calendar_Decorator</B
+> "mirrors" the
+        combined API of all the subclasses of <B
+CLASS="classname"
+>Calendar</B
+>.
+        It accepts a Calendar object to its constructor then "takes over"
+        the API allowing you to make calls through it rather than directly
+        to the original calendar object.
+        The <B
+CLASS="classname"
+>Calendar_Decorator</B
+> simply routes calls
+        through to the calendar object it is decorating and returns values
+        where appropriate.
+       </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32553"
+></A
+><H2
+>Decorators and Date Selection</H2
+><P
+>&#13;        One important use of decorators is to help "inject" data into the loop
+        which renders the calendar. This helps with fetching data from some sort
+        of "event" table in a database. When passing a selection array to any
+        <B
+CLASS="function"
+>build()</B
+> method, the selected date objects will replace
+        the default built objects, allowing you to get them back as inside the
+        <B
+CLASS="function"
+>fetch()</B
+> loop, using the <B
+CLASS="function"
+>isSelected()</B
+>
+        method.
+        You'll find an example of this in the PEAR::<B
+CLASS="classname"
+>Calendar</B
+>
+        download. It should always be possible to fetch the event data you need
+        with a single database query...
+       </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32560"
+></A
+><H2
+>The bundled Decorators</H2
+><P
+>&#13;        PEAR::<B
+CLASS="classname"
+>Calendar</B
+> already provides a few decorators:
+        <P
+></P
+><UL
+><LI
+><P
+><B
+CLASS="classname"
+>Calendar_Decorator_Textual</B
+></P
+><P
+>&#13;           Decorator to help with fetching textual representations of months and
+           days of the week. It has
+          </P
+></LI
+><LI
+><P
+><B
+CLASS="classname"
+>Calendar_Decorator_Uri</B
+></P
+><P
+>&#13;           Decorator to help with building HTML links for navigating the calendar.
+          </P
+></LI
+><LI
+><P
+><B
+CLASS="classname"
+>Calendar_Decorator_Weekday</B
+></P
+><P
+>&#13;           Decorator for fetching the day of the week.
+          </P
+></LI
+><LI
+><P
+><B
+CLASS="classname"
+>Calendar_Decorator_Wrapper</B
+></P
+><P
+>&#13;           Decorator to help with wrapping built children in another decorator.
+          </P
+></LI
+></UL
+>
+       </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32581"
+></A
+><H2
+>Calendar_Decorator_Textual example</H2
+><P
+>&#13;        This decorator defines a few methods that can be useful to handle
+        month and day names:
+        <P
+></P
+><UL
+><LI
+><P
+>monthNames(<TT
+CLASS="parameter"
+><I
+>$format</I
+></TT
+>='long')</P
+><P
+>&#13;           Returns an array with month names; the format of returned months
+           depends on the <TT
+CLASS="parameter"
+><I
+>format</I
+></TT
+> parameter
+           (one, two, short or long)
+          </P
+></LI
+><LI
+><P
+>weekdayNames(<TT
+CLASS="parameter"
+><I
+>$format</I
+></TT
+>='long')</P
+><P
+>&#13;           Returns an array with day names; the format of returned days
+           depends on the <TT
+CLASS="parameter"
+><I
+>format</I
+></TT
+> parameter
+           (one, two, short or long)
+          </P
+></LI
+><LI
+><P
+>prevMonthName(<TT
+CLASS="parameter"
+><I
+>$format</I
+></TT
+>='long')</P
+><P
+>&#13;           Returns textual representation of the previous month of the decorated
+           calendar object
+          </P
+></LI
+><LI
+><P
+>thisMonthName(<TT
+CLASS="parameter"
+><I
+>$format</I
+></TT
+>='long')</P
+><P
+>&#13;           Returns textual representation of the month of the decorated calendar object
+          </P
+></LI
+><LI
+><P
+>nextMonthName(<TT
+CLASS="parameter"
+><I
+>$format</I
+></TT
+>='long')</P
+><P
+>&#13;           Returns textual representation of the next month of the decorated
+           calendar object
+          </P
+></LI
+><LI
+><P
+>prevDayName(<TT
+CLASS="parameter"
+><I
+>$format</I
+></TT
+>='long')</P
+><P
+>&#13;           Returns textual representation of the previous day of the decorated
+           calendar object
+          </P
+></LI
+><LI
+><P
+>thisDayName(<TT
+CLASS="parameter"
+><I
+>$format</I
+></TT
+>='long')</P
+><P
+>&#13;           Returns textual representation of the day of the decorated
+           calendar object
+          </P
+></LI
+><LI
+><P
+>nextDayName(<TT
+CLASS="parameter"
+><I
+>$format</I
+></TT
+>='long')</P
+><P
+>&#13;           Returns textual representation of the next day of the decorated
+           calendar object
+          </P
+></LI
+><LI
+><P
+>orderedWeekdays(<TT
+CLASS="parameter"
+><I
+>$format</I
+></TT
+>='long')</P
+><P
+>&#13;           Returns the days of the week using the order defined in the decorated
+           calendar object. Only useful for <B
+CLASS="classname"
+>Calendar_Month_Weekdays</B
+>,
+           <B
+CLASS="classname"
+>Calendar_Month_Weeks</B
+> and <B
+CLASS="classname"
+>Calendar_Week</B
+>.
+           Otherwise the returned array will begin on Sunday.
+          </P
+></LI
+></UL
+>
+       </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32626"
+></A
+><H2
+>Calendar_Decorator_Uri example</H2
+><P
+>&#13;        Methods defined by this decorator:
+        <P
+></P
+><UL
+><LI
+><P
+>setFragments($y, $m=null, $d=null, $h=null, $i=null, $s=null)</P
+><P
+>&#13;           Set the names of the URI vars for each date element
+          </P
+></LI
+><LI
+><P
+>setSeparator(<TT
+CLASS="parameter"
+><I
+>$separator</I
+></TT
+>)</P
+><P
+>&#13;           Set the fragments separator, for instance '/' (default: &#38;).
+          </P
+></LI
+><LI
+><P
+>setScalar(boolean <TT
+CLASS="parameter"
+><I
+>$state</I
+></TT
+>=<TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>)</P
+><P
+>&#13;           Puts Uri decorator into "scalar mode" - URI variable names are not returned
+          </P
+></LI
+><LI
+><P
+>prev(<TT
+CLASS="parameter"
+><I
+>$method</I
+></TT
+>)</P
+><P
+>&#13;           Gets the URI string for the previous calendar unit (year, month, week or day etc)
+          </P
+></LI
+><LI
+><P
+>this(<TT
+CLASS="parameter"
+><I
+>$method</I
+></TT
+>)</P
+><P
+>&#13;           Gets the URI string for the current calendar unit (year, month, week or day etc)
+          </P
+></LI
+><LI
+><P
+>next(<TT
+CLASS="parameter"
+><I
+>$method</I
+></TT
+>)</P
+><P
+>&#13;           Gets the URI string for the next calendar unit (year, month, week or day etc)
+          </P
+></LI
+></UL
+>
+       </P
+><P
+>&#13;        A simple usage example:
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$Day = new Calendar_Day(2003, 10, 23);
+$Uri = &#38; new Calendar_Decorator_Uri($Day);
+$Uri-&#62;setFragments('year', 'month', 'day');
+echo $Uri-&#62;prev('day');
+// Displays year=2003&#38;month=10&#38;day=22</PRE
+></TD
+></TR
+></TABLE
+>
+       </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32656"
+></A
+><H2
+>Calendar_Decorator_Weekday example</H2
+><P
+>&#13;        Methods defined by this decorator:
+        <P
+></P
+><UL
+><LI
+><P
+>setFirstDay($firstDay)</P
+><P
+>&#13;           Sets the first day of the week (0 = Sunday, 1 = Monday [default] etc)
+          </P
+></LI
+><LI
+><P
+>prevWeekDay($format='int')</P
+><P
+>&#13;           Returns the previous weekday, formatted according the <TT
+CLASS="parameter"
+><I
+>$format</I
+></TT
+>
+           parameter (int, array, object, timestamp)
+          </P
+></LI
+><LI
+><P
+>thisWeekDay($format='int')</P
+><P
+>&#13;           Returns the current weekday, formatted according the <TT
+CLASS="parameter"
+><I
+>$format</I
+></TT
+>
+           parameter (int, array, object, timestamp)
+          </P
+></LI
+><LI
+><P
+>nextWeekDay($format='int')</P
+><P
+>&#13;           Returns the next weekday, formatted according the <TT
+CLASS="parameter"
+><I
+>$format</I
+></TT
+>
+           parameter (int, array, object, timestamp)
+          </P
+></LI
+></UL
+>
+       </P
+><P
+>&#13;        Example:
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$Day = new Calendar_Day(2003, 10, 23);
+$Weekday = &#38; new Calendar_Decorator_Weekday($Day);
+$Weekday-&#62;setFirstDay(0); // Set first day of week to Sunday (default Mon)
+echo $Weekday-&#62;thisWeekDay(); // Displays 5 - fifth day of week relative to Sun</PRE
+></TD
+></TR
+></TABLE
+>
+       </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32677"
+></A
+><H2
+>Calendar_Decorator_Wrapper example</H2
+><P
+>&#13;        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Calendar/Month.php';
+require_once 'Calendar/Decorator.php'; // Not really needed but added to help this make sense
+require_once 'Calendar/Decorator/Wrapper.php';
+
+class MyBoldDecorator extends Calendar_Decorator
+{
+    function MyBoldDecorator(&#38;$Calendar)
+    {
+        parent::Calendar_Decorator($Calendar);
+    }
+
+    function thisDay()
+    {
+        return '&#60;b&#62;'.parent::thisDay().'&#60;/b&#62;';
+    }
+}
+
+$Month = new Calendar_Month(date('Y'), date('n'));
+
+$Wrapper = &#38; new Calendar_Decorator_Wrapper($Month);
+$Wrapper-&#62;build();
+
+echo '&#60;h2&#62;The Wrapper decorator&#60;/h2&#62;';
+echo '&#60;i&#62;Day numbers are rendered in bold&#60;/i&#62;&#60;br /&#62; &#60;br /&#62;';
+while ($DecoratedDay = $Wrapper-&#62;fetch('MyBoldDecorator')) {
+    echo $DecoratedDay-&#62;thisDay().'&#60;br /&#62;';
+}</PRE
+></TD
+></TR
+></TABLE
+>
+       </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.datetime.calendar.intro-overview-methods.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.datetime.calendar.faq.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Method Overview</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.datetime.calendar.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>FAQ</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

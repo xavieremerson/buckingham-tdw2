@@ -1,0 +1,22 @@
+2007-02-27<br>Today is not a holiday or weekend, hence proceeding with program execution!<br>Proceeding after holiday/weekend check....<font color="#0000FF"><strong>count_acv_ext</strong></font> = [0]<br><font color="#0000FF"><strong>Connecting to Jovus Server @ Buckingham</strong></font> = [Successful]<br>tmp_mry_cmpl_temp and tmp_mry_cmpl_trades are flushed and ready for the next set of data<br>Data inserted to temporary table for further processing.<br><font color="#0000FF"><strong>count_acv_nfs</strong></font> = [0]<br><font color="#0000FF"><strong>total_count_acv_events</strong></font> = [0]<br><font color="#0000FF"><strong>count(sorted_merged_array_trades)</strong></font> = [131]<br><font color="#0000FF"><strong>store_running_trad_commission_total</strong></font> = [107508.95]<br><font color="#000000" size="3" face="Courier"><strong>NONE</strong></font><br><font color="#000000" size="3" face="Courier"><strong>NONE</strong></font><br>tmp_mry_cmpl_temp and tmp_mry_cmpl_trades are flushed and ready for the next set of data<br><b>A fatal Database (MySQL) error occured</b>.
+<br>Query: insert into tmp_mry_cmpl_temp(
+																			comm_trade_reference_number,
+																			comm_rr, 
+																			comm_trade_date, 
+																			comm_run_date, 
+																			comm_advisor_code,
+																			comm_advisor_name, 
+																			comm_account_name, 
+																			comm_account_number, 
+																			comm_symbol, 
+																			comm_buy_sell, 
+																			comm_quantity, 
+																			comm_price, 
+																			comm_commission_code, 
+																			comm_commission, 
+																			comm_cents_per_share,
+																			comm_cancel_code,
+																			comm_correction_code,
+																			comm_canceled_combined_ref)
+																			values('070549CHXKL','067','2007-02-23','2007-02-26','PATT','PATTEN & PATTEN         ','PATTAMSOUT','PDY124079','WY','S','200','82.432400000','3','16483.97','82.41985','1','5','')<br>
+Error: (1264) Out of range value adjusted for column 'comm_cents_per_share' at row 1

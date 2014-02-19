@@ -1,0 +1,216 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;    Why does the PEAR coding standard insist on space-only indentation?
+   </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="FAQ - Frequently Asked Questions"
+HREF="faq.html"><LINK
+REL="PREVIOUS"
+TITLE="
+    What licenses are allowed in PEAR/PECL?
+   "
+HREF="faq.licenses.html"><LINK
+REL="NEXT"
+TITLE="
+   go-pear.php or bundled packages in the windows build of PHP 4.3.x is out of date!
+  "
+HREF="faq.windows-build-out-of-date.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="faq.licenses.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 6. FAQ - Frequently Asked Questions</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="faq.windows-build-out-of-date.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="faq.tabs-vs-spaces">Why does the PEAR coding standard insist on space-only indentation?</H1
+><P
+>&#13;    Using spaces and avoiding tabs is the only way to ensure that a
+    piece of code is rendered consistently in all editors and viewers.
+    Many editors render tabs as 4 spaces, and a lot of editors,
+    terminal programs and utilities render tabs as 8 spaces.  Example:
+
+    <P
+CLASS="literallayout"
+>printf("%s",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$arg);</P
+>
+
+    Here, there are 7 spaces before "$arg".  If this code was written
+    in an editor with 4-space tabs, it would store it as one tab and
+    three spaces.  Now, if another developer edits the same file in an
+    editor with 8-space tabs, it will look like this:
+
+    <P
+CLASS="literallayout"
+>printf("%s",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$arg);</P
+>
+  </P
+><P
+>&#13;    Likewise, consider this code written with 8-space tabs:
+
+    <P
+CLASS="literallayout"
+>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;($foo&nbsp;&#38;&#38;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$bar)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}</P
+>
+
+    If viewed in a 4-space-tab editor, it will look like this:
+
+    <P
+CLASS="literallayout"
+>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;($foo&nbsp;&#38;&#38;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$bar)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}</P
+>
+  </P
+><P
+>&#13;    In a community like PEAR where people use lots of different
+    systems and editors, using tabs simply doesn't work.  People will
+    end up doing whitespace commits fixing rendering in their editor,
+    while breaking it for others.  
+    
+    With only spaces it will look the same to everyone.
+   </P
+><P
+>&#13;    Jamie Zawinski has written a
+    <A
+HREF="http://www.jwz.org/doc/tabs-vs-spaces.html"
+TARGET="_top"
+>piece on
+    the subject too</A
+>.
+   </P
+><P
+>&#13;    There is also a tool called <A
+HREF="http://astyle.sourceforge.net"
+TARGET="_top"
+>&#13;    Astyle</A
+> which can help you convert your code to the appropriate
+    style.
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="faq.licenses.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="faq.windows-build-out-of-date.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>What licenses are allowed in PEAR/PECL?</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="faq.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>go-pear.php or bundled packages in the windows build of PHP 4.3.x is out of date!</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

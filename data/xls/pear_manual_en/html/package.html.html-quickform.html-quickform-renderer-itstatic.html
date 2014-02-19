@@ -1,0 +1,581 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_QuickForm_Renderer_ITStatic</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Template-based renderers"
+HREF="package.html.html-quickform.html#package.html.html-quickform.output.template-renderers"><LINK
+REL="PREVIOUS"
+TITLE="HTML_QuickForm_Renderer_ITDynamic::setHeaderBlock()"
+HREF="package.html.html-quickform.html-quickform-renderer-itdynamic.setheaderblock.html"><LINK
+REL="NEXT"
+TITLE="constructor HTML_QuickForm_Renderer_ITStatic::HTML_QuickForm_Renderer_ITStatic()"
+HREF="package.html.html-quickform.html-quickform-renderer-itstatic.html-quickform-renderer-itstatic.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-itdynamic.setheaderblock.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-itstatic.html-quickform-renderer-itstatic.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.html-quickform-renderer-itstatic"><B
+CLASS="classname"
+>HTML_QuickForm_Renderer_ITStatic</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN64876"
+></A
+><B
+CLASS="classname"
+>HTML_QuickForm_Renderer_ITStatic</B
+>&nbsp;--&nbsp;Static renderer for Integrated Templates</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-renderer-itstatic.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;The word 'static' in renderer name means that exact form layout is defined before
+the execution of the script starts. That also means that you should have an unique 
+template for each form you want to display with this renderer.
+    </P
+><P
+>&#13;The IT Static renderer, as opposed to the IT Dynamic renderer, offers more flexibility
+in the way you display your forms but might also takes more time to implement. 
+Therefore, if your form is using always the same pattern to display form element labels 
+and form element html, it is recommended to use the Dynamic renderer. On the other hand,
+if you have many different layouts for your form elements, for example if you alternate 
+text and form elements, you will prefer to use the Static renderer.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-renderer-itstatic.example"
+></A
+><H2
+>Usage example</H2
+><P
+>&#13;With the ITStatic renderer, you have to know beforehand which elements 
+(or group of elements) will compose your form. So we will start by defining our 
+elements.
+  <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN64887"><P
+><B
+>Example 41-1. Defining the elements</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once ("HTML/QuickForm.php");
+
+$form = new HTML_QuickForm('myform', 'POST');
+$form-&#62;addElement('header', 'myheader', 'Registration form');
+
+$form-&#62;addElement('hidden', 'session', '123456');
+
+$name['last'] = &#38;HTML_QuickForm::createElement('text', 'first', 'First', array('size' =&#62; 10));
+$name['first'] = &#38;HTML_QuickForm::createElement('text', 'last', 'Last', array('size' =&#62; 10));
+$form-&#62;addGroup($name, 'name', 'Name:', '-');
+
+$form-&#62;addElement('text', 'email', 'Your email:');
+
+$select = array(''   =&#62; 'Please select...',
+                'AU' =&#62; 'Australia',
+                'FR' =&#62; 'France',
+                'DE' =&#62; 'Germany',
+                'IT' =&#62; 'Italy');
+$form-&#62;addElement('select', 'country', 'Country:', $select);
+
+$form-&#62;addElement('reset', 'reset', 'Reset');
+$form-&#62;addElement('submit', 'submit', 'Register');
+
+$form-&#62;addElement('checkbox', 'news', '', " Check this box if you don't want to receive our newsletter.");</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+Now our form contains these elements:
+<P
+></P
+><UL
+><LI
+><P
+>One <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>header</I
+></SPAN
+>: 'Registration form'</P
+></LI
+><LI
+><P
+>One <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>hidden</I
+></SPAN
+> field</P
+></LI
+><LI
+><P
+>One <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>group</I
+></SPAN
+> of two textfields: firstname and lastname</P
+></LI
+><LI
+><P
+>One <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>textfield</I
+></SPAN
+> for the E-Mail address</P
+></LI
+><LI
+><P
+>One <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>selectbox</I
+></SPAN
+> for the country with an empty default value</P
+></LI
+><LI
+><P
+>Two <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>buttons</I
+></SPAN
+>: Reset and Register</P
+></LI
+><LI
+><P
+>One <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>checkbox</I
+></SPAN
+> to subscribe to the newsletter</P
+></LI
+></UL
+>
+    </P
+><P
+>&#13;Now that we know which elements compose our form, it will be easy to layout the form 
+using a WYSIWYG or an HTML editor. The idea is to use placeholders instead of labels 
+and element html. The placeholders are named after the form and element or group 
+names: <TT
+CLASS="varname"
+>formName_elementName</TT
+> or <TT
+CLASS="varname"
+>formName_groupName_elementName</TT
+>. Then 
+you add <TT
+CLASS="varname"
+>_label</TT
+> or <TT
+CLASS="varname"
+>_html</TT
+>. We will save the following code in a 
+<TT
+CLASS="filename"
+>template.html</TT
+> file.
+	 <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN64918"><P
+><B
+>Example 41-2. A template</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#60;html&#62;
+&#60;head&#62;&#60;title&#62;My Form&#60;/title&#62;
+{myform_javascript}
+&#60;/head&#62;
+&#60;body&#62;
+&#60;form {myform_attributes}&#62;
+ {myform_session_html}
+ &#60;table&#62;
+ &#60;tr&#62;&#60;th colspan="2"&#62;{myform_myheader}&#60;/th&#62;&#60;/tr&#62;
+ &#60;tr&#62;&#60;td&#62;{myform_name_label}&#60;/td&#62;&#60;td&#62;{myform_name_html}&#60;/td&#62;&#60;/tr&#62;
+ &#60;tr&#62;&#60;td&#62;{myform_email_label}&#60;/td&#62;&#60;td&#62;{myform_email_html}&#60;/td&#62;&#60;/tr&#62;
+ &#60;tr&#62;&#60;td&#62;{myform_country_label}&#60;/td&#62;&#60;td&#62;{myform_country_html}&#60;/td&#62;&#60;/tr&#62;
+ &#60;tr&#62;&#60;td colspan="2" align="right"&#62;{myform_reset_html} {myform_submit_html}&#60;/td&#62;&#60;/tr&#62;
+&#60;/table&#62;
+&#60;br /&#62;&#60;br /&#62;
+{myform_news_html}
+&#60;/form&#62;
+&#60;/body&#62;
+&#60;/html&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>    
+    </P
+><P
+>&#13;As you can notice, the layout is static. This makes the Static renderer only useful if 
+your form does not change on runtime. Nevertheless, you can still hide blocks if you 
+use the <TT
+CLASS="varname"
+>removeEmptyBlocks</TT
+> option of 
+<A
+HREF="package.html.html-template-it.html"
+><B
+CLASS="classname"
+>HTML_Template_IT</B
+></A
+> / 
+<A
+HREF="package.html.html-template-it.html"
+><B
+CLASS="classname"
+>HTML_Template_Sigma</B
+></A
+>.
+
+Now that we have the elements and the template, we are going to use our Static renderer.
+      <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN64927"><P
+><B
+>Example 41-3. Using the renderer</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'HTML/Template/Sigma.php';
+require_once 'HTML/QuickForm/Renderer/ITStatic.php';
+
+$tpl =&#38; new HTML_Template_Sigma('.');
+$tpl-&#62;loadTemplateFile('template.html'); // or whatever you called it
+
+$renderer =&#38; new HTML_QuickForm_Renderer_ITStatic($tpl);
+$renderer-&#62;setRequiredTemplate('{label}&#60;font color="red" size="1"&#62;*&#60;/font&#62;');
+$renderer-&#62;setErrorTemplate('&#60;font color="red"&#62;{error}&#60;/font&#62;&#60;br /&#62;{html}');
+
+$form-&#62;accept($renderer);
+$tpl-&#62;show();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>&#13;You can optionally specify the way your required elements and validation errors are 
+rendered using respectively <B
+CLASS="function"
+>setRequiredTemplate()</B
+> and 
+<B
+CLASS="function"
+>setErrorTemplate()</B
+>. In the given string, you will place either the 
+<TT
+CLASS="varname"
+>{label}</TT
+> or the <TT
+CLASS="varname"
+>{html}</TT
+> placeholder at 
+the position you want. If you prefer to have all your errors displayed at the same 
+place, pass an empty string to <B
+CLASS="function"
+>setErrorTemplate()</B
+> and add this 
+block to your template at the position you want:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#60;!-- BEGIN myform_error_loop --&#62;
+&#60;font color="red"&#62;{myform_error}&#60;/font&#62;&#60;br /&#62;
+&#60;!-- END myform_error_loop --&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>&#13;With the Static renderer, it is also possible to customize the way your groups are 
+rendered. If you simply use a placeholder for your whole group, the group will be 
+rendered using HTML_QuickForm default renderer. This means that if a separator string 
+(or an array of separators) was specified, it will be used the usual way. In our form, 
+the group called 'name' was rendered this way, using a - to separate the elements.
+    </P
+><P
+>&#13;The problem we have is that elements inside the group don't show their label, so it is 
+not possible to guess which textfield is firstname and which one is lastname. By 
+replacing the layout for the element 'name' by these new placeholders, can customize 
+the way the group will be displayed:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>(...)
+ &#60;tr&#62;
+  &#60;td&#62;{myform_name_label}&#60;/td&#62;
+  &#60;td&#62;
+   &#60;!-- BEGIN myform_name_error --&#62;{myform_name_error}&#60;!-- END myform_name_error --&#62;
+   &#60;table&#62;
+    &#60;tr&#62;&#60;td&#62;{myform_name_first_html}&#60;/td&#62;&#60;td&#62;{myform_name_last_html}&#60;/td&#62;&#60;/tr&#62;
+    &#60;tr&#62;&#60;td&#62;{myform_name_first_label}&#60;/td&#62;&#60;td&#62;{myform_name_last_label}&#60;/td&#62;&#60;/tr&#62;
+    &#60;/table&#62;
+   &#60;/td&#62;
+ &#60;/tr&#62;
+(...)</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>&#13;We need to add a new block and placeholder to let the renderer know where to display 
+the error relative to this group. As you have noticed, every placeholder take the name 
+of his group along with its own name.
+    </P
+><DIV
+CLASS="tip"
+><BLOCKQUOTE
+CLASS="tip"
+><P
+><B
+>Tip: </B
+>
+Also note that if you use elements with the same name, like radios that are not in a 
+group, you will have to add an index to the placeholder name starting at 0, like this: 
+<TT
+CLASS="varname"
+>{myform_myradio_0_html}</TT
+>, <TT
+CLASS="varname"
+>{myform_myradio_1_html}</TT
+>...
+    </P
+></BLOCKQUOTE
+></DIV
+><P
+>&#13;We have seen how to use the Static renderer with standard elements and groups of 
+elements. We have seen how to display errors and required tags. They won't show in your
+form because we did not add any validation rules. Feel free to try to add them as an 
+exercise. You can also add a special placeholder to your template 
+<TT
+CLASS="varname"
+>{myform_required_note}</TT
+>, it will display the note that indicates 
+how to find required elements. This renderer usage is very easy, when you feel 
+comfortable with it, you can move on to the Dynamic renderer which might also fit your 
+needs in an other way.
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-itdynamic.setheaderblock.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-itstatic.html-quickform-renderer-itstatic.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_QuickForm_Renderer_ITDynamic::setHeaderBlock()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.output.template-renderers"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>constructor HTML_QuickForm_Renderer_ITStatic::HTML_QuickForm_Renderer_ITStatic()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

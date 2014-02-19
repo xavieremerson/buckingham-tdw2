@@ -1,0 +1,351 @@
+<HTML
+><HEAD
+><TITLE
+>-&#62;setFrom()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB_DataObject"
+HREF="package.database.db-dataobject.html"><LINK
+REL="PREVIOUS"
+TITLE="->set*() and ->get*()"
+HREF="package.database.db-dataobject.db-dataobject.settersgetters.html"><LINK
+REL="NEXT"
+TITLE="->toArray()"
+HREF="package.database.db-dataobject.db-dataobject.toarray.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.settersgetters.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.toarray.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db-dataobject.db-dataobject.setfrom">-&#62;setFrom()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN27112"
+></A
+>-&#62;setFrom()&nbsp;--&nbsp;Copy items from Array or Object (for form posting)</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN27115"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN27116"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>boolean <B
+CLASS="function"
+>$DB_DataObject-&#62;setFrom</B
+></CODE
+> (array or object $from [, string  $format = '%s'])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.setfrom.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Copies items that are in the table definitions from an 
+     array or object into the current object (It will not override key values).
+     This can be used to process form posts (if the field names match the database),
+     or cloning similar objects.
+    </P
+><P
+>&#13;     you can not set the value of a key column using setFrom, It is silently ignored for 
+     security reasons. (you can still assign it manually)
+    </P
+><P
+>&#13;     setFrom will attempt to call the setters set{columnname} methods if they exist,
+     It will also call fromValue(), which formats dates correctly.
+    </P
+><P
+>&#13;     You may realize that this method overlaps the overloaded method for the column name from,
+     due to this, the associated methods for the column name 'from' are set_from and getFrom.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.setfrom.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>array or Object $from</I
+></TT
+> - what to copy from
+        </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $format</I
+></TT
+> - the format of the array or object variables and how they relate to this object.
+        for example if your input array is in the format prefix_COLNAME, then you can use 'prefix_%s'.
+        </P
+></LI
+></UL
+>
+     
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.setfrom.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>array or boolean</I
+></TT
+> - <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> on success or an array of set*() return values in PHP4.3.2 upwards
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.setfrom.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+></P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.setfrom.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN27152"><P
+><B
+>Example 33-1. Using <B
+CLASS="function"
+>setFrom()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// person contains name,age
+// $_POST contains 'name'=&#62;'fred', 'age'=&#62;'22'
+
+
+$person = new DataObjects_Person;
+$person-&#62;get(12);
+$person-&#62;setFrom($_POST);
+$person-&#62;update();
+
+
+// or using the formating
+
+// person contains name,age
+// $_POST contains 'person_name'=&#62;'fred', 'person_age'=&#62;'22'
+
+$person = new DataObjects_Person;
+$person-&#62;get(12);
+$ret = $person-&#62;setFrom($_POST,'person_%s');
+
+// use the return value from setFrom to test for errors (PHP4.3.2)
+if ($ret === true) {
+  $person-&#62;update();
+} else {
+  // $ret is an array or strings..
+  echo 'There were some errors: '  . implode(', ', $ret);
+}
+
+
+
+
+
+
+// or copying from another object
+$personA = new DataObjects_Person;
+$personA-&#62;get(12);
+
+$personB = new DataObjects_Person;
+$personB-&#62;get(14);
+
+$personA-&#62;setFrom($personB);
+$person-&#62;update();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.settersgetters.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.toarray.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>-&#62;set*() and -&#62;get*()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>-&#62;toArray()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

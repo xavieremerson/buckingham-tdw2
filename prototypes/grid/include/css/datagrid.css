@@ -1,0 +1,133 @@
+/* default grid button */ 
+.btn {
+	BORDER-RIGHT: 1px outset;
+	ADDING-RIGHT: 1px; 
+	PADDING-RIGHT: 1px; 
+	BORDER-TOP: 1px outset; 
+	PADDING-LEFT: 1px; 
+	FONT-WEIGHT: normal; 
+	FONT-SIZE: 10px; 
+	BACKGROUND-IMAGE: url(../images/button_bg.gif); 
+	PADDING-BOTTOM: 1px; 
+	MARGIN: 0px 0px 0px 1px; 
+	BORDER-LEFT: 1px outset; 
+	WIDTH: 50px; 
+	CURSOR: pointer; 
+	PADDING-TOP: 1px; 
+	BORDER-BOTTOM: 1px outset; 
+	backgroung-image: repeat-x
+}
+.btn_med {
+	BORDER-RIGHT: 1px outset; 
+	ADDING-RIGHT: 1px; 
+	BORDER-TOP: 1px outset; 
+	PADDING-LEFT: 1px; 
+	FONT-WEIGHT: normal; 
+	FONT-SIZE: 10px; 
+	BACKGROUND-IMAGE: url(../images/button_bg.gif); 
+	PADDING-BOTTOM: 1px; 
+	MARGIN: 0px 0px 0px 1px; 
+	BORDER-LEFT: 1px outset; 
+	WIDTH: 106px; CURSOR: pointer; 
+	PADDING-TOP: 1px; 
+	BORDER-BOTTOM: 1px outset; 
+	backgroung-image: repeat-x;
+}
+.btn_wide {
+	BORDER-RIGHT: 1px outset; 
+	PADDING-RIGHT: 1px; 
+	BORDER-TOP: 1px outset; 
+	PADDING-LEFT: 1px; 
+	FONT-WEIGHT: normal; 
+	FONT-SIZE: 10px; 
+	BACKGROUND-IMAGE: url(../images/button_bg.gif); 
+	PADDING-BOTTOM: 1px; 
+	MARGIN: 0px 0px 0px 1px; 
+	BORDER-LEFT: 1px outset; 
+	WIDTH: 150px; 
+	CURSOR: pointer; 
+	PADDING-TOP: 1px; 
+	BORDER-BOTTOM: 1px outset; 
+	backgroung-image: repeat-x
+}
+li {
+	list-style-image: url(../images/dot.gif);
+	list-style-type: disc;
+	line-height: 1.5em;
+}
+ul {
+	margin-top: 8px;
+}
+
+/* default grid (outermost) style */
+.grid_css
+{
+	width:100%;
+}
+
+/* default grid table styles */
+.table_css
+{
+	border:black 1pt solid;border-spacing:1px;border-collapse:collapse;width:100%
+}
+/* default grid toolbar styles*/
+.toolbar_css
+{
+	BACKGROUND-IMAGE: url(../images/theme/xp/button_bg.gif);
+	backgroung-image: repeat-x;
+	margin-bottom:1px;
+	font-size:8pt;
+	font-family:verdana,arial;
+	border:1px solid black;
+	padding-top:2px;
+	padding-left:2px
+}
+
+/* default header styles 2 */
+#cssrollovers{background-color: #b8860b; text-align: center; margin-top: 20px; margin-right: 70%; margin-left: 2%; padding: 8px; border: solid 1px #000; width: auto }
+.th_css1 
+{
+font-weight: bold;
+text-align: center;
+margin-bottom: 3px;
+margin-top: 3px;
+}
+
+/* default grid header styles 1 */
+.th_css1 a   { 	font-family:tahoma,verdana,arial;color:#213952; text-decoration: none; background-color: buttonface; display: block; padding: 1px; border-style: solid; border-width: 1px; border-color: #dcdcdc #696969 #696969 #dcdcdc; width: 100% }
+.th_css1 a:hover   { background-color: #a9a9a9; border-style: solid; border-width: 1px; border-color: #696969 #dcdcdc #a9a9a9 #696969 }
+
+/* default grid header styles 2 */
+.th_css2
+{
+	BORDER-RIGHT: 1px outset; 
+	ADDING-RIGHT: 1px; 
+	BORDER-TOP: 1px outset;
+	PADDING-LEFT: 1px; 
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 10px; 
+	BACKGROUND-IMAGE: url(../images/button_bg.gif); 
+	PADDING-BOTTOM: 1px; 
+	MARGIN: 0px 0px 0px 1px; 
+	WIDTH: 20px; CURSOR: pointer;
+	PADDING-TOP: 3px; 
+	BORDER-BOTTOM: 1px outset; 
+	backgroung-image: repeat-x;
+	text-align: center;
+	text-decoration: none;
+	color:#213952;
+}
+.th_css2 a{text-decoration: none;color:#213952;text-align:center;}
+
+/* default grid row styles */
+.tr_css{border:black 1pt solid;font-family:verdana,arial;font-size:8pt;}
+
+/* default form text style */
+.form_field{
+	background-color: #FFFFFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	background-image:   url(../images/formshadow.gif);
+	border: 1px solid #BFAA85;
+}

@@ -1,0 +1,257 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - renderers</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Basic renderers"
+HREF="package.html.html-quickform.html#package.html.html-quickform.output.basic-renderers"><LINK
+REL="PREVIOUS"
+TITLE="HTML_QuickForm"
+HREF="package.html.html-quickform.html"><LINK
+REL="NEXT"
+TITLE="HTML_QuickForm_Renderer_Default"
+HREF="package.html.html-quickform.html-quickform-renderer-default.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-default.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.intro-renderers">Introduction - renderers</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN64080"
+></A
+>Introduction - renderers&nbsp;--&nbsp;How to output the form</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.intro-renderers.purpose"
+></A
+><H2
+>What are renderers?</H2
+><P
+>&#13;Before release 3.0, form outputting logic was implemented as methods of HTML_QuickForm 
+class. This led to two problems:
+<P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>Bloat of the said class (80+ methods!)</P
+></LI
+><LI
+><P
+>Difficulties in adding new output logic (i.e. using template engines)</P
+></LI
+></OL
+>
+    </P
+><P
+>&#13;In release 3.0, new system was implemented. The form output logic is now contained 
+in classes that extend HTML_QuickForm_Renderer, their behaviour is based on Visitor 
+design pattern from the classic "Design Patterns" book. This gives the 
+following advantages:
+<P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>&#13;    Code for some particular output method is loaded <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>only</I
+></SPAN
+> 
+    when the method is used.
+  </P
+></LI
+><LI
+><P
+>&#13;    It is much easier to add new output method.
+  </P
+></LI
+></OL
+>
+There are 8 renderers available since release 3.1.1, of which 2 are based on pre-3.0 code and 6 are new. The following template engines are directly suported: Smarty, HTML_Template_Sigma, HTML_Template_IT, HTML_Template_Flexy.
+    </P
+><P
+>&#13;The main steps of using any available renderer are quite similar:
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// include the renderer class
+require_once 'HTML/QuickForm/Renderer/FooBar.php';
+// instantiate the renderer
+$renderer =&#38; new HTML_QuickForm_Renderer_FooBar($options);
+// do some customization
+$renderer-&#62;adjustSomething('element1', '...');
+// ...
+$renderer-&#62;adjustSomething('elementN', '...');
+// process the form
+$form-&#62;accept($renderer);
+// output the results
+$renderer-&#62;toFooBar();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+Actual methods for customization and doing the output will of course depend on renderer type.
+    </P
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Concerning usage examples: </B
+>
+      Usage examples provided in the manual are pretty basic. More complex examples for Default
+      renderer can be found in <TT
+CLASS="filename"
+>docs/</TT
+> directory, for all other
+      renderers - in <TT
+CLASS="filename"
+>docs/renderers/</TT
+> directory of HTML_QuickForm.
+      </P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-default.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_QuickForm</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.output.basic-renderers"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="classname"
+>HTML_QuickForm_Renderer_Default</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

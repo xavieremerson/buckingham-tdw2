@@ -1,0 +1,299 @@
+<HTML
+><HEAD
+><TITLE
+>Coding Standards</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="About PEAR"
+HREF="about-pear.html"><LINK
+REL="PREVIOUS"
+TITLE="#PEAR on IRC"
+HREF="support.irc.html"><LINK
+REL="NEXT"
+TITLE="Control Structures"
+HREF="standards.control.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="chapter"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="support.irc.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="standards.control.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="chapter"
+><H1
+><A
+NAME="standards"
+>Chapter 4. Coding Standards</A
+></H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="standards.html#standards.indenting"
+>Indenting and Line Length</A
+></DT
+><DT
+><A
+HREF="standards.control.html"
+>Control Structures</A
+></DT
+><DT
+><A
+HREF="standards.funcalls.html"
+>Function Calls</A
+></DT
+><DT
+><A
+HREF="standards.funcdef.html"
+>Function Definitions</A
+></DT
+><DT
+><A
+HREF="standards.comments.html"
+>Comments</A
+></DT
+><DT
+><A
+HREF="standards.including.html"
+>Including Code</A
+></DT
+><DT
+><A
+HREF="standards.tags.html"
+>PHP Code Tags</A
+></DT
+><DT
+><A
+HREF="standards.header.html"
+>Header Comment Blocks</A
+></DT
+><DT
+><A
+HREF="standards.cvs.html"
+>Using CVS</A
+></DT
+><DT
+><A
+HREF="standards.exampleurls.html"
+>Example URLs</A
+></DT
+><DT
+><A
+HREF="standards.naming.html"
+>Naming Conventions</A
+></DT
+><DT
+><A
+HREF="standards.file.html"
+>File Formats</A
+></DT
+><DT
+><A
+HREF="standards.sample.html"
+>Sample File (including Docblock Comment standards)</A
+></DT
+></DL
+></DIV
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+    The PEAR Coding Standards apply to code that is part of the official
+    PEAR distribution (that is, either distributed with PHP or available
+    for download from the PHP PEAR repository).
+   </P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="standards.indenting">Indenting and Line Length</H1
+><P
+>&#13;    Use an indent of 4 spaces, with no tabs. If you use Emacs to edit PEAR
+    code, you should set indent-tabs-mode to nil. Here is an example mode
+    hook that will set up Emacs according to these guidelines (you will
+    need to ensure that it is called when you are editing PHP files):
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="elisp"
+>(defun php-mode-hook ()
+  (setq tab-width 4
+        c-basic-offset 4
+        c-hanging-comment-ender-p nil
+        indent-tabs-mode
+  (not
+    (and (string-match "/\\(PEAR\\|pear\\)/" (buffer-file-name))
+      (string-match "\.php$" (buffer-file-name))))))</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>Here are vim rules for the same thing:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="vim"
+>set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    It is recommended that you break lines at approximately 75-85 characters.
+    There is no standard rule for the best way to break a line, use your
+    judgment and, when in doubt, ask on the <A
+HREF="mailto:pear-qa@lists.php.net"
+TARGET="_top"
+>PEAR Quality Assurance mailing
+    list</A
+>.
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="support.irc.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="standards.control.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>#PEAR on IRC</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="about-pear.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Control Structures</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

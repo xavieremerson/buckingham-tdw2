@@ -1,0 +1,585 @@
+<HTML
+><HEAD
+><TITLE
+>Entries</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File_Fstab"
+HREF="package.fileformats.file-fstab.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.fileformats.file-fstab.intro.html"><LINK
+REL="NEXT"
+TITLE="Saving"
+HREF="package.fileformats.file-fstab.saving.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.file-fstab.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.file-fstab.saving.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.fileformats.file-fstab.entries">Entries</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN36798"
+></A
+>Entries&nbsp;--&nbsp;
+   Working with entries
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-fstab.entries.overview"
+></A
+><H2
+>Entry overview</H2
+><P
+>&#13;   The <B
+CLASS="classname"
+>File_Fstab_Entry</B
+> class represents all the
+   information available about a particular entry in a Fstab file.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-fstab.entries.properties"
+></A
+><H2
+>Entry properties</H2
+><P
+>&#13;     The entry has a number of properties which represent the information
+     in the fstab file.
+    </P
+><P
+>&#13;        <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>$device</DT
+><DD
+><P
+>&#13;                        This is the path to the block device for this entry.
+                        <TT
+CLASS="literal"
+>$device</TT
+>, <TT
+CLASS="literal"
+>$uuid</TT
+>,
+                        and <TT
+CLASS="literal"
+>$label</TT
+> are mutually exclusive;
+                        only one of the three may be set.
+                    </P
+></DD
+><DT
+>$uuid</DT
+><DD
+><P
+>&#13;                        The UUID of the device.
+                    </P
+></DD
+><DT
+>$label</DT
+><DD
+><P
+>&#13;                        The label for this device.
+                    </P
+></DD
+><DT
+>$mountPoint</DT
+><DD
+><P
+>&#13;                        The directory this device is mounted on.
+                    </P
+></DD
+><DT
+>$fsType</DT
+><DD
+><P
+>&#13;                        The type of filesystem on <TT
+CLASS="literal"
+>$device</TT
+>.
+                    </P
+></DD
+><DT
+>$mountOptions</DT
+><DD
+><P
+>&#13;                        Array of mount options for this device.
+                    </P
+></DD
+><DT
+>$dumpFrequency</DT
+><DD
+><P
+>&#13;                        How often / if this filesystem should be backed up by
+                        <TT
+CLASS="literal"
+>dump</TT
+>.
+                    </P
+></DD
+><DT
+>$fsckPassNo</DT
+><DD
+><P
+>&#13;                        Order of / if this device should be checked by <TT
+CLASS="literal"
+>fsck</TT
+>
+                        when the system boots.
+                    </P
+></DD
+></DL
+></DIV
+>
+    </P
+><P
+>&#13;      You may want to read <TT
+CLASS="literal"
+>fstab(5)</TT
+> for more information about
+      what these fields mean.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-fstab.entries.finding"
+></A
+><H2
+>Finding entries</H2
+><P
+>&#13;     There are a number of ways of finding a specific entry from the fstab.
+     You may find based on device, mountpoint, filesystem label, or UUID.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-fstab.entries.finding.device"
+></A
+><H2
+>Finding by device</H2
+><P
+>&#13;       To find by device, you want to use the <B
+CLASS="function"
+>getEntryForDevice()</B
+>
+       function. The single argument this function accepts is the path to the block
+       device for an entry.
+      </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN36857"><P
+><B
+>Example 37-1. Get entry by device</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'File/Fstab.php';
+$fstab =&#38; new File_Fstab();
+$dev =&#38; $fstab-&#62;getEntryForDevice('/dev/hda1');
+if (PEAR::isError($dev)) {
+    die($dev-&#62;getMessage());
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-fstab.entries.finding.path"
+></A
+><H2
+>Finding by path (mountpoint)</H2
+><P
+>&#13;       You may want to find a device based on the path it is mounted on;
+       for example, you may want to get the entry for <TT
+CLASS="filename"
+>/cdrom</TT
+>,
+       without caring if the CD device is <TT
+CLASS="filename"
+>/dev/hdb</TT
+>,
+       <TT
+CLASS="filename"
+>/dev/cdrom</TT
+>, or some other device. To do this, use
+       the <B
+CLASS="function"
+>getEntryForPath()</B
+> function.
+      </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN36867"><P
+><B
+>Example 37-2. Get entry by path</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'File/Fstab.php';
+$fstab =&#38; new File_Fstab();
+$dev =&#38; $fstab-&#62;getEntryForPath('/cdrom');
+if (PEAR::isError($dev)) {
+    die($dev-&#62;getMessage());
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-fstab.entries.finding.uuid"
+></A
+><H2
+>Finding by UUID</H2
+><P
+>&#13;       Some systems use a filesystem <SPAN
+CLASS="acronym"
+>UUID</SPAN
+> to specify the
+       device to mount. A <SPAN
+CLASS="acronym"
+>UUID</SPAN
+> may look like this:
+       <TT
+CLASS="literal"
+>b46ad2ee-01f3-4041-96ca-91d35d059417</TT
+>. The
+       <B
+CLASS="function"
+>getEntryForUUID()</B
+> function handles this.
+      </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN36877"><P
+><B
+>Example 37-3. Get entry by UUID</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'File/Fstab.php';
+$fstab =&#38; new File_Fstab();
+$dev =&#38; $fstab-&#62;getEntryForUUID('b46ad2ee-01f3-4041-96ca-91d35d059417');
+if (PEAR::isError($dev)) {
+    die($dev-&#62;getMessage());
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-fstab.entries.finding.label"
+></A
+><H2
+>Finding by label</H2
+><P
+>&#13;       Some filesystems allow you to specify a textual label to a filesystem.
+       For example, you may label your root device <TT
+CLASS="literal"
+>rootdev</TT
+>,
+       the device you mount on <TT
+CLASS="filename"
+>/home</TT
+> could be named
+       <TT
+CLASS="literal"
+>homedirs</TT
+> and so forth. <B
+CLASS="classname"
+>File_Fstab</B
+>
+       supports getting entries based on the device label. This is accomplished
+       by using the <B
+CLASS="function"
+>getEntryForLabel()</B
+> function.
+      </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN36888"><P
+><B
+>Example 37-4. Get entry by label</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'File/Fstab.php';
+$fstab =&#38; new File_Fstab();
+$dev =&#38; $fstab-&#62;getEntryForLabel('homedirs');
+if (PEAR::isError($dev)) {
+    die($dev-&#62;getMessage());
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-fstab.entries.adding"
+></A
+><H2
+>Adding entries</H2
+><P
+>&#13;            In addition to reading fstab files, you may modify them as well.
+        </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN36894"><P
+><B
+>Example 37-5. Add an entry for a floppy disk</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'File/Fstab.php';
+$fstab =&#38; new File_Fstab();
+$floppy =&#38; new File_Fstab_Entry();
+$floppy-&#62;fsType = 'vfat';
+$floppy-&#62;device = '/dev/fd0';
+$floppy-&#62;mountPoint = '/floppy';
+$fstab-&#62;addEntry($floppy);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-fstab.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-fstab.saving.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-fstab.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Saving</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,281 @@
+<HTML
+><HEAD
+><TITLE
+>XML_sql2xml::getXMLObject</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_sql2xml"
+HREF="package.xml.xml-sql2xml.html"><LINK
+REL="PREVIOUS"
+TITLE="XML_sql2xml::getXML"
+HREF="package.xml.xml-sql2xml.xml-sql2xml.getxml.html"><LINK
+REL="NEXT"
+TITLE="XML_sql2xml::setOptions"
+HREF="package.xml.xml-sql2xml.xml-sql2xml.setoptions.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.getxml.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.setoptions.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.xml.xml-sql2xml.xml-sql2xml.getxmlobject">XML_sql2xml::getXMLObject</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN104435"
+></A
+>XML_sql2xml::getXMLObject&nbsp;--&nbsp;return an XML DomDocument object</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN104438"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN104439"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once "XML/sql2xml.php";</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>Object <B
+CLASS="function"
+>XML_sql2xml::getXMLObject</B
+></CODE
+> ([mixed $result = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-sql2xml.xml-sql2xml.getxmlobject.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Returns an XML DomDocument object with a XML representation of the result sets.
+     The result set can be directly provided here, or if you need more than one   
+     in your XML, then you have to provide each of them with
+     <A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.add.html"
+><B
+CLASS="function"
+>add()</B
+></A
+>
+     before you call <B
+CLASS="function"
+>getXMLObject()</B
+>, 
+     but the last one can also be provided here.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-sql2xml.xml-sql2xml.getxmlobject.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>mixed $result</I
+></TT
+> -
+        a <A
+HREF="package.database.db.db-result.html"
+><B
+CLASS="classname"
+>DB_result</B
+></A
+> object from a <A
+HREF="package.database.db.html"
+><B
+CLASS="classname"
+>DB</B
+></A
+> query        
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-sql2xml.xml-sql2xml.getxmlobject.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>Object</I
+></TT
+> - DomDocument object 
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-sql2xml.xml-sql2xml.getxmlobject.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.getxml.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.setoptions.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>XML_sql2xml::getXML</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.xml-sql2xml.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>XML_sql2xml::setOptions</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,211 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Crypt_CHAP"
+HREF="package.encryption.crypt-chap.html"><LINK
+REL="PREVIOUS"
+TITLE="Crypt_CHAP"
+HREF="package.encryption.crypt-chap.html"><LINK
+REL="NEXT"
+TITLE="Crypt_CHAP::generateChallenge()"
+HREF="package.encryption.crypt-chap.generatechallenge.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.encryption.crypt-chap.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.encryption.crypt-chap.generatechallenge.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.encryption.crypt-chap.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN35523"
+></A
+>Introduction&nbsp;--&nbsp;encryption</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.encryption.crypt-chap.intro.desc"
+></A
+><H2
+>CHAP - Challenge Handshake Authentication Protocol</H2
+><P
+>&#13;     CHAP is a part usualy of PPP (Point-to-Point Protocol) software, implemented in the authentication subsystem. CHAP avoid's sending plaintext passwords over an insecure link. The traditional CHAP-MD5 needs the plaintext password stored on the server. MS-CHAP doesen't need this, but also needs the password either as NT-Hash and/or as LAN-Manager-Hash. LAN-Manager-Hashes are weak and shouldn't be used anymore.
+    </P
+><P
+>&#13;     This package provides 3 classes:
+     <P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>&#13;       <A
+HREF="package.encryption.crypt-chap.crypt-chap-md5.html"
+>&#13;        <B
+CLASS="function"
+>Crypt_CHAP::Crypt_CHAP_MD5()</B
+> - for generating CHAP-MD5 (RFC 1994) compliant pakets
+       </A
+>
+      </TD
+></TR
+><TR
+><TD
+>&#13;       <A
+HREF="package.encryption.crypt-chap.crypt-chap-mschapv1.html"
+>&#13;        <B
+CLASS="function"
+>Crypt_CHAP::Crypt_MSCHAPv1()</B
+> - for generating MS-CHAPv1 (RFC 2433) compliant pakets
+       </A
+>
+      </TD
+></TR
+><TR
+><TD
+>&#13;       <A
+HREF="package.encryption.crypt-chap.crypt-chap-mschapv2.html"
+>&#13;        <B
+CLASS="function"
+>Crypt_CHAP::Crypt_MSCHAPv2()</B
+> - for generating MS-CHAPv2 (RFC 2759) compliant pakets
+       </A
+>
+      </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+
+     Crypt_CHAP::Crypt_CHAP is an abstract base class.
+    </P
+><P
+>&#13;     In order to get the MS-CHAP* to work you need the mhash extension.
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.encryption.crypt-chap.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.encryption.crypt-chap.generatechallenge.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Crypt_CHAP</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.encryption.crypt-chap.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Crypt_CHAP::generateChallenge()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

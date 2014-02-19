@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<Title>DrawArea.gradientColor2</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1"><a href="DrawArea.htm">DrawArea</a>.gradientColor2</p>
+<hr class="separator">
+<p class="heading2a">Usage</p>
+<div class="content">
+gradientColor2(colorArray[, angle[, scale[, startX, startY]]])
+</div>
+<p class="heading2">Description</p>
+<div class="content">
+Create a multi-point gradient color.<br><br>
+In this method, the color points are defined as an array of positions and colors along a gradient line segment. During definition, the gradient line segment is always assumed to be horizontal and 256 pixels in length. When actually creating the gradient color, the direction and length of the gradient line can be controlled using the <b>angle</b> and <b>scale</b> parameters.<br><br>
+The array of positions and their colors along the gradient line is of the following format:<br><br>
+<div style="margin-left:25">position0, color0, position1, color1, position2, color2, .... positionN, colorN</div><br> where positionX is the pixel position along the gradient line, and colorX is the color at that position. During definition, the gradient line it is always assumed to be 256 pixels in length, so position0 is always 0, and the last position is always 256.<br><br>
+For example, the array (in hex):<br><br>
+<div style="margin-left:25;">000000, FF0000, 000080, FFFF00, 000100, 00FF00</div><br> means pixel 0 (000000) is red (FF0000), pixel 128 (000080) is yellow (FFFF00), and pixel 256 (000100) is green (00FF00).<br><br>
+One common use of multi-point gradient colors is to define colors that have metallic look and feel. ChartDirector comes from several pre-defined gradient color arrays as follows.<br><br>
+<table width="98%" border="1" cellpadding="5" cellspacing="0"><tr><th width="19%">Name</th><th width="79%">Value (in hex numbers)</th></tr> <tr><td> goldGradient </td><td> 000000, FFE743, 000060, FFFFE0, 0000B0, FFF0B0, 000100, FFE743 </td></tr><tr><td> silverGradient </td><td> 000000, C8C8C8, 000060, F8F8F8, 0000B0, E0E0E0, 000100, C8C8C8 </td></tr><tr><td> redMetalGradient </td><td> 000000, E09898, 000060, FFF0F0, 0000B0, F0D8D8, 000100, E09898 </td></tr><tr><td> greenMetalGradient </td><td> 000000, 98E098, 000060, F0FFF0, 0000B0, D8F0D8, 000100, 98E098 </td></tr><tr><td> blueMetalGradient </td><td> 000000, 9898E0, 000060, F0F0FF, 0000B0, D8D8F0, 000100, 9898E0 </td></tr></table><br>
+</div>
+<p class="heading2">Arguments</p>
+
+<div class="content">
+<table border="1" cellpadding="5" cellspacing="0" width="98%"> 
+<tr>
+<th width="19%">Argument</th><th width="19%">Default</th><th width="60%">Description</th>
+</tr>
+<tr>
+<td>colorArray</td><td>(Mandatory)</td><td>An array defining the positions and colors of the pixels along the gradient line.</td></tr><tr><td>angle</td><td>90</td><td>The direction of the gradient line segment in degrees, measured clockwise, with 0 degree as the upward pointing direction. The default direction is horizontal from left to right (90 degrees).</td></tr><tr><td>scale</td><td>1.0</td><td>The scaling factor for the gradient line segment. By default, the gradient line segment is 256 pixels in length. The scaling factor can be use to stretch or compress the gradient line segment.</td></tr><tr><td>startX</td><td>0</td><td>The x coordinate of the starting point of the gradient line segment.</td></tr><tr><td>startY</td><td>0</td><td>The y coordinate of the starting point of the gradient line segment.</td>
+</tr>
+</table>
+</div>
+
+<p class="heading2">Return Value</p>
+<div class="content">
+Return a 32-bit integer acting as a handle to the gradient color. The handle can be used in any ChartDirector API that expects a color as an argument.
+</div>
+<br><hr class="separator">
+<div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

@@ -1,0 +1,321 @@
+<HTML
+><HEAD
+><TITLE
+>File_Passwd_Smb::verifyPasswd</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File_Passwd_Smb"
+HREF="package.fileformats.file-passwd.html#package.fileformats.file-passwd.file-passwd-smb"><LINK
+REL="PREVIOUS"
+TITLE="File_Passwd_Smb::changePasswd"
+HREF="package.fileformats.file-passwd.file-passwd-smb.changepasswd.html"><LINK
+REL="NEXT"
+TITLE="File_Passwd_Smb::verifyEncryptedPasswd"
+HREF="package.fileformats.file-passwd.file-passwd-smb.verifyencryptedpasswd.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.file-passwd.file-passwd-smb.changepasswd.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.file-passwd.file-passwd-smb.verifyencryptedpasswd.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.fileformats.file-passwd.file-passwd-smb.verifypasswd"><B
+CLASS="function"
+>File_Passwd_Smb::verifyPasswd()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN40151"
+></A
+><B
+CLASS="function"
+>File_Passwd_Smb::verifyPasswd()</B
+>&nbsp;--&nbsp;Verify password</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN40155"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN40156"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>File_Passwd_Smb::verifyPasswd</B
+></CODE
+> (string $user, string $pass)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-passwd.file-passwd-smb.verifypasswd.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Verifies an account with the given plaintext password.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-passwd.file-passwd-smb.verifypasswd.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+       <TT
+CLASS="parameter"
+><I
+>$user</I
+></TT
+></DT
+><DD
+><P
+>&#13;      username
+     </P
+></DD
+><DT
+>string
+       <TT
+CLASS="parameter"
+><I
+>$pass</I
+></TT
+></DT
+><DD
+><P
+>&#13;      the plaintext password
+     </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-passwd.file-passwd-smb.verifypasswd.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;    Returns <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> if passwds equal, <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> if they don't or <B
+CLASS="classname"
+>PEAR_Error</B
+> on failure.
+  </P
+><P
+>&#13;    <DIV
+CLASS="table"
+><A
+NAME="AEN40190"><P
+><B
+>Table 37-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error Code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Summary</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>FILE_PASSWD_E_EXISTS_NOT</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>user doesn't exist</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>FILE_PASSWD_E_UNDEFINED</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>if account is disabled</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-passwd.file-passwd-smb.verifypasswd.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-passwd.file-passwd-smb.changepasswd.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-passwd.file-passwd-smb.verifyencryptedpasswd.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>File_Passwd_Smb::changePasswd()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-passwd.html#package.fileformats.file-passwd.file-passwd-smb"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>File_Passwd_Smb::verifyEncryptedPasswd()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

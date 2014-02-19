@@ -1,0 +1,266 @@
+<HTML
+><HEAD
+><TITLE
+>Auth::setIdle()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Auth"
+HREF="package.authentication.auth.html"><LINK
+REL="PREVIOUS"
+TITLE="Auth::setExpire()"
+HREF="package.authentication.auth.auth.setexpire.html"><LINK
+REL="NEXT"
+TITLE="Auth::start()"
+HREF="package.authentication.auth.auth.start.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.authentication.auth.auth.setexpire.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.authentication.auth.auth.start.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.authentication.auth.auth.setidle">Auth::setIdle()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN16817"
+></A
+>Auth::setIdle()&nbsp;--&nbsp;set maximum idle time for authentication</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN16820"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN16821"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>Auth::setIdle</B
+></CODE
+> (integer $time [, boolean $add = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth.auth.setidle.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   With this function one can set the maximum idle time to a new
+   value. The term <SPAN
+CLASS="QUOTE"
+>"idle time"</SPAN
+> describes the maximum time
+   interval (in seconds) between two actions by the user. If the
+   maximum idle time is reached, the user will be automatically logged
+   out. If on the other hand the user performs any action within the
+   maximum idle time interval, the idle time is reset.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth.auth.setidle.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>integer
+      <TT
+CLASS="parameter"
+><I
+>$time</I
+></TT
+></DT
+><DD
+><P
+>&#13;       idle time in seconds
+      </P
+></DD
+><DT
+>boolean
+      <TT
+CLASS="parameter"
+><I
+>$add</I
+></TT
+></DT
+><DD
+><P
+>&#13;       if <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> <TT
+CLASS="parameter"
+><I
+>$time</I
+></TT
+> 
+       is added to the existing idle time,
+       if <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> the existing time value will be replaced.
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth.auth.setidle.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.authentication.auth.auth.setexpire.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.authentication.auth.auth.start.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Auth::setExpire()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.authentication.auth.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Auth::start()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

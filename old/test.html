@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript">
+<!--
+function removeClassName (elem, className) {
+	elem.className = elem.className.replace(className, "").trim();
+}
+
+function addCSSClass (elem, className) {
+	removeClassName (elem, className);
+	elem.className = (elem.className + " " + className).trim();
+}
+
+String.prototype.trim = function() {
+	return this.replace( /^\s+|\s+$/, "" );
+}
+
+function stripedTable() {
+	if (document.getElementById && document.getElementsByTagName) {  
+		var allTables = document.getElementsByTagName('table');
+		if (!allTables) { return; }
+
+		for (var i = 0; i < allTables.length; i++) {
+			if (allTables[i].className.match(/[\w\s ]*scrollTable[\w\s ]*/)) {
+				var trs = allTables[i].getElementsByTagName("tr");
+				for (var j = 0; j < trs.length; j++) {
+					removeClassName(trs[j], 'alternateRow');
+					addCSSClass(trs[j], 'normalRow');
+				}
+				for (var k = 0; k < trs.length; k += 2) {
+					removeClassName(trs[k], 'normalRow');
+					addCSSClass(trs[k], 'alternateRow');
+				}
+			}
+		}
+	}
+}
+
+window.onload = function() { stripedTable(); }
+-->
+</script>
+<style type="text/css">
+<!--
+.test {
+	border-top: 2px solid #6699FF;
+	border-right: 1px solid #6699FF;
+	border-bottom: 1px solid #6699FF;
+	border-left: 1px solid #6699FF;
+}
+
+.table_heading_text {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+.table_row_text {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #0066FF;
+}
+
+/* define height and width of scrollable area. Add 16px to width for scrollbar          */
+div.tableContainer1 {
+	clear: both;
+	border: 1px solid #EEEEEE;
+	height: 167px;
+	overflow: auto;
+	width: 298px
+	/*756px*/	
+}
+
+/* Reset overflow value to hidden for all non-IE browsers. */
+html>body div.tableContainer1 {
+	overflow: hidden;
+	width: 298px
+	/*756px*/
+}
+
+/* define width of table. IE browsers only                 */
+div.tableContainer1 table {
+	float: left;
+	width: 296px
+	/*740px*/
+}
+
+/* define width of table. Add 16px to width for scrollbar.           */
+/* All other non-IE browsers.                                        */
+html>body div.tableContainer1 table {
+	width: 298px
+	/*756px*/
+}
+
+html>body tbody.scrollContent1 {
+	display: block;
+	height: 262px;
+	overflow: auto;
+	width: 100%
+}
+
+/* make TD elements pretty. Provide alternating classes for striping the table */
+/* http://www.alistapart.com/articles/zebratables/                             */
+tbody.scrollContent1 td, tbody.scrollContent1 tr.normalRow td {
+	background: #FFF;
+	border-bottom: none;
+	border-left: none;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #DDD;
+	padding: 2px 3px 3px 4px
+}
+
+tbody.scrollContent1 tr.alternateRow td {
+	background: #F7F7F7;
+	border-bottom: none;
+	border-left: none;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #DDD;
+	padding: 2px 3px 3px 4px
+}
+-->
+</style>
+<link href="includes/styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<table width="300" border="0" cellpadding="0" cellspacing="0" class="test">
+  <tr> 
+    <td>
+			<table width="298" border="0" cellpadding="0" cellspacing="0">
+				<tr> 
+					<td valign="middle" background="images/tables3/header_bk.jpg">
+					&nbsp;&nbsp;<a class="table_heading_text">Trades in Lists</a>
+					</td>
+				</tr>
+				<tr> 
+					<td valign="middle">
+						<div id="tableContainer1" class="tableContainer1">
+							<table class="scrollTable" width="100%" cellspacing="0">
+								<tbody class="scrollContent1">
+									<tr class="tablerow" onClick="javascript:parent.location.href='lists_display.php?list_type=1&type=1'"> 
+										<td height="20"><a class="emptrades1" href="lists_display.php?list_type=1&type=1"><img src="images/lf_v1/goto_details.jpg" border="0"></a>&nbsp;&nbsp;<a class="emptrades1" href="lists_display.php?list_type=1&type=1">Market Maker List</a></td>
+										<td><a class="emptrades1">6</a></td>
+									</tr>
+									<tr class="tablerow" onClick="javascript:parent.location.href='lists_display.php?list_type=1&type=1'"> 
+										<td height="20"><a class="emptrades1" href="lists_display.php?list_type=1&type=1"><img src="images/lf_v1/goto_details.jpg" border="0"></a>&nbsp;&nbsp;<a class="emptrades1" href="lists_display.php?list_type=1&type=1">Market Maker List</a></td>
+										<td><a class="emptrades1">6</a></td>
+									</tr>
+									<tr class="tablerow" onClick="javascript:parent.location.href='lists_display.php?list_type=1&type=1'"> 
+										<td height="20"><a class="emptrades1" href="lists_display.php?list_type=1&type=1"><img src="images/lf_v1/goto_details.jpg" border="0"></a>&nbsp;&nbsp;<a class="emptrades1" href="lists_display.php?list_type=1&type=1">Market Maker List</a></td>
+										<td><a class="emptrades1">6</a></td>
+									</tr>
+									<tr class="tablerow" onClick="javascript:parent.location.href='lists_display.php?list_type=1&type=1'"> 
+										<td height="20"><a class="emptrades1" href="lists_display.php?list_type=1&type=1"><img src="images/lf_v1/goto_details.jpg" border="0"></a>&nbsp;&nbsp;<a class="emptrades1" href="lists_display.php?list_type=1&type=1">Market Maker List</a></td>
+										<td><a class="emptrades1">6</a></td>
+									</tr>
+									<tr class="tablerow" onClick="javascript:parent.location.href='lists_display.php?list_type=1&type=1'"> 
+										<td height="20"><a class="emptrades1" href="lists_display.php?list_type=1&type=1"><img src="images/lf_v1/goto_details.jpg" border="0"></a>&nbsp;&nbsp;<a class="emptrades1" href="lists_display.php?list_type=1&type=1">Market Maker List</a></td>
+										<td><a class="emptrades1">6</a></td>
+									</tr>
+									<tr class="tablerow" onClick="javascript:parent.location.href='lists_display.php?list_type=1&type=1'"> 
+										<td height="20"><a class="emptrades1" href="lists_display.php?list_type=1&type=1"><img src="images/lf_v1/goto_details.jpg" border="0"></a>&nbsp;&nbsp;<a class="emptrades1" href="lists_display.php?list_type=1&type=1">Market Maker List</a></td>
+										<td><a class="emptrades1">6</a></td>
+									</tr>
+								</tbody>
+							</table>
+						<!-- TABLE 4 END -->
+						</div>
+					</td>
+				</tr>
+			</table>
+		</td>
+  </tr>
+</table>
+
+</body>
+</html>

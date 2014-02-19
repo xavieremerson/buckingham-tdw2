@@ -1,0 +1,244 @@
+<HTML>
+<HEAD><TITLE>as_propsheet: Property Sheet builder class</TITLE>
+<META http-equiv="Content-Type" Content="text/html; charset=windows-1251">
+<STYLE TYPE="text/css">
+<!--
+  body     { font-family:arial,helvetica;font-size:12px; }
+  pre { color:#0000FF; }
+  td   { font-family:arial,helvetica;font-size:12px;}
+  tr.head  { background-color: #D0D0FF; color:#000000; font-size:13px; font-weight:bold; }
+  tr.odd   { background-color: #F0F0F8; color:#000000; }
+  tr.even  { background-color: #E0E0F0; color:#000000; }
+  h4       { background-color: #E0E0F0; color:#000000;
+           text-align: left; }
+  h5       { background-color: #E0E0F0; color:#000000;
+           text-align: center; }
+  pre    { font-family:arial,helvetica;font-size:12px; color:#000080; font-weight:bold;}
+-->
+</STYLE>
+
+</head>
+<BODY>
+<H3>as_propsheet: Property Sheet builder class</H3>
+
+<div align=right><a href="as_propsheet.rus.htm">Russian version</a><br><br></div>
+
+<p>
+This class set written to simplify constructing "Property Sheet"-like HTML pages,
+mainly for setup/configuration screens in WEB projects.
+<br> as_propsheet may be used for rendering "TAB-style" sheets (any page can be activated by
+ clicking on it's tab in the upper area) or "WIZARD-like" sheets (with "Previous" and "Next"
+ buttons, and optional "Finish" button).
+
+<p>
+ <b>Attention</b>: this property sheet classes use Javascript and DHTML, so browser compatibility
+should be tested while developing production version of Your site/web application.
+
+<p>
+Here is an instruction of how to embed "as_propsheet" engine into your
+intranet or internet project.
+
+<br>
+
+<H4>Installing as_propsheet on your site</H4>
+
+<ol>
+  <li>Download distributive zip file and unzip it into temporary folder.
+  If you will use Property Sheet classes in multiple pages, place as_propsheet.php file into one of
+  the folders listed in your PHP.ini "include_path" variable. Otherwise, just place it
+  into the folder with your main PHP-script.
+  </li>
+  <li> Open Your PHP script, where You want to have property sheet.<br>
+    Place "<b>require_once('as_propsheet.php');</b>" in the beginning of file
+  </li>
+  <li> Prepare a few css styles to draw property page elements (see next chapter...)</li>
+</ol>
+
+<br>
+<H4>Preparing CSS styles to draw Property sheet right</H4>
+as_propsheet uses pre-defined css classes to draw tabs and property pages. They can be found int the
+sample script as_propsheet_sample.php.
+<br>You can substitute default class names by your ones, just by adding operators like <b>$as_cssclass['textfield']='mycssname'</b>;
+Here is a list of css styles, that must be present:
+<ul>
+<li><b>$as_cssclass['textfield']</b> (default - 'ibox') - style class to draw all <b>text</b>,<b>textarea</b> and <b>password</b> form elements.
+<li><b>$as_cssclass['button']</b>  (default - 'button') - style used to draw <b>button</b> form elements
+<li><b>$as_cssclass['tactive']</b> (default - 'tblactive') - style for currently active tab in the upper tab panel.
+<li><b>$as_cssclass['tinactive']</b> (default - 'tblinactive') - style for currently inactive tabs.
+  Note, these two styles above must have zero-width border-bottom, to make seamless look.
+<li><b>$as_cssclass['pagebody']</b> (default - 'pagebody') - background for all property pages.
+  This style  must have zero-width border-top, to seamless look with upper tabs.
+<li><b>$as_cssclass['pagebodywiz']</b> (default - 'pagebodywiz') - the same as 'pagebody', excluding the top border -
+  it must be present, because this is used in WIZARDSTYLE mode, and no tabs will be drawn.
+<li><b>$as_cssclass['row_header']</b> (default - 'head') - You'll need this class if 'head' pseudo-fields used in some pages.
+</ul>
+
+<H4>Creating TAB-style property sheet</H4>
+<p>
+
+First we create new instance of CPropertySheet class.
+<pre>
+require_once('as_propsheet.php');
+$sheet = new CPropertySheet('mysheet',800,200);
+</pre>
+Now we register all property pages.
+One page can be registered with a field list, (to do this we create an array of CFormField objects),
+or it can be registered with another CPropertySheet object, or user PHP function name. This PHP function should draw a whole page.
+By the way, it can draw "nested" CPropertySheet as a part of page.
+
+<p><b>Example 1</b>: registering property page as a field list
+<pre>
+$fd = array();
+$curvalue = isset($cfg['title'])? $cfg['title']: 'My nice site';
+$fd[] = new CFormField('title','text','Your site main title',$curvalue,0,100,300);
+
+$curvalue = isset($cfg['siteurl'])? $cfg['siteurl']: 'http://www.MyNiceSyte.net';
+$fd[] = new CFormField('siteurl','text','URL for your site',$curvalue,0,100,300);
+
+$curvalue = isset($cfg['shownews'])? $cfg['shownews']: 0;
+$fd[] = new CFormField('shownews','checkbox','Show news on main page',$curvalue);
+$sheet->AddPage('Page 1: basic parameters',$fd);
+</pre>
+
+<br><b>Example 2</b>: You can define 'nested' property page and pass it as a parameter in AddPage():
+<pre>
+...
+$sheet2 = new CPropertySheet('nested2',600,100);
+$flds = array();
+$flds[] = new CFormField('f11','text','sub-field 1','initial value',0,100,200);
+$flds[] = new CFormField('f12','checkbox','check box 12',0);
+$sheet2->AddPage('sub-params-1',$flds);
+...
+$sheet->AddPage('nested property sheet...', $sheet2);
+</pre>
+
+<br><br>
+<b>Example 3</b>: registering a page with a user function used to draw it.
+(There must be a UdfvarPage() function somewhere in Your code )
+<pre>
+$sheet->AddPage('User defined parameters','UdfvarPage');
+</pre>
+
+Now it's time to render the PropertySheet
+<pre>
+$sheet->Draw();
+</pre>
+
+Of course, start FORM tag (&lt;FORM ...&gt;) should be echoed before Draw() calling,
+and final &lt;/FORM&gt; - after it.
+
+<p>If You use field list, they will be rendered by as_propsheet - one field per row, so if it's not good for You,
+just write Your own rendering function and pass it's name in AddPage() instead of a field list.
+
+<H4>Creating WIZARD-style property sheet</H4>
+
+<p>
+To create Wizard-like sheet, use WIZARDSTYLE constant. And it's a good idea to setup 'Finish' button:
+
+<pre>
+require_once('as_propsheet.php');
+$sheet = new CPropertySheet('mysheet',800,200,WIZARDSTYLE);
+
+$sheet->SetFinishButton('FinishWizard()','Finish it!',false);
+</pre>
+
+<H4>Classes and methods in as_propsheet</H4>
+<p>
+Here is a full method definition of as_propsheet classes.<br><br>
+<table border=0 _bgcolor='#5050E0' width='100%' cellspacing=1>
+<tr class='head'><td colspan=2>Class: CPropertySheet</tr></tr>
+<tr class='odd'>
+ <td valign=top>constructor: CPropertySheet($id, $width='',$height='',$sheetstyle=TABSTYLE)</td>
+  <td><b>$id</b> - must be unique in PHP page, so if You draw more than one Property Sheet, You should use different id's.
+  <br><b>$width</b> - "minimal" width of Your property sheet, 800 by default
+  <br><b>$height</b> - "minimal" height of Your property sheet, 120 by default.
+  <br><b>$sheetstyle</b> - sheet style, may be one of TABSTYLE or WIZARDSTYLE.
+  <br><br><b>Sample: $sheet = new CPropertySheet('mysheet',800,200);</b>
+</td></tr>
+<tr class='even'>
+ <td valign=top>AddPage($tabtitle,$drawobject, $jsfunc_next='')</td>
+  <td>Register new property page in the sheet.
+  <br><b>$tabtitle</b> - non=empty string that will be shown on the tab for this page
+  <br><b>$drawobject</b> - Here we can pass one of three types of data: CFormField array, another CPropertySheet object, or string with our function name.
+  See propsheet_sample.php for details on every data type.
+  <br><b>$jsfunc_next</b> - This javascript function will be fired in WIZARDSTYLE mode, when user presses 'Next' button.
+  It helps to fill next property pages dynamically, depending on previous user input.
+  Besides, You can protect leaving page on some conditions, for example, if some fields have wrong or empty value;
+  in that case your javascript function should return <b>false</b> value. See <b>propsheet_sample.php</b> for
+  the working example - switch to WIZARD style and just try to press 'Next' button.
+  <br><br><b>Sample: $sheet->AddPage('basic parameters',$fieldlist);</b>
+</td></tr>
+<tr class='odd'>
+ <td valign=top>SetFinishButton($function,$caption='',$enabled=false)</td>
+  <td>This function needed only in WIZARDSTYLE mode, for setting FINISH button behaviour.
+  <br><b>$function</b> - javascript function that will be called by pressing Finish button.
+  <br><b>$caption</b> - caption text on the button, "Finish" by default.
+  <br><b>$enabled</b> if set to false or 0, Finish button will be initially disabled.
+  In that case, somewhere in Your javascript function must be a code enabling this button on some conditions.
+  <br><br><b>Sample: $sheet->SetFinishButton('FinishPressed()','Finish setup',true);</b>
+</td></tr>
+
+<tr class='head'><td colspan=2>Class: CPropertyPage, one "property-page" properties)</tr></tr>
+<tr class='odd'>
+ <td valign=top>constructor: CPropertyPage($title,$drawfunc,$evtnext='')</td>
+  <td><b>$title</b> - caption text for the tab
+  <br><b>$drawfunc</b> - object array with field definitions, of user's PHP function name
+  <br><b>$evtnext</b> - javascript function name for using when "Next" button pressed in WIZARDSTYLE mode.
+  <br><br><b>constructor is called automatically when you execute $sheet->AddPage()</b>
+</td></tr>
+
+<tr class='head'><td colspan=2>Class: CFormField, one field definition, used in CPropertyPage</tr></tr>
+<tr class='even'>
+ <td valign=top>constructor: CFormField($name,$type='text',$prompt='',$initvalue='',$vlist='',
+            $maxlength=10,$width=0,$title='',$onchange='',$addprm='')</td>
+  <td>
+    <b>$type</b> - one of the predefined types: <b>text|password|textarea|head|select|checkbox</b>
+  <br><b>$prompt</b> - prompt for the field (short description)
+  <br><b>$initvalue</b> - initial value for the field
+  <br><b>$vlist</b> - available values list for 'select' type. Can be associative array('key'=>value,...)
+     or two-dimensional array ($v[0]=array($key0,$value0), $v[1]=array($key1,$value1),...)
+  <br><b>$maxlength</b> - MAXLENGTH tag value for the text/password fields
+  <br><b>$width</b> - if passed, additional style will be drawn for the field: style='width:NNN'
+  <br><b>$title</b> - TITLE='...' tag contents, used if You want to show tip for the field
+  <br><b>$onchange</b> - onChange/onClick event javascript code.
+  <br><b>$addprm</b> - any additional html code, it will be drawn inside &lt;input...&gt; tag
+  <br><br><b>Sample: $fields[] = new CFormField('shownews','checkbox','Show news on main page',1);  </b>
+  <br>If You need both 'width' and 'height' style attributes, You should use last parameter, $addprm
+  (for example, to draw TEXTAREA field of desired size):
+  <br><b>$addprm = "style='width:100%; height:120px;' ";</b>
+</td></tr>
+
+</table>
+
+<p>
+Here is a simple example. More detailed one can be found in <b>propsheet_sample.php</b> file
+
+<pre>
+require_once('as_propsheet.php');
+$sheet = new CPropertySheet('mysheet',800,200);
+$fields = array();
+$fields[] = new CFormField('siteurl','text','URL for your site',$initvalue,0,100,300);
+$fields[] = new CFormField('shownews','checkbox','Show news on main page',1);
+$sheet->AddPage('main parameters', $fields);
+$sheet->AddPage('UDF parameters', 'DrawMyUDFPage');
+$sheet->Draw();
+</pre>
+
+<H4>Version History</H4>
+<b>1.0.001 (2006-10-24)</b>
+<ul>
+  <li>First release on <a href='http://www.phpclasses.org' target='_blank'>phpclasses.org</li>
+</ul>
+
+<br>
+<!--
+<H4>Links</H4>
+<ul>
+  <li><a href="http://as-works.narod.ru/en/php/">as_propsheet and other PHP scripts collection on the author's homepage</a></li>
+</ul>
+<br><br><br><p>
+-->
+<hr>
+<div align=center><font size=-2>Copyright &copy; Alexander Selifonov, 2006<a href="http://as-works.narod.ru">as-works.narod.ru</a>
+</font></div>
+</HTML></BODY>

@@ -1,0 +1,6 @@
+If you want to change the html, currently you're forced to edit the script manually.. 
+by version 1.01 I will have templates so no one needs to edit the php scripts.. I've made it a little
+bit easier.. (at least I think so).. to put the html for displaying the stock info in a class called
+
+HTML (see html.php).. the html for detailed view is in the function called .. 
+yep you guessed it.. detailed. :)

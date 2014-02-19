@@ -1,0 +1,284 @@
+<HTML
+><HEAD
+><TITLE
+>Auth_HTTP::Auth_HTTP()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Auth_HTTP"
+HREF="package.authentication.auth-http.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.authentication.auth-http.intro.html"><LINK
+REL="NEXT"
+TITLE="Auth_HTTP Example"
+HREF="package.authentication.auth-http.auth-http.example.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.authentication.auth-http.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.authentication.auth-http.auth-http.example.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.authentication.auth-http.auth-http.auth-http.auth-http">Auth_HTTP::Auth_HTTP()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN16909"
+></A
+>Auth_HTTP::Auth_HTTP()&nbsp;--&nbsp;constructor</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN16912"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN16913"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>Auth_HTTP::Auth_HTTP</B
+></CODE
+> ([string 
+      $storageDriver = "DB" [, mixed 
+       $options = ""]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth-http.auth-http.auth-http.auth-http.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Constructor for the authentication system
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth-http.auth-http.auth-http.auth-http.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$storageDriver</I
+></TT
+></DT
+><DD
+><P
+>&#13;         name of the storage driver that should be used
+        </P
+></DD
+><DT
+>mixed
+        <TT
+CLASS="parameter"
+><I
+>$options</I
+></TT
+></DT
+><DD
+><P
+>&#13;         a string containing some login information
+         or an array containing a bunch of options for the storage driver
+        </P
+></DD
+></DL
+></DIV
+> 
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth-http.auth-http.auth-http.auth-http.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth-http.auth-http.auth-http.auth-http.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN16947"><P
+><B
+>Example 28-1. Using different DB parameters</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "Auth/HTTP.php";
+
+$a = new Auth_HTTP("DB", "mysql://test:test@localhost/test");
+
+$a-&#62;start();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.authentication.auth-http.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.authentication.auth-http.auth-http.example.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.authentication.auth-http.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Auth_HTTP Example</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

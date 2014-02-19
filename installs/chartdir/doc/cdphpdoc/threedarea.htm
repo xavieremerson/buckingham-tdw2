@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<Title>3D Area Chart</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">3D Area Chart</p>
+<hr class="separator">
+<div class="content">
+<img src="images/threedarea.png">
+<br><br>
+This example illustrates how a 3D area chart looks like. The 3D effect is configured using <a href="Layer.set3D.htm">Layer.set3D</a>.
+</div>
+<p class="heading2">Source Code Listing</p>
+<div class="content">
+[File: phpdemo/threedarea.php]<br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp><?php
+include("phpchartdir.php");
+
+#The data for the area chart
+$data = array(30, 28, 40, 55, 75, 68, 54, 60, 50, 62, 75, 65, 75, 89, 60, 55,
+    53, 35, 50, 66, 56, 48, 52, 65, 62);
+
+#The labels for the area chart
+$labels = array("0", "", "", "3", "", "", "6", "", "", "9", "", "", "12", "",
+    "", "15", "", "", "18", "", "", "21", "", "", "24");
+
+#Create a XYChart object of size 300 x 300 pixels
+$c = new XYChart(300, 300);
+
+#Set the plotarea at (45, 30) and of size 200 x 200 pixels
+$c->setPlotArea(45, 30, 200, 200);
+
+#Add a title to the chart using 12 pts Arial Bold Italic font
+$c->addTitle("Daily Server Utilization", "arialbi.ttf", 12);
+
+#Add a title to the y axis
+$c->yAxis->setTitle("MBytes");
+
+#Add a title to the x axis
+$c->xAxis->setTitle("June 12, 2001");
+
+#Add a green (0x00ff00) 3D area chart layer using the give data
+$areaLayerObj = $c->addAreaLayer($data, 0xff00);
+$areaLayerObj->set3D();
+
+#Set the x axis labels using the given labels
+$c->xAxis->setLabels($labels);
+
+#output the chart
+header("Content-type: image/png");
+print($c->makeChart2(PNG));
+?></xmp>
+</td></tr></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

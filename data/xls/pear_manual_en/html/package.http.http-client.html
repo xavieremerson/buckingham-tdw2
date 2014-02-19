@@ -1,0 +1,259 @@
+<HTML
+><HEAD
+><TITLE
+>HTTP_Client</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTTP"
+HREF="package.http.html"><LINK
+REL="PREVIOUS"
+TITLE="HTTP::redirect"
+HREF="package.http.http.redirect.html"><LINK
+REL="NEXT"
+TITLE="Class Summary HTTP_Client"
+HREF="package.http.http-client.http-client-summary.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.http.http.redirect.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 42. HTTP</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.http.http-client.http-client-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.http.http-client">HTTP_Client</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.http.http-client.http-client-summary.html"
+>Class Summary <B
+CLASS="classname"
+>HTTP_Client</B
+></A
+>&nbsp;--&nbsp;A simple HTTP client class.</DT
+><DT
+><A
+HREF="package.http.http-client.http-client.http-client.html"
+>constructor HTTP_Client::HTTP_Client()</A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.http.http-client.http-client.attach.html"
+>HTTP_Client::attach()</A
+>&nbsp;--&nbsp;Adds a <B
+CLASS="classname"
+>Listener</B
+> to the list of listeners that are notified of  the
+object's events</DT
+><DT
+><A
+HREF="package.http.http-client.http-client.currentresponse.html"
+>HTTP_Client::currentResponse()</A
+>&nbsp;--&nbsp;Returns the most recent HTTP response</DT
+><DT
+><A
+HREF="package.http.http-client.http-client.detach.html"
+>HTTP_Client::detach()</A
+>&nbsp;--&nbsp;Removes a <B
+CLASS="classname"
+>Listener</B
+> from the list of listeners</DT
+><DT
+><A
+HREF="package.http.http-client.http-client.get.html"
+>HTTP_Client::get()</A
+>&nbsp;--&nbsp;Sends a 'GET' HTTP request</DT
+><DT
+><A
+HREF="package.http.http-client.http-client.head.html"
+>HTTP_Client::head()</A
+>&nbsp;--&nbsp;Sends a 'HEAD' HTTP request</DT
+><DT
+><A
+HREF="package.http.http-client.http-client.post.html"
+>HTTP_Client::post()</A
+>&nbsp;--&nbsp;Sends a 'POST' HTTP request</DT
+><DT
+><A
+HREF="package.http.http-client.http-client.reset.html"
+>HTTP_Client::reset()</A
+>&nbsp;--&nbsp;Clears object's internal properties</DT
+><DT
+><A
+HREF="package.http.http-client.http-client.setdefaultheader.html"
+>HTTP_Client::setDefaultHeader()</A
+>&nbsp;--&nbsp;Sets default header(s) for HTTP requests</DT
+><DT
+><A
+HREF="package.http.http-client.http-client.setmaxredirects.html"
+>HTTP_Client::setMaxRedirects()</A
+>&nbsp;--&nbsp;Sets the maximum number of redirects that will be processed.</DT
+><DT
+><A
+HREF="package.http.http-client.http-client.setrequestparameter.html"
+>HTTP_Client::setRequestParameter()</A
+>&nbsp;--&nbsp;Sets parameter(s) for HTTP requests</DT
+><DT
+><A
+HREF="package.http.http-client.http-client-cookiemanager-summary.html"
+>Class Summary <B
+CLASS="classname"
+>HTTP_Client_CookieManager</B
+></A
+>&nbsp;--&nbsp;Stores cookies and passes them between HTTP requests.</DT
+><DT
+><A
+HREF="package.http.http-client.http-client-cookiemanager.http-client-cookiemanager.html"
+>constructor HTTP_Client_CookieManager::HTTP_Client_CookieManager()</A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.http.http-client.http-client-cookiemanager.addcookie.html"
+>HTTP_Client_CookieManager::addCookie()</A
+>&nbsp;--&nbsp;Explicitly adds cookie to the list</DT
+><DT
+><A
+HREF="package.http.http-client.http-client-cookiemanager.passcookies.html"
+>HTTP_Client_CookieManager::passCookies()</A
+>&nbsp;--&nbsp;Adds cookies to the request</DT
+><DT
+><A
+HREF="package.http.http-client.http-client-cookiemanager.reset.html"
+>HTTP_Client_CookieManager::reset()</A
+>&nbsp;--&nbsp;Clears the cookies list</DT
+><DT
+><A
+HREF="package.http.http-client.http-client-cookiemanager.updatecookies.html"
+>HTTP_Client_CookieManager::updateCookies()</A
+>&nbsp;--&nbsp;Updates cookie list from HTTP server response</DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.http.http.redirect.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.http.http-client.http-client-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTTP::redirect</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.http.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class Summary <B
+CLASS="classname"
+>HTTP_Client</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

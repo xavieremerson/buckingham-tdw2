@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+<Title>Tick Density</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">Tick Density</p>
+<hr class="separator">
+<div class="content">
+<img src="images/ticks0.png">&nbsp;&nbsp;<img src="images/ticks1.png">
+<br><br>
+This example illustrates how to control the axis tick density in auto-scaling.<br><br>
+In auto-scaling, ChartDirector will automatically choose an appropriate tick spacing for the axis.<br><br>
+In some special cases, you may want to use a different tick spacing. The <a href="Axis.setTickDensity.htm">Axis.setTickDensity</a> method can be used to specify the desired distance between two ticks.<br><br>
+Note that the actual tick spacing chosen by ChartDirector may not be equal to the given desired tick density. It is because ChartDirector may have other constraints when choosing the ticks. For example, the axis may need to contain an integral number of ticks (depends on <a href="Axis.setRounding.htm">Axis.setRounding</a> set up), the ticks and axis range should be neat numbers, etc. ChartDirector may use a tick spacing that is larger than suggested, but never smaller.<br><br>
+In this example, one of the charts is drawn using the default tick spacing. The other chart is drawn using a desired tick spacing of 10 pixels. Note that the actual tick spacing is slightly larger than 10 pixels.
+</div>
+<p class="heading2">Source Code Listing</p>
+<div class="content">
+[File: phpdemo/ticks.php]<br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp><?php
+include("phpchartdir.php");
+
+#The data for the chart
+$data = array(100, 125, 265, 147, 67, 105);
+
+#Create a XYChart object of size 250 x 250 pixels
+$c = new XYChart(250, 250);
+
+#Set the plot area at (27, 25) and of size 200 x 200 pixels
+$c->setPlotArea(27, 25, 200, 200);
+
+if ($HTTP_GET_VARS["img"] == "1") {
+    #High tick density, uses 10 pixels as tick spacing
+    $c->addTitle("Tick Density = 10 pixels");
+    $c->yAxis->setTickDensity(10);
+} else {
+    #Normal tick density, just use the default setting
+    $c->addTitle("Default Tick Density");
+}
+
+#Add a color bar layer using the given data. Use a 1 pixel 3D border for the
+#bars.
+$barLayer3Obj = $c->addBarLayer3($data);
+$barLayer3Obj->setBorderColor(-1, 1);
+
+#output the chart
+header("Content-type: image/png");
+print($c->makeChart2(PNG));
+?></xmp>
+</td></tr></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

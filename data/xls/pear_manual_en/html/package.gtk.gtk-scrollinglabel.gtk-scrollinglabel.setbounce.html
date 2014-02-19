@@ -1,0 +1,268 @@
+<HTML
+><HEAD
+><TITLE
+>Gtk_ScrollingLabel::setBounce</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Gtk_ScrollingLabel"
+HREF="package.gtk.gtk-scrollinglabel.html"><LINK
+REL="PREVIOUS"
+TITLE="Gtk_ScrollingLabel::pause"
+HREF="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.pause.html"><LINK
+REL="NEXT"
+TITLE="Gtk_ScrollingLabel::setStartSignal"
+HREF="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.setstartsignal.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.pause.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.setstartsignal.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.setbounce">Gtk_ScrollingLabel::setBounce</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN49609"
+></A
+>Gtk_ScrollingLabel::setBounce&nbsp;--&nbsp;Sets the text to bounce between the borders of the label</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN49612"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN49613"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Gtk/ScrollingLabel.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>boolean <B
+CLASS="function"
+>Gtk_ScrollingLabel::setBounce</B
+></CODE
+> (boolean $bounce)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.setbounce.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     If <TT
+CLASS="parameter"
+><I
+>$bounce</I
+></TT
+> is <TT
+CLASS="literal"
+>true</TT
+>, the text 
+     will scroll to the left until the first character hits the left edge of
+     the visible window then it will scroll back to the right. When the last 
+     character hits the right edge of the visible window the text will scroll
+     back to the left again.
+    </P
+><P
+>&#13;     If all of the scrolling text cannot be viewed at once, making the text
+     bounce will have an undesired result. Therefore it is suggested that the
+     length of the text always be at least one character less than the
+     maximum viewable string length.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.setbounce.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        boolean <TT
+CLASS="parameter"
+><I
+>$bounce</I
+></TT
+> -
+        Whether or not the text should change direction when it hits a label
+        edge.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.setbounce.returns"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>returns</I
+></SPAN
+> Whether or not the text is set to bounce
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.setbounce.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.pause.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.gtk.gtk-scrollinglabel.gtk-scrollinglabel.setstartsignal.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Gtk_ScrollingLabel::pause</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.gtk.gtk-scrollinglabel.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Gtk_ScrollingLabel::setStartSignal</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,361 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR_PackageFileManager::writePackageFile</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR_PackageFileManager"
+HREF="package.pear.pear-packagefilemanager.html"><LINK
+REL="PREVIOUS"
+TITLE="PEAR_PackageFileManager::setOptions"
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.setoptions.html"><LINK
+REL="NEXT"
+TITLE="Class Summary PEAR_PackageFileManager_CVS"
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager-cvs-summary.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.setoptions.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager-cvs-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.pear.pear-packagefilemanager.pear-packagefilemanager.writepackagefile"><B
+CLASS="function"
+>PEAR_PackageFileManager::writePackageFile()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN91966"
+></A
+><B
+CLASS="function"
+>PEAR_PackageFileManager::writePackageFile()</B
+>&nbsp;--&nbsp;Writes the package.xml file out with the newly created
+&#60;release&#62;&#60;/release&#62; tag</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN91970"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN91971"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'PEAR/PackageFileManager.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void|PEAR_Error      <B
+CLASS="function"
+>PEAR_PackageFileManager::writePackageFile</B
+></CODE
+> ([boolean $debuginterface = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packagefilemanager.pear-packagefilemanager.writepackagefile.desc"
+></A
+><H2
+>Description</H2
+><P
+>ALWAYS use <A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.debugpackagefile.html"
+><B
+CLASS="function"
+>debugPackageFile()</B
+></A
+> to verify that output is correct before  overwriting your package.xml</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packagefilemanager.pear-packagefilemanager.writepackagefile.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>boolean
+                 <TT
+CLASS="parameter"
+><I
+>$debuginterface</I
+></TT
+></DT
+><DD
+><P
+>&#13;         <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> if no debugging, <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> if web interface, <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> if command-line
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packagefilemanager.pear-packagefilemanager.writepackagefile.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> PEAR_PACKAGEFILEMANAGER_RUN_SETOPTIONS
+    </P
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> PEAR_PACKAGEFILEMANAGER_ADD_MAINTAINERS
+    </P
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> PEAR_PACKAGEFILEMANAGER_CANTWRITE_PKGFILE
+    </P
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> PEAR_PACKAGEFILEMANAGER_CANTOPEN_TMPPKGFILE
+    </P
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> PEAR_PACKAGEFILEMANAGER_CANTCOPY_PKGFILE
+    </P
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> PEAR_PACKAGEFILEMANAGER_DEST_UNWRITABLE
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packagefilemanager.pear-packagefilemanager.writepackagefile.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>see</I
+></SPAN
+> <A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.debugpackagefile.html"
+><B
+CLASS="function"
+>PEAR_PackageFileManager::debugPackageFile()</B
+></A
+> - calls with the debug parameter set based on
+       whether it is called from the command-line or web interface
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packagefilemanager.pear-packagefilemanager.writepackagefile.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager.setoptions.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager-cvs-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_PackageFileManager::setOptions()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.pear.pear-packagefilemanager.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class Summary <B
+CLASS="classname"
+>PEAR_PackageFileManager_CVS</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

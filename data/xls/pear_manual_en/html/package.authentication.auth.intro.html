@@ -1,0 +1,474 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Auth"
+HREF="package.authentication.auth.html"><LINK
+REL="PREVIOUS"
+TITLE="Constants"
+HREF="package.authentication.auth.constants.html"><LINK
+REL="NEXT"
+TITLE="Storage drivers"
+HREF="package.authentication.auth.intro-storage.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.authentication.auth.constants.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.authentication.auth.intro-storage.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.authentication.auth.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN16288"
+></A
+>Introduction&nbsp;--&nbsp;A usage example</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="packages.authentication.auth.intro.example"
+></A
+><H2
+>Auth tutorial</H2
+><P
+>&#13;   Our goal during this "mini tutorial" is to set up a system that
+   secures your site with an easy to use authentication mechanism.
+  </P
+><P
+>&#13;   At the top of the site to secured, place the following code snippet:
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN16295"><P
+><B
+>Example 28-1. Typical usage example for <B
+CLASS="classname"
+>PEAR::Auth</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "Auth.php";
+
+function loginFunction()
+{
+    /*
+     * Change the HTML output so that it fits to your
+     * application.
+     */
+    echo "&#60;form method=\"post\" action=\"test.php\"&#62;";
+    echo "&#60;input type=\"text\" name=\"username\"&#62;";
+    echo "&#60;input type=\"password\" name=\"password\"&#62;";
+    echo "&#60;input type=\"submit\"&#62;";
+    echo "&#60;/form&#62;";
+}
+
+$dsn = "mysql://user:password@localhost/database";
+$a = new Auth("DB", $dsn, "loginFunction");
+
+$a-&#62;start();
+
+if ($a-&#62;checkAuth()) {
+    /*
+     * The output of your site goes here.
+     */
+}</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    This few lines of code instantiate the authentication system.
+   </P
+><P
+>&#13;    The first line in the above script includes the file from your
+    PEAR directory. It contains all the necessary code to run
+    <B
+CLASS="classname"
+>PEAR::Auth</B
+>. Next, we define a function
+    to display the login form which the visitor of your page has to
+    use to enter his login data. You can change all the <SPAN
+CLASS="acronym"
+>HTML</SPAN
+>
+    formatting in this function.
+   </P
+><P
+>&#13;    
+   </P
+><P
+>&#13;    Since we want to use a database to verify the login data, we now
+    create the variable <TT
+CLASS="varname"
+>$dsn</TT
+>, it contains a valid
+    DSN string that will be used to connect to the database via
+    <A
+HREF="package.database.db.html"
+>PEAR::DB</A
+>. For the default
+    database table schema or to use a different storage container,
+    please see below for more information.
+   </P
+><P
+>&#13;    After that we create the authentication object. The first
+    parameter defines the name of the storage container. Because we
+    want to use a database driven storage container, we pass "DB"
+    here. The second parameter is the connection parameter for the
+    container driver. We use the previously defined DSN string. The
+    third parameter is the name of our function that we defined at the
+    beginning of the script. It prints the login form.
+   </P
+><P
+>&#13;    Now our authentication object is initialized and we need to check
+    if the user is logged in. This is done via the method
+    <B
+CLASS="function"
+>checkAuth()</B
+>. If it returns <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, we can pass the
+    content of our page to the user.
+   </P
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN16311"><P
+><B
+>Example 28-2. Using optional authentication</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// In this test, the file is named "test.php".
+
+require_once "Auth.php";
+
+function loginFunction()
+{
+     /*
+      * Change the HTML output so that it fits to your
+      * application.
+      */
+     echo "&#60;form method=\"post\" action=\"test.php?login=1\"&#62;";
+     echo "&#60;input type=\"text\" name=\"username\"&#62;";
+     echo "&#60;input type=\"password\" name=\"password\"&#62;";
+     echo "&#60;input type=\"submit\"&#62;";
+     echo "&#60;/form&#62;";
+}
+
+if (isset($_GET['login']) &#38;&#38; $_GET['login'] == 1) {
+     $optional = true;
+} else {
+     $optional = false;
+}
+
+$dsn = "mysql://user:password@localhost/database";
+$a = new Auth("DB", $dsn, "loginFunction", $optional);
+
+$a-&#62;start();
+
+echo "Everybody can see this text!&#60;br /&#62;";
+
+if (!isset($_GET['login'])) {
+     echo "&#60;a href=\"test.php?login=1\"&#62;Click here to log in&#60;/a&#62;\n";
+}
+
+if ($a-&#62;getAuth()) {
+     echo "One can only see this if he is logged in!";
+}</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    This is a pretty nice example for the optional login feature: The
+    last parameter <TT
+CLASS="parameter"
+><I
+>$optional</I
+></TT
+> can be either <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>
+    or <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>. If it is <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>, the login form is not shown and the user
+    only sees the text "Everybody can see this text!". If he clicks on
+    the link above this text, he gets the same page but with the GET
+    parameter "login=1". Now he can enter his login information in the
+    login form. If he successfully logs in, he can then see the text
+    "Everybody can see this text!" and the text "One can only see this
+    if he is logged in!".
+   </P
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN16319"><P
+><B
+>Example 28-3. Logout functionality</B
+></P
+><P
+>&#13;    The following example performs a <SPAN
+CLASS="QUOTE"
+>"logout"</SPAN
+> for the
+    current user and displays the login form again.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$myauth-&#62;start();
+if ($_GET['action'] == "logout" &#38;&#38; $myauth-&#62;checkAuth()) {
+    $myauth-&#62;logout();
+    $myauth-&#62;start();
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   In the following passages we cover more detailed information about
+   the functions of <B
+CLASS="classname"
+>PEAR::Auth</B
+>.
+  </P
+><P
+>&#13;   This SQL statement creates a table usable under the default
+   database authentication scheme using MySQL:
+  </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>CREATE TABLE auth (
+   username VARCHAR(50) default '' NOT NULL,
+   password VARCHAR(32) default '' NOT NULL,
+   PRIMARY KEY (username),
+   KEY (password)
+);</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;   These are the table and field names necessary for working
+   authentication. When hashing the passwords with the MD5 algorithm,
+   which is the default encryption method in
+   <B
+CLASS="classname"
+>PEAR::Auth</B
+>, the password column must be at
+   least 32 characters long.  When using another encryption method like
+   <SPAN
+CLASS="acronym"
+>DES</SPAN
+> (<SPAN
+CLASS="QUOTE"
+>"UNIX
+   <B
+CLASS="command"
+>crypt</B
+>"</SPAN
+>), the column size has to be changed
+   correspondingly.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.authentication.auth.constants.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.authentication.auth.intro-storage.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Constants</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.authentication.auth.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Storage drivers</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

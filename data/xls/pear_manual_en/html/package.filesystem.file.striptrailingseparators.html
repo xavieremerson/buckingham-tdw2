@@ -1,0 +1,323 @@
+<HTML
+><HEAD
+><TITLE
+>File::stripTrailingSeparators()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File"
+HREF="package.filesystem.file.html"><LINK
+REL="PREVIOUS"
+TITLE="File::stripLeadingSeparators()"
+HREF="package.filesystem.file.stripleadingseparators.html"><LINK
+REL="NEXT"
+TITLE="File::unlock()"
+HREF="package.filesystem.file.unlock.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file.stripleadingseparators.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file.unlock.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.filesystem.file.striptrailingseparators">File::stripTrailingSeparators()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN47032"
+></A
+>File::stripTrailingSeparators()&nbsp;--&nbsp;strips trailing separators from a path</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN47035"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN47036"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'File.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>string <B
+CLASS="function"
+>File:stripTrailingSeparators</B
+></CODE
+> (string $path [, string $separator =
+     <TT
+CLASS="constant"
+><B
+>DIRECTORY_SEPARATOR</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.striptrailingseparators.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   This method removes the trailing directory separator (like "/" on *nix)
+   from a path name.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.striptrailingseparators.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>string $path</I
+></TT
+> - the path name where the
+      trailing separator should be removed from.
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>string $separator</I
+></TT
+> - optional string that
+      defines the separator. This parameter defaults to the value of
+      the constant <TT
+CLASS="constant"
+><B
+>DIRECTORY_SEPARATOR</B
+></TT
+> that is
+      pre-defined by PHP.
+     </P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.striptrailingseparators.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   This methods returns the given path name without a trailing directory
+   separator.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.striptrailingseparators.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.striptrailingseparators.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN47069"><P
+><B
+>Example 38-1. Using <B
+CLASS="function"
+>File:stripTrailingSeparators()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once "File.php";
+
+echo File::stripTrailingSeparators("/home/foo/lala/");
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    This example will print <TT
+CLASS="literal"
+>/home/foo/lala</TT
+>.
+   </P
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.filesystem.file.stripleadingseparators.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.filesystem.file.unlock.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>File::stripLeadingSeparators()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.filesystem.file.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>File::unlock()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

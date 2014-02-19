@@ -1,0 +1,558 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR_Common::downloadHttp</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR_Common"
+HREF="core.ppm.pear-common.html"><LINK
+REL="PREVIOUS"
+TITLE="PEAR_Common::buildProvidesArray"
+HREF="core.ppm.pear-common.buildprovidesarray.html"><LINK
+REL="NEXT"
+TITLE="PEAR_Common::infoFromAny"
+HREF="core.ppm.pear-common.infofromany.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-common.buildprovidesarray.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-common.infofromany.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.ppm.pear-common.downloadhttp"><B
+CLASS="function"
+>PEAR_Common::downloadHttp()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN9436"
+></A
+><B
+CLASS="function"
+>PEAR_Common::downloadHttp()</B
+>&nbsp;--&nbsp;Download a file through HTTP</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN9440"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN9441"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'PEAR/common.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>string  <B
+CLASS="function"
+>PEAR_Common::downloadHttp</B
+></CODE
+> (string $url, object &#38;$ui [, string $save_dir = '.' [, mixed $callback = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-common.downloadhttp.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      Download a file through HTTP.  
+      Considers suggested file name in Content-disposition: header 
+      and can run a callback function for different events.  
+      The callback will be called with two parameters: 
+      the callback type, and parameters.  
+      The implemented callback types are:
+      <P
+></P
+><UL
+><LI
+><P
+>&#13;         <TT
+CLASS="parameter"
+><I
+>'setup'</I
+></TT
+> - 
+         called at the very beginning, parameter is a 
+         UI object that should be used for all output
+        </P
+></LI
+><LI
+><P
+>&#13;         <TT
+CLASS="parameter"
+><I
+>'message'</I
+></TT
+> -
+         the parameter is a string with an informational message
+        </P
+></LI
+><LI
+><P
+>&#13;         <TT
+CLASS="parameter"
+><I
+>'saveas'</I
+></TT
+> - 
+         may be used to save with a different file name, the
+         parameter is the filename that is about to be used. 
+         If a <TT
+CLASS="parameter"
+><I
+>'saveas'</I
+></TT
+> callback 
+         returns a non-empty string, that file name will be 
+         used as the filename instead.
+         Note that <TT
+CLASS="parameter"
+><I
+>$save_dir</I
+></TT
+> will not 
+         be affected by this, only the basename of the file.
+        </P
+></LI
+><LI
+><P
+>&#13;         <TT
+CLASS="parameter"
+><I
+>'start'</I
+></TT
+> -
+         download is starting, parameter is number of bytes
+         that are expected, or -1 if unknown  
+        </P
+></LI
+><LI
+><P
+>&#13;         <TT
+CLASS="parameter"
+><I
+>'bytesread'</I
+></TT
+> -
+         parameter is the number of bytes read so far
+        </P
+></LI
+><LI
+><P
+>&#13;         <TT
+CLASS="parameter"
+><I
+>'done'</I
+></TT
+> - download is 
+         complete, parameter is the total number 
+         of bytes read 
+        </P
+></LI
+><LI
+><P
+>&#13;         <TT
+CLASS="parameter"
+><I
+>'connfailed'</I
+></TT
+> -
+         if the TCP connection fails, this callback is called
+         with <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>array(host,port,errno,errmsg)</PRE
+></TD
+></TR
+></TABLE
+>
+        </P
+></LI
+><LI
+><P
+>&#13;         <TT
+CLASS="parameter"
+><I
+>'writefailed'</I
+></TT
+> -
+         if writing to disk fails, this callback is called         
+         with <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>array(destfile,errmsg)</PRE
+></TD
+></TR
+></TABLE
+>
+        </P
+></LI
+></UL
+>
+      If an HTTP proxy has been configured 
+      (<TT
+CLASS="parameter"
+><I
+>http_proxy</I
+></TT
+> PEAR_Config setting), 
+      the proxy will be used.
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-common.downloadhttp.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+         <TT
+CLASS="parameter"
+><I
+>$url</I
+></TT
+></DT
+><DD
+><P
+>&#13;         the URL to download
+        </P
+></DD
+><DT
+>object
+         <TT
+CLASS="parameter"
+><I
+>&#38;$ui</I
+></TT
+></DT
+><DD
+><P
+>&#13;         <B
+CLASS="classname"
+>PEAR_Frontend_*</B
+> instance   
+        </P
+></DD
+><DT
+>string
+         <TT
+CLASS="parameter"
+><I
+>$save_dir</I
+></TT
+></DT
+><DD
+><P
+>&#13;         directory to save file in
+        </P
+></DD
+><DT
+>mixed
+         <TT
+CLASS="parameter"
+><I
+>$callback</I
+></TT
+></DT
+><DD
+><P
+>&#13;         function/method to call for status      
+         updates
+        </P
+></DD
+><DT
+>object
+         <TT
+CLASS="parameter"
+><I
+>$config</I
+></TT
+></DT
+><DD
+><P
+>&#13;         <B
+CLASS="classname"
+>PEAR_Config</B
+> instance
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-common.downloadhttp.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>string</I
+></TT
+> - 
+     Returns the full path of the downloaded file or a 
+     PEAR error on failure.  If the error is caused by
+     socket-related errors, the error object will   
+     have the fsockopen error code available through
+     <B
+CLASS="function"
+>getCode()</B
+>.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-common.downloadhttp.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN9534"><P
+><B
+>Table 27-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error value</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Meaning</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>""</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-common.downloadhttp.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-common.buildprovidesarray.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-common.infofromany.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Common::buildProvidesArray()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-common.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Common::infoFromAny()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

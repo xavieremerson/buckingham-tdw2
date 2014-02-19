@@ -1,0 +1,262 @@
+<HTML
+><HEAD
+><TITLE
+>Editing a configuration</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Config"
+HREF="package.configuration.config.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.configuration.config.intro.html"><LINK
+REL="NEXT"
+TITLE="Available Containers"
+HREF="package.configuration.config.avail-container.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.configuration.config.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.configuration.config.avail-container.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.configuration.config.intro-editing">Editing a configuration</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN18773"
+></A
+>Editing a configuration&nbsp;--&nbsp;
+        How to manipulate your configuration content
+      </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN18776"
+></A
+><H2
+>Create configuration content</H2
+><P
+>&#13;       There are many ways to create content in your <B
+CLASS="classname"
+>Config</B
+> object. You can simply pass it an array like it is shown in the example below:
+
+      <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN18780"><P
+><B
+>Example 31-1. Create configuration with array</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// configuration array
+
+$conf = array(
+    'DB' =&#62; array(
+        'type' =&#62; 'mysql',
+        'host' =&#62; 'localhost',
+        'user' =&#62; 'root',
+        'pass' =&#62; 'root'
+     )
+);
+
+// Config object
+
+$config = new Config();
+$root =&#38; $config-&#62;parseConfig($conf,
+                              'phparray',
+                              array('name' =&#62; 'conf'));
+echo $root-&#62;toString('phparray', array('name' =&#62; 'conf'));</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+      </P
+><P
+>&#13;       You can also ask Config to look for a file on your filesystem and try to parse it. You would then do it like this. This example assumes you have a valid XML file:
+      <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN18784"><P
+><B
+>Example 31-2. Create configuration with a file</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// Config object
+
+$config = new Config();
+$root =&#38; $config-&#62;parseConfig('/path/to/file.xml', 'xml');
+echo $root-&#62;toString('phparray', array('name' =&#62; 'conf'));</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+      At the moment, Config can parse XML, PHP arrays, ini files, Apache conf and other generic type of configurations with comments and key-value pairs.
+      </P
+><P
+>&#13;       Of course, it is also possible to create the configuration from scratch as shown in the <A
+HREF="package.configuration.config.intro.html"
+>previous section</A
+> example.
+      </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.configuration.config.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.configuration.config.avail-container.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.configuration.config.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Available Containers</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

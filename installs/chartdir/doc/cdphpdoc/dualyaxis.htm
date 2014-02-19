@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<Title>Dual Y-Axis</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">Dual Y-Axis</p>
+<hr class="separator">
+<div class="content">
+<img src="images/dualyaxis.png">
+<br><br>
+This example show demonstrates the dual independent y-axis feature of ChartDirector.<br><br>
+In ChartDirector, any data set can be binded to the primary y-axis or the secondary y-axis, controlled by <a href="DataSet.setUseYAxis2.htm">DataSet.setUseYAxis2</a>. The default is the primary y-axis.<br><br>
+The y-axes in this example are of different colors. This is achieved using <a href="Axis.setColors.htm">Axis.setColors</a>.
+</div>
+<p class="heading2">Source Code Listing</p>
+<div class="content">
+[File: phpdemo/dualyaxis.php]<br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp><?php
+include("phpchartdir.php");
+
+#The data for the chart
+$data0 = array(0.05, 0.06, 0.48, 0.1, 0.01, 0.05);
+$data1 = array(100, 125, 265, 147, 67, 105);
+$labels = array("Jan", "Feb", "Mar", "Apr", "May", "Jun");
+
+#Create a XYChart object of size 300 x 180 pixels
+$c = new XYChart(300, 180);
+
+#Set the plot area at (50, 20) and of size 200 x 130 pixels
+$c->setPlotArea(50, 20, 200, 130);
+
+#Add a title to the chart using 8 pts Arial Bold font
+$c->addTitle("Independent Y-Axis Demo", "arialbd.ttf", 8);
+
+#Set the x axis labels using the given labels
+$c->xAxis->setLabels($labels);
+
+#Add a title to the primary (left) y axis
+$c->yAxis->setTitle("Packet Drop Rate (pps)");
+
+#Set the axis, label and title colors for the primary y axis to red (0xc00000)
+#to match the first data set
+$c->yAxis->setColors(0xc00000, 0xc00000, 0xc00000);
+
+#Add a title to the secondary (right) y axis
+$yAxis2Obj = $c->yAxis2();
+$yAxis2Obj->setTitle("Throughtput (MBytes)");
+
+#set the axis, label and title colors for the primary y axis to green (0x008000)
+#to match the second data set
+$yAxis2Obj = $c->yAxis2();
+$yAxis2Obj->setColors(0x8000, 0x8000, 0x8000);
+
+#Add a line layer to for the first data set using red (0xc00000) color with a
+#line width to 3 pixels
+$lineLayerObj = $c->addLineLayer($data0, 0xc00000);
+$lineLayerObj->setLineWidth(3);
+
+#Add a bar layer to for the second data set using green (0x00C000) color. Bind
+#the second data set to the secondary (right) y axis
+$barLayerObj = $c->addBarLayer();
+$dataSetObj = $barLayerObj->addDataSet($data1, 0xc000);
+$dataSetObj->setUseYAxis2();
+
+#output the chart
+header("Content-type: image/png");
+print($c->makeChart2(PNG));
+?></xmp>
+</td></tr></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

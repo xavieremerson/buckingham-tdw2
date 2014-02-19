@@ -1,0 +1,284 @@
+<HTML
+><HEAD
+><TITLE
+>HTTP_Download::guessContentType</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTTP_Download"
+HREF="package.http.http-download.html"><LINK
+REL="PREVIOUS"
+TITLE="HTTP_Download::setContentDisposition"
+HREF="package.http.http-download.setcontentdisposition.html"><LINK
+REL="NEXT"
+TITLE="HTTP_Download::send"
+HREF="package.http.http-download.send.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.http.http-download.setcontentdisposition.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.http.http-download.send.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.http.http-download.guesscontenttype"><B
+CLASS="function"
+>HTTP_Download::guessContentType()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN75345"
+></A
+><B
+CLASS="function"
+>HTTP_Download::guessContentType()</B
+>&nbsp;--&nbsp;Guess content type of file</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN75349"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN75350"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     mixed
+     <B
+CLASS="function"
+>HTTP_Download::guessContentType</B
+>
+    </CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.guesscontenttype.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Use only if you send a file.
+  </P
+><P
+>&#13;   First we try to use <B
+CLASS="classname"
+>MIME_Type</B
+>, if installed, to 
+   detect the content type, else we check if ext/mime_magic is loaded and 
+   properly configured.
+  </P
+><P
+>&#13;   Returns PEAR_Error if:
+   <P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>&#13;     <B
+CLASS="classname"
+>MIME_Type</B
+> failed to detect a proper content type
+     (<TT
+CLASS="constant"
+><B
+>HTTP_DOWNLOAD_E_INVALID_CONTENT_TYPE</B
+></TT
+>)
+    </TD
+></TR
+><TR
+><TD
+>&#13;     ext/magic.mime is not installed, or not properly configured
+     (<TT
+CLASS="constant"
+><B
+>HTTP_DOWNLOAD_E_NO_EXT_MMAGIC</B
+></TT
+>)
+    </TD
+></TR
+><TR
+><TD
+>&#13;     mime_content_type() couldn't guess content type or returned
+     a content type considered to be bogus by setContentType()
+     (<TT
+CLASS="constant"
+><B
+>HTTP_DOWNLOAD_E_INVALID_CONTENT_TYPE</B
+></TT
+>)
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.guesscontenttype.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   Returns <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> on success,
+<B
+CLASS="classname"
+>PEAR_Error</B
+> on failure.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.guesscontenttype.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.http.http-download.setcontentdisposition.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.http.http-download.send.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>HTTP_Download::setContentDisposition()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.http.http-download.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>HTTP_Download::send()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,9 @@
+body { font-family: Verdana, Tahoma, MS Sans Serif; background-color: buttonface; }
+.big { font-size: 12px; }
+.medium { font-size: 11px; }
+.small { font-size: 10px; }
+
+a { text-decoration: none; }
+a:link { color: #486591; }
+a:visited { color: #6f6c81; }
+a:active { color: blue; }

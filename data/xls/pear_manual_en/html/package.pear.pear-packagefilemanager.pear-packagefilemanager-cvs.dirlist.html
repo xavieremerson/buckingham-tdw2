@@ -1,0 +1,314 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR_PackageFileManager_CVS::dirList</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR_PackageFileManager"
+HREF="package.pear.pear-packagefilemanager.html"><LINK
+REL="PREVIOUS"
+TITLE="Class Summary PEAR_PackageFileManager_CVS"
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager-cvs-summary.html"><LINK
+REL="NEXT"
+TITLE="Class Summary PEAR_PackageFileManager_File"
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager-file-summary.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager-cvs-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager-file-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.pear.pear-packagefilemanager.pear-packagefilemanager-cvs.dirlist"><B
+CLASS="function"
+>PEAR_PackageFileManager_CVS::dirList()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN92071"
+></A
+><B
+CLASS="function"
+>PEAR_PackageFileManager_CVS::dirList()</B
+>&nbsp;--&nbsp;Return a list of all files in the CVS repository</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN92075"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN92076"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'PEAR/PackageFileManager/Cvs.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array      <B
+CLASS="function"
+>PEAR_PackageFileManager_CVS::dirList</B
+></CODE
+> (string $directory)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packagefilemanager.pear-packagefilemanager-cvs.dirlist.desc"
+></A
+><H2
+>Description</H2
+><P
+>This function is like <A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager-file.dirlist.html"
+><B
+CLASS="function"
+>parent::dirList()</B
+></A
+> except  that instead of retrieving a regular filelist, it first  retrieves a listing of all the CVS/Entries files in  $directory and all of the subdirectories.  Then, it  reads the Entries file, and creates a listing of files  that are a part of the CVS repository.  No check is  made to see if they have been modified, but newly  added or removed files are ignored.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packagefilemanager.pear-packagefilemanager-cvs.dirlist.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+                 <TT
+CLASS="parameter"
+><I
+>$directory</I
+></TT
+></DT
+><DD
+><P
+>&#13;         full path to the directory you want the list of
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packagefilemanager.pear-packagefilemanager-cvs.dirlist.returns"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>returns</I
+></SPAN
+> list of files in a directory
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packagefilemanager.pear-packagefilemanager-cvs.dirlist.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> no exceptions thrown
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packagefilemanager.pear-packagefilemanager-cvs.dirlist.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>see</I
+></SPAN
+> _readCVSEntries()
+    </P
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>see</I
+></SPAN
+> _recurDirList()
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packagefilemanager.pear-packagefilemanager-cvs.dirlist.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager-cvs-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.pear.pear-packagefilemanager.pear-packagefilemanager-file-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Class Summary <B
+CLASS="classname"
+>PEAR_PackageFileManager_CVS</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.pear.pear-packagefilemanager.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class Summary <B
+CLASS="classname"
+>PEAR_PackageFileManager_File</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

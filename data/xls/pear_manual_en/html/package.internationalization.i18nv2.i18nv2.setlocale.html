@@ -1,0 +1,343 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;   I18Nv2::setLocale
+  </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="I18Nv2"
+HREF="package.internationalization.i18nv2.html"><LINK
+REL="PREVIOUS"
+TITLE="I18Nv2 Constants"
+HREF="package.internationalization.i18nv2.constants.html"><LINK
+REL="NEXT"
+TITLE="
+   I18Nv2::lastLocale
+  "
+HREF="package.internationalization.i18nv2.i18nv2.lastlocale.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.internationalization.i18nv2.constants.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.internationalization.i18nv2.i18nv2.lastlocale.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.internationalization.i18nv2.i18nv2.setlocale"><B
+CLASS="function"
+>I18Nv2::setLocale()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN76595"
+></A
+>
+   <B
+CLASS="function"
+>I18Nv2::setLocale()</B
+>
+  &nbsp;--&nbsp;Set locale</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN76599"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN76600"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'I18Nv2.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>I18Nv2::setLocale</B
+></CODE
+> (string $locale [, int $cat = LC_ALL])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.i18nv2.i18nv2.setlocale.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Set environment to the specified locale.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.internationalization.i18nv2.i18nv2.setlocale.example"><P
+><B
+>Example 44-1. Set a locale:</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>1  require_once 'I18Nv2.php';
+2  I18Nv2::setLocale('en_GB');</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.i18nv2.i18nv2.setlocale.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string <TT
+CLASS="parameter"
+><I
+>$locale</I
+></TT
+></DT
+><DD
+><P
+>&#13;       a valid locale like en_US or de_DE
+      </P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>integer <TT
+CLASS="parameter"
+><I
+>$cat</I
+></TT
+></DT
+><DD
+><P
+>&#13;       the locale category - usually LC_ALL
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.i18nv2.i18nv2.setlocale.returns"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   Returns string used system locale or false on failure.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.i18nv2.i18nv2.setlocale.note"
+></A
+><H2
+>Note</H2
+><P
+>This function should be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.i18nv2.i18nv2.setlocale.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   See also 
+   <A
+HREF="package.internationalization.i18nv2.examples.html#package.internationalization.i18nv2.examples.setlocale"
+>I18Nv2::setLocale() example</A
+>,
+   <A
+HREF="package.internationalization.i18nv2.i18nv2.getinfo.html"
+>I18Nv2::getInfo()</A
+>,
+   <A
+HREF="package.internationalization.i18nv2.i18nv2.lastlocale.html"
+>I18Nv2::lastLocale()</A
+>,
+   PHPs <A
+HREF="http://php.net/setlocale"
+TARGET="_top"
+>setlocale()</A
+>.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.internationalization.i18nv2.constants.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.internationalization.i18nv2.i18nv2.lastlocale.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>I18Nv2 Constants</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.internationalization.i18nv2.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>I18Nv2::lastLocale()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,443 @@
+<HTML
+><HEAD
+><TITLE
+>Sample File (including Docblock Comment standards)</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Coding Standards"
+HREF="standards.html"><LINK
+REL="PREVIOUS"
+TITLE="File Formats"
+HREF="standards.file.html"><LINK
+REL="NEXT"
+TITLE="Contributing"
+HREF="contributing.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="standards.file.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 4. Coding Standards</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="contributing.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="standards.sample">Sample File (including Docblock Comment standards)</H1
+><P
+>&#13;    The source code of PEAR packages are read by thousands
+    of people. Also, it is likely other people will become
+    developers on your package at some point in the future.
+    Therefore, it is important to make life easier for
+    everyone by formatting the code and docblocks in
+    standardized ways. People can then quickly find the
+    information they are looking for because it is in the
+    expected location. Your cooperation is appreciated.
+   </P
+><P
+>&#13;    Each docblock in the example contains many details about writing
+    Docblock Comments.
+    Following those instructions is important for two reasons.
+    First, when docblocks are easy to read, users and developers can quickly
+    ascertain what your code does.
+    Second, the PEAR website now contains the phpDocumentor generated
+    documentation for each release of each package, so keeping things straight
+    here means the API docs on the website will be useful.
+   </P
+><P
+>&#13;    Please take note of the vertical and horizontal spacing.
+    They are part of the standard.
+   </P
+><P
+>&#13;    The <SPAN
+CLASS="QUOTE"
+>"fold markers"</SPAN
+> (<TT
+CLASS="literal"
+>// {{{</TT
+> and
+    <TT
+CLASS="literal"
+>// }}}</TT
+>) are optional.
+    If you aren't using fold markers,
+    remove <TT
+CLASS="literal"
+>foldmethod=marker</TT
+> from the vim header.
+   </P
+><P
+>&#13;    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+/* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
+
+/**
+ * Short description for file
+ *
+ * Long description for file (if any)...
+ *
+ * PHP versions 4 and 5
+ *
+ * LICENSE: This source file is subject to version 3.0 of the PHP license
+ * that is available through the world-wide-web at the following URI:
+ * http://www.php.net/license/3_0.txt.  If you did not receive a copy of
+ * the PHP License and are unable to obtain it through the web, please
+ * send a note to license@php.net so we can mail you a copy immediately.
+ *
+ * @category   CategoryName
+ * @package    PackageName
+ * @author     Original Author &#60;author@example.com&#62;
+ * @author     Another Author &#60;another@example.com&#62;
+ * @copyright  1997-2005 The PHP Group
+ * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
+ * @version    CVS: $Id:$
+ * @link       http://pear.php.net/package/PackageName
+ * @see        NetOther, Net_Sample::Net_Sample()
+ * @since      File available since Release 1.2.0
+ * @deprecated File deprecated in Release 2.0.0
+ */
+
+/**
+ * This is a "Docblock Comment," also known as a "docblock."  The class'
+ * docblock, below, contains a complete description of how to write these.
+ */
+require_once 'PEAR.php';
+
+// {{{ constants
+
+/**
+ * Methods return this if they succeed
+ */
+define('NET_SAMPLE_OK', 1);
+
+// }}}
+// {{{ GLOBALS
+
+/**
+ * The number of objects created
+ * @global int $GLOBALS['NET_SAMPLE_Count']
+ */
+$GLOBALS['NET_SAMPLE_Count'] = 0;
+
+// }}}
+// {{{ Net_Sample
+
+/**
+ * An example of how to write code to PEAR's standards
+ *
+ * Docblock comments start with "/**" at the top.  Notice how the "/"
+ * lines up with the normal indenting and the asterisks on subsequent rows
+ * are in line with the first asterisk.  The last line of comment text
+ * should be immediately followed on the next line by the closing asterisk
+ * and slash and then the item you are commenting on should be on the next
+ * line below that.  Don't add extra lines.  Please put a blank line
+ * between paragraphs as well as between the end of the description and
+ * the start of the @tags.  Wrap comments before 80 columns in order to
+ * ease readability for a wide variety of users.
+ *
+ * Docblocks can only be used for programming constructs which allow them
+ * (classes, properties, methods, defines, includes, globals).  See the
+ * phpDocumentor documentation for more information.
+ * http://phpdoc.org/docs/HTMLSmartyConverter/default/phpDocumentor/tutorial_phpDocumentor.howto.pkg.html
+ *
+ * The Javadoc Style Guide is an excellent resource for figuring out
+ * how to say what needs to be said in docblock comments.  Much of what is
+ * written here is a summary of what is found there, though there are some
+ * cases where what's said here overrides what is said there.
+ * http://java.sun.com/j2se/javadoc/writingdoccomments/index.html#styleguide
+ *
+ * The first line of any docblock is the summary.  Make them one short
+ * sentence, without a period at the end.  Summaries for classes, properties
+ * and constants should omit the subject and simply state the object,
+ * because they are describing things rather than actions or behaviors.
+ *
+ * Below are the tags commonly used for classes. @category through @access
+ * are required.  The remainder should only be used when necessary.
+ * Please use them in the order they appear here.  phpDocumentor has
+ * several other tags available, feel free to use them.
+ *
+ * @category   CategoryName
+ * @package    PackageName
+ * @author     Original Author &#60;author@example.com&#62;
+ * @author     Another Author &#60;another@example.com&#62;
+ * @copyright  1997-2005 The PHP Group
+ * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
+ * @version    Release: @package_version@
+ * @link       http://pear.php.net/package/PackageName
+ * @see        NetOther, Net_Sample::Net_Sample()
+ * @since      Class available since Release 1.2.0
+ * @deprecated Class deprecated in Release 2.0.0
+ */
+class Net_Sample
+{
+    // {{{ properties
+
+    /**
+     * The status of foo's universe
+     *
+     * Potential values are 'good', 'fair', 'poor' and 'unknown'.
+     *
+     * @var string
+     */
+    var $foo = 'unknown';
+
+    /**
+     * The status of life
+     *
+     * Note that names of private properties or methods must be
+     * preceeded by an underscore.
+     *
+     * @var bool
+     * @access private
+     */
+    var $_good = true;
+
+    // }}}
+    // {{{ setFoo()
+
+    /**
+     * Registers the status of foo's universe
+     *
+     * Summaries for methods should use 3rd person declarative rather
+     * than 2nd person imperative, begining with a verb phrase.
+     *
+     * Summaries should add description beyond the method's name. The
+     * best method names are "self-documenting", meaning they tell you
+     * basically what the method does.  If the summary merely repeats
+     * the method name in sentence form, it is not providing more
+     * information.
+     *
+     * Summary Examples:
+     *   + Sets the label              (preferred)
+     *   + Set the label               (avoid)
+     *   + This method sets the label  (avoid)
+     *
+     * Below are the tags commonly used for methods.  A @param tag is
+     * required for each parameter the method has.  The @return and
+     * @access tags are mandatory.  The @throws tag is required if the
+     * method uses exceptions.  @static is required if the method can
+     * be called statically.  The remainder should only be used when
+     * necessary.  Please use them in the order they appear here.
+     * phpDocumentor has several other tags available, feel free to use
+     * them.
+     *
+     * The @param tag contains the data type, then the parameter's
+     * name, followed by a description.  By convention, the first noun in
+     * the description is the data type of the parameter.  Articles like
+     * "a", "an", and  "the" can precede the noun.  The descriptions
+     * should start with a phrase.  If further description is necessary,
+     * follow with sentences.  Having two spaces between the name and the
+     * description aids readability.
+     *
+     * When writing a phrase, do not capitalize and do not end with a
+     * period:
+     *   + the string to be tested
+     *
+     * When writing a phrase followed by a sentence, do not capitalize the
+     * phrase, but end it with a period to distinguish it from the start
+     * of the next sentence:
+     *   + the string to be tested. Must use UTF-8 encoding.
+     *
+     * Return tags should contain the data type then a description of
+     * the data returned.  The data type can be any of PHP's data types
+     * (int, float, bool, string, array, object, resource, mixed)
+     * and should contain the type primarily returned.  For example, if
+     * a method returns an object when things work correctly but false
+     * when an error happens, say 'object' rather than 'mixed.'  Use
+     * 'void' if nothing is returned.
+     *
+     * Here's an example of how to format examples:
+     * &#60;code&#62;
+     * require_once 'Net/Sample.php';
+     *
+     * $s = new Net_Sample();
+     * if (PEAR::isError($s)) {
+     *     echo $s-&#62;getMessage() . "\n";
+     * }
+     * &#60;/code&#62;
+     *
+     * Here is an example for non-php example or sample:
+     * &#60;samp&#62;
+     * pear install net_sample
+     * &#60;/samp&#62;
+     *
+     * @param string $arg1  the string to quote
+     * @param int    $arg2  an integer of how many problems happened.
+     *                       Indent to the description's starting point
+     *                       for long ones.
+     *
+     * @return int  the integer of the set mode used. FALSE if foo
+     *               foo could not be set.
+     * @throws exceptionclass  [description]
+     *
+     * @access public
+     * @static
+     * @see Net_Sample::$foo, Net_Other::someMethod()
+     * @since Method available since Release 1.2.0
+     * @deprecated Method deprecated in Release 2.0.0
+     */
+    function setFoo($arg1, $arg2 = 0)
+    {
+        /*
+         * This is a "Block Comment."  The format is the same as
+         * Docblock Comments except there is only one asterisk at the
+         * top.  phpDocumentor doesn't parse these.
+         */
+        if ($arg1 == 'good' || $arg1 == 'fair') {
+            $this-&#62;foo = $arg1;
+            return 1;
+        } elseif ($arg1 == 'poor' &#38;&#38; $arg2 &#62; 1) {
+            $this-&#62;foo = 'poor';
+            return 2;
+        } else {
+            return false;
+        }
+    }
+
+    // }}}
+}
+
+// }}}
+
+/*
+ * Local variables:
+ * tab-width: 4
+ * c-basic-offset: 4
+ * c-hanging-comment-ender-p: nil
+ * End:
+ */
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="standards.file.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="contributing.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>File Formats</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="standards.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Contributing</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

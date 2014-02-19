@@ -1,0 +1,366 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;   PEAR_PackageFile::fromPackageFile
+  </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR"
+HREF="core.ppm.pear-packagefile.html"><LINK
+REL="PREVIOUS"
+TITLE="
+   PEAR_PackageFile::fromArray
+  "
+HREF="core.ppm.pear-packagefile.fromarray.html"><LINK
+REL="NEXT"
+TITLE="
+   PEAR_PackageFile::fromTgzFile
+  "
+HREF="core.ppm.pear-packagefile.fromtgzfile.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-packagefile.fromarray.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-packagefile.fromtgzfile.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.ppm.pear-packagefile.frompackagefile"><B
+CLASS="function"
+>PEAR_PackageFile::fromPackageFile()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN13492"
+></A
+>
+   <B
+CLASS="function"
+>PEAR_PackageFile::fromPackageFile()</B
+>
+  &nbsp;--&nbsp;
+   Returns information about a package file.  Expects the name of  a package.xml
+   file as input.
+</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN13496"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN13497"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once '/PackageFile.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     array&#38;
+     <B
+CLASS="function"
+>PEAR_PackageFile::fromPackageFile</B
+>
+    </CODE
+> (string
+     $descfile, int
+     $state, string|false
+     [$archive = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-packagefile.frompackagefile.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   parse and return a package.xml object from a package.xml file, or a
+   <A
+HREF="core.pear.pear-error.html"
+><B
+CLASS="classname"
+>PEAR_Error</B
+></A
+> object
+   upon error.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-packagefile.frompackagefile.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+      <TT
+CLASS="parameter"
+><I
+>$descfile</I
+></TT
+></DT
+><DD
+><P
+>name of package.xml file</P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>integer
+      <TT
+CLASS="parameter"
+><I
+>$state</I
+></TT
+></DT
+><DD
+><P
+>package state (one of 
+      <A
+HREF="core.ppm.pear-validate.constants.html"
+><TT
+CLASS="literal"
+>PEAR_VALIDATE_*</TT
+></A
+> constants)</P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string|<TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>
+      <TT
+CLASS="parameter"
+><I
+>$archive</I
+></TT
+></DT
+><DD
+><P
+>&#13;       full path to the full package .tgz file containing the package.xml, or
+       false for none.
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-packagefile.frompackagefile.returns"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>returns</I
+></SPAN
+>
+   array with package information
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-packagefile.frompackagefile.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+>
+   no exceptions thrown
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-packagefile.frompackagefile.note"
+></A
+><H2
+>Note</H2
+><P
+>This function should be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-packagefile.fromarray.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-packagefile.fromtgzfile.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_PackageFile::fromArray()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-packagefile.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_PackageFile::fromTgzFile()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,910 @@
+<HTML
+><HEAD
+><TITLE
+>Class Summary HTML_QuickForm_hierselect</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Custom elements"
+HREF="package.html.html-quickform.html#package.html.html-quickform.elements.custom"><LINK
+REL="PREVIOUS"
+TITLE="constructor HTML_QuickForm_hiddenselect()"
+HREF="package.html.html-quickform.html-quickform-hiddenselect.html-quickform-hiddenselect.html"><LINK
+REL="NEXT"
+TITLE="constructor HTML_QuickForm_hierselect()"
+HREF="package.html.html-quickform.html-quickform-hierselect.html-quickform-hierselect.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-hiddenselect.html-quickform-hiddenselect.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-hierselect.html-quickform-hierselect.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.html-quickform-hierselect">Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_hierselect</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN60664"
+></A
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_hierselect</B
+>&nbsp;--&nbsp;Class to dynamically create chained HTML Select elements, each select
+changes the content of the next.</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN60668"
+></A
+><H2
+>Description</H2
+><P
+>Class to dynamically create "chained" HTML Select elements. Choosing an option in the first &#60;select&#62;
+changes the content of the second select and so on.</P
+><P
+>This element is considered as a group. Selects will be named  groupName[0], groupName[1], ...
+<TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN60672"><P
+><B
+>Example 41-1. Creating a hierselect element based on values from a database table</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'HTML/QuickForm.php';
+$form = new HTML_QuickForm('example');
+
+$form-&#62;setDefaults(array('test' =&#62; array('4','15')));
+$sel =&#38; $form-&#62;addElement('hierselect', 'test', 'Test:', null, '/');
+
+$mainOptions = $db-&#62;getAssoc('select pkparent, par_desc from parent');
+
+$result = $db-&#62;query("select fk_parent, pkchild, chi_desc from child");
+while ($result-&#62;fetchInto($row)) {
+    $secOptions[$row[0]][$row[1]] = $row[2];
+}
+// Using setMainOptions and setSecOptions is now deprecated 
+// use setOptions.
+
+$sel-&#62;setOptions(array($mainOptions, $secOptions));
+
+$form-&#62;display();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+Creating more than two select elements is just as simple.
+<TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN60675"><P
+><B
+>Example 41-2. Creating a hierselect element with three select elements</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'HTML/QuickForm.php';
+$form = new HTML_QuickForm('example');
+
+$select1[0] = 'Pop';
+$select1[1] = 'Classical';
+$select1[2] = 'Funeral doom';
+
+// second select
+$select2[0][0] = '--- Artist ---';
+$select2[0][1] = 'Red Hot Chil Peppers';
+$select2[0][2] = 'The Pixies';
+      
+$select2[1][0] = '--- Artist ---';
+$select2[1][1] = 'Wagner';
+$select2[1][2] = 'Strauss';
+      
+$select2[2][0] = '--- Artist ---';
+$select2[2][1] = 'Pantheist';
+$select2[2][2] = 'Skepticism';
+     
+// Create a third select with prices for the cds
+$select3[0][0][0] = '--- Choose the artist ---';
+$select3[0][1][0] = '15.00$';
+$select3[0][2][1] = '17.00$';
+$select3[1][0][0] = '--- Choose the artist ---';
+$select3[1][1][0] = '15.00$';
+$select3[1][2][1] = '17.00$';
+$select3[2][0][0] = '--- Choose the artist ---';
+$select3[2][1][0] = '15.00$';
+$select3[2][2][1] = '17.00$';     
+
+// Create the Element
+$sel =&#38; $form-&#62;addElement('hierselect', 'cds', 'Choose CD:');
+
+// And add the selection options
+$sel-&#62;setOptions(array($select1, $select2, $select3));
+
+$form-&#62;display();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+
+</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN60678"
+></A
+><H2
+>Class Trees for <B
+CLASS="classname"
+>HTML_QuickForm_hierselect</B
+></H2
+><P
+>&#13;    <P
+></P
+><UL
+><LI
+><P
+>&#13;   HTML_Common
+    <P
+></P
+><UL
+><LI
+><P
+>&#13;   <A
+HREF="package.html.html-quickform.html-quickform-element.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_element</B
+></A
+>
+    <P
+></P
+><UL
+><LI
+><P
+>&#13;   <A
+HREF="package.html.html-quickform.html-quickform-group.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_group</B
+></A
+>
+    <P
+></P
+><UL
+><LI
+><P
+>&#13;   HTML_QuickForm_hierselect
+      </P
+></LI
+></UL
+>
+    </P
+></LI
+></UL
+>
+    </P
+></LI
+></UL
+>
+    </P
+></LI
+></UL
+>
+   </P
+><P
+>&#13;  <B
+CLASS="classname"
+>HTML_QuickForm_hierselect</B
+> Inherited Methods
+ </P
+><P
+>&#13;       <DIV
+CLASS="table"
+><A
+NAME="AEN60701"><P
+><B
+>Table 41-1. Inherited from <A
+HREF="package.html.html-quickform.html-quickform-group.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_group</B
+></A
+></B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Method Name</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Summary</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> Constructor <A
+HREF="package.html.html-quickform.html-quickform-group.html-quickform-group.html"
+><B
+CLASS="function"
+>HTML_QuickForm_group::HTML_QuickForm_group()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Class constructor</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.accept.html"
+><B
+CLASS="function"
+>HTML_QuickForm_group::accept()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Accepts a renderer</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.exportvalue.html"
+><B
+CLASS="function"
+>HTML_QuickForm_group::exportValue()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>As usual, to get the group's value we access its elements and call</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-group.getelementname.html"
+><B
+CLASS="function"
+>HTML_QuickForm_group::getElementName()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns the element name inside the group such as found in the html form</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-group.getelements.html"
+><B
+CLASS="function"
+>HTML_QuickForm_group::getElements()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Gets the grouped elements</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.getfrozenhtml.html"
+><B
+CLASS="function"
+>HTML_QuickForm_group::getFrozenHtml()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns the value of field without HTML tags</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-group.getgrouptype.html"
+><B
+CLASS="function"
+>HTML_QuickForm_group::getGroupType()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Gets the group type based on its elements  Will return 'mixed' if elements contained in the group  are of different types.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.getname.html"
+><B
+CLASS="function"
+>HTML_QuickForm_group::getName()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns the group name</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.getvalue.html"
+><B
+CLASS="function"
+>HTML_QuickForm_group::getValue()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns the value of the group</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.onquickformevent.html"
+><B
+CLASS="function"
+>HTML_QuickForm_group::onQuickFormEvent()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Called by HTML_QuickForm whenever form event is made on this element</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-group.setelements.html"
+><B
+CLASS="function"
+>HTML_QuickForm_group::setElements()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Sets the grouped elements</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.setname.html"
+><B
+CLASS="function"
+>HTML_QuickForm_group::setName()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Sets the group name</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.setvalue.html"
+><B
+CLASS="function"
+>HTML_QuickForm_group::setValue()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Sets values for group's elements</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+       <DIV
+CLASS="table"
+><A
+NAME="AEN60776"><P
+><B
+>Table 41-2. Inherited from <A
+HREF="package.html.html-quickform.html-quickform-element.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_element</B
+></A
+></B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Method Name</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Summary</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> Constructor <A
+HREF="package.html.html-quickform.html-quickform-element.html-quickform-element.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::HTML_QuickForm_element()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Class constructor</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.accept.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::accept()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Accepts a renderer</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.apiversion.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::apiVersion()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns the current API version</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.exportvalue.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::exportValue()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns a 'safe' element's value</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.freeze.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::freeze()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Freeze the element so that only its value is returned</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.getfrozenhtml.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::getFrozenHtml()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns the value of field without HTML tags</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.getlabel.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::getLabel()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns display text for the element</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.getname.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::getName()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns the element name</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.gettype.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::getType()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns element type</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.getvalue.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::getValue()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns the value of the form element</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.isfrozen.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::isFrozen()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns whether or not the element is frozen</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.onquickformevent.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::onQuickFormEvent()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Called by HTML_QuickForm whenever form event is made on this element</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.setlabel.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::setLabel()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Sets display text for the element</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.setname.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::setName()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Sets the input field name</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.setpersistantfreeze.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::setPersistantFreeze()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Sets wether an element value should be kept in an hidden field  when the element is frozen or not</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.setvalue.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::setValue()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Sets the value of the form element</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.unfreeze.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::unfreeze()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Unfreezes the form element</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+      </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-hiddenselect.html-quickform-hiddenselect.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-hierselect.html-quickform-hierselect.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>constructor HTML_QuickForm_hiddenselect()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.elements.custom"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>constructor HTML_QuickForm_hierselect()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

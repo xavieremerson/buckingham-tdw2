@@ -1,0 +1,44 @@
+<HTML>
+<HEAD>
+<Title>Layer.setLegend</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1"><a href="Layer.htm">Layer</a>.setLegend</p>
+<hr class="separator">
+<p class="heading2a">Usage</p>
+<div class="content">
+setLegend(m)
+</div>
+<p class="heading2">Description</p>
+<div class="content">
+Set the order of the data set names when entered into the legend box.<br><br>
+By default, if a data set has a name (see <a href="Layer.addDataSet.htm">Layer.addDataSet</a>), an entry will be added to the legend box. If there are multiple named data sets in a layer, multiple entries will be added to the legend box, in the same order as the data sets being added to the layer.<br><br>
+In some cases, it may be desirable not to add the data set names to the legend box, or to add them to the legend box in reverse order.<br><br>
+For example, in a vertical stacked chart with positive data, the first data set will be at the bottom, and the last data set will be stacked to the top. If a vertically laid out legend box is used, the first data set will be the first entry in the legend box, and so will be at the top of the legend box. Similarly, the last data set will be at the bottom of the legend box. This is in reverse to what is shown in the stacked chart. So it may be desirable to reverse the order that the data names are added to the legend box.<br><br>
+ChartDirector supports the following legend entry ordering methods represented by pre-defined constants.<br><br>
+<table width="98%" border="1" cellpadding="5" cellspacing="0"> <tr><th width="19%">Constant</th><th width="19%">Value</th><th>Description</th></tr> <tr><td> NormalLegend</td><td>0</td><td>Data set names are added to the legend box in normal order. </td></tr><tr><td> ReverseLegend</td><td>1</td><td>Data set names are added to the legend box in reverse order. </td></tr><tr><td> NoLegend</td><td>2</td><td>Data set names are not added to the legend box at all. </td></tr></table><br>
+</div>
+<p class="heading2">Arguments</p>
+
+<div class="content">
+<table border="1" cellpadding="5" cellspacing="0" width="98%"> 
+<tr>
+<th width="19%">Argument</th><th width="19%">Default</th><th width="60%">Description</th>
+</tr>
+<tr>
+<td>m</td><td>(Mandatory)</td><td>One of the pre-defined constants representing the legend entry ordering method to use.</td>
+</tr>
+</table>
+</div>
+
+<p class="heading2">Return Value</p>
+<div class="content">
+None
+</div>
+<br><hr class="separator">
+<div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

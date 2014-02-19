@@ -1,0 +1,30 @@
+/*****************************************************************
+
+	ActiveWidgets 2.0.b3 (beta3)
+	Copyright (C) 2003-2005 ActiveWidgets Ltd. All Rights Reserved. 
+	http://www.activewidgets.com/
+
+	WARNING: This software program is protected by copyright law 
+	and international treaties. Unauthorized reproduction or
+	distribution of this program, or any portion of it, may result
+	in severe civil and criminal penalties, and will be prosecuted
+	to the maximum extent possible under the law.
+
+	FOR TESTING AND EVALUATION ONLY:
+	This software is not free and is licensed to you for testing 
+	and evaluation only. You are not allowed to distribute 
+	or use any parts of this software for any other purposes.
+
+*****************************************************************/
+
+/* small icons - square 18px, step 40px, file height 30px */
+/* small and large - step 40px, large at 26px, square 26px, file height 60px */
+/* image box - 18px or 20px with 1px border */
+
+.aw-image-home		{background: url(icons.png)  -40px 0px;}
+.aw-image-favorites	{background: url(icons.png)  -80px 0px;}
+.aw-image-search	{background: url(icons.png) -120px 0px;}
+.aw-image-fontsize	{background: url(icons.png) -160px 0px;}
+
+
+

@@ -1,0 +1,310 @@
+<HTML
+><HEAD
+><TITLE
+>Example</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="System_Folders"
+HREF="package.system.folders.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.system.folders.intro.html"><LINK
+REL="NEXT"
+TITLE="System_ProcWatch"
+HREF="package.system.system-procwatch.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.system.folders.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.system.system-procwatch.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.system.folders.example">Example</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN97323"
+></A
+>Example&nbsp;--&nbsp;
+   How to use System_Folders
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN97326"
+></A
+><H2
+>Using System_Folders</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN97328"><P
+><B
+>Example 56-1. General usage</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'System/Folders.php';
+
+$sf = new System_Folders();
+
+$arData = array(
+'Username'         =&#62; $sf-&#62;getUserName(),
+'Home'             =&#62; $sf-&#62;getHome(),
+'Documents'        =&#62; $sf-&#62;getDocuments(),
+'Shared documents' =&#62; $sf-&#62;getSharedDocuments(),
+'Temp'             =&#62; $sf-&#62;getTemp(),
+'Desktop'          =&#62; $sf-&#62;getDesktop(),
+'AppData'          =&#62; $sf-&#62;getAppData(),
+'Programs'         =&#62; $sf-&#62;getPrograms(),
+'Windows'          =&#62; $sf-&#62;getWindows()
+);
+
+echo 'System: ' . $sf-&#62;getSys() . "\r\n";
+var_dump($arData);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   At first, you need to instantitiate a new
+   <B
+CLASS="classname"
+>System_Folders</B
+> object. The operating
+   system is determined there, which is needed for all the
+   other methods.
+  </P
+><P
+>&#13;   Then just use the <TT
+CLASS="literal"
+>getXXX()</TT
+> methods to retrieve
+   the folder locations. Remember that they return <TT
+CLASS="literal"
+>NULL</TT
+>
+   if the location can't be determined.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN97336"
+></A
+><H2
+>Using System_Folders_Cached</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN97338"><P
+><B
+>Example 56-2. General usage</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'System/Folders/Cached.php';
+$sf = new System_Folders_Cached();
+
+//show the path of the config file
+echo 'Config file: ' . $sf-&#62;getDefaultConfigFile() . "\r\n";
+
+//load the stored settings from last time
+$err = $sf-&#62;loadFromFile();
+
+echo 'Home:      ' . $sf-&#62;getHome() . "\r\n";
+echo 'Documents: ' . $sf-&#62;getDocuments() . "\r\n";
+
+echo "\r\n";
+
+$doc = $sf-&#62;getDocuments();
+if (file_exists($doc)) {
+    echo "Setting new Documents directory\r\n";
+    //Set an own documents directory
+    // and save the settings for next time
+    $sf-&#62;setDocuments('/strange/path/to/MyDocuments/');
+    $sf-&#62;saveToFile();
+    echo 'New Documents directory: ' . $sf-&#62;getDocuments() . "\r\n";
+    echo "Run this program again to reset the path to default\r\n";
+} else {
+    //unset the path
+    echo "Unsetting the documents directory\r\n";
+    $sf-&#62;setDocuments(null);
+    $sf-&#62;saveToFile();
+    echo 'New Documents directory: ' . $sf-&#62;getDocuments() . "\r\n";
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   This example displays the location of the config file (in which
+   the folder settings are stored), shows some folder locations and
+   sets the documents directory to a (probably non-existing) directory
+   and saves the folder locations.
+  </P
+><P
+>&#13;   In the next program call, the documents directory is reset to the
+   normal one and saved again.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.system.folders.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.system.system-procwatch.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.system.folders.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>System_ProcWatch</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

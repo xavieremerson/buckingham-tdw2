@@ -1,0 +1,600 @@
+<HTML
+><HEAD
+><TITLE
+>Examples</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Services_Yahoo"
+HREF="package.webservices.services-yahoo.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.webservices.services-yahoo.intro.html"><LINK
+REL="NEXT"
+TITLE="Design"
+HREF="package.webservices.services-yahoo.design.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.webservices.services-yahoo.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.webservices.services-yahoo.design.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.webservices.services-yahoo.examples">Examples</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN101084"
+></A
+>Examples&nbsp;--&nbsp;
+   Using <B
+CLASS="classname"
+>Services_Yahoo</B
+>
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN101088"
+></A
+><H2
+>About the examples</H2
+><P
+>&#13;   The following sections provide you with examples of using the
+   different feature sets of <B
+CLASS="classname"
+>Services_Yahoo</B
+>.
+   Currently this includes documentation for the interfaces to
+   <A
+HREF="package.webservices.services-yahoo.examples.html#package.webservices.services-yahoo.example.search"
+>Yahoo!
+   Search</A
+> and <A
+HREF="package.webservices.services-yahoo.examples.html#package.webservices.services-yahoo.example.contentanalysis"
+>Content
+   Analysis</A
+>.
+  </P
+><P
+>&#13;   All public methods in <B
+CLASS="classname"
+>Services_Yahoo</B
+> have in
+   common that <A
+HREF="http://php.net/manual/en/language.exceptions.php"
+TARGET="_top"
+>exceptions</A
+>
+   will be raised when something goes wrong.  This is why <TT
+CLASS="literal"
+>try {
+   ... } catch { }</TT
+> blocks are wrapped around all examples.
+  </P
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+    The examples are designed to be run from a command line shell.  If
+    you would like to test them in a web browser you should replace
+    <TT
+CLASS="literal"
+>\n</TT
+> with <TT
+CLASS="literal"
+>&#60;br /&#62;</TT
+> for
+    better readability.
+   </P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.services-yahoo.example.search"
+></A
+><H2
+>Speaking to Yahoo! Search</H2
+><P
+>&#13;   The following examples will communicate with <A
+HREF="http://search.yahoo.com/"
+TARGET="_top"
+>Yahoo! Search</A
+>.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN101106"><P
+><B
+>Example 60-1. Web search: Listing results</B
+></P
+><P
+>&#13;    This snippet issues a search query for the term <TT
+CLASS="literal"
+>Steve
+    Fossett</TT
+> to Yahoo! Search.  For each result in the returned
+    result set the title is printed.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "Services/Yahoo/Search.php";
+
+try {
+    $search = Services_Yahoo_Search::factory("web");
+    $search-&#62;setQuery("Steve Fossett");
+
+    $results = $search-&#62;submit();
+
+    echo "Number of results: " . $results-&#62;getTotalResultsReturned() . "\n\n";
+
+    foreach ($results as $result) {
+        echo $result['Title'] . "\n";
+    }
+
+} catch (Services_Yahoo_Exception $e) {
+    echo "Error: " . $e-&#62;getMessage() . "\n";
+
+    foreach ($e-&#62;getErrors() as $error) {
+        echo "* " . $error . "\n";
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    By default 10 results are returned per request.  This number can be
+    modified using the method <B
+CLASS="function"
+>setResultNumber()</B
+>:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "Services/Yahoo/Search.php";
+
+try {
+    $search = Services_Yahoo_Search::factory("web");
+    $search-&#62;setQuery("Steve Fossett");
+
+    // Get 20 results per query
+    $search-&#62;setResultNumber(20);
+
+    /* ... */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN101114"><P
+><B
+>Example 60-2. Web search: Result details</B
+></P
+><P
+>&#13;    This code again queries Yahoo! Search for <TT
+CLASS="literal"
+>Steve
+    Fossett</TT
+>, but this time the details of the first result in
+    the result set are printed.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "Services/Yahoo/Search.php";
+
+try {
+    $search = Services_Yahoo_Search::factory("web");
+    $search-&#62;setQuery("Steve Fossett");
+
+    $results = $search-&#62;submit();
+
+    if ($results-&#62;getTotalResultsReturned() &#62; 0) {
+        $info = $results-&#62;current();
+
+        echo "Title: " . $info['Title'] . "\n";
+        echo "Summary: " . $info['Summary'] . "\n";
+        echo "URL: " . $info['Url'] . "\n";
+        echo "clickable URL: " . $info['ClickUrl'] . "\n";
+        echo "Modification date: " . $info['ModificationDate'] . "\n";
+        echo "Mime type: " . $info['MimeType'] . "\n";
+    }
+    
+} catch (Services_Yahoo_Exception $e) {
+    echo "Error: " . $e-&#62;getMessage() . "\n";
+
+    foreach ($e-&#62;getErrors() as $error) {
+        echo "* " . $error . "\n";
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN101119"><P
+><B
+>Example 60-3. Web search: Paginating results</B
+></P
+><P
+>&#13;    In this example the "paginating" capabilities of
+    <B
+CLASS="classname"
+>Services_Yahoo</B
+> are shown.  Paginating means
+    that the search results are split up into chunks of e.g. 20, which
+    are displayed together with links to jump back and forth to other
+    result chunks.  Basically this mimicks the functionality from the
+    bottom of <A
+HREF="http://search.yahoo.com/search?ei=UTF-8&fr=sfp&p=steve+fossett"
+TARGET="_top"
+>official
+    Yahoo Search Page</A
+>.
+   </P
+><P
+>&#13;    TBD
+   </P
+></DIV
+></TD
+></TR
+></TABLE
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+    In order to query the Image, News, Video or Local search, one only
+    needs to replace the argument <SPAN
+CLASS="QUOTE"
+>"web"</SPAN
+> in the call of the
+    <B
+CLASS="function"
+>factory()</B
+> method with one of
+    <SPAN
+CLASS="QUOTE"
+>"image"</SPAN
+>, <SPAN
+CLASS="QUOTE"
+>"news"</SPAN
+>, <SPAN
+CLASS="QUOTE"
+>"video"</SPAN
+>, or
+    <SPAN
+CLASS="QUOTE"
+>"local"</SPAN
+>.
+   </P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.services-yahoo.example.contentanalysis"
+></A
+><H2
+>Using the Yahoo! Content Analysis services</H2
+><P
+>&#13;   The following examples will show you how to use the Content Analysis
+   Services provided by Yahoo!.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN101136"><P
+><B
+>Example 60-4. Term Extraction Service</B
+></P
+><P
+>&#13;    The Term Extraction service provides a list of significant words or
+    phrases extracted from a larger content.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "Services/Yahoo/ContentAnalysis.php";
+
+try {
+    $search = Services_Yahoo_ContentAnalysis::factory("termExtraction");
+    $search-&#62;setContext("Italian sculptors and painters of the "
+        . "renaissance favored the Virgin Mary for inspiration.");
+    $search-&#62;setQuery("madonna");
+
+    $results = $search-&#62;submit();
+
+    foreach ($results as $result) {
+        echo $result . "\n";
+    }
+
+} catch (Services_Yahoo_Exception $e) {
+    echo "Error: " . $e-&#62;getMessage() . "\n";
+
+    foreach ($e-&#62;getErrors() as $error) {
+        echo "* " . $error . "\n";
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    It is possible to skip the call to <B
+CLASS="function"
+>setQuery()</B
+>.
+    The parameter set by this method is intended to help the engine with
+    the extraction process, but it is not stricly required.
+   </P
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN101142"><P
+><B
+>Example 60-5. Spelling Suggestion Service</B
+></P
+><P
+>&#13;    The Spelling Suggestion service provides a suggested spelling
+    correction for a given term.
+   </P
+><P
+>&#13;    The following code queries Yahoo for a spelling suggestion for the
+    term <SPAN
+CLASS="QUOTE"
+>"madnna"</SPAN
+>.  The service will return exactly one
+    result, but currently there is no way to avoid looping through the
+    <TT
+CLASS="varname"
+>$results</TT
+>.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "Services/Yahoo/ContentAnalysis.php";
+
+try {
+    $search = Services_Yahoo_ContentAnalysis::factory("spellingSuggestion");
+    $search-&#62;setQuery("madnna");
+
+    $results = $search-&#62;submit();
+
+    foreach ($results as $result) {
+        echo $result . "\n";
+    }
+} catch (Services_Yahoo_Exception $e) {
+    echo "Error: " . $e-&#62;getMessage() . "\n";
+
+    foreach ($e-&#62;getErrors() as $error) {
+        echo "* " . $error . "\n";
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.webservices.services-yahoo.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.webservices.services-yahoo.design.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.webservices.services-yahoo.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Design</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

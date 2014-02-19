@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<Title>3D Angle</Title>
+<link type='text/css' rel='Stylesheet' href="maxchartapi.css" />
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 5.0 (PHP Edition)</p>
+<p class="heading1">3D Angle</p>
+<hr class="separator">
+<div class="content">
+<img src="images/threedanglepie0.png">&nbsp;&nbsp;<img src="images/threedanglepie1.png">&nbsp;&nbsp;<img src="images/threedanglepie2.png">&nbsp;&nbsp;<img src="images/threedanglepie3.png">&nbsp;&nbsp;<img src="images/threedanglepie4.png">&nbsp;&nbsp;<img src="images/threedanglepie5.png">&nbsp;&nbsp;<img src="images/threedanglepie6.png">
+<br><br>
+This example demonstrates the effects of different 3D angles.<br><br>
+ChartDirector allows the 3D depth and angles to be configured using <a href="PieChart.set3D.htm">PieChart.set3D</a> and <a href="PieChart.set3D2.htm">PieChart.set3D2</a>.<br><br>
+This example also demonstrates how to disable sector labels. This is setting their colors to <a href="phpchartdir.Transparent.htm">Transparent</a> using <a href="PieChart.setLabelStyle.htm">PieChart.setLabelStyle</a>.
+</div>
+<p class="heading1a">Source Code Listing</p>
+<div class="content">
+<b>[File: phpdemo/threedanglepie.php]</b>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc"><pre>&lt;?php
+require_once("../lib/phpchartdir.php");
+
+# the tilt angle of the pie
+$angle = (int)($_REQUEST["img"]) * 15;
+
+# The data for the pie chart
+$data = array(25, 18, 15, 12, 8, 30, 35);
+
+# Create a PieChart object of size 100 x 110 pixels
+$c = new PieChart(100, 110);
+
+# Set the center of the pie at (50, 55) and the radius to 38 pixels
+$c-&gt;setPieSize(50, 55, 38);
+
+# Set the depth and tilt angle of the 3D pie (-1 means auto depth)
+$c-&gt;set3D(-1, $angle);
+
+# Add a title showing the tilt angle
+$c-&gt;addTitle("Tilt = $angle deg", "arial.ttf", 8);
+
+# Set the pie data
+$c-&gt;setData($data);
+
+# Disable the sector labels by setting the color to Transparent
+$c-&gt;setLabelStyle("", 8, Transparent);
+
+# Output the chart
+header("Content-type: image/png");
+print($c-&gt;makeChart2(PNG));
+?&gt;</pre></tr></td></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2008 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

@@ -1,0 +1,378 @@
+<HTML
+><HEAD
+><TITLE
+>-&#62;set*() and -&#62;get*()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB_DataObject"
+HREF="package.database.db-dataobject.html"><LINK
+REL="PREVIOUS"
+TITLE="->joinAdd()"
+HREF="package.database.db-dataobject.db-dataobject.joinadd.html"><LINK
+REL="NEXT"
+TITLE="->setFrom()"
+HREF="package.database.db-dataobject.db-dataobject.setfrom.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.joinadd.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.setfrom.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db-dataobject.db-dataobject.settersgetters">-&#62;set*() and -&#62;get*()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN27064"
+></A
+>-&#62;set*() and -&#62;get*()&nbsp;--&nbsp;Automatic Setters and Getters using overload</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN27067"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN27068"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>true | string <B
+CLASS="function"
+>$DB_DataObject-&#62;set*</B
+></CODE
+> (mixed $value)</CODE
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>$DB_DataObject-&#62;get*</B
+></CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.settersgetters.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     From version PHP 4.3.2RC2 onwards, DB_DataObject is automatically overloaded, providing
+     access to all variables using $object-&#62;set{ColumnName}() and $object-&#62;set{ColumnName}($value)
+     even if you have not defined the method.
+    </P
+><P
+>&#13;     It is assumed that set methods return strings as errors or <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, so that it can interact with setFrom and
+     return array's of error strings.
+    </P
+><P
+>&#13;     The get Methods are used by toArray(), if defined they can be used to alter the appearance of columns 
+     ,like making dates human readable
+    </P
+><P
+>&#13;     The logic is very simple, if you call $object-&#62;setXXX() and it is not defined, it will just set the value,
+     if you define a method setXXXX, that will be called instead of the default handler,  same applies to getXXX().
+    </P
+><P
+>&#13;     Due to the naming conflict possiblity of a column named from, the associated method for column 'from' is set_from, 
+     rather than setFrom()
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.settersgetters.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>mixed $value</I
+></TT
+> - on setters only (the value to assign to the column), on getters you may like to implement date formating
+        or sprintf formating as the argument.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.settersgetters.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>mixed</I
+></TT
+> - setters will return <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> from the default method, 
+     in your implementations of setters. It is expected that setXXX($value) will return 
+     a string (the error) if it is invalid or <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> on success.
+     getXXX may return the value or a formated value, remember though it affects 
+     $object-&#62;toArray().
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.settersgetters.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+>Warning: This is experimental, its behavour may change slightly in the future.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.settersgetters.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN27105"><P
+><B
+>Example 33-1. Simple find and fetch of data based on Object Vars</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>class DataObjects_Person extends DB_DataObject {
+
+    var $id;
+    var $name;
+    var $date_of_birth;
+    
+    // you can define this method after you implement a call to it!
+    // as it is automatically implemented to return $this-&#62;date_of_birth by 
+    // the overload __call() method.
+    
+    function getDate_of_Birth() {
+        return date('d M Y', strtotime($this-&#62;date_of_birth));
+    }
+}
+       
+       
+$person = new DataObjects_Person;
+
+$person-&#62;get(12);
+
+// now lets use the getters and setters even though some are not defined.
+echo $person-&#62;getName() . ' was born on  ' . $person-&#62;getDate_of_Birth();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN27108"><P
+><B
+>Example 33-2. Resulting Output </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>Fred Blogs was born on 1 April 1970</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.joinadd.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.setfrom.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>-&#62;joinAdd()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>-&#62;setFrom()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,677 @@
+<HTML
+><HEAD
+><TITLE
+>Net_DNS_Resolver::query()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_DNS"
+HREF="package.networking.net-dns.html"><LINK
+REL="PREVIOUS"
+TITLE="
+     Class Summary Net_DNS_Resolver
+    "
+HREF="package.networking.net-dns.net-dns-resolver-summary.html"><LINK
+REL="NEXT"
+TITLE="Net_DNS_Resolver::rawQuery()"
+HREF="package.networking.net-dns.net-dns-resolver.rawquery.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-dns.net-dns-resolver-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-dns.net-dns-resolver.rawquery.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-dns.net-dns-resolver.query">Net_DNS_Resolver::query()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN81891"
+></A
+>Net_DNS_Resolver::query()&nbsp;--&nbsp;Queries a nameserver and returns a response</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN81894"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN81895"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once('Net/DNS.php');</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>Net_DNS_Packet <B
+CLASS="function"
+>Net_DNS_Resolver::query</B
+></CODE
+> (string $hostname [, string $type = 'A' [, string $class = 'IN']])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-dns.net-dns-resolver.query.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>hostname</I
+></TT
+> - The name to lookup (eg. www.php.net)</P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>type</I
+></TT
+> - The record type to query</P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>class</I
+></TT
+> - The zone class to query</P
+></LI
+></UL
+>
+  </P
+><P
+>&#13;   Constructs a DNS query packet and forwards the query to a
+   nameserver configured in the system stub resolver (ie.
+   /etc/resolv.conf).  When a response is received from the DNS
+   server, a fully populated Net_DNS_Packet object is returned
+   that represents the response.
+  </P
+><P
+>&#13;   The resolver object contains many properties that control
+   that behaviour of the resolver.  Some of these settings
+   are automatically read from the system resolver
+   configuration if available.  On Linux/UNIX based systems,
+   this includes /etc/resolv.conf as well as various
+   environment variables.  This configuration is done at the
+   time of object instantiation and can be overridden by
+   setting the appropriate object properties.
+  </P
+><P
+>&#13;   This function will only return a Net_DNS_Packet if the
+   ANSWER section contains resource records.  Specifically,
+   if the ANCOUNT variable in the DNS packet header is 0,
+   query() will return 0 (note: 0, not FALSE).  If you are
+   expecting a packet without resource records in the
+   ANSWER section, use <A
+HREF="package.networking.net-dns.net-dns-resolver.rawquery.html"
+>Net_DNS_Resolver::rawQuery()</A
+>.
+   This is useful when doing manual recursion.
+  </P
+><P
+>&#13;   For a description of the returned RR data object, see
+   <A
+HREF="package.networking.net-dns.net-dns-rr-intro.html"
+>Net_DNS_RR</A
+>.
+  </P
+><P
+>&#13;   Resolver Configuration Object Properties:
+   <P
+></P
+><UL
+><LI
+><P
+>array $nameservers</P
+><P
+>&#13;      An array of nameserver IP addresses that should be
+      queried.
+     </P
+></LI
+><LI
+><P
+>int $port</P
+><P
+>&#13;      The port on which nameservers should be queried.  The default is 53.
+     </P
+></LI
+><LI
+><P
+>array $domain</P
+><P
+>&#13;      The domain in which the resolver client host resides.
+     </P
+></LI
+><LI
+><P
+>array $searchlist</P
+><P
+>&#13;      An array of strings containingg domains to apply to unqualified hosts
+      passed to the resolver.
+     </P
+></LI
+><LI
+><P
+>int $retry</P
+><P
+>&#13;      The number of seconds between retransmission of unaswered queries
+     </P
+></LI
+><LI
+><P
+>int $retrans</P
+><P
+>&#13;      The number of times unanswered requests should be retried
+     </P
+></LI
+><LI
+><P
+>int $recurse</P
+><P
+>&#13;      Sets the value of the RD (recursion desired) bit in the header. If the
+      RD bit is set to 0, the server will not perform recursion on the
+      request.
+     </P
+></LI
+><LI
+><P
+>int $usevc</P
+><P
+>&#13;      Whether or not to use TCP (Virtual Circuits) instead of UDP If set
+      to 0, UDP will be used unless TCP is required.  TCP is required for
+      questions or responses greater than 512 bytes.
+     </P
+></LI
+><LI
+><P
+>int $debug</P
+><P
+>&#13;      If set to TRUE (non-zero), debugging code will be displayed as the
+      resolver makes the request.
+     </P
+></LI
+></UL
+>
+  </P
+><P
+>&#13;   Environment Variables:
+   <P
+></P
+><UL
+><LI
+><P
+>RES_NAMESERVERS</P
+><P
+>&#13;      Space separated list of nameserver IP addresses
+      to query
+     </P
+></LI
+><LI
+><P
+>RES_SEARCHLIST</P
+><P
+>&#13;      Space separated list of domain names to add to
+      unqualified search requests.
+     </P
+></LI
+><LI
+><P
+>LOCALDOMAIN</P
+><P
+>&#13;      The name of the domain
+     </P
+></LI
+><LI
+><P
+>RES_OPTIONS</P
+><P
+>&#13;      A space separated list of options formatted as:
+     </P
+><P
+>&#13;      optionname:value
+     </P
+><P
+>&#13;      If the value is ommited, the value defaults to 1
+      (true).  [optionname] corresponds to an object
+      property.
+     </P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="packages.networking.net-dns.net-dns-resolver.query.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN81974"><P
+><B
+>Example 48-1. Using <B
+CLASS="function"
+>Net_DNS_Resolver::query()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'Net/DNS.php';
+
+$resolver = new Net_DNS_Resolver();
+$response = $resolver-&#62;query('example.com');
+if ($response) {
+  foreach ($response-&#62;answer as $rr) {
+    $rr-&#62;display();
+  }
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Output:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>example.com.            129808  IN      A       192.0.34.166</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   The following example shows a DNS query for an MX record.
+   Note that the IP address for the mail exchanger listed
+   within the zone is returned with the response in the
+   additional section.  The second exchanger (that is not
+   inside this zone) is not listed.  To receive this
+   address, you must perform another query specifically for
+   the A record using the returned hostname.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN81981"><P
+><B
+>Example 48-2. Using <B
+CLASS="function"
+>Net_DNS_Resolver::query()</B
+> to look up an MX record</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'Net/DNS.php';
+
+$resolver = new Net_DNS_Resolver();
+$response = $resolver-&#62;query('php.net', 'MX');
+if ($response) {
+  foreach ($response-&#62;answer as $rr) {
+    $rr-&#62;display();
+  }
+  if (count($response-&#62;additional)) {
+    foreach ($response-&#62;additional as $rr) {
+      $rr-&#62;display();
+    }
+  }
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Output:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>php.net.                86121   IN      MX      15 smtp.osuosl.org.
+php.net.                86121   IN      MX      5 osu1.php.net.
+osu1.php.net.           86121   IN      A       140.211.166.39</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   The next example shows a more complex query with
+   debugging information enabled.  Note that the usevc
+   option is set to TRUE.  This forces the resolver to use
+   TCP instead of UDP.  This can be seen in the debug output
+   on the send_tcp() line.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN81988"><P
+><B
+>Example 48-3. Using <B
+CLASS="function"
+>Net_DNS_Resolver::query()</B
+> with specific nameservers and options</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'Net/DNS.php';
+
+$resolver = new Net_DNS_Resolver();
+$resolver-&#62;debug = 1; // Turn on debugging output to show the query
+$resolver-&#62;usevc = 1; // Force the use of TCP instead of UDP
+$resolver-&#62;nameservers = array(              // Set the IP addresses
+                           '198.41.0.4',     // of the nameservers
+                           '192.228.79.201'  // to query.
+                           );
+$response = $resolver-&#62;query('example.com');
+if (! $response) {
+  echo "\n";
+  echo "ANCOUNT is 0, therefore the query() 'failed'\n";
+  echo "See Net_DNS_Resolver::rawQuery() to receive this packet\n";
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Output:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>;; query(example.com, A, IN)
+;; send_tcp(198.41.0.4:53)
+;; sending 29 bytes
+;; received 517 bytes
+;; HEADER SECTION
+;; id = 58298
+;; qr = 1    opcode = QUERY    aa = 0    tc = 0    rd = 1
+;; ra = 0    rcode  = NOERROR
+;; qdcount = 1  ancount = 0  nscount = 13  arcount = 15
+
+;; QUESTION SECTION (1 record)
+;;
+;example.com.   IN      A
+
+;; ANSWER SECTION (0 records)
+
+;; AUTHORITY SECTION (13 records)
+com.            172800  IN      NS      A.GTLD-SERVERS.NET.
+com.            172800  IN      NS      G.GTLD-SERVERS.NET.
+com.            172800  IN      NS      H.GTLD-SERVERS.NET.
+com.            172800  IN      NS      C.GTLD-SERVERS.NET.
+com.            172800  IN      NS      I.GTLD-SERVERS.NET.
+com.            172800  IN      NS      B.GTLD-SERVERS.NET.
+com.            172800  IN      NS      D.GTLD-SERVERS.NET.
+com.            172800  IN      NS      L.GTLD-SERVERS.NET.
+com.            172800  IN      NS      F.GTLD-SERVERS.NET.
+com.            172800  IN      NS      J.GTLD-SERVERS.NET.
+com.            172800  IN      NS      K.GTLD-SERVERS.NET.
+com.            172800  IN      NS      E.GTLD-SERVERS.NET.
+com.            172800  IN      NS      M.GTLD-SERVERS.NET.
+
+;; ADDITIONAL SECTION (15 records)
+A.GTLD-SERVERS.NET.     172800  IN      AAAA    2001:503:a83e::2:30
+A.GTLD-SERVERS.NET.     172800  IN      A       192.5.6.30
+G.GTLD-SERVERS.NET.     172800  IN      A       192.42.93.30
+H.GTLD-SERVERS.NET.     172800  IN      A       192.54.112.30
+C.GTLD-SERVERS.NET.     172800  IN      A       192.26.92.30
+I.GTLD-SERVERS.NET.     172800  IN      A       192.43.172.30
+B.GTLD-SERVERS.NET.     172800  IN      AAAA    2001:503:231d::2:30
+B.GTLD-SERVERS.NET.     172800  IN      A       192.33.14.30
+D.GTLD-SERVERS.NET.     172800  IN      A       192.31.80.30
+L.GTLD-SERVERS.NET.     172800  IN      A       192.41.162.30
+F.GTLD-SERVERS.NET.     172800  IN      A       192.35.51.30
+J.GTLD-SERVERS.NET.     172800  IN      A       192.48.79.30
+K.GTLD-SERVERS.NET.     172800  IN      A       192.52.178.30
+E.GTLD-SERVERS.NET.     172800  IN      A       192.12.94.30
+M.GTLD-SERVERS.NET.     172800  IN      A       192.55.83.30
+
+ANCOUNT is 0, therefore the query() 'failed'
+See Net_DNS_Resolver::rawQuery() to receive this packet</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-dns.net-dns-resolver.query.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-dns.net-dns-resolver-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-dns.net-dns-resolver.rawquery.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Class Summary <B
+CLASS="classname"
+>Net_DNS_Resolver</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-dns.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Net_DNS_Resolver::rawQuery()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

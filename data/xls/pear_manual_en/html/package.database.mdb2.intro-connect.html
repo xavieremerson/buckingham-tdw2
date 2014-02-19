@@ -1,0 +1,1077 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - Connect</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="MDB2"
+HREF="package.database.mdb2.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction - DSN"
+HREF="package.database.mdb2.intro-dsn.html"><LINK
+REL="NEXT"
+TITLE="Introduction - Query"
+HREF="package.database.mdb2.intro-query.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb2.intro-dsn.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb2.intro-query.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.mdb2.intro-connect">Introduction - Connect</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN31056"
+></A
+>Introduction - Connect&nbsp;--&nbsp;Connecting and disconnecting a database</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb2.intro-connect.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   To connect to a database you have to use the function
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2.html#methodfactory"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>factory()</B
+></A
+>, <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2.html#methodconnect"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>connect()</B
+></A
+> or <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2.html#methodsingleton"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>singleton()</B
+></A
+>, which require a valid
+   <A
+HREF="package.database.mdb2.intro-dsn.html"
+>DSN</A
+>
+   as the first parameter. This parameter can either be a string
+   or an array. If using an array, the array used gets merged with the
+   default information:
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="configuration"
+>$dsn = array(
+    'phptype'  =&#62; false,
+    'dbsyntax' =&#62; false,
+    'username' =&#62; false,
+    'password' =&#62; false,
+    'protocol' =&#62; false,
+    'hostspec' =&#62; false,
+    'port'     =&#62; false,
+    'socket'   =&#62; false,
+    'database' =&#62; false,
+    'new_ink'  =&#62; false,
+);</PRE
+></TD
+></TR
+></TABLE
+>
+   Any elements you set override the defaults and the remainder stay at
+   their defaults.
+  </P
+><P
+>&#13;   The second parameter is the optional <TT
+CLASS="parameter"
+><I
+>$options</I
+></TT
+>
+   array that can contain runtime configuration settings for this package.
+  </P
+><DIV
+CLASS="table"
+><A
+NAME="AEN31072"><P
+><B
+>Table 33-1. List of options</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Name</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Type</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>ssl</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>boolean</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        determines if ssl should be used for connections
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>field_case</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>integer</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        CASE_LOWER|CASE_UPPER: determines what case to force on field/table names
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>disable_query</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>boolean</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        determines if queries should be executed
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>result_class</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        class used for result sets
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>buffered_result_class</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        class used for buffered result sets
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>result_wrap_class</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        class used to wrap result sets into
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>result_buffering</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>boolean</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        should results be buffered or not?
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>fetch_class</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        class to use when fetch mode object is used
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>persistent</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>boolean</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        persistent connection?
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>debug</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>integer</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        numeric debug level
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>debug_handler</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        function/method that captures debug messages
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>debug_expanded_output</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>boolean</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        BC option to determine if more context information should be send to the debug handler
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>default_text_field_length</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>integer</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        default text field length to use
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>lob_buffer_length</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>integer</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        LOB buffer length
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>log_line_break</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        line-break format
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>idxname_format</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        pattern with '%s' for index name
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>seqname_format</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        pattern with '%s' for sequence name
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>savepoint_format</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        pattern with '%s' for auto generated savepoint names
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>seqcol_name</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        sequence column name
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>quote_identifier</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>boolean</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        if identifier quoting should be done when check_option is used
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>use_transactions</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>boolean</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        if transaction use should be enabled
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>decimal_places</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>integer</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        number of decimal places to handle
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>portability</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>integer</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        portability constant
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>modules</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        short to long module name mapping for __call()
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>emulate_prepared</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>boolean</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        force prepared statements to be emulated
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>datatype_map</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        map user defined datatypes to other primitive datatypes
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="varname"
+>'datatype_map_callback</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        callback function/method that should be called
+       </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>&#13;   In case of success you get a new instance of the database class.
+   It is strongly recommened to check this return value with
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2.html#methodisError"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>isError()</B
+></A
+>.
+  </P
+><P
+>&#13;   To disconnect use the method
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methoddisconnect"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>disconnect()</B
+></A
+>
+   from your database class instance.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31249"><P
+><B
+>Example 33-1. Connect and disconnect</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'MDB2.php';
+
+$dsn = 'pgsql://someuser:apasswd@localhost/thedb';
+$options = array(
+    'debug' =&#62; 2,
+    'result_buffering' =&#62; false,
+);
+
+$mdb2 =&#38; MDB2::factory($dsn, $options);
+if (PEAR::isError($mdb2)) {
+    die($mdb2-&#62;getMessage());
+}
+
+// ...
+
+$mdb2-&#62;disconnect();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31252"><P
+><B
+>Example 33-2. Connect using an array for the DSN information</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'MDB2.php';
+
+$dsn = array(
+    'phptype'  =&#62; 'pgsql',
+    'username' =&#62; 'someuser',
+    'password' =&#62; 'apasswd',
+    'hostspec' =&#62; 'localhost',
+    'database' =&#62; 'thedb',
+);
+
+$options = array(
+    'debug'       =&#62; 2,
+    'portability' =&#62; MDB2_PORTABILITY_ALL,
+);
+
+// uses MDB2::factory() to create the instance
+// and also attempts to connect to the host
+$mdb2 =&#38; MDB2::connect($dsn, $options);
+if (PEAR::isError($mdb2)) {
+    die($mdb2-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    When connecting to SQLite using a DSN array, the value
+    of the <TT
+CLASS="varname"
+>mode</TT
+> element must be a string:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+$dsn = array(
+    'phptype'  =&#62; 'sqlite',
+    'database' =&#62; 'thedb',
+    'mode'     =&#62; '0644',
+);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31258"><P
+><B
+>Example 33-3. 
+    Connect to MySQLi via SSL
+    using an array for the DSN information
+   </B
+></P
+><P
+>&#13;    The <TT
+CLASS="varname"
+>ssl</TT
+> element of the
+    <TT
+CLASS="parameter"
+><I
+>$options</I
+></TT
+> array must be set to
+    <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> in order for SSL to work. Each of the extra
+    elements in the <TT
+CLASS="parameter"
+><I
+>$dsn</I
+></TT
+> array
+    (<TT
+CLASS="varname"
+>key</TT
+> through <TT
+CLASS="varname"
+>cipher</TT
+>
+    in the example below) are optional.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'MDB2.php';
+
+$dsn = array(
+    'phptype'  =&#62; 'mysqli',
+    'username' =&#62; 'someuser',
+    'password' =&#62; 'apasswd',
+    'hostspec' =&#62; 'localhost',
+    'database' =&#62; 'thedb',
+    'key'      =&#62; 'client-key.pem',
+    'cert'     =&#62; 'client-cert.pem',
+    'ca'       =&#62; 'cacert.pem',
+    'capath'   =&#62; '/path/to/ca/dir',
+    'cipher'   =&#62; 'AES',
+);
+
+$options = array(
+    'ssl' =&#62; true,
+);
+
+// gets an existing instance with the same DSN
+// otherwise create a new instance using MDB2::factory()
+$mdb2 =&#38; MDB2::singleton($dsn, $options);
+if (PEAR::isError($mdb2)) {
+    die($mdb2-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31268"><P
+><B
+>Example 33-4. Connect to a PostgreSQL database via a socket</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'MDB2.php';
+
+$dsn = 'pgsql://someuser:apasswd@unix(/tmp)/thedb';
+$options = array(
+    'debug'       =&#62; 2,
+    'portability' =&#62; MDB2_PORTABILITY_ALL,
+);
+
+$mdb2 =&#38; MDB2::factory($dsn, $options);
+if (PEAR::isError($mdb2)) {
+    die($mdb2-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb2.intro-connect.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="package.database.mdb2.intro-portability.html"
+>&#13;    <SPAN
+CLASS="QUOTE"
+>"Intro - Portability"</SPAN
+></A
+>,
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodgetOption"
+TARGET="_top"
+>&#13;    <TT
+CLASS="varname"
+>options</TT
+></A
+>,
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodsetOption"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>setOption()</B
+></A
+>,
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodgetOption"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>getOption()</B
+></A
+>.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.intro-dsn.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.intro-query.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction - DSN</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction - Query</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

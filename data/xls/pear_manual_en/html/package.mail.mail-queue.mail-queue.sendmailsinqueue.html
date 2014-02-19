@@ -1,0 +1,321 @@
+<HTML
+><HEAD
+><TITLE
+>Mail_Queue::sendMailsInQueue</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Mail_Queue"
+HREF="package.default.mail-queue.html"><LINK
+REL="PREVIOUS"
+TITLE="Mail_Queue::sendMailById"
+HREF="package.mail.mail-queue.mail-queue.sendmailbyid.html"><LINK
+REL="NEXT"
+TITLE="Math"
+HREF="package.math.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-queue.mail-queue.sendmailbyid.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.math.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.mail.mail-queue.mail-queue.sendmailsinqueue"><B
+CLASS="function"
+>Mail_Queue::sendMailsInQueue()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN81711"
+></A
+><B
+CLASS="function"
+>Mail_Queue::sendMailsInQueue()</B
+>&nbsp;--&nbsp;Send mails from queue.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN81715"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN81716"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Mail/Queue.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed      <B
+CLASS="function"
+>Mail_Queue::sendMailsInQueue</B
+></CODE
+> ([integer $limit = MAILQUEUE_ALL [, integer $offset = MAILQUEUE_START [, integer $try = MAILQUEUE_TRY]]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.sendmailsinqueue.desc"
+></A
+><H2
+>Description</H2
+><P
+>Sends mails remaining in queue.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.sendmailsinqueue.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>integer
+         <TT
+CLASS="parameter"
+><I
+>$limit</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Optional - maximum number of mails to send.
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>integer
+         <TT
+CLASS="parameter"
+><I
+>$offset</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Optional - skip $offset mails and start sending from there.
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>integer
+         <TT
+CLASS="parameter"
+><I
+>$try</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Optional - count of tries before mail returns to queue for later delivery.
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.sendmailsinqueue.returns"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>returns</I
+></SPAN
+>True on success else Mail_Queue_Error object.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.sendmailsinqueue.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> no exceptions thrown
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.sendmailsinqueue.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.mail.mail-queue.mail-queue.sendmailbyid.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.math.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>Mail_Queue::sendMailById()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.default.mail-queue.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Math</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

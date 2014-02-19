@@ -1,0 +1,357 @@
+<HTML
+><HEAD
+><TITLE
+>Cache_Lite::remove</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Cache_Lite"
+HREF="package.caching.cache-lite.html"><LINK
+REL="PREVIOUS"
+TITLE="Cache_Lite::save"
+HREF="package.caching.cache-lite.cache-lite.save.html"><LINK
+REL="NEXT"
+TITLE="Cache_Lite::clean"
+HREF="package.caching.cache-lite.cache-lite.clean.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.caching.cache-lite.cache-lite.save.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.caching.cache-lite.cache-lite.clean.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.caching.cache-lite.cache-lite.remove"><B
+CLASS="function"
+>Cache_Lite::remove()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN17997"
+></A
+><B
+CLASS="function"
+>Cache_Lite::remove()</B
+>&nbsp;--&nbsp;Remove a cache file</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN18001"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN18002"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Cache/Lite.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>boolean      <B
+CLASS="function"
+>Cache_Lite::remove</B
+></CODE
+> (string $id [, string $group = 'default'])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.caching.cache-lite.cache-lite.remove.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      remove the given cache file (specified with its id and group)
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.caching.cache-lite.cache-lite.remove.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+                 <TT
+CLASS="parameter"
+><I
+>$id</I
+></TT
+></DT
+><DD
+><P
+>&#13;         cache id
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+                 <TT
+CLASS="parameter"
+><I
+>$group</I
+></TT
+></DT
+><DD
+><P
+>&#13;         name of the cache group
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.caching.cache-lite.cache-lite.remove.returns"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>returns</I
+></SPAN
+> true if no problem
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.caching.cache-lite.cache-lite.remove.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.caching.cache-lite.cache-lite.remove.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN18041"><P
+><B
+>Example 30-1. Usage</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once "Cache/Lite.php";
+
+$options = array(
+    'cacheDir' =&#62; '/tmp/',
+    'lifeTime' =&#62; 7200,
+    'pearErrorMode' =&#62; CACHE_LITE_ERROR_DIE
+);
+$cache = new Cache_Lite($options);
+
+$cache-&#62;remove('id_of_the_page');
+
+if ($data = $cache-&#62;get('id_of_the_page')) {
+
+    // Cache hit !
+    // [IMPOSSIBLE !]
+
+} else { 
+    
+    // No valid cache found (you have to make and save the page)
+    $data = '&#60;html&#62;&#60;head&#62;&#60;title&#62;test&#60;/title&#62;&#60;/head&#62;&#60;body&#62;&#60;p&#62;this is a test&#60;/p&#62;&#60;/body&#62;&#60;/html&#62;';
+    $cache-&#62;save($data);
+    
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;     This is a dummy example because the cache is destroyed at the beginning of the script !
+     So the first case of the if statement is impossible. 
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.caching.cache-lite.cache-lite.save.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.caching.cache-lite.cache-lite.clean.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>Cache_Lite::save()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.caching.cache-lite.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Cache_Lite::clean()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

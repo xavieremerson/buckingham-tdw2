@@ -1,0 +1,555 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_Flexy"
+HREF="package.html.html-template-flexy.html"><LINK
+REL="PREVIOUS"
+TITLE="HTML_Template_Flexy"
+HREF="package.html.html-template-flexy.html"><LINK
+REL="NEXT"
+TITLE="Configuration Options"
+HREF="package.html.html-template-flexy.configuration.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.configuration.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-flexy.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN68490"
+></A
+>Introduction&nbsp;--&nbsp;
+        What HTML_Template_Flexy can do
+      </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN68493"
+></A
+><H2
+>Introduction</H2
+><P
+>&#13;      HTML_Template_Flexy started it's life as a simplification of HTML_Template_Xipe,
+      However the long term aim of Flexy is to provide a universal Template Base API for 
+      Compiling and native PHP type templates.
+      </P
+><P
+>&#13;      Flexy currently supports a number of backends (Template Formats), and is designed to be extended to
+      support more, The Key Formats are:
+      </P
+><P
+>&#13;        <P
+></P
+><UL
+><LI
+><P
+>Standard - A rich Tokenizer driven engine, that uses {variable_placeholders},
+            attribute based (flexy:foreach="...."), and custom tag &#60;flexy:tojavascript ...
+            To rapidly create PHP code from simple markup.
+            These templates are designed to be editable in WYSIWYG HTML editors, 
+            without breaking the tags</P
+></LI
+><LI
+><P
+>Regex - A classic templating backend, for supporting Smarty, Xipe, or Email
+            type convertion to PHP code.
+            </P
+></LI
+><LI
+><P
+>Raw - A non compiling backend, that enables you to create templates using PHP,
+            Useful if you intend to redistribute your application and are concerned about compilation
+            </P
+></LI
+></UL
+>
+      </P
+><P
+>&#13;      Data can be assigned in two ways with flexy, depending on your prefered style of working.
+      </P
+><P
+>&#13;        <P
+></P
+><UL
+><LI
+><P
+>Push - you put data into the template engine, using $flexy-&#62;setData(), 
+            and $flexy-&#62;setDataByRef(), this is similar to the way Smarty and other templates 
+            work.
+            </P
+></LI
+><LI
+><P
+>Push/Pull - You provide the outputer with a Data Provider Object, (either a Data Object, or a Controller)
+            that contains the data to display (and objects with methods that can be called). This has 
+            the added benefit of making the Variables in the  template documentable, 
+            using <A
+HREF="standards.html"
+>PEAR standards</A
+>, 
+            eg. <A
+HREF="package.php.phpdocumentor.html"
+>PHPDoc</A
+> comments.
+            </P
+></LI
+></UL
+>
+      </P
+><P
+>&#13;      With all this Flexibility, it still manages to achieve
+      
+      
+      
+      
+      </P
+><P
+>&#13;        <P
+></P
+><UL
+><LI
+><P
+>Very Lightweight Simple API, which easy to learn</P
+></LI
+><LI
+><P
+>In Normal operation very little code is actually loaded (so it's fast)</P
+></LI
+></UL
+>
+      </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN68521"
+></A
+><H2
+>How does HTML_Template_Flexy differ from other template systems</H2
+><P
+>&#13;         If you look around you will see there are other template systems available in PHP, they 
+         generally fall into two categories, Replacement Systems, or PHP Code builders. 
+      </P
+><P
+>&#13;       Replacement systems like <A
+HREF="package.html.html-template-it.html"
+>HTML_Template_IT</A
+>,
+       FastTemplate, PhpLib Template tend to be slower at doing block and nested
+       block type templates and involve alot of code to add each variable to the template.
+      </P
+><P
+>&#13;       Php Code builders like Flexy, Smarty, SimpleTemplate (now HTML_Template_Xipe) tend 
+       to be better at more complex templates, and can offer a better approach to extendability. 
+       (the long term aim of Flexy is to integrate support for all of these PHP Generator
+       templates into a simple package)
+      </P
+><P
+>&#13;         The Standard Compiling Backend uses a Tokenizer, which offers the possiblities of 
+         using HTML tags and attributes to provide looping and conditionals, and
+         make dynamic XML_Tree like elements of HTML Forms that can be manipulated
+         in your code. (This conversion is only done once when the template compiles)
+      </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN68528"
+></A
+><H2
+>Typical use example</H2
+><P
+>&#13;        Flexy template  is normally called from within a Controller Class (in the Model,View,Controller paragam). 
+        You just send <B
+CLASS="classname"
+>HTML_Template_Flexy</B
+>, the name of the template, and the object to output. 
+        - any variable you want printing out just has to be set in the object being used to ouput.
+      </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN68532"><P
+><B
+>Example 41-1. Typical usage example for <B
+CLASS="classname"
+>HTML_Template_Flexy</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php   
+        
+/* configure the application - probably done elsewhere */
+require_once 'HTML/Template/Flexy.php';
+$options = &#38;PEAR::getStaticProperty('HTML_Template_Flexy','options');
+$config = parse_ini_file('example.ini',TRUE);
+$options = $config['HTML_Template_Flexy'];
+
+
+/* the page controller class */
+
+class controller_test 
+{
+    
+    var $template = "home.html"; // name of template
+    var $title;                  // this relates to {title};
+    var $numbers = array();      // this relates to {numbers} , used with foreach
+    var $anObject;
+    
+    var $elements = array();      // this is where the elements are stored
+    
+    /* start section - deals with posts, get variables etc.*/
+
+    function controller_test() 
+    {
+        $this-&#62;start();
+        $this-&#62;output();
+    }
+
+
+    function start() 
+    {
+        // the title
+        $this-&#62;title = "Hello World";
+        
+        // store an object.
+        $this-&#62;anObject = new StdClass;
+        
+        // assign a value to a member.
+        $this-&#62;anObject-&#62;member = 'Object Member';
+        
+        // if you need form elements - you have to include them.
+        require_once 'HTML/Template/Flexy/Element.php';
+        
+        // create an HTML Element for the form element.
+        $this-&#62;elements['input'] = new HTML_Template_Flexy_Element;
+        
+        // assign a value to it
+        $this-&#62;elements['input']-&#62;setValue('Hello');
+        
+        
+        for ($i = 1;$i&#60; 5;$i++) {
+            $this-&#62;numbers[$i] = "Number $i";
+        }
+    }
+    
+    /* output section - probably best to put this in the default_controller class */
+    
+    function output() {
+        $output = new HTML_Template_Flexy();
+        $output-&#62;compile($this-&#62;template);
+        $output-&#62;outputObject($this,$this-&#62;elements);
+    }
+    
+    
+    function someMethod() {
+        return "&#60;B&#62;Hello From A Method&#60;/B&#62;";
+    }
+    
+    
+    
+}
+
+/* the page controller instantaation - probably done with a factory method in your master page controller class */
+
+new controller_test;
+        
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;        Now the example template, 
+      </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN68537"><P
+><B
+>Example 41-2. Example Template for <B
+CLASS="classname"
+>HTML_Template_Flexy</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;html&#62;
+  &#60;head&#62;
+    &#60;title&#62;{title}&#60;/title&#62;
+  &#60;/head&#62;
+  &#60;body&#62;
+  &#60;H1&#62;{title}&#60;/H1&#62;
+  
+  
+  
+    &#60;form name="form"&#62;
+    &#60;table&#62;
+      &#60;tr&#62;
+        &#60;td&#62;
+         &#60;?php /*  this will be merged with the date in the  $element['input']  object*/ ?&#62;
+         
+          Input Box: &#60;input name="input"&#62;
+        &#60;/td&#62;
+      &#60;/tr&#62;
+      
+      &#60;?php /*  note here the use for flexy:foreach as an attribute value */ ?&#62;
+      
+      &#60;tr flexy:foreach="numbers,number,string"&#62;
+        &#60;td&#62;
+          
+      &#60;?php /*   note here the use for flexy:foreach as an attribute value */ ?&#62;
+        
+          &#60;a href="mypage.html?id=%7Bnumber%7D"&#62;{string}&#60;/a&#62;
+        &#60;/td&#62;
+      &#60;/tr&#62;
+      
+      
+    &#60;/table&#62;
+    
+    &#60;?php /*   there is some limited support for array access */ ?&#62;
+    
+    this is number 2 : {numbers[2]}
+    
+    
+    &#60;?php /*  note that full stops seperate object and variables or methods */ ?&#62;
+         
+  This is a {anObject.member}
+    
+    &#60;?php /* you can call methods of the object */ ?&#62;
+    
+    {someMethod()}
+    
+    &#60;?php /* by default everything is htmlspecialchar escaped use the modifier :h to prevent this. */ ?&#62;
+    
+    {someMethod():h}
+       
+  &#60;/body&#62;
+&#60;/html&#62;
+
+&#60;?php /*  I've used php for comments here as HTML comments didnt work when generating the
+manual .. - you dont have to use them - it has nothing to do with the template engine */ ?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;        And the output
+      </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN68542"><P
+><B
+>Example 41-3. Output of example for <B
+CLASS="classname"
+>HTML_Template_Flexy</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>Hello World
+
+Input Box : [Hello     ]
+Number 1
+Number 2
+Number 3
+Number 4
+         
+this is number 2 : Number 2
+
+
+This is a member Variable
+
+&#60;B&#62;Hello From A Method&#60;/B&#62;
+
+Hello From A Method</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.configuration.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_Template_Flexy</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Configuration Options</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

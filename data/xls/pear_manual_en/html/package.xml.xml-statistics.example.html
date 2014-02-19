@@ -1,0 +1,219 @@
+<HTML
+><HEAD
+><TITLE
+>Example</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_Statistics"
+HREF="package.xml.xml-statistics.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.xml.xml-statistics.intro.html"><LINK
+REL="NEXT"
+TITLE="XML_Statistics::apiVersion"
+HREF="package.xml.xml-statistics.xml-statistics.apiversion.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-statistics.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-statistics.xml-statistics.apiversion.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.xml.xml-statistics.example">Example</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN104636"
+></A
+>Example&nbsp;--&nbsp;Example for the usage of XML_Statistics</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-statistics.example.example1"
+></A
+><H2
+>Usage example</H2
+><P
+>&#13;    The following examples shows how XML_Statistics can be used to analyze a document.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN104642"><P
+><B
+>Example 61-1. Basic example</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "XML/Statistics.php";
+$stat = new XML_Statistics(array("ignoreWhitespace" =&#62; true));
+$result = $stat-&#62;analyzeFile("example.xml");
+
+if ($stat-&#62;isError($result)) {
+    die("Error: " . $result-&#62;getMessage());
+}
+
+// total amount of tags:
+echo "Total tags: " . $stat-&#62;countTag() . "&#60;br /&#62;";
+
+// count amount of 'title' attribute, in all tags
+echo "Occurences of attribute title: " . $stat-&#62;countAttribute("title") . "&#60;br /&#62;";
+
+// count amount of 'title' attribute, only in &#60;section&#62; tags
+echo "Occurences of attribute title in tag section: " . $stat-&#62;countAttribute("title", "section") . "&#60;br /&#62;";
+
+// count total number of tags in depth 4
+echo "Amount of Tags in depth 4: " . $stat-&#62;countTagsInDepth(4) . "&#60;br /&#62;";
+
+echo "Occurences of PHP Blocks: " . $stat-&#62;countPI("PHP") . "&#60;br /&#62;";
+
+echo "Occurences of external entity 'bar': " . $stat-&#62;countExternalEntity("bar") . "&#60;br /&#62;";
+
+echo "Data chunks: " . $stat-&#62;countDataChunks() . "&#60;br /&#62;";
+
+echo "Length of all data chunks: " . $stat-&#62;getCDataLength() . "&#60;br /&#62;";</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-statistics.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-statistics.xml-statistics.apiversion.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.xml-statistics.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>XML_Statistics::apiVersion()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

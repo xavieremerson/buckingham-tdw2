@@ -1,0 +1,208 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="System_WinDrives"
+HREF="package.system.windrives.html"><LINK
+REL="PREVIOUS"
+TITLE="System_WinDrives"
+HREF="package.system.windrives.html"><LINK
+REL="NEXT"
+TITLE="Example"
+HREF="package.system.windrives.example.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.system.windrives.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.system.windrives.example.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.system.windrives.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN98139"
+></A
+>Introduction&nbsp;--&nbsp;
+   Enumerating drives on Windows systems
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.system.windrives.intro.contrib"
+></A
+><H2
+>Contributors</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>Christian Weiske</P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.system.windrives.intro.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   <B
+CLASS="classname"
+>System_WinDrives</B
+> uses win32 api calls
+   to get a list of all installed roots ("Drives") on the current
+   Windows operating system (The folders "A:\" until "Z:\").
+  </P
+><P
+>&#13;   Additional to the list of drives, detail information like 
+   the name and the drive type (network, harddisk, removable etc)
+   is given.
+  </P
+><P
+>&#13;   The win32 api functions are used to access the Windows application
+   programming interface. This means that the extension 
+   <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>php_w32api.dll</I
+></SPAN
+> on PHP4 and 
+   <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>php_ffi.dll</I
+></SPAN
+> on PHP5 have to be installed to
+   use all functions. If no dll is available, the drives are guessed,
+   but drive types and drive names can't be determined.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.system.windrives.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.system.windrives.example.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>System_WinDrives</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.system.windrives.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Example</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

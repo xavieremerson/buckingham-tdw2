@@ -1,0 +1,223 @@
+<HTML
+><HEAD
+><TITLE
+>Class Summary Net_Server</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_Server"
+HREF="package.networking.net-server.html"><LINK
+REL="PREVIOUS"
+TITLE="Example"
+HREF="package.networking.net-server.example.html"><LINK
+REL="NEXT"
+TITLE="Net_Server::create"
+HREF="package.networking.net-server.net-server.create.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-server.example.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-server.net-server.create.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-server.net-server-summary">Class Summary <B
+CLASS="classname"
+>Net_Server</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN87576"
+></A
+>Class Summary <B
+CLASS="classname"
+>Net_Server</B
+>&nbsp;--&nbsp;PHP socket server base class</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN87580"
+></A
+><H2
+>PHP socket server base class</H2
+><P
+>This class must only be used to create a new server using  the static method 'create()'.</P
+><P
+>To handle the events that happen while the server is running  you have to create a new class that handles all events.</P
+><P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php-highlighted"
+>1     require_once 'myHandler.php';
+2      require_once 'Net/Server.php';
+3     
+4      $server = &#38;<A
+HREF="package.networking.net-server.net-server-summary.html"
+>Net_Server</A
+>::<A
+HREF="package.networking.net-server.net-server.create.html"
+>create</A
+>('fork', 'localhost', 9090);
+5     
+6      $handler = &#38;new myHandler;
+7     
+8      $server-&#62;setCallbackObject($handler);
+9     
+10     $server-&#62;start();</PRE
+></TD
+></TR
+></TABLE
+></P
+><P
+>See Server/Handler.php for a baseclass that you can  use to implement new handlers.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN87589"
+></A
+><H2
+>Class Trees for <B
+CLASS="classname"
+>Net_Server</B
+></H2
+><P
+>&#13;    <P
+></P
+><UL
+><LI
+><P
+>&#13;   Net_Server
+      </P
+></LI
+></UL
+>
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-server.example.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-server.net-server.create.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Example</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-server.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Net_Server::create()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

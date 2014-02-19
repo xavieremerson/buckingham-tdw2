@@ -1,0 +1,423 @@
+<HTML
+><HEAD
+><TITLE
+>setCallbackFunction()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_Sigma"
+HREF="package.html.html-template-sigma.html"><LINK
+REL="PREVIOUS"
+TITLE="setCacheRoot()"
+HREF="package.html.html-template-sigma.html-template-sigma.setcacheroot.html"><LINK
+REL="NEXT"
+TITLE="setCurrentBlock()"
+HREF="package.html.html-template-sigma.html-template-sigma.setcurrentblock.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.setcacheroot.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.setcurrentblock.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.setcallbackfunction">setCallbackFunction()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN71985"
+></A
+>setCallbackFunction()&nbsp;--&nbsp;Sets a callback function.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN71988"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN71989"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/Template/Sigma.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed       <B
+CLASS="function"
+>HTML_Template_Sigma::setCallbackFunction</B
+></CODE
+> (string $tplFunction, mixed $callback [, bool $preserveArgs = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.setcallbackfunction.desc"
+></A
+><H2
+>Description</H2
+><P
+>Sets a callback function. Sigma templates can contain simple function calls. This means that the  author of the template can add a special placeholder to it:  func_h1("embedded in h1")  Sigma will parse the template for these placeholders and will allow  you to define a callback function for them. Callback will be called  automatically when the block containing such function call is <A
+HREF="package.html.html-template-sigma.html-template-sigma.parse.html"
+><B
+CLASS="function"
+>parse()</B
+></A
+>'d.</P
+><P
+>Please note that arguments to these template functions can contain  variable placeholders: func_translate('Hello, {username}'), but not  blocks or other function calls.</P
+><P
+>This should NOT be used to add logic (except some presentation one) to  the template. If you use a lot of such callbacks and implement business  logic through them, then you're reinventing the wheel. Consider using  XML/XSLT, native PHP or some other template engine.</P
+><P
+>&#13;     Script:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+function h_one($arg)
+{     
+    return '&#60;h1&#62;' . $arg . '&#60;/h1&#62;';
+}  
+// ...  
+$tpl = new HTML_Template_Sigma(' ... ');
+// ...  
+$tpl-&#62;setCallbackFunction('h1', 'h_one');
+// ...
+$tpl-&#62;show()
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+     template:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>...
+func_h1('H1 Headline')
+...</PRE
+></TD
+></TR
+></TABLE
+>
+     
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.setcallbackfunction.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$tplFunction</I
+></TT
+></DT
+><DD
+><P
+>&#13;        Function name in the template
+       </P
+></DD
+><DT
+>mixed
+        <TT
+CLASS="parameter"
+><I
+>$callback</I
+></TT
+></DT
+><DD
+><P
+>&#13;        A callback: anything that can be passed to <B
+CLASS="function"
+>call_user_func_array()</B
+>
+       </P
+></DD
+><DT
+>boolean
+        <TT
+CLASS="parameter"
+><I
+>$preserveArgs</I
+></TT
+></DT
+><DD
+><P
+>&#13;        If <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, then no variable substitution in arguments will take place before function call
+       </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.setcallbackfunction.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>return</I
+></SPAN
+> SIGMA_OK on success, error object on failure
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.setcallbackfunction.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN72043"><P
+><B
+>Table 41-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>SIGMA_INVALID_CALLBACK</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Callback does not exist</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The <TT
+CLASS="parameter"
+><I
+>$callback</I
+></TT
+> is not an existing function or method</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Check spelling, check whether the object was correctly instantiated if using the method callback</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.setcallbackfunction.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.setcacheroot.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.setcurrentblock.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>setCacheRoot()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-sigma.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>setCurrentBlock()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

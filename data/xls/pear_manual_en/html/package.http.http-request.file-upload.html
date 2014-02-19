@@ -1,0 +1,224 @@
+<HTML
+><HEAD
+><TITLE
+>File uploads</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTTP_Request"
+HREF="package.http.http-request.html"><LINK
+REL="PREVIOUS"
+TITLE="Cookies"
+HREF="package.http.http-request.cookie.html"><LINK
+REL="NEXT"
+TITLE="Request headers"
+HREF="package.http.http-request.headers.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.http.http-request.cookie.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.http.http-request.headers.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.http.http-request.file-upload">File uploads</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN75656"
+></A
+>File uploads&nbsp;--&nbsp;
+   Uploading files via HTTP
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-request.file-upload.usage"
+></A
+><H2
+>How to use file uploads</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN75661"><P
+><B
+>Example 42-1. Upload a PDF document</B
+></P
+><P
+>&#13;    In this example a file named
+    <TT
+CLASS="filename"
+>/home/johndoe/text.pdf</TT
+> is uploaded to the
+    remote machine <TT
+CLASS="literal"
+>upload.example.com</TT
+> under the name
+    <TT
+CLASS="literal"
+>johndoe-text.pdf</TT
+>. Additionally Basic
+    Authentication is used to ensure that John is allowed to upload
+    something.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "HTTP/Request.php";
+
+$req =&#38; new HTTP_Request("http://upload.example.com/upload.php");
+$req-&#62;setBasicAuth("johndoe", "foo");
+$req-&#62;setMethod(HTTP_REQUEST_METHOD_POST);
+
+$result = $req-&#62;addFile("johndoe-txt.pdf", "/home/johndoe/text.pdf");
+if (PEAR::isError($result)) {
+    echo $result-&#62;getMessage();
+} else {
+
+    $response = $req-&#62;sendRequest();
+
+    if (PEAR::isError($response)) {
+        echo $response-&#62;getMessage();
+    } else {
+        echo $req-&#62;getResponseBody();
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.http.http-request.cookie.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.http.http-request.headers.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Cookies</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.http.http-request.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Request headers</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

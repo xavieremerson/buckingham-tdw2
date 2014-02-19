@@ -1,0 +1,353 @@
+<HTML
+><HEAD
+><TITLE
+>Usage examples</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Form"
+HREF="package.html.html-form.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.html.html-form.intro.html"><LINK
+REL="NEXT"
+TITLE="HTML_Menu"
+HREF="package.html.html-menu.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-form.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-menu.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-form.examples">Usage examples</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN50212"
+></A
+>Usage examples&nbsp;--&nbsp;Using HTML_Form.</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-form.examples.tablemode"
+></A
+><H2
+>Creating the form in <SPAN
+CLASS="QUOTE"
+>"table mode"</SPAN
+></H2
+><P
+>&#13;   Creating a form in <SPAN
+CLASS="QUOTE"
+>"table mode"</SPAN
+> means that the
+   package returns the complete form in a fixed width table. Whilst
+   this does not work very well for most frontend websites, it is a
+   very convenient way to create forms during development phase or
+   for backend systems where the design does not matter (much).
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN50220"><P
+><B
+>Example 41-1. Creating a form</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "HTML/Form.php";
+
+$form = new HTML_Form('receivingscript.php');
+
+$form-&#62;addText("name", "What's your name?");
+$form-&#62;addText("email", "What's your email address?");
+$form-&#62;addPassword("password", "Please enter the desired password");
+$form-&#62;addPlaintext("Tip", "Your password should be hard to guess");
+$form-&#62;addSubmit("submit", "Submit");
+
+$form-&#62;display();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   This will display a table where the left column holds the labels of
+   the different fields. In the right column the different fields are
+   placed.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-form.examples.displaying"
+></A
+><H2
+>Displaying single form tags</H2
+><P
+>&#13;   Apart from retrieving the table as a whole, one can also use the
+   <SPAN
+CLASS="acronym"
+>API</SPAN
+> of <B
+CLASS="classname"
+>HTML_Form</B
+> to
+   directly display single form tags.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN50229"><P
+><B
+>Example 41-2. Directly displaying form tags</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "HTML/Form.php";
+
+$form = new HTML_Form('receivingscript.php');
+
+$form-&#62;displayText("name", "What's your name?");</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   The above example will print the <SPAN
+CLASS="acronym"
+>HTML</SPAN
+> markup
+   being necessary to render a text input field. It will not print
+   the surrounding <TT
+CLASS="literal"
+>&#60;form /&#62;</TT
+> tag or something
+   else!
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN50235"
+></A
+><H2
+>Returing single form tags</H2
+><P
+>&#13;   Similar to displaying form tags with the <B
+CLASS="function"
+>display*()</B
+>
+   functions <B
+CLASS="classname"
+>HTML_Form</B
+> can also return the
+   tag instead of printing it.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN50240"><P
+><B
+>Example 41-3. Returning form tags</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "HTML/Form.php";
+
+$form = new HTML_Form('receivingscript.php');
+
+$str = $form-&#62;returnPassword("password", "Choose a password");</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   The variable <TT
+CLASS="varname"
+>$str</TT
+> now contains 
+   <SPAN
+CLASS="acronym"
+>HTML</SPAN
+> markup like 
+   <TT
+CLASS="literal"
+>&#60;input type="password" name="password" /&#62;</TT
+>.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-form.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-menu.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-form.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_Menu</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

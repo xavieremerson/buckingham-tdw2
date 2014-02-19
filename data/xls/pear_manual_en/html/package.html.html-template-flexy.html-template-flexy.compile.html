@@ -1,0 +1,426 @@
+<HTML
+><HEAD
+><TITLE
+>$flexy-&#62;compile()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_Flexy"
+HREF="package.html.html-template-flexy.html"><LINK
+REL="PREVIOUS"
+TITLE="new HTML_Template_Flexy"
+HREF="package.html.html-template-flexy.html-template-flexy.html-template-flexy.html"><LINK
+REL="NEXT"
+TITLE="$flexy->outputObject()"
+HREF="package.html.html-template-flexy.html-template-flexy.outputobject.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.html-template-flexy.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.outputobject.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-flexy.html-template-flexy.compile">$flexy-&#62;compile()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN68735"
+></A
+>$flexy-&#62;compile()&nbsp;--&nbsp;Converts a template from markup to PHP if required</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN68738"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN68739"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void $flexy-&#62;
+     <B
+CLASS="function"
+>compile</B
+></CODE
+> (string
+      $template)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.html-template-flexy.compile.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      If neccessary it will convert the Template markup into PHP code, and writes
+      it to the compiledTemplate directory adding the {locale}.php to the end of the filename.
+      The Template is only compiled if
+      </P
+><P
+>&#13;       <P
+></P
+><UL
+><LI
+><P
+>No compiled file exists</P
+></LI
+><LI
+><P
+>The file modification date of the template is greater than the compiled one</P
+></LI
+><LI
+><P
+>The forceCompile Flag was set in config or when you created the template object.</P
+></LI
+></UL
+>
+    </P
+><P
+>&#13;      It is not normally neccesary to set the forceCompile flag, unles you are working
+      on the engine it'self.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.html-template-flexy.compile.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>string $template</I
+></TT
+> - 
+       Used in conjuction with the config variable 'templateDir' to locate the 
+       template to compile into PHP code.
+      </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.html-template-flexy.compile.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>string</I
+></TT
+> - the location of the compiled file (which could be used 
+     with include) - although it is recommended to use the outputObject methods.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.html-template-flexy.compile.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.html-template-flexy.compile.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN68773"><P
+><B
+>Example 41-1. Compiling multiple files.</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>class controller_test 
+{
+    
+    var $masterTemplate = "master.html"
+    var $template = "home.html"; // name of template
+    var $title;                // page title;
+    var $numbers = array();    // an array example
+    
+    /* start section - deals with posts, get variables etc.*/
+
+    function controller_test() 
+    {
+        $this-&#62;start();
+        $this-&#62;output();
+    }
+
+
+    function start() 
+    {
+        $this-&#62;title = "&#60;Hello World&#62;";
+        
+        for ($i = 1;$i&#60; 5;$i++) {
+            $this-&#62;numbers[$i] = "Number $i";
+        }
+    }
+    
+    /* output section - probably best to put this in the default_controller class */
+    
+    function output() {
+        $master = new HTML_Template_Flexy();
+        $master-&#62;compile('some_file_name');
+        $master-&#62;outputObject($this);
+    }
+    
+    function outputBody() {
+        $body = new HTML_Template_Flexy();
+        $body-&#62;compile($this-&#62;template);
+        $body-&#62;outputObject($this);
+    }
+    
+    
+    
+}
+
+new controller_test;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN68776"><P
+><B
+>Example 41-2. Master template example</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>Page Header Goes here. 
+
+{outputBody()}
+ 
+Page Footer Goes here</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN68779"><P
+><B
+>Example 41-3. Simple ouput example</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>Page Header Goes here. 
+
+some numbers
+Number 1
+Number 2
+Number 3
+Number 4
+ 
+Page Footer Goes here</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.html-template-flexy.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.outputobject.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>new HTML_Template_Flexy</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>$flexy-&#62;outputObject()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

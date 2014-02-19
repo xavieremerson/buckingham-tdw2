@@ -1,0 +1,526 @@
+<HTML
+><HEAD
+><TITLE
+>DB_common::query()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="DB_common::provides()"
+HREF="package.database.db.db-common.provides.html"><LINK
+REL="NEXT"
+TITLE="DB_common::quote()"
+HREF="package.database.db.db-common.quote.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.provides.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.quote.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.db-common.query">DB_common::query()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN24341"
+></A
+>DB_common::query()&nbsp;--&nbsp;Sends a query to the database</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN24344"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN24345"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>&#38;query</B
+></CODE
+> (string $query [, mixed $params = array()])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.query.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Runs a query
+  </P
+><P
+>&#13;   Can be used instead of
+   <A
+HREF="package.database.db.db-common.prepare.html"
+>&#13;    <B
+CLASS="function"
+>prepare()</B
+></A
+> and
+   <A
+HREF="package.database.db.db-common.execute.html"
+>&#13;    <B
+CLASS="function"
+>execute()</B
+></A
+>, if you
+   set the <TT
+CLASS="parameter"
+><I
+>$params</I
+></TT
+> parameter
+   and your query uses placeholders.
+   See <A
+HREF="package.database.db.intro-execute.html"
+>&#13;    <SPAN
+CLASS="QUOTE"
+>"Intro - Prepare &#38; Execute"</SPAN
+></A
+>
+   for more information on this mode.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.query.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+      <TT
+CLASS="parameter"
+><I
+>$query</I
+></TT
+></DT
+><DD
+><P
+>&#13;       the SQL query or the statement to
+       prepare
+      </P
+></DD
+><DT
+>mixed
+      <TT
+CLASS="parameter"
+><I
+>$params</I
+></TT
+></DT
+><DD
+><P
+>&#13;       array, string or numeric data to be added to the prepared statement.
+       Quantity of items passed must match quantity of placeholders in the
+       prepared statement: meaning 1 placeholder for non-array
+       parameters or 1 placeholder per array element.
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.query.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   mixed - a new <A
+HREF="package.database.db.db-result.html"
+><B
+CLASS="classname"
+>DB_result</B
+></A
+> object
+   for queries that return results (such as
+   <B
+CLASS="command"
+>SELECT</B
+> queries),
+   <A
+HREF="package.database.db.db-error.html"
+><TT
+CLASS="constant"
+><B
+>DB_OK</B
+></TT
+></A
+> for queries that manipulate data (such as
+   <B
+CLASS="command"
+>INSERT</B
+> queries)
+   or a <A
+HREF="package.database.db.db-error.html"
+><B
+CLASS="classname"
+>DB_Error</B
+></A
+> object on failure
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.query.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <DIV
+CLASS="table"
+><A
+NAME="AEN24396"><P
+><B
+>Table 33-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_INVALID</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        invalid
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        SQL statment for preparing is not valid.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        See the <A
+HREF="package.database.db.db-common.prepare.html"
+>&#13;         <B
+CLASS="function"
+>prepare()</B
+> documentation</A
+>,
+        if you want to use a SQL statement using placeholders.
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_MISMATCH</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        mismatch
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Quantity of parameters didn't match quantity of placeholders in
+        the prepared statment.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check that the number of placeholders in the
+        <A
+HREF="package.database.db.db-common.prepare.html"
+>&#13;         <B
+CLASS="function"
+>prepare()</B
+></A
+> statement passed to
+        <TT
+CLASS="parameter"
+><I
+>$query</I
+></TT
+> equals the count of entries
+        passed to <TT
+CLASS="parameter"
+><I
+>$params</I
+></TT
+>.
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_NODBSELECTED</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        no database selected
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        No database was chosen.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check the <A
+HREF="package.database.db.intro-dsn.html"
+>DSN</A
+>
+        in <A
+HREF="package.database.db.db.connect.html"
+>&#13;         <B
+CLASS="function"
+>connect()</B
+></A
+>.
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>every other error code</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Database specific error
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check the database related section of the
+        <A
+HREF="http://www.php.net/manual/"
+TARGET="_top"
+>PHP-Manual</A
+>
+        to detect the reason for this error. In the most cases
+        a misformed SQL statement. I.e. using LIMIT in a SQL-Statement
+        for an Oracle database.
+       </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.query.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.query.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="package.database.db.intro-execute.html"
+>&#13;    <SPAN
+CLASS="QUOTE"
+>"Intro - Prepare &#38; Execute"</SPAN
+></A
+>,
+   <A
+HREF="package.database.db.db-common.limitquery.html"
+>&#13;    <B
+CLASS="function"
+>limitQuery()</B
+></A
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.provides.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.quote.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>DB_common::provides()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>DB_common::quote()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

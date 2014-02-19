@@ -1,0 +1,2 @@
+PSFTP process will lock the log.wri file, so if manually run, it should be killed
+before the 10 minute process can work successfully.

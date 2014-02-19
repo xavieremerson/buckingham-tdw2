@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<Title>PieChart.addExtraField</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1"><a href="PieChart.htm">PieChart</a>.addExtraField</p>
+<hr class="separator">
+<p class="heading2a">Usage</p>
+<div class="content">
+addExtraField(texts)
+</div>
+<p class="heading2">Description</p>
+<div class="content">
+Associate an extra text to each sector.<br><br>
+An extra field is an array of texts that are associated with the sectors (the first element with the first sector, the second element with the second sector, and so on). These texts can be used in methods that supports <a href="paramsub.htm">parameter substitution and formatting</a>.<br><br>
+One common usage of extra field is to associate a hidden ID to each sector, so that when the user clicks on the sector, the hidden ID is passed to the handler as query parameters.<br><br>
+To do this, the hidden IDs can be provided to ChartDirector as an array of text using addExtraField. The extra field can then be included in HTML image maps using <a href="BaseChart.getHTMLImageMap.htm">BaseChart.getHTMLImageMap</a>.<br><br>
+Another common usage is to include additional information in the sector labels. For example, ICON images for the sectors can be represented as texts using the <a href="cdml.htm">ChartDirector Mark Up Language</a>. They can then be provided to ChartDirector as an array of text using addExtraField, and be included in sector labels using <a href="PieChart.setLabelFormat.htm">PieChart.setLabelFormat</a>.
+</div>
+<p class="heading2">Arguments</p>
+
+<div class="content">
+<table border="1" cellpadding="5" cellspacing="0" width="98%"> 
+<tr>
+<th width="19%">Argument</th><th width="19%">Default</th><th width="60%">Description</th>
+</tr>
+<tr>
+<td>texts</td><td>(Mandatory)</td><td>An array of text to be associated to the sectors.</td>
+</tr>
+</table>
+</div>
+
+<p class="heading2">Return Value</p>
+<div class="content">
+None
+</div>
+<br><hr class="separator">
+<div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

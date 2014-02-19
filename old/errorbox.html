@@ -1,0 +1,21 @@
+//finally, pass your custom text as a URL parameter to be parsed by the popup:
+
+<html>
+<head><title>Results</title>
+<script language="JavaScript">
+
+function getValues(){
+     var strSearch = location.search;
+     strSearch = strSearch.substring(1);
+     var arrNameValues = strSearch.split("&");
+     for(i=0;i<arrNameValues.length;i++){
+          document.writeln(unescape(arrNameValues[i]));
+     }
+}
+</script>
+</head>
+<body onLoad="javascript:getValues()">
+
+
+</body>
+</html>

@@ -1,0 +1,339 @@
+<HTML
+><HEAD
+><TITLE
+>Mail_mimePart::addsubpart()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Mail_Mime"
+HREF="package.mail.mail-mime.html"><LINK
+REL="PREVIOUS"
+TITLE="Mail_mimePart::Mail_mimePart()"
+HREF="package.mail.mail-mimepart.mail-mimepart.html"><LINK
+REL="NEXT"
+TITLE="Mail_mimePart::encode()"
+HREF="package.mail.mail-mimepart.encode.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-mimepart.mail-mimepart.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-mimepart.encode.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.mail.mail-mimepart.addsubpart">Mail_mimePart::addsubpart()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN81026"
+></A
+>Mail_mimePart::addsubpart()&nbsp;--&nbsp;add sub part to a MIME part</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN81029"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN81030"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Mail/mimePart.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>resource <B
+CLASS="function"
+>&#38;addSubPart</B
+></CODE
+> (string $body, array $params)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mimepart.addsubpart.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Adds a sub part to the current MIME part and returns
+     a reference to it
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mimepart.addsubpart.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string</I
+></TT
+> - 
+        the body of the sub part
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>array</I
+></TT
+> - 
+        the parameter for the sub part. See
+        <A
+HREF="package.mail.mail-mimepart.mail-mimepart.html#package.mail.mail-mimepart.mail-mimepart.parameter"
+>&#13;          constructor</A
+> for the possible values.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mimepart.addsubpart.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>resource</I
+></TT
+> -
+     a reference to the added part
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mimepart.addsubpart.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mimepart.addsubpart.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN81062"><P
+><B
+>Example 46-1. Add two attachments to a mail</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php    
+include 'Mail/mimePart.php';
+
+...
+
+$params['content_type'] = 'multipart/mixed';
+$email = new Mail_mimePart('', $params);
+
+// Here we add a text part to the multipart we have
+// already. Assume $body contains plain text.
+
+$params['content_type'] = 'text/plain';
+$params['encoding']     = '7bit';
+$text = $email-&#62;addSubPart($body, $params);
+
+// Now add an attachment. Assume $contents is
+// the contents of the attachment
+
+$params['content_type'] = 'application/zip';
+$params['encoding']     = 'base64';
+$params['disposition']  = 'attachment';
+$params['dfilename']    = 'example.zip';
+$attach =&#38; $email-&#62;addSubPart($contents, $params);
+
+// Now build the email. Note that the encode
+// function returns an associative array containing two
+// elements, body and headers. You will need to add extra
+// headers, (eg. Mime-Version) before sending.
+
+$email = $email-&#62;encode();
+$email['headers']['Mime-Version'] = '1.0';
+
+...
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mimepart.mail-mimepart.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mimepart.encode.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Mail_mimePart::Mail_mimePart()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mime.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Mail_mimePart::encode()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

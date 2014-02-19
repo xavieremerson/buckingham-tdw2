@@ -1,0 +1,562 @@
+<HTML
+><HEAD
+><TITLE
+>Mail_RFC822::parseAddressList()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Mail"
+HREF="package.mail.mail.html"><LINK
+REL="PREVIOUS"
+TITLE="RFC822 - Introduction"
+HREF="package.mail.mail-rfc822.intro.html"><LINK
+REL="NEXT"
+TITLE="Mail_IMAP"
+HREF="package.mail.mail-imap.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-rfc822.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-imap.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.mail.mail-rfc822.parseaddresslist">Mail_RFC822::parseAddressList()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN79904"
+></A
+>Mail_RFC822::parseAddressList()&nbsp;--&nbsp;extract the parts of a list of email addresses</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN79907"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN79908"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Mail/RFC822.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>parseAddressList</B
+></CODE
+> ([string $address = '', string [$defaultDomain = 'localhost'] [, boolean $nestGroups = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> [, boolean $validate = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>]]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-rfc822.parseaddresslist.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Extracts the given addresses into their parts. 
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-rfc822.parseaddresslist.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $address</I
+></TT
+> - 
+        the address(es) to validate 
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $defaultDomain</I
+></TT
+> - 
+        the default domain to use in case of absence in the
+        given email address.
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>boolean $nestGroups</I
+></TT
+> - 
+        whether to return the structure with groups 
+        nested for easier viewing.
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>boolean $validate</I
+></TT
+> - 
+        whether to validate atoms. Turn this off if you need to run addresses 
+        through before encoding the personal names, for instance.        
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-rfc822.parseaddresslist.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>array</I
+></TT
+> - 
+     a nested array of anonymous objects.
+    </P
+><P
+>&#13;     If <TT
+CLASS="parameter"
+><I
+>$nestGroups</I
+></TT
+> set to <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>, you
+     can jump over the next paragraph.
+    </P
+><P
+>      
+     Every array entry contains an object per group.
+     This object has two attributes:
+     <P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>&#13;       <TT
+CLASS="parameter"
+><I
+>groupname</I
+></TT
+> - the name of
+       the group
+      </TD
+></TR
+><TR
+><TD
+>      
+       <TT
+CLASS="parameter"
+><I
+>addresses</I
+></TT
+> - an array of
+       all addresses of a group
+      </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+    </P
+><P
+>&#13;     The <TT
+CLASS="parameter"
+><I
+>addresses</I
+></TT
+> array consists of an
+     array of anonymous objects for each address. This object
+     comes with the following attributes:
+     <P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>&#13;       <TT
+CLASS="parameter"
+><I
+>personal</I
+></TT
+> -
+       the name of the address owner
+      </TD
+></TR
+><TR
+><TD
+>&#13;       <TT
+CLASS="parameter"
+><I
+>comment</I
+></TT
+> -
+       an array, an entry for each comment per address
+      </TD
+></TR
+><TR
+><TD
+>&#13;       <TT
+CLASS="parameter"
+><I
+>mailbox</I
+></TT
+> -
+       the name of the mailbox, the part before the @
+      </TD
+></TR
+><TR
+><TD
+>&#13;       <TT
+CLASS="parameter"
+><I
+>host</I
+></TT
+> -
+       the name of the server, the part after the @
+      </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>     
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-rfc822.parseaddresslist.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN79973"><P
+><B
+>Table 46-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          every
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          The given address string is not 
+          <A
+HREF="http://www.faqs.org/rfcs/rfc822"
+TARGET="_top"
+>RFC822</A
+> compliant
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          The error code contains a description of the error.
+         </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-rfc822.parseaddresslist.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can be called
+statically.</P
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;      This class checks the string only. It does not check for 
+      the existence of an email address.
+     </P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-rfc822.parseaddresslist.example"
+></A
+><H2
+>Example</H2
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN79998"><P
+><B
+>Example 46-1. Extract some addresses</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+$address = 'My group: "Richard" &#60;richard@localhost&#62;;, ted@example.com (A comment)';
+
+$addresses = Mail_RFC822::parseAddressList($address, 'phpguru.org', TRUE);
+print_r($addresses);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.mail.mail-rfc822.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.mail.mail-imap.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>RFC822 - Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.mail.mail.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Mail_IMAP</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

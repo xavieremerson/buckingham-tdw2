@@ -1,0 +1,497 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - Transaction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="MDB2"
+HREF="package.database.mdb2.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction - Prepare & Execute"
+HREF="package.database.mdb2.intro-execute.html"><LINK
+REL="NEXT"
+TITLE="Introduction - Modules"
+HREF="package.database.mdb2.intro-module.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb2.intro-execute.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb2.intro-module.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.mdb2.intro-transaction">Introduction - Transaction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN31608"
+></A
+>Introduction - Transaction&nbsp;--&nbsp;Performing transactions</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb2.intro-transaction.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   PEAR MDB2 default to auto commiting all queries. However using the
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodbeginTransaction"
+TARGET="_top"
+>&#13;   <B
+CLASS="function"
+>beginTransaction()</B
+></A
+> one can open a new transaction
+   and with the <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodcommit"
+TARGET="_top"
+>&#13;   <B
+CLASS="function"
+>commit()</B
+></A
+> and
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodrollback"
+TARGET="_top"
+>&#13;   <B
+CLASS="function"
+>rollback()</B
+></A
+> a transaction is finished. All of these
+   three methods optionally accept a string name of a savepoint to set, release
+   or rollback to respectively. The method
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodinTransaction"
+TARGET="_top"
+>&#13;   <B
+CLASS="function"
+>inTransaction()</B
+></A
+> may be used to check if a transaction is
+   currently open.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31622"><P
+><B
+>Example 33-1. Doing a transaction</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Create a valid MDB2 object named $mdb2
+// at the beginning of your program...
+require_once 'MDB2.php';
+
+$mdb2 =&#38; MDB2::connect('pgsql://usr:pw@localhost/dbnam');
+if (PEAR::isError($mdb2)) {
+    die($mdb2-&#62;getMessage());
+}
+
+// check if transaction are supported by this driver
+if (!$mdb2-&#62;supports('transactions')) {
+    exit();
+}
+
+// Open a transaction
+$res = $mdb2-&#62;beginTransaction();
+
+..
+
+// check if we are inside a transaction and if savepoints are supported
+if ($mdb2-&#62;inTransaction() &#38;&#38; $mdb2-&#62;supports('savepoints')) {
+    // Set a savepoint
+    $savepoint = 'MYSAVEPOINT';
+    $res = $mdb2-&#62;beginTransaction($savepoint);
+
+    ..
+
+    // determine if the savepoint should be released or to rollback to the savepoint
+    if ($error_condition) {
+        $res = $mdb2-&#62;rollback($savepoint);
+    } else {
+        $res = $mdb2-&#62;commit($savepoint);
+    }
+}
+
+..
+
+// determine if the commit or rollback
+if ($error_condition) {
+    $res = $mdb2-&#62;rollback();
+} else {
+    $res = $mdb2-&#62;commit();
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;     PEAR MDB2 does not emulate transactions or savepoints. This means that it
+     depends on the underlying RDBMS (and in the case of MySQL the storage
+     engines used) if transactions will be available in MDB2. Also note that
+     some RDBMS implicitly commit transactions when executing DDL statements
+     (noteably exceptions are Oracle and PostgreSQL).
+    </P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>&#13;   MDB2 also supports "nested" transactions using the
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodbeginNestedTransaction"
+TARGET="_top"
+>&#13;   <B
+CLASS="function"
+>beginNestedTransaction()</B
+></A
+> method. Actually these are not
+   true nested transactions as they are natively supported in Interbase for
+   example. MDB2 maintains a counter of opened nested transactions. The
+   transaction is finished once that counter is decremented back to 1 with
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodcompleteNestedTransaction"
+TARGET="_top"
+>&#13;   <B
+CLASS="function"
+>completeNestedTransaction()</B
+></A
+> calls. If the RDBMS supports
+   savepoints then MDB2 will automatically set a savepoint on every call of the
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodbeginNestedTransaction"
+TARGET="_top"
+>&#13;   <B
+CLASS="function"
+>beginNestedTransaction()</B
+></A
+> method after the initial call
+   and will return the name. These savepoints are automatically released by the
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodcompleteNestedTransaction"
+TARGET="_top"
+>&#13;   <B
+CLASS="function"
+>completeNestedTransaction()</B
+></A
+> method. The name of these
+   automatic savepoints are determined by the "savepoint_format" (default:
+   'MDB2_SAVEPOINT_%s') option and the nested transaction counter.
+  </P
+><P
+>&#13;   If after initial
+   opening of the nested transaction an unexpected PEAR error is raised on the
+   MDB2 instance the transaction is rolled back, otherwise it is commited at
+   this point. Using the <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodgetNestedTransactionError"
+TARGET="_top"
+>&#13;   <B
+CLASS="function"
+>getNestedTransactionError()</B
+></A
+> method it is possible to check
+   if there has been an error inside the transaction. Alternatively an rollback
+   can be forced using the the
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodfailNestedTransaction"
+TARGET="_top"
+>&#13;   <B
+CLASS="function"
+>failNestedTransaction()</B
+></A
+>. This method optionally accepts
+   a mixed parameter which will set the error to return if the
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodgetNestedTransactionError"
+TARGET="_top"
+>&#13;   <B
+CLASS="function"
+>getNestedTransactionError()</B
+></A
+> method is called as well as
+   a second boolean parameter that optionally forces an immidiate rollback.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31643"><P
+><B
+>Example 33-2. Using emulated nested transactions</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+$mdb2-&#62;beginNestedTransaction(); # open transaction
+
+$query = "INSERT INTO autoinc (id) VALUES (?)";
+$stmt = $mdb2-&#62;prepare($query);
+
+$stmt-&#62;execute(array(1));
+
+$savepoint = $mdb2-&#62;beginNestedTransaction(); # ignored / sets savepoint
+
+..
+
+// never true for this example
+if (false) {
+    // raise an error
+    $error = $mdb2-&#62;raiseError(MDB2_ERROR, null, null, 'kaboom');
+    $mdb2-&#62;failNestedTransaction();
+}
+
+if(($error = $mdb2-&#62;getNestedTransactionError())) {
+    die($error-&#62;getUserinfo());
+}
+
+$mdb2-&#62;completeNestedTransaction(); # ignored / releases savepoint
+
+$stmt-&#62;execute(array(2));
+
+$mdb2-&#62;completeNestedTransaction(); # commit
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   Finally MDB2 supports setting of the transaction isolation level as per the
+   SQL 92 standard using the
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodsetTransactionIsolation"
+TARGET="_top"
+>&#13;   <B
+CLASS="function"
+>setTransactionIsolation()</B
+></A
+> method. If a given RDBMS
+   does not support a given isolation level but supports a higher more strict
+   isolation level, then MDB2 silently uses that higher transaction level. Some
+   RDBMS support additional options which are silently ignored if they are not
+   supported.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31649"><P
+><B
+>Example 33-3. Setting the transaction isolation level</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+$options = array('wait' =&#62; 'WAIT', 'rw' =&#62; 'READ WRITE');
+$options = array('wait' =&#62; 'NO WAIT', 'rw' =&#62; 'READ ONLY');
+
+$isolation_level = READ UNCOMMITTED # (allows dirty reads)
+$isolation_level = READ COMMITTED # (prevents dirty reads)
+$isolation_level = REPEATABLE READ # (prevents nonrepeatable reads)
+$isolation_level = SERIALIZABLE # (prevents phantom reads)
+$mdb2-&#62;setTransactionIsolation($isolation_level, $options);
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.intro-execute.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.intro-module.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction - Prepare &#38; Execute</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction - Modules</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

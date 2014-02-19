@@ -1,0 +1,738 @@
+<HTML
+><HEAD
+><TITLE
+>DB_common::autoExecute()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="DB_common::autoCommit()"
+HREF="package.database.db.db-common.autocommit.html"><LINK
+REL="NEXT"
+TITLE="DB_common::autoPrepare()"
+HREF="package.database.db.db-common.autoprepare.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.autocommit.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.autoprepare.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.db-common.autoexecute">DB_common::autoExecute()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN22051"
+></A
+>DB_common::autoExecute()&nbsp;--&nbsp;
+   Prepares and runs an INSERT or UPDATE query
+   based on variables you supply
+  </DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN22054"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN22055"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>integer <B
+CLASS="function"
+>autoExecute</B
+></CODE
+> (string $table, array $fields_values [, integer $mode =
+      <TT
+CLASS="constant"
+><B
+>DB_AUTOQUERY_INSERT</B
+></TT
+> [, string $where = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.autoexecute.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Automatically prepares and executes <B
+CLASS="command"
+>INSERT</B
+> or
+   <B
+CLASS="command"
+>UPDATE</B
+> queries.
+  </P
+><P
+>&#13;   This method builds a SQL statement using
+   <A
+HREF="package.database.db.db-common.autoprepare.html"
+>&#13;    <B
+CLASS="function"
+>autoPrepare()</B
+></A
+> and then executes
+   the statement using
+   <A
+HREF="package.database.db.db-common.execute.html"
+>&#13;    <B
+CLASS="function"
+>execute()</B
+></A
+> with it.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.autoexecute.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+      <TT
+CLASS="parameter"
+><I
+>$table</I
+></TT
+></DT
+><DD
+><P
+>&#13;       name of the table
+      </P
+></DD
+><DT
+>array
+      <TT
+CLASS="parameter"
+><I
+>$fields_values</I
+></TT
+></DT
+><DD
+><P
+>&#13;       assoc (key =&#62; value), keys are fields names,
+       values are values of these fields
+      </P
+><P
+>&#13;       Values are automatically escaped and quoted according
+       to the current DBMS's requirements.
+      </P
+></DD
+><DT
+>integer
+      <TT
+CLASS="parameter"
+><I
+>$mode</I
+></TT
+></DT
+><DD
+><P
+>&#13;       type of query to make
+       (<TT
+CLASS="constant"
+><B
+>DB_AUTOQUERY_INSERT</B
+></TT
+>
+       or <TT
+CLASS="constant"
+><B
+>DB_AUTOQUERY_UPDATE</B
+></TT
+>)
+      </P
+></DD
+><DT
+>string
+      <TT
+CLASS="parameter"
+><I
+>$where</I
+></TT
+></DT
+><DD
+><P
+>&#13;       a string to be used in the <B
+CLASS="command"
+>WHERE</B
+> clause.
+       This is only used when <TT
+CLASS="parameter"
+><I
+>$mode</I
+></TT
+> is
+       <TT
+CLASS="constant"
+><B
+>DB_AUTOQUERY_UPDATE</B
+></TT
+>.
+       The string is put directly into the query, so you must
+       escape and quote literals according to the DBMS's standards.
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.autoexecute.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   integer - <A
+HREF="package.database.db.db-error.html"
+><TT
+CLASS="constant"
+><B
+>DB_OK</B
+></TT
+></A
+> on success
+   or a <A
+HREF="package.database.db.db-error.html"
+><B
+CLASS="classname"
+>DB_Error</B
+></A
+> object on failure
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.autoexecute.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <DIV
+CLASS="table"
+><A
+NAME="AEN22126"><P
+><B
+>Table 33-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_NEED_MORE_DATA</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        insufficient data supplied
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Your associative array, which has to contain fields names
+        and their values, is empty.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check and correct your fields_values array.
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_SYNTAX</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        syntax error
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        You use an unknown mode.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Available modes are only
+        <TT
+CLASS="constant"
+><B
+>DB_AUTOQUERY_INSERT</B
+></TT
+> for
+        <B
+CLASS="command"
+>INSERT</B
+> queries or
+        <TT
+CLASS="constant"
+><B
+>DB_AUTOQUERY_UPDATE</B
+></TT
+> for
+        <B
+CLASS="command"
+>UPDATE</B
+> queries.
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_NODBSELECTED</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        no database selected
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>No database was choosen.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check the <A
+HREF="package.database.db.intro-dsn.html"
+>DSN</A
+>
+        in <A
+HREF="package.database.db.db.connect.html"
+><B
+CLASS="function"
+>connect()</B
+></A
+>.
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>every other error code</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Database specific error
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check the database related section of
+        <A
+HREF="http://www.php.net/manual/"
+TARGET="_top"
+>PHP-Manual</A
+>
+        to detect the reason for this error.
+       </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.autoexecute.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;    The values passed in <TT
+CLASS="parameter"
+><I
+>$data</I
+></TT
+> must be literals.
+    Do not submit SQL functions (for example <TT
+CLASS="literal"
+>CURDATE()</TT
+>).
+    SQL functions that should be performed at execution time need
+    to be put in the prepared statement.
+   </P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.autoexecute.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN22176"><P
+><B
+>Example 33-1. Using <B
+CLASS="function"
+>autoExecute()</B
+> in insert mode</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$table_name = 'user';
+
+$fields_values = array(
+    'id'      =&#62; 1,
+    'name'    =&#62; 'Fabien',
+    'country' =&#62; 'France'
+);
+
+$res = $db-&#62;autoExecute($table_name, $fields_values,
+                        DB_AUTOQUERY_INSERT);
+
+if (PEAR::isError($res)) {
+    die($res-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN22180"><P
+><B
+>Example 33-2. Using <B
+CLASS="function"
+>autoExecute()</B
+> in update mode</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$table_name = 'user';
+
+$fields_values = array(
+    'country' =&#62; 'France',
+);
+
+$res = $db-&#62;autoExecute($table_name, $fields_values,
+                        DB_AUTOQUERY_UPDATE, "country = 'Japan'");
+
+if (PEAR::isError($res)) {
+    die($res-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.autoexecute.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="package.database.db.intro-execute.html"
+>&#13;    <SPAN
+CLASS="QUOTE"
+>"Intro - Prepare &#38; Execute"</SPAN
+></A
+>,
+   <A
+HREF="package.database.db.intro-auto.html"
+>&#13;    <SPAN
+CLASS="QUOTE"
+>"Intro - autoPrepare &#38; autoExecute"</SPAN
+></A
+>,
+   <A
+HREF="package.database.db.db-common.prepare.html"
+>&#13;    <B
+CLASS="function"
+>prepare()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-common.execute.html"
+>&#13;    <B
+CLASS="function"
+>execute()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-common.executemultiple.html"
+>&#13;    <B
+CLASS="function"
+>executeMultiple()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-common.autoprepare.html"
+>&#13;    <B
+CLASS="function"
+>autoPrepare()</B
+></A
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.autocommit.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.autoprepare.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>DB_common::autoCommit()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>DB_common::autoPrepare()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

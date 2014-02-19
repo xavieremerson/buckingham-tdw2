@@ -1,0 +1,443 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_QuickForm::insertElementBefore()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Creating a basic form"
+HREF="package.html.html-quickform.html#package.html.html-quickform.basic-form"><LINK
+REL="PREVIOUS"
+TITLE="HTML_QuickForm::getRegisteredTypes()"
+HREF="package.html.html-quickform.html-quickform.getregisteredtypes.html"><LINK
+REL="NEXT"
+TITLE="HTML_QuickForm::isError()"
+HREF="package.html.html-quickform.html-quickform.iserror.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform.getregisteredtypes.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform.iserror.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.html-quickform.insertelementbefore">HTML_QuickForm::insertElementBefore()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN53260"
+></A
+>HTML_QuickForm::insertElementBefore()&nbsp;--&nbsp;Inserts a new element right before the other element</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN53263"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN53264"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/QuickForm.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>object &#38;<B
+CLASS="function"
+>HTML_QuickForm::insertElementBefore</B
+></CODE
+> (object &#38;$element, string $nameAfter)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform.insertelementbefore.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;       Inserts a new element right before the other element.
+     </P
+><P
+>&#13;       It is not possible to check whether the <TT
+CLASS="parameter"
+><I
+>$element</I
+></TT
+> 
+       is already added to the form, therefore if you want to move the existing form
+       element to a new position, you'll have to use 
+       <A
+HREF="package.html.html-quickform.html-quickform.removeelement.html"
+><B
+CLASS="function"
+>removeElement()</B
+></A
+>:
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$form-&#62;insertElementBefore($form-&#62;removeElement('foo', false), 'bar');</PRE
+></TD
+></TR
+></TABLE
+>
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform.insertelementbefore.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>object <TT
+CLASS="parameter"
+><I
+>&#38;$element</I
+></TT
+></DT
+><DD
+><P
+>&#13;           Element to insert (instance of <B
+CLASS="classname"
+>HTML_QuickForm_element</B
+>)
+         </P
+></DD
+><DT
+>string <TT
+CLASS="parameter"
+><I
+>$nameAfter</I
+></TT
+></DT
+><DD
+><P
+>&#13;           Name of the element before which the new one is inserted
+         </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform.insertelementbefore.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>return</I
+></SPAN
+> reference to inserted element.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform.insertelementbefore.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN53305"><P
+><B
+>Table 41-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>QUICKFORM_INVALID_ELEMENT_NAME</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Several elements named <TT
+CLASS="parameter"
+><I
+>$nameAfter</I
+></TT
+> exist in HTML_QuickForm::insertElementBefore()</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Several elements named <TT
+CLASS="parameter"
+><I
+>$nameAfter</I
+></TT
+> (e.g.: radios) exist in the form. The method does not handle this case.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Insert before some other element. Consider adding a dummy element with a unique name.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>QUICKFORM_INVALID_ELEMENT_NAME</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Element '$elementName' already exists in HTML_QuickForm::insertElementBefore()</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Element exists with the same name as <TT
+CLASS="parameter"
+><I
+>$element</I
+></TT
+> but of different type</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Give some other name to the inserted element.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>QUICKFORM_NONEXIST_ELEMENT</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Element <TT
+CLASS="parameter"
+><I
+>$nameAfter</I
+></TT
+> does not exist in HTML_QuickForm::insertElementBefore()</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Tried to insert before a non-existant element</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Check the element's name spelling</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform.insertelementbefore.note"
+></A
+><H2
+>Note</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>since</I
+></SPAN
+> 3.2.4
+    </P
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform.getregisteredtypes.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform.iserror.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_QuickForm::getRegisteredTypes()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.basic-form"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_QuickForm::isError()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

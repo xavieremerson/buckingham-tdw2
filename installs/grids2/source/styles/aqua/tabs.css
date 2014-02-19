@@ -1,0 +1,82 @@
+/*****************************************************************
+
+	ActiveWidgets 2.0.b3 (beta3)
+	Copyright (C) 2003-2005 ActiveWidgets Ltd. All Rights Reserved. 
+	http://www.activewidgets.com/
+
+	WARNING: This software program is protected by copyright law 
+	and international treaties. Unauthorized reproduction or
+	distribution of this program, or any portion of it, may result
+	in severe civil and criminal penalties, and will be prosecuted
+	to the maximum extent possible under the law.
+
+	FOR TESTING AND EVALUATION ONLY:
+	This software is not free and is licensed to you for testing 
+	and evaluation only. You are not allowed to distribute 
+	or use any parts of this software for any other purposes.
+
+*****************************************************************/
+
+.aw-ui-tabs .aw-item-template,
+.aw-ui-tabs .aw-item-box {
+	background-image: url(tabs.png);
+}
+
+.aw-ui-tabs .aw-item-template {
+	margin: -1px -4px 0px 0px;
+	padding: 0px 8px 0px 0px;
+	background-position: 100% 0px;
+	vertical-align: top;
+}
+
+.aw-strict .aw-ui-tabs .aw-item-template {
+	margin: -1px -4px -3px 0px;
+	padding: 0px 8px 4px 0px;
+}
+
+.aw-ui-tabs .aw-item-box {
+	margin: 0px;
+	padding: 0px;
+	background-position: 0px -50px;
+	text-indent: 7px;
+}
+
+.aw-strict .aw-ui-tabs .aw-item-box {
+	margin:  0px 0px -4px 0px;
+	padding:  0px 0px 4px 0px;
+}
+
+.aw-opera .aw-ui-tabs .aw-item-box {
+	margin-top: inherit;
+}
+
+.aw-ui-tabs .aw-mouseover-item {
+	background-position: 100% -100px;
+}
+
+.aw-ui-tabs .aw-mouseover-item .aw-item-box {
+	background-position: 0px -150px;
+}
+
+.aw-ui-tabs .aw-items-selected {
+	margin-top: 0px;
+	background-position: 100% -200px;
+	z-index: 1000;
+}
+
+.aw-strict .aw-ui-tabs .aw-items-selected {
+	margin-top: 0px;
+}
+
+.aw-ui-tabs .aw-items-selected .aw-item-box {
+	background-position: 0px -250px;
+}
+
+.aw-ui-tabs .aw-item-ruler {
+	margin-top: 2px;
+}
+
+.aw-ui-tabs .aw-items-selected .aw-item-ruler {
+	margin-top: -2px;
+}
+

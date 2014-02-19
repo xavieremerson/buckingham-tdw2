@@ -1,0 +1,223 @@
+<HTML
+><HEAD
+><TITLE
+>Column Formatter</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Introduction and Features"
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.intro-and-features"><LINK
+REL="PREVIOUS"
+TITLE="Rendering the output"
+HREF="package.structures.structures-datagrid.rendering.html"><LINK
+REL="NEXT"
+TITLE="Example - Quick"
+HREF="package.structures.structures-datagrid.example-simple.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.rendering.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.example-simple.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.structures.structures-datagrid.formatter">Column Formatter</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN93863"
+></A
+>Column Formatter&nbsp;--&nbsp;What can I do with the column formatter?</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN93866"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      The column formatter method can be a very powerful solution to a very
+      common need.  The need is to customize the output for a cell in the grid
+      such as a link for a form element.  This can be easily done by specifying
+      a "callback" function.  This function will then return the string that is
+      needed to be printed.
+    </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN93869"><P
+><B
+>Example 55-1. Using the column formatter</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'Structures/DataGrid.php';
+
+$dg =&#38; new Structures_DataGrid();
+$result = $dg-&#62;bind('http://pear.php.net/feeds/pkg_structures_datagrid.rss');
+if (PEAR::isError($result)) {
+    die('An error occured while fetching the RSS information.');
+}
+
+$dg-&#62;addColumn(new Structures_DataGrid_Column('Release', 'title', 'title', null, null, 'printLink()'));
+$dg-&#62;addColumn(new Structures_DataGrid_Column('Description', 'description', 'description', null, null, 'printDesc($length=150)'));
+$dg-&#62;addColumn(new Structures_DataGrid_Column('Date', 'dc:date', 'dc:date'));
+$dg-&#62;render();
+
+function printLink($params)
+{
+    extract($params);
+    return '&#60;a href="' . $record['link'] . '"&#62;' . $record['title'] . '&#60;/a&#62;';
+}
+
+function printDesc($params)
+{
+    extract ($params);
+    if (strlen($record['description']) &#62; $length) {
+        return nl2br(substr($record['description'], 0, $length)) . '...';
+    } else {
+        return nl2br($record['description']);
+    }          
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.rendering.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.example-simple.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Rendering the output</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.intro-and-features"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Example - Quick</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

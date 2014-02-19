@@ -1,0 +1,441 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_sql2xml"
+HREF="package.xml.xml-sql2xml.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.xml.xml-sql2xml.intro-passing.html"><LINK
+REL="NEXT"
+TITLE="XML_sql2xml::XML_sql2xml"
+HREF="package.xml.xml-sql2xml.xml-sql2xml.xml-sql2xml.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-sql2xml.intro-passing.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.xml-sql2xml.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.xml.xml-sql2xml.intro-xpath">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN104079"
+></A
+>Introduction&nbsp;--&nbsp;Using XPath</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-sql2xml.intro-xpath.why"
+></A
+><H2
+>Why XPath support?</H2
+><P
+>&#13;    The XPath support was introduced to provide an access to the result
+    set after doing the SQL query. This allows further proccessing of the 
+    result set without quering the database again.
+   </P
+><P
+>&#13;    XPath is a W3-Standard and for further information about that, 
+    ask your preferred XSL/XML book, or 
+    <A
+HREF="http://www.w3.org/"
+TARGET="_top"
+>http://www.w3.org/</A
+>.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-sql2xml.intro-xpath.getxpath"
+></A
+><H2
+>Passing an XPath expression</H2
+><P
+>&#13;    <B
+CLASS="classname"
+>XML_sql2xml</B
+> provides two functions for
+    querying the result set: <A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.getxpathvalue.html"
+>&#13;     <B
+CLASS="function"
+>getXpathValue()</B
+></A
+> and <A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.getxpathchildvalues.html"
+>&#13;     <B
+CLASS="function"
+>getXpathChildValues()</B
+></A
+>. Both expect a
+    XPath query and return the result as string or array.
+    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN104095"><P
+><B
+>Example 61-1. getXpathValue</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+include_once("XML/sql2xml.php");
+$sql2xmlclass = new xml_sql2xml("mysql://username:password@localhost/xmltest");
+$sql2xmlclass-&#62;add("select * from bands");
+$xmlstring  = $sql2xmlclass-&#62;getXpathValue("/root/result/row[id = '2']/name");
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>$xmlstring</I
+></TT
+> contains:
+     </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>$xmlstring = 'Only Stupids'</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN104101"><P
+><B
+>Example 61-2. getXpathChildValues</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+include_once("XML/sql2xml.php");
+$sql2xmlclass = new xml_sql2xml("mysql://username:password@localhost/xmltest");
+$sql2xmlclass-&#62;add("select * from bands");
+$xmlstring  = $sql2xmlclass-&#62;getXpathChildValues("/root/result/row[id = '2']");
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>$xmlstring</I
+></TT
+> contains:
+     </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>Array
+(
+    [] =&#62; 
+    [id] =&#62; 2
+    [name] =&#62; Only Stupids
+    [birth_year] =&#62; 1997
+    [birth_place] =&#62; New York
+    [genre] =&#62; Hip Hop
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>    
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-sql2xml.intro-xpath.mixsqlxpath"
+></A
+><H2
+>Mixing SQL and XPath query</H2
+><P
+>&#13;     You can insert an XPath query into an SQL query. In the example, first
+     a SQL query is done, in the second a SQL query done again - but the
+     parameter for <TT
+CLASS="parameter"
+><I
+>bandsID</I
+></TT
+> is taken from
+     the XPath expression in the curly braces. This expression is processed on
+     the result set of the <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>first</I
+></SPAN
+> SQL query. 
+    </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN104112"><P
+><B
+>Example 61-3. Mixed query</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+include_once("XML/sql2xml.php");
+$sql2xmlclass = new xml_sql2xml("mysql://username:password@localhost/xmltest");
+$sql2xmlclass-&#62;add("select * from bands");
+$sql2xmlclass-&#62;add("select * from albums where bandsID = {/root/result/row[name = 'The Blabbers']/id}");
+$xmlstring = $sql2xmlclass-&#62;getxml();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>$xmlstring = '
+
+&#60;?xml version="1.0"?&#62;
+    &#60;root&#62;
+        &#60;result&#62;
+            &#60;row&#62;
+                &#60;id&#62;1&#60;/id&#62;
+                &#60;name&#62;The Blabbers&#60;/name&#62;
+                &#60;birth_year&#62;1998&#60;/birth_year&#62;
+                &#60;birth_place&#62;London&#60;/birth_place&#62;
+                &#60;genre&#62;Rock'n'Roll&#60;/genre&#62;
+            &#60;/row&#62;
+            &#60;row&#62;
+                &#60;id&#62;2&#60;/id&#62;
+                &#60;name&#62;Only Stupids&#60;/name&#62;
+                &#60;birth_year&#62;1997&#60;/birth_year&#62;
+                &#60;birth_place&#62;New York&#60;/birth_place&#62;
+                &#60;genre&#62;Hip Hop&#60;/genre&#62;
+            &#60;/row&#62;
+        &#60;/result&#62;
+        &#60;result&#62;
+            &#60;row&#62;
+                &#60;id&#62;1&#60;/id&#62;
+                &#60;bandsID&#62;1&#60;/bandsID&#62;
+                &#60;title&#62;BlaBla&#60;/title&#62;
+                &#60;year&#62;1998&#60;/year&#62;
+                &#60;comment&#62;Their first one&#60;/comment&#62;
+            &#60;/row&#62;
+            &#60;row&#62;
+                &#60;id&#62;2&#60;/id&#62;
+                &#60;bandsID&#62;1&#60;/bandsID&#62;
+                &#60;title&#62;More Talks&#60;/title&#62;
+                &#60;year&#62;2000&#60;/year&#62;
+                &#60;comment&#62;The second one&#60;/comment&#62;
+            &#60;/row&#62;
+        &#60;/result&#62;
+    &#60;/root&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-sql2xml.intro-passing.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-sql2xml.xml-sql2xml.xml-sql2xml.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.xml-sql2xml.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>XML_sql2xml::XML_sql2xml</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,331 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_Template_Sigma</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML"
+HREF="package.html.html"><LINK
+REL="PREVIOUS"
+TITLE="HTML_Template_IT::touchBlock()"
+HREF="package.html.html-template-it.touchblock.html"><LINK
+REL="NEXT"
+TITLE="Introduction - template syntax"
+HREF="package.html.html-template-sigma.intro-syntax.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-it.touchblock.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 41. HTML</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-sigma.intro-syntax.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.html.html-template-sigma">HTML_Template_Sigma</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.html.html-template-sigma.intro-syntax.html"
+>Introduction - template syntax</A
+>&nbsp;--&nbsp;Creating and editing templates</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.intro-cache.html"
+>Introduction - cache</A
+>&nbsp;--&nbsp;How Sigma caches the "prepared" templates</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.html-template-sigma.html"
+>constructor HTML_Template_Sigma()</A
+>&nbsp;--&nbsp;constructor</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.addblock.html"
+>addBlock()</A
+>&nbsp;--&nbsp;Adds a block to the template</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.addblockfile.html"
+>addBlockfile()</A
+>&nbsp;--&nbsp;Adds a block contained in the file to the template</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.blockexists.html"
+>blockExists()</A
+>&nbsp;--&nbsp;Checks if the block exists in the template</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.clearvariables.html"
+>clearVariables()</A
+>&nbsp;--&nbsp;Clears the variables</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.errormessage.html"
+>errorMessage()</A
+>&nbsp;--&nbsp;Returns a textual error message for an error code</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.get.html"
+>get()</A
+>&nbsp;--&nbsp;Returns a block with all replacements done.</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.getblocklist.html"
+>getBlockList()</A
+>&nbsp;--&nbsp;Returns a list of blocks within a template.</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.getcurrentblock.html"
+>getCurrentBlock()</A
+>&nbsp;--&nbsp;Returns the current block name</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.getplaceholderlist.html"
+>getPlaceholderList()</A
+>&nbsp;--&nbsp;Returns a list of placeholders within a block.</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.hideblock.html"
+>hideBlock()</A
+>&nbsp;--&nbsp;Hides the block even if it is not "empty".</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.loadtemplatefile.html"
+>loadTemplateFile()</A
+>&nbsp;--&nbsp;Loads a template file.</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.parse.html"
+>parse()</A
+>&nbsp;--&nbsp;Parses the given block.</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.parsecurrentblock.html"
+>parseCurrentBlock()</A
+>&nbsp;--&nbsp;Parses the current block</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.placeholderexists.html"
+>placeholderExists()</A
+>&nbsp;--&nbsp;Checks whether the placeholder exists</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.replaceblock.html"
+>replaceBlock()</A
+>&nbsp;--&nbsp;Replaces an existing block with new content.</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.replaceblockfile.html"
+>replaceBlockfile()</A
+>&nbsp;--&nbsp;Replaces an existing block with new content from a file.</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.setcacheroot.html"
+>setCacheRoot()</A
+>&nbsp;--&nbsp;Sets the directory to cache "prepared" templates in.</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.setcallbackfunction.html"
+>setCallbackFunction()</A
+>&nbsp;--&nbsp;Sets a callback function.</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.setcurrentblock.html"
+>setCurrentBlock()</A
+>&nbsp;--&nbsp;Sets the name of the current block.</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.setglobalvariable.html"
+>setGlobalVariable()</A
+>&nbsp;--&nbsp;Sets a global variable value.</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.setoption.html"
+>setOption()</A
+>&nbsp;--&nbsp;Sets the option for the template class</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.setroot.html"
+>setRoot()</A
+>&nbsp;--&nbsp;Sets the file root for templates.</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.settemplate.html"
+>setTemplate()</A
+>&nbsp;--&nbsp;Sets the template.</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.setvariable.html"
+>setVariable()</A
+>&nbsp;--&nbsp;Sets a variable value.</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.show.html"
+>show()</A
+>&nbsp;--&nbsp;Prints a block with all replacements done.</DT
+><DT
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.touchblock.html"
+>touchBlock()</A
+>&nbsp;--&nbsp;Preserves the block even if empty blocks should be removed.</DT
+></DL
+></DIV
+><P
+>HTML_Template_Sigma: implementation of Integrated Templates API with  template 'compilation' added.</P
+><P
+>&#13;  Class Trees for <B
+CLASS="function"
+>HTML_Template_Sigma()</B
+>
+</P
+><P
+>&#13;    <P
+></P
+><UL
+><LI
+><P
+><A
+HREF="core.pear.html#core.pear.pear"
+><B
+CLASS="classname"
+>PEAR</B
+></A
+></P
+><P
+></P
+><UL
+><LI
+><P
+>HTML_Template_Sigma</P
+></LI
+></UL
+></LI
+></UL
+>
+</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-it.touchblock.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-sigma.intro-syntax.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_Template_IT::touchBlock()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction - template syntax</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

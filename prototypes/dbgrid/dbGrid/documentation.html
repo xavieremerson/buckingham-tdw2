@@ -1,0 +1,946 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<style>
+	/* CSS Document */
+/* Note if you set setDefaultStyleClass = false, then you must name the object first, or styles will revert to default */
+/* Also note that the word 'objGrid' (any case) will be removed from the name (E.G OBJGridTester will end up with a table class of TesterGridTable */
+pre {
+	font-size:1.2em;
+}
+
+body {
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+	font-size:0.75em;
+	background-color:#ffe;
+	color:#000;
+	padding:0 0 0 0;
+}
+
+
+table.doctable {
+	border: solid 1px #000;
+	border-spacing:0px;
+}
+
+table.doctable td {padding-left:2px;padding-right:2px;border-bottom: solid 1px ;border-left: solid 1px}
+
+table.doctable th {padding-left:2px;padding-right:2px;border-bottom: solid 1px;border-left: solid 1px }
+/*
+table.doctable th {background-color:inherit; color:#006;white-space: nowrap;}
+
+table.doctable tr { 
+	background-color:#8AB382;
+	color:inherit;
+}
+
+table.doctable tr { 
+	background-color:#9ED9BB;
+	color:inherit;
+}
+
+table.doctable tr { 
+	background-color:#9ED9BB;
+	color:inherit;
+}
+
+table.doctable tr {
+	background-color:#82B39A;
+	color:inherit;
+	border-top: 1px solid #000;
+}
+*/
+
+.DocGrid {
+	background-color:#ffc;
+	border: 1px solid #000;
+}
+img {
+	border:none;
+}
+
+div.gridDebug {
+	background-color:#BDD9BD;
+	color:#006;
+	border: 1px solid #000;
+	margin: 2px 0 2px 0;
+}
+
+div.gridDebug p{
+	line-height:1em;
+	margin:3px;
+}
+
+div.DFMessageList{
+	width:100%;
+	width:auto;
+	background-color:inherit;
+	color:#000;
+	padding: 2px 0 2px 0;
+	margin: 2px 0 2px 0;
+	border: #000 1px inset; 
+}
+
+/* CONTAINS THE 'Insert Record' link, the 'Refresh Page' link and the 'Back' link on the view page */
+div.DFAction {
+	font-weight:bold;
+	background-color:#8AB382;
+	color:#006;
+	border: 0px solid #000;
+	padding: 1px 2px 1px 0;
+	text-decoration: none;
+	margin: 0px;
+}
+
+div.DFAction a.DFAction {
+	font-weight:bold;
+	background-color:#8AB382;
+	color:#fff;
+	border: 1px outset #000;
+	padding: 0px 2px 0px 2px;
+	text-decoration: none;
+	margin: 1px 8px 1px 0px;
+}
+
+div.DFAction a.DFAction:link, div.DFAction a.DFAction:visited {
+	background-color:#8AB382;
+	color: #fff;
+}
+
+div.DFAction a.DFAction:hover, div.DFAction a.DFAction:active {
+	background-color:#bda;
+	color: #600;
+}
+
+/* These are the 'Action' Links in the table - Edit Delete & View */
+th a.DFAction {
+	font-weight:bold;
+	background-color:inherit;
+	color: #006;
+	text-decoration: none;
+}
+
+th a.DFAction:link, th a.DFAction:visited {
+	background-color:inherit;
+	color: #006;
+}
+
+th a.DFAction:hover, th a.DFAction:active {
+	background-color:inherit;
+	color: #600;
+}
+
+/* These are the Sort Links - Column headings on the Datagrid */
+th a.DFSort {
+	font-weight:bold;
+	background-color:inherit;
+	color: #006;
+	text-decoration: none;
+}
+
+th a.DFSort:link, th a.DFSort:visited {
+	background-color:inherit;
+	color: #006;
+}
+
+th a.DFSort:hover, th a.DFSort:active {
+	background-color:inherit;
+	color: #600;
+}
+
+/* The image showing if sort is up or down */
+img.sortimg {
+	position:relative;
+	top:0px;
+}
+
+/* This is the box that allows the user to write in their own Sort By Columns' */
+table.DFSortBox {
+	padding: 0 0 0 0 ;
+}
+
+input.DFSortBox {
+	width:200px;
+	border: #000 1px solid;
+	background-color:#fcc;
+	color: #006;
+	padding: 1px;
+}
+
+input.DFSortBoxButton {
+	border: #000 2px outset;
+	font-weight:bold;
+	background-color:#fcc;
+	color: #006;
+	padding: 0 1px 0 1px;
+}
+
+/* This is the Paging div and elements :Paging:*/
+.DFPageDiv {
+	padding:5px;
+	border: #000 0px solid;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color:#cdb;
+	color: #000;
+}
+
+.DFPageDiv span.active	{
+	border:1px solid #000;
+	padding:1px;
+}
+	
+.DFPageDiv a:link, .DFPageDiv a:visited {
+	background-color:inherit;
+	color: #006;
+	text-decoration: none;
+	font-weight:bold;
+	padding:2px;
+}
+
+.DFPageDiv a:hover, .DFPageDiv a:active {
+	background-color:inherit;
+	color: #600;
+	font-weight:bold;
+	text-decoration: none;
+	border:1px solid #000;
+	padding:1px;
+}
+
+/* This box Contains the 'Go to page #' inpu box*/
+div.DFPageBox {
+	position:relative;
+	top: -3px;
+	float:right;
+	font-weight:bold;
+}
+
+form.DFPageBox  input{
+	font-weight:bold;
+	border: #000 1px solid;
+	background-color:#fcc;
+	color: #006;
+	padding: 1px;;
+}
+
+form.DFPageBox input.DFPageBoxButton {
+	border: #000 2px outset;
+	font-weight:bold;
+	background-color:#fcc;
+	color: #006;
+	padding: 0 1px 0 1px;
+}
+
+/* The Navigation Row at the top of the Gid! */
+
+div.DFNavigation{
+	background-color:#cdb;
+	color:#006;
+	font-weight:bold;
+	text-align:center;
+	padding: 2px 0 2px 0;
+	clear:both; /* Put here because the sort box form is screwing around with me!*/
+}
+
+div.DFNavigation img{
+	position :relative;
+	top: 2px;
+}
+
+/* THE GRID!!! */
+div.DFGridDiv {
+	font-family: Arial, Helvetica, sans-serif;
+	border-collapse: collapse ;
+	border-spacing: 0px ;
+	border: solid 1px;
+	margin-top:2px; 
+}
+
+table.DFGridTable {
+	font-family: Arial, Helvetica, sans-serif;
+	width:100%;
+	border-collapse: collapse ;
+	border-spacing: 0px ;
+	border: solid 1px;
+}
+
+table.DFGridTable td {padding-left:2px;padding-right:2px;border-bottom: solid 1px ;border-left: solid 1px}
+
+table.DFGridTable th {padding-left:2px;padding-right:2px;border-bottom: solid 1px;border-left: solid 1px }
+
+table.DFGridTable th {background-color:inherit; color:#006;white-space: nowrap;}
+
+table.DFGridTable tr.DFGridTableHeading { /* For Rows where alternate is off */
+	background-color:#8AB382;
+	color:inherit;
+}
+
+table.DFGridTable tr { /* For Rows where alternate is off */
+	background-color:#9ED9BB;
+	color:inherit;
+}
+
+table.DFGridTable tr.odd { /* For Rows where alternate is off */
+	background-color:#9ED9BB;
+	color:inherit;
+}
+
+table.DFGridTable tr.even {
+	background-color:#82B39A;
+	color:inherit;
+	border-top: 0px solid #000;
+}
+
+/* THIS is the Table Containing the Data when viewing 1 record at a time (after pressing 'View') */
+table.DFView {
+	background-color:#9ED9BB;
+	color:inherit;
+	border-collapse: collapse ;
+	border-spacing: 0px ;
+	border: solid 0px 
+}
+
+table.DFView td {
+	border-bottom: solid 1px ;
+	border-left: solid 1px;
+	padding: 0 2px; 0 2px;
+}
+
+table.DFView th {
+	border-bottom: solid 1px;
+	border-left: solid 1px :
+	background-color:inherit; 
+	color:#006;
+	white-space: nowrap;
+	vertical-align:top;
+	text-align:right;
+	padding: 0 2px; 0 2px;
+	}
+</style>
+	
+<title>dbGrid Extreme - documentation</title>
+
+</head>
+<body>
+	<h1>dbGrid Extreme - documentation</h1>
+	<h2>What is dbGrid Extreme?</h2>
+	<p>dbGrid Extreme is my first attempt at a PHP Class! My aim was to create an object that would take an SQL Statement and turn it into a well formed and fully functional data grid.</p>
+	<p>There were many such classes on the PHP Classes site, but none that had all the functionality that I required, and none that I was able to extend easily (though this may have been my inexperience with classes).</p>
+	<p>Of course since I started this some weeks ago it has grown into a beast that I am finding hard to tame. and there are some shortfalls which I shall list here:</p>
+	<ul>
+		<li>The Insert/Update forms contain ALL the fields of the underlying table regardless of how many from this table  are in the main SQL Grid.</li>
+		<li>The Insert/Update forms show these fields in the order in which they are defined in the database. </li>
+		<li>Update/Insert/Edit relies on one primary key/unique field either being passed from the calling page or defined int he table.</li>
+		<li>These actions do not YET cater for multiple fields formin the primary or unique key.</li>
+	</ul>
+		
+	<h2>Functionality</h2>
+	<ul>
+		<li>Paging (optional)</li>
+		<li>inteligent ID column handling (see above to decide if you agree with my 'inteligent' definition!)</li>
+		<li>Navigation (optional)</li>
+		<li>Column sorting (optional)</li>
+		<li>Inteligent handling of 'Blob' fields</li>
+		<li>Alternate row coloring (optional)</li>
+		<li># Rows per page settable by programmer</li>
+		<li>Actions (View/Edit/Insert/Delete/Show children) can all be turned off OR directed to a different page for handling</li>
+		<li>Form Validation controlled by programmer</li>
+		<li>CAN BE LINKED TO A 'child' Grid to have master-detail scenarios</li>
+		<li>rowCounter(Optional)</li>
+		<li>Modifyable classes, so each grid can have different styles</li>
+	</ul>
+	
+	<h2>Usage:</h2>
+	<h3>BASIC</H3>
+	<p>the Grid <em>can</em> be called in one line:<br/>
+	$objGrid1 = new dbGrid($GridName,$Connection_object,$database,$SQL,debug(true or false));<br/>
+	So for example:</p>
+	<p><pre>
+	$hostname 	= "localhost";
+	$username 	= "root";
+	$password 	= "";
+
+	$Conn 			= mysql_pconnect($hostname, $username, $password) or trigger_error(mysql_error(),E_USER_ERROR); 
+	
+	$GridName 	= 'MyGrid2';
+	$database 	= "test";
+	$GridSQL 	= 'SELECT newsitems.id, category.name,author.short_name,title, body, status, posted';
+	$GridSQL 	.= ' FROM newsitems, category, author WHERE newsitems.category = category.id' AND newsitems.Author=Author.id';
+	$objGrid1 	= new dbGrid($GridName,$Conn,$database,$GridSQL,false); // Instatiate Object
+	</pre></p>
+	<p>May display something like this:
+<h2>newsitems</h2>
+
+<div class="DFGridDiv">
+	<form id="MyGrid2SortBox" class="DFSortBox" method="post" action= "dbGrid_example.php?MyGrid2TotalRows=21&amp;">
+	<table class="DFSortBox">
+		<tr>
+			<td>Sort By: </td>
+			<td><input name= "MyGrid2Sort" class ="DFSortBox" type="text" value="posted DESC" /></td>
+			<td><input name="submit" class="DFSortBoxButton" type="submit" value="Go!" /></td>
+
+		</tr>
+	</table>
+	</form>
+<div class="DFPageDiv">
+	<div class="DFPageBox">
+		<form id="MyGrid2frmPage" action="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Page=" method="get" class="DFPageBox" onsubmit ="return VerifyPageBox('MyGrid2frmPage', 'MyGrid2Page',5)">
+		Go To Page&nbsp;<input type="text" name="MyGrid2Page" size="3" value="1" />&nbsp;
+		<input type="submit" name="submit" value="Go!" class="DFPageBoxButton" />
+		</form>
+
+	</div>
+
+
+	Pages: 
+	<span class="active">1</span>
+	| 	<a href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Page=2" >2</a>
+	| 	<a href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Page=3" >3</a>
+	| 	<a href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Page=4" >4</a>
+
+	| 	<a href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Page=5" >5</a>
+</div>
+
+<div class="DFAction">
+	<a class="DFAction" href="dbGrid_example.php">Refresh Page</a>
+	<a class="DFAction" href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Insert=1">Insert Record</a>
+</div>
+
+<div class="DFNavigation">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+	Records 1 to 5 of 21
+	&nbsp;<a href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Page=2"><img src="../common/images/Next.gif" title="Next alt="Next" /></a>&nbsp;
+	&nbsp;<a href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Page=5"><img src="../common/images/Last.gif" title="Last alt="Last" /></a>&nbsp;
+</div>
+
+<table class="DFGridTable" cellspacing="0">
+	<tr class="DFGridTableHeading">
+		<th>#</th>
+		<th>Action</th>
+		<th><a class="DFSort" href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Sort=name" title="Sort By Name">Name</a></th>
+
+		<th><a class="DFSort" href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Sort=short_name" title="Sort By Short Name">Short&nbsp;Name</a></th>
+		<th><a class="DFSort" href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Sort=title" title="Sort By Title">Title</a></th>
+		<th><a class="DFSort" href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Sort=body" title="Sort By Body">Body</a></th>
+		<th><a class="DFSort" href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Sort=status" title="Sort By Status">Status</a></th>
+		<th><a class="DFSort" href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Sort=posted" title="Sort By Posted">Posted</a>&nbsp;<img class="sortimg" src="../common/images/desc.gif" alt="(desc)" /></th>
+	</tr>
+
+	<tr class="odd">
+		<th>1</th>
+		<th>
+			<a class="DFAction" href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Edit=21">Edit</a>
+|			<a class="DFAction" href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Delete=21">Delete</a>
+|			<a class="DFAction" href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2View=21">View</a>
+
+		</th>
+		<td>General</td>
+		<td>Sarah</td>
+		<td>Plaza&nbsp;Plaza</td>
+		<td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sapien.......<a href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2View=21">more</a></td>
+		<td>1</td>
+
+		<td>2006-03-06</td>
+	</tr>
+	<tr class="even">
+		<th>2</th>
+		<th>
+			<a class="DFAction" href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Edit=20">Edit</a>
+|			<a class="DFAction" href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Delete=20">Delete</a>
+
+|			<a class="DFAction" href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2View=20">View</a>
+
+		</th>
+		<td>General</td>
+		<td>Red</td>
+		<td>A&nbsp;boring&nbsp;title</td>
+
+		<td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sapien.......<a href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2View=20">more</a></td>
+		<td>1</td>
+		<td>2006-03-05</td>
+	</tr>
+	<tr class="odd">
+		<th>3</th>
+
+		<th>
+			<a class="DFAction" href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Edit=19">Edit</a>
+|			<a class="DFAction" href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Delete=19">Delete</a>
+|			<a class="DFAction" href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2View=19">View</a>
+
+		</th>
+		<td>Martial&nbsp;Arts</td>
+
+		<td>Jet</td>
+		<td>anotherStupid&nbsp;title</td>
+		<td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sapien.......<a href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2View=19">more</a></td>
+		<td>1</td>
+		<td>2006-03-04</td>
+
+	</tr>
+	<tr class="even">
+		<th>4</th>
+		<th>
+			<a class="DFAction" href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Edit=18">Edit</a>
+|			<a class="DFAction" href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Delete=18">Delete</a>
+|			<a class="DFAction" href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2View=18">View</a>
+
+		</th>
+		<td>General</td>
+		<td>Sarah</td>
+		<td>My&nbsp;mth&nbsp;title</td>
+		<td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sapien.......<a href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2View=18">more</a></td>
+
+		<td>1</td>
+		<td>2006-03-03</td>
+	</tr>
+	<tr class="odd">
+		<th>5</th>
+		<th>
+			<a class="DFAction" href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Edit=17">Edit</a>
+
+|			<a class="DFAction" href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Delete=17">Delete</a>
+|			<a class="DFAction" href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2View=17">View</a>
+
+		</th>
+		<td>Books</td>
+		<td>Red</td>
+		<td>Running&nbsp;out&nbsp;of&nbsp;titles&nbsp;2</td>
+
+		<td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sapien.......<a href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2View=17">more</a></td>
+		<td>1</td>
+		<td>2006-03-03</td>
+	</tr>
+</table>
+<div class="DFNavigation">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	Records 1 to 5 of 21
+	&nbsp;<a href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Page=2"><img src="../common/images/Next.gif" title="Next alt="Next" /></a>&nbsp;
+
+	&nbsp;<a href="dbGrid_example.php?MyGrid2TotalRows=21&amp;MyGrid2Page=5"><img src="../common/images/Last.gif" title="Last alt="Last" /></a>&nbsp;
+</div>
+
+</div>
+		
+<h3>ADVANCED</H3>
+<p> The preferred method to call this object is to instantiate the object, set certain parameters, and then execute it's main function (called incredibly 'execute')<br>
+	as in the following code:
+</p>
+	<p><pre>
+	$hostname 	= "localhost";
+	$username 	= "root";
+	$password 	= "";
+
+	$Conn 			= mysql_pconnect($hostname, $username, $password) or trigger_error(mysql_error(),E_USER_ERROR); 
+
+	$GridName 	= 'MyGrid1';
+	$database 	= "test";
+	$GridSQL 	= 'SELECT *';
+	$GridSQL 	.= ' FROM author';
+	$GridSQL 	.= ' ORDER BY short_name ';
+	
+	$objGrid1 	= new dbGrid();						
+	
+	$objGrid1->setMyName($GridName); 				// Set the Name
+	$objGrid1->setConn($Conn);					// Pass the connection
+	$objGrid1->setDb($database);					// Pass the database name
+	$objGrid1->setSQLMain($GridSQL);				// Pass the SQL Statement
+	
+	## Optional Parameters
+	$objGrid1->setMainDbTable('author');				// Main Table to be used for Insert /Edit - DEFAULTS to first table in SQL Statement
+	$objGrid1->setFieldNameList('ID, Author, Full Name');// Defaults to none	 - Column Headings
+	$objGrid1->setTitle('Authors');					// Defaults to MainDbTable	-Title - Above the GridSQL	
+
+	$objGrid1->setChildren('id=newsitems.author');			// Defaults to none	 	- For childGrids syntax: '<Field used in Child Table>=<ChildTable>.<Child Field>'
+	$objGrid1->setActionSeeChildrenText('News Items');		// Defaults to 'Display <child_tablename>' - this is the text display in the action column for viewing 'children'. If not set the text will be 'Display <child_tablename>'
+
+	$Validation 	="'short_name','#q','0',Field \'short_name\' is required'|'long_name','#q','0','Field \'long_name\' is required.'";
+
+	$objGrid1->setValidation($Validation);				// the Validation for update/insert See <a href="#validation">here</a> for explanation of how to use this string;
+	$objGrid1->setRowsPerPage(2);					// Defaults to 20			- How many Rows per page (invalid if HasPaging is false)
+	$objGrid1->setBlobNumWords(12); 				// Defaults to 25			- How many words to display whern a clumn is 'Blob' Data type	
+	$objGrid1->setstrDateFormat('d-m-Y H:i');			// Defaults to 'Y-m-d'	- this affects the display of datatime  or Date data - but insert & update forms still show the YYY-MM-DD format required by mysql
+									// See <a href="#dateformat">here</a> for explanation of how to use dateformats(from the mysql manual);
+	
+	</pre></p>
+	
+	<p> The Above code would display something like this:</p>
+<div class="DocGrid">
+	<h2>Authors</h2>
+
+
+
+<div class="DFGridDiv">
+	<form id="MyGrid1SortBox" class="DFSortBox" method="post" action= "dbGrid_example.php?MyGrid1TotalRows=3&amp;">
+	<table class="DFSortBox">
+		<tr>
+			<td>Sort By: </td>
+			<td><input name= "MyGrid1Sort" class ="DFSortBox" type="text" value="short_name" /></td>
+			<td><input name="submit" class="DFSortBoxButton" type="submit" value="Go!" /></td>
+
+		</tr>
+	</table>
+	</form>
+<div class="DFPageDiv">
+	<div class="DFPageBox">
+		<form id="MyGrid1frmPage" action="dbGrid_example.php?MyGrid1TotalRows=3&amp;MyGrid1Page=" method="get" class="DFPageBox" onsubmit ="return VerifyPageBox('MyGrid1frmPage', 'MyGrid1Page',2)">
+		Go To Page&nbsp;<input type="text" name="MyGrid1Page" size="3" value="1" />&nbsp;
+		<input type="submit" name="submit" value="Go!" class="DFPageBoxButton" />
+		</form>
+
+	</div>
+
+
+	Pages: 
+	<span class="active">1</span>
+	| 	<a href="dbGrid_example.php?MyGrid1TotalRows=3&amp;MyGrid1Page=2" >2</a>
+</div>
+
+<div class="DFAction">
+	<a class="DFAction" href="dbGrid_example.php">Refresh Page</a>
+
+	<a class="DFAction" href="dbGrid_example.php?MyGrid1TotalRows=3&amp;MyGrid1Insert=1">Insert Record</a>
+</div>
+
+<div class="DFNavigation">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	Records 1 to 2 of 3
+	&nbsp;<a href="dbGrid_example.php?MyGrid1TotalRows=3&amp;MyGrid1Page=2"><img src="../common/images/Next.gif" title="Next alt="Next" /></a>&nbsp;
+	&nbsp;<a href="dbGrid_example.php?MyGrid1TotalRows=3&amp;MyGrid1Page=2"><img src="../common/images/Last.gif" title="Last alt="Last" /></a>&nbsp;
+</div>
+
+<table class="DFGridTable" cellspacing="0">
+	<tr class="DFGridTableHeading">
+
+		<th>#</th>
+		<th>Action</th>
+		<th><a class="DFSort" href="dbGrid_example.php?MyGrid1TotalRows=3&amp;MyGrid1Sort=short_name DESC" title="Sort By Author Descending">Author</a>&nbsp;<img class="sortimg" src="../common/images/asc.gif" alt="(asc)" /></th>
+		<th><a class="DFSort" href="dbGrid_example.php?MyGrid1TotalRows=3&amp;MyGrid1Sort=long_name" title="Sort By Full Name">Full&nbsp;Name</a></th>
+	</tr>
+	<tr class="odd">
+
+		<th>1</th>
+		<th>
+			<a class="DFAction" href="dbGrid_example.php?MyGrid1TotalRows=3&amp;MyGrid1Edit=3">Edit</a>
+|			<a class="DFAction" href="dbGrid_example.php?MyGrid1TotalRows=3&amp;MyGrid1Delete=3">Delete</a>
+|			<a class="DFAction" href="dbGrid_example.php?MyGrid1TotalRows=3&amp;MyGrid1View=3">View</a>
+|			<a class="DFAction" href="dbGrid_example.php?MyGrid1TotalRows=3&amp;MyGrid1SeeChild=3">Newsitems</a>
+
+		</th>
+		<td>Jet</td>
+		<td>Jet&nbsp;Li</td>
+	</tr>
+	<tr class="even">
+		<th>2</th>
+
+		<th>
+			<a class="DFAction" href="dbGrid_example.php?MyGrid1TotalRows=3&amp;MyGrid1Edit=2">Edit</a>
+|			<a class="DFAction" href="dbGrid_example.php?MyGrid1TotalRows=3&amp;MyGrid1Delete=2">Delete</a>
+|			<a class="DFAction" href="dbGrid_example.php?MyGrid1TotalRows=3&amp;MyGrid1View=2">View</a>
+|			<a class="DFAction" href="dbGrid_example.php?MyGrid1TotalRows=3&amp;MyGrid1SeeChild=2">Newsitems</a>
+
+		</th>
+
+		<td>Red</td>
+		<td>Redfern&nbsp;Reid-Pitcher</td>
+	</tr>
+</table>
+<div class="DFNavigation">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	Records 1 to 2 of 3
+	&nbsp;<a href="dbGrid_example.php?MyGrid1TotalRows=3&amp;MyGrid1Page=2"><img src="../common/images/Next.gif" title="Next alt="Next" /></a>&nbsp;
+	&nbsp;<a href="dbGrid_example.php?MyGrid1TotalRows=3&amp;MyGrid1Page=2"><img src="../common/images/Last.gif" title="Last alt="Last" /></a>&nbsp;
+
+</div>
+</div>
+</div>
+<br/>
+<h3>All Settable Properties:</h3>
+
+<table class="doctable">
+	<thead><b>Mandatory Properties</b></thead>
+	<tr>
+		<th>Property</th><th>Code to Set</th><th>Notes</th>
+	</tr>
+	<tr>
+</tr><tr><td>$Conn</td><td>$objGrid1->setConn($Conn);</td><td> Pass the connection</td>
+</tr><tr><td>$Db</td><td>$objGrid1->setDb($database);</td><td> Pass the database name</td>
+</tr><tr><td>$SQLMain</td><td>$objGrid1->setSQLMain($GridSQL);</td><td> Pass the SQL Statement</td>
+</tr>
+</table>
+<table class="doctable">
+	<thead><b>Optional Properties</b></thead>
+	<tr>
+		<th>Property</th><th>Code to Set</th><th>Notes</th>
+</tr><tr><td>HasPaging</td><td>$objGrid1->setHasPaging(boolean);</td><td> Defaults to true - Has data set split into pages</td>
+</tr><tr><td>RowsPerPage</td><td>$objGrid1->setRowsPerPage(integer);</td><td> Defaults to 20- How many Rows per page (invalid if HasPaging is false)</td>
+</tr><tr><td>ShowPageNums</td><td>$objGrid1->setShowPageNums(boolean); </td><td> Defaults to true - Shows a box with Page Number Links</td>
+</tr><tr><td>ShowNavigation</td><td>$objGrid1->setShowNavigation(boolean);</td><td> Defaults to true - Shows NavigationLinks (First Previous Next Last)</td>
+</tr><tr><td>ShowRecordInfo</td><td>$objGrid1->setShowRecordInfo(boolean);</td><td> Defaults to true - Shows Page information E.g. 'Records 1 to 5 of 12'</td>
+</tr><tr><td>ShowGoToPageBox</td><td>$objGrid1->setShowGoToPageBox(boolean); </td><td> Defaults to true - Shows an input box to put a page number in</td>
+
+</tr><tr><td>PrimaryKey</td><td>$objGrid1->setPrimaryKey('ID');</td><td> Defaults to none- If blank, the grid will try to identify the PK</td>
+</tr><tr><td>ShowPrimaryKey</td><td>$objGrid1->setShowPrimaryKey(false);</td><td> Defaults to false- Show the Primary Key Column?</td>
+</tr><tr><td>ShowRowCounter</td><td>$objGrid1->setShowRowCounter(true); </td><td> Defaults to true - Will Show a column with the row number</td>
+
+</tr><tr><td>ColumnSort</td><td>$objGrid1->setColumnSort(true); </td><td> Defaults to true  - Turns columns headings into sort links</td>
+</tr><tr><td>ShowSortBox</td><td>$objGrid1->setShowSortBox(true); </td><td> Defaults to true  - Allows a user to input his own order By clause</td>
+</tr><tr><td>AlternateRowColors</td><td>$objGrid1->setAlternateRowColors(true); </td><td> Defaults to true - Alternate Row colouring</td>
+</tr><tr><td>headerwrap</td><td>$objGrid1->setheaderwrap(false);</td><td> Defaults to false- Allow wrapping of Header?</td>
+</tr><tr><td>datawrap</td><td>$objGrid1->setdatawrap(false);</td><td> Defaults to false- Allow wrapping of non blob data?</td>
+</tr><tr><td>DefaultStyleClass</td><td>$objGrid1->setDefaultStyleClass(true); </td><td> Defaults to true - If false, must be set after ->MyName</td>
+
+
+</tr><tr><td>ActionCol</td><td>$objGrid1->setActionCol(boolean);</td><td> Defaults to true - Shows a Column at the left for each record to Edit/View/Delete/See Children.<br>Of course it is dependent on the individual Settings for each 'Action' and on a unique key being provided</td>
+
+</tr><tr><td>ActionInsert</td><td>$objGrid1->setActionInsert(boolean);</td><td> Defaults to true - If ActionCol then will allow the 'Insert' Link</td>
+</tr><tr><td>ActionView</td><td>$objGrid1->setActionView(boolean);</td><td> Defaults to true - If ActionCol AND Unique/Primary Key is found/Provided, then will allow the 'View' Link</td>
+</tr><tr><td>ActionDelete</td><td>$objGrid1->setActionDelete(boolean);</td><td> Defaults to true - If ActionCol AND Unique/Primary Key is found/Provided, then will allow the 'Delete' Link</td>
+</tr><tr><td>ActionEdit</td><td>$objGrid1->setActionEdit(boolean);</td><td> Defaults to true - If ActionCol AND Unique/Primary Key is found/Provided, then will allow the 'Edit' Link</td>
+</tr><tr><td>ActionSeeChildren</td><td>$objGrid1->setActionSeeChildren(boolean); </td><td> Defaults to FALSE - If ActionCol AND Child Information is provided then will allow the 'See Children' Link</td>
+</tr><tr><td>ActionSeeChildrenText</td><td>$objGrid1->setActionSeeChildrenText(string);</td><td> Defaults to <b>'Display child_tablename'</b> - this is the text display in the See Children' Link</td>
+
+</tr><tr><td>Children</td><td>$objGrid1->setChildren(string);</td><td>Defaults to unset - if set in the format <b>'keyfield=child_table.child_table_field'</b>  it will use thekeyfield to send to the 'SeeChildren' QueryString Variable. The child_table.child_table_field are only used for cosmetics, but at must be present in the string. THERE CAN BE ONLY 1 CHILD</td>
+</tr><tr><td>ShowChildrenNoSelection</td><td>$objGrid1->setShowChildrenNoSelection(boolean);</td><td> Defaults to false  - When there is a child table, Should I show this table unfiltered if a selection on the parent (me) has not been made?</td>
+
+</tr><tr><td>EditPage</td><td>$objGrid1->setEditPage(string_url);</td><td> Defaults to basename($_SERVER['PHP_SELF']) - Set the page to which any Edit/View/Delete/Insert Commands should be sent</td>
+</tr><tr><td>DeletePage</td><td>$objGrid1->setDeletePage(string_url);</td><td> Defaults to basename($_SERVER['PHP_SELF']) - Set the page to which any Edit/View/Delete/Insert Commands should be sent</td>
+</tr><tr><td>ViewPage</td><td>$objGrid1->setViewPage(string_url); </td><td> Defaults to basename($_SERVER['PHP_SELF']) - Set the page to which any Edit/View/Delete/Insert Commands should be sent</td>
+</tr><tr><td>InsertPage</td><td>$objGrid1->setInsertPage(string_url); </td><td> Defaults to basename($_SERVER['PHP_SELF']) - Set the page to which any Edit/View/Delete/Insert Commands should be sent</td>	
+
+</tr><tr><td>Validation</td><td>$objGrid1->setValidation(string);</td><td> the Validation for update/insert. See <a href="#validation">here</a> for explanation of how to use this string;</td>
+
+</tr><tr><td>BlobNumWords</td><td>$objGrid1->setBlobNumWords($BlobNumWords); </td><td> Defaults to 25- How many words to display whern a clumn is 'Blob' Data type</td>
+</tr><tr><td>strDateFormat</td><td>$objGrid1->setstrDateFormat($DateFormat);</td><td> Defaults to 'Y-m-d'- this affects the display of datatime  or Date data - but insert & update forms still show the YYY-MM-DD format required by mysql. See <a href="#dateformat">here</a> for explanation of how to use dateformats(from the mysql manual);</td>
+</tr><tr><td>DateDefaultsToNow</td><td>$objGrid1->setDateDefaultsToNow(true);</td><td> Defaults to true- Specify if the datetime column (if any ) defaults to 'Now()' when inserting a record</td>
+
+</tr><tr><td>ParentLink</td><td>$objGrid1->setParentLink(string);</td><td>Defaults to unset - controls the use of Dropdows in Insert/Edit: 'Must be in the format <b>'field=lookuptable.field_to_display'</b> So to show drop-downs for an author(authorname) showing shortname: <b>'authorname=authors.shortname'</b><br/>N.B. This will ALways assume that the 'lookup' table will contain a primary key and that this primary key is the data to insert into  the talbe. If no primary key is found it will fall back to inserting the actual shortname into the field. THERE CAN BE MANY PARENTS LISTED FOR DROPDOWNS</td>
+</tr><tr><td>ParentGrid</td><td>$objGrid2->setParentGrid(string);</td><td>Defaults to unset - if passed the name of a previous grid, will attempt to find a 'GridNameSeeChildren' variable in the qureystring, and limit itself via that varable to a subset showing only those records hat are children of the selected record in that previous grid. THERE CAN BE ONLY 1 LINKED GRID</td>
+</tr><tr><td>Parents</td><td>$objGrid1->setParents(string);</td><td>Defaults to unset - Links to a previous Grid selecting the <b>'field_linked'</b>'Must be in the format <b>'table.field_linked=field_to_display'</b>So if we used <b>'author.id=shortname'</b> the grid would limit by 'WHERE author.id = variable passed from parent grid' and if 'ShowsFilter' is true, would display the shortname in the title. THERE CAN BE ONLY 1 PARENTLINK</td>
+</tr><tr><td>ShowsFilter</td><td>$objGrid2->setShowsFilter(boolean);</td><td>Defaults to false  - Shows the Where Statement as a H3 Title</td>
+
+</tr><tr><td>MainDbTable</td><td>$objGrid1->setMainDbTable(string);</td><td>DEFAULTS to first table in SQL Statement - Main Table to be used for Insert /Edit</td>
+</tr><tr><td>FieldNameList</td><td>$objGrid1->setFieldNameList(string);</td><td> Defaults to none - Column Headings to be displayed on Grid. N.B. At present does NOT affect the Insert/Update forms</td>
+</tr><tr><td>Title</td><td>$objGrid1->setTitle(string);</td><td> Defaults to MainDbTable-Title - Above the GridSQL</td>
+
+</tr><tr><td>bDebug</td><td>$objGrid1->setbDebug(false);</td><td> Defaults to false  - Set Debug Mode on/Off</td>
+</tr>
+</table>
+
+
+<a name = "validation"><h3>How to set Validation for fields</h3></a>
+<p>The validation user the validation javascript from <a href="www.yaromat.com">Yaromat</a><br>
+	My rules state that:
+	<ul>
+	<li>Entries must start with the name of the element - in this case it would be the name of the field</li>
+	<li>Each entry must be separated by a '|'</li>
+	</ul>
+	As far as I can make out the rulesfor validation are are as follows:</p>
+<table>
+	<tr>
+		<td>TEXTBOXES</td><td></td>
+	</tr>
+	<tr>
+		<td>'#q','0'</td><td>Required - anything</td>
+	</tr>
+	<tr>
+		<td>'x_y','1'</td><td>Not required but if given must be number from x to y</td>
+	</tr>
+	<tr>
+		<td>'#x_y','1'</td><td>Required and must be number from x to y</td>
+	</tr>
+	<tr>
+		<td>'S', '2'</td><td>Not required but if given must be email</td>
+	</tr>
+	<tr>
+		<td>'#S', '2'</td><td>Required and must be email</td>
+	</tr>
+	<tr>
+		<td>'element2','6'</td><td>these must be the same as element 2 must be the same value</td>
+	</tr>
+	<tr>
+		<td>'^\([0-9][0-9]\)\\.\([0-9][0-9]\)\\.\([0-9]{4}\)$#1#2#3','3'</td><td>Not Required but if given must be date (mm.dd.yyyy)</td>
+	</tr>
+	<tr>
+		<td>'^\([0-9][0-9]\)\/\([0-9][0-9]\)\/\([0-9]{4}\)$#2#1#3','3'</td><td>Not Required but if given must be date (mm/dd/yyyy)</td>
+	</tr>
+	<tr>
+		<td>'#^\([0-9][0-9]\)\\.\([0-9][0-9]\)\\.\([0-9]{4}\)$#1#2#3','3'</td><td>Required and must be date (mm.dd.yyyy)</td>
+	</tr>
+	<tr>
+		<td>'#^\([0-9][0-9]\)\/\([0-9][0-9]\)\/\([0-9]{4}\)$#2#1#3','3'</td><td>Required and must be date (mm/dd/yyyy)</td>
+	</tr>
+	<tr>
+		<td>'^\(0[0-2]|1[0-2]|0?[0-9]\)\:\([0-5][0-9]\)$','4'</td><td>Not Required but if given must be time (12hr)</td>
+	</tr>
+	<tr>
+		<td>'#^\(0[0-9]|1[0-9]|2[0-3]\)\:\([0-5][0-9]\)$','4'</td><td> Required and must be time (24hr)</td>
+	</tr>
+	<tr>
+		<td>'#^\(0[0-2]|1[0-2]|0?[0-9]\)\:\([0-5][0-9]\)\(p|a\)m$','4'</td><td>Required and must be time (12hr with am/pm)</td>
+	</tr>
+	<tr>
+		<td>TEXTBOXES</td><td></td>
+	</tr>
+	<tr>
+		<td>'71','1'</td><td>Required - and must be 71 characters</td>
+	</tr>
+	<tr>
+		<td>Dropdowns & Listboxes:</td><td></td>
+	</tr>
+	<tr>
+		<td>'#q','1'</td><td>Required - must not be the firlst entry</td>
+	</tr>
+	<tr>
+		<td>radio buttons</td><td></td>
+	</tr>
+	<tr>
+		<td>'rb1[0]','textbox2','2'</td><td>either rb or text box must be filled</td>
+	</tr>
+	<tr>
+		<td>'rb1[0]','textbox2','1'</td><td>both must be filled</td>
+	</tr>
+</table>
+
+<p>So, before the above strings you would put the name of the element (quoted) and after the above strings you would put the error message to dsiplay</p>
+<p> For example:<br>
+	<pre>'USB','Portnum','2','If you check the checkbox \'USB\' then fill in the port field too.'</pre>
+	This forces the user to fill in the portnum only if the USB Check box is Checked<br>
+	This could be combined with :<br>
+	<pre>'Portnum','1200_1500','1','Port Number must be between 1200 and 1500'</pre>
+Notice that portnum is not required<br></p>
+<p> another example:<br>
+	'email_address', '#S', '2', 'Email Address Must be given and must be valid'</p>
+
+<p> These 3 examples above should be put together in a string and separated with '|' giving:<br>
+<pre>$validation_str=" 'USB','Portnum','2','Please fill in the port field too.'|'Portnum','12_15','1','Port # must be 12 to 15'|'email_address', '#S', '2', 'Valid Email Address Required'";</p>
+
+<a name = "dateformat"><h3>DATE FORMATTING</h3></a>
+<TABLE  BORDER="1" CLASS="CALSTABLE" ><THEAD  ><TR  ><TH  ALIGN="LEFT" 
+VALIGN="MIDDLE" ><TT  CLASS="parameter" ><I  >format</I ></TT > character</TH 
+><TH  ALIGN="LEFT" VALIGN="MIDDLE" >Description</TH ><TH  ALIGN="LEFT" 
+VALIGN="MIDDLE" >Example returned values</TH ></TR ></THEAD ><TBODY  ><TR  ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >a</TT ></TD ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" >Lowercase Ante meridiem and Post meridiem</TD ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >am</TT > or <TT 
+CLASS="literal" >pm</TT ></TD ></TR ><TR  ><TD  ALIGN="LEFT" VALIGN="MIDDLE" 
+><TT  CLASS="literal" >A</TT ></TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" >Uppercase 
+Ante meridiem and Post meridiem</TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT 
+CLASS="literal" >AM</TT > or <TT  CLASS="literal" >PM</TT ></TD ></TR ><TR  ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >B</TT ></TD ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" >Swatch Internet time</TD ><TD  ALIGN="LEFT" 
+VALIGN="MIDDLE" ><TT  CLASS="literal" >000</TT > through <TT  CLASS="literal" 
+>999</TT ></TD ></TR ><TR  ><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT 
+CLASS="literal" >d</TT ></TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" >Day of the 
+month, 2 digits with leading zeros</TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT 
+CLASS="literal" >01</TT > to <TT  CLASS="literal" >31</TT ></TD ></TR ><TR  ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >D</TT ></TD ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" >A textual representation of a day, three 
+letters</TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >Mon</TT > 
+through <TT  CLASS="literal" >Sun</TT ></TD ></TR ><TR  ><TD  ALIGN="LEFT" 
+VALIGN="MIDDLE" ><TT  CLASS="literal" >F</TT ></TD ><TD  ALIGN="LEFT" 
+VALIGN="MIDDLE" >A full textual representation of a month, such as January or 
+March</TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >January</TT 
+> through <TT  CLASS="literal" >December</TT ></TD ></TR ><TR  ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >g</TT ></TD ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" >12-hour format of an hour without leading 
+zeros</TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >1</TT > 
+through <TT  CLASS="literal" >12</TT ></TD ></TR ><TR  ><TD  ALIGN="LEFT" 
+VALIGN="MIDDLE" ><TT  CLASS="literal" >G</TT ></TD ><TD  ALIGN="LEFT" 
+VALIGN="MIDDLE" >24-hour format of an hour without leading zeros</TD ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >0</TT > through <TT 
+CLASS="literal" >23</TT ></TD ></TR ><TR  ><TD  ALIGN="LEFT" VALIGN="MIDDLE" 
+><TT  CLASS="literal" >h</TT ></TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" >12-hour 
+format of an hour with leading zeros</TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT 
+CLASS="literal" >01</TT > through <TT  CLASS="literal" >12</TT ></TD ></TR ><TR 
+><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >H</TT ></TD ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" >24-hour format of an hour with leading zeros</TD 
+><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >00</TT > through <TT 
+CLASS="literal" >23</TT ></TD ></TR ><TR  ><TD  ALIGN="LEFT" VALIGN="MIDDLE" 
+><TT  CLASS="literal" >i</TT ></TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" >Minutes 
+with leading zeros</TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" 
+>00</TT > to <TT  CLASS="literal" >59</TT ></TD ></TR ><TR  ><TD  ALIGN="LEFT" 
+VALIGN="MIDDLE" ><TT  CLASS="literal" >I</TT > (capital i)</TD ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" >Whether or not the date is in daylights savings 
+time</TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >1</TT > if 
+Daylight Savings Time, <TT  CLASS="literal" >0</TT > otherwise.</TD ></TR ><TR 
+><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >j</TT ></TD ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" >Day of the month without leading zeros</TD ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >1</TT > to <TT 
+CLASS="literal" >31</TT ></TD ></TR ><TR  ><TD  ALIGN="LEFT" VALIGN="MIDDLE" 
+><TT  CLASS="literal" >l</TT > (lowercase 'L')</TD ><TD  ALIGN="LEFT" 
+VALIGN="MIDDLE" >A full textual representation of the day of the week</TD ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >Sunday</TT > through <TT 
+CLASS="literal" >Saturday</TT ></TD ></TR ><TR  ><TD  ALIGN="LEFT" 
+VALIGN="MIDDLE" ><TT  CLASS="literal" >L</TT ></TD ><TD  ALIGN="LEFT" 
+VALIGN="MIDDLE" >Whether it's a leap year</TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" 
+><TT  CLASS="literal" >1</TT > if it is a leap year, <TT  CLASS="literal" >0</TT 
+> otherwise.</TD ></TR ><TR  ><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT 
+CLASS="literal" >m</TT ></TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" >Numeric 
+representation of a month, with leading zeros</TD ><TD  ALIGN="LEFT" 
+VALIGN="MIDDLE" ><TT  CLASS="literal" >01</TT > through <TT  CLASS="literal" 
+>12</TT ></TD ></TR ><TR  ><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT 
+CLASS="literal" >M</TT ></TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" >A short textual 
+representation of a month, three letters</TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" 
+><TT  CLASS="literal" >Jan</TT > through <TT  CLASS="literal" >Dec</TT ></TD 
+></TR ><TR  ><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >n</TT 
+></TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" >Numeric representation of a month, 
+without leading zeros</TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT 
+CLASS="literal" >1</TT > through <TT  CLASS="literal" >12</TT ></TD ></TR ><TR 
+><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >O</TT ></TD ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" >Difference to Greenwich time (GMT) in hours</TD 
+><TD  ALIGN="LEFT" VALIGN="MIDDLE" >Example: <TT  CLASS="literal" >+0200</TT 
+></TD ></TR ><TR  ><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" 
+>r</TT ></TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" >RFC 822 formatted date</TD ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" >Example: <TT  CLASS="literal" >Thu, 21 Dec 2000 
+16:01:07 +0200</TT ></TD ></TR ><TR  ><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT 
+CLASS="literal" >s</TT ></TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" >Seconds, with 
+leading zeros</TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" 
+>00</TT > through <TT  CLASS="literal" >59</TT ></TD ></TR ><TR  ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >S</TT ></TD ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" >English ordinal suffix for the day of the month, 2 
+characters</TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" >&#13;           <TT 
+CLASS="literal" >st</TT >, <TT  CLASS="literal" >nd</TT >, <TT  CLASS="literal" 
+>rd</TT > or             <TT  CLASS="literal" >th</TT >.  Works well with <TT 
+CLASS="literal" >j</TT >          </TD ></TR ><TR  ><TD  ALIGN="LEFT" 
+VALIGN="MIDDLE" ><TT  CLASS="literal" >t</TT ></TD ><TD  ALIGN="LEFT" 
+VALIGN="MIDDLE" >Number of days in the given month</TD ><TD  ALIGN="LEFT" 
+VALIGN="MIDDLE" ><TT  CLASS="literal" >28</TT > through <TT  CLASS="literal" 
+>31</TT ></TD ></TR ><TR  ><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT 
+CLASS="literal" >T</TT ></TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" >Timezone 
+setting of this machine</TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" >Examples: <TT 
+CLASS="literal" >EST</TT >, <TT  CLASS="literal" >MDT</TT > ...</TD ></TR ><TR 
+><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >U</TT ></TD ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" >Seconds since the Unix Epoch (January 1 1970 
+00:00:00 GMT)</TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" >See also <A 
+HREF="function.time.html" ><B  CLASS="function" >time()</B ></A ></TD ></TR ><TR 
+><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >w</TT ></TD ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" >Numeric representation of the day of the week</TD 
+><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >0</TT > (for Sunday) 
+through <TT  CLASS="literal" >6</TT > (for Saturday)</TD ></TR ><TR  ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >W</TT ></TD ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" >ISO-8601 week number of year, weeks starting on 
+Monday (added in PHP 4.1.0)</TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" >Example: <TT 
+CLASS="literal" >42</TT > (the 42nd week in the year)</TD ></TR ><TR  ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >Y</TT ></TD ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" >A full numeric representation of a year, 4 
+digits</TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" >Examples: <TT  CLASS="literal" 
+>1999</TT > or <TT  CLASS="literal" >2003</TT ></TD ></TR ><TR  ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >y</TT ></TD ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" >A two digit representation of a year</TD ><TD 
+ALIGN="LEFT" VALIGN="MIDDLE" >Examples: <TT  CLASS="literal" >99</TT > or <TT 
+CLASS="literal" >03</TT ></TD ></TR ><TR  ><TD  ALIGN="LEFT" VALIGN="MIDDLE" 
+><TT  CLASS="literal" >z</TT ></TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" >The day 
+of the year</TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >0</TT 
+> through <TT  CLASS="literal" >366</TT ></TD ></TR ><TR  ><TD  ALIGN="LEFT" 
+VALIGN="MIDDLE" ><TT  CLASS="literal" >Z</TT ></TD ><TD  ALIGN="LEFT" 
+VALIGN="MIDDLE" >Timezone offset in seconds. The offset for timezones west of 
+UTC is always           negative, and for those east of UTC is always 
+positive.</TD ><TD  ALIGN="LEFT" VALIGN="MIDDLE" ><TT  CLASS="literal" >-
+43200</TT > through <TT  CLASS="literal" >43200</TT ></TD ></TR ></TBODY 
+></TABLE >
+	<p>Unrecognized characters in the format string will be printed as-is.</p>
+	<p>You can prevent a recognized character in the format string from being expanded by escaping it with a preceding backslash. If the character with a backslash is already a special sequence, you may need to also escape the backslash. </p>
+	
+</body>
+</html>

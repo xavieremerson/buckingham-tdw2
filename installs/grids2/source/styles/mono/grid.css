@@ -1,0 +1,88 @@
+/*****************************************************************
+
+	ActiveWidgets 2.0.b3 (beta3)
+	Copyright (C) 2003-2005 ActiveWidgets Ltd. All Rights Reserved. 
+	http://www.activewidgets.com/
+
+	WARNING: This software program is protected by copyright law 
+	and international treaties. Unauthorized reproduction or
+	distribution of this program, or any portion of it, may result
+	in severe civil and criminal penalties, and will be prosecuted
+	to the maximum extent possible under the law.
+
+	FOR TESTING AND EVALUATION ONLY:
+	This software is not free and is licensed to you for testing 
+	and evaluation only. You are not allowed to distribute 
+	or use any parts of this software for any other purposes.
+
+*****************************************************************/
+
+.aw-grid-control {
+	padding: 1px;
+	border: 1px solid #aaa;
+	background: #fff;
+}
+
+
+.aw-strict .aw-grid-control {
+	padding: 1px 3px;
+}
+
+.aw-grid-box {
+	padding: 0px;
+}
+
+
+.aw-strict .aw-grid-box {
+	margin: 0px -2px;
+	padding: 0px 2px;
+}
+
+.aw-grid-header,
+.aw-row-selector {
+	border-right: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+	background: #fff;
+}
+
+.aw-strict .aw-grid-header,
+.aw-strict .aw-row-selector {
+	padding: 0px 3px 3px 4px;
+	margin: -2px 0px;
+}
+
+
+.aw-mouseover-header {
+	border-color: #000;
+}
+
+.aw-cells-selected,
+.aw-rows-selected {
+	background: #ccc;
+}
+
+.aw-rows-selected .aw-grid-cell {
+	background: none;
+}
+
+.aw-rows-selected .aw-row-selector {
+	color: #000;
+}
+
+.aw-grid-footers {
+	border-top: 1px solid #eee;
+}
+
+.aw-sort-ascending .aw-grid-sort {
+	background: url(grid.png) -25px -5px;
+}
+
+.aw-sort-descending .aw-grid-sort {
+	background: url(grid.png) -45px -5px;
+}
+
+.aw-grid-control .aw-ui-input,
+.aw-grid-control .aw-ui-combo {
+	background: #fff!important;
+	border: 1px solid #aaa!important;
+}

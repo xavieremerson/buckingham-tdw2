@@ -1,0 +1,589 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Table"
+HREF="package.html.html-table.html"><LINK
+REL="PREVIOUS"
+TITLE="HTML_Table"
+HREF="package.html.html-table.html"><LINK
+REL="NEXT"
+TITLE="HTML_Table::HTML_Table"
+HREF="package.html.html-table.html-table.html-table.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-table.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-table.html-table.html-table.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-table.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN67026"
+></A
+>Introduction&nbsp;--&nbsp;Creating an HTML-Table</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-table.intro.whatis"
+></A
+><H2
+>What is HTML_Table?</H2
+><P
+>&#13;    <B
+CLASS="classname"
+>HTML_Table</B
+> offers an interface for
+    create a HTML table. You can work with the table like a spreadsheet.
+    Instead of working with HTML code and linear adding of cells, you 
+    can address and fill cells independend of there position. There is no
+    different, whether you start with fill a cell at the beginning, in the
+    middle or at the end of the table, a row or a column.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-table.intro.flags"
+></A
+><H2
+>The autoGrow and autoFill value</H2
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-table.intro.flags.autogrow"
+></A
+><H3
+>The <TT
+CLASS="parameter"
+><I
+>autoGrow</I
+></TT
+> flag</H3
+><P
+> 
+     Normaly, you would define a table with a constant number
+     of rows and columns. But sometimes, you does not know, how many 
+     rows or columns you need: ie. transforming user input or the 
+     result of a database query to an HTML table.
+    </P
+><P
+>&#13;     In this case, you should 
+     <A
+HREF="package.html.html-table.html-table.setautogrow.html"
+>enable
+      </A
+> the <TT
+CLASS="parameter"
+><I
+>autoGrow</I
+></TT
+> feature. 
+      In this mode, <B
+CLASS="classname"
+>HTML_Table</B
+> adds new
+      rows or columns automatically, if you use a cell address located in a
+      not existing row or column.
+    </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-table.intro.flags.autofill"
+></A
+><H3
+>The <TT
+CLASS="parameter"
+><I
+>autoFill</I
+></TT
+> value</H3
+><P
+>&#13;     If you create a table of data, sometimes you have not to fill
+     all cells with different values. Perhaps you do not know the 
+     value for a cell, or you want to insert a default value - ie. retrieving
+     data about users. Not every user has a mobile, a email address etc.,
+     in this case, an <TT
+CLASS="parameter"
+><I
+>"n/a"</I
+></TT
+> should be inserted into that 
+     specific cell. 
+    </P
+><P
+>&#13;     So, simply <A
+HREF="package.html.html-table.html-table.setautofill.html"
+>&#13;      define</A
+> <TT
+CLASS="parameter"
+><I
+>"n/a"</I
+></TT
+> as <TT
+CLASS="parameter"
+><I
+>autoFill</I
+></TT
+> value and fill only
+     the cells where data exist. You need not to fill every cell; unfilled 
+     cells contain automatically an <TT
+CLASS="parameter"
+><I
+>"n/a"</I
+></TT
+>.
+    </P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-table.intro.create"
+></A
+><H2
+>Creating a table</H2
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-table.intro.create.data"
+></A
+><H3
+>The demonstation data</H3
+><P
+>&#13;     Our HTML table to create should contain the following data:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$data = array(
+ '0' =&#62; array('Bakken', 'Stig', '', 'stig@example.com'),
+ '1' =&#62; array('Merz', 'Alexander', 'alex.example.com', 'alex@example.com'),
+ '2' =&#62; array('Daniel', 'Adam', '', '')
+);</PRE
+></TD
+></TR
+></TABLE
+>     
+    </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-table.intro.create.start"
+></A
+><H3
+>Start</H3
+><P
+>&#13;     Let us now start by creating a new instance of
+     <B
+CLASS="classname"
+>HTML_Table</B
+>. The table 
+     should be 600 pixel wide. We do not know
+     the quantity of the data to insert into the table -
+     so we enable the <TT
+CLASS="parameter"
+><I
+>autoGrow</I
+></TT
+> feature.  
+     Unfilled cells should contain an <TT
+CLASS="parameter"
+><I
+>"n/a"</I
+></TT
+>.
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'HTML/Table.php';
+
+$tableAttrs = array('width' =&#62; '600');
+$table = new HTML_Table($tableAttrs);
+$table-&#62;setAutoGrow(true);
+$table-&#62;setAutoFill('n/a');</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-table.intro.create.adddata"
+></A
+><H3
+>Add data rows</H3
+><P
+>&#13;     Now process every data entry. Here we use also the alternate feature
+     of <B
+CLASS="classname"
+>HTML_Table</B
+>. Every second row will be colored
+     red.
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>for ($nr = 0; $nr &#60; count($data); $nr++) {
+  $table-&#62;setHeaderContents($nr+1, 0, (string)$nr); 
+  for ($i = 0; $i &#60; 4; $i++) {
+    if ('' != $data[$nr][$i]) {
+      $table-&#62;setCellContents($nr+1, $i+1, $data[$nr][$i]);
+    }
+  }
+}
+$altRow = array('bgcolor' =&#62; 'red');
+$table-&#62;altRowAttributes(1, null, $altRow);</PRE
+></TD
+></TR
+></TABLE
+>     
+    </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-table.intro.create.addhead"
+></A
+><H3
+>Add header cells</H3
+><P
+>&#13;     Now we want to define the cells in the first row and column
+     as header cells. It should looks like a spreadsheet
+     application, so we want to use the color "silver" as the 
+     background colour for each header cell. The first row
+     contains a column headline, the first column the number
+     of the data set row.
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$table-&#62;setHeaderContents(0, 0, ''); 
+$table-&#62;setHeaderContents(0, 1, 'Surname');
+$table-&#62;setHeaderContents(0, 2, 'Name');
+$table-&#62;setHeaderContents(0, 3, 'Website');
+$table-&#62;setHeaderContents(0, 4, 'EMail');
+$hrAttrs = array('bgcolor' =&#62; 'silver');
+$table-&#62;setRowAttributes(0, $hrAttrs, true);
+$table-&#62;setColAttributes(0, $hrAttrs);</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-table.intro.create.html"
+></A
+><H3
+>Print the table</H3
+><P
+>&#13;     It is done! Our table is finished, now we can output the
+     table as HTML code.
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>echo $table-&#62;toHtml();</PRE
+></TD
+></TR
+></TABLE
+>     
+     The output will look like this:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#60;!-- BEGIN TABLE LEVEL: 0 --&#62;
+&#60;table width="600"&#62;
+        &#60;tr&#62;
+         &#60;th bgcolor="silver"&#62;&#38;nbsp;&#60;/th&#62;
+         &#60;th bgcolor="silver"&#62;Surname&#60;/th&#62;
+         &#60;th bgcolor="silver"&#62;Name&#60;/th&#62;
+         &#60;th bgcolor="silver"&#62;Website&#60;/th&#62;
+         &#60;th bgcolor="silver"&#62;EMail&#60;/th&#62;
+        &#60;/tr&#62;
+        &#60;tr&#62;
+         &#60;th bgcolor="silver"&#62;0&#60;/th&#62;
+         &#60;td&#62;Bakken&#60;/td&#62;
+         &#60;td&#62;Stig&#60;/td&#62;
+         &#60;td&#62;n/a&#60;/td&#62;
+         &#60;td&#62;stig@example.com&#60;/td&#62;
+        &#60;/tr&#62;
+        &#60;tr&#62;
+         &#60;th bgcolor="silver"&#62;1&#60;/th&#62;
+         &#60;td bgcolor="red"&#62;Merz&#60;/td&#62;
+         &#60;td bgcolor="red"&#62;Alexander&#60;/td&#62;
+         &#60;td bgcolor="red"&#62;alex.example.com&#60;/td&#62;
+         &#60;td bgcolor="red"&#62;alex@example.com&#60;/td&#62;
+        &#60;/tr&#62;
+        &#60;tr&#62;
+         &#60;th bgcolor="silver"&#62;2&#60;/th&#62;
+         &#60;td&#62;Daniel&#60;/td&#62;
+         &#60;td&#62;Adam&#60;/td&#62;
+         &#60;td&#62;n/a&#60;/td&#62;
+         &#60;td&#62;n/a&#60;/td&#62;
+        &#60;/tr&#62;
+&#60;/table&#62;
+&#60;!-- END TABLE LEVEL: 0 --&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+
+    </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-table.intro.create.tgroups"
+></A
+><H3
+>Using thead, tfoot and tbody</H3
+><P
+>&#13;     If you want to divide your tables into <TT
+CLASS="literal"
+>thead</TT
+>, <TT
+CLASS="literal"
+>tfoot</TT
+> and
+     <TT
+CLASS="literal"
+>tbody</TT
+> groups,
+     you need to get table objects using <B
+CLASS="function"
+>getHeader()</B
+>,
+     <B
+CLASS="function"
+>getFooter()</B
+> and <B
+CLASS="function"
+>getBody()</B
+>,
+     which you can then use like the normal table object.
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$table = new HTML_Table();
+$head =&#38; $table-&#62;getHeader();
+$foot =&#38; $table-&#62;getFooter();
+$body =&#38; $table-&#62;getBody();
+$head-&#62;setCellContents(...);
+$body-&#62;setCellContents(...);
+echo $table-&#62;toHtml();</PRE
+></TD
+></TR
+></TABLE
+>
+     In this example, there is no content set for the <TT
+CLASS="literal"
+>tfoot</TT
+> group.
+     Therefore, only <TT
+CLASS="literal"
+>thead</TT
+> and <TT
+CLASS="literal"
+>tbody</TT
+> will be rendered.
+    </P
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+      The rendering order is <TT
+CLASS="literal"
+>thead</TT
+>, then <TT
+CLASS="literal"
+>tfoot</TT
+> and as the last group
+      <TT
+CLASS="literal"
+>tbody</TT
+>. This is not a bug but intended behaviour because that's
+      the way it is defined in the (X)HTML Standard.
+     </P
+></BLOCKQUOTE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-table.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-table.html-table.html-table.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_Table</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-table.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_Table::HTML_Table</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

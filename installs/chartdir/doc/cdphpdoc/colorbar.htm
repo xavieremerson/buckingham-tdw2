@@ -1,0 +1,68 @@
+<HTML>
+<HEAD>
+<Title>Multi-Color Bar Chart</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">Multi-Color Bar Chart</p>
+<hr class="separator">
+<div class="content">
+<img src="images/colorbar.png">
+<br><br>
+A multi-color bar chart is a bar chart in which each bar has a different color. This example creates a multi-color bar chart and demonstrates the following ChartDirector features:<br><br>
+<ul><li> Use <a href="BaseChart.gradientColor2.htm">BaseChart.gradientColor2</a> with pre-defined constant <a href="DrawArea.gradientColor2.htm">goldGradient</a> and <a href="DrawArea.gradientColor2.htm">blueMetalGradient</a> to create gradient colors with metallic look and feel.<br><br>
+<li> Set the background color of the chart with 3D border effect using <a href="BaseChart.setBackground.htm">BaseChart.setBackground</a>.<br><br>
+<li> Set the background color of the title box with 3D border effect using <a href="Box.setBackground.htm">Box.setBackground</a>.<br><br>
+<li> Create a multi-color bar layer using <a href="XYChart.addBarLayer3.htm">XYChart.addBarLayer3</a>.<br><br>
+<li> Set 3D border effect for the bars using <a href="Layer.setBorderColor.htm">Layer.setBorderColor</a>.</ul>
+</div>
+<p class="heading2">Source Code Listing</p>
+<div class="content">
+[File: phpdemo/colorbar.php]<br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp><?php
+include("phpchartdir.php");
+
+#The data for the bar chart
+$data = array(85, 156, 179.5, 211, 123);
+
+#The labels for the bar chart
+$labels = array("Mon", "Tue", "Wed", "Thu", "Fri");
+
+#The colors for the bar chart
+$colors = array(0xb8bc9c, 0xa0bdc4, 0x999966, 0x333366, 0xc3c3e6);
+
+#Create a XYChart object of size 260 x 220 pixels
+$c = new XYChart(260, 220);
+
+#Set the background color of the chart to gold (goldGradient). Use a 2 pixel 3D
+#border.
+$c->setBackground($c->gradientColor($goldGradient), -1, 2);
+
+#Add a title box using 10 point Arial Bold font. Set the background color to
+#blue metallic (blueMetalGradient). Use a 1 pixel 3D border.
+$titleObj = $c->addTitle("Daily Network Load", "arialbd.ttf", 10);
+$titleObj->setBackground($c->gradientColor($blueMetalGradient), -1, 1);
+
+#Set the plotarea at (40, 40) and of 200 x 150 pixels in size
+$c->setPlotArea(40, 40, 200, 150);
+
+#Add a multi-color bar chart layer using the given data and colors. Use a 1
+#pixel 3D border for the bars.
+$barLayer3Obj = $c->addBarLayer3($data, $colors);
+$barLayer3Obj->setBorderColor(-1, 1);
+
+#Set the x axis labels using the given labels
+$c->xAxis->setLabels($labels);
+
+#output the chart
+header("Content-type: image/png");
+print($c->makeChart2(PNG));
+?></xmp>
+</td></tr></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

@@ -1,0 +1,220 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR_PackageUpdate::checkUpdate</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR_PackageUpdate"
+HREF="package.pear.pear-packageupdate.html"><LINK
+REL="PREVIOUS"
+TITLE="PEAR_PackageUpdate::determinePrefFile"
+HREF="package.pear.pear-packageupdate.pear-packageupdate.determinepreffile.html"><LINK
+REL="NEXT"
+TITLE="PEAR_PackageUpdate::getPackageInfo"
+HREF="package.pear.pear-packageupdate.pear-packageupdate.getpackageinfo.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.pear.pear-packageupdate.pear-packageupdate.determinepreffile.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.pear.pear-packageupdate.pear-packageupdate.getpackageinfo.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.pear.pear-packageupdate.pear-packageupdate.checkupdate">PEAR_PackageUpdate::checkUpdate</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN92592"
+></A
+>PEAR_PackageUpdate::checkUpdate&nbsp;--&nbsp;
+   Checks to see if an update is available and the user has not asked not to
+   be notified about the update.
+  </DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN92595"><H2
+>Synopsis</H2
+><FONT
+COLOR="RED"
+><FONT
+COLOR="RED"
+>public</FONT
+>boolean<TT
+CLASS="methodname"
+>PEAR_PackageUpdate::checkUpdate</TT
+></FONT
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packageupdate.pear-packageupdate.checkupdate.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Checks to see if an update is available and the user has not asked not to
+   be notified about the update.
+  </P
+><P
+>&#13;   This method takes the user's preferences in consideration when determining
+   if an update is available. If a new bug fix release is available but the
+   user has asked not to be notified until the next major release of the
+   package, this method will return <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>. 
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packageupdate.pear-packageupdate.checkupdate.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packageupdate.pear-packageupdate.checkupdate.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   boolean - <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> if an update is available and the user has not asked
+   not to be notified about the update, <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> otherwise.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.pear.pear-packageupdate.pear-packageupdate.determinepreffile.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.pear.pear-packageupdate.pear-packageupdate.getpackageinfo.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>PEAR_PackageUpdate::determinePrefFile</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.pear.pear-packageupdate.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>PEAR_PackageUpdate::getPackageInfo</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

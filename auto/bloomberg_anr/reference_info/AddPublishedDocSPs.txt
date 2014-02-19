@@ -1,0 +1,480 @@
+-- 12/23/2004
+/*************************************************************************
+*** prGetAllPublishedDocIds
+*** prGetAllTickersInNote
+*** prGetAllIndustriesInNote
+*** prGetAllAnalystsInNote
+*** prGetRelatedDocIdsInCompendium
+
+***************************************************************************/
+/**
+*** 1. To get a list of DocId, ProductName, StatusDateTime, Status
+*** for all published notes as of a certain date:
+*** prGetAllPublishedDocIds {date}
+
+*** 2. If the note is a Compendium Type, use DocId to get the DocIds that make up the notes in the Compendium:
+*** prGetRelatedDocIdsInCompendium {docId}
+
+*** 3. Use DocId of the note (not the Compendium) as parameter to retrieve the analysts, industries and tickers:
+*** prGetAllIndustriesInNote {docId}
+*** prGetAllAnalystsInNote {docId}
+*** prGetRelatedDocIdsInCompendium {docId}
+**/
+/**************************************************************************
+*** prGetAllPublishedDocIds sp to get list of all published notes
+*** Returns ResultSet containing DocId, ProductName, StatusDateTime, Status
+*** for all notes with a published status
+*** Sample Usage:
+*** EXEC prGetAllPublishedDocIds '12/21/2004 09:59:46 AM' 
+*** EXEC prGetAllPublishedDocIds (all)
+***************************************************************************/
+
+
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS OFF
+GO
+
+/****** Object:  Stored Procedure dbo.prGetAllPublishedDocIds    Script Date: 12/23/2004 3:14:55 PM ******/
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[prGetAllPublishedDocIds]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure [dbo].[prGetAllPublishedDocIds]
+GO
+
+CREATE PROCEDURE [dbo].prGetAllPublishedDocIds
+
+@FinDate datetime = NULL
+
+AS
+
+BEGIN TRANSACTION
+
+SET NOCOUNT ON
+
+IF @FinDate = NULL
+	SET @FinDate = (SELECT MIN (Prod_Statuses.DateTime) FROM Prod_Statuses  WHERE StatusTypeID = 3 AND IsCurrentStatus=1)
+
+
+SELECT
+	Research.DocID,
+	(SELECT EnumDocType.TypeName FROM EnumDocType WHERE EnumDocType.TypeID = Research.DocType) As ProductName,
+	--ResearchProduct.ProductID,
+	Prod_Statuses.DateTime AS StatusDateTime,
+	(SELECT EnumStatusType.TypeValue FROM EnumStatusType WHERE EnumStatusType.TypeID = Prod_Statuses.StatusTypeID) AS Status
+
+FROM	Research
+	JOIN ResearchProduct ON
+	Research.ResearchID = ResearchProduct.ResearchID
+	JOIN Products ON
+	ResearchProduct.ProductID = Products.ProductID
+	JOIN Prod_Statuses ON
+	Products.ProductID = Prod_Statuses.ProductID
+	JOIN EnumStatusType ON
+	EnumStatusType.TypeID = Prod_Statuses.StatusTypeID
+
+WHERE	Prod_Statuses.IsCurrentStatus	= 1 AND
+	EnumStatusType.TypeValue = 'Published'
+	AND Prod_Statuses.DateTime >= @FinDate
+
+ORDER BY Prod_Statuses.DateTime
+
+IF @@ROWCOUNT = 0
+BEGIN
+
+	IF @@ERROR <> 0
+	BEGIN
+		RAISERROR('prGetAllPublishedDocIds failed: error [%d]', 15, 1, @@ERROR) WITH LOG
+		ROLLBACK TRANSACTION
+		RETURN
+	END
+END
+ELSE
+	BEGIN
+		PRINT 'prGetAllPublishedDocIds successfully executed for as of date [' + CONVERT(CHAR(24),@FinDate,113) + ']'
+END
+
+
+SET NOCOUNT OFF
+
+COMMIT TRANSACTION
+
+SET QUOTED_IDENTIFIER OFF
+GO
+SET ANSI_NULLS ON
+GO
+
+GRANT  EXECUTE  ON [dbo].[prGetAllPublishedDocIds]  TO [BUCKINGHAM_login]
+GO
+
+/**************************************************************************
+*** prGetAllTickersInNote sp to get list of all industries in the note
+*** Returns ResultSet containing Ticker
+*** for all Issuers in the note indicated by the DocId
+*** Returns results for Issuer-based or Industry-based note (not Compendium)
+*** Sample Usage:
+*** EXEC prGetAllTickersInNote 'ABC_20041220_CR'
+***************************************************************************/
+
+
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS OFF
+GO
+
+/****** Object:  Stored Procedure dbo.prGetAllTickersInNote    Script Date: 12/23/2004 3:14:55 PM ******/
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[prGetAllTickersInNote]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure [dbo].[prGetAllTickersInNote]
+GO
+
+CREATE PROCEDURE [dbo].prGetAllTickersInNote
+
+@DocId varchar(40)
+
+AS
+
+BEGIN TRANSACTION
+
+DECLARE	@ResearchID int
+
+SET NOCOUNT ON
+
+Select @ResearchID = ResearchID
+From Research
+WHERE DocID = @DocID
+
+IF @@ROWCOUNT = 0
+
+BEGIN
+RAISERROR('prGetAllTickersInNote failed: DocId [%s] not found in database', 16, 1, @DocId) WITH LOG
+ROLLBACK TRANSACTION
+RETURN
+END
+
+SELECT	ExchangeSecurities.Ticker AS Ticker
+
+FROM	Research
+	JOIN ResearchProduct ON
+	Research.ResearchID = ResearchProduct.ResearchID
+	JOIN Products ON
+	ResearchProduct.ProductID = Products.ProductID
+	LEFT OUTER JOIN Prod_Issuers ON
+	ResearchProduct.ProductID = Prod_Issuers.ProductID
+	JOIN Issuers ON
+	Prod_Issuers.IssuerID = Issuers.IssuerID
+	JOIN Securities ON
+		Issuers.IssuerID = Securities.IssuerID
+	JOIN ExchangeSecurities ON
+	Securities.SecurityID = ExchangeSecurities.SecurityID
+
+WHERE	Research.DocID = @DocId
+	AND ExchangeSecurities.IsActive = 1
+
+IF @@ROWCOUNT = 0
+BEGIN
+
+	IF @@ERROR <> 0
+	BEGIN
+		RAISERROR('prGetAllTickersInNote failed for DocID [%s]: error [%d]', 15, 1, @@ERROR) WITH LOG
+		ROLLBACK TRANSACTION
+		RETURN
+	END
+END
+ELSE
+	BEGIN
+		PRINT 'prGetAllTickersInNote successfully executed for DocID [' + @DocID + ']'
+END
+
+
+SET NOCOUNT OFF
+
+COMMIT TRANSACTION
+
+SET QUOTED_IDENTIFIER OFF
+GO
+SET ANSI_NULLS ON
+GO
+
+GRANT  EXECUTE  ON [dbo].[prGetAllTickersInNote]  TO [BUCKINGHAM_login]
+GO
+
+
+/**************************************************************************
+*** prGetAllIndustriesInNote: sp to get list of all industries in the note
+*** Returns ResultSet containing IndustryName
+*** for all Industries in the note indicated by the DocId
+*** Returns results for Issuer-based or Industry-based note (not Compendium)
+*** Sample Usage:
+*** EXEC prGetAllIndustriesInNote 'ABC_20041220_CR'
+***************************************************************************/
+
+
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS OFF
+GO
+
+/****** Object:  Stored Procedure dbo.prGetAllIndustriesInNote    Script Date: 12/23/2004 3:14:55 PM ******/
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[prGetAllIndustriesInNote]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure [dbo].[prGetAllIndustriesInNote]
+GO
+
+CREATE PROCEDURE [dbo].prGetAllIndustriesInNote
+
+@DocId varchar(40)
+
+AS
+
+BEGIN TRANSACTION
+
+DECLARE	@ResearchID int
+
+SET NOCOUNT ON
+
+Select @ResearchID = ResearchID
+From Research
+WHERE DocID = @DocID
+
+IF @@ROWCOUNT = 0
+
+BEGIN
+RAISERROR('prGetAllIndustriesInNote failed: DocId [%s] not found in database', 16, 1, @DocId) WITH LOG
+ROLLBACK TRANSACTION
+RETURN
+END
+
+SELECT	IndustryGroups.IndustryName AS Industry
+
+FROM	Research
+	JOIN ResearchProduct ON
+	Research.ResearchID = ResearchProduct.ResearchID
+	JOIN Products ON
+	ResearchProduct.ProductID = Products.ProductID
+	LEFT OUTER JOIN Prod_Industries ON
+	ResearchProduct.ProductID = Prod_Industries.ProductID
+	JOIN IndustryGroups ON
+	Prod_Industries.Industry = IndustryGroups.IndustryID
+
+WHERE	Research.DocID = @DocID
+	AND IndustryGroups.IsActive=1
+
+IF @@ROWCOUNT = 0
+BEGIN
+
+	IF @@ERROR <> 0
+	BEGIN
+		RAISERROR('prGetAllIndustriesInNote failed for DocID [%s]: error [%d]', 15, 1, @@ERROR) WITH LOG
+		ROLLBACK TRANSACTION
+		RETURN
+	END
+END
+ELSE
+	BEGIN
+		PRINT 'prGetAllIndustriesInNote successfully executed for DocID [' + @DocID + ']'
+END
+
+
+SET NOCOUNT OFF
+
+COMMIT TRANSACTION
+
+SET QUOTED_IDENTIFIER OFF
+GO
+SET ANSI_NULLS ON
+GO
+
+GRANT  EXECUTE  ON [dbo].[prGetAllIndustriesInNote]  TO [BUCKINGHAM_login]
+GO
+
+/**************************************************************************
+*** prGetAllAnalystsInNote: sp to get list of all analysts in the note
+*** Returns ResultSet containing DisplayName, LastName, FirstName
+*** for all Analysts in the note indicated by the DocId
+*** Returns results for Issuer-based or Industry-based note (not Compendium)
+*** Sample Usage:
+*** EXEC prGetAllAnalystsInNote 'ABC_20041220_CR'
+***************************************************************************/
+
+
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS OFF
+GO
+
+/****** Object:  Stored Procedure dbo.prGetAllAnalystsInNote    Script Date: 12/23/2004 3:14:55 PM ******/
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[prGetAllAnalystsInNote]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure [dbo].[prGetAllAnalystsInNote]
+GO
+
+CREATE PROCEDURE [dbo].prGetAllAnalystsInNote
+
+@DocId varchar(40)
+
+AS
+
+BEGIN TRANSACTION
+
+DECLARE	@ResearchID int
+
+SET NOCOUNT ON
+
+Select @ResearchID = ResearchID
+From Research
+WHERE DocID = @DocID
+
+IF @@ROWCOUNT = 0
+
+BEGIN
+RAISERROR('prGetAllAnalystsInNote failed: DocId [%s] not found in database', 16, 1, @DocId) WITH LOG
+ROLLBACK TRANSACTION
+RETURN
+END
+
+
+SELECT	Persons.DisplayName, Persons.FamilyName as LastName, Persons.GivenName as FirstName
+
+FROM	Research
+	JOIN ResearchProduct ON
+	Research.ResearchID = ResearchProduct.ResearchID
+	JOIN Products ON
+	ResearchProduct.ProductID = Products.ProductID
+	LEFT OUTER JOIN Prod_Persons ON
+	ResearchProduct.ProductID = Prod_Persons.ProductID
+	JOIN Persons ON
+	Prod_Persons.PersonID = Persons.PersonID
+
+WHERE	Research.DocID = @DocId
+	AND Persons.IsActive = 1
+
+IF @@ROWCOUNT = 0
+BEGIN
+
+	IF @@ERROR <> 0
+	BEGIN
+		RAISERROR('prGetAllAnalystsInNote failed for DocID [%s]: error [%d]', 15, 1, @@ERROR) WITH LOG
+		ROLLBACK TRANSACTION
+		RETURN
+	END
+END
+ELSE
+	BEGIN
+		PRINT 'prGetAllAnalystsInNote successfully executed for DocID [' + @DocID + ']'
+END
+
+
+SET NOCOUNT OFF
+
+COMMIT TRANSACTION
+
+SET QUOTED_IDENTIFIER OFF
+GO
+SET ANSI_NULLS ON
+GO
+
+GRANT  EXECUTE  ON [dbo].[prGetAllAnalystsInNote]  TO [BUCKINGHAM_login]
+GO
+
+/**************************************************************************
+*** prGetRelatedDocIdsInCompendium sp to get list of all DocIds in the Compendium
+*** Returns ResultSet containing DocIds
+*** for all Notes in the Compendium indicated by the DocId parameter
+*** Returns results for Compendium type note only
+*** Sample Usage:
+*** EXEC prGetRelatedDocIdsInCompendium 'MMN_12212004'
+***************************************************************************/
+
+
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS OFF
+GO
+
+/****** Object:  Stored Procedure dbo.prGetRelatedDocIdsInCompendium    Script Date: 12/23/2004 3:14:55 PM ******/
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[prGetRelatedDocIdsInCompendium]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure [dbo].[prGetRelatedDocIdsInCompendium]
+GO
+
+CREATE PROCEDURE [dbo].prGetRelatedDocIdsInCompendium
+
+@DocId varchar(40)
+
+AS
+
+BEGIN TRANSACTION
+
+DECLARE	@ResearchID int
+DECLARE	@DocumentType int
+
+SET NOCOUNT ON
+
+Select @ResearchID = ResearchID
+From Research
+WHERE DocID = @DocID
+
+IF @@ROWCOUNT = 0
+
+BEGIN
+RAISERROR('prGetRelatedDocIdsInCompendium failed: DocId [%s] not found in database', 16, 1, @DocId) WITH LOG
+ROLLBACK TRANSACTION
+RETURN
+END
+
+Select @DocumentType = DocType
+From Research
+WHERE DocID = @DocID
+
+IF @DocumentType IS NOT NULL AND @DocumentType <> 3
+
+BEGIN
+RAISERROR('prGetRelatedDocIdsInCompendium failed: DocId [%s] is not Compendium Type', 16, 1, @DocId) WITH LOG
+ROLLBACK TRANSACTION
+RETURN
+END
+
+SELECT	Research.DocID
+
+FROM	Research
+	JOIN RelatedProduct ON
+	Research.ResearchID = RelatedProduct.RelatedProductID
+
+WHERE	RelatedProduct.ProductID = (SELECT MAX(Research.ResearchID) FROM Research  WHERE Research.DocID = @DocId)
+
+
+IF @@ROWCOUNT = 0
+BEGIN
+
+	IF @@ERROR <> 0
+	BEGIN
+		RAISERROR('prGetRelatedDocIdsInCompendium failed for DocID [%s]: error [%d]', 15, 1, @@ERROR) WITH LOG
+		ROLLBACK TRANSACTION
+		RETURN
+	END
+END
+ELSE
+	BEGIN
+		PRINT 'prGetRelatedDocIdsInCompendium successfully executed for DocID [' + @DocID + ']'
+END
+
+
+SET NOCOUNT OFF
+
+COMMIT TRANSACTION
+
+SET QUOTED_IDENTIFIER OFF
+GO
+SET ANSI_NULLS ON
+GO
+
+GRANT  EXECUTE  ON [dbo].[prGetRelatedDocIdsInCompendium]  TO [BUCKINGHAM_login]
+GO
+
+
+
+
+
+
+
+

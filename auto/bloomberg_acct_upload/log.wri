@@ -1,0 +1,19 @@
+
+trade_date_to_process = [2013-04-11]
+filename_suffix = []
+<pre>2013-04-12
+Today is not a holiday or weekend, hence proceeding with program execution!
+<br>Proceeding after holiday/weekend check....
+**********************************************************************
+*                        DAILY PROCESS                               *
+**********************************************************************
+Current Date/Time: [Friday, 04-12-2013 07:00 am]
+
+
+Processing begins.... file NAMED.DAT found.
+<br>trade_date_to_process in nameadd_u_delta = [2013-04-11]
+Processing file NAMED.DAT
+<br>Process completed!
+Main tables populated.
+Accounts transmitted to Tradeware = [0]<br>Accounts pending transmission to Tradeware due to missing Client Code = [0]<br></pre>
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

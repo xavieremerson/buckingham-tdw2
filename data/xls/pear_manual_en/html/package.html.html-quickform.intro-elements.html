@@ -1,0 +1,574 @@
+<HTML
+><HEAD
+><TITLE
+>QuickForm element types</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Introduction"
+HREF="package.html.html-quickform.html#package.html.html-quickform.introduction"><LINK
+REL="PREVIOUS"
+TITLE="QuickHelp"
+HREF="package.html.html-quickform.intro-faq.html"><LINK
+REL="NEXT"
+TITLE="Migration to version 3.2"
+HREF="package.html.html-quickform.intro-migration32.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.intro-faq.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.intro-migration32.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.intro-elements">QuickForm element types</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN52473"
+></A
+>QuickForm element types&nbsp;--&nbsp;What elements can be added to QuickForm</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.intro-elements.overview"
+></A
+><H2
+>Elements overview</H2
+><P
+>&#13;As of release 3.2.5, <B
+CLASS="classname"
+>HTML_QuickForm</B
+> knows 23 element types that can be created via <A
+HREF="package.html.html-quickform.html-quickform.createelement.html"
+><B
+CLASS="function"
+>createElement()</B
+></A
+> and added to the form via <A
+HREF="package.html.html-quickform.html-quickform.addelement.html"
+><B
+CLASS="function"
+>addElement()</B
+></A
+>. These can be divided into two big groups: standard HTML elements and custom elements.
+    </P
+><P
+></P
+><DIV
+CLASS="variablelist"
+><P
+><B
+>Standard HTML elements</B
+></P
+><DL
+><DT
+><TT
+CLASS="literal"
+>'button'</TT
+></DT
+><DD
+><P
+>&#13;      Class for &#60;input type="button" /&#62; elements, <A
+HREF="package.html.html-quickform.html-quickform-button.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_button</B
+></A
+>
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'checkbox'</TT
+></DT
+><DD
+><P
+>&#13;      Class for &#60;input type="checkbox" /&#62; elements, <A
+HREF="package.html.html-quickform.html-quickform-checkbox.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_checkbox</B
+></A
+>
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'file'</TT
+></DT
+><DD
+><P
+>&#13;      Class for &#60;input type="file" /&#62; elements, <A
+HREF="package.html.html-quickform.html-quickform-file.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_file</B
+></A
+>
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'hidden'</TT
+></DT
+><DD
+><P
+>&#13;      Class for &#60;input type="hidden" /&#62; elements, <A
+HREF="package.html.html-quickform.html-quickform-hidden.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_hidden</B
+></A
+>
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'image'</TT
+></DT
+><DD
+><P
+>&#13;      Class for &#60;input type="image" /&#62; elements, <A
+HREF="package.html.html-quickform.html-quickform-image.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_image</B
+></A
+>
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'password'</TT
+></DT
+><DD
+><P
+>&#13;      Class for &#60;input type="password" /&#62; elements, <A
+HREF="package.html.html-quickform.html-quickform-password.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_password</B
+></A
+>
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'radio'</TT
+></DT
+><DD
+><P
+>&#13;      Class for &#60;input type="radio" /&#62; elements, <A
+HREF="package.html.html-quickform.html-quickform-radio.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_radio</B
+></A
+>
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'reset'</TT
+></DT
+><DD
+><P
+>&#13;      Class for &#60;input type="reset" /&#62; elements, <A
+HREF="package.html.html-quickform.html-quickform-reset.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_reset</B
+></A
+>
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'select'</TT
+></DT
+><DD
+><P
+>&#13;      Class for &#60;select&#62; elements, <A
+HREF="package.html.html-quickform.html-quickform-select.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_select</B
+></A
+>. The class allows loading of &#60;option&#62; elements from array or database.
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'submit'</TT
+></DT
+><DD
+><P
+>&#13;      Class for &#60;input type="submit" /&#62; elements, <A
+HREF="package.html.html-quickform.html-quickform-submit.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_submit</B
+></A
+>
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'text'</TT
+></DT
+><DD
+><P
+>&#13;      Class for &#60;input type="text" /&#62; elements, <A
+HREF="package.html.html-quickform.html-quickform-text.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_text</B
+></A
+>
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'textarea'</TT
+></DT
+><DD
+><P
+>&#13;      Class for &#60;textarea&#62; elements, <A
+HREF="package.html.html-quickform.html-quickform-textarea.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_textarea</B
+></A
+>
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'xbutton'</TT
+></DT
+><DD
+><P
+>&#13;      Class for &#60;button&#62; elements, <A
+HREF="package.html.html-quickform.html-quickform-xbutton.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_xbutton</B
+></A
+>
+    </P
+></DD
+></DL
+></DIV
+><P
+></P
+><DIV
+CLASS="variablelist"
+><P
+><B
+>Custom element types</B
+></P
+><DL
+><DT
+><TT
+CLASS="literal"
+>'advcheckbox'</TT
+></DT
+><DD
+><P
+>&#13;      Class for an advanced checkbox type field, <A
+HREF="package.html.html-quickform.html-quickform-advcheckbox.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_advcheckbox</B
+></A
+>. Basically this fixes a problem that HTML has had where checkboxes can only pass a single value (the value of the checkbox when checked). 
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'autocomplete'</TT
+></DT
+><DD
+><P
+>&#13;      Class for a text field with autocompletion feature, <A
+HREF="package.html.html-quickform.html-quickform-autocomplete.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_autocomplete</B
+></A
+>. The element looks like a normal HTML input text element that at every keypressed javascript event, searches the array of options for a match and autocompletes the text in case of match. 
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'date'</TT
+></DT
+><DD
+><P
+>&#13;      Class for a group of elements used to input dates (and times), <A
+HREF="package.html.html-quickform.html-quickform-date.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_date</B
+></A
+>
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'group'</TT
+></DT
+><DD
+><P
+>&#13;      Class for a form element group, <A
+HREF="package.html.html-quickform.html-quickform-group.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_group</B
+></A
+>. QuickForm allows grouping of several elements into one entity and using this entity as a new element.
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'header'</TT
+></DT
+><DD
+><P
+>&#13;      Class for adding headers to the form, <A
+HREF="package.html.html-quickform.html-quickform-header.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_header</B
+></A
+>
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'hiddenselect'</TT
+></DT
+><DD
+><P
+>&#13;      This class, <A
+HREF="package.html.html-quickform.html-quickform-hiddenselect.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_hiddenselect</B
+></A
+>,  behaves as a select element, but instead of creating a &#60;select&#62; it creates hidden elements for all values already selected with <B
+CLASS="function"
+>setDefaults()</B
+> or <B
+CLASS="function"
+>setConstants()</B
+>. 
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'hierselect'</TT
+></DT
+><DD
+><P
+>&#13;      Class to dynamically create "chained" HTML &#60;select&#62; elements, <A
+HREF="package.html.html-quickform.html-quickform-hierselect.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_hierselect</B
+></A
+>. Choosing an option in the first &#60;select&#62; changes the available options of the second select and so on.
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'html'</TT
+></DT
+><DD
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Deprecated.</I
+></SPAN
+> A pseudo-element used for adding raw HTML to form, <A
+HREF="package.html.html-quickform.html-quickform-html.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_html</B
+></A
+>. Intended for use with the default renderer only, template-based ones may (and probably will) completely ignore this.
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'link'</TT
+></DT
+><DD
+><P
+>&#13;      Class for a link type field, <A
+HREF="package.html.html-quickform.html-quickform-link.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_link</B
+></A
+>
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'static'</TT
+></DT
+><DD
+><P
+>&#13;      Class for static data, <A
+HREF="package.html.html-quickform.html-quickform-static.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_static</B
+></A
+>
+    </P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.intro-faq.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.intro-migration32.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>QuickHelp</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.introduction"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Migration to version 3.2</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

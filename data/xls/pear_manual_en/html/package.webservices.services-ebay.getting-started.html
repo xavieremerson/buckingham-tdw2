@@ -1,0 +1,421 @@
+<HTML
+><HEAD
+><TITLE
+>Getting started</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Services_Ebay"
+HREF="package.webservices.services-ebay.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.webservices.services-ebay.intro.html"><LINK
+REL="NEXT"
+TITLE="XML encoding"
+HREF="package.webservices.services-ebay.encoding.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.webservices.services-ebay.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.webservices.services-ebay.encoding.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.webservices.services-ebay.getting-started">Getting started</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN100774"
+></A
+>Getting started&nbsp;--&nbsp;Getting started with the eBay webservice</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.services-ebay.getting-started.refsect1"
+></A
+><H2
+>Developing eBay applications</H2
+><P
+>&#13;    The eBay webservice is of course not free to use by the public. To develop and
+    test your applications, you will have to register as an eBay developer (which is
+    free of charge). Furthermore, you will not be able to test and develop on the
+    eBay site, before your application has been certified.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.services-ebay.getting-started.sandbox"
+></A
+><H2
+>The eBay sandbox</H2
+><P
+>&#13;    The eBay Developers Program Sandbox is a test environment that represents a "mini" eBay site.
+    The Sandbox provides the most important features of the eBay site, allowing you to build and
+    test your application in a non-production environment. The eBay Sandbox supports both API testing
+    as well as site testing via the GUI interface.
+   </P
+><P
+>&#13;    While developing your application, you will always be using the eBay sandbox, which can be accessed
+    via web at <A
+HREF="http://sandbox.ebay.com/"
+TARGET="_top"
+>http://sandbox.ebay.com/</A
+>. This site looks and behaves
+    like any eBay website you are being used to.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.services-ebay.getting-started.usingsandbox"
+></A
+><H2
+>Using the sandbox</H2
+><P
+>&#13;    To develop applications in the sandbox you will have to register at the
+    <A
+HREF="http://developer.ebay.com/"
+TARGET="_top"
+>eBay developers program</A
+>. To do this, follow these steps:
+   </P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>&#13;       Register as an eBay user:
+      </P
+><P
+>&#13;       In order to register as an eBay developer, you'll have to be an
+       eBay user. As eBay users are valid on all international sites, it is
+       sufficient if you have an eBay user id for your local eBay site, like ebay.com or
+       ebay.de.
+      </P
+></LI
+><LI
+><P
+>&#13;       Register as an eBay developer:
+      </P
+><P
+>&#13;       Next, you will have to register as an eBay developer at the
+       <A
+HREF="http://developer.ebay.com/DevProgram/membership/join.asp"
+TARGET="_top"
+>eBay developer program</A
+>. This procedure
+       can take some time, as they require you to enter a lot of information, so you should do
+       this carefully. If you are developing an open source application using Services_Ebay, you should
+       apply for an Individual license.
+      </P
+><P
+>&#13;       After the registration has been finisehd, you will recieve three keys that you will need
+       to authenticate your eBay application: DevID, AppID and CertID. You will need these keys later
+       so you should save them somewhere.
+      </P
+></LI
+><LI
+><P
+>&#13;       Create one or more test users:
+      </P
+><P
+>&#13;       As the sandbox does not share any data with the eBay sites, you will have to create new users
+       that you can use to add items, make transactions and give feedback. You can create as many users
+       as you need for testing purposes, just use the <A
+HREF="https://scgi.sandbox.ebay.com/ws/eBayISAPI.dll?RegisterEnterInfo&siteid=0&co_partnerid=2&usage=0&ru=default"
+TARGET="_top"
+>registration form</A
+>
+       in the sandbox.
+      </P
+><P
+>&#13;       You will need a valid email address for each of your users, as well as a valid US address and telephone
+       number, you can easily get on by using <A
+HREF="http://www.yellowpages.com"
+TARGET="_top"
+>YellowPages</A
+>. A credit card is
+       not required, your test users will receive money from eBay they can spend in the sandbox. Of course, this is
+       no real money, which has not use outside of the sandbox.
+      </P
+></LI
+><LI
+><P
+>&#13;       Validate your test users:
+      </P
+><P
+>&#13;       If you want your test users to sell items on eBay, you will need to validate them. This can be done using
+       the <B
+CLASS="function"
+>ValidateTestUserRegistration()</B
+> API call, which is already supported by Services_Ebay.
+      </P
+></LI
+></OL
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.services-ebay.getting-started.auth"
+></A
+><H2
+>Authentication and Authorization</H2
+><P
+>&#13;    eBay's Auth&#38;Auth process is quite complex and can be the biggest hurdle for getting started with
+    the webservice. To make an API call the following information is required:
+   </P
+><P
+>&#13;    <P
+></P
+><UL
+><LI
+><P
+>DevID (received after registration, unique per developer)</P
+></LI
+><LI
+><P
+>AppID (received after registration, unique per application)</P
+></LI
+><LI
+><P
+>CertID (received after registration, unique per application)</P
+></LI
+><LI
+><P
+>Authentication Token, unique for each user of your application</P
+></LI
+></UL
+>
+   </P
+><P
+>&#13;    While you already are in possession of the first three tokens, you still need the last one
+    to make an API call. If your application is used by more than one user (which is the case
+    for web applications), eBay does not want your application to receive the usernames and passwords
+    of your users. If a user authenticates, your application is supposed to redirect him to the
+    eBay login page and pass an additional parameter (a so called RuName). The user will then enter
+    his login information as he is used to on the eBay website and then authorize your application
+    to make API calls on his behalf.
+   </P
+><P
+>&#13;    After that, eBay will redirect the user back to your application and pass a unique token, which can
+    be used to identify this user when your application is making API calls. This technique has several
+    advantages:
+   </P
+><P
+>&#13;    <P
+></P
+><UL
+><LI
+><P
+>Single sign-on system for eBay applications</P
+></LI
+><LI
+><P
+>When your application is hacked, no passwords are revealed</P
+></LI
+><LI
+><P
+>The user only sees the login screen he is used to.</P
+></LI
+></UL
+>
+   </P
+><P
+>&#13;    As this authentication procedure is quite complex and requires various API calls to function
+    there is an easier way, which can be used for testing. eBay provides the so called
+    <A
+HREF="http://developer.ebay.com/tokentool/Credentials.aspx"
+TARGET="_top"
+>Single-User-Tool</A
+>, an HTML-based
+    tool, which creates tokens that you can use to authenticate a user. All you need to do is
+    submit your DevID, AppID and CertID and select whether the token will be used in the
+    sandbox or production environment.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.services-ebay.getting-started.services-ebay"
+></A
+><H2
+>Getting started with Services_Ebay</H2
+><P
+>&#13;    Services_Ebay provides a lot of examples, which demonstrate how the API calls have to be
+    used. After installing Services_Ebay, they will be located in the docs/ directory of your
+    PEAR installation. In order to run the examples, you will have to supply the authentication
+    credentials you received from eBay. The easiest way to do this, is to modify the <TT
+CLASS="filename"
+>config.php</TT
+>
+    file, which is located in the <TT
+CLASS="filename"
+>examples</TT
+> folder.
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN100838"><P
+><B
+>Example 60-1. The configuration file</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// DevID, AppID and CertID
+$devId  = 'HFGHSK7JKKJ82JKJFJHF84LKH86Z3JFF71KJKH';
+
+$appId  = 'IUENVCLJEGBN62JLKKLJHD34KKJL-GDJHDGJHD';
+
+$certId = 'GHKL67JKDJLKJGFBNMBCHGDLÖWJH241KKHJKKJ';
+
+// Username and password, only required by some calls
+// that set up the Auth&#38;Auth mechanism
+$username = 'YourTestUser';
+
+$password = 'Secret Pass';
+
+// Token as returned from the Single-User-Tool
+$token = 'AgAAAA.......3jfiEQ**';</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.webservices.services-ebay.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.webservices.services-ebay.encoding.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.webservices.services-ebay.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>XML encoding</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

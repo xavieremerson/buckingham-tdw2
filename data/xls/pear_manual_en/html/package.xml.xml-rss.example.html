@@ -1,0 +1,203 @@
+<HTML
+><HEAD
+><TITLE
+>Example</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_RSS"
+HREF="package.xml.xml-rss.html"><LINK
+REL="PREVIOUS"
+TITLE="Requirements"
+HREF="package.xml.xml-rss.requirements.html"><LINK
+REL="NEXT"
+TITLE="XML_RSS::XML_RSS"
+HREF="package.xml.xml-rss.xml-rss.xml-rss.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-rss.requirements.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-rss.xml-rss.xml-rss.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.xml.xml-rss.example">Example</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN103040"
+></A
+>Example&nbsp;--&nbsp;Example for the usage of XML_RSS</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-rss.example.example1"
+></A
+><H2
+>Usage example</H2
+><P
+>&#13;   The following script fetches the latest headlines from
+   Slashdot.org via RSS.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN103046"><P
+><B
+>Example 61-1. Fetching headlines from Slashdot</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "XML/RSS.php";
+
+$rss =&#38; new XML_RSS("http://slashdot.org/slashdot.rdf");
+$rss-&#62;parse();
+
+echo "&#60;h1&#62;Headlines from &#60;a href=\"http://slashdot.org\"&#62;Slashdot&#60;/a&#62;&#60;/h1&#62;\n";
+echo "&#60;ul&#62;\n";
+
+foreach ($rss-&#62;getItems() as $item) {
+    echo "&#60;li&#62;&#60;a href=\"" . $item['link'] . "\"&#62;" . $item['title'] . "&#60;/a&#62;&#60;/li&#62;\n";
+}
+
+echo "&#60;/ul&#62;\n";</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-rss.requirements.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-rss.xml-rss.xml-rss.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Requirements</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.xml-rss.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>XML_RSS::XML_RSS</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

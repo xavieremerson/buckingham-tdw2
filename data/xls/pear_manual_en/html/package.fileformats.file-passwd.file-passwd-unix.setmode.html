@@ -1,0 +1,302 @@
+<HTML
+><HEAD
+><TITLE
+>File_Passwd_Unix::setMode</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File_Passwd_Unix"
+HREF="package.fileformats.file-passwd.html#package.fileformats.file-passwd.file-passwd-unix"><LINK
+REL="PREVIOUS"
+TITLE="File_Passwd_Unix::getMode"
+HREF="package.fileformats.file-passwd.file-passwd-unix.getmode.html"><LINK
+REL="NEXT"
+TITLE="File_Passwd_Unix::listModes"
+HREF="package.fileformats.file-passwd.file-passwd-unix.listmodes.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.getmode.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.listmodes.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.fileformats.file-passwd.file-passwd-unix.setmode"><B
+CLASS="function"
+>File_Passwd_Unix::setMode()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN39165"
+></A
+><B
+CLASS="function"
+>File_Passwd_Unix::setMode()</B
+>&nbsp;--&nbsp;Set encryption mode</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN39169"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN39170"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>File_Passwd_Unix::setMode</B
+></CODE
+> (string $mode)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-passwd.file-passwd-unix.setmode.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Set encryption mode to use.
+  </P
+><P
+>Supported encryption modes are 'des' and 'md5'.</P
+><P
+>You can use the constants FILE_PASSWD_MD5 and FILE_PASSWD_DES for this purpose.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-passwd.file-passwd-unix.setmode.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+       <TT
+CLASS="parameter"
+><I
+>$mode</I
+></TT
+></DT
+><DD
+><P
+>&#13;       encryption mode to use
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-passwd.file-passwd-unix.setmode.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   Returns <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> on success,
+<B
+CLASS="classname"
+>PEAR_Error</B
+> on failure.
+  </P
+><P
+>&#13;    Returns <B
+CLASS="classname"
+>PEAR_Error</B
+> 
+    <TT
+CLASS="constant"
+><B
+>FILE_PASSWD_E_INVALID_ENC_MODE</B
+></TT
+>,
+    if supplied encryption mode is not supported.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-passwd.file-passwd-unix.setmode.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;    See
+    <A
+HREF="package.fileformats.file-passwd.file-passwd-unix.listmodes.html"
+>&#13;     <B
+CLASS="function"
+>File_Passwd_Unix::listModes()</B
+>
+    </A
+>
+  </P
+><P
+>&#13;    See
+    <A
+HREF="package.fileformats.file-passwd.file-passwd-unix.getmode.html"
+>&#13;     <B
+CLASS="function"
+>File_Passwd_Unix::getMode()</B
+>
+    </A
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-passwd.file-passwd-unix.setmode.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.getmode.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-passwd.file-passwd-unix.listmodes.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>File_Passwd_Unix::getMode()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-passwd.html#package.fileformats.file-passwd.file-passwd-unix"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>File_Passwd_Unix::listModes()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

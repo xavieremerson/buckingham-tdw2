@@ -1,0 +1,684 @@
+<HTML
+><HEAD
+><TITLE
+>Text_Highlighter</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Text"
+HREF="package.text.html"><LINK
+REL="PREVIOUS"
+TITLE="Text_CAPTCHA"
+HREF="package.text.text-captcha.html"><LINK
+REL="NEXT"
+TITLE="Text_Password"
+HREF="package.text.text-password.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.text.text-captcha.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 57. Text</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.text.text-password.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.text.text-highlighter">Text_Highlighter</H1
+><P
+>&#13;    Provides functionality to perform syntax highlighting for different
+    file formats.
+  </P
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.text.text-highlighter.intro">Introduction</H2
+><P
+>&#13;      With <B
+CLASS="classname"
+>Text_Highlighter</B
+> it is possible to create
+      syntax highlighted versions of different file formats.
+    </P
+><P
+>&#13;      Currently, the following formats are supported:
+    </P
+><P
+></P
+><UL
+><LI
+><P
+>C++</P
+></LI
+><LI
+><P
+><SPAN
+CLASS="acronym"
+>CSS</SPAN
+></P
+></LI
+><LI
+><P
+>output of <B
+CLASS="command"
+>diff(1)</B
+></P
+></LI
+><LI
+><P
+><SPAN
+CLASS="acronym"
+>DTD</SPAN
+></P
+></LI
+><LI
+><P
+><SPAN
+CLASS="acronym"
+>HTML</SPAN
+></P
+></LI
+><LI
+><P
+>Java</P
+></LI
+><LI
+><P
+>Javascript</P
+></LI
+><LI
+><P
+>MySQL</P
+></LI
+><LI
+><P
+>Perl</P
+></LI
+><LI
+><P
+><SPAN
+CLASS="acronym"
+>PHP</SPAN
+></P
+></LI
+><LI
+><P
+>Python</P
+></LI
+><LI
+><P
+>Ruby</P
+></LI
+><LI
+><P
+><SPAN
+CLASS="acronym"
+>SQL</SPAN
+></P
+></LI
+><LI
+><P
+><SPAN
+CLASS="acronym"
+>XML</SPAN
+></P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.text.text-highlighter.usage">Usage</H2
+><P
+>&#13;      The class <B
+CLASS="classname"
+>Text_Highlighter</B
+> contains all
+      necessary functionality to perform the syntax highlighting
+      except for the actual highlighting rules for the different formats.
+      These rules are defined in subclasses of <B
+CLASS="classname"
+>Text_Highlighter</B
+>,
+      but one must not directly instantiate these subclasses. Instead the
+      object-oriented factory pattern is used to create a highlighter object
+      depending on the format:
+    </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN98646"><P
+><B
+>Example 57-3. Highlighting a SQL query</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "Text/Highlighter.php";
+
+$hlSQL =&#38; Text_Highlighter::factory("SQL");
+echo $hlSQL-&#62;highlight("SELECT * FROM some_table WHERE id = 12");</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;        This code generates a highlighted version of the SQL SELECT-query
+        that is passed to <TT
+CLASS="methodname"
+>Text_Highlighter::highlight</TT
+>
+        in HTML.  It is possible to customize the output to e.g. instead 
+        generate output suitable for usage on a console.  This is 
+        described in the section <A
+HREF="package.text.text-highlighter.html#package.text.text-highlighter.oc"
+>&#13;        Output Customization</A
+>.
+      </P
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;      In order to produce syntax highlighting for other formats, one must
+      replace the argument value <TT
+CLASS="literal"
+>SQL</TT
+> of <TT
+CLASS="methodname"
+>Text_Highlighter::factory</TT
+>
+      with one of <TT
+CLASS="literal"
+>CPP</TT
+>, <TT
+CLASS="literal"
+>CSS</TT
+>, <TT
+CLASS="literal"
+>DIFF</TT
+>,
+      <TT
+CLASS="literal"
+>DTD</TT
+>, <TT
+CLASS="literal"
+>HTML</TT
+>, <TT
+CLASS="literal"
+>JAVA</TT
+>,
+      <TT
+CLASS="literal"
+>JAVASCRIPT</TT
+>, <TT
+CLASS="literal"
+>MYSQL</TT
+>, 
+      <TT
+CLASS="literal"
+>PERL</TT
+>, <TT
+CLASS="literal"
+>PHP</TT
+>, 
+      <TT
+CLASS="literal"
+>PYTHON</TT
+>, <TT
+CLASS="literal"
+>RUBY</TT
+>, <TT
+CLASS="literal"
+>SQL</TT
+>,
+      or <TT
+CLASS="literal"
+>XML</TT
+>.
+    </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.text.text-highlighter.oc">Output Customization</H2
+><P
+>&#13;      The default behaviour of <B
+CLASS="classname"
+>Text_Highlighter</B
+>
+      is to generate a syntax highlighted HTML version of the input.
+    </P
+><P
+>&#13;      It is possible to instead generate output that is suitable for
+      being displayed on color-capable terminals such as 
+      <B
+CLASS="command"
+>xterm</B
+> or through <B
+CLASS="command"
+>less(1)</B
+>
+      by telling <B
+CLASS="classname"
+>Text_Highlighter</B
+> to use 
+      another renderer:
+    </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN98677"><P
+><B
+>Example 57-4. Using the console renderer</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "Text/Highlighter.php";
+require_once "Text/Highlighter/Renderer/Console.php";
+
+$hlSQL =&#38; Text_Highlighter::factory("SQL");
+$hlSQL-&#62;setRenderer(new Text_Highlighter_Renderer_Console);
+echo $hlSQL-&#62;highlight("SELECT * FROM some_table WHERE id = 12");</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;      Also it is possible to further customize the output of both the HTML-
+      and the console-renderer by passing an associative array of options
+      to the constructor:
+    </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN98681"><P
+><B
+>Example 57-5. Options for the HTML renderer</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "Text/Highlighter.php";
+require_once "Text/Highlighter/Renderer/Html.php";
+
+$renderer = new Text_Highlighter_Renderer_Html(array("numbers" =&#62; HL_NUMBERS_OL, "tabsize" =&#62; 4));
+
+$hlJava =&#38; Text_Highlighter::factory("JAVA");
+$hlJava-&#62;setRenderer($renderer);
+
+echo $hlJava-&#62;highlight('class JavaProgram {
+    public static void main(String args[]) {
+        System.out.println("Hello World!");
+    }
+}');</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;        The above example configures a HTML renderer with two options:
+        The first one tells it to number the lines in the output
+        using the <TT
+CLASS="literal"
+>&#60;ol /&#62;</TT
+> HTML tag and the
+        second one instructs the renderer to use a tab width of 4
+        spaces for indentation.
+      </P
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;      The following options are applicable:
+    </P
+><DIV
+CLASS="table"
+><A
+NAME="AEN98687"><P
+><B
+>Table 57-1. Possible options for the renderer classes</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Name</TH
+><TH
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description</TH
+><TH
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Available in HTML renderer</TH
+><TH
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Available in console renderer</TH
+><TH
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Hints</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+WIDTH="20%"
+ALIGN="CENTER"
+VALIGN="MIDDLE"
+><TT
+CLASS="literal"
+>numbers</TT
+></TD
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Line numbering style</TD
+><TD
+WIDTH="20%"
+ALIGN="CENTER"
+VALIGN="MIDDLE"
+>yes</TD
+><TD
+WIDTH="20%"
+ALIGN="CENTER"
+VALIGN="MIDDLE"
+>yes</TD
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;              In the console renderer, this option takes just
+              <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> or <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> in order to denote if line numbers
+              should be displayed or not.  The HTML rendered accepts
+              three different values: <TT
+CLASS="constant"
+><B
+>HL_NUMBERS_LI</B
+></TT
+>
+              instructs the class to number the lines using the
+              <TT
+CLASS="literal"
+>&#60;ol /&#62;</TT
+> HTML tag, while
+              <TT
+CLASS="constant"
+><B
+>HL_NUMBERS_TABLE</B
+></TT
+> uses a two-column
+              table with the line numbers in the first and the source code
+              in the second column.  Setting the value to <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> turns
+              line numbering off in the HTML renderer.
+            </TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="CENTER"
+VALIGN="MIDDLE"
+><TT
+CLASS="literal"
+>tabsize</TT
+></TD
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Tab width</TD
+><TD
+WIDTH="20%"
+ALIGN="CENTER"
+VALIGN="MIDDLE"
+>yes</TD
+><TD
+WIDTH="20%"
+ALIGN="CENTER"
+VALIGN="MIDDLE"
+>yes</TD
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="CENTER"
+VALIGN="MIDDLE"
+><TT
+CLASS="literal"
+>colors</TT
+></TD
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Additional colors</TD
+><TD
+WIDTH="20%"
+ALIGN="CENTER"
+VALIGN="MIDDLE"
+>no</TD
+><TD
+WIDTH="20%"
+ALIGN="CENTER"
+VALIGN="MIDDLE"
+>yes</TD
+><TD
+WIDTH="20%"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;              An associate array of additional colors for color-enabled
+              consoles.  The key of each array entry must be the name of
+              the color and the corresponding value must be the escape
+              sequence for it.  (Example: <TT
+CLASS="literal"
+>\033[1;31mRed</TT
+>.)
+            </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.text.text-captcha.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.text.text-password.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Text_CAPTCHA</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.text.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Text_Password</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

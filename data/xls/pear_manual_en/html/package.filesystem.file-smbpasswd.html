@@ -1,0 +1,256 @@
+<HTML
+><HEAD
+><TITLE
+>File_SMBPasswd</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File System"
+HREF="package.filesystem.html"><LINK
+REL="PREVIOUS"
+TITLE="File_Find::search()"
+HREF="package.filesystem.file-find.search.html"><LINK
+REL="NEXT"
+TITLE="Introduction"
+HREF="package.filesystem.file-smbpasswd.intro.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-find.search.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 38. File System</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-smbpasswd.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.filesystem.file-smbpasswd">File_SMBPasswd</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.filesystem.file-smbpasswd.intro.html"
+>Introduction</A
+>&nbsp;--&nbsp;file format</DT
+><DT
+><A
+HREF="package.filesystem.file-smbpasswd.file-smbpasswd.html"
+>File_SMBPasswd::File_SMBPasswd()</A
+>&nbsp;--&nbsp;constructor</DT
+><DT
+><A
+HREF="package.filesystem.file-smbpasswd.load.html"
+>File_SMBPasswd::load()</A
+>&nbsp;--&nbsp;load the contents of an existing smbpasswd file</DT
+><DT
+><A
+HREF="package.filesystem.file-smbpasswd.getfile.html"
+>File_SMBPasswd::getFile()</A
+>&nbsp;--&nbsp;get the value of the file property</DT
+><DT
+><A
+HREF="package.filesystem.file-smbpasswd.getaccounts.html"
+>File_SMBPasswd::getAccounts()</A
+>&nbsp;--&nbsp;get the value of the accounts property</DT
+><DT
+><A
+HREF="package.filesystem.file-smbpasswd.addaccountencrypted.html"
+>File_SMBPasswd::addAccountEncrypted()</A
+>&nbsp;--&nbsp;adds a new account with pre-encrypted passwords.</DT
+><DT
+><A
+HREF="package.filesystem.file-smbpasswd.addaccount.html"
+>File_SMBPasswd::addAccount()</A
+>&nbsp;--&nbsp;add a new account with the given plaintext-password.</DT
+><DT
+><A
+HREF="package.filesystem.file-smbpasswd.adduser.html"
+>File_SMBPasswd::addUser()</A
+>&nbsp;--&nbsp;add a new user with the given plaintext-password.</DT
+><DT
+><A
+HREF="package.filesystem.file-smbpasswd.addmachine.html"
+>File_SMBPasswd::addMachine()</A
+>&nbsp;--&nbsp;add a new maschine-account with the given plaintext-password.</DT
+><DT
+><A
+HREF="package.filesystem.file-smbpasswd.modaccountencrypted.html"
+>File_SMBPasswd::modAccountEncrypted()</A
+>&nbsp;--&nbsp;modify an existing account with the given encrypted password.</DT
+><DT
+><A
+HREF="package.filesystem.file-smbpasswd.modaccount.html"
+>File_SMBPasswd::modAccount()</A
+>&nbsp;--&nbsp;modify an exsting account with the given plaintext-password.</DT
+><DT
+><A
+HREF="package.filesystem.file-smbpasswd.moduser.html"
+>File_SMBPasswd::modUser()</A
+>&nbsp;--&nbsp;modify an exsting account with the given plaintext-password.</DT
+><DT
+><A
+HREF="package.filesystem.file-smbpasswd.delaccount.html"
+>File_SMBPasswd::delAccount()</A
+>&nbsp;--&nbsp;deletes an existing account.</DT
+><DT
+><A
+HREF="package.filesystem.file-smbpasswd.deluser.html"
+>File_SMBPasswd::delUser()</A
+>&nbsp;--&nbsp;deletes an existing user.</DT
+><DT
+><A
+HREF="package.filesystem.file-smbpasswd.verifyaccountencrypted.html"
+>File_SMBPasswd::verifyAccountEncrypted()</A
+>&nbsp;--&nbsp;Verifies the given account with the given encrypted passwords.</DT
+><DT
+><A
+HREF="package.filesystem.file-smbpasswd.verifyaccount.html"
+>File_SMBPasswd::verifyAccount()</A
+>&nbsp;--&nbsp;Verifies the given account with the given plaintext passwords.</DT
+><DT
+><A
+HREF="package.filesystem.file-smbpasswd.lock.html"
+>File_SMBPasswd::lock()</A
+>&nbsp;--&nbsp;lock the smbpasswd file</DT
+><DT
+><A
+HREF="package.filesystem.file-smbpasswd.unlock.html"
+>File_SMBPasswd::unlock()</A
+>&nbsp;--&nbsp;unlock the smbpasswd file</DT
+><DT
+><A
+HREF="package.filesystem.file-smbpasswd.save.html"
+>File_SMBPasswd::save()</A
+>&nbsp;--&nbsp;saves the smbpasswd file</DT
+><DT
+><A
+HREF="package.filesystem.file-smbpasswd.printaccounts.html"
+>File_SMBPasswd::printAccounts()</A
+>&nbsp;--&nbsp;prints the contents of an existing smbpasswd file</DT
+></DL
+></DIV
+><P
+>&#13;  Provides an API for managing SAMBA passwd-style files
+ </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-find.search.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-smbpasswd.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>File_Find::search()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.filesystem.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,1162 @@
+<HTML
+><HEAD
+><TITLE
+>XML-RPC functions</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Channels"
+HREF="guide.migrating.channels.html"><LINK
+REL="PREVIOUS"
+TITLE="channel.xml"
+HREF="guide.migrating.channels.xml.html"><LINK
+REL="NEXT"
+TITLE="Custom File Roles"
+HREF="guide.migrating.customroles.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="guide.migrating.channels.xml.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="guide.migrating.customroles.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="guide.migrating.channels.xmlrpcfunctions">XML-RPC functions</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN3236"
+></A
+>XML-RPC functions&nbsp;--&nbsp;XML-RPC function API documentation</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="guide.migrating.channels.xmlrpcfunctions.intro"
+></A
+><H2
+>What XML-RPC functions are available in a standard channel?</H2
+><P
+>&#13;   A standard PEAR channel should support this list of XML-RPC functions:
+  </P
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      <A
+HREF="guide.migrating.channels.xmlrpcfunctions.html#guide.migrating.channels.xmlrpcfunctions.logintest"
+>logintest</A
+>
+       - a stub function
+     </P
+></LI
+><LI
+><P
+>&#13;      <A
+HREF="guide.migrating.channels.xmlrpcfunctions.html#guide.migrating.channels.xmlrpcfunctions.getdownloadurl"
+>package.getDownloadURL</A
+>
+       - retrieve a URL to download a package
+     </P
+></LI
+><LI
+><P
+>&#13;      <A
+HREF="guide.migrating.channels.xmlrpcfunctions.html#guide.migrating.channels.xmlrpcfunctions.getdepdownloadurl"
+>package.getDepDownloadURL</A
+>
+       - retrieve a URL to download a package dependency
+     </P
+></LI
+><LI
+><P
+>&#13;      <A
+HREF="guide.migrating.channels.xmlrpcfunctions.html#guide.migrating.channels.xmlrpcfunctions.info"
+>package.info</A
+>
+       - retrieve information on a package
+     </P
+></LI
+><LI
+><P
+>&#13;      <A
+HREF="guide.migrating.channels.xmlrpcfunctions.html#guide.migrating.channels.xmlrpcfunctions.listall"
+>package.listAll</A
+>
+       - list all packages and verbose information on each package
+     </P
+></LI
+><LI
+><P
+>&#13;      <A
+HREF="guide.migrating.channels.xmlrpcfunctions.html#guide.migrating.channels.xmlrpcfunctions.listlatestreleases"
+>package.listLatestReleases</A
+>
+       - list all packages and their latest release versions
+     </P
+></LI
+><LI
+><P
+>&#13;      <A
+HREF="guide.migrating.channels.xmlrpcfunctions.html#guide.migrating.channels.xmlrpcfunctions.search"
+>package.search</A
+>
+       - search all packages for a match
+     </P
+></LI
+></UL
+>
+  </P
+><P
+>&#13;   Channels can also implement channel.listAll, but we recommend that this only be implemented
+   by pear.php.net and pecl.php.net channels, as the command is utilized by the update-channels
+   command to retrieve an official list of channels.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="guide.migrating.channels.xmlrpcfunctions.logintest"
+></A
+><H2
+>logintest</H2
+><P
+>&#13;   The logintest xml-rpc function is called by the login command, and should return a boolean
+   <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="guide.migrating.channels.xmlrpcfunctions.getdownloadurl"
+></A
+><H2
+>package.getDownloadURL</H2
+><P
+>&#13;   <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN3273"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>false|struct <B
+CLASS="function"
+>package.getDownloadURL</B
+></CODE
+> (struct packageinfo [, string preferred_state = stable [, (v1.1) string installed_version = false]])</CODE
+></P
+><P
+></P
+></DIV
+>
+  </P
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>false|struct <TT
+CLASS="parameter"
+><I
+>packageinfo</I
+></TT
+></DT
+><DD
+><P
+>&#13;       an array of format:
+      </P
+><P
+>&#13;       <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>array(
+        'channel' =&#62; channel name,
+        'package' =&#62; package name,
+        ['version' =&#62; specific version to retrieve,]
+        ['state' =&#62; specific state to retrieve,]
+     )</PRE
+></TD
+></TR
+></TABLE
+>
+      </P
+><P
+>&#13;       if both version and state are set, the version index should be ignored.
+      </P
+></DD
+><DT
+>string <TT
+CLASS="parameter"
+><I
+>preferred_state = stable</I
+></TT
+></DT
+><DD
+><P
+>&#13;       The client-side preferred_state.  This should be used to exclude releases
+       that are too unstable.
+      </P
+></DD
+><DT
+>string <TT
+CLASS="parameter"
+><I
+>installed_version = false</I
+></TT
+></DT
+><DD
+><P
+>&#13;       The current installed version of the package on the client-side.  This will either
+       be a version string, or false if the package is not installed.  Use this to
+       ensure that older versions are never returned (as defined by
+       version_compare(possible_version, installed_version, "&#60;")).
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+><P
+>&#13;   The package.getDownloadURL function should return an array with either two or three
+   indices.
+   <P
+></P
+><UL
+><LI
+><P
+>&#13;      "version" =&#62; version of the release returned
+     </P
+></LI
+><LI
+><P
+>&#13;      "info" =&#62; the complete package.xml contents from the release
+     </P
+></LI
+><LI
+><P
+>&#13;      "url" =&#62; a URL from which to download this release.  If no releases
+      exist that fit the constraints defined by preferred_state, installed_version,
+      and the version/state indices of packageinfo, then do not return this index, and
+      instead return the version and package.xml of the latest release.
+     </P
+><P
+>&#13;      The url entry should NOT append .tgz or .tar, but should be something like
+      "http://pear.php.net/get/PEAR-1.4.0" instead of
+      "http://pear.php.net/get/PEAR-1.4.0.tgz"
+     </P
+></LI
+></UL
+>
+  </P
+><P
+>&#13;   Note that version 1.0 of package.getDownloadURL did not have the installed_version
+   parameter.  Version 1.1 of package.getDownloadURL does - that is the only difference
+   between the two versions.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="guide.migrating.channels.xmlrpcfunctions.getdepdownloadurl"
+></A
+><H2
+>package.getDepDownloadURL</H2
+><P
+>&#13;   <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN3320"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>false|struct <B
+CLASS="function"
+>package.getDepDownloadURL</B
+></CODE
+> (string xsdversion, struct dependency, struct parentpackage [, string preferred_state = stable [, (v1.1) string installed_version = false]])</CODE
+></P
+><P
+></P
+></DIV
+>
+  </P
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string <TT
+CLASS="parameter"
+><I
+>xsdversion</I
+></TT
+></DT
+><DD
+><P
+>&#13;       This should be either '1.0' or '2.0', and should match the version attribute
+       from the top-level &#60;package version="X.0"&#62; tag.  This should be used
+       to determine how to process the second parameter.
+      </P
+></DD
+><DT
+>struct <TT
+CLASS="parameter"
+><I
+>dependency</I
+></TT
+></DT
+><DD
+><P
+>&#13;       if the first parameter xsdversion is '1.0', this should be an array of format:
+      </P
+><P
+>&#13;       <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>array(
+        'name' =&#62; package name
+        'type' =&#62; 'pkg' - anything else is an error
+        'rel' =&#62; 'has', 'ge', 'le', 'lt', 'le', 'not', 'ne'
+        ['version' =&#62; specific version to retrieve,]
+     )</PRE
+></TD
+></TR
+></TABLE
+>
+      </P
+><P
+>&#13;       if xsdversion is '2.0', this should be an array of format:
+      </P
+><P
+>&#13;       <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>array(
+        'name' =&#62; package name
+        'channel' =&#62; package channel - see notes below
+        ['min' =&#62; minimum version (inclusive),]
+        ['max' =&#62; maximum version (inclusive),]
+        ['exclude' =&#62; single version to exclude (string),
+                      or array of versions to exclude,]
+     )</PRE
+></TD
+></TR
+></TABLE
+>
+      </P
+><P
+>&#13;       Note that you must always verify that the channel matches your channel.  If
+       your channel server is not at pear.php.net or pecl.php.net, you must reject
+       all xsdversion='1.0' requests, and all xsdversion='2.0' requests where
+       the channel is not your channel.
+      </P
+></DD
+><DT
+>struct <TT
+CLASS="parameter"
+><I
+>parentpackage</I
+></TT
+></DT
+><DD
+><P
+>&#13;       This is information on the parent package, and is an array of format:
+      </P
+><P
+>&#13;       <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>array(
+        'channel' =&#62; channel name,
+        'package' =&#62; package name,
+        'version' =&#62; specific version to retrieve,
+     )</PRE
+></TD
+></TR
+></TABLE
+>
+      </P
+></DD
+><DT
+>string <TT
+CLASS="parameter"
+><I
+>preferred_state = stable</I
+></TT
+></DT
+><DD
+><P
+>&#13;       The client-side preferred_state.  This should be used to exclude releases
+       that are too unstable.
+      </P
+></DD
+><DT
+>string <TT
+CLASS="parameter"
+><I
+>installed_version = false</I
+></TT
+></DT
+><DD
+><P
+>&#13;       The current installed version of the dependency on the client-side.  This will either
+       be a version string, or false if the package is not installed.  Use this to
+       ensure that older versions are never returned (as defined by
+       version_compare(possible_version, installed_version, "&#60;")).
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+><P
+>&#13;   Like package.getDownloadURL, package.getDepDownloadURL should return an
+   array with either two or three indices.
+   <P
+></P
+><UL
+><LI
+><P
+>&#13;      "version" =&#62; version of the release returned
+     </P
+></LI
+><LI
+><P
+>&#13;      "info" =&#62; the complete package.xml contents from the release
+     </P
+></LI
+><LI
+><P
+>&#13;      "url" =&#62; a URL from which to download this release.  If no releases
+      exist that fit the constraints defined by preferred_state, installed_version,
+      and the version/state indices of packageinfo, then do not return this index, and
+      instead return the version and package.xml of the latest release.
+     </P
+><P
+>&#13;      The url entry should NOT append .tgz or .tar, but should be something like
+      "http://pear.php.net/get/PEAR-1.4.0" instead of
+      "http://pear.php.net/get/PEAR-1.4.0.tgz"
+     </P
+></LI
+></UL
+>
+  </P
+><P
+>&#13;   Note that version 1.0 of package.getDepDownloadURL did not have the installed_version
+   parameter.  Version 1.1 of package.getDepDownloadURL does - that is the only difference
+   between the two versions.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="guide.migrating.channels.xmlrpcfunctions.info"
+></A
+><H2
+>package.info</H2
+><P
+>&#13;   <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN3386"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>false|struct <B
+CLASS="function"
+>package.info</B
+></CODE
+> (string package [, string field = null])</CODE
+></P
+><P
+></P
+></DIV
+>
+  </P
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string <TT
+CLASS="parameter"
+><I
+>package</I
+></TT
+></DT
+><DD
+><P
+>&#13;       Package name to retrieve information about
+      </P
+></DD
+><DT
+>string <TT
+CLASS="parameter"
+><I
+>field = null</I
+></TT
+></DT
+><DD
+><P
+>&#13;       specific field to retrieve information about.  If null, this should return an
+       array with this indices, although others could be set as well:
+      </P
+><P
+>&#13;       <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+array(
+    'name' =&#62; 'package name',
+    'category' =&#62; 'category name',
+    'license' =&#62; 'package license',
+    'summary' =&#62; 'package summary',
+    'description' =&#62; 'package description',
+    'releases' =&#62;
+    array( // all releases indexed by version
+        '0.1' =&#62;
+        array(
+          'license' =&#62; 'release license',
+          'summary' =&#62; 'release summary',
+          'description' =&#62; 'release description',
+          'releasedate' =&#62; 'date of release',
+          'releasenotes' =&#62; 'release notes',
+          'state' =&#62; 'release stability',
+          // the next index is optional
+          'deps' =&#62;
+          array(
+            array( // release dependencies of latest release
+              'type' =&#62; 'dep type from package.xml &#60;dep&#62;',
+              'relation' =&#62; 'rel from package.xml &#60;dep&#62;',
+              'version' =&#62; 'version from package.xml &#60;dep&#62;, or empty string',
+              'name' =&#62; 'name from package.xml &#60;dep&#62;',
+              'optional' =&#62; 'yes or no',
+            ),
+            // and so on with all deps
+          ),
+        ),
+        // and so on with all releases
+        // releases should be ordered by releasedate DESC
+    ),
+);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+      </P
+><P
+>&#13;       The second parameter, if set, must be one of these choices:
+      </P
+><P
+>&#13;       <P
+></P
+><UL
+><LI
+><P
+>&#13;          authors - a current list of package maintainers in format:
+         </P
+><P
+>&#13;          <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+array(
+    'handle1' =&#62;
+    array(
+      'name' =&#62; 'Maintainer Name',
+      'email' =&#62; 'maintainer@example.com',
+      'role' =&#62; 'role from package.xml (lead, developer, contributor, helper)',
+    ),
+    'handle2' =&#62;
+    array(
+      'name' =&#62; 'Maintainer Name 2',
+      'email' =&#62; 'maintainer2@example.com',
+      'role' =&#62; 'role from package.xml (lead, developer, contributor, helper)',
+    ),
+    // etc.
+);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+         </P
+></LI
+><LI
+><P
+>&#13;          category - the category this package is in
+         </P
+></LI
+><LI
+><P
+>&#13;          description - the description of the latest release
+         </P
+></LI
+><LI
+><P
+>&#13;          license - package license of latest release
+         </P
+></LI
+><LI
+><P
+>&#13;          notes - release notes of the latest release
+         </P
+></LI
+><LI
+><P
+>&#13;          releases - an array of the format documented above, containing information
+          on all releases
+         </P
+></LI
+><LI
+><P
+>&#13;          summary - summary from latest release
+         </P
+></LI
+></UL
+>
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="guide.migrating.channels.xmlrpcfunctions.listall"
+></A
+><H2
+>package.listAll</H2
+><P
+>&#13;   <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN3431"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>struct <B
+CLASS="function"
+>package.listAll</B
+></CODE
+> ([bool released_only = true [, bool stable_only = true]])</CODE
+></P
+><P
+></P
+></DIV
+>
+  </P
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>bool <TT
+CLASS="parameter"
+><I
+>released_only = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+></I
+></TT
+></DT
+><DD
+><P
+>&#13;       If <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, then packages that have no releases should not be returned in the
+       listing of available packages
+      </P
+></DD
+><DT
+>bool <TT
+CLASS="parameter"
+><I
+>stable_only = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+></I
+></TT
+></DT
+><DD
+><P
+>&#13;       If <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, then packages that have no stable releases should not be returned in the
+       listing of available packages
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+><P
+>&#13;   This function should return an array of this format for all packages that match the
+   constraints defined above:
+  </P
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>array(
+  array(
+    'name' =&#62; 'packagename',
+    'category' =&#62; 'category name',
+    'license' =&#62; 'release license',
+    'summary' =&#62; 'package summary',
+    'description' =&#62; 'package description',
+    'stable' =&#62; 'latest release version that matches constraints',
+    'unstable' =&#62; 'latest unstable release version or false if stable_only',
+    'state' =&#62; 'release state of latest release that matches constraints',
+    'deps' =&#62;
+    array( // same format as for package.info
+    )
+  ),
+  // etc.
+);</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="guide.migrating.channels.xmlrpcfunctions.listlatestreleases"
+></A
+><H2
+>package.listLatestReleases</H2
+><P
+>&#13;   <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN3463"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>struct <B
+CLASS="function"
+>package.listLatestReleases</B
+></CODE
+> ([string state = ''])</CODE
+></P
+><P
+></P
+></DIV
+>
+  </P
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string <TT
+CLASS="parameter"
+><I
+>state = ''</I
+></TT
+></DT
+><DD
+><P
+>&#13;       If '', then the newest release will be returned for all packages.  Otherwise, it
+       must be one of 'snapshot', 'devel', 'alpha', 'beta', or 'stable', and the function
+       should return the newest release that is more stable than state.
+      </P
+><P
+>&#13;       If state is 'beta', then the function should return the latest release that is
+       beta or stable.  If state is 'devel', the function should return the latest release
+       that is devel, alpha, beta, or stable, and so on.
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+><P
+>&#13;   This function should return an array of this format for all packages that have a release
+   within the constraint defined by the "state" parameter:
+  </P
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>array(
+  array(
+    'package' =&#62; 'packagename',
+    'version' =&#62; 'release version',
+    'state' =&#62; 'release stability',
+    'filesize' =&#62; 'size of the .tgz file to download',
+  ),
+  // etc.
+);</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="guide.migrating.channels.xmlrpcfunctions.search"
+></A
+><H2
+>package.search</H2
+><P
+>&#13;   <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN3484"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>struct <B
+CLASS="function"
+>package.listAll</B
+></CODE
+> (string fragment [, string|bool  summary = false [, bool released_only = true [, bool stable_only = true]]])</CODE
+></P
+><P
+></P
+></DIV
+>
+  </P
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string <TT
+CLASS="parameter"
+><I
+>fragment</I
+></TT
+></DT
+><DD
+><P
+>&#13;       A text fragment to use when searching for packages by name
+      </P
+></DD
+><DT
+>string|bool <TT
+CLASS="parameter"
+><I
+>summary = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+></I
+></TT
+></DT
+><DD
+><P
+>&#13;       If set to false, this should be ignored.  Otherwise, this should be used to
+       search through the summaries of packages that match the first parameter to limit
+       the list of returned packages.
+      </P
+></DD
+><DT
+>bool <TT
+CLASS="parameter"
+><I
+>released_only = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+></I
+></TT
+></DT
+><DD
+><P
+>&#13;       If <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, then packages that have no releases should not be returned in the
+       listing of available packages
+      </P
+></DD
+><DT
+>bool <TT
+CLASS="parameter"
+><I
+>stable_only = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+></I
+></TT
+></DT
+><DD
+><P
+>&#13;       If <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, then packages that have no stable releases should not be returned in the
+       listing of available packages
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+><P
+>&#13;   This function should return an array of this format for all packages that match the
+   constraints defined above:
+  </P
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>array(
+  array(
+    'name' =&#62; 'packagename',
+    'category' =&#62; 'category name',
+    'license' =&#62; 'release license',
+    'summary' =&#62; 'package summary',
+    'description' =&#62; 'package description',
+    'stable' =&#62; 'latest release version that matches constraints',
+    'unstable' =&#62; 'latest unstable release version or false if stable_only',
+    'state' =&#62; 'release state of latest release that matches constraints',
+    'deps' =&#62;
+    array( // same format as for package.info
+    )
+  ),
+  // etc.
+);</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="guide.migrating.channels.xml.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="guide.migrating.customroles.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>channel.xml</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="guide.migrating.channels.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Custom File Roles</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

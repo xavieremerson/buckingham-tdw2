@@ -1,0 +1,287 @@
+<HTML
+><HEAD
+><TITLE
+>MDB_Common::fetchInto()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="MDB"
+HREF="package.database.mdb.html"><LINK
+REL="PREVIOUS"
+TITLE="MDB_Common::fetchRow()"
+HREF="package.database.mdb.mdb-common.fetchrow.html"><LINK
+REL="NEXT"
+TITLE="MDB_Common::freeResult()"
+HREF="package.database.mdb.mdb-common.freeresult.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb.mdb-common.fetchrow.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb.mdb-common.freeresult.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.mdb.mdb-common.fetchinto">MDB_Common::fetchInto()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN29071"
+></A
+>MDB_Common::fetchInto()&nbsp;--&nbsp;fetch a row into a variable</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN29074"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN29075"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'MDB.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>fetchInto</B
+></CODE
+> (resource
+      $result [, integer
+      $fetchMode <TT
+CLASS="constant"
+><B
+>MDB_FETCHMODE_DEFAULT</B
+></TT
+> [, integer
+      $rownum = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb.mdb-common.fetchinto.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;    Fetch a row and return data in an array.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb.mdb-common.fetchinto.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>resource
+        <TT
+CLASS="parameter"
+><I
+>$result</I
+></TT
+></DT
+><DD
+><P
+>&#13;         result identifier
+        </P
+></DD
+><DT
+>integer
+        <TT
+CLASS="parameter"
+><I
+>$fetchMode</I
+></TT
+></DT
+><DD
+><P
+>&#13;         format of fetched row
+        </P
+></DD
+><DT
+>integer
+        <TT
+CLASS="parameter"
+><I
+>$rownum</I
+></TT
+></DT
+><DD
+><P
+>&#13;         the row number to fetch
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb.mdb-common.fetchinto.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>mixed</I
+></TT
+> - an array or <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>, if no
+     more rows
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.mdb.mdb-common.fetchrow.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.mdb.mdb-common.freeresult.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>MDB_Common::fetchRow()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.mdb.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>MDB_Common::freeResult()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

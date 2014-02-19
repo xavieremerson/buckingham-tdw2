@@ -1,0 +1,251 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Introduction and Features"
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.intro-and-features"><LINK
+REL="PREVIOUS"
+TITLE="Structures_DataGrid"
+HREF="package.structures.structures-datagrid.html"><LINK
+REL="NEXT"
+TITLE="FAQ"
+HREF="package.structures.structures-datagrid.faq.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.faq.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.structures.structures-datagrid.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN93598"
+></A
+>Introduction&nbsp;--&nbsp;What can I do with Structures_DataGrid?</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN93601"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      <B
+CLASS="classname"
+>Structures_DataGrid</B
+> is a package with the purpose
+      of rendering a data set into a tabular structure in a specific output
+      format. Possible output formats are (X)<SPAN
+CLASS="acronym"
+>HTML</SPAN
+>, 
+      <SPAN
+CLASS="acronym"
+>XML</SPAN
+>, <SPAN
+CLASS="acronym"
+>XUL</SPAN
+>, Excel
+      <TT
+CLASS="filename"
+>.xls</TT
+> spreadsheets, <SPAN
+CLASS="acronym"
+>CSV</SPAN
+>, or
+      console tables.
+    </P
+><P
+>&#13;      The input data format is independent of the underlying data storage layer:
+      It does not matter if the data has been selected from a database, has been
+      harvested from plain text files or converted from a web service call. The 
+      data can be sorted and paged, and each cell of the table can have a custom
+      look by using <SPAN
+CLASS="acronym"
+>CSS</SPAN
+> for the HTML output.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN93612"
+></A
+><H2
+>Where to start</H2
+><P
+>&#13;      So to begin, you will want to find a datasource, commonly you might use a 
+      Database like MySQL or an XML document.  You can then easily bind this
+      datasource to the datagrid, to do so you have 3 options.  The first, is to
+      fetch your data into a 2 dimension array and pass it into the bind method.
+      The second way is to bind a record set that is not already an array, such
+      as a <B
+CLASS="classname"
+>DB_DataObject</B
+> or a
+      <B
+CLASS="classname"
+>DB_Result</B
+> object.  To do so, you can use the
+      bindDataSource method by creating a <B
+CLASS="classname"
+>DataSource</B
+>
+      object. The third way is to loop through your record set and add each
+      record individually, this practice is the least efficient.
+    </P
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+        If you bind the datagrid to a datasource that is an object such as a
+        <B
+CLASS="classname"
+>DB_DataObject</B
+>, you do not need to fetch the data
+        as the DataGrid will handle that for you.
+      </P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN93621"
+></A
+><H2
+>Render the output</H2
+><P
+>&#13;      Once your datagrid has been populated with your records, you have many
+      options on how to manipulate what is to be shown.  You can sort the data, 
+      choose to show only a certain amount of data per page and also choose what
+      format the data should be rendered into.  You can render the datagrid in
+      many formats including HTML.
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.faq.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Structures_DataGrid</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.intro-and-features"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>FAQ</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

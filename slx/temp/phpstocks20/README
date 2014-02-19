@@ -1,0 +1,46 @@
+PHP Stocks Version 2.0b (beta)
+-----------------------------
+
+What is it ?
+------------
+PHP Stocks is a program that one can use on their webpage to get stock quotes from Yahoo Finance.
+Currently it is capable of:
+		1. Basic View
+		2. Detailed View
+
+It is based on the Finance::Quote perl which is currently maintained by Paul Fenwick <pjf@cpan.org>
+http://finance-quote.sourceforge.net/
+*note from Paul* Dj Padzensky's, deserves all the credit for writing the original Finance::YahooQuote.
+
+
+TODO
+----
+1. Add customizability features.. (portfolio manager etc)..
+2. Generate graphs just like the ones you see on yahoo (no rush :o) )   
+3. Defeat the RIAA in their quest to rid the world of mp3s. :).
+
+REQUIREMENTS
+------------
+1. These aren't rigid requirements.. just the environment in which I've tested and it works.
+	- Apache 1.3.X (http://www.apache.org) 
+	- PHP 4.X (http://www.php.net)
+    - Smarty Templating Engine (http://smarty.php.net)
+
+INSTALL
+--------
+Currently the installation is very simple, put these files somewhere on your website
+and go to the url. i.e: 
+ 
+    - mv phpstocks20.tar.gz DocumentRoot/stocks/
+    - cd DocumentRoot/stocks/
+    - tar zxvf phpstocks20.tar.gz 
+    - edit your config.inc 
+    - Make sure your INCLUDE_PATH is set right. 
+    - cd ..
+    - chmod a+rx stocks (allow your webserver read/execute permission).
+ 
+ 
+ Point your browser to www.yoursite.com/stocks/ 
+  
+ 
+ 

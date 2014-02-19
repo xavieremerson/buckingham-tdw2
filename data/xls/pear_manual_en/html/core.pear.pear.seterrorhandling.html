@@ -1,0 +1,566 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR::setErrorHandling()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR"
+HREF="core.pear.html#core.pear.pear"><LINK
+REL="PREVIOUS"
+TITLE="PEAR::raiseError()"
+HREF="core.pear.pear.raiseerror.html"><LINK
+REL="NEXT"
+TITLE="PEAR::expectError()"
+HREF="core.pear.pear.expecterror.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.pear.pear.raiseerror.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.pear.pear.expecterror.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.pear.pear.seterrorhandling">PEAR::setErrorHandling()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN4466"
+></A
+>PEAR::setErrorHandling()&nbsp;--&nbsp;sets handling of errors generated through PEAR packages</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN4469"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN4470"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'PEAR.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>PEAR::setErrorHandling</B
+></CODE
+> ([integer $mode = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> [, mixed $options = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear.seterrorhandling.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     <B
+CLASS="function"
+>setErrorHandling()</B
+> can be invoked as both a standard
+     object method ($obj-&#62;setErrorHandling) and as a static method
+     (PEAR::setErrorHandling).  If called
+     statically, <B
+CLASS="function"
+>PEAR::setErrorHandling()</B
+> sets the default
+     error handling behaviour for all
+     PEAR objects (global error handling behaviour). If called as an object method,
+     <B
+CLASS="function"
+>$obj-&#62;setErrorHandling()</B
+> sets
+     the default error handling for only that object (local error handling behaviour).
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear.seterrorhandling.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>integer $mode</I
+></TT
+> - one of the following constants
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           <TT
+CLASS="constant"
+><B
+>PEAR_ERROR_RETURN</B
+></TT
+> If an error occurs, a 
+           <A
+HREF="core.pear.pear-error.html"
+><B
+CLASS="classname"
+>PEAR_Error</B
+></A
+> is returned from the error-generation
+           method (normally <A
+HREF="core.pear.pear.raiseerror.html"
+><B
+CLASS="function"
+>raiseError()</B
+></A
+>.)
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="constant"
+><B
+>PEAR_ERROR_PRINT</B
+></TT
+> Like <TT
+CLASS="constant"
+><B
+>&#13;           PEAR_ERROR_RETURN</B
+></TT
+>, but an error message will be 
+           printed additionally.
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="constant"
+><B
+>PEAR_ERROR_TRIGGER</B
+></TT
+> Like <TT
+CLASS="constant"
+><B
+>&#13;           PEAR_ERROR_RETURN</B
+></TT
+>, but the PHP builtin-function
+           <B
+CLASS="function"
+>trigger_error()</B
+> will be called in PEAR_Error's
+           constructor with the error message.
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="constant"
+><B
+>PEAR_ERROR_DIE</B
+></TT
+> The script will terminate and
+           an error message will be printed on instantiation of a PEAR_Error.
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="constant"
+><B
+>PEAR_ERROR_CALLBACK</B
+></TT
+> If a error occurs, the
+           callback passed to <TT
+CLASS="parameter"
+><I
+>$options</I
+></TT
+> is called.
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="constant"
+><B
+>PEAR_ERROR_EXCEPTION</B
+></TT
+> If Zend Engine 2 is present,
+           then an exception will be thrown using the <A
+HREF="core.pear.pear-error.html"
+><B
+CLASS="classname"
+>PEAR_Error</B
+></A
+> object.
+          </P
+></LI
+></UL
+>         
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>mixed $options</I
+></TT
+> - the value for <TT
+CLASS="parameter"
+><I
+>$options</I
+></TT
+>
+        depends on <TT
+CLASS="parameter"
+><I
+>$mode</I
+></TT
+>
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           <TT
+CLASS="constant"
+><B
+>PEAR_ERROR_PRINT</B
+></TT
+> and 
+           <TT
+CLASS="constant"
+><B
+>PEAR_ERROR_DIE</B
+></TT
+> support
+           an optional <B
+CLASS="function"
+>printf()</B
+> format string used 
+           when printing the error message.  This format string should contain
+           a single %s, which will be used to insert the error message into the
+           string.  Use the string to enclose the error message with other
+           useful information not included in the error message prefix or
+           error message.
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="constant"
+><B
+>PEAR_ERROR_TRIGGER</B
+></TT
+> requires an user error 
+           level constant used by <B
+CLASS="function"
+>trigger_error()</B
+> (possible constants: <TT
+CLASS="constant"
+><B
+>E_USER_NOTICE</B
+></TT
+>, 
+           <TT
+CLASS="constant"
+><B
+>E_USER_WARNING</B
+></TT
+> or 
+           <TT
+CLASS="constant"
+><B
+>E_USER_ERROR</B
+></TT
+>).  Note that if the error constant
+           is not one of these valid error constants, a PHP warning will be
+           triggered.
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="constant"
+><B
+>PEAR_ERROR_CALLBACK</B
+></TT
+> The callback must be a function
+           name in the format described in the <A
+HREF="http://www.php.net/manual/language.pseudo-types.php"
+TARGET="_top"
+>Pseudo-Type</A
+>
+           section of the PHP manual (either a string, or an array). The callback must accept a single
+           parameter, the <A
+HREF="core.pear.pear-error.html"
+><B
+CLASS="classname"
+>PEAR_Error</B
+></A
+> object generated by an error condition.
+           Note that if the callback is not a valid callback, a PHP warning will
+           be triggered.
+          </P
+></LI
+></UL
+>         
+       </P
+></LI
+></UL
+>
+    </P
+><P
+>&#13;     Here's an example of a few ways to use setErrorHandling:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'PEAR.php';
+// dummy error constant for this example
+define('MYCLASS_ERROR_CODE', 1);
+
+// demonstration of default global error handling
+// in this case, all PEAR Errors will trigger a PHP warning
+PEAR::setErrorHandling(PEAR_ERROR_TRIGGER, E_USER_WARNING);
+// Note that the file and line number will be in the constructor of PEAR_Error
+// in PEAR.php
+PEAR::raiseError('test warning', MYCLASS_ERROR_CODE);
+
+// this error specifies a mode, and overrides the default global error handling
+$e = PEAR::raiseError('return only', MYCLASS_ERROR_CODE, PEAR_ERROR_RETURN);
+
+PEAR::setErrorHandling(PEAR_ERROR_PRINT, "Gronk error: %s&#60;br /&#62;\n");
+
+// prints "Gronk error: test warning&#60;br /&#62;\n"
+PEAR::raiseError('test warning', MYCLASS_ERROR_CODE);
+
+/**
+ * Fake class to demonstrate error handling
+ * @package myClass
+ */
+class myClass extends PEAR {
+    /**
+     * Demonstration of default local error handling
+     */
+    function myClass()
+    {
+        // object method callback
+        $this-&#62;setErrorHandling(PEAR_ERROR_CALLBACK, array(&#38;$this, 'handleErr'));
+        // prints "custom handler...is working"
+        PEAR::raiseError('custom handler', MYCLASS_ERROR_CODE);
+        // static class method callback
+        $this-&#62;setErrorHandling(PEAR_ERROR_CALLBACK,
+            array('myClass', 'handleErrStatic'));
+        PEAR::raiseError('custom handler', MYCLASS_ERROR_CODE);
+        // function callback
+        $this-&#62;setErrorHandling(PEAR_ERROR_CALLBACK, 'standardCallback');
+        PEAR::raiseError('custom handler', MYCLASS_ERROR_CODE);
+    }
+    
+    /**
+     * Callback set by the constructor
+     * @param PEAR_Error The error object
+     */
+    function handleErr($error)
+    {
+        $this-&#62;lastError = $error-&#62;getMessage();
+        print $error-&#62;getMessage() . "...is working\n";
+    }
+    
+    /**
+     * Static callback set by the constructor
+     *
+     * Note that in PHP 5, $this is not set if the method is declared with
+     * the "static" access modifier.  In PHP 4, $this is set, but is not
+     * set to the myClass object, so don't use it!
+     * @param PEAR_Error The error object
+     * @static
+     */
+    function handleErrStatic($error)
+    {
+        print 'static ' . $error-&#62;getMessage() . "...is working\n";
+    }
+}
+
+/**
+ * @param PEAR_Error The error object
+ */
+function standardCallback($error)
+{
+    print 'normal function callback: ' . $error-&#62;getMessage();
+}
+// This causes the printing of three messages through error callbacks:
+// "custom handler...is working"
+// "static custom handler... is working"
+// "normal function callback: custom handler"
+$mine = new myClass;
+
+PEAR::setErrorHandling(PEAR_ERROR_DIE);
+// terminates the script with the error message "oops"
+PEAR::raiseError('oops', MYCLASS_ERROR_CODE);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.pear.pear.raiseerror.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.pear.pear.expecterror.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>PEAR::raiseError()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.pear.html#core.pear.pear"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>PEAR::expectError()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

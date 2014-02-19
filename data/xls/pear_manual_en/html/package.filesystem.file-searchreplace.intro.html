@@ -1,0 +1,383 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File_SearchReplace"
+HREF="package.filesystem.file-searchreplace.html"><LINK
+REL="PREVIOUS"
+TITLE="File_SearchReplace"
+HREF="package.filesystem.file-searchreplace.html"><LINK
+REL="NEXT"
+TITLE="File_SearchReplace::File_SearchReplace()"
+HREF="package.filesystem.file-searchreplace.file-searchreplace.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-searchreplace.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-searchreplace.file-searchreplace.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.filesystem.file-searchreplace.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN48440"
+></A
+>Introduction&nbsp;--&nbsp;HowTo s'n'r in files</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-searchreplace.intro.use"
+></A
+><H2
+>Using</H2
+><P
+>&#13;    With <B
+CLASS="classname"
+>SearchReplace</B
+>, you can replace
+    a text in as many as desired files by another.
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN48447"><P
+><B
+>Example 38-1. Typical usage</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+include 'File/SearchReplace.php' ;
+$files = array( "test1.txt",
+                "test2.txt",
+                "test3.txt" ) ;
+$ignoreline = array( "#", ":") ;
+$snr = new File_SearchReplace( "Yes", "No", $files, "/mail/", false,
+                            $ignoreline) ;
+$snr -&#62; doSearch() ;
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;    The example replaces all occurences of <TT
+CLASS="parameter"
+><I
+>"Yes"</I
+></TT
+> with
+    <TT
+CLASS="parameter"
+><I
+>"No"</I
+></TT
+> in the given $files and in all files in the
+    directory <TT
+CLASS="parameter"
+><I
+>"/mail/"</I
+></TT
+>. If a line in a file starts
+    with one of the chars in <TT
+CLASS="parameter"
+><I
+>$ignoreline</I
+></TT
+>, possible
+    matches will be ignored.
+   </P
+><P
+>&#13;    You can do a new search without creating a new instance of the class.
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN48456"><P
+><B
+>Example 38-2. Do a new search</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>...
+// string to search
+$snr -&#62; setFind( "Er") ;
+// string to find
+$snr -&#62; setReplace( "Sie") ;
+// look in this files
+$snr -&#62; setFiles( $files) ;
+// look in this directories
+$snr -&#62; setDirectories( array( "/neue_briefe/")) ;
+// look in the subdirectories too
+$snr -&#62; setIncludeSubdir( true) ;
+// ignore lines in the files starting with this chars
+$snr -&#62; setIgnoreLines( array( "::", "#")) ;
+// restart search'n'replace
+$snr -&#62; doSearch() ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-searchreplace.intro.searchtype"
+></A
+><H2
+>Types of search functions</H2
+><P
+>&#13;    <B
+CLASS="classname"
+>File_SearchReplace</B
+> supports different
+    kinds of search functions. The type directly influence the format
+    of the required <TT
+CLASS="parameter"
+><I
+>$find</I
+></TT
+>-parameter
+    <P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>&#13;            <TT
+CLASS="parameter"
+><I
+>normal</I
+></TT
+> - default, the
+            only type supporting the 
+            <TT
+CLASS="parameter"
+><I
+>$IgnoreLines</I
+></TT
+>-parameter
+        </TD
+></TR
+><TR
+><TD
+>&#13;            <TT
+CLASS="parameter"
+><I
+>quick</I
+></TT
+>
+             - use <B
+CLASS="function"
+>str_replace()</B
+>
+        </TD
+></TR
+><TR
+><TD
+>&#13;            <TT
+CLASS="parameter"
+><I
+>preg</I
+></TT
+>
+             - use <B
+CLASS="function"
+>preg_replace()</B
+>
+        </TD
+></TR
+><TR
+><TD
+>&#13;            <TT
+CLASS="parameter"
+><I
+>ereg</I
+></TT
+>
+             - use <B
+CLASS="function"
+>ereg_replace()</B
+>
+        </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+    To set the type, call <A
+HREF="package.filesystem.file-searchreplace.setsearchfunction.html"
+>&#13;    <B
+CLASS="function"
+>setSearchFunction()</B
+></A
+> before <A
+HREF="package.filesystem.file-searchreplace.dosearch.html"
+>&#13;    <B
+CLASS="function"
+>doSearch()</B
+></A
+>.
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-searchreplace.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-searchreplace.file-searchreplace.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>File_SearchReplace</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-searchreplace.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>File_SearchReplace::File_SearchReplace()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

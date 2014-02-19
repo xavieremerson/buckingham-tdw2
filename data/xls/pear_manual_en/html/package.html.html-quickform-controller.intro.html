@@ -1,0 +1,711 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_QuickForm_Controller"
+HREF="package.html.html-quickform-controller.html"><LINK
+REL="PREVIOUS"
+TITLE="HTML_QuickForm_Controller"
+HREF="package.html.html-quickform-controller.html"><LINK
+REL="NEXT"
+TITLE="FAQ"
+HREF="package.html.html-quickform-controller.faq.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform-controller.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform-controller.faq.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform-controller.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN65519"
+></A
+>Introduction&nbsp;--&nbsp;What is this package useful for</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform-controller.intro.why"
+></A
+><H2
+>Why "Controller"?</H2
+><P
+>&#13;This package implements a PageController design pattern, which essentially means that there is a
+single page processing requests and actions this page performs depend on parameters passed
+in GET or POST data. The pattern is described in more detail on 
+<A
+HREF="http://www.martinfowler.com/eaaCatalog/pageController.html"
+TARGET="_top"
+>Martin Fowler's website</A
+> and
+<A
+HREF="http://wact.sourceforge.net/index.php/PageController"
+TARGET="_top"
+>WACT project website</A
+>. 
+    </P
+><P
+>&#13;What does this mean in application to QuickForm: we have a single script which shows and validates different 
+forms depending on data in request. This allows to fairly easy build very complex forms consisting of 
+several pages (think wizards and such).
+    </P
+><P
+>&#13;The most basic implementation of the PageController pattern would look like
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>switch ($_REQUEST['action']) {
+    'foo': 
+        doFoo(); 
+        break;
+    'bar': 
+        doBar(); 
+        break;
+    default:
+        echo 'Hello, world!';
+}</PRE
+></TD
+></TR
+></TABLE
+>
+HTML_QuickForm_Controller is a bit more complex. There are three base classes:
+<P
+></P
+><UL
+><LI
+><P
+><A
+HREF="package.html.html-quickform-controller.html-quickform-controller-summary.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Controller</B
+></A
+>:
+    this class extracts the action name from request and calls the appropriate handler. It includes several Pages.
+    </P
+></LI
+><LI
+><P
+><A
+HREF="package.html.html-quickform-controller.html-quickform-page-summary.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Page</B
+></A
+>:
+    this class (extending <B
+CLASS="classname"
+>HTML_QuickForm</B
+>) represents a single page of a form.
+    </P
+></LI
+><LI
+><P
+><A
+HREF="package.html.html-quickform-controller.html-quickform-action-summary.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Action</B
+></A
+>:
+    this class implements the Command design pattern, i.e. is essentially an OO callback.
+    </P
+></LI
+></UL
+>
+The action sent in request consists of a page name and an action name, it defines which Page will 
+process the request (e.g. display or validate the form) and what exactly this Page should do.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform-controller.intro.example"
+></A
+><H2
+>Basic usage example</H2
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Session initialization: </B
+>
+        This simple example does not use sessions since there is no need to pass data between pages.
+        You'll need to use sessions when dealing with a real multipage form, though. <B
+CLASS="classname"
+>HTML_QuickForm_Controller</B
+> 
+        <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>does not</I
+></SPAN
+> start a session automatically, you should explicitly call 
+        <A
+HREF="http://www.php.net/manual-lookup.php?pattern=session_start"
+TARGET="_top"
+><B
+CLASS="function"
+>session_start()</B
+></A
+> before instantiating
+        the controller class.
+      </P
+></BLOCKQUOTE
+></DIV
+><P
+>&#13;To ease understanding of this package's features, lets take an example form from
+<A
+HREF="package.html.html-quickform.tutorial.html#package.html.html-quickform.tutorial.firstform"
+>HTML_QuickForm tutorial</A
+> and
+redo it using HTML_QuickForm_Controller:
+    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN65555"><P
+><B
+>Example 41-1. Basic Controller usage</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// Load the controller
+require_once 'HTML/QuickForm/Controller.php';
+// Load the base Action class (we will subclass it later)
+require_once 'HTML/QuickForm/Action.php';
+
+// Class representing a form
+class FirstPage extends HTML_QuickForm_Page
+{
+    function buildForm()
+    {
+        $this-&#62;_formBuilt = true;
+
+        // Add some elements to the form
+        $this-&#62;addElement('header', null, 'QuickForm tutorial example');
+        $this-&#62;addElement('text', 'name', 'Enter your name:', array('size' =&#62; 50, 'maxlength' =&#62; 255));
+        // Note how we set the name of the submit button
+        $this-&#62;addElement('submit', $this-&#62;getButtonName('submit'), 'Send');
+
+        // Define filters and validation rules
+        $this-&#62;applyFilter('name', 'trim');
+        $this-&#62;addRule('name', 'Please enter your name', 'required', null, 'client');
+
+        $this-&#62;setDefaultAction('submit');
+    }
+}
+
+// Action to process the form
+class ActionProcess extends HTML_QuickForm_Action
+{
+    function perform(&#38;$page, $actionName)
+    {
+        echo '&#60;h1&#62;Hello, ' . htmlspecialchars($page-&#62;exportValue('name')) . '!&#60;/h1&#62;';
+    }
+}
+
+$page =&#38; new FirstPage('firstForm');
+
+// We only add the 'process' handler, Controller will care for default ones
+$page-&#62;addAction('process', new ActionProcess());
+
+// Instantiate the Controller
+$controller =&#38; new HTML_QuickForm_Controller('tutorial');
+
+// Set defaults for the form elements
+$controller-&#62;setDefaults(array(
+    'name' =&#62; 'Joe User'
+));
+
+// Add the page to Controller
+$controller-&#62;addPage($page);
+
+// Process the request
+$controller-&#62;run();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>&#13;You may note that the code is more verbose than the original. That is true, but to make a three page
+wizard-type form you'll only need to create three subclasses of
+<A
+HREF="package.html.html-quickform-controller.html-quickform-page-summary.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Page</B
+></A
+>
+and <TT
+CLASS="literal"
+>'process'</TT
+> event handler based on <A
+HREF="package.html.html-quickform-controller.html-quickform-action-summary.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Action</B
+></A
+>
+and add them to Controller, while without the Controller infrastructure it will require a non-trivial amount
+of programming.
+    </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform-controller.intro.example.pages"
+></A
+><H3
+>Creating custom pages</H3
+><P
+>&#13;You need to subclass <A
+HREF="package.html.html-quickform-controller.html-quickform-page-summary.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Page</B
+></A
+>
+and override its <A
+HREF="package.html.html-quickform-controller.html-quickform-page.buildform.html"
+><B
+CLASS="function"
+>buildForm()</B
+></A
+>
+method. Its contents are pretty self-explanatory (if you are familiar with <A
+HREF="package.html.html-quickform.html"
+>QuickForm</A
+>), except for a few things:
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$this-&#62;_formBuilt = true;</PRE
+></TD
+></TR
+></TABLE
+>
+Form building is a "heavy" operation, thus we call <B
+CLASS="function"
+>buildForm()</B
+> only when
+necessary. To prevent calling it twice (and getting two sets of elements instead of one) we set <TT
+CLASS="varname"
+>$_formBuilt</TT
+>
+property.
+     </P
+><P
+>&#13;The second notable line is
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$this-&#62;addElement('submit', $this-&#62;getButtonName('submit'), 'Send');</PRE
+></TD
+></TR
+></TABLE
+>
+We use <A
+HREF="package.html.html-quickform-controller.html-quickform-page.getbuttonname.html"
+><B
+CLASS="function"
+>getButtonName()</B
+></A
+>
+method to set the submit button's name and thus to trigger a <TT
+CLASS="literal"
+>'submit'</TT
+> action when the button
+is clicked.
+     </P
+><P
+>&#13;The third thing is
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$this-&#62;setDefaultAction('submit');</PRE
+></TD
+></TR
+></TABLE
+>
+The user can submit the form by pressing Enter button, not by clicking on any of the form buttons. Most browsers will not consider any submit button as clicked in this case and will not send its name. <A
+HREF="package.html.html-quickform-controller.html-quickform-page.setdefaultaction.html"
+><B
+CLASS="function"
+>setDefaultAction()</B
+></A
+> sets the action (by adding a special hidden element to the form) that will be called in this case.
+     </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform-controller.intro.example.actions"
+></A
+><H3
+>Creating custom actions</H3
+><P
+>&#13;You'll usually need to create handlers for two actions: <TT
+CLASS="literal"
+>'process'</TT
+> and <TT
+CLASS="literal"
+>'display'</TT
+>.
+While it is difficult to say anything about the former, as only you know how to process your form, for the
+latter you'll need to subclass
+<A
+HREF="package.html.html-quickform-controller.html-quickform-action-display-summary.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_Action_Display</B
+></A
+>
+and override its <B
+CLASS="function"
+>_renderForm()</B
+> method to call the appropriate
+<A
+HREF="package.html.html-quickform.intro-renderers.html"
+>Renderer</A
+> and do form output customization.
+     </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform-controller.intro.example.combine"
+></A
+><H3
+>Tying this all together</H3
+><P
+>&#13;Next we instantiate the page class defined above
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$page =&#38; new FirstPage('firstForm');</PRE
+></TD
+></TR
+></TABLE
+>
+and add our custom action handler to it
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$page-&#62;addAction('process', new ActionProcess());</PRE
+></TD
+></TR
+></TABLE
+>
+the <TT
+CLASS="literal"
+>'process'</TT
+> action will be called by the default <TT
+CLASS="literal"
+>'submit'</TT
+> action
+handler if the form is valid.
+     </P
+><P
+>&#13;Then we instantiate the controller
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$controller =&#38; new HTML_QuickForm_Controller('tutorial');</PRE
+></TD
+></TR
+></TABLE
+>
+Note that the name is a required parameter, and if you will have several Controllers in your application
+they should have different names, as the names are used to store values in sessions.
+     </P
+><P
+>&#13;Then we set the defaults for the form and add the page to it
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$controller-&#62;setDefaults(array(
+    'name' =&#62; 'Joe User'
+));
+$controller-&#62;addPage($page);</PRE
+></TD
+></TR
+></TABLE
+>
+It is perfectly legal to do call Page's <A
+HREF="package.html.html-quickform.html-quickform.setdefaults.html"
+><B
+CLASS="function"
+>setDefaults()</B
+></A
+>
+from within <B
+CLASS="function"
+>buildForm()</B
+>, but the former approach allows to set the defaults for the form as a
+whole, while the latter only for the page in question.
+     </P
+><P
+>&#13;Finally we call the Controller's <A
+HREF="package.html.html-quickform-controller.html-quickform-controller.run.html"
+><B
+CLASS="function"
+>run()</B
+></A
+>
+method
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$controller-&#62;run();</PRE
+></TD
+></TR
+></TABLE
+>
+which will take care of finding the name of the current action and calling the necessary handler. That's all.
+     </P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform-controller.intro.advanced"
+></A
+><H2
+>Advanced usage examples</H2
+><P
+>&#13;...are available in the package archive. Along with the example similar to the provided above,
+there are two multipage forms:
+     <P
+></P
+><UL
+><LI
+><P
+>Wizard: form pages contain <TT
+CLASS="literal"
+>'Next'</TT
+> and <TT
+CLASS="literal"
+>'Back'</TT
+> buttons and you can't go to the next page unless
+       the current page is valid.</P
+></LI
+><LI
+><P
+>Tabbed form: form has several pages and buttons allow to go directly to the corresponding page.
+       Form is validated only when the global <TT
+CLASS="literal"
+>'Submit'</TT
+> button is pressed.</P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform-controller.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform-controller.faq.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_QuickForm_Controller</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform-controller.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>FAQ</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

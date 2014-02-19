@@ -1,0 +1,373 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;   PEAR_RunTest::generate_diff
+  </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR"
+HREF="core.ppm.pear-runtest.html"><LINK
+REL="PREVIOUS"
+TITLE="
+   constructor
+   PEAR_RunTest::PEAR_RunTest
+  "
+HREF="core.ppm.pear-runtest.pear-runtest.html"><LINK
+REL="NEXT"
+TITLE="
+   PEAR_RunTest::run
+  "
+HREF="core.ppm.pear-runtest.run.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-runtest.pear-runtest.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-runtest.run.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.ppm.pear-runtest.generate-diff"><B
+CLASS="function"
+>PEAR_RunTest::generate_diff()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN15095"
+></A
+>
+   <B
+CLASS="function"
+>PEAR_RunTest::generate_diff()</B
+>
+  &nbsp;--&nbsp;generate_diff</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN15099"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN15100"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once '/RunTest.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     void
+     <B
+CLASS="function"
+>PEAR_RunTest::generate_diff</B
+>
+    </CODE
+> (string
+     $wanted, string
+     $output, array|false
+     $return_value)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-runtest.generate-diff.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Returns differences by line between the expected output (<TT
+CLASS="parameter"
+><I
+>$wanted</I
+></TT
+>)
+   and the actual output (<TT
+CLASS="parameter"
+><I
+>$output</I
+></TT
+>).  In addition, the value
+   returned from the script can also be tested.  The test should be performed outside
+   <B
+CLASS="function"
+>generate_diff()</B
+>.  If the return value is as expected, pass in
+   <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>, otherwise pass in an array where the first element is the expected return
+   value and the second is the actual return value.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-runtest.generate-diff.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+      <TT
+CLASS="parameter"
+><I
+>$wanted</I
+></TT
+></DT
+><DD
+><P
+>&#13;       Expected output
+      </P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+      <TT
+CLASS="parameter"
+><I
+>$output</I
+></TT
+></DT
+><DD
+><P
+>&#13;       Actual output
+      </P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array|<TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>
+      <TT
+CLASS="parameter"
+><I
+>$return_value</I
+></TT
+></DT
+><DD
+><P
+>&#13;       False if return value was correct, otherwise an array of format:
+      </P
+><P
+>&#13;       <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+array(
+    1, // expected return
+    2, // actual return value
+);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-runtest.generate-diff.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+>
+   no exceptions thrown
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-runtest.generate-diff.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-runtest.pear-runtest.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-runtest.run.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>constructor
+   <B
+CLASS="function"
+>PEAR_RunTest::PEAR_RunTest()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-runtest.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_RunTest::run()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

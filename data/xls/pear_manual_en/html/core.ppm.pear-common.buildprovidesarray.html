@@ -1,0 +1,287 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR_Common::buildProvidesArray</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR_Common"
+HREF="core.ppm.pear-common.html"><LINK
+REL="PREVIOUS"
+TITLE="PEAR_Common::analyzeSourceCode"
+HREF="core.ppm.pear-common.analyzesourcecode.html"><LINK
+REL="NEXT"
+TITLE="PEAR_Common::downloadHttp"
+HREF="core.ppm.pear-common.downloadhttp.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-common.analyzesourcecode.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-common.downloadhttp.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.ppm.pear-common.buildprovidesarray"><B
+CLASS="function"
+>PEAR_Common::buildProvidesArray()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN9403"
+></A
+><B
+CLASS="function"
+>PEAR_Common::buildProvidesArray()</B
+>&nbsp;--&nbsp;Build a array</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN9407"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN9408"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'PEAR/common.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><TT
+CLASS="replaceable"
+><I
+>void</I
+></TT
+>
+       <B
+CLASS="function"
+>PEAR_Common::buildProvidesArray</B
+></CODE
+> (array $srcinfo)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-common.buildprovidesarray.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      Build a "provides" array from data returned 
+      by <B
+CLASS="function"
+>analyzeSourceCode()</B
+>. 
+      The format of the built array is like this:
+      <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>array(
+        'class;MyClass' =&#62; 
+           array(
+           'type' =&#62; 'class',
+           'name' =&#62; 'MyClass'
+           ),
+           ...  
+        )</PRE
+></TD
+></TR
+></TABLE
+>
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-common.buildprovidesarray.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array
+         <TT
+CLASS="parameter"
+><I
+>$srcinfo</I
+></TT
+></DT
+><DD
+><P
+>&#13;         array with information about a 
+         source file as returned by the 
+         <B
+CLASS="function"
+>analyzeSourceCode()</B
+> method.
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-common.buildprovidesarray.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-common.analyzesourcecode.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-common.downloadhttp.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Common::analyzeSourceCode()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-common.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Common::downloadHttp()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

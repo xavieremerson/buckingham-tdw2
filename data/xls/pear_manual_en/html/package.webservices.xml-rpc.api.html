@@ -1,0 +1,2604 @@
+<HTML
+><HEAD
+><TITLE
+>API</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_RPC"
+HREF="package.webservices.xml-rpc.html"><LINK
+REL="PREVIOUS"
+TITLE="Examples"
+HREF="package.webservices.xml-rpc.examples.html"><LINK
+REL="NEXT"
+TITLE="XML_RPC2"
+HREF="package.webservices.xml-rpc2.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.webservices.xml-rpc.examples.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.webservices.xml-rpc2.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.webservices.xml-rpc.api">API</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN101298"
+></A
+>API&nbsp;--&nbsp;Class documentation of the package</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc.api.client"
+></A
+><H2
+>XML_RPC_Client</H2
+><P
+>&#13;   This is the basic class used to represent a client of an XML-RPC
+   server.
+  </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN101304"
+></A
+><H3
+>Creation</H3
+><P
+>&#13;    The constructor has the following syntax:
+   </P
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101307"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$client = new XML_RPC_Client</CODE
+> (string $path, string $server [, integer $port [, string $proxy [, integer $proxy_port [, string $proxy_user [, string $proxy_pass]]]]])</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;    <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+       <TT
+CLASS="parameter"
+><I
+>$path</I
+></TT
+></DT
+><DD
+><P
+>&#13;        the path and name of the RPC server script
+        you want the request to go to
+       </P
+></DD
+><DT
+>string
+       <TT
+CLASS="parameter"
+><I
+>$server</I
+></TT
+></DT
+><DD
+><P
+>&#13;        the URL of the remote server to connect to.
+        If this parameter doesn't specify a
+        protocol and $port is 443, ssl:// is assumed.
+       </P
+></DD
+><DT
+>integer
+       <TT
+CLASS="parameter"
+><I
+>$port</I
+></TT
+></DT
+><DD
+><P
+>&#13;        a port for connecting to the remote server.
+        Defaults to 80 for http:// connections and
+        443 for https:// and ssl:// connections.
+       </P
+></DD
+><DT
+>string
+       <TT
+CLASS="parameter"
+><I
+>$proxy</I
+></TT
+></DT
+><DD
+><P
+>&#13;        the URL of the proxy server to use, if any.
+        If this parameter doesn't specify a
+        protocol and $port is 443, ssl:// is assumed.
+       </P
+></DD
+><DT
+>integer
+       <TT
+CLASS="parameter"
+><I
+>$proxy_port</I
+></TT
+></DT
+><DD
+><P
+>&#13;        a port for connecting to the remote server.
+        Defaults to 8080 for http:// connections and
+        443 for https:// and ssl:// connections.
+       </P
+></DD
+><DT
+>string
+       <TT
+CLASS="parameter"
+><I
+>$proxy_user</I
+></TT
+></DT
+><DD
+><P
+>&#13;        a user name for accessing the proxy server
+       </P
+></DD
+><DT
+>string
+       <TT
+CLASS="parameter"
+><I
+>$proxy_pass</I
+></TT
+></DT
+><DD
+><P
+>&#13;        a password for accessing the proxy server
+       </P
+></DD
+></DL
+></DIV
+>
+   </P
+><P
+>&#13;   <DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+     In order to use SSL connections, your PHP installation must
+     have the <A
+HREF="http://php.net/openssl"
+TARGET="_top"
+>&#13;      <TT
+CLASS="literal"
+>openssl</TT
+></A
+> extension enabled.
+    </P
+></BLOCKQUOTE
+></DIV
+>
+   </P
+><P
+>&#13;    Here's an example client set up to query Userland's XML-RPC server
+    at <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>betty.userland.com</I
+></SPAN
+>:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$client = new XML_RPC_Client('/RPC2', 'betty.userland.com');</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN101381"
+></A
+><H3
+>Methods</H3
+><P
+>&#13;    This class supports the following methods.
+   </P
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101384"
+></A
+><H4
+><B
+CLASS="function"
+>send()</B
+></H4
+><P
+>&#13;     This method takes the form:
+    </P
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101388"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$response = $client-&#62;send</CODE
+> ($xmlrpc_message [, $timeout])</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     Where <TT
+CLASS="parameter"
+><I
+>$xmlrpc_message</I
+></TT
+> is an instance of
+     <B
+CLASS="classname"
+>XML_RPC_Message</B
+> and
+     <TT
+CLASS="parameter"
+><I
+>$response</I
+></TT
+> is an instance of
+     <B
+CLASS="classname"
+>XML_RPC_Response</B
+> (see <A
+HREF="package.webservices.xml-rpc.api.html#package.webservices.xml-rpc.api.response"
+>XML_RPC_Response</A
+>).
+    </P
+><P
+>&#13;     The <TT
+CLASS="parameter"
+><I
+>$timeout</I
+></TT
+> is optional, and will be set to
+     <TT
+CLASS="literal"
+>0</TT
+> (wait forever) if omitted. This timeout value
+     is passed to <B
+CLASS="function"
+>fsockopen()</B
+>.
+    </P
+><P
+>&#13;     If the value of <TT
+CLASS="parameter"
+><I
+>$response</I
+></TT
+> is
+     <TT
+CLASS="literal"
+>0</TT
+> rather than an
+     <B
+CLASS="classname"
+>XML_RPC_Response</B
+> object, then this signifies
+     an I/O error has occured. You can find out what the I/O error was
+     from the values <TT
+CLASS="varname"
+>$client-&#62;errno</TT
+> and
+     <TT
+CLASS="varname"
+>$client-&#62;errstring</TT
+>.
+    </P
+><P
+>&#13;     In addition to low-level errors, the XML-RPC server you were
+     querying may return an error in the
+     <B
+CLASS="classname"
+>XML_RPC_Response</B
+> object. See <A
+HREF="package.webservices.xml-rpc.api.html#package.webservices.xml-rpc.api.response"
+>XML_RPC_Response</A
+> for details
+     of how to handle these errors.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101415"
+></A
+><H4
+><B
+CLASS="function"
+>setCredentials()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101418"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$client-&#62;setCredentials</CODE
+> ($username, $password)</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     This method sets the username and password for authorizing the
+     client to a server. With the default (HTTP) transport, this
+     information is used for HTTP Basic authorization.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101426"
+></A
+><H4
+><B
+CLASS="function"
+>setDebug()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101429"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$client-&#62;setDebug</CODE
+> ($debugOn)</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>$debugOn</I
+></TT
+> is either <TT
+CLASS="literal"
+>0</TT
+> or
+     <TT
+CLASS="literal"
+>1</TT
+> depending on whether you require the client to
+     print debugging information to the browser.  The default is not to
+     output this information.
+    </P
+><P
+>&#13;     The debugging information includes the raw data returned from the
+     XML-RPC server it was querying, and the PHP value the client
+     attempts to create to represent the value returned by the server.
+     This option can be very useful when debugging servers as it allows
+     you to see exactly what the server returns.
+    </P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc.api.message"
+></A
+><H2
+>XML_RPC_Message</H2
+><P
+>&#13;   This class provides a representation for a request to an XML-RPC
+   server. A client sends an <B
+CLASS="classname"
+>XML_RPC_Message</B
+> to a
+   server, and receives back an <B
+CLASS="classname"
+>XML_RPC_Response</B
+>.
+  </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN101444"
+></A
+><H3
+>Creation</H3
+><P
+>&#13;    The constructor takes the following form:
+   </P
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101447"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$msg = new XML_RPC_Message</CODE
+> ($methodName, $parameterArray)</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;    Where <TT
+CLASS="parameter"
+><I
+>$methodName</I
+></TT
+> is a string indicating the
+    name of the method you wish to invoke, and
+    <TT
+CLASS="parameter"
+><I
+>$parameterArray</I
+></TT
+> is a simple
+    <B
+CLASS="classname"
+>Array</B
+> of <B
+CLASS="classname"
+>XML_RPC_Value</B
+>
+    objects.  Here's an example message to the <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>US state
+    name</I
+></SPAN
+> server:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "XML/RPC.php";
+$msg = new XML_RPC_Message("examples.getStateName", array(new XML_RPC_Value(23, "int")));</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    This example requests the name of state number 23. For more
+    information on <B
+CLASS="classname"
+>XML_RPC_Value</B
+> objects, see
+    <A
+HREF="package.webservices.xml-rpc.api.html#package.webservices.xml-rpc.api.value"
+>XML_RPC_Value</A
+>.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN101464"
+></A
+><H3
+>Methods</H3
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101466"
+></A
+><H4
+><B
+CLASS="function"
+>serialize()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101469"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$outString = $msg-&#62;serialize</CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     Returns the an XML string representing the XML-RPC message.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101474"
+></A
+><H4
+><B
+CLASS="function"
+>addParam()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101477"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$msg-&#62;addParam</CODE
+> ($xmlrpcVal)</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     Adds the <B
+CLASS="classname"
+>XML_RPC_Value</B
+>
+     <TT
+CLASS="parameter"
+><I
+>$xmlrpcVal</I
+></TT
+> to the parameter list for this
+     method call.
+    </P
+><P
+>&#13;     Returns an <B
+CLASS="classname"
+>XML_RPC_Value</B
+> object.
+     If the parameter doesn't exist, an <B
+CLASS="classname"
+>XML_RPC_Response</B
+>
+     object is returned.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101488"
+></A
+><H4
+><B
+CLASS="function"
+>getParam()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101491"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$xmlrpcVal = $msg-&#62;getParam</CODE
+> ($n)</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     Gets the <TT
+CLASS="parameter"
+><I
+>$n</I
+></TT
+>th parameter in the message. Use
+     this method in server implementations. Returns the
+     <TT
+CLASS="literal"
+>undef</TT
+> value if no such parameter exists.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101499"
+></A
+><H4
+><B
+CLASS="function"
+>getNumParams()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101502"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$n = $msg-&#62;getNumParams</CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     Returns the number of parameters attached to this message.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101507"
+></A
+><H4
+><B
+CLASS="function"
+>method()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101510"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$methName=$msg-&#62;method</CODE
+> ()</CODE
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$msg-&#62;method</CODE
+> ($methName)</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     Gets or sets the method contained in the XML-RPC message.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101519"
+></A
+><H4
+><B
+CLASS="function"
+>parseResponse()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101522"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$response = $msg-&#62;parseResponse</CODE
+> ($xmlString)</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     Given an incoming XML-RPC server response contained in the string
+     <TT
+CLASS="parameter"
+><I
+>$xmlString</I
+></TT
+>, this method constructs an
+     <B
+CLASS="classname"
+>XML_RPC_Response</B
+> response object and returns
+     it, setting error codes as appropriate.
+    </P
+><P
+>&#13;     This method processes any HTTP/MIME headers it finds.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101531"
+></A
+><H4
+><B
+CLASS="function"
+>parseResponseFile()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101534"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$response = $msg-&#62;parseResponseFile</CODE
+> ($fileHandle)</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     Given an incoming XML-RPC server response on the file handle
+     <TT
+CLASS="parameter"
+><I
+>$fileHandle</I
+></TT
+>, this method reads the data and
+     passes it to <B
+CLASS="function"
+>parseResponse()</B
+>.
+    </P
+><P
+>&#13;     This method is useful to construct responses from pre-prepared
+     files. It processes any HTTP headers it finds.
+    </P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc.api.response"
+></A
+><H2
+>XML_RPC_Response</H2
+><P
+>&#13;   This class is used to contain responses to XML-RPC requests. A server
+   method handler will construct an
+   <B
+CLASS="classname"
+>XML_RPC_Response</B
+> and pass it as a return
+   value. This same value will be returned by the result of an
+   invocation of the <B
+CLASS="function"
+>send()</B
+> method of the
+   <B
+CLASS="classname"
+>XML_RPC_Client</B
+> class.
+  </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN101549"
+></A
+><H3
+>Creation</H3
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101551"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$resp = new XML_RPC_Response</CODE
+> ($xmlrpcval)</CODE
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$resp = new XML_RPC_Response</CODE
+> (0, $errcode, $errstring)</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;    The first instance is used when execution has happened without
+    difficulty: <TT
+CLASS="parameter"
+><I
+>$xmlrpcval</I
+></TT
+> is an
+    <B
+CLASS="classname"
+>XML_RPC_Value</B
+> value with the result of the
+    method execution contained in it.
+   </P
+><P
+>&#13;    The second type of constructor is used in case of
+    failure. <TT
+CLASS="parameter"
+><I
+>$errcode</I
+></TT
+> and
+    <TT
+CLASS="parameter"
+><I
+>$errstring</I
+></TT
+> are used to provide indication of
+    what has gone wrong.  See <A
+HREF="package.webservices.xml-rpc.api.html#package.webservices.xml-rpc.api.server"
+>XML_RPC_Server</A
+> for more
+    information on passing error codes.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN101571"
+></A
+><H3
+>Methods</H3
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101573"
+></A
+><H4
+><B
+CLASS="function"
+>faultCode()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101576"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$fn = $resp-&#62;faultCode</CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     Returns the integer fault code return from the XML-RPC response
+     <TT
+CLASS="parameter"
+><I
+>$resp</I
+></TT
+>. A zero value indicates success, any
+     other value indicates a failure response.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101582"
+></A
+><H4
+><B
+CLASS="function"
+>faultString()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101585"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$fs = $resp-&#62;faultString</CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     Returns the human readable explanation of the fault indicated by
+     <TT
+CLASS="varname"
+>$resp-&#62;faultCode</TT
+>.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101591"
+></A
+><H4
+><B
+CLASS="function"
+>value()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101594"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$xmlrpcVal = $resp-&#62;value</CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     Returns an <B
+CLASS="classname"
+>XML_RPC_Value</B
+> object  containing
+     the return value sent by the server. If the response's
+     <TT
+CLASS="varname"
+>faultCode</TT
+> is non-zero then the value returned
+     by this method should not be used (it may  not even be an object).
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101601"
+></A
+><H4
+><B
+CLASS="function"
+>serialize()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101604"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$outString = $resp-&#62;serialize</CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     Returns an XML string representation of the response.
+    </P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc.api.value"
+></A
+><H2
+>XML_RPC_Value</H2
+><P
+>&#13;   This is where a lot of the hard work gets done.  This class enables
+   the creation and encapsulation of values for XML-RPC.
+  </P
+><P
+>&#13;   Ensure you've read the XML-RPC spec at <A
+HREF="http://www.xmlrpc.com/stories/storyReader$7"
+TARGET="_top"
+>http://www.xmlrpc.com/stories/storyReader$7</A
+> before reading on
+   as it will make things clearer.
+  </P
+><P
+>&#13;   The <B
+CLASS="classname"
+>XML_RPC_Value</B
+> class can store arbitrarily
+   complicated values using the following types:
+   <TT
+CLASS="literal"
+>i4</TT
+>,
+   <TT
+CLASS="literal"
+>int</TT
+>,
+   <TT
+CLASS="literal"
+>boolean</TT
+>,
+   <TT
+CLASS="literal"
+>string</TT
+>,
+   <TT
+CLASS="literal"
+>double</TT
+>,
+   <TT
+CLASS="literal"
+>dateTime.iso8601</TT
+>,
+   <TT
+CLASS="literal"
+>base64</TT
+>,
+   <TT
+CLASS="literal"
+>array</TT
+> or
+   <TT
+CLASS="literal"
+>struct</TT
+>.
+   You
+   should refer to the <A
+HREF="http://www.xmlrpc.com/stories/storyReader$7"
+TARGET="_top"
+>spec</A
+> for
+   more information on what each of these types mean.
+  </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN101626"
+></A
+><H3
+>Notes on types</H3
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101628"
+></A
+><H4
+>int</H4
+><P
+>&#13;     The type <B
+CLASS="classname"
+>i4</B
+> is accepted as a synonym for
+     <B
+CLASS="classname"
+>int</B
+>. The value parsing code will always
+     convert <B
+CLASS="classname"
+>i4</B
+> to <B
+CLASS="classname"
+>int</B
+>:
+     <B
+CLASS="classname"
+>int</B
+> is regarded by this implementation as
+     the canonical name for this type.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101636"
+></A
+><H4
+>base64</H4
+><P
+>&#13;     Base 64 encoding is performed transparently to the caller when
+     using this type.  Therefore you ought to consider it as a binary
+     data type, for use when you want to pass none 7-bit clean data.
+     Decoding is also transparent.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101639"
+></A
+><H4
+>boolean</H4
+><P
+>&#13;     The values <TT
+CLASS="literal"
+>true</TT
+> and <TT
+CLASS="literal"
+>1</TT
+> map to
+     <TT
+CLASS="literal"
+>true</TT
+>. All other values (including the empty
+     string) are converted to <TT
+CLASS="literal"
+>false</TT
+>.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101646"
+></A
+><H4
+>string</H4
+><P
+>&#13;     The characters
+     <TT
+CLASS="literal"
+>&#60;</TT
+>,
+     <TT
+CLASS="literal"
+>&#62;</TT
+>,
+     <TT
+CLASS="literal"
+>"</TT
+> and
+     <TT
+CLASS="literal"
+>&#38;</TT
+>
+     are converted to their entity equivalents
+     <TT
+CLASS="literal"
+>&#38;lt;</TT
+>,
+     <TT
+CLASS="literal"
+>&#38;gt;</TT
+>,
+     <TT
+CLASS="literal"
+>&#38;quot;</TT
+> and
+     <TT
+CLASS="literal"
+>&#38;amp;</TT
+>
+     for transport through XML-RPC.  The
+     current XML-RPC spec recommends only encoding
+     <TT
+CLASS="literal"
+>&#60;</TT
+> and <TT
+CLASS="literal"
+>&#38;</TT
+>
+     but this implementation goes further, for reasons
+     explained by <A
+HREF="http://www.w3.org/TR/REC-xml#syntax"
+TARGET="_top"
+>the XML 1.0
+     recommendation</A
+>.
+    </P
+><P
+>&#13;     TODO: <TT
+CLASS="literal"
+>&#38;apos;</TT
+> entity is not yet supported
+    </P
+></DIV
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.webservices.xml-rpc.api.value.creation"
+></A
+><H3
+>Creation</H3
+><P
+>&#13;    The constructor is the normal way to create an
+    <B
+CLASS="classname"
+>XML_RPC_Value</B
+>. The constructor can take these
+    forms:
+   </P
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101666"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$myVal = new XML_RPC_Value</CODE
+> ()</CODE
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$myVal = new XML_RPC_Value</CODE
+> ($stringVal)</CODE
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$myVal = new XML_RPC_Value</CODE
+> ($scalarVal, 'int' | 'boolean' | 'string' | 'double' | 'dateTime.iso8601' | 'base64')</CODE
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$myVal = new XML_RPC_Value</CODE
+> ($arrayVal, 'array' | 'struct')</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;    The first constructor creates an empty value, which must be altered
+    using the methods <B
+CLASS="function"
+>addScalar()</B
+>,
+    <B
+CLASS="function"
+>addArray()</B
+> or <B
+CLASS="function"
+>addStruct()</B
+>
+    before it can be used.
+   </P
+><P
+>&#13;    The second constructor creates a simple string value.
+   </P
+><P
+>&#13;    The third constructor is used to create a scalar value. The second
+    parameter must be a name of an XML-RPC type. Examples:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$myInt = new XML_RPC_Value(1267, "int");
+$myString= new XML_RPC_Value("Hello, World!", "string");
+$myBool = new XML_RPC_Value(1, "boolean");</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    The fourth constructor form can be used to compose complex XML-RPC
+    values. The first argument is either a simple array in the case of
+    an XML-RPC <B
+CLASS="classname"
+>array</B
+> or an associative array in
+    the case of a <B
+CLASS="classname"
+>struct</B
+>. The elements of the
+    array <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>must be <B
+CLASS="classname"
+>XML_RPC_Value</B
+> objects
+     themselves</I
+></SPAN
+>. Examples:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>$myArray = new XML_RPC_Value(array(
+    new XML_RPC_Value("Tom"), new XML_RPC_Value("Dick"),
+    new XML_RPC_Value("Harry")), "array");
+
+$myStruct = new XML_RPC_Value(array(
+    "name" =&#62; new XML_RPC_Value("Tom"),
+    "age" =&#62; new XML_RPC_Value(34, "int"),
+    "geek" =&#62; new XML_RPC_Value(1, "boolean")), "struct");</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.webservices.xml-rpc.api.value.methods"
+></A
+><H3
+>Methods</H3
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101701"
+></A
+><H4
+><B
+CLASS="function"
+>addScalar()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101704"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$ok = $val-&#62;addScalar</CODE
+> ($stringVal)</CODE
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$ok = $val-&#62;addScalar</CODE
+> ($scalarVal, 'int' | 'boolean' | 'string' | 'double' | 'dateTime.iso8601' | 'base64')</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     If <TT
+CLASS="parameter"
+><I
+>$val</I
+></TT
+> is an empty
+     <B
+CLASS="classname"
+>XML_RPC_Value</B
+> this method makes it a scalar
+     value, and sets that value.  If <TT
+CLASS="parameter"
+><I
+>$val</I
+></TT
+> is
+     already a scalar value, then no more scalars can be added and
+     <TT
+CLASS="literal"
+>0</TT
+> is returned. If all went OK,
+     <TT
+CLASS="literal"
+>1</TT
+> is returned.
+    </P
+><P
+>&#13;     There is a special case if <TT
+CLASS="parameter"
+><I
+>$val</I
+></TT
+> is an
+     <B
+CLASS="classname"
+>array</B
+>: the scalar value passedis appended to
+     the array.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101724"
+></A
+><H4
+><B
+CLASS="function"
+>addArray()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101727"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$ok = $val-&#62;addArray</CODE
+> ($arrayVal)</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     Turns an empty <B
+CLASS="classname"
+>XML_RPC_Value</B
+> into an
+     <B
+CLASS="classname"
+>array</B
+> with contents as specified by
+     <TT
+CLASS="parameter"
+><I
+>$arrayVal</I
+></TT
+>.  See the fourth constructor form
+     for more information.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101736"
+></A
+><H4
+><B
+CLASS="function"
+>addStruct()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101739"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$ok = $val-&#62;addStruct</CODE
+> ($assocArrayVal)</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     Turns an empty <B
+CLASS="classname"
+>XML_RPC_Value</B
+> into a
+     <B
+CLASS="classname"
+>struct</B
+> with contents as specified by
+     <TT
+CLASS="parameter"
+><I
+>$assocArrayVal</I
+></TT
+>.  See the fourth constructor
+     form for more information.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101748"
+></A
+><H4
+><B
+CLASS="function"
+>kindOf()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101751"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$kind = $val-&#62;kindOf</CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     Returns a string containing <TT
+CLASS="literal"
+>struct</TT
+>, <TT
+CLASS="literal"
+>array</TT
+> or <TT
+CLASS="literal"
+>scalar</TT
+>
+     describing the base type of the value.  If it returns <TT
+CLASS="literal"
+>undef</TT
+> it
+     means that the value hasn't been initialised.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101760"
+></A
+><H4
+><B
+CLASS="function"
+>serialize()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101763"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$outString = $val-&#62;serialize</CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     Returns a string containing the XML-RPC representation of this
+     value.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101768"
+></A
+><H4
+><B
+CLASS="function"
+>scalarval()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101771"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$scalarVal = $val-&#62;scalarval</CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     If <B
+CLASS="function"
+>$val-&#62;kindOf()</B
+> == 'scalar', this method
+     returns the actual PHP-language value of the scalar (base 64
+     decoding is automatically handled here).
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101777"
+></A
+><H4
+><B
+CLASS="function"
+>scalartyp()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101780"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$typeName = $val-&#62;scalartyp</CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     If <B
+CLASS="function"
+>$val-&#62;kindOf()</B
+> == 'scalar', this method
+     returns a string denoting the type of the scalar. As mentioned
+     before, <TT
+CLASS="literal"
+>i4</TT
+> is always coerced to
+     <TT
+CLASS="literal"
+>int</TT
+>.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101788"
+></A
+><H4
+><B
+CLASS="function"
+>arraymem()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101791"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$xmlrpcVal = $val-&#62;arraymem</CODE
+> ($n)</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     Returns the <TT
+CLASS="parameter"
+><I
+>$n</I
+></TT
+>th element in the array
+     represented by the value <TT
+CLASS="parameter"
+><I
+>$val</I
+></TT
+>. The value
+     returned is an <B
+CLASS="classname"
+>XML_RPC_Value</B
+> object.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101800"
+></A
+><H4
+><B
+CLASS="function"
+>arraysize()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101803"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$len = $val-&#62;arraysize</CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     If <TT
+CLASS="parameter"
+><I
+>$val</I
+></TT
+> is an <B
+CLASS="classname"
+>array</B
+>,
+     returns the number of elements in that array.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101810"
+></A
+><H4
+><B
+CLASS="function"
+>structmem()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101813"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$xmlrpcVal = $val-&#62;structmem</CODE
+> ($memberName)</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     Returns the element called <TT
+CLASS="parameter"
+><I
+>$memberName</I
+></TT
+> from
+     the struct represented by the value
+     <TT
+CLASS="parameter"
+><I
+>$val</I
+></TT
+>. The value returned is an
+     <B
+CLASS="classname"
+>XML_RPC_Value</B
+> object.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="AEN101822"
+></A
+><H4
+><B
+CLASS="function"
+>structeach()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101825"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>list($key,$value) = $val-&#62;structeach</CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     Returns the next (key,value) pair from the struct, when
+     <TT
+CLASS="parameter"
+><I
+>$val</I
+></TT
+> is a struct. See also <A
+HREF="package.webservices.xml-rpc.api.html#package.webservices.xml-rpc.api.value.methods.structreset"
+>structreset()</A
+>.
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="package.webservices.xml-rpc.api.value.methods.structreset"
+></A
+><H4
+><B
+CLASS="function"
+>structreset()</B
+></H4
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101835"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$val-&#62;structreset</CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;     Resets the internal pointer for <B
+CLASS="function"
+>structeach()</B
+>
+     to the beginning of the struct, where <TT
+CLASS="parameter"
+><I
+>$val</I
+></TT
+>
+     is a struct.
+    </P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc.api.server"
+></A
+><H2
+>XML_RPC_Server</H2
+><P
+>&#13;   The current implementation of this class has been kept as simple as
+   possible. The constructor for the server basically does all the
+   work. Here's a minimal example:
+  </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>function foo ($params) {
+   ...
+}
+
+$s = new XML_RPC_Server(array("examples.myFunc" =&#62; array("function" =&#62; "foo")));</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;   This performs everything you need to do with a server.  The single
+   argument is an associative array from method names to function
+   names. The request is parsed and despatched to the relevant function,
+   which is reponsible for returning a
+   <B
+CLASS="classname"
+>XML_RPC_Response</B
+> object, which gets serialized
+   back to the caller.
+  </P
+><P
+>&#13;   Here is a more detailed look at what the handler function
+   <B
+CLASS="function"
+>foo()</B
+> may do:
+  </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>function foo ($params) {
+    global $XML_RPC_erruser; // import user errcode value
+
+    // $params is the received XML_RPC_Message object.
+    if ($err) {
+        // this is an error condition
+        return new XML_RPC_Response(0, $XML_RPC_erruser+1, // user error 1
+           "There's a problem, Captain");
+    } else {
+        // this is a successful value being returned
+        return new XML_RPC_Response(new XML_RPC_Value("All's fine!", "string"));
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN101851"
+></A
+><H3
+>The dispatch map</H3
+><P
+>&#13;    The first argument to the <B
+CLASS="function"
+>XML_RPC_Server()</B
+>
+    constructor is an array, called the <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>dispatch
+    map</I
+></SPAN
+>.  In this array is the information the server needs
+    to service the XML-RPC methods you define.
+   </P
+><P
+>&#13;    The dispatch map takes the form of an associative array of
+    associative arrays: the outer array has one entry for each method,
+    the key being the method name. The corresponding value is another
+    associative array, which can have the following members:
+   </P
+><P
+></P
+><UL
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>function</I
+></TT
+> - this entry is mandatory. It must
+      be a name of a function in the global scope which services the
+      XML-RPC method.
+     </P
+><P
+>&#13;      It is possible to use regular functions, class names with method
+      names and objects with method names. The Examples page of this
+      manual demonstrates the appropriate syntax for all of these approaches.
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>signature</I
+></TT
+> - this entry is an array containg
+      the possible signatures (see <A
+HREF="package.webservices.xml-rpc.api.html#package.webservices.xml-rpc.api.server.signatures"
+>Signatures</A
+>)
+      for the method. If this entry is present then the server will
+      check that the correct number and type of parameters have been
+      sent for this method before dispatching it.
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>docstring</I
+></TT
+> - this entry is a string containing
+      documentation for the method. The documentation may contain HTML
+      markup.
+     </P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.webservices.xml-rpc.api.server.signatures"
+></A
+><H3
+>Method signatures</H3
+><P
+>&#13;    A signature is a description of a method's return type and its
+    parameter types.  A method may have more than one signature.
+   </P
+><P
+>&#13;    Within a server's dispatch map, each method has an array of possible
+    signatures. Each signature is an array of types. The first entry is
+    the return type.
+   </P
+><P
+>&#13;    Let's run through an example.  Imagine you wanted to write a
+    regular PHP function like this:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>function is_8($input, $strict = false) {
+    if ($strict) {
+       return ($input === 8);
+    } else {
+       return ($input == 8);
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    To get it to work in an XML_RPC server, you would have to
+    write it like this:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>function is_8($params) {
+    // This parameter is required.
+    $param = $params-&#62;getParam(0);
+    if (!XML_RPC_Value::isValue($param)) {
+        return $param;
+    }
+    $input = $param-&#62;scalarval();
+
+    // This parameter is optional.
+    $param = $params-&#62;getParam(1);
+    if (!XML_RPC_Value::isValue($param)) {
+        $strict = false;
+    } else {
+        $strict = $param-&#62;scalarval();
+    }
+
+    if ($strict) {
+       $answer = ($input === 8);
+    } else {
+       $answer = ($input == 8);
+    }
+
+    $val = new XML_RPC_Value($answer, 'boolean');
+    return new XML_RPC_Response($val);
+}</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    Here is a signature covering all of the
+    possible permutations:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>array(
+    array('boolean', 'int'),
+    array('boolean', 'int', 'boolean'),
+    array('boolean', 'string'),
+    array('boolean', 'string', 'boolean'),
+)</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    The server could be instatiated like this:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$server = new XML_RPC_Server(
+    array(
+        'isan8' =&#62;
+            array(
+                'function' =&#62; 'is_8',
+                'signature' =&#62;
+                     array(
+                         array('boolean', 'int'),
+                         array('boolean', 'int', 'boolean'),
+                         array('boolean', 'string'),
+                         array('boolean', 'string', 'boolean'),
+                     ),
+                'docstring' =&#62; 'Is the value an 8?'
+            ),
+    ),
+    1,
+    0
+);</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    The strings representing the XML-RPC types have been
+    encoded as global variables for your convenience:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$GLOBALS['XML_RPC_I4']       = 'i4';
+$GLOBALS['XML_RPC_Int']      = 'int';
+$GLOBALS['XML_RPC_Boolean']  = 'boolean';
+$GLOBALS['XML_RPC_Double']   = 'double';
+$GLOBALS['XML_RPC_String']   = 'string';
+$GLOBALS['XML_RPC_DateTime'] = 'dateTime.iso8601';
+$GLOBALS['XML_RPC_Base64']   = 'base64';
+$GLOBALS['XML_RPC_Array']    = 'array';
+$GLOBALS['XML_RPC_Struct']   = 'struct';</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN101883"
+></A
+><H3
+>Delaying the server response</H3
+><P
+>&#13;    You may want to construct the server, but for some reason not
+    fulfill the request immediately (security verification, for
+    instance). If you pass the constructor a second argument of
+    <TT
+CLASS="literal"
+>0</TT
+> this will have the desired effect. You can then
+    use the <B
+CLASS="function"
+>service()</B
+> method of the server class to
+    service the request. For example:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$s = new XML_RPC_Server($myDispMap, 0);
+
+// ... some code that does other stuff here
+
+$s-&#62;service();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN101889"
+></A
+><H3
+>Fault reporting</H3
+><P
+>&#13;    Fault codes for your servers should start at the value indicated by
+    the global <TT
+CLASS="literal"
+>$xmlrpcerruser</TT
+> + 1.
+   </P
+><P
+>&#13;    Standard errors returned by the server include:
+   </P
+><P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+><TT
+CLASS="literal"
+>1</TT
+> <SPAN
+CLASS="phrase"
+><SPAN
+CLASS="phrase"
+>Unknown method</SPAN
+></SPAN
+></DT
+><DD
+><P
+>&#13;       Returned if the server was asked to dispatch a method it didn't
+       know about
+      </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>2</TT
+> <SPAN
+CLASS="phrase"
+><SPAN
+CLASS="phrase"
+>Invalid return payload</SPAN
+></SPAN
+></DT
+><DD
+><P
+>&#13;       This error is actually generated by the client, not server, code,
+       but signifies that a server returned something it couldn't
+       understand.
+      </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>3</TT
+> <SPAN
+CLASS="phrase"
+><SPAN
+CLASS="phrase"
+>Incorrect parameters</SPAN
+></SPAN
+></DT
+><DD
+><P
+>&#13;       This error is generated when the server has signature(s) defined
+       for a method, and the parameters passed by the client do not
+       match any of signatures.
+      </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>4</TT
+> <SPAN
+CLASS="phrase"
+><SPAN
+CLASS="phrase"
+>Can't introspect: method
+      unknown</SPAN
+></SPAN
+></DT
+><DD
+><P
+>&#13;       This error is generated by the builtin
+       <B
+CLASS="function"
+>system.*()</B
+> methods when any kind of
+       introspection is attempted on a method undefined by the server.
+      </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>5</TT
+> <SPAN
+CLASS="phrase"
+><SPAN
+CLASS="phrase"
+>Didn't receive 200 OK from remote
+      server</SPAN
+></SPAN
+></DT
+><DD
+><P
+>&#13;       This error is generated by the client when a remote server
+       doesn't return HTTP/1.1 200 OK in response to a request. A more
+       detailed error report is added onto the end of the phrase above.
+      </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>100-</TT
+> <SPAN
+CLASS="phrase"
+><SPAN
+CLASS="phrase"
+>XML parse errors</SPAN
+></SPAN
+></DT
+><DD
+><P
+>&#13;       Returns 100 plus the XML parser error code for the fault that
+       occurred.  The <TT
+CLASS="varname"
+>faultString</TT
+> returned explains
+       where the parse error was in the incoming XML stream.
+      </P
+></DD
+></DL
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc.api.dump"
+></A
+><H2
+>XML_RPC_Dump</H2
+><P
+>&#13;   This class generates string representations of
+   the data in XML_RPC_Value objects.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc.api.other"
+></A
+><H2
+>Other Functions</H2
+><P
+>&#13;   Below are functions that lay outside the various XML_RPC objects.
+  </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN101939"
+></A
+><H3
+><B
+CLASS="function"
+>XML_RPC_encode()</B
+></H3
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101942"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$rpc = XML_RPC_encode</CODE
+> ($php_val)</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;    Takes native php types and encodes them into XML_RPC
+    PHP object format.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN101948"
+></A
+><H3
+><B
+CLASS="function"
+>XML_RPC_decode()</B
+></H3
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN101951"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>$values = XML_RPC_decode</CODE
+> ($XML_RPC_val)</CODE
+></P
+><P
+></P
+></DIV
+><P
+>&#13;    Takes a message in PHP XML_RPC object format and
+    translates it into native PHP types.
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.webservices.xml-rpc.examples.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.webservices.xml-rpc2.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Examples</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.webservices.xml-rpc.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>XML_RPC2</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

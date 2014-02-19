@@ -1,0 +1,557 @@
+<HTML
+><HEAD
+><TITLE
+>Options</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_Beautifier"
+HREF="package.xml.xml-beautifier.html"><LINK
+REL="PREVIOUS"
+TITLE="Example"
+HREF="package.xml.xml-beautifier.example.html"><LINK
+REL="NEXT"
+TITLE="XML_Beautifier::XML_Beautifier"
+HREF="package.xml.xml-beautifier.xml-beautifier.xml-beautifier.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-beautifier.example.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-beautifier.xml-beautifier.xml-beautifier.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.xml.xml-beautifier.options">Options</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN102216"
+></A
+>Options&nbsp;--&nbsp;List of all XML_Beautifier options</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-beautifier.options.refsect1"
+></A
+><H2
+>Introduction to options</H2
+><P
+>&#13;    Options let you influence the beautifiying process. They
+    are passed to the renderer and thus, you have to check, whether
+    the renderer you are using supports the options you want to use.
+   </P
+><P
+>&#13;    As there currently is only one renderer (Plain) available,
+    you should not worry about this too much.
+   </P
+><P
+>&#13;    Options can be passed as an associative array to the
+    <A
+HREF="package.xml.xml-beautifier.xml-beautifier.xml-beautifier.html"
+>constructor of XML_Beautifier</A
+>.
+    You may also use <A
+HREF="package.xml.xml-beautifier.xml-beautifier.setoption.html"
+><B
+CLASS="function"
+>setOption()</B
+></A
+>,
+    or <A
+HREF="package.xml.xml-beautifier.xml-beautifier.setoption.html"
+><B
+CLASS="function"
+>setOptions()</B
+></A
+> to set
+    one or more options after the instance of XML_Beautifier has been created.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-beautifier.options.refsect2"
+></A
+><H2
+>All available options</H2
+><P
+>&#13;    Here is a list of all options supported by XML_Beautifier.
+   </P
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN102233"><P
+><B
+>Table 61-1. XML_Beautifier options</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Option</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Possible values</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Default</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>removeLineBreaks</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> or <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Sets, whether linebreaks should be stripped from cdata sections</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>indent</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>any string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>"    " (4 spaces)</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The string passed to this option will be used to indent the tags in one level.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>linebreak</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>any string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>"\n"</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The string passed to this option will be used for linebreaks You should use "\n" or "\r\n".</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>caseFolding</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> or <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Disable or enable case folding for tags and attributes</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>caseFoldingTo</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>"uppercase" or "lowercase"</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>"uppercase"</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Can be used, if <TT
+CLASS="parameter"
+><I
+>caseFolding</I
+></TT
+> is set to <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> to define whether tags and attributes should be converted to upper- or lowercase</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>normalizeComments</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> or <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>If set to true, all adjacent whitespaces in an XML comment will be converted to one space. This will convert comments with more than one line to a comment with one line.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>maxCommentLine</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>integer</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>-1</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Maximum length of comment line. If a comment exceeds this limit, it will be wrapped automatically. If set to -1 the line length is unlimited.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>multilineTags</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> or <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>If set to true, a linebreak will be added inside the tags after each attribute and attributes will be indeted.</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-beautifier.options.example1"
+></A
+><H2
+>Options example</H2
+><P
+>&#13;    The following example shows how to set options for XML_Beautifier.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN102300"><P
+><B
+>Example 61-1. Using setOptions() and setOption()</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "XML/Beautifier.php";
+$options = array(
+                    "caseFolding"       =&#62; true,
+                    "caseFoldingTo"     =&#62; "uppercase",
+                    "normalizeComments" =&#62; true
+                );
+
+$fmt = new XML_Beautifier($options);
+$result = $fmt-&#62;formatFile('originalFile.xml', 'outputFile.xml');</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-beautifier.options.example2"
+></A
+><H2
+>Options example setting options at a later point</H2
+><P
+>&#13;    The following example shows how to set options for XML_Beautifier,
+    if the instance already has been created.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN102306"><P
+><B
+>Example 61-2. XML_Beautifier options</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "XML/Beautifier.php";
+$fmt = new XML_Beautifier();
+$options = array(
+                    "caseFolding"       =&#62; true,
+                    "caseFoldingTo"     =&#62; "uppercase",
+                    "normalizeComments" =&#62; true
+                );
+
+$fmt-&#62;setOptions($options);
+$fmt-&#62;setOption("indent", "\t");
+$result = $fmt-&#62;formatFile('originalFile.xml', 'outputFile.xml');</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-beautifier.example.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-beautifier.xml-beautifier.xml-beautifier.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Example</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.xml-beautifier.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>XML_Beautifier::XML_Beautifier()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

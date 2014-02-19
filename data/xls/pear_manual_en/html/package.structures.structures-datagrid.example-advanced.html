@@ -1,0 +1,313 @@
+<HTML
+><HEAD
+><TITLE
+>Example - Complex</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Introduction and Features"
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.intro-and-features"><LINK
+REL="PREVIOUS"
+TITLE="Example - Quick"
+HREF="package.structures.structures-datagrid.example-simple.html"><LINK
+REL="NEXT"
+TITLE="Custom DataSources"
+HREF="package.structures.structures-datagrid.custom-datasources.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.example-simple.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.custom-datasources.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.structures.structures-datagrid.example-advanced">Example - Complex</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN93893"
+></A
+>Example - Complex&nbsp;--&nbsp;How to build a datagrid using many of the features</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.example-advanced.desc"
+></A
+><H2
+>Description</H2
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.structures.structures-datagrid.example-advanced.desc.bind"
+></A
+><H3
+>An interface to a User Management System</H3
+><P
+>&#13;     This example will show you how to create an interface to a User Management
+     System using the DB_DataObject package to handle the database aspects of
+     this example.
+   </P
+><P
+><SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Warning:</I
+></SPAN
+> this example makes use of new features that will
+   be available in the upcoming Structures_DataGrid 0.7 release. In the
+   meantime, please use the CVS version.</P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN93903"><P
+><B
+>Example 55-1. User Management System Example</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'Structures/DataGrid.php';
+require_once 'HTML/Table.php';
+require_once 'myclasses/User.php';
+
+// Instantiate the DataObject; that's our DataSource container
+$user = new User_DataObject();
+
+// Create the DataGrid, and bind the DataSource container 
+$datagrid =&#38; new Structures_DataGrid(20); // Display 20 records per page
+$test = $datagrid-&#62;bind($user);
+if (PEAR::isError($test)) {
+    echo $test-&#62;getMessage(); 
+}
+
+// Specify how the DataGrid should be sorted by default
+$datagrid-&#62;setDefaultSort(array('lname' =&#62; 'ASC'));
+
+// Define columns
+$datagrid-&#62;addColumn(new Structures_DataGrid_Column(null, null, null, array('width' =&#62; '10'), null, 'printCheckbox()'));
+$datagrid-&#62;addColumn(new Structures_DataGrid_Column('Name', null, 'lname', array('width' =&#62; '40%'), null, 'printFullName()'));
+$datagrid-&#62;addColumn(new Structures_DataGrid_Column('Username', 'username', 'username', array('width' =&#62; '20%')));
+$datagrid-&#62;addColumn(new Structures_DataGrid_Column('Role', null, null, array('width' =&#62; '20%'), null, 'printRoleSelector()'));
+$datagrid-&#62;addColumn(new Structures_DataGrid_Column('Edit', null, null, array('width' =&#62; '20%'), null, 'printEditLink()'));
+
+// Define the Look and Feel
+$tableAttribs = array(
+    'width' =&#62; '100%',
+    'cellspacing' =&#62; '0',
+    'cellpadding' =&#62; '4',
+    'class' =&#62; 'datagrid'
+);
+$headerAttribs = array(
+    'bgcolor' =&#62; '#CCCCCC'
+);
+$evenRowAttribs = array(
+    'bgcolor' =&#62; '#FFFFFF'
+);
+$oddRowAttribs = array(
+    'bgcolor' =&#62; '#EEEEEE'
+);
+$rendererOptions = array(
+    'sortIconASC' =&#62; '&#38;uArr;',
+    'sortIconDESC' =&#62; '&#38;dArr;'
+);
+
+// Create a HTML_Table
+$table = new HTML_Table($tableAttribs);
+$tableHeader =&#38; $table-&#62;getHeader();
+$tableBody =&#38; $table-&#62;getBody();
+
+// Ask the DataGrid to fill the HTML_Table with data, using rendering options
+$test = $datagrid-&#62;fill($table, $rendererOptions);
+if (PEAR::isError($test)) {
+    echo $test-&#62;getMessage(); 
+}
+
+
+// Set attributes for the header row
+$tableHeader-&#62;setRowAttributes(0, $headerAttribs);
+
+// Set alternating row attributes
+$tableBody-&#62;altRowAttributes(0, $evenRowAttribs, $oddRowAttribs, true);
+
+// Output table and paging links
+echo $table-&#62;toHtml();
+
+// Display paging links
+$test = $datagrid-&#62;render(DATAGRID_RENDER_PAGER);
+if (PEAR::isError($test)) {
+    echo $test-&#62;getMessage(); 
+}
+
+
+function printCheckbox($params)
+{
+    extract($params);
+    return '&#60;input type="checkbox" name="idList[]" value="' . $record['id'] . '"&#62;';
+}
+function printFullName($params)
+{
+    extract($params);
+    return $record['fname'] . ' ' . $record['lname'];
+}
+function printRoleSelector($params)
+{
+    global $roleList;
+
+    extract($params);
+    
+    $html = '&#60;select name="role_id"&#62;';
+    foreach ($roleList as $roleId =&#62; $roleName) {
+        $html .= "&#60;option value=\"$roleId\"&#62;$roleName&#60;/option&#62;\n";
+    }
+    $html .= '&#60;/select&#62;';
+    
+    return $html;
+}
+function printEditLink($params)
+{
+    extract($params);
+    return '&#60;a href="edit.php?id=' . $record['id'] . '"&#62;Edit&#60;/a&#62;';
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.example-simple.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.custom-datasources.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Example - Quick</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.intro-and-features"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Custom DataSources</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

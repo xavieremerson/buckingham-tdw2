@@ -1,0 +1,413 @@
+<HTML
+><HEAD
+><TITLE
+>Mail_Queue::put</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Mail_Queue"
+HREF="package.default.mail-queue.html"><LINK
+REL="PREVIOUS"
+TITLE="Mail_Queue::get"
+HREF="package.mail.mail-queue.mail-queue.get.html"><LINK
+REL="NEXT"
+TITLE="Mail_Queue::sendMail"
+HREF="package.mail.mail-queue.mail-queue.sendmail.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-queue.mail-queue.get.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-queue.mail-queue.sendmail.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.mail.mail-queue.mail-queue.put"><B
+CLASS="function"
+>Mail_Queue::put()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN81542"
+></A
+><B
+CLASS="function"
+>Mail_Queue::put()</B
+>&nbsp;--&nbsp;Put a new mail into queue.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN81546"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN81547"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Mail/Queue.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int <B
+CLASS="function"
+>Mail_Queue::put</B
+></CODE
+> (string $from, string $to, array $hdrs, array $body [, integer $sec_to_send = 0 [, bool $delete_after_send = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> [, integer $id_user = MAILQUEUE_SYSTEM]]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.put.desc"
+></A
+><H2
+>Description</H2
+><P
+>Injects a new mail into the mail queue.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.put.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$from</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Sender e-mail address.
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$to</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Recipient e-mail address.
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array
+        <TT
+CLASS="parameter"
+><I
+>$hdrs</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Array of mail headers as returned by Mail_Mime::headers().
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array
+        <TT
+CLASS="parameter"
+><I
+>$body</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Mail body array as returned by Mail_Mime::get().
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>mixed
+        <TT
+CLASS="parameter"
+><I
+>$sec_to_send</I
+></TT
+></DT
+><DD
+><P
+>&#13;          Optional - Seconds to pass before delivery is attempted.
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>mixed
+        <TT
+CLASS="parameter"
+><I
+>$delete_after_send</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Optional - Whether or not to delete the mail after delivery.
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>integer
+        <TT
+CLASS="parameter"
+><I
+>$id_user</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Optional - user ID. Stored in queue and readable from mail body object with getIdUser() at a later point.
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.put.returns"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>returns</I
+></SPAN
+> ID of the record where this mail has been put or Mail_Queue_Error on error
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.put.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> no exceptions thrown
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.put.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.mail.mail-queue.mail-queue.get.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.mail.mail-queue.mail-queue.sendmail.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>Mail_Queue::get()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.default.mail-queue.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Mail_Queue::sendMail()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

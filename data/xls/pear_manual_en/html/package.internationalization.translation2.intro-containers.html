@@ -1,0 +1,494 @@
+<HTML
+><HEAD
+><TITLE
+>Containers Overview</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Translation2"
+HREF="package.internationalization.translation2.html"><LINK
+REL="PREVIOUS"
+TITLE="Admin Introduction"
+HREF="package.internationalization.translation2.introadmin.html"><LINK
+REL="NEXT"
+TITLE="constructor Translation2::Translation2"
+HREF="package.internationalization.translation2.translation2.translation2.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.internationalization.translation2.introadmin.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.internationalization.translation2.translation2.translation2.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.internationalization.translation2.intro-containers">Containers Overview</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN78373"
+></A
+>Containers Overview&nbsp;--&nbsp;Overview of the different <B
+CLASS="classname"
+>Translation2</B
+> containers</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.translation2.intro-containers.summary"
+></A
+><H2
+>Summary</H2
+><P
+>&#13;    <B
+CLASS="classname"
+>Translation2</B
+> supports different storage drivers;
+    this page is meant to highlight the differences among them.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.translation2.intro-containers.db"
+></A
+><H2
+>&#13;    <B
+CLASS="classname"
+>PEAR::DB</B
+>, <B
+CLASS="classname"
+>PEAR::MDB</B
+>,
+    <B
+CLASS="classname"
+>PEAR::MDB2</B
+>
+   </H2
+><P
+>&#13;    <B
+CLASS="classname"
+>Translation2</B
+> can work with any of these database abstraction
+    layers, just pass the appropriate connection options.
+    These three containers are absolutely identical in what they do and in how they work
+    (wrt <B
+CLASS="classname"
+>Translation2</B
+>, of course).
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// connection options
+$dbinfo = array(
+    'hostspec' =&#62; 'host',
+    'database' =&#62; 'dbname',
+    'phptype'  =&#62; 'mysql',
+    'username' =&#62; 'user',
+    'password' =&#62; 'pwd'
+);
+//select the preferred driver
+$driver = 'MDB2'; //switch to 'DB' or 'MDB' as needed
+
+require_once 'Translation2.php';
+$tr =&#38; Translation2::factory($driver, $dbinfo, $params);</PRE
+></TD
+></TR
+></TABLE
+>
+     If your table definition is different from the default one, you need to
+     specify it in the
+     <A
+HREF="package.internationalization.translation2.intro.html#package.internationalization.translation2.intro.example1"
+><TT
+CLASS="parameter"
+><I
+>$params</I
+></TT
+></A
+>
+     array.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.translation2.intro-containers.dataobjectsimple"
+></A
+><H2
+><B
+CLASS="classname"
+>DB_DataObject</B
+></H2
+><P
+>&#13;     The <TT
+CLASS="parameter"
+><I
+>dataobjectsimple</I
+></TT
+> container is the natural choice
+     for those using
+     <A
+HREF="package.database.db-dataobject.html"
+><B
+CLASS="classname"
+>DB_DataObject</B
+></A
+>,
+     as it is tightly tied to the DAO. This storage driver can use all databases supported by
+     the PEAR::<A
+HREF="package.database.html"
+><B
+CLASS="classname"
+>DB</B
+></A
+>
+     abstraction layer to fetch data.
+    </P
+><P
+>&#13;     For this container, you can't specify a custom table definition,
+     since this feature is not supported yet. You must create a table
+     with the following structure:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>// meta data etc. not supported
+table: translations
+id          // not null primary key autoincrement..
+string_id   // translation id
+page        // indexed varchar eg. (mytemplate.html)
+lang        // index varchar (eg. en|fr|.....)
+translation // the translated value in language lang.</PRE
+></TD
+></TR
+></TABLE
+>
+
+     Here's the MySQL query that can be used to create the table:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>create table translations (
+  id int(11) auto_increment not null primary key,
+  string_id int(11), page varchar(128),
+  lang varchar(10), translation text
+);
+alter table translations add index page (page);
+alter table translations add index lang (lang);
+alter table translations add index string_id (string_id);</PRE
+></TD
+></TR
+></TABLE
+>
+     then just run the dataobjects <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>createtables</I
+></SPAN
+> script.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.translation2.intro-containers.gettext"
+></A
+><H2
+>Gettext</H2
+><P
+>&#13;     This is a wrapper around the gettext base functions, and thanks to
+     <B
+CLASS="classname"
+>File_Gettext</B
+> you can retrieve an entire domain
+     or write to an existing/new domain without calling the command line
+     compiler utility.
+    </P
+><P
+>&#13;     The gettext container requires
+     <A
+HREF="http://pear.php.net/package/File_Gettext/"
+TARGET="_top"
+>PEAR::File_Gettext</A
+>
+     and <A
+HREF="http://pear.php.net/package/I18Nv2/"
+TARGET="_top"
+>PEAR::I18Nv2</A
+>
+     0.9.1 or newer, make sure you have them installed.
+    </P
+><P
+>&#13;     The construction parameters are a bit different from the db ones.
+     To make things as simple as possible, the domain definitions and the
+     available language list are read from two INI files.
+    </P
+><P
+>&#13;     langs.ini example:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>; If one does not specify the source encoding, ISO-8859-1 is assumed
+; Beware that gettext can choke on bad encodings!
+
+[en]
+name = English
+encoding = iso-8859-1
+
+[de]
+name = Deutsch
+encoding = iso-8859-1
+
+[it]
+name = italiano
+encoding = iso-8859-1</PRE
+></TD
+></TR
+></TABLE
+>
+
+     domains.ini example:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>messages = /path/to/locale
+2nddomain = /path/to/locale
+3rddomain = /path/to/locale</PRE
+></TD
+></TR
+></TABLE
+>
+
+    </P
+><P
+>&#13;     Sample code to use <B
+CLASS="classname"
+>Translation2</B
+> with the gettext container:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Translation2.php';
+
+$params = array(
+	'prefetch'          =&#62; false,
+    'langs_avail_file'  =&#62; 'path/to/langs.ini',
+    'domains_path_file' =&#62; 'path/to/domains.ini',
+    'default_domain'    =&#62; 'messages',
+    //'file_type'       =&#62; 'po',
+);
+
+// Better set prefetch to FALSE for the gettext container, so we don't need 
+// to read in the whole MO file with File_Gettext on every request.
+$tr =&#38; Translation2::factory('gettext', $params);
+
+$tr-&#62;setLang('en');
+
+// Note that, if there is no translation available for a string, the gettext 
+// container will return the string ID!  This behaviour emulates native gettext.
+echo $tr-&#62;get('mystring');
+
+print_r($tr-&#62;getPage('3rddomain'));</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.translation2.intro-containers.xml"
+></A
+><H2
+>XML</H2
+><P
+>&#13;    The XML container requires <A
+HREF="http://pear.php.net/package/XML_Serializer/"
+TARGET="_top"
+>&#13;    PEAR::XML_Serializer</A
+> 0.13.0 or newer, make sure you have it installed.
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$driver = 'XML';
+$options = array(
+    'filename'         =&#62; 'i18n.xml',
+    'save_on_shutdown' =&#62; true, //set to FALSE to save in real time
+);
+require_once 'Translation2.php';
+$tr =&#38; Translation2::factory($driver, $options);</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.internationalization.translation2.introadmin.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.internationalization.translation2.translation2.translation2.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Admin Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.internationalization.translation2.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>constructor <B
+CLASS="function"
+>Translation2::Translation2()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

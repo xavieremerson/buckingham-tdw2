@@ -1,0 +1,431 @@
+<HTML
+><HEAD
+><TITLE
+>DB</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Database"
+HREF="package.database.html"><LINK
+REL="PREVIOUS"
+TITLE="Database"
+HREF="package.database.html"><LINK
+REL="NEXT"
+TITLE="Introduction - DSN"
+HREF="package.database.db.intro-dsn.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 33. Database</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.intro-dsn.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.database.db">DB</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.database.db.intro-dsn.html"
+>Introduction - DSN</A
+>&nbsp;--&nbsp;The Data Source Name</DT
+><DT
+><A
+HREF="package.database.db.intro-connect.html"
+>Introduction - Connect</A
+>&nbsp;--&nbsp;Connecting and disconnecting a database</DT
+><DT
+><A
+HREF="package.database.db.intro-query.html"
+>Introduction - Query</A
+>&nbsp;--&nbsp;Performing queries</DT
+><DT
+><A
+HREF="package.database.db.intro-fetch.html"
+>Introduction - Results</A
+>&nbsp;--&nbsp;Obtaining data from query results</DT
+><DT
+><A
+HREF="package.database.db.intro-execute.html"
+>Introduction - Prepare &#38; Execute</A
+>&nbsp;--&nbsp;Prepare and execute SQL statements</DT
+><DT
+><A
+HREF="package.database.db.intro-auto.html"
+>Introduction - autoPrepare &#38; autoExecute</A
+>&nbsp;--&nbsp;Automatically prepare and execute SQL statements</DT
+><DT
+><A
+HREF="package.database.db.intro-portability.html"
+>Introduction - Portability</A
+>&nbsp;--&nbsp;Database portability features</DT
+><DT
+><A
+HREF="package.database.db.intro-sequences.html"
+>Introduction - Sequences</A
+>&nbsp;--&nbsp;Sequences and auto-incrementing</DT
+><DT
+><A
+HREF="package.database.db.db.html"
+><B
+CLASS="classname"
+>DB</B
+></A
+>&nbsp;--&nbsp;Main class</DT
+><DT
+><A
+HREF="package.database.db.db.connect.html"
+>DB::connect()</A
+>&nbsp;--&nbsp;Connects to a database</DT
+><DT
+><A
+HREF="package.database.db.db.iserror.html"
+>DB::isError()</A
+>&nbsp;--&nbsp;Determines if a variable is a DB_Error object</DT
+><DT
+><A
+HREF="package.database.db.db-common.html"
+><B
+CLASS="classname"
+>DB_common</B
+></A
+>&nbsp;--&nbsp;Interface for database access</DT
+><DT
+><A
+HREF="package.database.db.db-common.affectedrows.html"
+>DB_common::affectedRows()</A
+>&nbsp;--&nbsp;Finds number of rows affected by a data changing query</DT
+><DT
+><A
+HREF="package.database.db.db-common.autocommit.html"
+>DB_common::autoCommit()</A
+>&nbsp;--&nbsp;Turns auto-commit on or off</DT
+><DT
+><A
+HREF="package.database.db.db-common.autoexecute.html"
+>DB_common::autoExecute()</A
+>&nbsp;--&nbsp;
+   Prepares and runs an INSERT or UPDATE query
+   based on variables you supply
+  </DT
+><DT
+><A
+HREF="package.database.db.db-common.autoprepare.html"
+>DB_common::autoPrepare()</A
+>&nbsp;--&nbsp;
+   Prepares an INSERT or UPDATE statement
+   based on variables you supply
+  </DT
+><DT
+><A
+HREF="package.database.db.db-common.commit.html"
+>DB_common::commit()</A
+>&nbsp;--&nbsp;Commits the current transaction</DT
+><DT
+><A
+HREF="package.database.db.db-common.createsequence.html"
+>DB_common::createSequence()</A
+>&nbsp;--&nbsp;Creates a new sequence</DT
+><DT
+><A
+HREF="package.database.db.db-common.disconnect.html"
+>DB_common::disconnect()</A
+>&nbsp;--&nbsp;Disconnects from a database</DT
+><DT
+><A
+HREF="package.database.db.db-common.dropsequence.html"
+>DB_common::dropSequence()</A
+>&nbsp;--&nbsp;Deletes a sequence</DT
+><DT
+><A
+HREF="package.database.db.db-common.escapesimple.html"
+>DB_common::escapeSimple()</A
+>&nbsp;--&nbsp;Escapes a string according to the current DBMS's standards</DT
+><DT
+><A
+HREF="package.database.db.db-common.execute.html"
+>DB_common::execute()</A
+>&nbsp;--&nbsp;Executes a prepared SQL statment</DT
+><DT
+><A
+HREF="package.database.db.db-common.executemultiple.html"
+>DB_common::executeMultiple()</A
+>&nbsp;--&nbsp;Runs a prepared SQL statment for each element of an array</DT
+><DT
+><A
+HREF="package.database.db.db-common.freeprepared.html"
+>DB_common::freePrepared()</A
+>&nbsp;--&nbsp;Releases resources associated with a prepared SQL statement</DT
+><DT
+><A
+HREF="package.database.db.db-common.getall.html"
+>DB_common::getAll()</A
+>&nbsp;--&nbsp;Runs a query and returns all the data as an array</DT
+><DT
+><A
+HREF="package.database.db.db-common.getassoc.html"
+>DB_common::getAssoc()</A
+>&nbsp;--&nbsp;Runs a query and returns the data as an array</DT
+><DT
+><A
+HREF="package.database.db.db-common.getcol.html"
+>DB_common::getCol()</A
+>&nbsp;--&nbsp;Runs a query and returns the data from a single column</DT
+><DT
+><A
+HREF="package.database.db.db-common.getlistof.html"
+>DB_common::getListOf()</A
+>&nbsp;--&nbsp;Views database system information</DT
+><DT
+><A
+HREF="package.database.db.db-common.getone.html"
+>DB_common::getOne()</A
+>&nbsp;--&nbsp;Runs a query and returns the first column of the first row</DT
+><DT
+><A
+HREF="package.database.db.db-common.getoption.html"
+>DB_common::getOption()</A
+>&nbsp;--&nbsp;
+   Determines current state of a PEAR DB configuration option
+  </DT
+><DT
+><A
+HREF="package.database.db.db-common.getrow.html"
+>DB_common::getRow()</A
+>&nbsp;--&nbsp;Runs a query and returns the first row</DT
+><DT
+><A
+HREF="package.database.db.db-common.limitquery.html"
+>DB_common::limitQuery()</A
+>&nbsp;--&nbsp;Sends a LIMIT query to the database</DT
+><DT
+><A
+HREF="package.database.db.db-common.nextid.html"
+>DB_common::nextId()</A
+>&nbsp;--&nbsp;Returns the next number from a sequence</DT
+><DT
+><A
+HREF="package.database.db.db-common.prepare.html"
+>DB_common::prepare()</A
+>&nbsp;--&nbsp;Prepares a SQL statement for later execution</DT
+><DT
+><A
+HREF="package.database.db.db-common.provides.html"
+>DB_common::provides()</A
+>&nbsp;--&nbsp;Checks if the DBMS supports a particular feature</DT
+><DT
+><A
+HREF="package.database.db.db-common.query.html"
+>DB_common::query()</A
+>&nbsp;--&nbsp;Sends a query to the database</DT
+><DT
+><A
+HREF="package.database.db.db-common.quote.html"
+>DB_common::quote()</A
+>&nbsp;--&nbsp;DEPRECATED: Quotes a string</DT
+><DT
+><A
+HREF="package.database.db.db-common.quoteidentifier.html"
+>DB_common::quoteIdentifier()</A
+>&nbsp;--&nbsp;Formats a string so it can be safely used as an identifier</DT
+><DT
+><A
+HREF="package.database.db.db-common.quotesmart.html"
+>DB_common::quoteSmart()</A
+>&nbsp;--&nbsp;Formats input so it can be safely used as a literal</DT
+><DT
+><A
+HREF="package.database.db.db-common.rollback.html"
+>DB_common::rollback()</A
+>&nbsp;--&nbsp;Rolls back the current transaction</DT
+><DT
+><A
+HREF="package.database.db.db-common.setfetchmode.html"
+>DB_common::setFetchMode()</A
+>&nbsp;--&nbsp;Sets the default fetch mode</DT
+><DT
+><A
+HREF="package.database.db.db-common.setoption.html"
+>DB_common::setOption()</A
+>&nbsp;--&nbsp;Sets run-time configuration options for PEAR DB</DT
+><DT
+><A
+HREF="package.database.db.db-common.tableinfo.html"
+>DB_common::tableInfo()</A
+>&nbsp;--&nbsp;Gets info about columns in a table or a query result</DT
+><DT
+><A
+HREF="package.database.db.db-result.html"
+><B
+CLASS="classname"
+>DB_result</B
+></A
+>&nbsp;--&nbsp;DB result set</DT
+><DT
+><A
+HREF="package.database.db.db-result.fetchinto.html"
+>DB_result::fetchInto()</A
+>&nbsp;--&nbsp;Fetches a row of a result set into a variable</DT
+><DT
+><A
+HREF="package.database.db.db-result.fetchrow.html"
+>DB_result::fetchRow()</A
+>&nbsp;--&nbsp;Fetches a row from a result set</DT
+><DT
+><A
+HREF="package.database.db.db-result.free.html"
+>DB_result::free()</A
+>&nbsp;--&nbsp;Releases a result set</DT
+><DT
+><A
+HREF="package.database.db.db-result.nextresult.html"
+>DB_result::nextResult()</A
+>&nbsp;--&nbsp;Gets result sets from multiple queries</DT
+><DT
+><A
+HREF="package.database.db.db-result.numcols.html"
+>DB_result::numCols()</A
+>&nbsp;--&nbsp;Gets number of columns in a result set</DT
+><DT
+><A
+HREF="package.database.db.db-result.numrows.html"
+>DB_result::numRows()</A
+>&nbsp;--&nbsp;Gets number of rows in a result set</DT
+><DT
+><A
+HREF="package.database.db.db-error.html"
+><B
+CLASS="classname"
+>DB_Error</B
+></A
+>&nbsp;--&nbsp;DB Error object</DT
+></DL
+></DIV
+><P
+>&#13;  A unified API for accessing SQL databases
+ </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.intro-dsn.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Database</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction - DSN</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

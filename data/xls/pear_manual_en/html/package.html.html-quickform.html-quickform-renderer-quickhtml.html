@@ -1,0 +1,284 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;      HTML_QuickForm_Renderer_QuickHtml
+    </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Template-based renderers"
+HREF="package.html.html-quickform.html#package.html.html-quickform.output.template-renderers"><LINK
+REL="PREVIOUS"
+TITLE="HTML_QuickForm_Renderer_ITStatic::setRequiredTemplate()"
+HREF="package.html.html-quickform.html-quickform-renderer-itstatic.setrequiredtemplate.html"><LINK
+REL="NEXT"
+TITLE="constructor HTML_QuickForm_Renderer_QuickHtml::HTML_QuickForm_Renderer_QuickHtml()"
+HREF="package.html.html-quickform.html-quickform-renderer-quickhtml.html-quickform-renderer-quickhtml.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-itstatic.setrequiredtemplate.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-quickhtml.html-quickform-renderer-quickhtml.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.html-quickform-renderer-quickhtml"><B
+CLASS="classname"
+>HTML_QuickForm_Renderer_QuickHtml</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN65046"
+></A
+>
+      <B
+CLASS="classname"
+>HTML_QuickForm_Renderer_QuickHtml</B
+>
+    &nbsp;--&nbsp;Render form elements into HTML in an easy and flexible manner</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-renderer-quickhtml.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;This renderer has three main distinctives: an easy way to create
+custom-looking forms, the ability to separate the creation of form elements from
+their display, and being able to use QuickForm in widget-based template
+systems.
+    </P
+><P
+>&#13;All of the renderers allow you to create a custom-looking form.  However,
+unlike the default renderer, QuickHtml is solely for creating custom forms
+and has the additional benefits discussed below.
+    </P
+><P
+>&#13;It is often desirable to separate the creation of form elements and their
+accompanying rules from their actual display on a page.  For example, in the
+MVC design pattern it may be useful to create the form elements and their
+rules in the Model classes which control how the submitted data will be saved
+(field lengths, allowed characters, etc.), but leave the rendering of those
+form elements to the View classes which only care about how to make the page
+look a certain way.
+    </P
+><P
+>&#13;A widget is a chunk of re-usable html which can be used with other widgets to
+create a webpage.  Any template system which supports widgets (and nearly all
+do) can be used with QuickHtml.  An example widget may consist of a table with
+reserved places for the form elements.  The form elements would be rendered
+into those places and then the form tags, any remaining form elements (such as
+hidden elements), and any accompanying javascript for validation would be
+wrapped around the table widget.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-renderer-quickhtml.usage"
+></A
+><H2
+>Usage example</H2
+><P
+>&#13;      The following is an example usage of the QuickHtml renderer.  The
+      "template" system we use is just a simple html widget in which the form
+      elements are placed, but it could be replaced with a more complex
+      template system.  A more complex usage example is in 
+      <TT
+CLASS="filename"
+>docs/renderers/QuickHtml_example.php</TT
+>
+      <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN65060"><P
+><B
+>Example 41-1. QuickHtml renderer usage</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'HTML/QuickForm.php';
+require_once 'HTML/QuickForm/Renderer/QuickHtml.php';
+
+// Create form elements and renderer
+$form =&#38; new HTML_QuickForm('tmp_form','POST');
+$renderer =&#38; new HTML_QuickForm_Renderer_QuickHtml();
+// Create a hidden element.  Note how we don't render it explicitly,
+// rather we let QuickHtml render it for us at the beginning of the form.
+$form-&#62;addElement('hidden','tmp_hidden');
+// Create 2 radio elements.  Note how we have to give a value when rendering
+// them since that is the only way to tell them apart.
+$form-&#62;addElement('radio','tmp_radio',null,null,'Y');
+$form-&#62;addElement('radio','tmp_radio',null,null,'N');
+// Create a group with a rule
+$text = array();
+$text[] =&#38; HTML_QuickForm::createElement('text','',null,array('size' =&#62; 3));
+$text[] =&#38; HTML_QuickForm::createElement('text','',null,array('size' =&#62; 4));
+$text[] =&#38; HTML_QuickForm::createElement('text','',null,array('size' =&#62; 3));
+$form-&#62;addGroup($text, 'tmp_phone', null, '-');
+$form-&#62;addRule('tmp_phone','Phone number cannot be empty.','required',null,'client');
+
+// Do the magic of creating the form.  NOTE: order is important here: this must 
+// be called after creating the form elements, but before rendering them.
+$form-&#62;accept($renderer);
+
+// Create a very basic template for our form
+$html_template = '
+&#60;div style="text-align: center; font-weight: bold;"&#62;QuickHtml - Basic Example&#60;/div&#62;
+&#60;div style="text-align: center; background-color: #ccc; margin: 1px;"&#62;Phone: %phoneNumber%&#60;/div&#62;
+&#60;div style="text-align: left; background-color: #ccc; margin: 1px;"&#62;Yes: %radioElementYes% No: %radioElementNo%&#60;/div&#62;';
+
+// Interpolate the form elements into our template
+$html_template = str_replace('%phoneNumber%', $renderer-&#62;elementToHtml('tmp_phone'), $html_template);
+$html_template = str_replace('%radioElementYes%', $renderer-&#62;elementToHtml('tmp_radio', 'Y'), $html_template);
+$html_template = str_replace('%radioElementNo%', $renderer-&#62;elementToHtml('tmp_radio', 'N'), $html_template);
+
+// The form tags, javascript, and hidden element will be wrapped around
+// our html template
+echo $renderer-&#62;toHtml($html_template);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-itstatic.setrequiredtemplate.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-quickhtml.html-quickform-renderer-quickhtml.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_QuickForm_Renderer_ITStatic::setRequiredTemplate()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.output.template-renderers"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>constructor HTML_QuickForm_Renderer_QuickHtml::HTML_QuickForm_Renderer_QuickHtml()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,64 @@
+<HTML>
+<HEAD>
+<Title>Built-In Symbols</Title>
+<link type='text/css' rel='Stylesheet' href="maxchartapi.css" />
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 5.0 (PHP Edition)</p>
+<p class="heading1">Built-In Symbols</p>
+<hr class="separator">
+<div class="content">
+<img src="images/builtinsymbols.png">
+<br><br>
+This example demonstrates the built-in symbols supported by ChartDirector.
+</div>
+<p class="heading1a">Source Code Listing</p>
+<div class="content">
+<b>[File: phpdemo/builtinsymbols.php]</b>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc"><pre>&lt;?php
+require_once("../lib/phpchartdir.php");
+
+# Some ChartDirector built-in symbols
+$symbols = array(CircleShape, GlassSphereShape, GlassSphere2Shape, SolidSphereShape,
+    SquareShape, DiamondShape, TriangleShape, RightTriangleShape, LeftTriangleShape,
+    InvertedTriangleShape, StarShape(3), StarShape(4), StarShape(5), StarShape(6),
+    StarShape(7), StarShape(8), StarShape(9), StarShape(10), PolygonShape(5),
+    Polygon2Shape(5), PolygonShape(6), Polygon2Shape(6), CrossShape(0.1), CrossShape(
+    0.2), CrossShape(0.3), CrossShape(0.4), CrossShape(0.5), CrossShape(0.6),
+    CrossShape(0.7), Cross2Shape(0.1), Cross2Shape(0.2), Cross2Shape(0.3),
+    Cross2Shape(0.4), Cross2Shape(0.5), Cross2Shape(0.6), Cross2Shape(0.7));
+
+# Create a XYChart object of size 450 x 400 pixels
+$c = new XYChart(450, 400);
+
+# Set the plotarea at (55, 40) and of size 350 x 300 pixels, with a light grey border
+# (0xc0c0c0). Turn on both horizontal and vertical grid lines with light grey color
+# (0xc0c0c0)
+$c-&gt;setPlotArea(55, 40, 350, 300, -1, -1, 0xc0c0c0, 0xc0c0c0, -1);
+
+# Add a title to the chart using 18 pts Times Bold Itatic font.
+$c-&gt;addTitle("Built-in Symbols", "timesbi.ttf", 18);
+
+# Set the axes line width to 3 pixels
+$c-&gt;xAxis-&gt;setWidth(3);
+$c-&gt;yAxis-&gt;setWidth(3);
+
+# Ensure the ticks are at least 1 unit part (integer ticks)
+$c-&gt;xAxis-&gt;setMinTickInc(1);
+$c-&gt;yAxis-&gt;setMinTickInc(1);
+
+# Add each symbol as a separate scatter layer.
+for($i = 0; $i &lt; count($symbols); ++$i) {
+    $c-&gt;addScatterLayer(array($i % 6 + 1), array((int)($i / 6 + 1)), "", $symbols[$i
+        ], 15);
+}
+
+# Output the chart
+header("Content-type: image/png");
+print($c-&gt;makeChart2(PNG));
+?&gt;</pre></tr></td></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2008 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

@@ -1,0 +1,358 @@
+<HTML
+><HEAD
+><TITLE
+>File_HtAccess::setRequire()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File_HtAccess"
+HREF="package.filesystem.file-htaccess.html"><LINK
+REL="PREVIOUS"
+TITLE="File_HtAccess::save()"
+HREF="package.filesystem.file-htaccess.save.html"><LINK
+REL="NEXT"
+TITLE="File_HtAccess::addRequire()"
+HREF="package.filesystem.file-htaccess.addrequire.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-htaccess.save.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-htaccess.addrequire.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.filesystem.file-htaccess.setrequire">File_HtAccess::setRequire()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN48936"
+></A
+>File_HtAccess::setRequire()&nbsp;--&nbsp;set the value of require property</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN48939"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN48940"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>File_HtAccess::setRequire</B
+></CODE
+> (mixed [$require])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-htaccess.setrequire.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;    Sets the value of require property.This overwrites the previous
+    value. If you need to add a value (user) to require use
+    <B
+CLASS="function"
+>File_HtAccess::addRequire()</B
+> instead. Using this
+    method you can control which users will be able to access
+    the protected resources.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-htaccess.setrequire.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>mixed $require</I
+></TT
+> - value the requre property
+        to be set to. Can be given as a string or an array. If given
+        as a string separate multiple values with a space.
+     </P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-htaccess.setrequire.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;    void
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.file-htaccess.setrequire.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.file-htaccess.setrequire.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>&#13;     <A
+HREF="package.filesystem.file-htaccess.addrequire.html"
+>&#13;      <B
+CLASS="function"
+>File_HtAccess::addRequire()</B
+>
+     </A
+>
+    </TD
+></TR
+><TR
+><TD
+>&#13;     <A
+HREF="package.filesystem.file-htaccess.delrequire.html"
+>&#13;      <B
+CLASS="function"
+>File_HtAccess::delRequire()</B
+>
+     </A
+>
+    </TD
+></TR
+><TR
+><TD
+>&#13;     <A
+HREF="package.filesystem.file-htaccess.getrequire.html"
+>&#13;      <B
+CLASS="function"
+>File_HtAccess::getRequire()</B
+>
+     </A
+>
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-htaccess.setrequire.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN48979"><P
+><B
+>Example 38-1. Using <B
+CLASS="function"
+>File_HtAccess::setRequire()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once('File/HtAccess.php');
+
+/* let any valid user access the resource */
+$fh = new File_HtAccess('.htaccess');
+$fh-&#62;load();
+$fh-&#62;setRequire('valid-user');
+$fh-&#62;save();
+
+/* let user tuupola or panula access the resource  */
+$fh = new File_HtAccess('.htaccess');
+$fh-&#62;load();
+$fh-&#62;setRequire(array('user', 'tuupola', 'panula'););
+$fh-&#62;save();
+
+/* let anyone from group admins to access the resource  */
+$fh = new File_HtAccess('.htaccess');
+$fh-&#62;load();
+$fh-&#62;setRequire(array('group', 'admins'););
+$fh-&#62;save();
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-htaccess.save.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-htaccess.addrequire.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>File_HtAccess::save()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-htaccess.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>File_HtAccess::addRequire()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

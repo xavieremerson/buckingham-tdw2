@@ -1,0 +1,469 @@
+<HTML
+><HEAD
+><TITLE
+>Exporting</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Structures_BibTex"
+HREF="package.structures.structures-bibtex.html"><LINK
+REL="PREVIOUS"
+TITLE="Warnings"
+HREF="package.structures.structures-bibtex.warnings.html"><LINK
+REL="NEXT"
+TITLE="Miscellaneous"
+HREF="package.structures.structures-bibtex.misc.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-bibtex.warnings.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-bibtex.misc.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.structures.structures-bibtex.exporting">Exporting</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN93520"
+></A
+>Exporting&nbsp;--&nbsp;
+   Possibility to export the data using <B
+CLASS="classname"
+>Structures_BibTex</B
+>
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-bibtex.exporting.overview"
+></A
+><H2
+>Overview</H2
+><P
+>&#13;   The class <B
+CLASS="classname"
+>Structures_BibTex</B
+> provides some methods to export the data stored in the class.
+   Currently the class exports the data in the following formats:
+   <P
+></P
+><UL
+><LI
+><P
+>&#13;               <TT
+CLASS="parameter"
+><I
+>BibTeX</I
+></TT
+> - The whole data in BibTeX
+           </P
+></LI
+><LI
+><P
+>&#13;               <TT
+CLASS="parameter"
+><I
+>RTF</I
+></TT
+> - The data with enough matching data as a short list in RTF format
+           </P
+></LI
+><LI
+><P
+>&#13;               <TT
+CLASS="parameter"
+><I
+>HTML</I
+></TT
+> - The data with enough matching data as a short list in HTML format
+           </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-bibtex.exporting.bibtex"
+></A
+><H2
+>BibTeX</H2
+><P
+>&#13;      One of the basic features is of course the export in BibTeX format. This is simply done by invoking
+      the <B
+CLASS="function"
+>bibTex()</B
+> method.
+   <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN93542"><P
+><B
+>Example 55-1. Exporting in BibTeX format</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Structures/BibTex.php';
+$bibtex = new Structures_BibTex();
+$ret    = $bibtex-&#62;loadFile('foo.bib');
+if (PEAR::isError($ret)) {
+    die($ret-&#62;getMessage());
+}
+$bibtex-&#62;parse();
+echo 'The data in BibTeX format:&#60;br /&#62;';
+echo $bibtex-&#62;bibTex();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-bibtex.exporting.rtf"
+></A
+><H2
+>RTF</H2
+><P
+>&#13;         This feature was introduced to enable some kind of import into Word. Word (of course also Open Office or kword)
+         understands the RTF format. It is simply possible to save the output as 'somefile.rtf' and be opened in Word. This
+         will satisfy the Windows users. To use it simply call the method <B
+CLASS="function"
+>rtf()</B
+>.
+         <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN93549"><P
+><B
+>Example 55-2. Exporting in RTF format</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Structures/BibTex.php';
+$bibtex = new Structures_BibTex();
+$ret    = $bibtex-&#62;loadFile('foo.bib');
+if (PEAR::isError($ret)) {
+    die($ret-&#62;getMessage());
+}
+$bibtex-&#62;parse();
+echo 'The data in RTF format:&#60;br /&#62;';
+echo $bibtex-&#62;rtf();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+     </P
+><P
+>&#13;         The default format for every entry is first the authors, then the title bold and in double quotes, then the journal
+         italic and finally the year. To change the default format you should override the class variable rtfstring. The default
+         rtfstring looks like this: 'AUTHORS, "{\b TITLE}", {\i JOURNAL}, YEAR'. The string AUTHORS, TITLE, JOURNAL and YEAR are
+         substituted with the corresponding values.
+         <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN93553"><P
+><B
+>Example 55-3. Exporting in RTF format with different RTF string</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Structures/BibTex.php';
+$bibtex = new Structures_BibTex();
+$ret    = $bibtex-&#62;loadFile('foo.bib');
+if (PEAR::isError($ret)) {
+    die($ret-&#62;getMessage());
+}
+$bibtex-&#62;parse();
+$bibtex-&#62;rtfstring  = 'AUTHORS, "TITLE", JOURNAL, YEAR';
+echo 'The data in RTF format (but this time plain):&#60;br /&#62;';
+echo $bibtex-&#62;rtf();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-bibtex.exporting.html"
+></A
+><H2
+>HTML</H2
+><P
+>&#13;         This feature is just a simple HTML generation. The default formatting is the same as in rtf. 
+         To use it call the method <B
+CLASS="function"
+>html()</B
+>.
+         <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN93560"><P
+><B
+>Example 55-4. Exporting in HTML format</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Structures/BibTex.php';
+$bibtex = new Structures_BibTex();
+$ret    = $bibtex-&#62;loadFile('foo.bib');
+if (PEAR::isError($ret)) {
+    die($ret-&#62;getMessage());
+}
+$bibtex-&#62;parse();
+echo 'The data in HTML format:&#60;br /&#62;';
+echo $bibtex-&#62;html();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+     </P
+><P
+>&#13;         As with the RTF export it is possible to override the default HTML string.The default string is stored in the
+         class variable htmlstring and looks like this: AUTHORS, "&#60;strong&#62;TITLE&#60;/strong&#62;", &#60;em&#62;JOURNAL&#60;/em&#62;, YEAR&#60;br /&#62;.
+         <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN93564"><P
+><B
+>Example 55-5. Exporting in HTML format with different HTML string</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Structures/BibTex.php';
+$bibtex = new Structures_BibTex();
+$ret    = $bibtex-&#62;loadFile('foo.bib');
+if (PEAR::isError($ret)) {
+    die($ret-&#62;getMessage());
+}
+$bibtex-&#62;parse();
+$bibtex-&#62;htmlstring  = 'AUTHORS, "TITLE", JOURNAL, YEAR';
+echo 'The data in HTML format (but this time plain):&#60;br /&#62;';
+echo $bibtex-&#62;html();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+     </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.structures.structures-bibtex.warnings.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.structures.structures-bibtex.misc.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Warnings</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.structures.structures-bibtex.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Miscellaneous</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

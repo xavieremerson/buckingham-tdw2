@@ -1,0 +1,542 @@
+<HTML
+><HEAD
+><TITLE
+>Example</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_Serializer"
+HREF="package.xml.xml-serializer.html"><LINK
+REL="PREVIOUS"
+TITLE="XML_Serializer::setOption"
+HREF="package.xml.xml-serializer.xml-serializer.setoption.html"><LINK
+REL="NEXT"
+TITLE="Class Summary XML_Unserializer"
+HREF="package.xml.xml-serializer.xml-unserializer-summary.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-serializer.xml-serializer.setoption.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-serializer.xml-unserializer-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.xml.xml-serializer.xml-serializer.examples">Example</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN103527"
+></A
+>Example&nbsp;--&nbsp;Example for the usage of XML_Serializer</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-serializer.xml-serializer.examples.example1"
+></A
+><H2
+>Build a simple XML document</H2
+><P
+>&#13;    Example that uses the returnResult option 
+    to directly return the serialized
+    XML document in the serialize() method.
+    </P
+><P
+>&#13;    In this example look at theses 3 lines.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$serializer = &#38;new XML_Serializer($options);
+$foo = PEAR::raiseError('Just a test', 1234);
+$result = $serializer-&#62;serialize($foo);</PRE
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>error_reporting(E_ALL);
+require_once 'XML/Serializer.php';
+$options = array(
+  XML_SERIALIZER_OPTION_INDENT        =&#62; '    ',
+  XML_SERIALIZER_OPTION_RETURN_RESULT =&#62; true
+  );
+
+$serializer = &#38;new XML_Serializer($options);
+
+$foo = PEAR::raiseError('Just a test', 1234);
+
+$result = $serializer-&#62;serialize($foo);
+
+echo '&#60;pre&#62;';
+echo htmlspecialchars($result);
+echo '&#60;/pre&#62;';</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    And this is the result
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;pear_error&#62;
+    &#60;error_message_prefix /&#62;
+    &#60;mode&#62;1&#60;/mode&#62;
+    &#60;level&#62;1024&#60;/level&#62;
+    &#60;code&#62;1234&#60;/code&#62;
+    &#60;message&#62;Just a test&#60;/message&#62;
+    &#60;userinfo /&#62;
+    &#60;backtrace&#62;
+        &#60;XML_Serializer_Tag&#62;
+            &#60;file&#62;pathToMypear\PEAR.php&#60;/file&#62;
+            &#60;line&#62;566&#60;/line&#62;
+            &#60;function&#62;pear_error&#60;/function&#62;
+            &#60;class&#62;pear_error&#60;/class&#62;
+            &#60;type&#62;-&#38;gt;&#60;/type&#62;
+            &#60;args&#62;
+                &#60;XML_Serializer_Tag&#62;Just a test&#60;/XML_Serializer_Tag&#62;
+                &#60;XML_Serializer_Tag&#62;1234&#60;/XML_Serializer_Tag&#62;
+                &#60;XML_Serializer_Tag&#62;1&#60;/XML_Serializer_Tag&#62;
+                &#60;XML_Serializer_Tag&#62;1024&#60;/XML_Serializer_Tag&#62;
+                &#60;XML_Serializer_Tag /&#62;
+            &#60;/args&#62;
+        &#60;/XML_Serializer_Tag&#62;
+        &#60;XML_Serializer_Tag&#62;
+            &#60;file&#62;pathToMyDocRoot\cvs.php.net\pear\xml_serializer\examples\serializeandreturn.php&#60;/file&#62;
+            &#60;line&#62;19&#60;/line&#62;
+            &#60;function&#62;raiseerror&#60;/function&#62;
+            &#60;class&#62;pear&#60;/class&#62;
+            &#60;type&#62;::&#60;/type&#62;
+            &#60;args&#62;
+                &#60;XML_Serializer_Tag&#62;Just a test&#60;/XML_Serializer_Tag&#62;
+                &#60;XML_Serializer_Tag&#62;1234&#60;/XML_Serializer_Tag&#62;
+            &#60;/args&#62;
+        &#60;/XML_Serializer_Tag&#62;
+    &#60;/backtrace&#62;
+    &#60;callback /&#62;
+&#60;/pear_error&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    You can find the last version of this source code in the package : serializeAndReturn.php
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-serializer.xml-serializer.examples.exampleRDF"
+></A
+><H2
+>Build a RDF document</H2
+><P
+>&#13;    This example shows how to create an RDF document with a few lines of code.
+    
+    This can also be done with mode =&#62; simplexml.
+   </P
+><P
+>&#13;    In this example look at theses 3 lines.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$serializer = new XML_Serializer($options);
+    $result = $serializer-&#62;serialize($rdf);
+    echo    htmlentities($serializer-&#62;getSerializedData());</PRE
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>/**
+   * @see    serializeIndexedArray.php
+   */
+    error_reporting(E_ALL);
+
+    require_once 'XML/Serializer.php';
+
+    $options = array(
+      "indent"          =&#62; "    ",
+      "linebreak"       =&#62; "\n",
+      "typeHints"       =&#62; false,
+      "addDecl"         =&#62; true,
+      "encoding"        =&#62; "UTF-8",
+      "rootName"        =&#62; "rdf:RDF",
+      "rootAttributes"  =&#62; array("version" =&#62; "0.91"),
+      "defaultTagName"  =&#62; "item",
+      "attributesArray" =&#62; "_attributes"
+      );
+    
+    $serializer = new XML_Serializer($options);
+
+    $rdf = array(
+      "channel" =&#62; array(
+        "title" =&#62; "Example RDF channel",
+        "link"  =&#62; "http://www.php-tools.de",
+        "image" =&#62; array(
+          "title" =&#62; "Example image",
+          "url"   =&#62; "http://www.php-tools.de/image.gif",
+          "link"  =&#62; "http://www.php-tools.de"
+          ),
+        "_attributes" =&#62; array( "rdf:about" =&#62; "http://example.com/foobar.html" ),
+        array(
+          "title"       =&#62; "Example item",
+          "link"	=&#62; "http://example.com",
+          "_attributes" =&#62; array( "rdf:about" =&#62; "http://example.com/foobar.html" )
+          ),
+        array(
+          "title"	=&#62; "Another item",
+          "link"	=&#62; "http://example.com",
+          "_attributes" =&#62; array( "rdf:about" =&#62; "http://example.com/foobar.html" )
+          ),
+        array(
+          "title"	=&#62; "I think you get it...",
+          "link"	=&#62; "http://example.com",
+          "_attributes" =&#62; array( "rdf:about" =&#62; "http://example.com/foobar.html" )
+          )
+        )
+      );
+    
+    $result = $serializer-&#62;serialize($rdf);
+    
+    if( $result === true ) {
+        echo    "&#60;pre&#62;";
+        echo    htmlentities($serializer-&#62;getSerializedData());
+        echo    "&#60;/pre&#62;";
+    }</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    And this is the result
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;?xml version="1.0" encoding="UTF-8"?&#62;
+&#60;rdf:RDF version="0.91"&#62;
+    &#60;channel rdf:about="http://example.com/foobar.html"&#62;
+        &#60;title&#62;Example RDF channel&#60;/title&#62;
+        &#60;link&#62;http://www.php-tools.de&#60;/link&#62;
+        &#60;image&#62;
+            &#60;title&#62;Example image&#60;/title&#62;
+            &#60;url&#62;http://www.php-tools.de/image.gif&#60;/url&#62;
+            &#60;link&#62;http://www.php-tools.de&#60;/link&#62;
+        &#60;/image&#62;
+        &#60;item rdf:about="http://example.com/foobar.html"&#62;
+            &#60;title&#62;Example item&#60;/title&#62;
+            &#60;link&#62;http://example.com&#60;/link&#62;
+        &#60;/item&#62;
+        &#60;item rdf:about="http://example.com/foobar.html"&#62;
+            &#60;title&#62;Another item&#60;/title&#62;
+            &#60;link&#62;http://example.com&#60;/link&#62;
+        &#60;/item&#62;
+        &#60;item rdf:about="http://example.com/foobar.html"&#62;
+            &#60;title&#62;I think you get it...&#60;/title&#62;
+            &#60;link&#62;http://example.com&#60;/link&#62;
+        &#60;/item&#62;
+    &#60;/channel&#62;
+&#60;/rdf:RDF&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    You can find the last version of this source code in the package : serializeRDF.php
+   </P
+><P
+>&#13;    Note : if you search how to parse (read) an RDF/RSS document, look at
+    XML_RSS package.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-serializer.xml-serializer.examples.exampleDtd"
+></A
+><H2
+>Build a XML document with a DTD</H2
+><P
+>&#13;    This example shows how to add a DocType Declaration to the XML document
+   </P
+><P
+>&#13;    In this example look at theses 3 lines.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$serializer = new XML_Serializer($options);
+    $result = $serializer-&#62;serialize($rdf);
+    echo    htmlentities($serializer-&#62;getSerializedData());</PRE
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>error_reporting(E_ALL);
+
+    require_once 'XML/Serializer.php';
+
+    $options = array(
+      "indent"     =&#62; "    ",
+      "linebreak"  =&#62; "\n",
+      "addDecl"    =&#62; true,
+      "addDoctype" =&#62; true,
+      "doctype"    =&#62; array(
+        'uri' =&#62; 'http://pear.php.net/dtd/package-1.0',
+        'id'  =&#62; '-//PHP//PEAR/DTD PACKAGE 0.1'
+        )
+      );
+    
+    $serializer = new XML_Serializer($options);
+
+    $foo    =   PEAR::raiseError("Just a test", 1234);    
+    
+    $result = $serializer-&#62;serialize($foo);
+    
+    if( $result === true ) {
+        echo '&#60;pre&#62;';
+        echo htmlentities($serializer-&#62;getSerializedData());
+        echo '&#60;/pre&#62;';
+    }</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    And this is the result
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;?xml version="1.0"?&#62;
+&#60;!DOCTYPE pear_error PUBLIC "-//PHP//PEAR/DTD PACKAGE 0.1" "http://pear.php.net/dtd/package-1.0"&#62;
+&#60;pear_error&#62;
+    &#60;error_message_prefix /&#62;
+    &#60;mode&#62;1&#60;/mode&#62;
+    &#60;level&#62;1024&#60;/level&#62;
+    &#60;code&#62;1234&#60;/code&#62;
+    &#60;message&#62;Just a test&#60;/message&#62;
+    &#60;userinfo /&#62;
+    &#60;backtrace&#62;
+        &#60;XML_Serializer_Tag&#62;
+            &#60;file&#62;pathToMyPear\PEAR.php&#60;/file&#62;
+            &#60;line&#62;566&#60;/line&#62;
+            &#60;function&#62;pear_error&#60;/function&#62;
+            &#60;class&#62;pear_error&#60;/class&#62;
+            &#60;type&#62;-&#38;gt;&#60;/type&#62;
+            &#60;args&#62;
+                &#60;XML_Serializer_Tag&#62;Just a test&#60;/XML_Serializer_Tag&#62;
+                &#60;XML_Serializer_Tag&#62;1234&#60;/XML_Serializer_Tag&#62;
+                &#60;XML_Serializer_Tag&#62;1&#60;/XML_Serializer_Tag&#62;
+                &#60;XML_Serializer_Tag&#62;1024&#60;/XML_Serializer_Tag&#62;
+                &#60;XML_Serializer_Tag /&#62;
+            &#60;/args&#62;
+        &#60;/XML_Serializer_Tag&#62;
+        &#60;XML_Serializer_Tag&#62;
+            &#60;file&#62;pathToMyDocumentRoot\cvs.php.net\pear\xml_serializer\examples\serializewithdtd.php&#60;/file&#62;
+            &#60;line&#62;24&#60;/line&#62;
+            &#60;function&#62;raiseerror&#60;/function&#62;
+            &#60;class&#62;pear&#60;/class&#62;
+            &#60;type&#62;::&#60;/type&#62;
+            &#60;args&#62;
+                &#60;XML_Serializer_Tag&#62;Just a test&#60;/XML_Serializer_Tag&#62;
+                &#60;XML_Serializer_Tag&#62;1234&#60;/XML_Serializer_Tag&#62;
+            &#60;/args&#62;
+        &#60;/XML_Serializer_Tag&#62;
+    &#60;/backtrace&#62;
+    &#60;callback /&#62;
+&#60;/pear_error&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;   You can find the last version of this source code in the package : serializeWithDTD.php
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-serializer.xml-serializer.setoption.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-serializer.xml-unserializer-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>XML_Serializer::setOption()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.xml-serializer.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class Summary <B
+CLASS="classname"
+>XML_Unserializer</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

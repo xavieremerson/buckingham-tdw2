@@ -1,0 +1,320 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR_Config::setRegistry</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR_Config"
+HREF="core.ppm.pear-config.html"><LINK
+REL="PREVIOUS"
+TITLE="PEAR_Config::setInstallRoot"
+HREF="core.ppm.pear-config.setinstallroot.html"><LINK
+REL="NEXT"
+TITLE="PEAR_Config::singleton"
+HREF="core.ppm.pear-config.singleton.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-config.setinstallroot.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-config.singleton.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.ppm.pear-config.setregistry"><B
+CLASS="function"
+>PEAR_Config::setRegistry()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN11222"
+></A
+><B
+CLASS="function"
+>PEAR_Config::setRegistry()</B
+>&nbsp;--&nbsp;This is to allow customization like the use of installroot</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN11226"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN11227"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once '/Config.php'; (since PEAR 1.4.0)</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>bool      <B
+CLASS="function"
+>PEAR_Config::setRegistry</B
+></CODE
+> (PEAR_Registry|false &#38;$reg [, string $layer = 'user'])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-config.setregistry.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      Use this to override the automatic registry creation performed whenever the
+      <TT
+CLASS="literal"
+>php_dir</TT
+> configuration variable is modified.
+     </P
+><P
+>&#13;      If <A
+HREF="core.ppm.pear-config.noregistry.html"
+><B
+CLASS="function"
+>noRegistry()</B
+></A
+>
+      has been called, this call will be ignored and <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> returned.  In addition, it is
+      not possible to set the registry for the <TT
+CLASS="literal"
+>ftp</TT
+> layer.
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-config.setregistry.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>PEAR_Registry|false
+        <TT
+CLASS="parameter"
+><I
+>&#38;$reg</I
+></TT
+></DT
+><DD
+><P
+>&#13;         The <B
+CLASS="classname"
+>PEAR_Registry</B
+> that will be used, or false to reset the
+         registry.
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$layer</I
+></TT
+></DT
+><DD
+><P
+>&#13;         This must be either <TT
+CLASS="literal"
+>user</TT
+> or <TT
+CLASS="literal"
+>system</TT
+>
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-config.setregistry.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> no exceptions thrown
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-config.setregistry.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-config.setinstallroot.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-config.singleton.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Config::setInstallRoot()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-config.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Config::singleton()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

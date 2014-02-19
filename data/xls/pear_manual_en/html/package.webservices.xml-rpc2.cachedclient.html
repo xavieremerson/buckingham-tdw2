@@ -1,0 +1,533 @@
+<HTML
+><HEAD
+><TITLE
+>Client Side with cache</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_RPC2"
+HREF="package.webservices.xml-rpc2.html"><LINK
+REL="PREVIOUS"
+TITLE="Server Side"
+HREF="package.webservices.xml-rpc2.server.html"><LINK
+REL="NEXT"
+TITLE="Server Side with cache"
+HREF="package.webservices.xml-rpc2.cachedserver.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.webservices.xml-rpc2.server.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.webservices.xml-rpc2.cachedserver.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.webservices.xml-rpc2.cachedclient">Client Side with cache</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN102089"
+></A
+>Client Side with cache&nbsp;--&nbsp;</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc2.cachedclient.intro"
+></A
+><H2
+>Introduction about the XML_RPC2 "cached client side" usage</H2
+><P
+>&#13;   Thanks to PHP5 and PEAR/Cache_Lite, it's really easy to do XMLRPC "cached client" requests with
+   XML_RPC2. The usage is really straightforward.
+  </P
+><P
+>&#13;   First, you include 'XML/RPC2/CachedClient.php' file (only this one).
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'XML/RPC2/CachedClient.php';</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><P
+>&#13;   Second, you make an assocative arrays of options to tune XML_RPC2 (prefix,
+   proxy, manual backend choice...).
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$options = array(
+    'prefix' =&#62; 'package.',
+    'cacheOptions' =&#62; array(
+        'cacheDir' =&#62; '/tmp/',
+        'lifetime' =&#62; 3600
+    )
+);</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><P
+>&#13;   Third, you make a XML_RPC2_CachedClient object with the server URL and the with
+   the options array.
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$client = XML_RPC2_CachedClient::create('http://pear.php.net/xmlrpc.php', $options);</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><P
+>&#13;   Then, you send your request by calling the server method as it was a local
+   method of the $client object.
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$result = $client-&#62;info('XML_RPC2');</PRE
+></TD
+></TR
+></TABLE
+>
+   This single line will encode a XMLRPC client request for the package.info() (prefix + method name)
+   method with a single argument (the string 'XML_RPC2'), will send the request over HTTP to the
+   server and will decode the response into PHP native types. With a single line ! Moreover, the result
+   will be cached into a file for the given lifetime. So the next call will not send any HTTP request
+   and it will be really fast.
+  </P
+><P
+>&#13;   Of course, to catch server errors, you have to add a few lines around you client call like for example :
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>try {
+    $result = $client-&#62;info('XML_RPC2'); 
+    print_r($result);
+} catch (XML_RPC2_FaultException $e) {
+    // The XMLRPC server returns a XMLRPC error
+    die('Exception #' . $result-&#62;getFaultCode() . ' : ' . $e-&#62;getFaultString());
+} catch (Exception $e) {  
+    // Other errors (HTTP or networking problems...)
+    die('Exception : ' . $e-&#62;getFaultString());
+}</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc2.cachedclient.options"
+></A
+><H2
+>The options array</H2
+><P
+>&#13;   This array is completely optional but really usefull. The following keys
+   are available :
+   <DIV
+CLASS="table"
+><A
+NAME="AEN102108"><P
+><B
+>Table 60-1. Options available keys</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Option</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Data Type</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Default Value</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>[...]</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>[...]</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>[...]</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>See "non cached client side" for more options</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>cacheOptions</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array()</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>See next table for a complete description</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+> 
+   "CacheOptions" entry is an associative array. Available keys are :
+   <DIV
+CLASS="table"
+><A
+NAME="AEN102129"><P
+><B
+>Table 60-2. CacheOptions available keys</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Option</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Data Type</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Default Value</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>[...]</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>[...]</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>[...]</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>See "Cache_Lite constructor" for more options</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>defaultCacheGroup</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>''</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Name of the default cache group</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>cachedMethods</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array()</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Array of method names to be cached (if cacheByDefault is false)</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>notCachedMethods</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array()</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Array of method names not to be cached (if cacheByDefault is true)</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>cacheByDefault</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>boolean</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        if true, the cache is "on" by default ; else, only methods listed in cachedMethods
+        will be cached
+       </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+> 
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc2.cachedclient.create"
+></A
+><H2
+>Making the XML_RPC2_CachedClient object</H2
+><P
+>&#13;   It's really easy to make the XML_RPC2_CachedClient object. Use the following syntax :
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// $XMLRPCServerURL is a string : 'http://pear.php.net/xmlrpc.php' (for example)
+// $options is an optional array : see previous section for more informations
+$client = XML_RPC2_CachedClient::create($XMLRPCServerURL, $options);</PRE
+></TD
+></TR
+></TABLE
+>
+   Don't try to call the XML_RPC2_CachedClient constructor directly, use the call() static method.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc2.cachedclient.call"
+></A
+><H2
+>Call the XMLRPC exported method</H2
+><P
+>&#13;   See "non cached client side" documentation, there is no difference.
+  </P
+><P
+>&#13;   The caching process is completly embedded and automatic. If a cache is available, result
+   will be get from cache and no HTTP request will be sent. If there is no cache available for
+   this particular call (method name and arguments), the classical XMLRPC communication will
+   be used (and the result will be stored into a cache file for the next use).
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.webservices.xml-rpc2.server.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.webservices.xml-rpc2.cachedserver.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Server Side</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.webservices.xml-rpc2.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Server Side with cache</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

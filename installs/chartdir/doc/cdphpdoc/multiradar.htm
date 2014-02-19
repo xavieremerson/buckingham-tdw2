@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<Title>Multi Radar Chart</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">Multi Radar Chart</p>
+<hr class="separator">
+<div class="content">
+<img src="images/multiradar.png">
+<br><br>
+This example demonstrates a radar chart with two layers and a number of chart formatting effects.<br><br>
+<ul><li> Create a PolarChart object using <a href="PolarChart.PolarChart.htm">PolarChart.PolarChart</a>.<br><br>
+<li> Set the background color to gold with 3D border effect using <a href="BaseChart.setBackground.htm">BaseChart.setBackground</a>. The gold color is created using <a href="BaseChart.gradientColor.htm">BaseChart.gradientColor</a> with the pre-defined <a href="DrawArea.gradientColor2.htm">goldGradient</a> constant.<br><br>
+<li> Add a title to the chart with white text on a black background using <a href="BaseChart.addTitle.htm">BaseChart.addTitle</a>.<br><br>
+<li> Specify the circular plot area of the chart using <a href="PolarChart.setPlotArea.htm">PolarChart.setPlotArea</a>.<br><br>
+<li> Add a legend box to the chart using <a href="BaseChart.addLegend.htm">BaseChart.addLegend</a>. Set the legend box background to silver with 3D border effect using <a href="Box.setBackground.htm">Box.setBackground</a>. The silver color is created using <a href="BaseChart.gradientColor.htm">BaseChart.gradientColor</a> with the pre-defined <a href="DrawArea.gradientColor2.htm">silverGradient</a> constant.<br><br>
+<li> Add two polar area layers with two data arrays using <a href="PolarChart.addAreaLayer.htm">PolarChart.addAreaLayer</a>. Use semi-transparent colors as the area fill colors to avoid the top area blocking the bottom area.<br><br>
+<li> Add two polar line layers with <a href="PolarChart.addLineLayer.htm">PolarChart.addLineLayer</a>, using the same data arrays as the polar area layer. Set a thick line width using <a href="PolarLayer.setLineWidth.htm">PolarLayer.setLineWidth</a>. The line layers becomes borders of the area layers to highlight the areas.<br><br>
+<li> Specify the labels on the angular axis using <a href="AngularAxis.setLabels.htm">AngularAxis.setLabels</a>. In a polar/radar chart, the radial axis refers to the axis from the center to the perimeter of the plot area, and the angular axis refers to the axis lying on the perimeter of the plot area.<br><br>
+<li> Generate the chart using <a href="BaseChart.makeChart2.htm">BaseChart.makeChart2</a>.</ul>
+</div>
+<p class="heading2">Source Code Listing</p>
+<div class="content">
+[File: phpdemo/multiradar.php]<br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp><?php
+include("phpchartdir.php");
+
+#The data for the chart
+$data0 = array(90, 60, 85, 75, 55);
+$data1 = array(60, 80, 70, 80, 85);
+
+#The labels for the chart
+$labels = array("Speed", "Reliability", "Comfort", "Safety", "Efficiency");
+
+#Create a PolarChart object of size 480 x 380 pixels
+$c = new PolarChart(480, 380);
+
+#Set background color to gold (goldGradient), with 1 pixel 3D border effect
+$c->setBackground($c->gradientColor($goldGradient, 90, 2), Transparent, 1);
+
+#Add a title to the chart using 12 pts Arial Bold Italic font. The title text is
+#white (0xffffff) on a black background
+$titleObj = $c->addTitle("Space Travel Vehicles Compared", "arialbi.ttf", 12,
+    0xffffff);
+$titleObj->setBackground(0x0);
+
+#Set center of plot area at (240, 210) with radius 150 pixels
+$c->setPlotArea(240, 210, 150);
+
+#Add a legend box at (5, 30) using 10 pts Arial Bold font. Set the background to
+#silver (silverGradient), with a black border, and 1 pixel 3D border effect.
+$legendObj = $c->addLegend(5, 30, true, "arialbd.ttf", 10);
+$legendObj->setBackground($c->gradientColor($silverGradient, 90, 0.5), 1, 1);
+
+#Add an area layer to the chart using semi-transparent blue (0x806666cc). Add a
+#blue (0x6666cc) line layer using the same data with 3 pixel line width to
+#highlight the border of the area.
+$c->addAreaLayer($data0, 0x806666cc, "Ultra Speed");
+$lineLayerObj = $c->addLineLayer($data0, 0x6666cc);
+$lineLayerObj->setLineWidth(3);
+
+#Add an area layer to the chart using semi-transparent red (0x80cc6666). Add a
+#red (0xcc6666) line layer using the same data with 3 pixel line width to
+#highlight the border of the area.
+$c->addAreaLayer($data1, 0x80cc6666, "Super Economy");
+$lineLayerObj = $c->addLineLayer($data1, 0xcc6666);
+$lineLayerObj->setLineWidth(3);
+
+#Set the labels to the angular axis as spokes.
+$angularAxisObj = $c->angularAxis();
+$angularAxisObj->setLabels($labels);
+
+#output the chart
+header("Content-type: image/png");
+print($c->makeChart2(PNG));
+?></xmp>
+</td></tr></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

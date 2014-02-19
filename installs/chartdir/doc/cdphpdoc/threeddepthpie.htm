@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<Title>3D Depth</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">3D Depth</p>
+<hr class="separator">
+<div class="content">
+<img src="images/threeddepthpie0.png">&nbsp;&nbsp;<img src="images/threeddepthpie1.png">&nbsp;&nbsp;<img src="images/threeddepthpie2.png">&nbsp;&nbsp;<img src="images/threeddepthpie3.png">&nbsp;&nbsp;<img src="images/threeddepthpie4.png">
+<br><br>
+This example illustrates the effects of different 3D depths. ChartDirector allows the 3D depth and angles to be configued using <a href="PieChart.set3D.htm">PieChart.set3D</a> and <a href="PieChart.set3D2.htm">PieChart.set3D2</a>.
+</div>
+<p class="heading2">Source Code Listing</p>
+<div class="content">
+[File: phpdemo/threeddepthpie.php]<br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp><?php
+include("phpchartdir.php");
+
+#the tilt angle of the pie
+$depth = $HTTP_GET_VARS["img"] * 5 + 5;
+
+#The data for the pie chart
+$data = array(25, 18, 15, 12, 8, 30, 35);
+
+#Create a PieChart object of size 100 x 110 pixels
+$c = new PieChart(100, 110);
+
+#Set the center of the pie at (50, 55) and the radius to 38 pixels
+$c->setPieSize(50, 55, 38);
+
+#Set the depth of the 3D pie
+$c->set3D($depth);
+
+#Add a title showing the depth
+$c->addTitle("Depth = $depth pixels", "arial.ttf", 8);
+
+#Set the pie data
+$c->setData($data);
+
+#Disable the sector labels by setting the color to Transparent
+$c->setLabelStyle("", 8, Transparent);
+
+#output the chart
+header("Content-type: image/png");
+print($c->makeChart2(PNG));
+?></xmp>
+</td></tr></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

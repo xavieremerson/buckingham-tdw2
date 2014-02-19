@@ -1,0 +1,243 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_QuickForm_Renderer_ArraySmarty</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Template-based renderers"
+HREF="package.html.html-quickform.html#package.html.html-quickform.output.template-renderers"><LINK
+REL="PREVIOUS"
+TITLE="HTML_QuickForm"
+HREF="package.html.html-quickform.html"><LINK
+REL="NEXT"
+TITLE="constructor HTML_QuickForm_Renderer_ArraySmarty::HTML_QuickForm_Renderer_ArraySmarty()"
+HREF="package.html.html-quickform.html-quickform-renderer-arraysmarty.html-quickform-renderer-arraysmarty.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-arraysmarty.html-quickform-renderer-arraysmarty.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.html-quickform-renderer-arraysmarty"><B
+CLASS="classname"
+>HTML_QuickForm_Renderer_ArraySmarty</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN64540"
+></A
+><B
+CLASS="classname"
+>HTML_QuickForm_Renderer_ArraySmarty</B
+>&nbsp;--&nbsp;A renderer for 'static' Smarty templates</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-renderer-arraysmarty.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;This renderer was written by Thomas Schulz. It is based on pre-3.0
+<B
+CLASS="function"
+>HTML_QuickForm::toArray()</B
+> code and ITStatic renderer. It can be used to
+output the form into the 'static' Smarty template. Usage example for this is available in
+<TT
+CLASS="filename"
+>docs/renderers</TT
+>.
+    </P
+><P
+>&#13;The form array structure is the following:
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>array (
+ ['frozen']       =&#62; 'whether the complete form is frozen',
+ ['javascript']   =&#62; 'javascript for client-side validation',
+ ['attributes']   =&#62; 'attributes for &#60;form&#62; tag',
+ ['hidden']       =&#62; 'html of all hidden elements',
+ ['requirednote'] =&#62; 'note about the required elements',
+ ['errors'] =&#62; Array
+     (
+         ['1st_element_name'] =&#62; 'Error for the 1st element',
+         ...
+         ['nth_element_name'] =&#62; 'Error for the nth element',
+     ),
+
+ ['header'] =&#62; Array
+     (
+         ['1st_header_name'] =&#62; 'Header text for the 1st header',
+         ...
+         ['nth_header_name'] =&#62; 'Header text for the nth header'
+     ),
+
+ ['1st_element_name'] =&#62; 'Array for the 1st element',
+ ...
+ ['nth_element_name'] =&#62; Array for the nth element'
+);</PRE
+></TD
+></TR
+></TABLE
+>
+where an element array has the form:
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>array(
+         ['name']      =&#62; 'element name',
+         ['value']     =&#62; 'element value',
+         ['type']      =&#62; 'type of the element',
+         ['frozen']    =&#62; 'whether element is frozen',
+         ['label']     =&#62; 'label for the element',
+         ['required']  =&#62; 'whether element is required',
+// if element is not a group:
+         ['html']      =&#62; 'HTML for the element',
+// if element is a group:
+         ['separator'] =&#62; 'separator for group elements',
+         ['1st_gitem_name'] =&#62; 'Array for the 1st element in group',
+         ...
+         ['nth_gitem_name'] =&#62; 'Array for the nth element in group'
+);</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-arraysmarty.html-quickform-renderer-arraysmarty.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_QuickForm</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.output.template-renderers"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>constructor HTML_QuickForm_Renderer_ArraySmarty::HTML_QuickForm_Renderer_ArraySmarty()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

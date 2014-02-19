@@ -1,0 +1,276 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR base classes</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Core components"
+HREF="core.html"><LINK
+REL="PREVIOUS"
+TITLE="Core components"
+HREF="core.html"><LINK
+REL="NEXT"
+TITLE="Introduction"
+HREF="core.pear.pear.intro.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="chapter"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.pear.pear.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="chapter"
+><H1
+><A
+NAME="core.pear"
+>Chapter 26. PEAR base classes</A
+></H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="core.pear.html#core.pear.pear"
+>PEAR</A
+></DT
+><DT
+><A
+HREF="core.pear.pear-error.html"
+>PEAR_Error</A
+></DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.html"
+>Intelligent Error Handling with PEAR_ErrorStack</A
+></DT
+><DT
+><A
+HREF="core.pear.system.html"
+>System</A
+></DT
+></DL
+></DIV
+><P
+>&#13;  The Core section provides information about the base classes in PEAR
+ </P
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="core.pear.pear">PEAR</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="core.pear.pear.intro.html"
+>Introduction</A
+>&nbsp;--&nbsp;
+     How to handle the PEAR base class (destructors, error handling)
+    </DT
+><DT
+><A
+HREF="core.pear.pear.constants.html"
+>Constants</A
+>&nbsp;--&nbsp;Predefined Constants</DT
+><DT
+><A
+HREF="core.pear.pear.pear.html"
+>PEAR::PEAR()</A
+>&nbsp;--&nbsp;constructor (package developer related)</DT
+><DT
+><A
+HREF="core.pear.pear.-pear.html"
+>PEAR::_PEAR()</A
+>&nbsp;--&nbsp;Deconstructor (package developer related)</DT
+><DT
+><A
+HREF="core.pear.pear.getstaticproperty.html"
+>PEAR::getStaticProperty()</A
+>&nbsp;--&nbsp;handle static properties (package developer related)</DT
+><DT
+><A
+HREF="core.pear.pear.registershutdownfunc.html"
+>PEAR::registerShutdownFunc()</A
+>&nbsp;--&nbsp;set a shutdown function for static classes (package developer related)</DT
+><DT
+><A
+HREF="core.pear.pear.iserror.html"
+>PEAR::isError()</A
+>&nbsp;--&nbsp;checks for a <B
+CLASS="classname"
+>PEAR_Error</B
+> object</DT
+><DT
+><A
+HREF="core.pear.pear.raiseerror.html"
+>PEAR::raiseError()</A
+>&nbsp;--&nbsp;Create a new <A
+HREF="core.pear.pear-error.html"
+><B
+CLASS="classname"
+>PEAR_Error</B
+></A
+> object and optionally specify error-handling instructions</DT
+><DT
+><A
+HREF="core.pear.pear.seterrorhandling.html"
+>PEAR::setErrorHandling()</A
+>&nbsp;--&nbsp;sets handling of errors generated through PEAR packages</DT
+><DT
+><A
+HREF="core.pear.pear.expecterror.html"
+>PEAR::expectError()</A
+>&nbsp;--&nbsp;
+     add an error code for non-disabling temporary error handling
+    </DT
+><DT
+><A
+HREF="core.pear.pear.popexpect.html"
+>PEAR::popExpect()</A
+>&nbsp;--&nbsp;
+    removes the last error code for non-disabling temporary error handling
+    </DT
+><DT
+><A
+HREF="core.pear.pear.loadextension.html"
+>PEAR::loadExtension()</A
+>&nbsp;--&nbsp;OS independant PHP extension load</DT
+></DL
+></DIV
+><P
+>&#13;   <B
+CLASS="classname"
+>PEAR</B
+> provides functions for handling errors and sets
+   the behavoir in case of error.  And, it gives package developers a set of
+   functions to make their lives easier.
+  </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.pear.pear.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Core components</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

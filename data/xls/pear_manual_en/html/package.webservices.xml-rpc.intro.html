@@ -1,0 +1,332 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_RPC"
+HREF="package.webservices.xml-rpc.html"><LINK
+REL="PREVIOUS"
+TITLE="XML_RPC"
+HREF="package.webservices.xml-rpc.html"><LINK
+REL="NEXT"
+TITLE="Support"
+HREF="package.webservices.xml-rpc.support.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.webservices.xml-rpc.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.webservices.xml-rpc.support.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.webservices.xml-rpc.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN101188"
+></A
+>Introduction&nbsp;--&nbsp;</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc.intro.general"
+></A
+><H2
+>General introduction</H2
+><P
+>&#13;   XML-RPC is a format devised by <A
+HREF="http://www.userland.com/"
+TARGET="_top"
+>Userland Software</A
+> for
+   achieving remote procedure call via XML. XML-RPC has its own web
+   site, <A
+HREF="http://www.xmlrpc.com/"
+TARGET="_top"
+>www.XmlRpc.com</A
+>.
+  </P
+><P
+>&#13;   The most common implementations of XML-RPC available at the moment
+   use HTTP as the transport. A list of implementations for other
+   languages such as Perl and Python can be found on the <A
+HREF="http://www.xmlrpc.com/"
+TARGET="_top"
+>www.xmlrpc.com</A
+>.
+  </P
+><P
+>&#13;   This collection of PHP classes provides a framework for writing
+   XML-RPC clients and servers in PHP.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc.intro.acknowledgements"
+></A
+><H2
+>Acknowledgements</H2
+><P
+>&#13;   This package has been orginially written by <A
+HREF="http://usefulinc.com/"
+TARGET="_top"
+>Edd Dumbill</A
+> of Useful
+   Information Company, so he deservers most of the credits. Apart from
+   that following people have contributed to the initial codebase that
+   is still being maintained by Edd:
+  </P
+><P
+></P
+><UL
+><LI
+><P
+>Jim Winstead <TT
+CLASS="email"
+>&#60;<A
+HREF="mailto:jimw at php dot net"
+>jimw at php dot net</A
+>&#62;</TT
+></P
+></LI
+><LI
+><P
+>Peter Kocks <TT
+CLASS="email"
+>&#60;<A
+HREF="mailto:peter.kocks at baygate dot com"
+>peter.kocks at baygate dot com</A
+>&#62;</TT
+></P
+></LI
+><LI
+><P
+>Nicolay Mausz <TT
+CLASS="email"
+>&#60;<A
+HREF="mailto:mausz at flying-dog dot com"
+>mausz at flying-dog dot com</A
+>&#62;</TT
+></P
+></LI
+><LI
+><P
+>Ben Margolin
+     <TT
+CLASS="email"
+>&#60;<A
+HREF="mailto:ben at wendy.auctionwatch dot com"
+>ben at wendy.auctionwatch dot com</A
+>&#62;</TT
+></P
+></LI
+><LI
+><P
+>Dan Libby <TT
+CLASS="email"
+>&#60;<A
+HREF="mailto:dan at libby dot com"
+>dan at libby dot com</A
+>&#62;</TT
+></P
+></LI
+><LI
+><P
+>Gaetano Giunta <TT
+CLASS="email"
+>&#60;<A
+HREF="mailto:g.giunta at libero dot it"
+>g.giunta at libero dot it</A
+>&#62;</TT
+></P
+></LI
+><LI
+><P
+>Idan Sofer <TT
+CLASS="email"
+>&#60;<A
+HREF="mailto:i_sofer at yahoo dot com"
+>i_sofer at yahoo dot com</A
+>&#62;</TT
+></P
+></LI
+><LI
+><P
+>Giancarlo Pinerolo <TT
+CLASS="email"
+>&#60;<A
+HREF="mailto:ping at alt dot it"
+>ping at alt dot it</A
+>&#62;</TT
+></P
+></LI
+><LI
+><P
+>Justin Miller <TT
+CLASS="email"
+>&#60;<A
+HREF="mailto:justin at voxel dot net"
+>justin at voxel dot net</A
+>&#62;</TT
+></P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.xml-rpc.intro.manifest"
+></A
+><H2
+>Manifest - Files in the package</H2
+><DIV
+CLASS="glosslist"
+><DL
+><DT
+><B
+>Server.php</B
+></DT
+><DD
+><P
+>&#13;      the XML-RPC server class. <B
+CLASS="function"
+>include()</B
+> this to
+      get server functionality.
+     </P
+></DD
+><DT
+><B
+>RPC.php</B
+></DT
+><DD
+><P
+>&#13;      the XML-RPC client classes. <B
+CLASS="function"
+>include()</B
+> this to
+      get client functionality.
+     </P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.webservices.xml-rpc.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.webservices.xml-rpc.support.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>XML_RPC</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.webservices.xml-rpc.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Support</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,313 @@
+<HTML
+><HEAD
+><TITLE
+>XML_Unserializer::unserialize</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_Serializer"
+HREF="package.xml.xml-serializer.html"><LINK
+REL="PREVIOUS"
+TITLE="XML_Unserializer::apiVersion"
+HREF="package.xml.xml-serializer.xml-unserializer.apiversion.html"><LINK
+REL="NEXT"
+TITLE="XML_Unserializer::getUnserializedData"
+HREF="package.xml.xml-serializer.xml-unserializer.getunserializeddata.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-serializer.xml-unserializer.apiversion.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-serializer.xml-unserializer.getunserializeddata.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.xml.xml-serializer.xml-unserializer.unserialize"><B
+CLASS="function"
+>XML_Unserializer::unserialize()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN103751"
+></A
+><B
+CLASS="function"
+>XML_Unserializer::unserialize()</B
+>&nbsp;--&nbsp;unserialize data</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN103755"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN103756"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Unserializer.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>boolean <B
+CLASS="function"
+>XML_Unserializer::unserialize</B
+></CODE
+> (string $data [, boolean $isFile = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> [, array $options = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-serializer.xml-unserializer.unserialize.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Unserialize an XML document from a string or a file.
+  </P
+><P
+>&#13;   The way the document is unserialized is influenced by the options you set in the constructor
+   or with <B
+CLASS="function"
+>setOptions()</B
+>.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-serializer.xml-unserializer.unserialize.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>string $data</I
+></TT
+> - either the file name of an XML document or a string containing 
+      the XML document.
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>boolean $isFile</I
+></TT
+> - indicates whether the first parameter should
+      is a filename (<TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>) or an XML string (<TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>).
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>array $options</I
+></TT
+> - Options to override the options that have been set previously.
+      The options will only be used for this unserialization and then reset the the options you set before.
+     </P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-serializer.xml-unserializer.unserialize.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   Returns <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> on success,
+<B
+CLASS="classname"
+>PEAR_Error</B
+> on failure.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-serializer.xml-unserializer.unserialize.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-serializer.xml-unserializer.apiversion.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-serializer.xml-unserializer.getunserializeddata.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>XML_Unserializer::apiVersion()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.xml-serializer.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>XML_Unserializer::getUnserializedData()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,391 @@
+<HTML
+><HEAD
+><TITLE
+>Image_Text::set</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Image_Text"
+HREF="package.images.image-text.html"><LINK
+REL="PREVIOUS"
+TITLE="Image_Text::save"
+HREF="package.images.image-text.image-text.save.html"><LINK
+REL="NEXT"
+TITLE="Image_Text::setColor"
+HREF="package.images.image-text.image-text.setcolor.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.images.image-text.image-text.save.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.images.image-text.image-text.setcolor.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.images.image-text.image-text.set"><B
+CLASS="function"
+>Image_Text::set()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN76199"
+></A
+><B
+CLASS="function"
+>Image_Text::set()</B
+>&nbsp;--&nbsp;Set options</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN76203"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN76204"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'ImageText.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>bool      <B
+CLASS="function"
+>Image_Text::set</B
+></CODE
+> (mixed $option [, mixed $value = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.images.image-text.image-text.set.desc"
+></A
+><H2
+>Description</H2
+><P
+>Set a single or multiple options. It may happen that you have to reinitialize the Image_Text  object after changing options.</P
+><P
+>Possible options to set are:  
+
+      'x'                 | This sets the top left coordinates (using x/y) or the center point
+      'y'                 | coordinates (using cx/cy) for your text box. The values from
+      'cx'                | cx/cy will overwrite x/y.
+      'cy'                |
+
+      'canvas'            | You can set different values as a canvas:
+                          |   - A gd image resource.
+                          |   - An array with 'width' and 'height'.
+                          |   - Nothing (the canvas will be measured after the real text size).
+
+      'antialias'         | This is usually true. Set it to false to switch antialiasing off.
+
+      'width'             | The width and height for your text box.
+      'height'            |
+
+      'halign'            | Alignment of your text inside the textbox. Use alignmnet constants to define
+      'valign'            | vertical and horizontal alignment.
+
+      'angle'             | The angle to rotate your text box.
+
+      'color'             | An array of color values. Colors will be rotated in the mode you choose (linewise
+                          | or paragraphwise). Can be in the following formats:
+                          |   - String representing HTML style hex couples (+ unusual alpha couple in the first place, optional).
+                          |   - Array of int values using 'r', 'g', 'b' and optionally 'a' as keys.
+
+      'color_mode'        | The color rotation mode for your color sets. Does only apply if you
+                          | defined multiple colors. Use 'line' or 'paragraph'.
+
+      'font_path'         | Location of the font to use.
+      'font_file'         |
+
+      'font_size'         | The font size to render text in (will be overwriten, if you use automeasurize).
+
+      'line_spacing'      | Measure for the line spacing to use. Default is 0.5.
+
+      'min_font_size'     | Automeasurize settings. Try to keep this area as small as possible to get better
+      'max_font_size'     | performance.
+
+      'image_type'        | The type of image (use image type constants). Is default set to PNG.
+
+      'dest_file'         | The destination to (optionally) save your file.
+ </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.images.image-text.image-text.set.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>mixed
+
+                 <TT
+CLASS="parameter"
+><I
+>$option</I
+></TT
+></DT
+><DD
+><P
+>&#13;
+         A single option name or the options array.
+
+        </P
+></DD
+></DL
+></DIV
+>
+
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>mixed
+
+                 <TT
+CLASS="parameter"
+><I
+>$value</I
+></TT
+></DT
+><DD
+><P
+>&#13;
+         Option value if $option is string.
+
+        </P
+></DD
+></DL
+></DIV
+>
+
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.images.image-text.image-text.set.returns"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;
+      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>returns</I
+></SPAN
+> True on success, otherwise PEAR::Error.
+
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.images.image-text.image-text.set.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;
+      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> no exceptions thrown
+
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.images.image-text.image-text.set.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;
+      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>see</I
+></SPAN
+> <A
+HREF="package.images.image-text.image-text.image-text.html"
+><B
+CLASS="function"
+>Image_Text::Image_Text()</B
+></A
+>
+
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.images.image-text.image-text.set.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.images.image-text.image-text.save.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.images.image-text.image-text.setcolor.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>Image_Text::save()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.images.image-text.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Image_Text::setColor()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

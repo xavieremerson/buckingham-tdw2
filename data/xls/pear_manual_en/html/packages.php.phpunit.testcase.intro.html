@@ -1,0 +1,244 @@
+<HTML
+><HEAD
+><TITLE
+>PHPUnit::TestCase</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PHPUnit"
+HREF="package.php.phpunit.html"><LINK
+REL="PREVIOUS"
+TITLE="PHPUnit::run()"
+HREF="package.php.phpunit.run.html"><LINK
+REL="NEXT"
+TITLE="PHPUnit2"
+HREF="package.php.phpunit2.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.php.phpunit.run.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.php.phpunit2.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="packages.php.phpunit.testcase.intro">PHPUnit::TestCase</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN93300"
+></A
+>PHPUnit::TestCase&nbsp;--&nbsp;
+     A TestCase defines the fixture to run multiple tests.
+    </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN93303"
+></A
+><H2
+>To define a TestCase</H2
+><P
+>&#13;    <P
+></P
+><UL
+><LI
+><P
+>1) Implement a subclass of PHPUnit_TestCase.</P
+></LI
+><LI
+><P
+>2) Define instance variables that store the state of the fixture.</P
+></LI
+><LI
+><P
+>3) Initialize the fixture state by overriding setUp().</P
+></LI
+><LI
+><P
+>4) Clean-up after a test by overriding tearDown().</P
+></LI
+></UL
+>
+   Each test runs in its own fixture so there can be no side effects
+   among test runs.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN93315"
+></A
+><H2
+>PHPUnit::TestCase</H2
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+    class MathTest extends PHPUnit_TestCase {
+      var $fValue1;
+      var $fValue2;
+
+      function MathTest($name) {
+        $this-&#62;PHPUnit_TestCase($name);
+      }
+
+      function setUp() {
+        $this-&#62;fValue1 = 2;
+        $this-&#62;fValue2 = 3;
+      }
+    }
+    ?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>&#13;    For each test implement a method which interacts with the fixture.
+    Verify the expected results with assertions specified by calling
+   assert with a boolean.
+    </P
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>function testPass() {
+      $this-&#62;assertTrue($this-&#62;fValue1 + $this-&#62;fValue2 == 5);
+    }</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.php.phpunit.run.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.php.phpunit2.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>PHPUnit::run()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.php.phpunit.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>PHPUnit2</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

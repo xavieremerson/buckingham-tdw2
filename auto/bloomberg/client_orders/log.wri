@@ -1,0 +1,17 @@
+del /Q d:\tdw\tdw\auto\bloomberg\client_orders\files\temp\*.*
+Date to process: 20140218
+Directory exists: \\buckfilesrv\e$\BloombergArchive\ClientOrders\20140218
+
+Initiating download of file [BuckOrdersTest]
+
+Downloaded file BuckOrdersTest.FTP Connection is now closed.unique_zip_name = [20140218.zip]
+cmd_zip = [wzzip d:\tdw\tdw\auto\bloomberg\client_orders\files\temp\20140218.zip d:\tdw\tdw\auto\bloomberg\client_orders\files\temp\*.*]
+<pre>WinZip(R) Command Line Support Add-On Version 2.0 (Build 6663)
+Copyright (c) WinZip International LLC 1991-2005 - All Rights Reserved
+
+  Adding BuckOrdersTest
+creating Zip file d:\tdw\tdw\auto\bloomberg\client_orders\files\temp\20140218.zip
+</pre>cmd_copy = [copy d:\tdw\tdw\auto\bloomberg\client_orders\files\temp\20140218.zip \\buckfilesrv\e$\BloombergArchive\ClientOrders\20140218]
+cmd_copy = [copy d:\tdw\tdw\auto\bloomberg\client_orders\files\temp\BuckOrdersTest d:\tdw\tdw\auto\bloomberg\client_orders\files\BuckOrdersTest20140218]
+del /Q d:\tdw\tdw\auto\bloomberg\client_orders\files\temp\*.*
+tech support = [pprasad@centersys.com]

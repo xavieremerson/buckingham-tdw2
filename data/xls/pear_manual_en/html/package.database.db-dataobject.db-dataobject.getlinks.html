@@ -1,0 +1,687 @@
+<HTML
+><HEAD
+><TITLE
+>-&#62;getLinks()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB_DataObject"
+HREF="package.database.db-dataobject.html"><LINK
+REL="PREVIOUS"
+TITLE="->getLink()"
+HREF="package.database.db-dataobject.db-dataobject.getlink.html"><LINK
+REL="NEXT"
+TITLE="->selectAs()"
+HREF="package.database.db-dataobject.db-dataobject.selectas.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.getlink.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.selectas.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db-dataobject.db-dataobject.getlinks">-&#62;getLinks()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN26892"
+></A
+>-&#62;getLinks()&nbsp;--&nbsp;load related objects</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN26895"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN26896"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>boolean <B
+CLASS="function"
+>$DB_DataObject-&#62;getLinks</B
+></CODE
+> ([string $variableFormat])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.getlinks.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Loads the all the related objects into the main object, by using the links.ini
+     relationships, and sets the calling objects variables with the row name prefixed
+     with an underscode (<TT
+CLASS="parameter"
+><I
+>_</I
+></TT
+>) to the resulting objects.
+    </P
+><P
+>&#13;      Using this with the earlier column naming convention is depreciated, and links.ini
+      files should be used.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.getlinks.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $variableFormat</I
+></TT
+> - the default behavior is to assign the resulting
+        objects to variables with the row name prefixed with an underscode (<TT
+CLASS="parameter"
+><I
+>_</I
+></TT
+>), however,
+        you can use this value to format the variable differently
+        <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN26916"><P
+><B
+>Example 33-1.  examples of formaters </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="ini"
+>if room.occupied_by is linked to a person.id
+
+without a modifier - eg _%s
+
+
+results in the equivilant of
+$object-&#62;_occupied_by =  $object-&#62;getLink('occupied_by');
+
+
+
+with a modifier - eg link_%s 
+
+results in the equivilant of
+$object-&#62;link_occupied_by = $object-&#62;getLink('occupied_by');</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>        
+       </P
+></LI
+></UL
+> 
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.getlinks.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>boolean</I
+></TT
+> - <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> on success and <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> on failure
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.getlinks.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.getlinks.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;     <A
+HREF="package.database.db-dataobject.db-dataobject.getlink.html"
+><B
+CLASS="function"
+>&#13;       DB_DataObject::getLink()</B
+></A
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.getlinks.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN26935"><P
+><B
+>Example 33-2. Two Example Tables</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>Person
++---------------+---------------+------+-----+---------+----------------+
+| Field         | Type          | Null | Key | Default | Extra          |
++---------------+---------------+------+-----+---------+----------------+
+| id            | mediumint(9)  |      | PRI | 0       | auto_increment |
+| first_name    | varchar(80)   | YES  |     | NULL    |                |
+| last_name     | varchar(80)   |      | MUL |         |                |
+| middle_name   | varchar(80)   | YES  |     | NULL    |                |
+| badge_number  | smallint(6)   | YES  |     | NULL    |                |
+| street        | varchar(80)   | YES  |     | NULL    |                |
+| city          | varchar(80)   | YES  |     | NULL    |                |
+| state         | varchar(80)   | YES  |     | NULL    |                |
+| zip           | varchar(15)   | YES  |     | NULL    |                |
+| phone         | varchar(15)   | YES  |     | NULL    |                |
+| reg_type      | varchar(80)   | YES  |     | NULL    |                |
+| judge         | varchar(10)   | YES  |     | NULL    |                |
+| staff         | varchar(10)   | YES  |     | NULL    |                |
+| volunteer     | varchar(10)   | YES  |     | NULL    |                |
+| rpga_number   | mediumint(9)  | YES  |     | NULL    |                |
+| total_fee     | float(10,2)   | YES  |     | NULL    |                |
+| email_address | varchar(80)   | YES  |     | NULL    |                |
+| country       | varchar(30)   | YES  |     | NULL    |                |
+| convention_id | int(11)       |      |     | 0       |                |
+| last_modified | timestamp(14) | YES  |     | NULL    |                |
++---------------+---------------+------+-----+---------+----------------+
+
+Convention
++----------------------+---------------+------+-----+---------+----------------+
+| Field                | Type          | Null | Key | Default | Extra          |
++----------------------+---------------+------+-----+---------+----------------+
+| id                   | int(11)       |      | PRI | 0       | auto_increment |
+| name                 | varchar(50)   |      |     |         |                |
+| sponsor_organization | varchar(50)   |      |     |         |                |
+| rpga_convention_code | varchar(20)   |      |     |         |                |
+| web_site_url         | varchar(200)  |      |     |         |                |
+| last_modified        | timestamp(14) | YES  |     | NULL    |                |
+| room_id              | int(11)       |      |     |         |                |
++----------------------+---------------+------+-----+---------+----------------+
+
+Room
++----------------------+---------------+------+-----+---------+----------------+
+| Field                | Type          | Null | Key | Default | Extra          |
++----------------------+---------------+------+-----+---------+----------------+
+| room_id              | int(11)       |      | PRI | 0       | auto_increment |
+| name                 | varchar(50)   |      |     |         |                |
++----------------------+---------------+------+-----+---------+----------------+</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN26938"><P
+><B
+>Example 33-3.  Loading all the related objects </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$person = new DataObjects_Person;
+$person-&#62;get(1079);
+$person-&#62;getLinks();
+print_r($person);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN26941"><P
+><B
+>Example 33-4. Resulting SQL</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>SELECT * FROM person WHERE id=1079
+SELECT * FROM convention WHERE id=1</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN26944"><P
+><B
+>Example 33-5. Resulting Output </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>Object:dataobjects_person Object
+(
+    [_DB_DataObject_version] =&#62; 1.0
+    [__table] =&#62; person
+    [_database_dsn] =&#62;
+    [_database_dsn_md5] =&#62; 3974043abbccdd6412fb156a1d10b98377
+    [_database] =&#62; testing
+    [_condition] =&#62;
+    [_group_by] =&#62;
+    [_order_by] =&#62;
+    [_limit] =&#62;
+    [_data_select] =&#62; *
+    [_link_loaded] =&#62; 1
+    [_lastError] =&#62; pear_error Object
+        (
+            [error_message_prefix] =&#62;
+            [mode] =&#62; 1
+            [level] =&#62; 1024
+            [code] =&#62; -3
+            [message] =&#62; getLink:Could not find class for row last_modified, table last
+            [userinfo] =&#62;
+            [callback] =&#62;
+        )
+
+    [id] =&#62; 1079
+    [N] =&#62; 1
+    [_DB_resultid] =&#62; 2
+    [first_name] =&#62; Tim
+    [last_name] =&#62; White
+    [middle_name] =&#62;
+    [badge_number] =&#62; 123
+    [street] =&#62; 334411 N Washington
+    [city] =&#62; Texas
+    [state] =&#62; CO
+    [zip] =&#62; 12345
+    [phone] =&#62; 343412323232
+    [reg_type] =&#62; Staff
+    [judge] =&#62;
+    [staff] =&#62; CHECKED
+    [volunteer] =&#62;
+    [rpga_number] =&#62; 1232323
+    [total_fee] =&#62; 0.00
+    [email_address] =&#62; tim@example.com
+    [country] =&#62; USA
+    [convention_id] =&#62; 1
+    [last_modified] =&#62; 20020711084539
+    [_first_name] =&#62;
+    [_last_name] =&#62;
+    [_middle_name] =&#62;
+    [_badge_number] =&#62;
+    [_reg_type] =&#62;
+    [_rpga_number] =&#62;
+    [_total_fee] =&#62;
+    [_email_address] =&#62;
+    [_convention_id] =&#62; dataobjects_convention Object
+        (
+            [_DB_DataObject_version] =&#62; 1.0
+            [__table] =&#62; convention
+            [_database_dsn] =&#62;
+            [_database_dsn_md5] =&#62; 3974043abbcc86412fb156a1d10b98377
+            [_database] =&#62; testing
+            [_condition] =&#62;
+            [_group_by] =&#62;
+            [_order_by] =&#62;
+            [_limit] =&#62;
+            [_data_select] =&#62; *
+            [_link_loaded] =&#62;
+            [_lastError] =&#62;
+            [id] =&#62; 1
+            [N] =&#62; 1
+            [_DB_resultid] =&#62; 3
+            [name] =&#62; ABCD XYZ
+            [sponsor_organization] =&#62; some sponser
+            [rpga_convention_code] =&#62; ABCD_XYZ
+            [web_site_url] =&#62; http://example.com
+            [last_modified] =&#62; 20020703143828
+            [room_id] =&#62; 1
+        )
+
+    [_last_modified] =&#62;
+)
+
+** Note,  This error: [message] =&#62; getLink:Could not find class for row last_modified, table last
+
+is caused by the original link code using {tablename}_{colname} for guessing links, this automated
+linking should be ignored, and not used, as it is depreciated.</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN26947"><P
+><B
+>Example 33-6. Example with three tables join</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>/**
+ * The following example show a three tables join.
+ *
+ * More joins can be nested as you see fit.
+ */
+$person = new DataObjects_Person;
+
+$data = array();
+if ($person-&#62;find()) {
+    while ($person-&#62;fetch()) {
+        $person-&#62;getLinks();
+        // Following is another call to getLinks for the second join
+        $person-&#62;_convention_id-&#62;getLinks();
+        $data[] = $person-&#62;_convention_id-&#62;_room_id-&#62;ToArray();
+    }
+}
+
+print_r($data);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN26950"><P
+><B
+>Example 33-7. databasename.links.ini</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>; this ini file is for the three tables join example above.
+[person]
+person_id = convention:person_id
+
+[room]
+room_id = convention:room_id</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.getlink.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.selectas.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>-&#62;getLink()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>-&#62;selectAs()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

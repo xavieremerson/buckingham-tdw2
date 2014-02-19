@@ -1,0 +1,343 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;   constructor
+   PEAR_RunTest::PEAR_RunTest
+  </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR"
+HREF="core.ppm.pear-runtest.html"><LINK
+REL="PREVIOUS"
+TITLE="
+    Class Summary
+    PEAR_RunTest
+   "
+HREF="core.ppm.pear-runtest-summary.html"><LINK
+REL="NEXT"
+TITLE="
+   PEAR_RunTest::generate_diff
+  "
+HREF="core.ppm.pear-runtest.generate-diff.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-runtest-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-runtest.generate-diff.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.ppm.pear-runtest.pear-runtest">constructor
+   <B
+CLASS="function"
+>PEAR_RunTest::PEAR_RunTest()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN15042"
+></A
+>
+   constructor
+   <B
+CLASS="function"
+>PEAR_RunTest::PEAR_RunTest()</B
+>
+  &nbsp;--&nbsp;Instantiate a PEAR_RunTest object.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN15046"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN15047"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once '/RunTest.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     void      constructor
+     <B
+CLASS="function"
+>PEAR_RunTest::PEAR_RunTest</B
+>
+    </CODE
+> (PEAR_Common|null
+     [$logger = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>], array
+     [$options = array()])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-runtest.pear-runtest.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   If no logger is specified, a new PEAR_Common object will be instantiated and used to
+   print output to the screen.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-runtest.pear-runtest.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+><A
+HREF="core.ppm.pear-common.html"
+><B
+CLASS="classname"
+>PEAR_Common</B
+></A
+>|<TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>
+      <TT
+CLASS="parameter"
+><I
+>$logger</I
+></TT
+></DT
+><DD
+><P
+>&#13;       A class that contains a <B
+CLASS="function"
+>log()</B
+> method matching the signature of
+       <B
+CLASS="classname"
+>PEAR_Common</B
+>.
+      </P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array
+      <TT
+CLASS="parameter"
+><I
+>$options</I
+></TT
+></DT
+><DD
+><P
+>&#13;       Currently supported options are <TT
+CLASS="literal"
+>simple</TT
+> and <TT
+CLASS="literal"
+>quiet</TT
+>.
+       The <TT
+CLASS="literal"
+>simple</TT
+> option causes tests to simply print the title of the
+       test and not the full path to the test file.  The <TT
+CLASS="literal"
+>quiet</TT
+> option
+       causes output of only failed tests.
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-runtest.pear-runtest.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+>
+   no exceptions thrown
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-runtest.pear-runtest.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-runtest-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-runtest.generate-diff.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Class Summary
+    <B
+CLASS="classname"
+>PEAR_RunTest</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-runtest.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_RunTest::generate_diff()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

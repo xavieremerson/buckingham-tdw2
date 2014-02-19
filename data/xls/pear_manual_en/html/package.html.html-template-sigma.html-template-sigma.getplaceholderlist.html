@@ -1,0 +1,371 @@
+<HTML
+><HEAD
+><TITLE
+>getPlaceholderList()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_Sigma"
+HREF="package.html.html-template-sigma.html"><LINK
+REL="PREVIOUS"
+TITLE="getCurrentBlock()"
+HREF="package.html.html-template-sigma.html-template-sigma.getcurrentblock.html"><LINK
+REL="NEXT"
+TITLE="hideBlock()"
+HREF="package.html.html-template-sigma.html-template-sigma.hideblock.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.getcurrentblock.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.hideblock.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.getplaceholderlist">getPlaceholderList()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN71334"
+></A
+>getPlaceholderList()&nbsp;--&nbsp;Returns a list of placeholders within a block.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN71337"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN71338"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/Template/Sigma.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array       <B
+CLASS="function"
+>HTML_Template_Sigma::getPlaceholderList</B
+></CODE
+> ([string $block = '__global__'])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.getplaceholderlist.desc"
+></A
+><H2
+>Description</H2
+><P
+>Returns a list of placeholders within a block.</P
+><P
+>Only 'normal' <A
+HREF="package.html.html-template-sigma.intro-syntax.html#package.html.html-template-sigma.intro-syntax.placeholder"
+>placeholders</A
+> are in the list, not ones automatically created for <A
+HREF="package.html.html-template-sigma.intro-syntax.html#package.html.html-template-sigma.intro-syntax.block"
+>blocks</A
+> and <A
+HREF="package.html.html-template-sigma.intro-syntax.html#package.html.html-template-sigma.intro-syntax.callback"
+>template functions</A
+>.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.getplaceholderlist.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$block</I
+></TT
+></DT
+><DD
+><P
+>&#13;        block name
+       </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.getplaceholderlist.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>return</I
+></SPAN
+> a list of placeholders
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.getplaceholderlist.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>see</I
+></SPAN
+> <A
+HREF="package.html.html-template-sigma.html-template-sigma.placeholderexists.html"
+><B
+CLASS="function"
+>HTML_Template_Sigma::placeholderExists()</B
+></A
+>, <A
+HREF="package.html.html-template-sigma.html-template-sigma.getblocklist.html"
+><B
+CLASS="function"
+>HTML_Template_Sigma::getBlockList()</B
+></A
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.getplaceholderlist.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN71378"><P
+><B
+>Table 41-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>SIGMA_BLOCK_NOT_FOUND</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Cannot find block '<TT
+CLASS="parameter"
+><I
+>$block</I
+></TT
+>'</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>There is no block <TT
+CLASS="parameter"
+><I
+>$block</I
+></TT
+> in the template</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Check the block name spelling, check whether you added all the necessary blocks to the template</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.getplaceholderlist.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.getcurrentblock.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.hideblock.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>getCurrentBlock()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-sigma.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>hideBlock()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,268 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR_DependencyDB</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR Installer classes"
+HREF="core.ppm.html"><LINK
+REL="PREVIOUS"
+TITLE="
+   PEAR_Dependency2::validateSubpackageDependency
+  "
+HREF="core.ppm.pear-dependency2.validatesubpackagedependency.html"><LINK
+REL="NEXT"
+TITLE="
+    Class Summary
+    PEAR_DependencyDB
+   "
+HREF="core.ppm.pear-dependencydb-summary.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-dependency2.validatesubpackagedependency.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 27. PEAR Installer classes</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-dependencydb-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="core.ppm.pear-dependencydb">PEAR_DependencyDB</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="core.ppm.pear-dependencydb-summary.html"
+>Class Summary
+    <B
+CLASS="classname"
+>PEAR_DependencyDB</B
+></A
+>&nbsp;--&nbsp;Track dependency relationships between installed packages</DT
+><DT
+><A
+HREF="core.ppm.pear-dependencydb.assertdepsdb.html"
+><B
+CLASS="function"
+>PEAR_DependencyDB::assertDepsDB()</B
+></A
+>&nbsp;--&nbsp;
+   Create the dependency database, if it doesn't exist.  Error if the
+   database is  newer than the code reading it.
+</DT
+><DT
+><A
+HREF="core.ppm.pear-dependencydb.dependson.html"
+><B
+CLASS="function"
+>PEAR_DependencyDB::dependsOn()</B
+></A
+>&nbsp;--&nbsp;Determine whether $parent depends on $child, near or deep</DT
+><DT
+><A
+HREF="core.ppm.pear-dependencydb.getdependencies.html"
+><B
+CLASS="function"
+>PEAR_DependencyDB::getDependencies()</B
+></A
+>&nbsp;--&nbsp;Get a list of dependencies of this installed package</DT
+><DT
+><A
+HREF="core.ppm.pear-dependencydb.getdependentpackagedependencies.html"
+><B
+CLASS="function"
+>PEAR_DependencyDB::getDependentPackageDependencies()</B
+></A
+>&nbsp;--&nbsp;
+   Get a list of the actual dependencies of installed packages that depend on
+   a package.
+</DT
+><DT
+><A
+HREF="package.pear.pear.pear-dependencydb.getdependentpackages.html"
+><B
+CLASS="function"
+>PEAR_DependencyDB::getDependentPackages()</B
+></A
+>&nbsp;--&nbsp;Get a list of installed packages that depend on this package</DT
+><DT
+><A
+HREF="core.ppm.pear-dependencydb.haswriteaccess.html"
+><B
+CLASS="function"
+>PEAR_DependencyDB::hasWriteAccess()</B
+></A
+>&nbsp;--&nbsp;determines whether a dependency DB can be modified</DT
+><DT
+><A
+HREF="core.ppm.pear-dependencydb.installpackage.html"
+><B
+CLASS="function"
+>PEAR_DependencyDB::installPackage()</B
+></A
+>&nbsp;--&nbsp;Register dependencies of a package that is being installed or upgraded</DT
+><DT
+><A
+HREF="core.ppm.pear-dependencydb.rebuilddb.html"
+><B
+CLASS="function"
+>PEAR_DependencyDB::rebuildDB()</B
+></A
+>&nbsp;--&nbsp;Rebuild the dependency DB by reading registry entries.</DT
+><DT
+><A
+HREF="core.ppm.pear-dependencydb.setconfig.html"
+><B
+CLASS="function"
+>PEAR_DependencyDB::setConfig()</B
+></A
+>&nbsp;--&nbsp;Set up the registry/location of dependency DB</DT
+><DT
+><A
+HREF="core.ppm.pear-dependencydb.singleton.html"
+><B
+CLASS="function"
+>PEAR_DependencyDB::singleton()</B
+></A
+>&nbsp;--&nbsp;Get a raw dependency database.  Calls setConfig() and assertDepsDB()</DT
+><DT
+><A
+HREF="core.ppm.pear-dependencydb.uninstallpackage.html"
+><B
+CLASS="function"
+>PEAR_DependencyDB::uninstallPackage()</B
+></A
+>&nbsp;--&nbsp;Remove dependencies of a package that is being uninstalled, or upgraded.</DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-dependency2.validatesubpackagedependency.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-dependencydb-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Dependency2::validateSubpackageDependency()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.ppm.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class Summary
+    <B
+CLASS="classname"
+>PEAR_DependencyDB</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

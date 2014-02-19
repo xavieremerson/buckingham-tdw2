@@ -1,0 +1,434 @@
+<HTML
+><HEAD
+><TITLE
+>Intelligent Error Handling with PEAR_ErrorStack</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR base classes"
+HREF="core.pear.html"><LINK
+REL="PREVIOUS"
+TITLE="PEAR_Error::toString()"
+HREF="core.pear.pear-error.tostring.html"><LINK
+REL="NEXT"
+TITLE="
+   Introduction to using PEAR_ErrorStack for advanced error handling
+  "
+HREF="core.pear.pear-errorstack.intro.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.pear.pear-error.tostring.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 26. PEAR base classes</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.pear.pear-errorstack.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="core.pear.pear-errorstack">Intelligent Error Handling with PEAR_ErrorStack</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.intro.html"
+>Introduction to using PEAR_ErrorStack for advanced error handling</A
+>&nbsp;--&nbsp;
+   Using PEAR_ErrorStack to do both simple and advanced error handling
+  </DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.pear-errorstack.html"
+>constructor <B
+CLASS="function"
+>PEAR_ErrorStack::PEAR_ErrorStack()</B
+></A
+>&nbsp;--&nbsp;Set up a new error stack instance</DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.geterrormessage.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::getErrorMessage()</B
+></A
+>&nbsp;--&nbsp;Standard error message generation callback</DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.geterrormessagetemplate.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::getErrorMessageTemplate()</B
+></A
+>&nbsp;--&nbsp;Standard Error Message Template generator from error code</DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.geterrors.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::getErrors()</B
+></A
+>&nbsp;--&nbsp;Retrieve all errors since last purge</DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.getfileline.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::getFileLine()</B
+></A
+>&nbsp;--&nbsp;Standard file/line number/function/class context callback</DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.getmessagecallback.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::getMessageCallback()</B
+></A
+>&nbsp;--&nbsp;Get an error code =&#62; error message mapping callback</DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.haserrors.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::hasErrors()</B
+></A
+>&nbsp;--&nbsp;Determine whether there are any errors on the stack</DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.pop.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::pop()</B
+></A
+>&nbsp;--&nbsp;Pop an error off of the error stack</DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.popcallback.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::popCallback()</B
+></A
+>&nbsp;--&nbsp;Remove a callback from the error callback stack</DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.push.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::push()</B
+></A
+>&nbsp;--&nbsp;Add an error to the stack</DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.pushcallback.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::pushCallback()</B
+></A
+>&nbsp;--&nbsp;Set an error Callback  If set to a valid callback, this will be called
+every time an error  is pushed onto the stack.  The return value will be
+used to determine  whether to allow an error to be pushed or logged.</DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.raiseerror.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::raiseError()</B
+></A
+>&nbsp;--&nbsp;emulate <B
+CLASS="function"
+>PEAR::raiseError()</B
+></DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.setcontextcallback.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::setContextCallback()</B
+></A
+>&nbsp;--&nbsp;
+   Set a callback that generates context 
+   information (location of error) for an error stack
+  </DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.setdefaultcallback.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::setDefaultCallback()</B
+></A
+>&nbsp;--&nbsp;
+   Sets a default callback to be used by all error stacks
+  </DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.setdefaultlogger.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::setDefaultLogger()</B
+></A
+>&nbsp;--&nbsp;
+   Set up a PEAR::Log object for all 
+   error stacks that don't have one
+  </DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.seterrormessagetemplate.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::setErrorMessageTemplate()</B
+></A
+>&nbsp;--&nbsp;Set the Error Message Template array</DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.setlogger.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::setLogger()</B
+></A
+>&nbsp;--&nbsp;
+   Set up a PEAR::Log object for this error stack
+  </DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.setmessagecallback.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::setMessageCallback()</B
+></A
+>&nbsp;--&nbsp;
+   Set an error code =&#62; error message mapping callback
+  </DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.singleton.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::singleton()</B
+></A
+>&nbsp;--&nbsp;Return a single error stack for this package.</DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.staticgeterrors.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::staticGetErrors()</B
+></A
+>&nbsp;--&nbsp;
+   Get a list of all errors since last purge, 
+   organized by package
+  </DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.statichaserrors.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::staticHasErrors()</B
+></A
+>&nbsp;--&nbsp;
+   Determine whether there are any errors on any error stack
+  </DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.staticpopcallback.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::staticPopCallback()</B
+></A
+>&nbsp;--&nbsp;Remove a callback from every error callback stack</DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.staticpush.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::staticPush()</B
+></A
+>&nbsp;--&nbsp;
+   Static version of 
+   <A
+HREF="core.pear.pear-errorstack.push.html"
+>&#13;    <B
+CLASS="function"
+>push()</B
+>
+   </A
+>
+  </DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.staticpushcallback.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::staticPushCallback()</B
+></A
+>&nbsp;--&nbsp;
+   Set an error Callback for every package's error stack
+  </DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.-log.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::_log()</B
+></A
+>&nbsp;--&nbsp;Log an error using PEAR::Log</DT
+><DT
+><A
+HREF="core.pear.pear-errorstack.constants.html"
+>Package PEAR_ErrorStack Constants</A
+>&nbsp;--&nbsp;Constants defined in and used by PEAR_ErrorStack</DT
+></DL
+></DIV
+><P
+>&#13;  PEAR_ErrorStack is an experimental error raising and handling implementation for PEAR that is designed
+  to replace PEAR_Error when it has stabilized.  PEAR_ErrorStack is both backwards compatible with PEAR_Error
+  and forward compatible with PHP 5's Exception class.  There are many other features, all described
+  in the Introduction.
+ </P
+><P
+>Usage:
+  <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php-highlighted"
+>1      // global error stack
+2      $global_stack = &#38;PEAR_ErrorStack::<A
+HREF="core.pear.pear-errorstack.singleton.html"
+>singleton</A
+>('MyPackage');
+3      // local error stack
+4      $local_stack = new <A
+HREF="core.pear.pear-errorstack.pear-errorstack.html"
+>PEAR_ErrorStack</A
+>('MyPackage');</PRE
+></TD
+></TR
+></TABLE
+>
+ </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.pear.pear-error.tostring.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.pear.pear-errorstack.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>PEAR_Error::toString()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.pear.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction to using PEAR_ErrorStack for advanced error handling</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

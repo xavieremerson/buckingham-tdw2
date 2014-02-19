@@ -1,0 +1,364 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - Query</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction - Connect"
+HREF="package.database.db.intro-connect.html"><LINK
+REL="NEXT"
+TITLE="Introduction - Results"
+HREF="package.database.db.intro-fetch.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.intro-connect.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.intro-fetch.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.intro-query">Introduction - Query</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN21270"
+></A
+>Introduction - Query&nbsp;--&nbsp;Performing queries</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.intro-query.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   PEAR DB provides several methods for querying databases.
+   The most direct method is
+   <A
+HREF="package.database.db.db-common.query.html"
+>&#13;    <B
+CLASS="function"
+>query()</B
+></A
+>. It takes a SQL query
+   string as an argument.
+   There are three possible returns:
+   a new <A
+HREF="package.database.db.db-result.html"
+><B
+CLASS="classname"
+>DB_result</B
+></A
+> object
+   for queries that return results (such as
+   <B
+CLASS="command"
+>SELECT</B
+> queries),
+   <A
+HREF="package.database.db.db-error.html"
+><TT
+CLASS="constant"
+><B
+>DB_OK</B
+></TT
+></A
+> for queries that manipulate data (such as
+   <B
+CLASS="command"
+>INSERT</B
+> queries)
+   or a <A
+HREF="package.database.db.db-error.html"
+><B
+CLASS="classname"
+>DB_Error</B
+></A
+> object on failure.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21286"><P
+><B
+>Example 33-1. Doing a query</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Create a valid DB object named $db
+// at the beginning of your program...
+require_once 'DB.php';
+
+$db =&#38; DB::connect('pgsql://usr:pw@localhost/dbnam');
+if (PEAR::isError($db)) {
+    die($db-&#62;getMessage());
+}
+
+// Proceed with a query...
+$res =&#38; $db-&#62;query('SELECT * FROM clients');
+
+// Always check that result is not an error
+if (PEAR::isError($res)) {
+    die($res-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   <B
+CLASS="function"
+>query()</B
+> can be used instead of
+   <A
+HREF="package.database.db.db-common.prepare.html"
+>&#13;    <B
+CLASS="function"
+>prepare()</B
+></A
+> and
+   <A
+HREF="package.database.db.db-common.execute.html"
+>&#13;    <B
+CLASS="function"
+>execute()</B
+></A
+>, if you
+   set the <TT
+CLASS="parameter"
+><I
+>$params</I
+></TT
+> parameter
+   and your query uses placeholders.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21296"><P
+><B
+>Example 33-2. Using query in prepare/execute mode with a scalar parameter</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$sql  = 'select * from clients where clientid = ?';
+$data = 53;
+
+$res =&#38; $db-&#62;query($sql, $data);
+
+// Always check that result is not an error
+if (PEAR::isError($res)) {
+    die($res-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21299"><P
+><B
+>Example 33-3. Using query in prepare/execute mode with an array parameter</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$sql  = 'select * from clients where clientid = ? and statusid = ?';
+$data = array(53, 4);
+
+$res =&#38; $db-&#62;query($sql, $data);
+
+// Always check that result is not an error
+if (PEAR::isError($res)) {
+    die($res-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.intro-connect.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.intro-fetch.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction - Connect</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction - Results</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

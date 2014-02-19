@@ -1,0 +1,348 @@
+<HTML
+><HEAD
+><TITLE
+>Pager::getperpageselectbox</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Pager"
+HREF="package.html.pager.html"><LINK
+REL="PREVIOUS"
+TITLE="Pager::getPreviousPageID"
+HREF="package.html.pager.getpreviouspageid.html"><LINK
+REL="NEXT"
+TITLE="Pager::isFirstPage"
+HREF="package.html.pager.isfirstpage.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.pager.getpreviouspageid.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.pager.isfirstpage.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.pager.getperpageselectbox"><B
+CLASS="function"
+>Pager::getperpageselectbox()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN73036"
+></A
+><B
+CLASS="function"
+>Pager::getperpageselectbox()</B
+>&nbsp;--&nbsp;Returns a string with a XHTML SELECT menu, to choose how many
+     items per page should be displayed.
+    </DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN73040"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN73041"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Pager/Pager.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>Pager::getperpageselectbox</B
+></CODE
+> ([integer $start = 5 [, integer $end = 30 [, integer $step = 5 [, boolean $showAllData = false [, string $optionText = '%d']]]]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager.getperpageselectbox.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>integer $start</I
+></TT
+> - Min. number of items per page (optional)
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>integer $end</I
+></TT
+> - Max. number of items per page (optional)
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>integer $step</I
+></TT
+> - Increment between two options (optional)
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>boolean $showAllData</I
+></TT
+> - If true, perPage is set equal to totalItems (optional)
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $optionText</I
+></TT
+> - text to show in each option. (optional)
+          Use '%d' where you want to see the number of pages selected.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager.getperpageselectbox.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      Returns a string with a XHTML SELECT menu, useful for letting the user choose
+      how many items per page should be displayed. If parameter
+      <TT
+CLASS="parameter"
+><I
+>useSessions</I
+></TT
+> is <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, this value is stored in
+      a session var. The string isn't echoed right away so you can use it
+      with template engines.
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager.getperpageselectbox.example"
+></A
+><H2
+>Example</H2
+><P
+>&#13;     This example shows how you can create a select box to let
+     your users choose the number of items to display on each page.
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>include 'Pager/Pager.php';
+
+$params = array(
+    'mode'       =&#62; 'Jumping',
+    'perPage'    =&#62; 3,
+    'delta'      =&#62; 2,
+    'itemData'   =&#62; array('a','b','c','d','e',[...omissis...],'z')
+);
+$pager = &#38; Pager::factory($params);
+
+$selectBox = $pager-&#62;getPerPageSelectBox();
+
+echo '&#60;form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="GET"&#62;';
+echo $selectBox;
+echo '&#60;input type="submit" value="submit" /&#62;';
+echo '&#60;/form&#62;';</PRE
+></TD
+></TR
+></TABLE
+>
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager.getperpageselectbox.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>return</I
+></SPAN
+> string with the XHTML SELECT menu.
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.pager.getpreviouspageid.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.pager.isfirstpage.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>Pager::getPreviousPageID()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.pager.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Pager::isFirstPage()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

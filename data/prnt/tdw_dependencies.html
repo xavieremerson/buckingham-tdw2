@@ -1,0 +1,166 @@
+
+			<style type="text/css">
+			<!--
+			.data_black {font-family: "Courier New", Courier, mono;	font-size: 10px;	color: #000000;}
+			tr.trlight {
+				font-family: Arial;
+				font-size: 11px;
+				color: #000000;
+			}
+			tr.trdark {
+				font-family: Arial;
+				font-size: 11px;
+				color: #000000;
+			}
+			-->
+			</style>
+			<table width="670" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td valign="top" width="50"><img src="../../images/logo_small.gif" width="47"></td>
+					<td valign="top" align="left" width="500">
+						<font color="#333333" size="3" face="Arial"><b>&nbsp;Report: TDW Server Dependencies</b></font>
+						<br>
+						<font color="#333333" size="2" face="Arial">
+							&nbsp;Date : 02/17/2014
+						</font>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+			<img src="../../images/border_a.png" width="670" height="2"><br>
+													<table width="670" cellpadding="1", cellspacing="0" bgcolor="#EEEEEE" border="0">
+														<tr>
+															<td valign="top">		
+																<table width="100%"  border="0" cellspacing="1" cellpadding="0"><tr> 
+														<td width="20">&nbsp;<font face="Arial" size="1"><b>#</b></font></td>
+														<td width="150" align="left"><font face="Arial" size="1"><b>Server/Location</b></font>&nbsp;</td>
+														<td width="100" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial" size="1"><b>Type</b></font></td>
+														<td width="50"><font face="Arial" size="1"><b>Direction</b></font></td>
+														<td width="370"><font face="Arial" size="1"><b>Comments</b></font></td>
+													</tr>
+												<tr class ="trlight" bgcolor="#FFFFFF" >
+													<td align="left">&nbsp;<font face="Arial" size="1">1</font></td>
+													<td align="left"><font face="Arial" size="1">tw-ftp01.tradeware.com</font>&nbsp;</td>
+													<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial" size="1">Tradeware SFTP</font></td>
+													<td align="left"><font face="Arial" size="1">Upload</font></td>
+													<td align="left"><font face="Arial" size="1">tw-ftp01.tradeware.com (70.42.216.33). Account Uploaded to Tradeware at 7:00AM everyday.tw-ftp01.tradeware.com (70.42.216.33) username: buckcap</font></td>
+												</tr>
+												<tr class ="trdark" bgcolor="#F2F2F2" >
+													<td align="left">&nbsp;<font face="Arial" size="1">2</font></td>
+													<td align="left"><font face="Arial" size="1">tw-ftp01.tradeware.com </font>&nbsp;</td>
+													<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial" size="1">Tradeware SFTP</font></td>
+													<td align="left"><font face="Arial" size="1">Download</font></td>
+													<td align="left"><font face="Arial" size="1">Files are downloaded from Tradeware FTP Server every 3 minutes on weekdays, starting at 9:45AM, for Trade Preapproval System (ETPA). Files are TWordersmmddyy.xfr, TWreportsmmddyy.xfr, TWallocsmmddyy.xfr.</font></td>
+												</tr>
+												<tr class ="trlight" bgcolor="#FFFFFF" >
+													<td align="left">&nbsp;<font face="Arial" size="1">3</font></td>
+													<td align="left"><font face="Arial" size="1">\\bucknav2\c$\FTP\Jovus Files</font>&nbsp;</td>
+													<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial" size="1">Files</font></td>
+													<td align="left"><font face="Arial" size="1">Input</font></td>
+													<td align="left"><font face="Arial" size="1">FTP Server on bucknav2<br>Research Docs and Price Charts are sent across by Jovus as they are published/available.</font></td>
+												</tr>
+												<tr class ="trdark" bgcolor="#F2F2F2" >
+													<td align="left">&nbsp;<font face="Arial" size="1">4</font></td>
+													<td align="left"><font face="Arial" size="1">\\buckfilesrv\e$\TDWbackup\</font>&nbsp;</td>
+													<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial" size="1">LAN/Fileshare</font></td>
+													<td align="left"><font face="Arial" size="1">Output</font></td>
+													<td align="left"><font face="Arial" size="1">Backup Location for TDW Data/Files [DAILY at 8:00PM]</font></td>
+												</tr>
+												<tr class ="trlight" bgcolor="#FFFFFF" >
+													<td align="left">&nbsp;<font face="Arial" size="1">5</font></td>
+													<td align="left"><font face="Arial" size="1">http://192.168.20.38  {evs1}</font>&nbsp;</td>
+													<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial" size="1">Mail Svr. (DAV) Incoming</font></td>
+													<td align="left"><font face="Arial" size="1">Input</font></td>
+													<td align="left"><font face="Arial" size="1">Used to read mails for Compliance Review in Research Dissem, InvUpdate and QuickNote folders. [DAILY]</font></td>
+												</tr>
+												<tr class ="trdark" bgcolor="#F2F2F2" >
+													<td align="left">&nbsp;<font face="Arial" size="1">6</font></td>
+													<td align="left"><font face="Arial" size="1">192.168.20.54</font>&nbsp;</td>
+													<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial" size="1">Files / NFS</font></td>
+													<td align="left"><font face="Arial" size="1">Input</font></td>
+													<td align="left"><font face="Arial" size="1">NFS FTP Location, files picked up by TDW from here. [DAILY]\\192.168.20.54\nfs\</font></td>
+												</tr>
+												<tr class ="trlight" bgcolor="#FFFFFF" >
+													<td align="left">&nbsp;<font face="Arial" size="1">7</font></td>
+													<td align="left"><font face="Arial" size="1">\\buckpartner\Advent\Axys3\txt</font>&nbsp;</td>
+													<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial" size="1">Files</font></td>
+													<td align="left"><font face="Arial" size="1">Input</font></td>
+													<td align="left"><font face="Arial" size="1">File picked up from this location, encrypted and then sent to MSFS, MSPB, Guggenheim via FTP [DAILY]</font></td>
+												</tr>
+												<tr class ="trdark" bgcolor="#F2F2F2" >
+													<td align="left">&nbsp;<font face="Arial" size="1">8</font></td>
+													<td align="left"><font face="Arial" size="1">ftp02.wanlink.us</font>&nbsp;</td>
+													<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial" size="1">FTP</font></td>
+													<td align="left"><font face="Arial" size="1">Output</font></td>
+													<td align="left"><font face="Arial" size="1">Guggenheim (BCM file encrypted and sent out everyday at 9:30AM) <br>Changed 10/06/09, Re: Celiberti, Louie [LCeliberti@GuggenheimAdvisors.com]  <br>Ph: 212-381-7545</font></td>
+												</tr>
+												<tr class ="trlight" bgcolor="#FFFFFF" >
+													<td align="left">&nbsp;<font face="Arial" size="1">9</font></td>
+													<td align="left"><font face="Arial" size="1">T:\BRG\Buck\CommMgr</font>&nbsp;</td>
+													<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial" size="1">Files</font></td>
+													<td align="left"><font face="Arial" size="1">INPUT</font></td>
+													<td align="left"><font face="Arial" size="1">Back-office DOS System Files, accessed by TDW [once DAILY]<br>T:\BRG\Buck\CommMgr (Share1 on BucksnapNY)</font></td>
+												</tr>
+												<tr class ="trdark" bgcolor="#F2F2F2" >
+													<td align="left">&nbsp;<font face="Arial" size="1">10</font></td>
+													<td align="left"><font face="Arial" size="1">[NOT USED] 192.168.20.48</font>&nbsp;</td>
+													<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial" size="1">Files and Database</font></td>
+													<td align="left"><font face="Arial" size="1">Input</font></td>
+													<td align="left"><font face="Arial" size="1">Jovus Server. Used by Research Viewer and TDW [DAILY and SYNCH every 2 mins.]</font></td>
+												</tr>
+												<tr class ="trlight" bgcolor="#FFFFFF" >
+													<td align="left">&nbsp;<font face="Arial" size="1">11</font></td>
+													<td align="left"><font face="Arial" size="1">72.32.121.26 [Hosted Jovus]</font>&nbsp;</td>
+													<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial" size="1">VPN Connection</font></td>
+													<td align="left"><font face="Arial" size="1">Out</font></td>
+													<td align="left"><font face="Arial" size="1">TDW Server connects to Hosted Jovus to access the Database Server (192.168.1.78)</font></td>
+												</tr>
+												<tr class ="trdark" bgcolor="#F2F2F2" >
+													<td align="left">&nbsp;<font face="Arial" size="1">12</font></td>
+													<td align="left"><font face="Arial" size="1">\\bucknav\c$\CycloneActivator\</font>&nbsp;</td>
+													<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial" size="1">Files</font></td>
+													<td align="left"><font face="Arial" size="1">Input</font></td>
+													<td align="left"><font face="Arial" size="1">\\bucknav\c$\CycloneActivator\data\sft7212\binaryin\fidelity [Daily]</font></td>
+												</tr>
+												<tr class ="trlight" bgcolor="#FFFFFF" >
+													<td align="left">&nbsp;<font face="Arial" size="1">13</font></td>
+													<td align="left"><font face="Arial" size="1">192.168.20.75</font>&nbsp;</td>
+													<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial" size="1">SMTP / Outgoing Mail</font></td>
+													<td align="left"><font face="Arial" size="1">Output</font></td>
+													<td align="left"><font face="Arial" size="1">This SMTP Server is used to send emails (alerts, reports, server status)</font></td>
+												</tr>
+												<tr class ="trdark" bgcolor="#F2F2F2" >
+													<td align="left">&nbsp;<font face="Arial" size="1">14</font></td>
+													<td align="left"><font face="Arial" size="1">ftp.morganstanley.com</font>&nbsp;</td>
+													<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial" size="1">FTP</font></td>
+													<td align="left"><font face="Arial" size="1">Output</font></td>
+													<td align="left"><font face="Arial" size="1">Buck Cap. data ftp'ed to Morgan Stanley. [DAILY]</font></td>
+												</tr>
+												<tr class ="trlight" bgcolor="#FFFFFF" >
+													<td align="left">&nbsp;<font face="Arial" size="1">15</font></td>
+													<td align="left"><font face="Arial" size="1">buckezdb.buckresearch.com</font>&nbsp;</td>
+													<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial" size="1">Database</font></td>
+													<td align="left"><font face="Arial" size="1">Input</font></td>
+													<td align="left"><font face="Arial" size="1">Accessed by TDW for Trades Data, used by Compliance Modules in TDW.</font></td>
+												</tr>
+												<tr class ="trdark" bgcolor="#F2F2F2" >
+													<td align="left">&nbsp;<font face="Arial" size="1">16</font></td>
+													<td align="left"><font face="Arial" size="1">GOOGLE FINANCE</font>&nbsp;</td>
+													<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial" size="1">http</font></td>
+													<td align="left"><font face="Arial" size="1">Input</font></td>
+													<td align="left"><font face="Arial" size="1">Company Name and Industry Lookup [DAILY]</font></td>
+												</tr>
+												<tr class ="trlight" bgcolor="#FFFFFF" >
+													<td align="left">&nbsp;<font face="Arial" size="1">17</font></td>
+													<td align="left"><font face="Arial" size="1">YAHOO FINANCE</font>&nbsp;</td>
+													<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial" size="1">http</font></td>
+													<td align="left"><font face="Arial" size="1">Input</font></td>
+													<td align="left"><font face="Arial" size="1">Used for Estimates, Consensus Estimates, Security Master Lookup [DAILY]</font></td>
+												</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+											<!-- END TABLE 4 -->
+										</td>
+									</tr><br><br><hr align="left" width="670" size="1" noshade color="#0000CC"><font face="Arial" size="-3">Report created by Lloyd Karp on 02/17/2014 at 01:13:14am from m/c [192.168.50.91] using Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0</font><hr align="left" width="670" size="1" noshade color="#0000CC">

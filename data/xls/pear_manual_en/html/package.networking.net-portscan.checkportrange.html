@@ -1,0 +1,358 @@
+<HTML
+><HEAD
+><TITLE
+>Net_Portscan::checkPortRange()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_Portscan"
+HREF="package.networking.net-portscan.html"><LINK
+REL="PREVIOUS"
+TITLE="Net_Portscan::checkPort()"
+HREF="package.networking.net-portscan.checkport.html"><LINK
+REL="NEXT"
+TITLE="Net_Portscan::getPort()"
+HREF="package.networking.net-portscan.getport.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-portscan.checkport.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-portscan.getport.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-portscan.checkportrange">Net_Portscan::checkPortRange()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN87422"
+></A
+>Net_Portscan::checkPortRange()&nbsp;--&nbsp;check for available services</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN87425"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN87426"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Net/Portscan.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>Net_Portscan::checkPortRange</B
+></CODE
+> (string $host, integer $minPort, integer $maxPort [, integer 
+       $timeout = 30])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-portscan.checkportrange.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     This function checks if there are services available at the
+     specified ports on the specified machine. 
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-portscan.checkportrange.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;    <P
+></P
+><UL
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>string $host</I
+></TT
+> - address of the host
+       to check
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>string $minPort</I
+></TT
+> - lowest port to test
+       to check
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>string $maxPort</I
+></TT
+> - highest port to test
+       to check
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>string $timeout</I
+></TT
+> - 
+       time in seconds to wait for every response from host
+      </P
+><DIV
+CLASS="important"
+><BLOCKQUOTE
+CLASS="important"
+><P
+><B
+>Important: </B
+>
+       If you run into timeout problems despite setting this parameter
+       to a reasonably high value, you need to make sure that the
+       configuration directive <TT
+CLASS="literal"
+>default_socket_timeout</TT
+>
+       in the <TT
+CLASS="filename"
+>php.ini</TT
+> configuration file does not
+       force the maximum timeout down to a lower value.
+      </P
+></BLOCKQUOTE
+></DIV
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-portscan.checkportrange.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>array</I
+></TT
+> - An associative array containing the
+     scanning results for each port.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-portscan.checkportrange.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-portscan.checkportrange.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN87472"><P
+><B
+>Example 48-1. Using checkPortRange</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "Net_Portscan/Portscan.php";
+
+echo "Scanning localhost ports 70-90\n";
+$result = Net_Portscan::checkPortRange("localhost", 70, 90);
+
+foreach ($result as $port =&#62; $element) {
+    if ($element == NET_PORTSCAN_SERVICE_FOUND) {
+        echo "A service has been found on port " . $port . ".\n";
+    } else {
+        echo "No service has been found on port " . $port . ".\n";
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-portscan.checkport.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-portscan.getport.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Net_Portscan::checkPort()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-portscan.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Net_Portscan::getPort()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

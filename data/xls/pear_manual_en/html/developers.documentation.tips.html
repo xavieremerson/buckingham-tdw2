@@ -1,0 +1,209 @@
+<HTML
+><HEAD
+><TITLE
+>Tips for good documentation</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Writing documentation"
+HREF="developers.documentation.html"><LINK
+REL="PREVIOUS"
+TITLE="Writing documentation"
+HREF="developers.documentation.html"><LINK
+REL="NEXT"
+TITLE="New features in PEAR 1.4"
+HREF="guide-migrating.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="developers.documentation.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 20. Writing documentation</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="guide-migrating.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="developers.documentation.tips">Tips for good documentation</H1
+><P
+>&#13;    This section of the chapter does not deal with the specifics of
+    organizing documentation in the <TT
+CLASS="literal"
+>peardoc</TT
+> standard,
+    but instead with how to organize documentation logically.
+   </P
+><P
+>&#13;    <P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>&#13;       First, every package solves a problem.  What is this problem?
+       Try to figure out what assumptions your end-users might not have
+       about the problem (they may not realize that this is a problem
+       that needs solving). For instance, a template package solves the
+       problem of both separating design from code, and separating
+       business logic from display logic. If possible, explain the
+       problem in terms that even a novice programmer can understand.
+      </P
+></LI
+><LI
+><P
+>&#13;       Next, how does the package uniquely solve the problem?  This is
+       something that most documentation lacks.  For example, there are
+       many template engines.  All of them solve the same problem, but
+       none of them do it in the same way.  A block-based template
+       engine does not have any logic at all, whereas a template like
+       Smarty defines a whole new template language.  Some template
+       engines compile their templates, others don't.  What is unique
+       about your package?  Can someone who has never seen the code get
+       a good idea of how it solves the problem?
+      </P
+></LI
+><LI
+><P
+>&#13;       Provide examples!  Start right away with simple examples that
+       shows the basic feature set -- they will show users how to
+       quickly start using the package.  More complex examples will help
+       the users in understanding advanced ways of using the package.
+      </P
+></LI
+><LI
+><P
+>&#13;       If your package exposes complex interfaces or multiple constants
+       that can't be fully explained in one or two examples (which is
+       very likely), do not miss to explain them thoroughly in the
+       documentation. Document any interfaces that users must use, such
+       as a database DSN, command-line arguments for applications,
+       configuration file contents, or any other non-code element.
+      </P
+></LI
+><LI
+><P
+>&#13;       Last, proofread your documentation.  If possible, have someone
+       else who is not as familiar with your project take a look at the
+       documentation.  They will catch assumptions that you have missed.
+      </P
+></LI
+></OL
+>
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="developers.documentation.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="guide-migrating.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Writing documentation</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="developers.documentation.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>New features in PEAR 1.4</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

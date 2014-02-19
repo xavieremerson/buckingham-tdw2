@@ -1,0 +1,723 @@
+<HTML
+><HEAD
+><TITLE
+>File_Passwd::staticAuth</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File_Passwd"
+HREF="package.fileformats.file-passwd.html#package.fileformats.file-passwd.file-passwd"><LINK
+REL="PREVIOUS"
+TITLE="File_Passwd::factory"
+HREF="package.fileformats.file-passwd.file-passwd.factory.html"><LINK
+REL="NEXT"
+TITLE="MP3_Id"
+HREF="package.fileformats.mp3-id.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.file-passwd.file-passwd.factory.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.mp3-id.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.fileformats.file-passwd.file-passwd.staticauth"><B
+CLASS="function"
+>File_Passwd::staticAuth()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN37128"
+></A
+><B
+CLASS="function"
+>File_Passwd::staticAuth()</B
+>&nbsp;--&nbsp;Fast authentication</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN37132"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN37133"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'File/Passwd.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>File_Passwd::staticAuth</B
+></CODE
+> (string $type, string $file, string $user, string $pass [, mixed $opt = ''])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-passwd.file-passwd.staticauth.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Static user autentication.
+  </P
+><P
+>&#13;   Though this approach should be reasonable fast, it is NOT  
+   with APR compatible MD5 encryption used for htpasswd style  
+   password files encrypted in MD5. 
+  </P
+><P
+>&#13;   Generating one MD5 password takes about 0.25 seconds!
+  </P
+><P
+>&#13;   Depending on <TT
+CLASS="varname"
+>$type</TT
+>, 
+   <TT
+CLASS="varname"
+>$opt</TT
+> should be: 
+   <P
+></P
+><UL
+><LI
+><DIV
+CLASS="formalpara"
+><P
+><B
+>Smb: </B
+><P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>encryption method (NT or LM)</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+></DIV
+></LI
+><LI
+><DIV
+CLASS="formalpara"
+><P
+><B
+>Unix: </B
+><P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>encryption method (des or md5)</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+></DIV
+></LI
+><LI
+><DIV
+CLASS="formalpara"
+><P
+><B
+>Authbasic: </B
+><P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>encryption method (des, sha or md5)</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+></DIV
+></LI
+><LI
+><DIV
+CLASS="formalpara"
+><P
+><B
+>Authdigest: </B
+><P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>the realm the user is in</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+></DIV
+></LI
+><LI
+><DIV
+CLASS="formalpara"
+><P
+><B
+>Cvs: </B
+><P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>n/a (empty)</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+></DIV
+></LI
+><LI
+><DIV
+CLASS="formalpara"
+><P
+><B
+>Custom: </B
+><P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>array of 2 elements: encryption function and delimiter</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+></DIV
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-passwd.file-passwd.staticauth.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+       <TT
+CLASS="parameter"
+><I
+>$type</I
+></TT
+></DT
+><DD
+><P
+>&#13;      Unix, Cvs, Smb, Authbasic or Authdigest
+     </P
+></DD
+><DT
+>string
+       <TT
+CLASS="parameter"
+><I
+>$file</I
+></TT
+></DT
+><DD
+><P
+>&#13;      path to passwd file
+     </P
+></DD
+><DT
+>string
+       <TT
+CLASS="parameter"
+><I
+>$user</I
+></TT
+></DT
+><DD
+><P
+>&#13;      the user to authenticate
+     </P
+></DD
+><DT
+>string
+       <TT
+CLASS="parameter"
+><I
+>$pass</I
+></TT
+></DT
+><DD
+><P
+>&#13;      the plaintext password
+     </P
+></DD
+><DT
+>mixed
+       <TT
+CLASS="parameter"
+><I
+>$opt</I
+></TT
+></DT
+><DD
+><P
+>&#13;       <P
+></P
+><UL
+><LI
+><DIV
+CLASS="formalpara"
+><P
+><B
+>Smb: </B
+><P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>nt | lm</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+></DIV
+></LI
+><LI
+><DIV
+CLASS="formalpara"
+><P
+><B
+>Unix: </B
+><P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>des | md5</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+></DIV
+></LI
+><LI
+><DIV
+CLASS="formalpara"
+><P
+><B
+>Authbasic: </B
+><P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>des | sha | md5</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+></DIV
+></LI
+><LI
+><DIV
+CLASS="formalpara"
+><P
+><B
+>Authdigest: </B
+><P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>the realm the user is in</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+></DIV
+></LI
+><LI
+><DIV
+CLASS="formalpara"
+><P
+><B
+>Cvs: </B
+><P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>n/a (empty)</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+></DIV
+></LI
+><LI
+><DIV
+CLASS="formalpara"
+><P
+><B
+>Custom: </B
+><P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>array of 2 elements: encryption function and delimiter</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+></DIV
+></LI
+></UL
+>
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-passwd.file-passwd.staticauth.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;    Returns <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> if authenticated, <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> if not, or <B
+CLASS="classname"
+>PEAR_Error</B
+> on failure.
+  </P
+><P
+>&#13;    <DIV
+CLASS="table"
+><A
+NAME="AEN37274"><P
+><B
+>Table 37-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error Code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Summary</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>FILE_PASSWD_E_NOT_EXISTS</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>passwd file doesn't exist</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>FILE_PASSWD_E_FILE_NOT_OPENED</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>passwd file couldn't be opened in read mode</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>FILE_PASSWD_E_FILE_NOT_LOCKED</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>passwd file couldn't be locked shared</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>FILE_PASSWD_E_FILE_NOT_UNLOCKED</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>passwd file couldn't be unlocked (only if auth fails)</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>FILE_PASSWD_E_FILE_NOT_CLOSED</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>passwd file couldn't be closed /only if auth fails)</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>FILE_PASSWD_E_UNDEFINED</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>if class/file couldn't be loaded</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>FILE_PASSWD_E_INVALID_ENC_MODE</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>supplied encryption mode is not supported</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>FILE_PASSWD_E_USER_NOT_IN_REALM</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>user doesn't exist in this realm (only File_Passwd_Authdigest)</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-passwd.file-passwd.staticauth.note"
+></A
+><H2
+>Note</H2
+><P
+>This function should be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-passwd.file-passwd.factory.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.fileformats.mp3-id.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>File_Passwd::factory()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-passwd.html#package.fileformats.file-passwd.file-passwd"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>MP3_Id</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

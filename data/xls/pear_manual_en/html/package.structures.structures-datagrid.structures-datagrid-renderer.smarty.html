@@ -1,0 +1,551 @@
+<HTML
+><HEAD
+><TITLE
+>Structures_DataGrid_Renderer_Smarty</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Renderer drivers"
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.structures-datagrid-renderer"><LINK
+REL="PREVIOUS"
+TITLE="Structures_DataGrid_Renderer_Pager"
+HREF="package.structures.structures-datagrid.structures-datagrid-renderer.pager.html"><LINK
+REL="NEXT"
+TITLE="Structures_DataGrid_Renderer_XLS"
+HREF="package.structures.structures-datagrid.structures-datagrid-renderer.xls.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-renderer.pager.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-renderer.xls.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid-renderer.smarty">Structures_DataGrid_Renderer_Smarty</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN96834"
+></A
+>Structures_DataGrid_Renderer_Smarty&nbsp;--&nbsp;Smarty Rendering Driver</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid-renderer.smarty.options"
+></A
+><H2
+>Options</H2
+><P
+>&#13;   This driver accepts the following options:
+  </P
+><DIV
+CLASS="table"
+><A
+NAME="AEN96840"><P
+><B
+>Table 55-1. Options for this driver</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Option</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Type</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Default Value</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>buildFooter</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>bool</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Whether to build the footer.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>true</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>buildHeader</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>bool</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Whether to build the header.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>true</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>columnAttributes</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Column cells attributes. This is an array of the form:
+       array(fieldName =&#62; array(attribute =&#62; value, ...) ...)</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array()</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>convertEntities</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>bool</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Whether or not to convert html entities. This calls
+       htmlspecialchars().</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>true</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>defaultCellValue</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>What value to put by default into empty cells.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>null</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>defaultColumnValues</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Per-column default cell value. This is an array of the form:
+       array(fieldName =&#62; value, ...).</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array()</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>encoding</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The content encoding. If the mbstring extension is present the
+       default value is set from mb_internal_encoding(), otherwise it is
+       ISO-8859-1.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>excludeVars</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Variables to be removed from the generated HTTP queries.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array()</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>extraVars</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Variables to be added to the generated HTTP queries.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array()</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>fillWithEmptyRows</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>bool</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Ensures that all pages have the same number of rows.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>false</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>hideColumnLinks</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>By default sorting links are enabled on all columns. With this
+       option it is possible to disable sorting links on specific columns. This
+       is an array of the form: array(fieldName, ...). This option only affects
+       drivers that support sorting.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array()</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>numberAlign</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>bool</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Whether to right-align numeric values.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>true</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>selfPath</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The complete path for sorting and paging links.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>$_SERVER['PHP_SELF']</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>sortingResetsPaging</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>bool</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Whether sorting HTTP queries reset paging.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>true</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid-renderer.smarty.notes"
+></A
+><H2
+>General notes</H2
+><P
+>&#13;   This driver does not support the render() method, it only is able to "fill"
+   a Smarty object, by calling Smarty::assign() and Smarty::register_function().
+  </P
+><P
+>   
+   It's up to you to called Smarty::display() after the Smarty object has been
+   filled.
+  </P
+><P
+>   
+   This driver assigns the following Smarty variables:
+   - $columnSet:       array of columns specifications
+                       structure:
+                            array (
+                                0 =&#62; array (
+                                    'name'       =&#62; field name,
+                                    'label'      =&#62; column label,
+                                    'link'       =&#62; sorting link,
+                                    'attributes' =&#62; attributes string,
+                                ),
+                                ...
+                            )
+   - $recordSet:       array of records values
+   - $currentPage:     current page (starting from 1)
+   - $recordLimit:     number of rows per page
+   - $pagesNum:        number of pages
+   - $columnsNum:      number of columns
+   - $recordsNum:      number of records in the current page
+   - $totalRecordsNum: total number of records
+   - $firstRecord:     first record number (starting from 1)
+   - $lastRecord:      last record number (starting from 1)
+   - $currentSort:     array with column names and the directions used for sorting
+  </P
+><P
+>   
+   This driver also registers a Smarty custom function named getPaging
+   that can be called from Smarty templates with {getPaging} in order
+   to print paging links. This function accepts any of the Pager::factory()
+   options as parameters.
+  </P
+><P
+>   
+   Template example, featuring sorting and paging:
+  </P
+><P
+>   
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#60;!-- Show paging links using the custom getPaging function --&#62;
+   {getPaging prevImg="&#60;&#60;" nextImg="&#62;&#62;" separator=" | " delta="5"}
+   
+   &#60;p&#62;Showing records {$firstRecord} to {$lastRecord}
+   from {$totalRecordsNum}, page {$currentPage} of {$pagesNum}&#60;/p&#62;
+   
+   &#60;table cellspacing="0"&#62;
+       &#60;!-- Build header --&#62;
+       &#60;tr&#62;
+           {section name=col loop=$columnSet}
+               &#60;th {$columnSet[col].attributes}&#62;
+                   &#60;!-- Check if the column is sortable --&#62;
+                   {if $columnSet[col].link != ""}
+                       &#60;a href="{$columnSet[col].link}"&#62;{$columnSet[col].label}&#60;/a&#62;
+                   {else}
+                       {$columnSet[col].label}
+                   {/if}
+               &#60;/th&#62;
+           {/section}
+       &#60;/tr&#62;
+   
+       &#60;!-- Build body --&#62;
+       {section name=row loop=$recordSet}
+           &#60;tr {if $smarty.section.row.iteration is even}bgcolor="#EEEEEE"{/if}&#62;
+               {section name=col loop=$recordSet[row]}
+                   &#60;td {$columnSet[col].attributes}&#62;{$recordSet[row][col]}&#60;/td&#62;
+               {/section}
+           &#60;/tr&#62;
+       {/section}
+   &#60;/table&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-renderer.pager.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-renderer.xls.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Structures_DataGrid_Renderer_Pager</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.structures-datagrid-renderer"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Structures_DataGrid_Renderer_XLS</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

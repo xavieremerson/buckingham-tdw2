@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+<Title>Multi-Depth Pie Chart</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">Multi-Depth Pie Chart</p>
+<hr class="separator">
+<div class="content">
+<img src="images/multidepthpie.png">
+<br><br>
+This example demonstrates using <a href="PieChart.set3D2.htm">PieChart.set3D2</a> to create a 3D pie chart where sectors have different 3D heights.
+</div>
+<p class="heading2">Source Code Listing</p>
+<div class="content">
+[File: phpdemo/multidepthpie.php]<br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp><?php
+include("phpchartdir.php");
+
+#The data for the pie chart
+$data = array(72, 18, 15, 12);
+
+#The labels for the pie chart
+$labels = array("Labor", "Machinery", "Facilities", "Computers");
+
+#The depths for the sectors
+$depths = array(30, 20, 10, 10);
+
+#Create a PieChart object of size 360 x 300 pixels, with a light blue (0xccccff)
+#background and a 1 pixel 3D border
+$c = new PieChart(360, 300, 0xccccff, -1, 1);
+
+#Set the center of the pie at (180, 175) and the radius to 100 pixels
+$c->setPieSize(180, 175, 100);
+
+#Add a title box using Times Bold Italic/14 points as font and 0x9999ff as
+#background color
+$titleObj = $c->addTitle("Project Cost Breakdown", "timesbi.ttf", 14);
+$titleObj->setBackground(0x9999ff);
+
+#Set the pie data and the pie labels
+$c->setData($data, $labels);
+
+#Draw the pie in 3D
+$c->set3D2($depths);
+
+#Set the start angle to 225 degrees may improve layout when the depths of the
+#sector are sorted in descending order, because it ensures the tallest sector is
+#at the back.
+$c->setStartAngle(225);
+
+#output the chart
+header("Content-type: image/png");
+print($c->makeChart2(PNG));
+?></xmp>
+</td></tr></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

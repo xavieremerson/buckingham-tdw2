@@ -1,0 +1,395 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_QuickForm_Controller</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML"
+HREF="package.html.html"><LINK
+REL="PREVIOUS"
+TITLE="HTML_QuickForm"
+HREF="package.html.html-quickform.html"><LINK
+REL="NEXT"
+TITLE="Introduction"
+HREF="package.html.html-quickform-controller.intro.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 41. HTML</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform-controller.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.html.html-quickform-controller">HTML_QuickForm_Controller</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.intro.html"
+>Introduction</A
+>&nbsp;--&nbsp;What is this package useful for</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.faq.html"
+>FAQ</A
+>&nbsp;--&nbsp;Understanding package features</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-controller-summary.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_Controller</B
+></A
+>&nbsp;--&nbsp;The class implementing a PageController pattern.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-controller.html-quickform-controller.html"
+>constructor HTML_QuickForm_Controller()</A
+>&nbsp;--&nbsp;Class constructor.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-controller.addaction.html"
+>Controller::addAction()</A
+>&nbsp;--&nbsp;Registers a handler for a specific action.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-controller.addpage.html"
+>Controller::addPage()</A
+>&nbsp;--&nbsp;Adds a new page to the form</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-controller.applydefaults.html"
+>Controller::applyDefaults()</A
+>&nbsp;--&nbsp;Sets the default values for the given page</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-controller.container.html"
+>Controller::container()</A
+>&nbsp;--&nbsp;Returns a reference to the form's values container.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-controller.exportvalue.html"
+>Controller::exportValue()</A
+>&nbsp;--&nbsp;Returns the element's value</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-controller.exportvalues.html"
+>Controller::exportValues()</A
+>&nbsp;--&nbsp;Returns the form's values</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-controller.findinvalid.html"
+>Controller::findInvalid()</A
+>&nbsp;--&nbsp;Finds the (first) invalid page</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-controller.getactionname.html"
+>Controller::getActionName()</A
+>&nbsp;--&nbsp;Finds the names of the current page and the current action.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-controller.getnextname.html"
+>Controller::getNextName()</A
+>&nbsp;--&nbsp;Returns the name of the page after the given.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-controller.getpage.html"
+>Controller::getPage()</A
+>&nbsp;--&nbsp;Returns a page</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-controller.getprevname.html"
+>Controller::getPrevName()</A
+>&nbsp;--&nbsp;Returns the name of the page before the given.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-controller.handle.html"
+>Controller::handle()</A
+>&nbsp;--&nbsp;Handles an action.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-controller.ismodal.html"
+>Controller::isModal()</A
+>&nbsp;--&nbsp;Checks whether the form is modal.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-controller.isvalid.html"
+>Controller::isValid()</A
+>&nbsp;--&nbsp;Checks whether the pages of the controller are valid</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-controller.run.html"
+>Controller::run()</A
+>&nbsp;--&nbsp;Processes the request.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-controller.setconstants.html"
+>Controller::setConstants()</A
+>&nbsp;--&nbsp;Initializes constant form values.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-controller.setdefaults.html"
+>Controller::setDefaults()</A
+>&nbsp;--&nbsp;Initializes default form values.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-page-summary.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_Page</B
+></A
+>&nbsp;--&nbsp;The class represents a page of a multipage form.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-page.html-quickform-page.html"
+>constructor HTML_QuickForm_Page()</A
+>&nbsp;--&nbsp;Class constructor</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-page.addaction.html"
+>Page::addAction()</A
+>&nbsp;--&nbsp;Registers a handler for a specific action.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-page.buildform.html"
+>Page::buildForm()</A
+>&nbsp;--&nbsp;Builds a form.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-page.getbuttonname.html"
+>Page::getButtonName()</A
+>&nbsp;--&nbsp;Returns a name for a submit button that will invoke a specific action.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-page.handle.html"
+>Page::handle()</A
+>&nbsp;--&nbsp;Handles an action.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-page.isformbuilt.html"
+>Page::isFormBuilt()</A
+>&nbsp;--&nbsp;Checks whether the form was already built.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-page.loadvalues.html"
+>Page::loadValues()</A
+>&nbsp;--&nbsp;Loads the submit values from the array.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-page.setdefaultaction.html"
+>Page::setDefaultAction()</A
+>&nbsp;--&nbsp;Sets the default action invoked on page-form submit.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-action-summary.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_Action</B
+></A
+>&nbsp;--&nbsp;Class representing an action to perform on HTTP request.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-action.perform.html"
+>Action::perform()</A
+>&nbsp;--&nbsp;Processes the request.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-action-back-summary.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_Action_Back</B
+></A
+>&nbsp;--&nbsp;The action for a 'back' button of wizard-type multipage form.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-action-direct-summary.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_Action_Direct</B
+></A
+>&nbsp;--&nbsp;This action allows to go to a specific page of a multipage form.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-action-display-summary.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_Action_Display</B
+></A
+>&nbsp;--&nbsp;This action handles the output of the form.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-action-jump-summary.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_Action_Jump</B
+></A
+>&nbsp;--&nbsp;The action handles the HTTP redirect to a specific page.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-action-next-summary.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_Action_Next</B
+></A
+>&nbsp;--&nbsp;The action for a 'next' button of wizard-type multipage form.</DT
+><DT
+><A
+HREF="package.html.html-quickform-controller.html-quickform-action-submit-summary.html"
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_Action_Submit</B
+></A
+>&nbsp;--&nbsp;The action for a 'submit' button.</DT
+></DL
+></DIV
+><P
+>&#13; This is an add-on to <A
+HREF="package.html.html-quickform.html"
+>HTML_QuickForm</A
+> package that
+ allows (among other things) to build multipage forms.
+</P
+><P
+>&#13; Cool features:
+ <P
+></P
+><UL
+><LI
+><P
+>Includes several default Actions that allow easy building of
+   multipage forms.</P
+></LI
+><LI
+><P
+>Includes usage examples for common usage cases (single-page
+   form, wizard, tabbed form).</P
+></LI
+></UL
+>
+</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform-controller.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_QuickForm</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

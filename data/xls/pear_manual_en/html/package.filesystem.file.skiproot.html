@@ -1,0 +1,311 @@
+<HTML
+><HEAD
+><TITLE
+>File::skipRoot()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File"
+HREF="package.filesystem.file.html"><LINK
+REL="PREVIOUS"
+TITLE="File::rewind()"
+HREF="package.filesystem.file.rewind.html"><LINK
+REL="NEXT"
+TITLE="File::stripLeadingSeparators()"
+HREF="package.filesystem.file.stripleadingseparators.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file.rewind.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file.stripleadingseparators.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.filesystem.file.skiproot">File::skipRoot()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN46949"
+></A
+>File::skipRoot()&nbsp;--&nbsp;strips the root directory from a given path</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN46952"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN46953"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'File.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>string <B
+CLASS="function"
+>File::skipRoot</B
+></CODE
+> (string $path)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.skiproot.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   This method strips the root directory from <TT
+CLASS="parameter"
+><I
+>$path</I
+></TT
+>.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.skiproot.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <TT
+CLASS="parameter"
+><I
+>string $path</I
+></TT
+> - the path to be processed.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.skiproot.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   If the path is absolute, this method returns the processed path,
+   otherwise, it returns the path untouched.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.skiproot.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.skiproot.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="package.filesystem.file.isabsolute.html"
+>&#13;    <B
+CLASS="function"
+>File::isAbsolute()</B
+>
+   </A
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.skiproot.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN46981"><P
+><B
+>Example 38-1. Using <B
+CLASS="function"
+>File::skipRoot()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'File.php';
+
+echo File::skipRoot("/home/foo/bar");
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    This example prints out <TT
+CLASS="literal"
+>home/foo/bar</TT
+>.
+   </P
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.filesystem.file.rewind.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.filesystem.file.stripleadingseparators.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>File::rewind()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.filesystem.file.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>File::stripLeadingSeparators()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

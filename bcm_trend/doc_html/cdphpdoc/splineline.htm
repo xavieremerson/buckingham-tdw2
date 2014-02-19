@@ -1,0 +1,106 @@
+<HTML>
+<HEAD>
+<Title>Spline Line Chart</Title>
+<link type='text/css' rel='Stylesheet' href="maxchartapi.css" />
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 5.0 (PHP Edition)</p>
+<p class="heading1">Spline Line Chart</p>
+<hr class="separator">
+<div class="content">
+<img src="images/splineline.png">
+<br><br>
+This example demonstrates using spline curves to join data points, title with soft lighting effect, as well as a number of chart formatting techniques.<br><br>
+<ul><li> Add a spline layer to the chart using <a href="XYChart.addSplineLayer.htm">XYChart.addSplineLayer</a>.<br><br>
+<li> Set the shapes, sizes and colors of the data symbols using <a href="DataSet.setDataSymbol.htm">DataSet.setDataSymbol</a>.<br><br>
+<li> The soft lighting effect of the title is defined using <a href="phpchartdir.softLighting.htm">softLighting</a>, then applied to the title using <a href="Box.setBackground.htm">Box.setBackground</a> of the title <a href="TextBox.htm">TextBox</a> object.<br><br>
+<li> Set the background, border and grid colors of the plot area using <a href="XYChart.setPlotArea.htm">XYChart.setPlotArea</a>.<br><br>
+<li> Control the line width of the axes using <a href="Axis.setWidth.htm">Axis.setWidth</a>.<br><br>
+<li> Include icon images in chart and axis titles using <a href="cdml.htm">CDML</a>.<br><br>
+<li> Add a logo at the bottom right corner of the plot area as custom text using <a href="BaseChart.addText.htm">BaseChart.addText</a> with <a href="phpchartdir.BottomRight.htm">BottomRight</a> alignment. The logo includes images and text encoded using <a href="cdml.htm">CDML</a>.<br><br>
+<li> For web applications, we need to set the search path to load the icon images from the current script directory using <a href="BaseChart.setSearchPath.htm">BaseChart.setSearchPath</a>. It is because for some web servers (eg. IIS), the default current directory is not the script directory (eg. IIS uses the IIS executable directory), so the search path needs to be set explicitly.</ul>
+</div>
+<p class="heading1a">Source Code Listing</p>
+<div class="content">
+<b>[File: phpdemo/splineline.php]</b>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc"><pre>&lt;?php
+require_once("../lib/phpchartdir.php");
+
+# The data for the chart
+$data0 = array(32, 39, 23, 28, 41, 38, 26, 35, 29);
+$data1 = array(50, 55, 47, 34, 47, 53, 38, 40, 51);
+
+# The labels for the chart
+$labels = array("0", "1", "2", "3", "4", "5", "6", "7", "8");
+
+# Create a XYChart object of size 600 x 300 pixels, with a pale red (ffdddd)
+# background, black border, 1 pixel 3D border effect and rounded corners.
+$c = new XYChart(600, 300, 0xffdddd, 0x000000, 1);
+$c-&gt;setRoundedFrame();
+
+#Set directory for loading images to current script directory
+#Need when running under Microsoft IIS
+$c-&gt;setSearchPath(dirname(__FILE__));
+
+# Set the plotarea at (55, 58) and of size 520 x 195 pixels, with white (ffffff)
+# background. Set horizontal and vertical grid lines to grey (cccccc).
+$c-&gt;setPlotArea(55, 58, 520, 195, 0xffffff, -1, -1, 0xcccccc, 0xcccccc);
+
+# Add a legend box at (55, 32) (top of the chart) with horizontal layout. Use 9 pts
+# Arial Bold font. Set the background and border color to Transparent.
+$legendObj = $c-&gt;addLegend(55, 32, false, "arialbd.ttf", 9);
+$legendObj-&gt;setBackground(Transparent);
+
+# Add a title box to the chart using 15 pts Times Bold Italic font. The title is in
+# CDML and includes embedded images for highlight. The text is white (ffffff) on a
+# dark red (880000) background, with soft lighting effect from the right side.
+$textBoxObj = $c-&gt;addTitle(
+    "&lt;*block,valign=absmiddle*&gt;&lt;*img=star.png*&gt;&lt;*img=star.png*&gt; Performance ".
+    "Enhancer &lt;*img=star.png*&gt;&lt;*img=star.png*&gt;&lt;*/*&gt;", "timesbi.ttf", 15, 0xffffff);
+$textBoxObj-&gt;setBackground(0x880000, -1, softLighting(Right));
+
+# Add a title to the y axis
+$c-&gt;yAxis-&gt;setTitle("Energy Concentration (KJ per liter)");
+
+# Set the labels on the x axis
+$c-&gt;xAxis-&gt;setLabels($labels);
+
+# Add a title to the x axis using CMDL
+$c-&gt;xAxis-&gt;setTitle(
+    "&lt;*block,valign=absmiddle*&gt;&lt;*img=clock.png*&gt;  Elapsed Time (hour)&lt;*/*&gt;");
+
+# Set the axes width to 2 pixels
+$c-&gt;xAxis-&gt;setWidth(2);
+$c-&gt;yAxis-&gt;setWidth(2);
+
+# Add a spline layer to the chart
+$layer = $c-&gt;addSplineLayer();
+
+# Set the default line width to 2 pixels
+$layer-&gt;setLineWidth(2);
+
+# Add a data set to the spline layer, using blue (0000c0) as the line color, with
+# yellow (ffff00) circle symbols.
+$dataSetObj = $layer-&gt;addDataSet($data1, 0x0000c0, "Target Group");
+$dataSetObj-&gt;setDataSymbol(CircleSymbol, 9, 0xffff00);
+
+# Add a data set to the spline layer, using brown (982810) as the line color, with
+# pink (f040f0) diamond symbols.
+$dataSetObj = $layer-&gt;addDataSet($data0, 0x982810, "Control Group");
+$dataSetObj-&gt;setDataSymbol(DiamondSymbol, 11, 0xf040f0);
+
+# Add a custom CDML text at the bottom right of the plot area as the logo
+$textBoxObj = $c-&gt;addText(575, 250,
+    "&lt;*block,valign=absmiddle*&gt;&lt;*img=small_molecule.png*&gt; &lt;*block*&gt;".
+    "&lt;*font=timesbi.ttf,size=10,color=804040*&gt;Molecular\nEngineering&lt;*/*&gt;");
+$textBoxObj-&gt;setAlignment(BottomRight);
+
+# Output the chart
+header("Content-type: image/png");
+print($c-&gt;makeChart2(PNG));
+?&gt;</pre></tr></td></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2008 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

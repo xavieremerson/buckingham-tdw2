@@ -1,0 +1,192 @@
+<HTML
+><HEAD
+><TITLE
+>Mail_Mime - Example</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Mail_Mime"
+HREF="package.mail.mail-mime.html"><LINK
+REL="PREVIOUS"
+TITLE="Mail_Mime::setTxtBody()"
+HREF="package.mail.mail-mime.settxtbody.html"><LINK
+REL="NEXT"
+TITLE="Mail_mimePart::Mail_mimePart()"
+HREF="package.mail.mail-mimepart.mail-mimepart.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-mime.settxtbody.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-mimepart.mail-mimepart.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.mail.mail-mime.example">Mail_Mime - Example</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN80957"
+></A
+>Mail_Mime - Example&nbsp;--&nbsp;generation and sending of a MIME mail</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN80960"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+include('Mail.php');
+include('Mail/mime.php');
+
+$text = 'Text version of email';
+$html = '&#60;html&#62;&#60;body&#62;HTML version of email&#60;/body&#62;&#60;/html&#62;';
+$file = '/home/richard/example.php';
+$crlf = "\n";
+$hdrs = array(
+              'From'    =&#62; 'you@yourdomain.com',
+              'Subject' =&#62; 'Test mime message'
+              );
+
+$mime = new Mail_mime($crlf);
+
+$mime-&#62;setTXTBody($text);
+$mime-&#62;setHTMLBody($html);
+$mime-&#62;addAttachment($file, 'text/plain');
+
+$body = $mime-&#62;get();
+$hdrs = $mime-&#62;headers($hdrs);
+
+$mail =&#38; Mail::factory('mail');
+$mail-&#62;send('postmaster@localhost', $hdrs, $body);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mime.settxtbody.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mimepart.mail-mimepart.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Mail_Mime::setTxtBody()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mime.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Mail_mimePart::Mail_mimePart()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

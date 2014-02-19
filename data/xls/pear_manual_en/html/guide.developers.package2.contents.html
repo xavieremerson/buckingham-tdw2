@@ -1,0 +1,174 @@
+<HTML
+><HEAD
+><TITLE
+>&#60;contents&#62;</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Detailed Tag Reference for package.xml version 2.0"
+HREF="guide.developers.package2.tags.html"><LINK
+REL="PREVIOUS"
+TITLE="<license>"
+HREF="guide.developers.package2.license.html"><LINK
+REL="NEXT"
+TITLE="<dir>"
+HREF="guide.developers.package2.dir.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="guide.developers.package2.license.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="guide.developers.package2.dir.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="guide.developers.package2.contents">&#60;contents&#62;</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN2420"
+></A
+>&#60;contents&#62;&nbsp;--&nbsp;specifying the contents of a release</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="guide.developers.package2.contents.purpose"
+></A
+><H2
+>Documenting release contents</H2
+><P
+>&#13;   In package.xml 1.0, the contents tag was &#60;filelist&#62;.  The purpose of the
+   tag changed dramatically in package.xml 2.0, warranting a name change.  Now, &#60;filelist&#62;
+   can be found in the <A
+HREF="guide.developers.package2.release.html"
+>release</A
+> section
+   of the package.xml.
+  </P
+><P
+>&#13;   &#60;contents&#62; is used to describe the contents of a tarball.  Nothing further.  All
+   files in the contents tag will be placed into the tarball regardless of whether they
+   eventually get installed by the PEAR installer.  This fact can be used to create a very
+   versatile tarball, one that can be directly unzipped and work out of the box as well as
+   be installed by the PEAR installer and work out of the box.
+  </P
+><P
+>&#13;   For most release types, contents contains a single &#60;dir&#62; tag that then either
+   contains nested dir tags and/or &#60;file&#62; tags.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.license.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.dir.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&#60;license&#62;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.tags.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>&#60;dir&#62;</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

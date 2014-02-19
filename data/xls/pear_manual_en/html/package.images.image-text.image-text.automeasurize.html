@@ -1,0 +1,351 @@
+<HTML
+><HEAD
+><TITLE
+>Image_Text::autoMeasurize</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Image_Text"
+HREF="package.images.image-text.html"><LINK
+REL="PREVIOUS"
+TITLE="constructor Image_Text::Image_Text"
+HREF="package.images.image-text.image-text.image-text.html"><LINK
+REL="NEXT"
+TITLE="Image_Text::display"
+HREF="package.images.image-text.image-text.display.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.images.image-text.image-text.image-text.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.images.image-text.image-text.display.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.images.image-text.image-text.automeasurize"><B
+CLASS="function"
+>Image_Text::autoMeasurize()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN75896"
+></A
+><B
+CLASS="function"
+>Image_Text::autoMeasurize()</B
+>&nbsp;--&nbsp;Auto measurize text</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN75900"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN75901"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'ImageText.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int      <B
+CLASS="function"
+>Image_Text::autoMeasurize</B
+></CODE
+> ([int $start = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> [, int $end = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.images.image-text.image-text.automeasurize.desc"
+></A
+><H2
+>Description</H2
+><P
+>Automatically determines the greatest possible font size to  fit the text into the text box. This method may be very resource  intensive on your webserver. A good tweaking point are the $start  and $end parameters, which specify the range of font sizes to search  through. Anyway, the results should be cached if possible. You can  optionally set $start and $end here as a parameter or the settings of  the options array are used.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.images.image-text.image-text.automeasurize.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>integer
+
+                 <TT
+CLASS="parameter"
+><I
+>$start</I
+></TT
+></DT
+><DD
+><P
+>&#13;
+         Fontsize to start testing with.
+
+        </P
+></DD
+></DL
+></DIV
+>
+
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>integer
+
+                 <TT
+CLASS="parameter"
+><I
+>$end</I
+></TT
+></DT
+><DD
+><P
+>&#13;
+         Fontsize to end testing with.
+
+        </P
+></DD
+></DL
+></DIV
+>
+
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.images.image-text.image-text.automeasurize.returns"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;
+      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>returns</I
+></SPAN
+> Fontsize measured or PEAR::Error.
+
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.images.image-text.image-text.automeasurize.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;
+      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> no exceptions thrown
+
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.images.image-text.image-text.automeasurize.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;
+      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>see</I
+></SPAN
+> <A
+HREF="package.images.image-text.image-text.measurize.html"
+><B
+CLASS="function"
+>Image_Text::measurize()</B
+></A
+>
+
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.images.image-text.image-text.automeasurize.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.images.image-text.image-text.image-text.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.images.image-text.image-text.display.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>constructor <B
+CLASS="function"
+>Image_Text::Image_Text()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.images.image-text.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Image_Text::display()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

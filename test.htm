@@ -1,0 +1,3393 @@
+<html>
+<head>
+<!--<meta http-equiv="X-UA-Compatible" content="IE=9" />-->
+<!--Server: 192.168.20.63-->
+<!--Client: 192.168.20.139-->
+<!--Administrator Email: support@centersys.com-->
+<!--Page Process Time: Tue, 01/07/2014 04:13 pm-->
+<!--User ID: 93-->
+<!--User Fullname: Lloyd Karp-->
+<!--pstr: 111100000000000000000000000000-->
+<!--dcar: 1-->
+<link rel="shortcut icon" href="favicon.ico"></link>
+<link rel="bookmark" href="favicon.ico"></link>
+<title>TDW v 3.05 @ BRG</title>
+
+<script>
+//Mute status bar texts
+function hidestatus(){
+  window.status=''
+  return true
+}
+if (document.layers)
+document.captureEvents(Event.MOUSEOVER | Event.MOUSEOUT)
+document.onmouseover=hidestatus
+document.onmouseout=hidestatus
+</script>
+
+<script language="JavaScript" src="includes/highlight_tables/tigra_tables.js"></script>
+<script language='JavaScript' src='includes/js/javascript.js'></script>
+<!--
+<script language='JavaScript' src='includes/js/timer.js'></script>
+<script language='JavaScript' src='includes/js/ajax.js'></script>
+-->
+<script language="JavaScript" src="includes/js/popup.js"></script>
+<script language="JavaScript" src="includes/js/tbl_sort.js"></script>
+<script language="JavaScript" src="includes/js/tblsort.js"></script>
+
+
+<script type="text/javascript" src="includes/submodal/subModal.js"></script>
+<script type="text/javascript" src="includes/submodal/common.js"></script>
+<link rel="stylesheet" type="text/css" href="includes/submodal/subModal.css" />
+
+<script language="JavaScript" src="includes/menu/JSCookMenu.js" type="text/javascript"></script>
+<script language="JavaScript" src="includes/menu/js/ThemeOffice/theme.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="includes/menu/css/template_css.css" type="text/css" />
+<link rel="stylesheet" href="includes/menu/css/theme.css" type="text/css" />
+
+<!-- TEMP PPRA -->
+<!--<link href="includes/mainpage.css" rel="stylesheet" type="text/css">-->
+<!-- TEMP PPRA -->
+
+<link rel="stylesheet" type="text/css" href="includes/styles.css">
+</head>
+<!-- <body background="images/bk1.jpg" leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0"> -->
+<!-- <body bgcolor="#F4F8FB" leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" onLoad="InitializeTimer()"> -->
+<body bgcolor="#F4F8FB" leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0">
+
+<!--&nbsp;&nbsp;user = [lkarp]<br>&nbsp;&nbsp;pass = [centersys]<br>&nbsp;&nbsp;userfullname = [Lloyd Karp]<br>&nbsp;&nbsp;user_id = [93]<br>&nbsp;&nbsp;user_initials = []<br>&nbsp;&nbsp;role = [5]<br>&nbsp;&nbsp;user_email = [lkarp@buckresearch.com]<br>&nbsp;&nbsp;user_isadmin = [0]<br>&nbsp;&nbsp;dval = [Dec 31st, 2014]<br>&nbsp;&nbsp;tval = [12:00 AM]<br>&nbsp;&nbsp;rr_num = [023]<br>&nbsp;&nbsp;menufile = [inc_top_menu.php]<br>&nbsp;&nbsp;privileges = [111100000000000000000000000000]<br>-->
+
+<!-- TOP LEVEL TABLE -->
+<!-- <table width="100%" height="100%" border="3" cellpadding="0" cellspacing="0" bordercolor="#333333" bordercolorlight="#999999" bordercolordark="#000000" background="images/bk1.jpg"> -->
+<table width="100%" height="100%" border="3" cellpadding="0" cellspacing="0" bordercolor="#333333" bordercolorlight="#999999" bordercolordark="#000000" bgcolor="#F4F8FB">
+  <tr valign="top">
+    <td height="20"> 
+<!-- This section not required
+<div id="dhtmltooltip"></div>
+<script language='JavaScript' src='includes/tooltip.js'></script> -->
+<!-- background="images/table_bkground_grey.jpg" -->
+<!-- <table width="100%"  border="0" cellpadding="0" cellspacing="0" background="images/bk2.jpg" > -->
+<table width="100%"  border="0" cellpadding="0" cellspacing="0" bgcolor="FFFFFF">
+  <tr> 
+    <!-- <td width="50" height="50"><img src="images/compliancelogo_v1.gif" ></td> -->
+  <td width="80"><img src="images/logow64h47.gif" ></td>
+    <td align="right" valign="top"> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td> 
+            <table width="100%"  border="0" cellspacing="1" cellpadding="1">
+              <tr> 
+                <td align="left" valign="top"><img src="images/client_appw290h47.gif" border="0"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td valign="top">
+      <table width="100%" height="47">
+        <tr>
+          <td align="right" valign="top"><a class="links10top">User: Lloyd Karp<!--<br>111100000000000000000000000000--><!--[Login expires on Dec 31st, 2014 at 12:00 AM]--> </a> [<a href="logout.php?logoutval=Lloyd Karp" class="links10top">Logout</a>] </td>
+        </tr>
+        <tr>
+          <td align="right" nowrap><a class="ghm"></a></td><!-- _global_header_message-->
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- Menu bar. -->
+<div id="wrapper">
+</div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" background="images/themes/standard/menubarbkground.jpg" class="menubar">
+<tr> 
+<td class="menubackgr"> <div id="myMenuID"></div>
+<script lang="javascript">
+var _emptyMenuItem = ['<img src="./images/menu/transparent.png" />','&nbsp;','#', null,' '];
+var myMenu =
+[
+    [null,'&#9658 Main Menu&nbsp;&nbsp;',null,null,'Main Menu',
+                _cmSplit,
+		_emptyMenuItem,
+		['<img src="./images/menu/centersys.png" />', '<b>CLIENT REVENUE</b>', '_.php?mod=client_revenue__v2&mode=m', null,'CLIENT REVENUE'],    
+		['<img src="./images/menu/centersys.png" />', 'REVENUE <b>[Tiered By Sales Rep.]</b>', '_.php?mod=client_revenue_by_rep&mode=m', null,'CLIENT REVENUE'],    
+		['<img src="./images/menu/centersys.png" />', 'CLIENT REVENUE <b>[Account Status]</b>', '_.php?mod=client_revenue_by_rep_tier__v2&mode=m', null,'CLIENT REVENUE'],    
+		_emptyMenuItem,
+		['<img src="./images/menu/centersys.png" />', 'SALES REVENUE SUMMARY', '_.php?mod=sales_rev_summ&mode=m', null,'CLIENT REVENUE'],  
+        _cmSplit,
+        		_emptyMenuItem,
+        ['<img src="./images/menu/mgmt.png" />','<b>Mgmt : Sales Rep : </b> Business Summary','buss_src_container.php',null,'Client Activity'],
+        ['<img src="./images/menu/mgmt.png" />','<b>Mgmt : Sales Rep : </b>Commissions','comm_m_src_container.php',null,'Sales Rep. Commissions'],
+        ['<img src="./images/menu/mgmt.png" />','<b>Mgmt : Sales Rep : </b>Client Activity','rep_all_rep_ca_container.php',null,'Client Activity'],
+        _cmSplit,
+        _emptyMenuItem,
+        ['<img src="./images/menu/reports.png" />','<b>Mgmt : Trader : </b>Commissions','trdr_mcomm_container.php',null,'Client Activity'], //rep_mtrdr2y_container.php
+        ['<img src="./images/menu/reports.png" />','<b>Mgmt : Trader : </b>Client Activity','rep_all_trdr_ca_container.php',null,'Client Activity'],
+        _cmSplit,
+        _emptyMenuItem,
+        ['<img src="./images/menu/reports.png" />','<b>Analyst : </b>Commissions','clnt_if2y_src_container.php',null,'Client Commissions'],
+        _cmSplit,
+        _emptyMenuItem,
+        ['<img src="./images/menu/compliance.png" />','<b>Compliance :</b> Compliance Review Log','rep_viewed_mgmt.php',null,'Compliance Review Log'],
+        _cmSplit,
+        _emptyMenuItem,
+        ['<img src="./images/menu/operations.png" />','<b>Operations :</b> Client Activity','rep_all_rep_ca_container.php',null,'Client Activity'],
+        ['<img src="./images/menu/operations.png" />','<b>Operations :</b> Adjustments','rep_adj_all_rep_ca_container.php',null,'Client Activity'],
+        ['<img src="./images/menu/operations.png" />','<b>Operations :</b> View Adjustments History','rep_adj_report.php',null,' View Adjustments History'],
+        ['<img src="./images/menu/operations.png" />','<b>Operations :</b> Checks & Payments',null,null,'Checks & Payments',
+            ['<img src="./images/menu/operations.png" />','Data Entry','pde_payment_entry_container.php',null,'Data Entry'],
+            ['<img src="./images/menu/operations.png" />','Data Management','check_mgmt.php?type=manage',null,'Data Management']
+        ],
+        _emptyMenuItem,
+        ['<img src="./images/menu/dollar.png" />','<b>Expense :</b> Reporting','mod_exp_expense.php',null,'Expense Items Data Entry'],
+                ['<img src="./images/menu/dollar.png" />','<b>Expense :</b> Approval','mod_exp_mod_approver.php',null,'Approve Pending Items'],
+                        ['<img src="./images/menu/dollar.png" />','<b>Expense :</b> Processing','mod_exp_mod_processor.php',null,'Mark items as Processed/Paid'],
+                _cmSplit,	
+    ],
+    _cmSplit,
+    [null,'&#9658 Reports&nbsp;&nbsp;',null,null,'Reports',
+        _cmSplit,
+        ['<img src="./images/menu/reports.png" />','<b>Payout </b>',null,null,'Payout Reports',
+            ['<img src="./images/menu/reports.png" />','Monthly Draw','payout_draw_container.php',null,'Payout Monthly Draw'], 
+            _cmSplit,
+            ['<img src="./images/menu/excel_new.png" />','V1: Payout Report <b>Detail</b>','pay_ndetl_sdate_container.php',null,'Payout Report'],
+            ['<img src="./images/menu/excel_new.png" />','V1: Payout Report <b>Summary</b> ','pay_xnsumm_sdate_container.php',null,'Payout Summary Report'], 
+            _cmSplit,
+            ['<img src="./images/menu/excel_new.png" />','Sales & Trading <b>Monthly Revenue Report</b>','mrr_container.php',null,'Payout Summary Report'], 
+            ['<img src="./images/menu/excel_new.png" />','V2: Payout Report <b>Detail</b>','pay_ndetl_sdate_container.php',null,'Payout Report'],
+            ['<img src="./images/menu/excel_new.png" />','V2: Payout Report <b>Summary</b> ','pays_container.php',null,'Payout Summary Report']
+        ],
+        _cmSplit,
+        ['<img src="./images/menu/reports.png" />','<b>Analyst Allocations</b>',null,null,'Analyst Allocations',
+            ['<img src="./images/menu/maint.png" />', 'Analyst Payout <b>Configuration</b>', 'pay_analyst_config_mgmt_container.php', null,'Analyst Allocations'],
+                        ['<img src="./images/menu/maint.png" />', 'Analyst Payout: <b>Adjustments</b>', 'pay_analyst_adj_mgmt_container.php', null,'Data Entry: Help Entries'],
+                        _cmSplit,
+            ['<img src="./images/menu/dollar.png" />', 'Analyst Allocations <b>(Individual)</b>', 'pay_analyst_mgmt_container.php', null,'Analyst Allocations'],
+            ['<img src="./images/menu/dollar.png" />', 'Analyst Allocations <b>(Summary)</b>', 'pay_analyst_summ_container.php', null,'Analyst Allocations'],
+            ['<img src="./images/menu/dollar.png" />', 'Analyst Allocations <b>Print Report</b>', 'pay_analyst_gen_report_container.php', null,'Analyst Allocations : Print Report']
+        ],
+        _cmSplit,
+        ['<img src="./images/menu/excel_new.png" />', 'Rolling 12 Months Data [~10 sec.]','xl_rep_rolling_12m.php',"_BLANK",'SEARCH: Accounts'],
+        ['<img src="./images/menu/excel_new.png" />', 'Client Payout % Data','cmgmt_export.php',"_BLANK",'Client Payout % Data'],
+        _cmSplit,
+        ['<img src="./images/menu/centersys.png" />', '<b>Client Tiering:</b> (&beta;: Beta)', '_.php?mod=client_tiering&mode=m', null,'Client Tiering']
+    ],
+    _cmSplit,
+    [null,'&#9658 Data Administration&nbsp;&nbsp;',null,null,'Data Administration',
+        ['<img src="./images/menu/users_manage.png" />','<b>Users</b>',null,null,'Manage Users',
+            ['<img src="./images/menu/users_add_new.png" />','<b>Add</b> User','javascript:CreateWnd("umgmt_add.php", 600, 500, false);',null,'Manage Users'],
+            ['<img src="./images/menu/users_manage.png" />','<b>Edit</b> Users','umgmt.php?type=manage',null,'Edit Users']
+        ],
+        _cmSplit,
+        ['<img src="./images/menu/reps.png" />', '<b>RR</b> Maintenance','maint_rr.php',null,'RR Maintenance'],
+        ['<img src="./images/menu/reps.png" />', '<b>RR</b> Create New','javascript:CreateWnd("maint_rr_add.php?user_id=93", 420, 170, false);',null,'Add RR'],
+        ['<img src="./images/menu/print.png" />', '<b>RR</b> List (Print)','maint_rr_print.php',"_blank",'Print RR List'],
+        _cmSplit,
+        ['<img src="./images/menu/centersys.png" />', '<b>Watch List </b>Maintenance', 'stocklist_entry_container.php', null,'Open'],
+        _cmSplit,
+        ['<img src="./images/menu/reports.png" />','<font color="blue"><b>Employee Trades & Accounts</b></font>',null,null,'Employee Trades',
+            ['<img src="./images/menu/reports.png" />','<b>Accounts [External]</b>',null,null,'External Accounts',
+                ['<img src="./images/menu/accounts.png"/>','<b>Accounts</b>','ext_accts_entry_container.php',null,'External Accounts'],
+                ['<img src="./images/menu/trades.png" />', '<b>Trades:</b> (Data Entry)','ext_trades_entry_container.php',null,'Data Entry: Trades'],
+                ['<img src="./images/menu/trades.png" />', '<b>Trades</b>: Maintenance','mod_ext_trades_container.php',null,'Trades: Maintenance & Reporting']
+            ],
+            ['<img src="./images/menu/reports.png" />','<font color="blue"><b>Fidelity</b></font>',null,null,'Fidelity',
+                ['<img src="./images/menu/trades.png" />', '<font color="blue"><b>Accounts</b></font>','emp_acct_entry_container.php',null,'Accounts: Maintenance & Reporting'],
+                ['<img src="./images/menu/trades.png" />', '<b>Trades</b>','mod_fid_emp_trades_container.php',null,'Trades: Maintenance & Reporting']
+                //['<img src="./images/menu/trades.png" />', '<font color="blue"><b>Accounts</b></font>','emp_acct_entry_container.php',null,'Accounts: Maintenance & Reporting']
+                //['<img src="./images/menu/trades.png" />', '<b>Trades</b>','mod_fid_emp_trades_container.php',null,'Trades: Maintenance & Reporting']
+            ],
+            ['<img src="./images/menu/centersys.png" />', '<b>ALL</b> Employee Trades', 'mod_comprehensive_emp_trds_container.php', null,'EMP TRDS'],
+            ['<img src="./images/menu/centersys.png" />', '<b>30 DAY HOLDING PERIOD REVIEW</b>', '_30_day_violation_test.php', null,'30 DAY HOLDING PERIOD REVIEW']
+        ],
+        _cmSplit,
+        ['<img src="./images/menu/users_manage.png" />','<b>Client</b> Maintenance',null,null,'Manage Clients',
+            ['<img src="./images/menu/about.png" />', '<b>Add</b> New Client', 'javascript:showPopWin(\'cmgmt_add.php\', 450, 300, null);', null, 'Add New Client'],
+                        ['<img src="./images/menu/maint.png" />', '<b>View</b> Clients','cmgmt_ro.php?type=manage',null,'Client Maintenance'],		
+                    ],
+        _cmSplit,
+        ['<img src="./images/menu/search.png" />', '<b>SEARCH</b>: Accounts','srch_a.php',null,'SEARCH: Accounts'],
+        _cmSplit,
+        ['<img src="./images/menu/reports.png" />','<b>BCM Trends Analysis</b>',null,null,'BCM Trends Analysis',
+            ['<img src="./images/menu/reports.png" />','BCM Trends Analysis','bcm_trend_container.php',null,'BCM Trends Analysis'], 
+            _emptyMenuItem,
+            ['<img src="./images/menu/reports.png" />','<b>Price/Volume Alerts & Reporting</b>','bcm_trend_v2_config.php',null,'BCM Trends Analysis : Alerts Configuration'], 
+            ['<img src="./images/menu/reports.png" />','BCM Trends Analysis v2','bcm_trend_v2_container.php',null,'BCM Trends Analysis'], 
+            ['<img src="./images/menu/reports.png" />','News and Events (<b>Data Entry</b>)','events_entry_container.php',null,'News and Events'], 
+            ['<img src="./images/menu/reports.png" />','News and Events (<b>View/Edit/Export</b>)','events_entry_mgmt.php',null,'News and Events'], 
+            _emptyMenuItem,
+            ['<img src="./images/menu/reports.png" />','<font color="blue"><b>CITTA List Maintenance &beta;</b></font>','citta_entry_container.php',null,'CITTA List Maintenance'], 
+            ['<img src="./images/menu/reports.png" />','<font color="blue"><b>BCM Trends Analysis w/ CITTA &beta;</b></font>','bcm_trend_v3_container.php',null,'BCM Trends Analysis'], 
+            _emptyMenuItem,
+			['<img src="./images/menu/reports.png" />', '<b>BCM Holdings</b>','bcm_position_container.php',null,'BCM Positions'],
+			['<img src="./images/menu/reports.png" />', '<b>BCM Price/Volume ALPHA</b>', 'bcm_trend_v5_config.php', null,'BCM Price/Volume SERGEI']
+        ],
+        _cmSplit,
+        ['<img src="./images/menu/centersys.png" />', '<b>GTA Processes</b>', 'gta_processes_container.php', null,'GTA Processes'],
+        ['<img src="./images/menu/centersys.png" />', '<b>Customer vs. Streetside</b>', 'cust_vs_street_container.php', null,'Customer vs. Streetside'],
+                _cmSplit,
+        ['<img src="./images/menu/centersys.png" />', '<b>CLIENT / PROSPECT MAINTENANCE</b>', 'client_master.php', null,'CLIENT / PROSPECT MAINTENANCE'],
+            ],
+    _cmSplit,
+    [null,'&#9658 My Prefs&nbsp;&nbsp;',null,null,'System Administration',
+        ['<img src="./images/menu/profile.png" />','My Profile','myprofile.php',null,'View/Update My Profile'],
+        ['<img src="./images/menu/about.png" />', 'Change my password', 'javascript:showPopWin(\'passwdchange.php?ID=93\', 350, 250, null);', null, 'Change my password']
+    ],
+    _cmSplit,
+    [null,'&#9658 Reference&nbsp;&nbsp;',null,null,'Reference',
+        ['<img src="./images/menu/search.png" />','Registered Rep. List','ref_rr.php',null,'Registered Rep. List']
+    ],
+    _cmSplit,
+    [null,'&#9658 Help&nbsp;&nbsp;',null,null,'Help',
+        ['<img src="./images/menu/messaging_email.png" />', 'Email Technical Support', 'mailto:support@centersys.com?Subject=Technical Support Request [The Buckingham Research Group, Inc. : TDW v 3.05 : ID:87788266426779648ef28ad89866c11d]&Body=Problem Description:%0D--------------------%0D%0D%0D%0DSeverity:%0D---------%0D%0D%0D%0DMy Contact Information:%0D-----------------------', null,'Email Technical Support'],
+        ['<img src="./images/menu/about.png" />', 'TDW Server Dependencies','tdw_dep_print.php?u=Lloyd Karp',"_BLANK",'Client Maintenance'],
+        ['<img src="./images/menu/about.png" />', 'TDW Server Status','winsysinfo_container.php',null,'TDW Server Health'],
+        _cmSplit,
+        ['<img src="./images/menu/centersys.png" />', 'TrackSys (Tracking System)', 'tracksys_a_container.php', null,'TrackSys'],
+        _cmSplit,
+        ['<img src="./images/menu/about.png" />', 'About TDW', 'javascript:showPopWin(\'about.php\', 400, 200, null);', null, 'About TDW']
+    ],
+        _cmSplit,
+    [null,'&#9658 <b>Lloyd Karp Menu</b>&nbsp;&nbsp;',null,null,'Lloyd Karp', 
+        _cmSplit,
+        ['<img src="./images/menu/centersys.png" />', '<b>ANALYST: VIEW CLIENT ACTIVITY</b>', 'anly_all_rep_ca_container.php', null,'ANALYST: CLIENT ACTIVITY'],
+        ['<img src="./images/menu/centersys.png" />', '<b>PAYOUT RECONCILIATION REPORT</b>', 'payout_reconciliation_container_v2.php', null,'PAYOUT RECONCILIATION'],
+        ['<img src="./images/menu/centersys.png" />', 'MOVED TO MAIN MENU (SALES REVENUE SUMMARY) <b>[<i><font color="red">&beta;</font></i>]</b>', '#', null,'CLIENT REVENUE'],    
+        _cmSplit
+    ],
+         
+]; 
+cmDraw('myMenuID', myMenu, 'hbr', cmThemeOffice, 'ThemeOffice');
+</script></td>
+</tr>
+</table><!-- End Menu bar -->
+  </td>
+</tr>
+<tr valign="top">
+  <td valign="top">
+    <table width="100%" height="100%" border="0" cellpadding="3" cellspacing="0">
+      <tr>  
+        <td valign="top">		<!-- START TABLE 1 -->
+		<table width="100%" height="100%" border="0" cellspacing="1" cellpadding="0">
+			<tr> 
+				<td valign="top">
+					<link rel="stylesheet" href="includes/progressbar/progressbar.css" type="text/css" />
+	<script type="text/javascript" src="includes/progressbar/progressbar.js"></script>
+
+<script language="javascript">
+	function submit_save() {
+		//alert("Are you sure?");
+		document.getElementById("id_save").value = 1;
+		document.getElementById("id_final").value = 0;
+		//alert("here");
+		showProgressBar('includes/progressbar/progressbar.html', 230, 24, null);
+		//return true;
+	}
+
+	function submit_final() {
+		//alert("Are you sure?");
+		document.getElementById("id_save").value = 0;
+		document.getElementById("id_final").value = 1;
+		
+		var cnames_array = new Array();
+		var cname_psv;
+		var str_message = "You submission is incorrect or incomplete, hence cannot be finalized and submitted\n";
+		str_message = str_message + "The following Clients have incomplete or incorrect values\n";
+		cname_psv = document.getElementById('id_str_clientnames').value;
+		cnames_array=cname_psv.split("|");
+		
+		var rcount = parseInt(document.getElementById('id_rcount').value);
+		var ccount = parseInt(document.getElementById('id_ccount').value);
+		var j = 0;
+		for (i=1;i<=ccount;i++) {
+			totalid = "total|"+ i;			
+			//alert (totalid);
+			if (document.getElementById(totalid).innerHTML != "100.00%") {
+			  //alert ("Not 100 for" + cnames_array[i]);
+				str_message = str_message + cnames_array[i] + "\n";
+				j = j+1;
+			} else {
+			  //alert ("Is 100" + cnames_array[i]);
+				//alert("nothing");
+			}
+		}
+		if (j == 0) {
+			if(confirm('You are about to finalize and submit your Analyst Allocations. \n\nAfter finalizing, you will NOT be able to make changes. \n\nYour submission can be viewed by you in READ-ONLY mode. \n\nAre you sure?')) {
+				showProgressBar('includes/progressbar/progressbar.html', 230, 24, null);
+				//return true; 
+			} else {
+				return false;
+			}
+		} else {
+			alert(str_message);
+			return false;
+		}
+	}
+
+</script>
+
+
+<script language="javascript">
+
+  //prevent form submit on pressing enter
+	function noenter() {
+  	return !(window.event && window.event.keyCode == 13); 
+	}
+
+
+	function check_frm_criteria() {
+	//alert("Are you sure?");
+	return true;
+	}
+
+	function selitem(itemid) {
+		document.getElementById(itemid).select();
+	}
+
+ 	/* 37:"Arrow Left"; 	38:"Arrow Up";	39:"Arrow Right";	40:"Arrow Down";	*/
+			
+	function xlmove(evt, itemid){
+	//alert(itemid);
+	var k=evt.keyCode;
+	 if (k==40) {
+		var rc = itemid.split("|");
+		var nextid;
+		nextid = (parseInt(rc[0]) + 1) + "|" + rc[1];
+
+			if (document.getElementById(nextid)) {
+				document.getElementById(nextid).focus();
+				document.getElementById(nextid).select();
+			} else {
+				nextid = 1 + "|" + rc[1];
+				document.getElementById(nextid).focus();
+				document.getElementById(nextid).select();
+			}
+
+	 } else if (k==38) { 
+		var rc = itemid.split("|");
+		var nextid;
+		nextid = (parseInt(rc[0]) - 1) + "|" + rc[1];
+
+			if (document.getElementById(nextid)) {
+				document.getElementById(nextid).focus();
+				document.getElementById(nextid).select();
+			} else {
+				nextid = 1 + "|" + rc[1];
+				document.getElementById(nextid).focus();
+				document.getElementById(nextid).select();
+			}
+
+	 } else if (k==39) { 
+		var rc = itemid.split("|");
+		var nextid;
+		nextid = rc[0] + "|" + (parseInt(rc[1]) + 1);
+
+			if (document.getElementById(nextid)) {
+				document.getElementById(nextid).focus();
+				document.getElementById(nextid).select();
+			} else {
+				nextid = 1 + "|" + rc[1];
+				document.getElementById(nextid).focus();
+				document.getElementById(nextid).select();
+			}
+
+	 } else if (k==37) { 
+		var rc = itemid.split("|");
+		var nextid;
+		nextid = rc[0] + "|" + (parseInt(rc[1]) - 1);
+
+			if (document.getElementById(nextid)) {
+				document.getElementById(nextid).focus();
+				document.getElementById(nextid).select();
+			} else {
+				nextid = 1 + "|" + rc[1];
+				document.getElementById(nextid).focus();
+				document.getElementById(nextid).select();
+			}
+
+	 } else if (k==13) { 
+		var rc = itemid.split("|");
+		var nextid;
+		nextid = (parseInt(rc[0]) + 1) + "|" + rc[1];
+
+			if (document.getElementById(nextid)) {
+				document.getElementById(nextid).focus();
+				document.getElementById(nextid).select();
+			} else {
+				nextid = 1 + "|" + rc[1];
+				document.getElementById(nextid).focus();
+				document.getElementById(nextid).select();
+			}
+
+	 }
+	return k!=13;
+	}
+
+	function xlrecalc(itemid){
+
+		var rcount = parseInt(document.getElementById('id_rcount').value);
+		var ccount = parseInt(document.getElementById('id_ccount').value);
+		var rc = itemid.split("|");
+		var crow, ccol, ctotal, currid, nextid, totalid, totalanalystid;
+		crow = parseInt(rc[0]);
+		ccol = parseInt(rc[1]);
+		ctotal = 0;
+		for (i=1; i < rcount + 1 ; i++) {
+			nextid = i+"|"+ccol;
+			if (document.getElementById(nextid)) {
+			  ctotal = ctotal + parseFloat(document.getElementById(nextid).value);
+			}
+		}
+		
+		//convert ctotal to 2 decimals
+		ctotal = ctotal.toFixed(2)
+		
+		//totals for the column, must add to 100%
+		totalid = "total|"+ ccol;
+		if (isNaN(ctotal)) ctotal = 'Error';
+		
+		document.getElementById(totalid).innerHTML = ctotal +"%";
+		if (ctotal == 100) {
+			document.getElementById(totalid).className  = "valgreen";
+		} else {
+			document.getElementById(totalid).className  = "valred";
+		}
+
+		//put total for analyst.
+		id_totalanalyst = "at|"+ crow;
+		id_coltotalval = "tot|" + ccol;
+
+		var val_analyst_total=0;
+    var id_cfat; // cfat  coltotalval for analyst total
+		for (k=1; k<(ccount+1); k++) {
+			id_cur_item = crow + "|" + k;
+			id_cfat = "tot|" + k;
+			//alert(id_cur_item + " >> " + val_analyst_total + " >> " + parseInt(document.getElementById(id_cur_item).value) / 100 + " >> " +  parseFloat(document.getElementById(id_cfat).innerHTML.replace(",","")) );
+					//alert(parseFloat(document.getElementById(id_cfat).innerHTML.replace(/,/g,"")));
+
+			val_analyst_total = val_analyst_total + ( ( parseFloat(document.getElementById(id_cur_item).value) / 100 ) * parseFloat(document.getElementById(id_cfat).innerHTML.replace(/,/g,"")) );
+		}
+
+		//if (isNaN(val_analyst_total)) val_analyst_total = 'Error';  //on error the previous value is preserved.
+		//document.getElementById(id_totalanalyst).innerHTML  = addCommas(val_analyst_total.toFixed(2));
+
+		cursat_id = "sat|" + crow;
+		document.getElementById(cursat_id).innerHTML  = addCommas(val_analyst_total.toFixed(2));
+		//alert(addCommas(val_analyst_total.toFixed(2)));
+		//get the total as a percentage.
+		gtotal_val =  parseFloat(document.getElementById('id_gtotal').value);
+		percent_of_total = ((val_analyst_total / gtotal_val)*100).toFixed(2);
+		idval_sap = 'sap|' + crow;
+		document.getElementById(idval_sap).innerHTML  = percent_of_total;
+		
+
+		//put the calc val
+		curval_id = "curnum|" + itemid;
+		curval_val = addCommas((( parseFloat(document.getElementById(itemid).value) / 100 ) * parseFloat(document.getElementById(id_coltotalval).innerHTML.replace(/,/g,""))).toFixed(2));
+		//alert(curval_id + "..." + curval_val);
+		if (curval_val != "0.00") {
+			document.getElementById(curval_id).innerHTML  = curval_val;
+		} else {
+			document.getElementById(curval_id).innerHTML  = "";
+		}
+		
+		//populate X
+		var val_summ_analyst_total=0;
+		for (k=1; k<(rcount+1); k++) { //sat|8
+			id_cur_item = "sat|" + k;
+			val_summ_analyst_total = val_summ_analyst_total + parseFloat(document.getElementById(id_cur_item).innerHTML.replace(/,/g,""));
+			//alert(val_summ_analyst_total);
+		}
+		document.getElementById('sum_sat_total').innerHTML  = addCommas(val_summ_analyst_total.toFixed(2));
+				
+		//populate Y
+		var val_summ_percent_total=0;
+		for (k=1; k<(rcount+1); k++) { //sat|8
+			id_cur_item = "sap|" + k;
+			val_summ_percent_total = val_summ_percent_total + parseFloat(document.getElementById(id_cur_item).innerHTML.replace(/,/g,""));
+			//alert(val_summ_analyst_total);
+		}
+		document.getElementById('sum_sap_total').innerHTML  = val_summ_percent_total.toFixed(0);
+		
+		return false;
+	}
+
+  //**************************************************************************************************
+  //**************************************************************************************************
+  //**************************************************************************************************
+  //**************************************************************************************************
+  //**************************************************************************************************
+	function xlrecalcform(){  // recalc entire form on load and polulate
+    
+		var rcount = parseInt(document.getElementById('id_rcount').value);
+		var ccount = parseInt(document.getElementById('id_ccount').value);
+		
+		var	itemid = new Array();
+	  var k = 0;
+		for ( i=1; i < rcount+1; i++ ) {
+			for ( j=1; j < ccount+1; j++ ) {
+				itemid[k] = i+"|"+j;
+				k = k + 1;
+			}
+		}
+		
+		//alert("Size of data =" + itemid.length);	
+		
+		//*********************************************************************
+		for (ccol=1; ccol < ccount + 1 ; ccol++) {
+				var ctotal = 0;
+				for (i=1; i < rcount + 1 ; i++) {
+					nextid = i+"|"+ccol;
+					if (document.getElementById(nextid)) {
+						ctotal = ctotal + parseFloat(document.getElementById(nextid).value);
+					}
+				}
+			
+				//convert ctotal to 2 decimals
+				ctotal = ctotal.toFixed(2)
+
+				//totals for the column, must add to 100%
+				totalid = "total|"+ ccol;
+				if (isNaN(ctotal)) ctotal = 'Error';
+				
+				document.getElementById(totalid).innerHTML = ctotal + "%";
+				if (ctotal == 100) {
+					document.getElementById(totalid).className  = "valgreen";
+				} else {
+					document.getElementById(totalid).className  = "valred";
+				}
+		}
+		//*********************************************************************
+		
+		//__<>__<>__<>__<>__<>__<>__<>__<>__<>__<>__<>__<>__<>__<>__<>__<>__<>__<>
+		//put total for analyst.
+		var id_cur_item, id_cfat;
+		for (crow=1; crow<rcount+1; crow++) {
+		var val_analyst_total = 0;
+			
+				id_totalanalyst = "at|"+ crow;
+			
+						for (k=1; k<(ccount+1); k++) {
+						  id_coltotalval = "tot|" + k;
+							id_cur_item = crow + "|" + k;
+							id_cfat = "tot|" + k;
+							//alert(id_cur_item + " >> " + val_analyst_total + " >> " + parseInt(document.getElementById(id_cur_item).value) / 100 + " >> " +  parseFloat(document.getElementById(id_cfat).innerHTML.replace(",","")) );
+							val_analyst_total = val_analyst_total + ( ( parseFloat(document.getElementById(id_cur_item).value) / 100 ) * parseFloat(document.getElementById(id_cfat).innerHTML.replace(/,/g,"")) );
+
+							//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+							//put the calc val
+							var curval_id, itemid;
+							itemid = crow + "|" + k;
+							curval_id = "curnum|" + itemid;
+							
+							curval_val = addCommas((( parseFloat(document.getElementById(itemid).value) / 100 ) * parseFloat(document.getElementById(id_coltotalval).innerHTML.replace(/,/g,""))).toFixed(2));
+							//alert(curval_id + "..." + curval_val);
+							if (curval_val != "0.00") {
+								document.getElementById(curval_id).innerHTML  = curval_val;
+							} else {
+								document.getElementById(curval_id).innerHTML  = "";
+							}
+							//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+						}
+				
+						//if (isNaN(val_analyst_total)) val_analyst_total = 'Error';  //on error the previous value is preserved.
+						//document.getElementById(id_totalanalyst).innerHTML  = addCommas(val_analyst_total.toFixed(2));
+				
+						cursat_id = "sat|" + crow;
+						document.getElementById(cursat_id).innerHTML  = addCommas(val_analyst_total.toFixed(2));
+				
+				//get the total as a percentage.
+				gtotal_val =  parseFloat(document.getElementById('id_gtotal').value);
+				percent_of_total = ((val_analyst_total / gtotal_val)*100).toFixed(2);
+				idval_sap = 'sap|' + crow;
+				document.getElementById(idval_sap).innerHTML  = percent_of_total;
+		}
+		//__<>__<>__<>__<>__<>__<>__<>__<>__<>__<>__<>__<>__<>__<>__<>__<>__<>__<>
+
+		//__^__^__^__^__^__^__^__^__^__^__^__^__^__^__^__^__^__^__^__^__^__^__^
+				//populate X
+				var val_summ_analyst_total=0;
+				for (k=1; k<(rcount+1); k++) { //sat|8
+					id_cur_item = "sat|" + k;
+					val_summ_analyst_total = val_summ_analyst_total + parseFloat(document.getElementById(id_cur_item).innerHTML.replace(/,/g,""));
+					//alert(parseFloat(document.getElementById(id_cur_item).innerHTML.replace(",","")) + "/" + val_summ_analyst_total);
+				}
+				document.getElementById('sum_sat_total').innerHTML  = addCommas(val_summ_analyst_total.toFixed(2));
+						
+				//populate Y
+				var val_summ_percent_total=0;
+				for (k=1; k<(rcount+1); k++) { //sat|8
+					id_cur_item = "sap|" + k;
+					val_summ_percent_total = val_summ_percent_total + parseFloat(document.getElementById(id_cur_item).innerHTML.replace(/,/g,""));
+					//alert(val_summ_analyst_total);
+				}
+				document.getElementById('sum_sap_total').innerHTML  = val_summ_percent_total.toFixed(0);
+		//__^__^__^__^__^__^__^__^__^__^__^__^__^__^__^__^__^__^__^__^__^__^__^
+
+		return false;
+	}
+  //**************************************************************************************************
+  //**************************************************************************************************
+  //**************************************************************************************************
+  //**************************************************************************************************
+  //**************************************************************************************************
+
+
+function addCommas(nStr) //addCommas
+{
+	nStr += '';
+	x = nStr.split('.');
+	x1 = x[0];
+	x2 = x.length > 1 ? '.' + x[1] : '';
+	var rgx = /(\d+)(\d{3})/;
+	while (rgx.test(x1)) {
+		x1 = x1.replace(rgx, '$1' + ',' + '$2');
+	}
+	return x1 + x2;
+}
+
+function zzzaddCommas(number) {
+number = '' + number;
+if (number.length > 3) {
+var mod = number.length % 3;
+var output = (mod > 0 ? (number.substring(0,mod)) : '');
+for (i=0 ; i < Math.floor(number.length / 3); i++) {
+if ((mod == 0) && (i == 0))
+output += number.substring(mod+ 3 * i, mod + 3 * i + 3);
+else
+output+= ',' + number.substring(mod + 3 * i, mod + 3 * i + 3);
+}
+return (output);
+}
+else return number;
+}
+</script><style>
+<!--
+.vert_1 {
+	writing-mode: tb-rl;
+	filter: flipv fliph;
+	border-collapse: collapse;
+	border: .05em solid #ccc;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: 666;
+}
+
+.text_xl {
+	border-collapse: collapse;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+
+.tbl_xl {
+	border-collapse: collapse; 
+	border: .05em solid #ccc; 
+}
+
+td.tdx { 
+	border-collapse: collapse; 
+	border: .05em solid #ccc; 
+} 
+.valred {
+  color:#FF0000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+.valgreen {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color:#009900;
+	font-weight: bold;
+}
+
+.valtotal{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: 000;
+}
+
+.pplname{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: 666;
+}
+input.text{
+	font-family: Verdana;
+	font-size: 12px;
+	font-weight: bold;
+	color: 00F;
+}
+.num_1{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: 666;
+	text-align: right;
+}
+#scrollGrid_1 {
+	width: 750px;
+	height: 575px;
+	padding: 1px;
+	border: 0px solid #cc0000;
+	overflow: scroll; 
+}
+.num_2{
+	font-family: Verdana;
+	font-size: 11px;
+	font-weight: bold;
+	color: 444;
+}
+
+#scrollGrid_2_admin {
+	width: 750px;
+	height: 580px;
+	padding: 1px;
+	border: 0px solid #cc0000;
+	overflow: scroll; 
+}
+
+-->
+</style> <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#F7F7F7" class="tblcont">
+				<tr>
+					<td>
+						<table border="0" CELLPADDING="0" CELLSPACING="0">
+							<tr>
+								<td align="left" nowrap class="tblconthead">&nbsp;&nbsp;&#9658; Analyst Allocations : Marc Luchansky &nbsp;&nbsp;</td>
+								<td nowrap valign=top ><img src="images/tables4/r_angle.png"></td>
+								<td width="100%">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+				<td valign="top">
+					<table width="100%" border="0" cellpadding="4" cellspacing="0">
+						<tr>
+							<td valign="top">
+<table width="100%" border="0" cellpadding="4" cellspacing="0"> 
+	<tr>
+		<td>
+		<!-- Top Menu -->		
+		<form name="frm_criteria" action="/tdw/pay_analyst_mgmt_container.php" method="get"> <!--onsubmit="return check_frm_criteria()"-->
+		
+		<select class="Text2" name="sel_rep" size="1" >
+		<option value="">&nbsp;SALES REPS.&nbsp;</option>
+		<option value="">____________</option>
+									<option value="047^326">Ann Bettendorf Freeman(047)</option>
+									<option value="041^301">Chris Cattani.......(041)</option>
+									<option value="006^393">Jack Chernus........(006)</option>
+									<option value="033^219">Brian Colburn.......(033)</option>
+									<option value="065^244">John Demartini......(065)</option>
+									<option value="044^228">Bob Efstathiou......(044)</option>
+									<option value="085^350">Michael Ehrlich.....(085)</option>
+									<option value="063^241">William Gault.......(063)</option>
+									<option value="030^230">Mark Gronet.........(030)</option>
+									<option value="086^325">Brandon Heller......(086)</option>
+									<option value="088^367">John Hickey.........(088)</option>
+									<option value="001^95">David Keidan........(001)</option>
+									<option value="036^226">Marc Luchansky......(036)</option>
+									<option value="028^234">Fran Mccartan.......(028)</option>
+									<option value="025^297">Ian Miller..........(025)</option>
+									<option value="070^315">Sasha Murray........(070)</option>
+									<option value="046^276">Kevin O'Gorman......(046)</option>
+									<option value="029^289">Nicolas Pakler......(029)</option>
+									<option value="087^335">Michael Perillo.....(087)</option>
+									<option value="040^235">Doug Rogers.........(040)</option>
+									<option value="084^346">Ravi Sadarangani....(084)</option>
+									<option value="031^238">Andrew Sinclair.....(031)</option>
+									<option value="093^370">Michael Smith.......(093)</option>
+									<option value="060^245">Anthony Sutera......(060)</option>
+				</select>
+		&nbsp;&nbsp;&nbsp;
+		<select name="sel_qtr">
+			<option value="">Select Quarter</option>
+			<option value="1" >Qtr. 1</option>
+			<option value="2" >Qtr. 2</option>
+			<option value="3" >Qtr. 3</option>
+			<option value="4" selected>Qtr. 4</option>
+		</select>		
+		&nbsp;&nbsp;&nbsp;
+		<!--<select name="sel_year">
+			<option value="">Select Year</option>
+			<option value="2007" >2007</option>
+			<option value="2008" >2008</option>
+			<option value="2009" >2009</option>
+			<option value="2010" >2010</option>
+			<option value="2011" >2011</option>
+		</select>	-->	
+    <select name="sel_year">
+			<option value="">Select Year</option>
+		              <option value="2014"  >2014</option>
+                      <option value="2013" selected >2013</option>
+                      <option value="2012"  >2012</option>
+          		</select>		
+		&nbsp;&nbsp;&nbsp;
+		<input type="image" src="images/lf_v1/form_submit.png"/>
+		&nbsp;&nbsp;&nbsp;
+    			<a href="pay_analyst_excel_create.php?xl=226^036^4^2013" target="_blank"><img src="images/lf_v1/exp2excel.png" border="0" /></a>
+		    </form>
+		<!-- End Top Menu -->		
+		</td>
+	</tr>
+</table>
+		<img src="images/login/exclaim.gif" border="0" />&nbsp;<font face="Verdana, Arial, Helvetica, sans-serif" size="1"><b>NOTE: This form has been finalized. You cannot make any changes to it and save.</b></font><br /><br />
+		<form name="frm_payout" method="post" onkeypress="return noenter()"> 
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="20" valign="top"> 
+					<!-- Analyst List -->
+					<table class="tbl_xl" border="0" cellpadding="0" cellspacing="0" >
+						<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="71" /></td>
+							<td class="tdx" valign="middle" nowrap="nowrap"><h1>Q4 2013&nbsp;&nbsp;&nbsp;</h1></td></tr>
+						<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap"><a class="pplname">&nbsp;<!--Totals Commissions--></a></td>
+						</tr>	
+						<!-- Analyst Array -->
+												<input type="hidden" name="frmitem_analysts" id="id_str_analysts" value=",290,199,418,409,201,321,395,206,385,210,412,329,213,214,216,288" />  
+						<!-- End Analyst Array -->
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap">
+								<table width="100%">
+									<tr>
+										<td class="pplname" valign="top" nowrap="nowrap">&nbsp;&nbsp;Amaturo, Joseph</td>
+										<td class="pplname" align="right" nowrap="nowrap">&nbsp;<!--: $<a id="at|1">0.00</a>--> </td>
+									</tr>
+								</table>
+							</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap">
+								<table width="100%">
+									<tr>
+										<td class="pplname" valign="top" nowrap="nowrap">&nbsp;&nbsp;Buck, David</td>
+										<td class="pplname" align="right" nowrap="nowrap">&nbsp;<!--: $<a id="at|2">0.00</a>--> </td>
+									</tr>
+								</table>
+							</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap">
+								<table width="100%">
+									<tr>
+										<td class="pplname" valign="top" nowrap="nowrap">&nbsp;&nbsp;Davis, Jennifer</td>
+										<td class="pplname" align="right" nowrap="nowrap">&nbsp;<!--: $<a id="at|3">0.00</a>--> </td>
+									</tr>
+								</table>
+							</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap">
+								<table width="100%">
+									<tr>
+										<td class="pplname" valign="top" nowrap="nowrap">&nbsp;&nbsp;DiFrisco, Matthew</td>
+										<td class="pplname" align="right" nowrap="nowrap">&nbsp;<!--: $<a id="at|4">0.00</a>--> </td>
+									</tr>
+								</table>
+							</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap">
+								<table width="100%">
+									<tr>
+										<td class="pplname" valign="top" nowrap="nowrap">&nbsp;&nbsp;Glick, David</td>
+										<td class="pplname" align="right" nowrap="nowrap">&nbsp;<!--: $<a id="at|5">0.00</a>--> </td>
+									</tr>
+								</table>
+							</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap">
+								<table width="100%">
+									<tr>
+										<td class="pplname" valign="top" nowrap="nowrap">&nbsp;&nbsp;Hochstim, David</td>
+										<td class="pplname" align="right" nowrap="nowrap">&nbsp;<!--: $<a id="at|6">0.00</a>--> </td>
+									</tr>
+								</table>
+							</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap">
+								<table width="100%">
+									<tr>
+										<td class="pplname" valign="top" nowrap="nowrap">&nbsp;&nbsp;Kauffman, Jeffrey</td>
+										<td class="pplname" align="right" nowrap="nowrap">&nbsp;<!--: $<a id="at|7">0.00</a>--> </td>
+									</tr>
+								</table>
+							</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap">
+								<table width="100%">
+									<tr>
+										<td class="pplname" valign="top" nowrap="nowrap">&nbsp;&nbsp;Longley, Alice</td>
+										<td class="pplname" align="right" nowrap="nowrap">&nbsp;<!--: $<a id="at|8">0.00</a>--> </td>
+									</tr>
+								</table>
+							</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap">
+								<table width="100%">
+									<tr>
+										<td class="pplname" valign="top" nowrap="nowrap">&nbsp;&nbsp;McKenzie, Daniel</td>
+										<td class="pplname" align="right" nowrap="nowrap">&nbsp;<!--: $<a id="at|9">0.00</a>--> </td>
+									</tr>
+								</table>
+							</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap">
+								<table width="100%">
+									<tr>
+										<td class="pplname" valign="top" nowrap="nowrap">&nbsp;&nbsp;Mitchell, James</td>
+										<td class="pplname" align="right" nowrap="nowrap">&nbsp;<!--: $<a id="at|10">0.00</a>--> </td>
+									</tr>
+								</table>
+							</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap">
+								<table width="100%">
+									<tr>
+										<td class="pplname" valign="top" nowrap="nowrap">&nbsp;&nbsp;Ratcliffe, James</td>
+										<td class="pplname" align="right" nowrap="nowrap">&nbsp;<!--: $<a id="at|11">0.00</a>--> </td>
+									</tr>
+								</table>
+							</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap">
+								<table width="100%">
+									<tr>
+										<td class="pplname" valign="top" nowrap="nowrap">&nbsp;&nbsp;Safran, Richard</td>
+										<td class="pplname" align="right" nowrap="nowrap">&nbsp;<!--: $<a id="at|12">0.00</a>--> </td>
+									</tr>
+								</table>
+							</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap">
+								<table width="100%">
+									<tr>
+										<td class="pplname" valign="top" nowrap="nowrap">&nbsp;&nbsp;Weintraub, Mark</td>
+										<td class="pplname" align="right" nowrap="nowrap">&nbsp;<!--: $<a id="at|13">0.00</a>--> </td>
+									</tr>
+								</table>
+							</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap">
+								<table width="100%">
+									<tr>
+										<td class="pplname" valign="top" nowrap="nowrap">&nbsp;&nbsp;Wheeler, Ted</td>
+										<td class="pplname" align="right" nowrap="nowrap">&nbsp;<!--: $<a id="at|14">0.00</a>--> </td>
+									</tr>
+								</table>
+							</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap">
+								<table width="100%">
+									<tr>
+										<td class="pplname" valign="top" nowrap="nowrap">&nbsp;&nbsp;Zolidis, John</td>
+										<td class="pplname" align="right" nowrap="nowrap">&nbsp;<!--: $<a id="at|15">0.00</a>--> </td>
+									</tr>
+								</table>
+							</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap">
+								<table width="100%">
+									<tr>
+										<td class="pplname" valign="top" nowrap="nowrap">&nbsp;&nbsp;BRG (Non allocable)</td>
+										<td class="pplname" align="right" nowrap="nowrap">&nbsp;<!--: $<a id="at|16">0.00</a>--> </td>
+									</tr>
+								</table>
+							</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap">Totals (%)</td>
+						</tr>		
+					</table>
+					<!-- End Analyst List -->
+				</td>
+				<td width="752" align="left" valign="top">
+				<!-- Begin Clients Section -->
+				<!-- Client Array -->
+								<input type="hidden" name="frmitem_clients" id="id_str_clients" value=",BRON,CHIL,COLC,CONA,FORT,GLEH,GLEV,IRAM,NBER,PECO,PROS,SILP,SORO,YORK,SENA,PYRA" />  
+				<input type="hidden" name="frmitem_clientnames" id="id_str_clientnames" value="|BRONSON POINT|CHILTON INVESTMENT   |COLUMBUS CIRCLE         |CONATUS CAPITAL         |FORTRESS INVST (US)|GLENHILL CAPITAL        |GLENVEIW CAPITAL        |IRIDIAN ASSET      |NEUBERGER BERMAN        |PECONIC PARTNERS        |PROSPECTOR PARTNERS|SILVERPOINT             |SOROS                   |YORK CAPITAL            |SENATOR INVEST GROUP|PYRAMIS GLOBAL          " />  
+				<!-- End Client Array -->
+				<div id="scrollGrid_2_admin">
+					<table class="tbl_xl" border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="70" /></td>
+							
+													<td class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;BRONSON&nbsp;&nbsp;<br>&nbsp;&nbsp;POINT</a></td>
+													<td class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;CHILTON&nbsp;&nbsp;<br>&nbsp;&nbsp;INVESTMENT</a></td>
+													<td class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;COLUMBUS&nbsp;&nbsp;<br>&nbsp;&nbsp;CIRCLE</a></td>
+													<td class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;CONATUS&nbsp;&nbsp;<br>&nbsp;&nbsp;CAPITAL</a></td>
+													<td class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;FORTRESS&nbsp;&nbsp;<br>&nbsp;&nbsp;INVST&nbsp;&nbsp;<br>&nbsp;&nbsp;(US)</a></td>
+													<td class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;GLENHILL&nbsp;&nbsp;<br>&nbsp;&nbsp;CAPITAL</a></td>
+													<td class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;GLENVEIW&nbsp;&nbsp;<br>&nbsp;&nbsp;CAPITAL</a></td>
+													<td class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;IRIDIAN&nbsp;&nbsp;<br>&nbsp;&nbsp;ASSET</a></td>
+													<td class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;NEUBERGER&nbsp;&nbsp;<br>&nbsp;&nbsp;BERMAN</a></td>
+													<td class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;PECONIC&nbsp;&nbsp;<br>&nbsp;&nbsp;PARTNERS</a></td>
+													<td class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;PROSPECTOR&nbsp;&nbsp;<br>&nbsp;&nbsp;PARTNERS</a></td>
+													<td class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;SILVERPOINT</a></td>
+													<td class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;SOROS</a></td>
+													<td class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;YORK&nbsp;&nbsp;<br>&nbsp;&nbsp;CAPITAL</a></td>
+						<td bgcolor="#666666" class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;</a></td>							<td class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;SENATOR&nbsp;&nbsp;<br>&nbsp;&nbsp;INVEST&nbsp;&nbsp;<br>&nbsp;&nbsp;GROUP</a></td>
+													<td class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;PYRAMIS&nbsp;&nbsp;<br>&nbsp;&nbsp;GLOBAL</a></td>
+												</tr>
+						<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+													<td class="tdx" align="right" valign="middle"><a class="pplname" id="tot|1">54,164.52</a>&nbsp;&nbsp;</td>
+													<td class="tdx" align="right" valign="middle"><a class="pplname" id="tot|2">17,500.00</a>&nbsp;&nbsp;</td>
+													<td class="tdx" align="right" valign="middle"><a class="pplname" id="tot|3">102,961.06</a>&nbsp;&nbsp;</td>
+													<td class="tdx" align="right" valign="middle"><a class="pplname" id="tot|4">20,500.00</a>&nbsp;&nbsp;</td>
+													<td class="tdx" align="right" valign="middle"><a class="pplname" id="tot|5">47,158.00</a>&nbsp;&nbsp;</td>
+													<td class="tdx" align="right" valign="middle"><a class="pplname" id="tot|6">5,272.30</a>&nbsp;&nbsp;</td>
+													<td class="tdx" align="right" valign="middle"><a class="pplname" id="tot|7">75,000.00</a>&nbsp;&nbsp;</td>
+													<td class="tdx" align="right" valign="middle"><a class="pplname" id="tot|8">66,867.20</a>&nbsp;&nbsp;</td>
+													<td class="tdx" align="right" valign="middle"><a class="pplname" id="tot|9">56,694.76</a>&nbsp;&nbsp;</td>
+													<td class="tdx" align="right" valign="middle"><a class="pplname" id="tot|10">58,500.00</a>&nbsp;&nbsp;</td>
+													<td class="tdx" align="right" valign="middle"><a class="pplname" id="tot|11">9,404.00</a>&nbsp;&nbsp;</td>
+													<td class="tdx" align="right" valign="middle"><a class="pplname" id="tot|12">28,000.00</a>&nbsp;&nbsp;</td>
+													<td class="tdx" align="right" valign="middle"><a class="pplname" id="tot|13">10,246.65</a>&nbsp;&nbsp;</td>
+													<td class="tdx" align="right" valign="middle"><a class="pplname" id="tot|14">45,123.09</a>&nbsp;&nbsp;</td>
+						<td bgcolor="#666666" class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;</a></td>							<td class="tdx" align="right" valign="middle"><a class="pplname" id="tot|15">119,257.83</a>&nbsp;&nbsp;</td>
+													<td class="tdx" align="right" valign="middle"><a class="pplname" id="tot|16">6,720.00</a>&nbsp;&nbsp;</td>
+												</tr>
+						<!-- 723369.41 -->
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="1|1" id="1|1" value="17" size="3" maxlength="3" onchange="xlrecalc('1|1')" onkeyup="return xlmove(event, '1|1')" onfocus="selitem('1|1')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|1|1"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="1|2" id="1|2" value="0" size="3" maxlength="3" onchange="xlrecalc('1|2')" onkeyup="return xlmove(event, '1|2')" onfocus="selitem('1|2')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|1|2"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="1|3" id="1|3" value="5" size="3" maxlength="3" onchange="xlrecalc('1|3')" onkeyup="return xlmove(event, '1|3')" onfocus="selitem('1|3')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|1|3"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="1|4" id="1|4" value="0" size="3" maxlength="3" onchange="xlrecalc('1|4')" onkeyup="return xlmove(event, '1|4')" onfocus="selitem('1|4')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|1|4"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="1|5" id="1|5" value="15" size="3" maxlength="3" onchange="xlrecalc('1|5')" onkeyup="return xlmove(event, '1|5')" onfocus="selitem('1|5')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|1|5"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="1|6" id="1|6" value="0" size="3" maxlength="3" onchange="xlrecalc('1|6')" onkeyup="return xlmove(event, '1|6')" onfocus="selitem('1|6')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|1|6"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="1|7" id="1|7" value="5" size="3" maxlength="3" onchange="xlrecalc('1|7')" onkeyup="return xlmove(event, '1|7')" onfocus="selitem('1|7')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|1|7"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="1|8" id="1|8" value="10" size="3" maxlength="3" onchange="xlrecalc('1|8')" onkeyup="return xlmove(event, '1|8')" onfocus="selitem('1|8')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|1|8"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="1|9" id="1|9" value="5" size="3" maxlength="3" onchange="xlrecalc('1|9')" onkeyup="return xlmove(event, '1|9')" onfocus="selitem('1|9')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|1|9"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="1|10" id="1|10" value="52" size="3" maxlength="3" onchange="xlrecalc('1|10')" onkeyup="return xlmove(event, '1|10')" onfocus="selitem('1|10')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|1|10"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="1|11" id="1|11" value="0" size="3" maxlength="3" onchange="xlrecalc('1|11')" onkeyup="return xlmove(event, '1|11')" onfocus="selitem('1|11')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|1|11"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="1|12" id="1|12" value="100" size="3" maxlength="3" onchange="xlrecalc('1|12')" onkeyup="return xlmove(event, '1|12')" onfocus="selitem('1|12')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|1|12"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="1|13" id="1|13" value="0" size="3" maxlength="3" onchange="xlrecalc('1|13')" onkeyup="return xlmove(event, '1|13')" onfocus="selitem('1|13')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|1|13"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="1|14" id="1|14" value="38" size="3" maxlength="3" onchange="xlrecalc('1|14')" onkeyup="return xlmove(event, '1|14')" onfocus="selitem('1|14')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|1|14"></td>
+									</tr>
+								</table>
+							</td>		
+							<td bgcolor="#666666" class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;</a></td>							<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="1|15" id="1|15" value="20" size="3" maxlength="3" onchange="xlrecalc('1|15')" onkeyup="return xlmove(event, '1|15')" onfocus="selitem('1|15')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|1|15"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="1|16" id="1|16" value="0" size="3" maxlength="3" onchange="xlrecalc('1|16')" onkeyup="return xlmove(event, '1|16')" onfocus="selitem('1|16')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|1|16"></td>
+									</tr>
+								</table>
+							</td>		
+													</tr>				
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="2|1" id="2|1" value="0" size="3" maxlength="3" onchange="xlrecalc('2|1')" onkeyup="return xlmove(event, '2|1')" onfocus="selitem('2|1')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|2|1"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="2|2" id="2|2" value="0" size="3" maxlength="3" onchange="xlrecalc('2|2')" onkeyup="return xlmove(event, '2|2')" onfocus="selitem('2|2')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|2|2"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="2|3" id="2|3" value="6" size="3" maxlength="3" onchange="xlrecalc('2|3')" onkeyup="return xlmove(event, '2|3')" onfocus="selitem('2|3')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|2|3"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="2|4" id="2|4" value="0" size="3" maxlength="3" onchange="xlrecalc('2|4')" onkeyup="return xlmove(event, '2|4')" onfocus="selitem('2|4')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|2|4"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="2|5" id="2|5" value="0" size="3" maxlength="3" onchange="xlrecalc('2|5')" onkeyup="return xlmove(event, '2|5')" onfocus="selitem('2|5')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|2|5"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="2|6" id="2|6" value="0" size="3" maxlength="3" onchange="xlrecalc('2|6')" onkeyup="return xlmove(event, '2|6')" onfocus="selitem('2|6')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|2|6"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="2|7" id="2|7" value="0" size="3" maxlength="3" onchange="xlrecalc('2|7')" onkeyup="return xlmove(event, '2|7')" onfocus="selitem('2|7')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|2|7"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="2|8" id="2|8" value="7" size="3" maxlength="3" onchange="xlrecalc('2|8')" onkeyup="return xlmove(event, '2|8')" onfocus="selitem('2|8')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|2|8"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="2|9" id="2|9" value="3" size="3" maxlength="3" onchange="xlrecalc('2|9')" onkeyup="return xlmove(event, '2|9')" onfocus="selitem('2|9')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|2|9"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="2|10" id="2|10" value="0" size="3" maxlength="3" onchange="xlrecalc('2|10')" onkeyup="return xlmove(event, '2|10')" onfocus="selitem('2|10')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|2|10"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="2|11" id="2|11" value="5" size="3" maxlength="3" onchange="xlrecalc('2|11')" onkeyup="return xlmove(event, '2|11')" onfocus="selitem('2|11')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|2|11"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="2|12" id="2|12" value="0" size="3" maxlength="3" onchange="xlrecalc('2|12')" onkeyup="return xlmove(event, '2|12')" onfocus="selitem('2|12')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|2|12"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="2|13" id="2|13" value="0" size="3" maxlength="3" onchange="xlrecalc('2|13')" onkeyup="return xlmove(event, '2|13')" onfocus="selitem('2|13')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|2|13"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="2|14" id="2|14" value="5" size="3" maxlength="3" onchange="xlrecalc('2|14')" onkeyup="return xlmove(event, '2|14')" onfocus="selitem('2|14')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|2|14"></td>
+									</tr>
+								</table>
+							</td>		
+							<td bgcolor="#666666" class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;</a></td>							<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="2|15" id="2|15" value="2" size="3" maxlength="3" onchange="xlrecalc('2|15')" onkeyup="return xlmove(event, '2|15')" onfocus="selitem('2|15')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|2|15"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="2|16" id="2|16" value="0" size="3" maxlength="3" onchange="xlrecalc('2|16')" onkeyup="return xlmove(event, '2|16')" onfocus="selitem('2|16')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|2|16"></td>
+									</tr>
+								</table>
+							</td>		
+													</tr>				
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="3|1" id="3|1" value="0" size="3" maxlength="3" onchange="xlrecalc('3|1')" onkeyup="return xlmove(event, '3|1')" onfocus="selitem('3|1')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|3|1"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="3|2" id="3|2" value="0" size="3" maxlength="3" onchange="xlrecalc('3|2')" onkeyup="return xlmove(event, '3|2')" onfocus="selitem('3|2')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|3|2"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="3|3" id="3|3" value="0" size="3" maxlength="3" onchange="xlrecalc('3|3')" onkeyup="return xlmove(event, '3|3')" onfocus="selitem('3|3')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|3|3"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="3|4" id="3|4" value="0" size="3" maxlength="3" onchange="xlrecalc('3|4')" onkeyup="return xlmove(event, '3|4')" onfocus="selitem('3|4')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|3|4"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="3|5" id="3|5" value="0" size="3" maxlength="3" onchange="xlrecalc('3|5')" onkeyup="return xlmove(event, '3|5')" onfocus="selitem('3|5')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|3|5"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="3|6" id="3|6" value="0" size="3" maxlength="3" onchange="xlrecalc('3|6')" onkeyup="return xlmove(event, '3|6')" onfocus="selitem('3|6')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|3|6"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="3|7" id="3|7" value="0" size="3" maxlength="3" onchange="xlrecalc('3|7')" onkeyup="return xlmove(event, '3|7')" onfocus="selitem('3|7')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|3|7"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="3|8" id="3|8" value="0" size="3" maxlength="3" onchange="xlrecalc('3|8')" onkeyup="return xlmove(event, '3|8')" onfocus="selitem('3|8')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|3|8"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="3|9" id="3|9" value="0" size="3" maxlength="3" onchange="xlrecalc('3|9')" onkeyup="return xlmove(event, '3|9')" onfocus="selitem('3|9')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|3|9"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="3|10" id="3|10" value="0" size="3" maxlength="3" onchange="xlrecalc('3|10')" onkeyup="return xlmove(event, '3|10')" onfocus="selitem('3|10')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|3|10"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="3|11" id="3|11" value="0" size="3" maxlength="3" onchange="xlrecalc('3|11')" onkeyup="return xlmove(event, '3|11')" onfocus="selitem('3|11')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|3|11"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="3|12" id="3|12" value="0" size="3" maxlength="3" onchange="xlrecalc('3|12')" onkeyup="return xlmove(event, '3|12')" onfocus="selitem('3|12')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|3|12"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="3|13" id="3|13" value="0" size="3" maxlength="3" onchange="xlrecalc('3|13')" onkeyup="return xlmove(event, '3|13')" onfocus="selitem('3|13')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|3|13"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="3|14" id="3|14" value="0" size="3" maxlength="3" onchange="xlrecalc('3|14')" onkeyup="return xlmove(event, '3|14')" onfocus="selitem('3|14')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|3|14"></td>
+									</tr>
+								</table>
+							</td>		
+							<td bgcolor="#666666" class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;</a></td>							<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="3|15" id="3|15" value="0" size="3" maxlength="3" onchange="xlrecalc('3|15')" onkeyup="return xlmove(event, '3|15')" onfocus="selitem('3|15')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|3|15"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="3|16" id="3|16" value="0" size="3" maxlength="3" onchange="xlrecalc('3|16')" onkeyup="return xlmove(event, '3|16')" onfocus="selitem('3|16')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|3|16"></td>
+									</tr>
+								</table>
+							</td>		
+													</tr>				
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="4|1" id="4|1" value="3" size="3" maxlength="3" onchange="xlrecalc('4|1')" onkeyup="return xlmove(event, '4|1')" onfocus="selitem('4|1')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|4|1"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="4|2" id="4|2" value="16" size="3" maxlength="3" onchange="xlrecalc('4|2')" onkeyup="return xlmove(event, '4|2')" onfocus="selitem('4|2')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|4|2"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="4|3" id="4|3" value="3" size="3" maxlength="3" onchange="xlrecalc('4|3')" onkeyup="return xlmove(event, '4|3')" onfocus="selitem('4|3')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|4|3"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="4|4" id="4|4" value="0" size="3" maxlength="3" onchange="xlrecalc('4|4')" onkeyup="return xlmove(event, '4|4')" onfocus="selitem('4|4')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|4|4"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="4|5" id="4|5" value="0" size="3" maxlength="3" onchange="xlrecalc('4|5')" onkeyup="return xlmove(event, '4|5')" onfocus="selitem('4|5')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|4|5"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="4|6" id="4|6" value="0" size="3" maxlength="3" onchange="xlrecalc('4|6')" onkeyup="return xlmove(event, '4|6')" onfocus="selitem('4|6')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|4|6"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="4|7" id="4|7" value="0" size="3" maxlength="3" onchange="xlrecalc('4|7')" onkeyup="return xlmove(event, '4|7')" onfocus="selitem('4|7')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|4|7"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="4|8" id="4|8" value="0" size="3" maxlength="3" onchange="xlrecalc('4|8')" onkeyup="return xlmove(event, '4|8')" onfocus="selitem('4|8')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|4|8"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="4|9" id="4|9" value="4" size="3" maxlength="3" onchange="xlrecalc('4|9')" onkeyup="return xlmove(event, '4|9')" onfocus="selitem('4|9')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|4|9"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="4|10" id="4|10" value="3" size="3" maxlength="3" onchange="xlrecalc('4|10')" onkeyup="return xlmove(event, '4|10')" onfocus="selitem('4|10')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|4|10"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="4|11" id="4|11" value="3" size="3" maxlength="3" onchange="xlrecalc('4|11')" onkeyup="return xlmove(event, '4|11')" onfocus="selitem('4|11')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|4|11"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="4|12" id="4|12" value="0" size="3" maxlength="3" onchange="xlrecalc('4|12')" onkeyup="return xlmove(event, '4|12')" onfocus="selitem('4|12')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|4|12"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="4|13" id="4|13" value="0" size="3" maxlength="3" onchange="xlrecalc('4|13')" onkeyup="return xlmove(event, '4|13')" onfocus="selitem('4|13')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|4|13"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="4|14" id="4|14" value="0" size="3" maxlength="3" onchange="xlrecalc('4|14')" onkeyup="return xlmove(event, '4|14')" onfocus="selitem('4|14')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|4|14"></td>
+									</tr>
+								</table>
+							</td>		
+							<td bgcolor="#666666" class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;</a></td>							<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="4|15" id="4|15" value="0" size="3" maxlength="3" onchange="xlrecalc('4|15')" onkeyup="return xlmove(event, '4|15')" onfocus="selitem('4|15')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|4|15"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="4|16" id="4|16" value="0" size="3" maxlength="3" onchange="xlrecalc('4|16')" onkeyup="return xlmove(event, '4|16')" onfocus="selitem('4|16')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|4|16"></td>
+									</tr>
+								</table>
+							</td>		
+													</tr>				
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="5|1" id="5|1" value="15" size="3" maxlength="3" onchange="xlrecalc('5|1')" onkeyup="return xlmove(event, '5|1')" onfocus="selitem('5|1')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|5|1"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="5|2" id="5|2" value="21" size="3" maxlength="3" onchange="xlrecalc('5|2')" onkeyup="return xlmove(event, '5|2')" onfocus="selitem('5|2')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|5|2"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="5|3" id="5|3" value="10" size="3" maxlength="3" onchange="xlrecalc('5|3')" onkeyup="return xlmove(event, '5|3')" onfocus="selitem('5|3')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|5|3"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="5|4" id="5|4" value="85" size="3" maxlength="3" onchange="xlrecalc('5|4')" onkeyup="return xlmove(event, '5|4')" onfocus="selitem('5|4')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|5|4"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="5|5" id="5|5" value="0" size="3" maxlength="3" onchange="xlrecalc('5|5')" onkeyup="return xlmove(event, '5|5')" onfocus="selitem('5|5')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|5|5"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="5|6" id="5|6" value="75" size="3" maxlength="3" onchange="xlrecalc('5|6')" onkeyup="return xlmove(event, '5|6')" onfocus="selitem('5|6')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|5|6"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="5|7" id="5|7" value="20" size="3" maxlength="3" onchange="xlrecalc('5|7')" onkeyup="return xlmove(event, '5|7')" onfocus="selitem('5|7')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|5|7"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="5|8" id="5|8" value="0" size="3" maxlength="3" onchange="xlrecalc('5|8')" onkeyup="return xlmove(event, '5|8')" onfocus="selitem('5|8')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|5|8"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="5|9" id="5|9" value="8" size="3" maxlength="3" onchange="xlrecalc('5|9')" onkeyup="return xlmove(event, '5|9')" onfocus="selitem('5|9')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|5|9"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="5|10" id="5|10" value="5" size="3" maxlength="3" onchange="xlrecalc('5|10')" onkeyup="return xlmove(event, '5|10')" onfocus="selitem('5|10')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|5|10"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="5|11" id="5|11" value="0" size="3" maxlength="3" onchange="xlrecalc('5|11')" onkeyup="return xlmove(event, '5|11')" onfocus="selitem('5|11')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|5|11"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="5|12" id="5|12" value="0" size="3" maxlength="3" onchange="xlrecalc('5|12')" onkeyup="return xlmove(event, '5|12')" onfocus="selitem('5|12')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|5|12"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="5|13" id="5|13" value="75" size="3" maxlength="3" onchange="xlrecalc('5|13')" onkeyup="return xlmove(event, '5|13')" onfocus="selitem('5|13')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|5|13"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="5|14" id="5|14" value="0" size="3" maxlength="3" onchange="xlrecalc('5|14')" onkeyup="return xlmove(event, '5|14')" onfocus="selitem('5|14')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|5|14"></td>
+									</tr>
+								</table>
+							</td>		
+							<td bgcolor="#666666" class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;</a></td>							<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="5|15" id="5|15" value="15" size="3" maxlength="3" onchange="xlrecalc('5|15')" onkeyup="return xlmove(event, '5|15')" onfocus="selitem('5|15')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|5|15"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="5|16" id="5|16" value="20" size="3" maxlength="3" onchange="xlrecalc('5|16')" onkeyup="return xlmove(event, '5|16')" onfocus="selitem('5|16')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|5|16"></td>
+									</tr>
+								</table>
+							</td>		
+													</tr>				
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="6|1" id="6|1" value="8" size="3" maxlength="3" onchange="xlrecalc('6|1')" onkeyup="return xlmove(event, '6|1')" onfocus="selitem('6|1')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|6|1"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="6|2" id="6|2" value="0" size="3" maxlength="3" onchange="xlrecalc('6|2')" onkeyup="return xlmove(event, '6|2')" onfocus="selitem('6|2')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|6|2"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="6|3" id="6|3" value="13" size="3" maxlength="3" onchange="xlrecalc('6|3')" onkeyup="return xlmove(event, '6|3')" onfocus="selitem('6|3')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|6|3"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="6|4" id="6|4" value="0" size="3" maxlength="3" onchange="xlrecalc('6|4')" onkeyup="return xlmove(event, '6|4')" onfocus="selitem('6|4')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|6|4"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="6|5" id="6|5" value="0" size="3" maxlength="3" onchange="xlrecalc('6|5')" onkeyup="return xlmove(event, '6|5')" onfocus="selitem('6|5')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|6|5"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="6|6" id="6|6" value="0" size="3" maxlength="3" onchange="xlrecalc('6|6')" onkeyup="return xlmove(event, '6|6')" onfocus="selitem('6|6')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|6|6"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="6|7" id="6|7" value="0" size="3" maxlength="3" onchange="xlrecalc('6|7')" onkeyup="return xlmove(event, '6|7')" onfocus="selitem('6|7')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|6|7"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="6|8" id="6|8" value="5" size="3" maxlength="3" onchange="xlrecalc('6|8')" onkeyup="return xlmove(event, '6|8')" onfocus="selitem('6|8')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|6|8"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="6|9" id="6|9" value="9" size="3" maxlength="3" onchange="xlrecalc('6|9')" onkeyup="return xlmove(event, '6|9')" onfocus="selitem('6|9')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|6|9"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="6|10" id="6|10" value="0" size="3" maxlength="3" onchange="xlrecalc('6|10')" onkeyup="return xlmove(event, '6|10')" onfocus="selitem('6|10')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|6|10"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="6|11" id="6|11" value="15" size="3" maxlength="3" onchange="xlrecalc('6|11')" onkeyup="return xlmove(event, '6|11')" onfocus="selitem('6|11')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|6|11"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="6|12" id="6|12" value="0" size="3" maxlength="3" onchange="xlrecalc('6|12')" onkeyup="return xlmove(event, '6|12')" onfocus="selitem('6|12')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|6|12"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="6|13" id="6|13" value="0" size="3" maxlength="3" onchange="xlrecalc('6|13')" onkeyup="return xlmove(event, '6|13')" onfocus="selitem('6|13')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|6|13"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="6|14" id="6|14" value="15" size="3" maxlength="3" onchange="xlrecalc('6|14')" onkeyup="return xlmove(event, '6|14')" onfocus="selitem('6|14')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|6|14"></td>
+									</tr>
+								</table>
+							</td>		
+							<td bgcolor="#666666" class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;</a></td>							<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="6|15" id="6|15" value="5" size="3" maxlength="3" onchange="xlrecalc('6|15')" onkeyup="return xlmove(event, '6|15')" onfocus="selitem('6|15')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|6|15"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="6|16" id="6|16" value="25" size="3" maxlength="3" onchange="xlrecalc('6|16')" onkeyup="return xlmove(event, '6|16')" onfocus="selitem('6|16')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|6|16"></td>
+									</tr>
+								</table>
+							</td>		
+													</tr>				
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="7|1" id="7|1" value="9" size="3" maxlength="3" onchange="xlrecalc('7|1')" onkeyup="return xlmove(event, '7|1')" onfocus="selitem('7|1')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|7|1"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="7|2" id="7|2" value="0" size="3" maxlength="3" onchange="xlrecalc('7|2')" onkeyup="return xlmove(event, '7|2')" onfocus="selitem('7|2')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|7|2"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="7|3" id="7|3" value="7" size="3" maxlength="3" onchange="xlrecalc('7|3')" onkeyup="return xlmove(event, '7|3')" onfocus="selitem('7|3')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|7|3"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="7|4" id="7|4" value="0" size="3" maxlength="3" onchange="xlrecalc('7|4')" onkeyup="return xlmove(event, '7|4')" onfocus="selitem('7|4')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|7|4"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="7|5" id="7|5" value="15" size="3" maxlength="3" onchange="xlrecalc('7|5')" onkeyup="return xlmove(event, '7|5')" onfocus="selitem('7|5')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|7|5"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="7|6" id="7|6" value="0" size="3" maxlength="3" onchange="xlrecalc('7|6')" onkeyup="return xlmove(event, '7|6')" onfocus="selitem('7|6')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|7|6"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="7|7" id="7|7" value="5" size="3" maxlength="3" onchange="xlrecalc('7|7')" onkeyup="return xlmove(event, '7|7')" onfocus="selitem('7|7')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|7|7"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="7|8" id="7|8" value="0" size="3" maxlength="3" onchange="xlrecalc('7|8')" onkeyup="return xlmove(event, '7|8')" onfocus="selitem('7|8')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|7|8"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="7|9" id="7|9" value="3" size="3" maxlength="3" onchange="xlrecalc('7|9')" onkeyup="return xlmove(event, '7|9')" onfocus="selitem('7|9')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|7|9"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="7|10" id="7|10" value="15" size="3" maxlength="3" onchange="xlrecalc('7|10')" onkeyup="return xlmove(event, '7|10')" onfocus="selitem('7|10')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|7|10"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="7|11" id="7|11" value="3" size="3" maxlength="3" onchange="xlrecalc('7|11')" onkeyup="return xlmove(event, '7|11')" onfocus="selitem('7|11')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|7|11"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="7|12" id="7|12" value="0" size="3" maxlength="3" onchange="xlrecalc('7|12')" onkeyup="return xlmove(event, '7|12')" onfocus="selitem('7|12')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|7|12"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="7|13" id="7|13" value="0" size="3" maxlength="3" onchange="xlrecalc('7|13')" onkeyup="return xlmove(event, '7|13')" onfocus="selitem('7|13')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|7|13"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="7|14" id="7|14" value="0" size="3" maxlength="3" onchange="xlrecalc('7|14')" onkeyup="return xlmove(event, '7|14')" onfocus="selitem('7|14')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|7|14"></td>
+									</tr>
+								</table>
+							</td>		
+							<td bgcolor="#666666" class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;</a></td>							<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="7|15" id="7|15" value="0" size="3" maxlength="3" onchange="xlrecalc('7|15')" onkeyup="return xlmove(event, '7|15')" onfocus="selitem('7|15')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|7|15"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="7|16" id="7|16" value="0" size="3" maxlength="3" onchange="xlrecalc('7|16')" onkeyup="return xlmove(event, '7|16')" onfocus="selitem('7|16')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|7|16"></td>
+									</tr>
+								</table>
+							</td>		
+													</tr>				
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="8|1" id="8|1" value="0" size="3" maxlength="3" onchange="xlrecalc('8|1')" onkeyup="return xlmove(event, '8|1')" onfocus="selitem('8|1')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|8|1"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="8|2" id="8|2" value="31" size="3" maxlength="3" onchange="xlrecalc('8|2')" onkeyup="return xlmove(event, '8|2')" onfocus="selitem('8|2')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|8|2"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="8|3" id="8|3" value="11" size="3" maxlength="3" onchange="xlrecalc('8|3')" onkeyup="return xlmove(event, '8|3')" onfocus="selitem('8|3')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|8|3"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="8|4" id="8|4" value="0" size="3" maxlength="3" onchange="xlrecalc('8|4')" onkeyup="return xlmove(event, '8|4')" onfocus="selitem('8|4')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|8|4"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="8|5" id="8|5" value="0" size="3" maxlength="3" onchange="xlrecalc('8|5')" onkeyup="return xlmove(event, '8|5')" onfocus="selitem('8|5')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|8|5"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="8|6" id="8|6" value="0" size="3" maxlength="3" onchange="xlrecalc('8|6')" onkeyup="return xlmove(event, '8|6')" onfocus="selitem('8|6')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|8|6"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="8|7" id="8|7" value="20" size="3" maxlength="3" onchange="xlrecalc('8|7')" onkeyup="return xlmove(event, '8|7')" onfocus="selitem('8|7')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|8|7"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="8|8" id="8|8" value="0" size="3" maxlength="3" onchange="xlrecalc('8|8')" onkeyup="return xlmove(event, '8|8')" onfocus="selitem('8|8')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|8|8"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="8|9" id="8|9" value="8" size="3" maxlength="3" onchange="xlrecalc('8|9')" onkeyup="return xlmove(event, '8|9')" onfocus="selitem('8|9')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|8|9"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="8|10" id="8|10" value="0" size="3" maxlength="3" onchange="xlrecalc('8|10')" onkeyup="return xlmove(event, '8|10')" onfocus="selitem('8|10')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|8|10"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="8|11" id="8|11" value="6" size="3" maxlength="3" onchange="xlrecalc('8|11')" onkeyup="return xlmove(event, '8|11')" onfocus="selitem('8|11')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|8|11"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="8|12" id="8|12" value="0" size="3" maxlength="3" onchange="xlrecalc('8|12')" onkeyup="return xlmove(event, '8|12')" onfocus="selitem('8|12')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|8|12"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="8|13" id="8|13" value="0" size="3" maxlength="3" onchange="xlrecalc('8|13')" onkeyup="return xlmove(event, '8|13')" onfocus="selitem('8|13')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|8|13"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="8|14" id="8|14" value="0" size="3" maxlength="3" onchange="xlrecalc('8|14')" onkeyup="return xlmove(event, '8|14')" onfocus="selitem('8|14')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|8|14"></td>
+									</tr>
+								</table>
+							</td>		
+							<td bgcolor="#666666" class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;</a></td>							<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="8|15" id="8|15" value="0" size="3" maxlength="3" onchange="xlrecalc('8|15')" onkeyup="return xlmove(event, '8|15')" onfocus="selitem('8|15')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|8|15"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="8|16" id="8|16" value="0" size="3" maxlength="3" onchange="xlrecalc('8|16')" onkeyup="return xlmove(event, '8|16')" onfocus="selitem('8|16')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|8|16"></td>
+									</tr>
+								</table>
+							</td>		
+													</tr>				
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="9|1" id="9|1" value="0" size="3" maxlength="3" onchange="xlrecalc('9|1')" onkeyup="return xlmove(event, '9|1')" onfocus="selitem('9|1')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|9|1"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="9|2" id="9|2" value="0" size="3" maxlength="3" onchange="xlrecalc('9|2')" onkeyup="return xlmove(event, '9|2')" onfocus="selitem('9|2')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|9|2"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="9|3" id="9|3" value="11" size="3" maxlength="3" onchange="xlrecalc('9|3')" onkeyup="return xlmove(event, '9|3')" onfocus="selitem('9|3')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|9|3"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="9|4" id="9|4" value="0" size="3" maxlength="3" onchange="xlrecalc('9|4')" onkeyup="return xlmove(event, '9|4')" onfocus="selitem('9|4')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|9|4"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="9|5" id="9|5" value="15" size="3" maxlength="3" onchange="xlrecalc('9|5')" onkeyup="return xlmove(event, '9|5')" onfocus="selitem('9|5')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|9|5"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="9|6" id="9|6" value="0" size="3" maxlength="3" onchange="xlrecalc('9|6')" onkeyup="return xlmove(event, '9|6')" onfocus="selitem('9|6')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|9|6"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="9|7" id="9|7" value="0" size="3" maxlength="3" onchange="xlrecalc('9|7')" onkeyup="return xlmove(event, '9|7')" onfocus="selitem('9|7')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|9|7"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="9|8" id="9|8" value="43" size="3" maxlength="3" onchange="xlrecalc('9|8')" onkeyup="return xlmove(event, '9|8')" onfocus="selitem('9|8')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|9|8"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="9|9" id="9|9" value="9" size="3" maxlength="3" onchange="xlrecalc('9|9')" onkeyup="return xlmove(event, '9|9')" onfocus="selitem('9|9')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|9|9"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="9|10" id="9|10" value="3" size="3" maxlength="3" onchange="xlrecalc('9|10')" onkeyup="return xlmove(event, '9|10')" onfocus="selitem('9|10')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|9|10"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="9|11" id="9|11" value="15" size="3" maxlength="3" onchange="xlrecalc('9|11')" onkeyup="return xlmove(event, '9|11')" onfocus="selitem('9|11')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|9|11"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="9|12" id="9|12" value="0" size="3" maxlength="3" onchange="xlrecalc('9|12')" onkeyup="return xlmove(event, '9|12')" onfocus="selitem('9|12')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|9|12"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="9|13" id="9|13" value="0" size="3" maxlength="3" onchange="xlrecalc('9|13')" onkeyup="return xlmove(event, '9|13')" onfocus="selitem('9|13')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|9|13"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="9|14" id="9|14" value="5" size="3" maxlength="3" onchange="xlrecalc('9|14')" onkeyup="return xlmove(event, '9|14')" onfocus="selitem('9|14')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|9|14"></td>
+									</tr>
+								</table>
+							</td>		
+							<td bgcolor="#666666" class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;</a></td>							<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="9|15" id="9|15" value="15" size="3" maxlength="3" onchange="xlrecalc('9|15')" onkeyup="return xlmove(event, '9|15')" onfocus="selitem('9|15')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|9|15"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="9|16" id="9|16" value="0" size="3" maxlength="3" onchange="xlrecalc('9|16')" onkeyup="return xlmove(event, '9|16')" onfocus="selitem('9|16')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|9|16"></td>
+									</tr>
+								</table>
+							</td>		
+													</tr>				
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="10|1" id="10|1" value="8" size="3" maxlength="3" onchange="xlrecalc('10|1')" onkeyup="return xlmove(event, '10|1')" onfocus="selitem('10|1')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|10|1"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="10|2" id="10|2" value="0" size="3" maxlength="3" onchange="xlrecalc('10|2')" onkeyup="return xlmove(event, '10|2')" onfocus="selitem('10|2')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|10|2"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="10|3" id="10|3" value="9" size="3" maxlength="3" onchange="xlrecalc('10|3')" onkeyup="return xlmove(event, '10|3')" onfocus="selitem('10|3')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|10|3"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="10|4" id="10|4" value="0" size="3" maxlength="3" onchange="xlrecalc('10|4')" onkeyup="return xlmove(event, '10|4')" onfocus="selitem('10|4')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|10|4"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="10|5" id="10|5" value="0" size="3" maxlength="3" onchange="xlrecalc('10|5')" onkeyup="return xlmove(event, '10|5')" onfocus="selitem('10|5')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|10|5"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="10|6" id="10|6" value="0" size="3" maxlength="3" onchange="xlrecalc('10|6')" onkeyup="return xlmove(event, '10|6')" onfocus="selitem('10|6')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|10|6"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="10|7" id="10|7" value="50" size="3" maxlength="3" onchange="xlrecalc('10|7')" onkeyup="return xlmove(event, '10|7')" onfocus="selitem('10|7')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|10|7"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="10|8" id="10|8" value="0" size="3" maxlength="3" onchange="xlrecalc('10|8')" onkeyup="return xlmove(event, '10|8')" onfocus="selitem('10|8')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|10|8"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="10|9" id="10|9" value="8" size="3" maxlength="3" onchange="xlrecalc('10|9')" onkeyup="return xlmove(event, '10|9')" onfocus="selitem('10|9')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|10|9"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="10|10" id="10|10" value="0" size="3" maxlength="3" onchange="xlrecalc('10|10')" onkeyup="return xlmove(event, '10|10')" onfocus="selitem('10|10')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|10|10"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="10|11" id="10|11" value="0" size="3" maxlength="3" onchange="xlrecalc('10|11')" onkeyup="return xlmove(event, '10|11')" onfocus="selitem('10|11')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|10|11"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="10|12" id="10|12" value="0" size="3" maxlength="3" onchange="xlrecalc('10|12')" onkeyup="return xlmove(event, '10|12')" onfocus="selitem('10|12')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|10|12"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="10|13" id="10|13" value="0" size="3" maxlength="3" onchange="xlrecalc('10|13')" onkeyup="return xlmove(event, '10|13')" onfocus="selitem('10|13')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|10|13"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="10|14" id="10|14" value="15" size="3" maxlength="3" onchange="xlrecalc('10|14')" onkeyup="return xlmove(event, '10|14')" onfocus="selitem('10|14')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|10|14"></td>
+									</tr>
+								</table>
+							</td>		
+							<td bgcolor="#666666" class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;</a></td>							<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="10|15" id="10|15" value="4" size="3" maxlength="3" onchange="xlrecalc('10|15')" onkeyup="return xlmove(event, '10|15')" onfocus="selitem('10|15')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|10|15"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="10|16" id="10|16" value="25" size="3" maxlength="3" onchange="xlrecalc('10|16')" onkeyup="return xlmove(event, '10|16')" onfocus="selitem('10|16')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|10|16"></td>
+									</tr>
+								</table>
+							</td>		
+													</tr>				
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="11|1" id="11|1" value="0" size="3" maxlength="3" onchange="xlrecalc('11|1')" onkeyup="return xlmove(event, '11|1')" onfocus="selitem('11|1')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|11|1"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="11|2" id="11|2" value="0" size="3" maxlength="3" onchange="xlrecalc('11|2')" onkeyup="return xlmove(event, '11|2')" onfocus="selitem('11|2')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|11|2"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="11|3" id="11|3" value="0" size="3" maxlength="3" onchange="xlrecalc('11|3')" onkeyup="return xlmove(event, '11|3')" onfocus="selitem('11|3')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|11|3"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="11|4" id="11|4" value="0" size="3" maxlength="3" onchange="xlrecalc('11|4')" onkeyup="return xlmove(event, '11|4')" onfocus="selitem('11|4')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|11|4"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="11|5" id="11|5" value="0" size="3" maxlength="3" onchange="xlrecalc('11|5')" onkeyup="return xlmove(event, '11|5')" onfocus="selitem('11|5')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|11|5"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="11|6" id="11|6" value="0" size="3" maxlength="3" onchange="xlrecalc('11|6')" onkeyup="return xlmove(event, '11|6')" onfocus="selitem('11|6')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|11|6"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="11|7" id="11|7" value="0" size="3" maxlength="3" onchange="xlrecalc('11|7')" onkeyup="return xlmove(event, '11|7')" onfocus="selitem('11|7')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|11|7"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="11|8" id="11|8" value="0" size="3" maxlength="3" onchange="xlrecalc('11|8')" onkeyup="return xlmove(event, '11|8')" onfocus="selitem('11|8')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|11|8"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="11|9" id="11|9" value="0" size="3" maxlength="3" onchange="xlrecalc('11|9')" onkeyup="return xlmove(event, '11|9')" onfocus="selitem('11|9')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|11|9"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="11|10" id="11|10" value="0" size="3" maxlength="3" onchange="xlrecalc('11|10')" onkeyup="return xlmove(event, '11|10')" onfocus="selitem('11|10')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|11|10"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="11|11" id="11|11" value="0" size="3" maxlength="3" onchange="xlrecalc('11|11')" onkeyup="return xlmove(event, '11|11')" onfocus="selitem('11|11')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|11|11"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="11|12" id="11|12" value="0" size="3" maxlength="3" onchange="xlrecalc('11|12')" onkeyup="return xlmove(event, '11|12')" onfocus="selitem('11|12')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|11|12"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="11|13" id="11|13" value="0" size="3" maxlength="3" onchange="xlrecalc('11|13')" onkeyup="return xlmove(event, '11|13')" onfocus="selitem('11|13')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|11|13"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="11|14" id="11|14" value="0" size="3" maxlength="3" onchange="xlrecalc('11|14')" onkeyup="return xlmove(event, '11|14')" onfocus="selitem('11|14')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|11|14"></td>
+									</tr>
+								</table>
+							</td>		
+							<td bgcolor="#666666" class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;</a></td>							<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="11|15" id="11|15" value="0" size="3" maxlength="3" onchange="xlrecalc('11|15')" onkeyup="return xlmove(event, '11|15')" onfocus="selitem('11|15')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|11|15"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="11|16" id="11|16" value="0" size="3" maxlength="3" onchange="xlrecalc('11|16')" onkeyup="return xlmove(event, '11|16')" onfocus="selitem('11|16')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|11|16"></td>
+									</tr>
+								</table>
+							</td>		
+													</tr>				
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="12|1" id="12|1" value="8" size="3" maxlength="3" onchange="xlrecalc('12|1')" onkeyup="return xlmove(event, '12|1')" onfocus="selitem('12|1')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|12|1"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="12|2" id="12|2" value="0" size="3" maxlength="3" onchange="xlrecalc('12|2')" onkeyup="return xlmove(event, '12|2')" onfocus="selitem('12|2')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|12|2"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="12|3" id="12|3" value="2" size="3" maxlength="3" onchange="xlrecalc('12|3')" onkeyup="return xlmove(event, '12|3')" onfocus="selitem('12|3')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|12|3"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="12|4" id="12|4" value="0" size="3" maxlength="3" onchange="xlrecalc('12|4')" onkeyup="return xlmove(event, '12|4')" onfocus="selitem('12|4')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|12|4"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="12|5" id="12|5" value="25" size="3" maxlength="3" onchange="xlrecalc('12|5')" onkeyup="return xlmove(event, '12|5')" onfocus="selitem('12|5')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|12|5"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="12|6" id="12|6" value="0" size="3" maxlength="3" onchange="xlrecalc('12|6')" onkeyup="return xlmove(event, '12|6')" onfocus="selitem('12|6')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|12|6"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="12|7" id="12|7" value="0" size="3" maxlength="3" onchange="xlrecalc('12|7')" onkeyup="return xlmove(event, '12|7')" onfocus="selitem('12|7')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|12|7"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="12|8" id="12|8" value="0" size="3" maxlength="3" onchange="xlrecalc('12|8')" onkeyup="return xlmove(event, '12|8')" onfocus="selitem('12|8')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|12|8"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="12|9" id="12|9" value="8" size="3" maxlength="3" onchange="xlrecalc('12|9')" onkeyup="return xlmove(event, '12|9')" onfocus="selitem('12|9')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|12|9"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="12|10" id="12|10" value="0" size="3" maxlength="3" onchange="xlrecalc('12|10')" onkeyup="return xlmove(event, '12|10')" onfocus="selitem('12|10')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|12|10"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="12|11" id="12|11" value="0" size="3" maxlength="3" onchange="xlrecalc('12|11')" onkeyup="return xlmove(event, '12|11')" onfocus="selitem('12|11')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|12|11"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="12|12" id="12|12" value="0" size="3" maxlength="3" onchange="xlrecalc('12|12')" onkeyup="return xlmove(event, '12|12')" onfocus="selitem('12|12')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|12|12"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="12|13" id="12|13" value="0" size="3" maxlength="3" onchange="xlrecalc('12|13')" onkeyup="return xlmove(event, '12|13')" onfocus="selitem('12|13')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|12|13"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="12|14" id="12|14" value="0" size="3" maxlength="3" onchange="xlrecalc('12|14')" onkeyup="return xlmove(event, '12|14')" onfocus="selitem('12|14')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|12|14"></td>
+									</tr>
+								</table>
+							</td>		
+							<td bgcolor="#666666" class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;</a></td>							<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="12|15" id="12|15" value="4" size="3" maxlength="3" onchange="xlrecalc('12|15')" onkeyup="return xlmove(event, '12|15')" onfocus="selitem('12|15')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|12|15"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="12|16" id="12|16" value="0" size="3" maxlength="3" onchange="xlrecalc('12|16')" onkeyup="return xlmove(event, '12|16')" onfocus="selitem('12|16')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|12|16"></td>
+									</tr>
+								</table>
+							</td>		
+													</tr>				
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="13|1" id="13|1" value="13" size="3" maxlength="3" onchange="xlrecalc('13|1')" onkeyup="return xlmove(event, '13|1')" onfocus="selitem('13|1')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|13|1"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="13|2" id="13|2" value="0" size="3" maxlength="3" onchange="xlrecalc('13|2')" onkeyup="return xlmove(event, '13|2')" onfocus="selitem('13|2')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|13|2"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="13|3" id="13|3" value="0" size="3" maxlength="3" onchange="xlrecalc('13|3')" onkeyup="return xlmove(event, '13|3')" onfocus="selitem('13|3')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|13|3"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="13|4" id="13|4" value="0" size="3" maxlength="3" onchange="xlrecalc('13|4')" onkeyup="return xlmove(event, '13|4')" onfocus="selitem('13|4')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|13|4"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="13|5" id="13|5" value="15" size="3" maxlength="3" onchange="xlrecalc('13|5')" onkeyup="return xlmove(event, '13|5')" onfocus="selitem('13|5')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|13|5"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="13|6" id="13|6" value="0" size="3" maxlength="3" onchange="xlrecalc('13|6')" onkeyup="return xlmove(event, '13|6')" onfocus="selitem('13|6')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|13|6"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="13|7" id="13|7" value="0" size="3" maxlength="3" onchange="xlrecalc('13|7')" onkeyup="return xlmove(event, '13|7')" onfocus="selitem('13|7')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|13|7"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="13|8" id="13|8" value="20" size="3" maxlength="3" onchange="xlrecalc('13|8')" onkeyup="return xlmove(event, '13|8')" onfocus="selitem('13|8')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|13|8"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="13|9" id="13|9" value="18" size="3" maxlength="3" onchange="xlrecalc('13|9')" onkeyup="return xlmove(event, '13|9')" onfocus="selitem('13|9')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|13|9"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="13|10" id="13|10" value="0" size="3" maxlength="3" onchange="xlrecalc('13|10')" onkeyup="return xlmove(event, '13|10')" onfocus="selitem('13|10')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|13|10"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="13|11" id="13|11" value="39" size="3" maxlength="3" onchange="xlrecalc('13|11')" onkeyup="return xlmove(event, '13|11')" onfocus="selitem('13|11')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|13|11"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="13|12" id="13|12" value="0" size="3" maxlength="3" onchange="xlrecalc('13|12')" onkeyup="return xlmove(event, '13|12')" onfocus="selitem('13|12')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|13|12"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="13|13" id="13|13" value="25" size="3" maxlength="3" onchange="xlrecalc('13|13')" onkeyup="return xlmove(event, '13|13')" onfocus="selitem('13|13')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|13|13"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="13|14" id="13|14" value="15" size="3" maxlength="3" onchange="xlrecalc('13|14')" onkeyup="return xlmove(event, '13|14')" onfocus="selitem('13|14')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|13|14"></td>
+									</tr>
+								</table>
+							</td>		
+							<td bgcolor="#666666" class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;</a></td>							<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="13|15" id="13|15" value="25" size="3" maxlength="3" onchange="xlrecalc('13|15')" onkeyup="return xlmove(event, '13|15')" onfocus="selitem('13|15')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|13|15"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="13|16" id="13|16" value="20" size="3" maxlength="3" onchange="xlrecalc('13|16')" onkeyup="return xlmove(event, '13|16')" onfocus="selitem('13|16')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|13|16"></td>
+									</tr>
+								</table>
+							</td>		
+													</tr>				
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="14|1" id="14|1" value="10" size="3" maxlength="3" onchange="xlrecalc('14|1')" onkeyup="return xlmove(event, '14|1')" onfocus="selitem('14|1')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|14|1"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="14|2" id="14|2" value="0" size="3" maxlength="3" onchange="xlrecalc('14|2')" onkeyup="return xlmove(event, '14|2')" onfocus="selitem('14|2')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|14|2"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="14|3" id="14|3" value="6" size="3" maxlength="3" onchange="xlrecalc('14|3')" onkeyup="return xlmove(event, '14|3')" onfocus="selitem('14|3')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|14|3"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="14|4" id="14|4" value="0" size="3" maxlength="3" onchange="xlrecalc('14|4')" onkeyup="return xlmove(event, '14|4')" onfocus="selitem('14|4')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|14|4"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="14|5" id="14|5" value="15" size="3" maxlength="3" onchange="xlrecalc('14|5')" onkeyup="return xlmove(event, '14|5')" onfocus="selitem('14|5')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|14|5"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="14|6" id="14|6" value="0" size="3" maxlength="3" onchange="xlrecalc('14|6')" onkeyup="return xlmove(event, '14|6')" onfocus="selitem('14|6')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|14|6"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="14|7" id="14|7" value="0" size="3" maxlength="3" onchange="xlrecalc('14|7')" onkeyup="return xlmove(event, '14|7')" onfocus="selitem('14|7')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|14|7"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="14|8" id="14|8" value="15" size="3" maxlength="3" onchange="xlrecalc('14|8')" onkeyup="return xlmove(event, '14|8')" onfocus="selitem('14|8')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|14|8"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="14|9" id="14|9" value="6" size="3" maxlength="3" onchange="xlrecalc('14|9')" onkeyup="return xlmove(event, '14|9')" onfocus="selitem('14|9')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|14|9"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="14|10" id="14|10" value="5" size="3" maxlength="3" onchange="xlrecalc('14|10')" onkeyup="return xlmove(event, '14|10')" onfocus="selitem('14|10')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|14|10"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="14|11" id="14|11" value="7" size="3" maxlength="3" onchange="xlrecalc('14|11')" onkeyup="return xlmove(event, '14|11')" onfocus="selitem('14|11')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|14|11"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="14|12" id="14|12" value="0" size="3" maxlength="3" onchange="xlrecalc('14|12')" onkeyup="return xlmove(event, '14|12')" onfocus="selitem('14|12')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|14|12"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="14|13" id="14|13" value="0" size="3" maxlength="3" onchange="xlrecalc('14|13')" onkeyup="return xlmove(event, '14|13')" onfocus="selitem('14|13')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|14|13"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="14|14" id="14|14" value="7" size="3" maxlength="3" onchange="xlrecalc('14|14')" onkeyup="return xlmove(event, '14|14')" onfocus="selitem('14|14')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|14|14"></td>
+									</tr>
+								</table>
+							</td>		
+							<td bgcolor="#666666" class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;</a></td>							<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="14|15" id="14|15" value="0" size="3" maxlength="3" onchange="xlrecalc('14|15')" onkeyup="return xlmove(event, '14|15')" onfocus="selitem('14|15')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|14|15"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="14|16" id="14|16" value="0" size="3" maxlength="3" onchange="xlrecalc('14|16')" onkeyup="return xlmove(event, '14|16')" onfocus="selitem('14|16')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|14|16"></td>
+									</tr>
+								</table>
+							</td>		
+													</tr>				
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="15|1" id="15|1" value="9" size="3" maxlength="3" onchange="xlrecalc('15|1')" onkeyup="return xlmove(event, '15|1')" onfocus="selitem('15|1')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|15|1"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="15|2" id="15|2" value="32" size="3" maxlength="3" onchange="xlrecalc('15|2')" onkeyup="return xlmove(event, '15|2')" onfocus="selitem('15|2')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|15|2"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="15|3" id="15|3" value="17" size="3" maxlength="3" onchange="xlrecalc('15|3')" onkeyup="return xlmove(event, '15|3')" onfocus="selitem('15|3')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|15|3"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="15|4" id="15|4" value="15" size="3" maxlength="3" onchange="xlrecalc('15|4')" onkeyup="return xlmove(event, '15|4')" onfocus="selitem('15|4')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|15|4"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="15|5" id="15|5" value="0" size="3" maxlength="3" onchange="xlrecalc('15|5')" onkeyup="return xlmove(event, '15|5')" onfocus="selitem('15|5')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|15|5"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="15|6" id="15|6" value="25" size="3" maxlength="3" onchange="xlrecalc('15|6')" onkeyup="return xlmove(event, '15|6')" onfocus="selitem('15|6')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|15|6"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="15|7" id="15|7" value="0" size="3" maxlength="3" onchange="xlrecalc('15|7')" onkeyup="return xlmove(event, '15|7')" onfocus="selitem('15|7')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|15|7"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="15|8" id="15|8" value="0" size="3" maxlength="3" onchange="xlrecalc('15|8')" onkeyup="return xlmove(event, '15|8')" onfocus="selitem('15|8')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|15|8"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="15|9" id="15|9" value="11" size="3" maxlength="3" onchange="xlrecalc('15|9')" onkeyup="return xlmove(event, '15|9')" onfocus="selitem('15|9')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|15|9"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="15|10" id="15|10" value="17" size="3" maxlength="3" onchange="xlrecalc('15|10')" onkeyup="return xlmove(event, '15|10')" onfocus="selitem('15|10')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|15|10"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="15|11" id="15|11" value="7" size="3" maxlength="3" onchange="xlrecalc('15|11')" onkeyup="return xlmove(event, '15|11')" onfocus="selitem('15|11')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|15|11"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="15|12" id="15|12" value="0" size="3" maxlength="3" onchange="xlrecalc('15|12')" onkeyup="return xlmove(event, '15|12')" onfocus="selitem('15|12')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|15|12"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="15|13" id="15|13" value="0" size="3" maxlength="3" onchange="xlrecalc('15|13')" onkeyup="return xlmove(event, '15|13')" onfocus="selitem('15|13')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|15|13"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="15|14" id="15|14" value="0" size="3" maxlength="3" onchange="xlrecalc('15|14')" onkeyup="return xlmove(event, '15|14')" onfocus="selitem('15|14')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|15|14"></td>
+									</tr>
+								</table>
+							</td>		
+
+							<td bgcolor="#666666" class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;</a></td>							<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="15|15" id="15|15" value="10" size="3" maxlength="3" onchange="xlrecalc('15|15')" onkeyup="return xlmove(event, '15|15')" onfocus="selitem('15|15')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|15|15"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="15|16" id="15|16" value="10" size="3" maxlength="3" onchange="xlrecalc('15|16')" onkeyup="return xlmove(event, '15|16')" onfocus="selitem('15|16')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|15|16"></td>
+									</tr>
+								</table>
+							</td>		
+													</tr>				
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="16|1" id="16|1" value="0" size="3" maxlength="3" onchange="xlrecalc('16|1')" onkeyup="return xlmove(event, '16|1')" onfocus="selitem('16|1')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|16|1"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="16|2" id="16|2" value="0" size="3" maxlength="3" onchange="xlrecalc('16|2')" onkeyup="return xlmove(event, '16|2')" onfocus="selitem('16|2')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|16|2"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="16|3" id="16|3" value="0" size="3" maxlength="3" onchange="xlrecalc('16|3')" onkeyup="return xlmove(event, '16|3')" onfocus="selitem('16|3')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|16|3"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="16|4" id="16|4" value="0" size="3" maxlength="3" onchange="xlrecalc('16|4')" onkeyup="return xlmove(event, '16|4')" onfocus="selitem('16|4')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|16|4"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="16|5" id="16|5" value="0" size="3" maxlength="3" onchange="xlrecalc('16|5')" onkeyup="return xlmove(event, '16|5')" onfocus="selitem('16|5')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|16|5"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="16|6" id="16|6" value="0" size="3" maxlength="3" onchange="xlrecalc('16|6')" onkeyup="return xlmove(event, '16|6')" onfocus="selitem('16|6')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|16|6"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="16|7" id="16|7" value="0" size="3" maxlength="3" onchange="xlrecalc('16|7')" onkeyup="return xlmove(event, '16|7')" onfocus="selitem('16|7')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|16|7"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="16|8" id="16|8" value="0" size="3" maxlength="3" onchange="xlrecalc('16|8')" onkeyup="return xlmove(event, '16|8')" onfocus="selitem('16|8')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|16|8"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="16|9" id="16|9" value="0" size="3" maxlength="3" onchange="xlrecalc('16|9')" onkeyup="return xlmove(event, '16|9')" onfocus="selitem('16|9')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|16|9"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="16|10" id="16|10" value="0" size="3" maxlength="3" onchange="xlrecalc('16|10')" onkeyup="return xlmove(event, '16|10')" onfocus="selitem('16|10')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|16|10"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="16|11" id="16|11" value="0" size="3" maxlength="3" onchange="xlrecalc('16|11')" onkeyup="return xlmove(event, '16|11')" onfocus="selitem('16|11')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|16|11"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="16|12" id="16|12" value="0" size="3" maxlength="3" onchange="xlrecalc('16|12')" onkeyup="return xlmove(event, '16|12')" onfocus="selitem('16|12')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|16|12"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="16|13" id="16|13" value="0" size="3" maxlength="3" onchange="xlrecalc('16|13')" onkeyup="return xlmove(event, '16|13')" onfocus="selitem('16|13')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|16|13"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="16|14" id="16|14" value="0" size="3" maxlength="3" onchange="xlrecalc('16|14')" onkeyup="return xlmove(event, '16|14')" onfocus="selitem('16|14')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|16|14"></td>
+									</tr>
+								</table>
+							</td>		
+							<td bgcolor="#666666" class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;</a></td>							<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="16|15" id="16|15" value="0" size="3" maxlength="3" onchange="xlrecalc('16|15')" onkeyup="return xlmove(event, '16|15')" onfocus="selitem('16|15')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|16|15"></td>
+									</tr>
+								</table>
+							</td>		
+														<td class="tdx">
+								<table width="100%">
+									<tr>
+										<td><input type="text" style="border: 0px;" name="16|16" id="16|16" value="0" size="3" maxlength="3" onchange="xlrecalc('16|16')" onkeyup="return xlmove(event, '16|16')" onfocus="selitem('16|16')"/><!--<a class="num_1">% </a>--></td>
+										<td class="num_1" nowrap="nowrap" id="curnum|16|16"></td>
+									</tr>
+								</table>
+							</td>		
+													</tr>				
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+													<td class="tdx">&nbsp;<a id="total|1" class="valtotal">0</a></td>
+													<td class="tdx">&nbsp;<a id="total|2" class="valtotal">0</a></td>
+													<td class="tdx">&nbsp;<a id="total|3" class="valtotal">0</a></td>
+													<td class="tdx">&nbsp;<a id="total|4" class="valtotal">0</a></td>
+													<td class="tdx">&nbsp;<a id="total|5" class="valtotal">0</a></td>
+													<td class="tdx">&nbsp;<a id="total|6" class="valtotal">0</a></td>
+													<td class="tdx">&nbsp;<a id="total|7" class="valtotal">0</a></td>
+													<td class="tdx">&nbsp;<a id="total|8" class="valtotal">0</a></td>
+													<td class="tdx">&nbsp;<a id="total|9" class="valtotal">0</a></td>
+													<td class="tdx">&nbsp;<a id="total|10" class="valtotal">0</a></td>
+													<td class="tdx">&nbsp;<a id="total|11" class="valtotal">0</a></td>
+													<td class="tdx">&nbsp;<a id="total|12" class="valtotal">0</a></td>
+													<td class="tdx">&nbsp;<a id="total|13" class="valtotal">0</a></td>
+													<td class="tdx">&nbsp;<a id="total|14" class="valtotal">0</a></td>
+						<td bgcolor="#666666" class="tdx" valign="top"><a class="pplname">&nbsp;&nbsp;</a></td>							<td class="tdx">&nbsp;<a id="total|15" class="valtotal">0</a></td>
+													<td class="tdx">&nbsp;<a id="total|16" class="valtotal">0</a></td>
+												</tr>
+					</table>  
+				</div>
+				<!-- End Clients Section -->
+				</td> 
+				<td>
+				<img src="images/spacer.gif" width="10" height="1" />
+				</td>
+				<td valign="top">
+				<!-- SUMMARY SECTION -->
+					<table class="tbl_xl" border="0" cellpadding="0" cellspacing="0" >
+						<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="71" /></td>
+							<td colspan="3" class="tdx" valign="top" nowrap="nowrap">
+								<table>
+									<tr>
+										<td valign="top">
+											&nbsp;&nbsp;&nbsp;<font face="Arial, Helvetica, sans-serif" size="+2"><strong>SUMMARY</strong></font><br />
+										</td>
+										<td valign="top" align="right">
+											&nbsp;&nbsp;&nbsp;<a class="num_2">Sole: $597,391.58</a><br />
+											&nbsp;&nbsp;&nbsp;<a class="num_2">Shared: $182,672.59</a><br />
+											&nbsp;&nbsp;&nbsp;<a class="num_2">Total: $780,064.17</a>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap"><a class="pplname">Name</a></td>
+							<td class="tdx" nowrap="nowrap" align="right">&nbsp;&nbsp;<a class="pplname">$ Allocated</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right">&nbsp;&nbsp;<a class="pplname">% of Total</a>&nbsp;&nbsp;</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap"><a class="pplname">&nbsp;&nbsp;Amaturo, Joseph</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname">$</a><a class="pplname" id="sat|1">0.00</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname" id="sap|1">0.00</a><a class="pplname">%</a>&nbsp;&nbsp;</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap"><a class="pplname">&nbsp;&nbsp;Buck, David</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname">$</a><a class="pplname" id="sat|2">0.00</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname" id="sap|2">0.00</a><a class="pplname">%</a>&nbsp;&nbsp;</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap"><a class="pplname">&nbsp;&nbsp;Davis, Jennifer</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname">$</a><a class="pplname" id="sat|3">0.00</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname" id="sap|3">0.00</a><a class="pplname">%</a>&nbsp;&nbsp;</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap"><a class="pplname">&nbsp;&nbsp;DiFrisco, Matthew</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname">$</a><a class="pplname" id="sat|4">0.00</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname" id="sap|4">0.00</a><a class="pplname">%</a>&nbsp;&nbsp;</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap"><a class="pplname">&nbsp;&nbsp;Glick, David</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname">$</a><a class="pplname" id="sat|5">0.00</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname" id="sap|5">0.00</a><a class="pplname">%</a>&nbsp;&nbsp;</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap"><a class="pplname">&nbsp;&nbsp;Hochstim, David</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname">$</a><a class="pplname" id="sat|6">0.00</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname" id="sap|6">0.00</a><a class="pplname">%</a>&nbsp;&nbsp;</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap"><a class="pplname">&nbsp;&nbsp;Kauffman, Jeffrey</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname">$</a><a class="pplname" id="sat|7">0.00</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname" id="sap|7">0.00</a><a class="pplname">%</a>&nbsp;&nbsp;</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap"><a class="pplname">&nbsp;&nbsp;Longley, Alice</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname">$</a><a class="pplname" id="sat|8">0.00</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname" id="sap|8">0.00</a><a class="pplname">%</a>&nbsp;&nbsp;</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap"><a class="pplname">&nbsp;&nbsp;McKenzie, Daniel</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname">$</a><a class="pplname" id="sat|9">0.00</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname" id="sap|9">0.00</a><a class="pplname">%</a>&nbsp;&nbsp;</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap"><a class="pplname">&nbsp;&nbsp;Mitchell, James</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname">$</a><a class="pplname" id="sat|10">0.00</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname" id="sap|10">0.00</a><a class="pplname">%</a>&nbsp;&nbsp;</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap"><a class="pplname">&nbsp;&nbsp;Ratcliffe, James</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname">$</a><a class="pplname" id="sat|11">0.00</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname" id="sap|11">0.00</a><a class="pplname">%</a>&nbsp;&nbsp;</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap"><a class="pplname">&nbsp;&nbsp;Safran, Richard</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname">$</a><a class="pplname" id="sat|12">0.00</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname" id="sap|12">0.00</a><a class="pplname">%</a>&nbsp;&nbsp;</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap"><a class="pplname">&nbsp;&nbsp;Weintraub, Mark</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname">$</a><a class="pplname" id="sat|13">0.00</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname" id="sap|13">0.00</a><a class="pplname">%</a>&nbsp;&nbsp;</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap"><a class="pplname">&nbsp;&nbsp;Wheeler, Ted</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname">$</a><a class="pplname" id="sat|14">0.00</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname" id="sap|14">0.00</a><a class="pplname">%</a>&nbsp;&nbsp;</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap"><a class="pplname">&nbsp;&nbsp;Zolidis, John</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname">$</a><a class="pplname" id="sat|15">0.00</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname" id="sap|15">0.00</a><a class="pplname">%</a>&nbsp;&nbsp;</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>
+							<td class="tdx" nowrap="nowrap"><a class="pplname">&nbsp;&nbsp;BRG (Non allocable)</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname">$</a><a class="pplname" id="sat|16">0.00</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname" id="sap|16">0.00</a><a class="pplname">%</a>&nbsp;&nbsp;</td>
+						</tr>		
+												<tr>
+							<td width="1"><img src="images/spacer.gif" width="1" height="25" /></td>  
+							<td class="tdx" nowrap="nowrap">Totals</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname">$</a><a class="pplname" id="sum_sat_total">0.00</a>&nbsp;&nbsp;</td>
+							<td class="tdx" nowrap="nowrap" align="right"><a class="pplname" id="sum_sap_total">0</a><a class="pplname">%</a>&nbsp;&nbsp;</td>
+						</tr>		
+					</table>
+				<!-- END SUMMARY SECTION -->
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3" valign="middle"><br /><br /><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><b>NOTE: This form has been finalized. You cannot make any changes to it and save.</b></font><br /><br />
+
+				</td>
+			</tr>
+		</table>
+		<input type="hidden" name="frmitem_rcount" id="id_rcount" value="16" />  
+		<input type="hidden" name="frmitem_ccount" id="id_ccount" value="16" />  
+		<input type="hidden" name="frmitem_qtr" id="id_qtr" value="4" />  
+		<input type="hidden" name="frmitem_year" id="id_year" value="2013" />  
+		<input type="hidden" name="frmitem_gtotal" id="id_gtotal" value="723369.41" />  
+		<input type="hidden" name="frmitem_final" id="id_final" value="0" />  
+		<input type="hidden" name="frmitem_save" id="id_save" value="0" />  
+		</form>
+		<script language="javascript">
+		xlrecalcform();
+		</script>
+				  </td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>				</td>
+			</tr>
+		</table>
+		<!-- END TABLE 1 -->
+  </td>
+</tr>
+<tr valign="bottom">
+  <td height="10">
+    <table width="100%"> <!-- height="20"-->
+      <tr valign="top">
+      <td align="center" valign="bottom">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_bordertop_1">  <!--height="20" -->
+          <tr valign="top"> 
+          <td align="center" valign="bottom">
+              <center>
+              <a class="centersys" href="http://www.centersys.com" target="_blank">CenterSys Group, Inc.</a>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a class="centersys"> 
+               Process Time 1.00 s.              </a><br />
+                            </center>
+          </td>
+          </tr>
+        </table>
+      </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+</body>
+</html>

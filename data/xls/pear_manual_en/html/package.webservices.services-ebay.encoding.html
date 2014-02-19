@@ -1,0 +1,292 @@
+<HTML
+><HEAD
+><TITLE
+>XML encoding</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Services_Ebay"
+HREF="package.webservices.services-ebay.html"><LINK
+REL="PREVIOUS"
+TITLE="Getting started"
+HREF="package.webservices.services-ebay.getting-started.html"><LINK
+REL="NEXT"
+TITLE="Error Handling"
+HREF="package.webservices.services-ebay.error-handling.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.webservices.services-ebay.getting-started.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.webservices.services-ebay.error-handling.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.webservices.services-ebay.encoding">XML encoding</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN100842"
+></A
+>XML encoding&nbsp;--&nbsp;XML encoding in Services_Ebay</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.webservices.services-ebay.encoding.refsect1"
+></A
+><H2
+>XML encoding in Services_Ebay</H2
+><P
+>&#13;    Since mid-2005, the eBay API will only accept UTF-8 encoded XML-documents. As encoding
+    all data to UTF-8 is tedious, Services_Ebay will take care of this for you. All you need
+    to do is specify the encoding you want to use in your script when creating a session object.
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN100848"><P
+><B
+>Example 60-1. Using ISO-8859-1 in your script</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Services/Ebay.php';
+    
+// pass some authentication data
+$session = Services_Ebay::getSession($devId, $appId, $certId, 'ISO-8859-1');
+$session-&#62;setToken($token);
+
+// create new proxy object
+$ebay = new Services_Ebay($session);
+
+
+$item = Services_Ebay::loadModel('Item', null, $session);
+$item-&#62;Category = 57882;
+$item-&#62;Title = 'International Item';
+$item-&#62;Description = 'This description contains Umlaut characters like Ä, ü and ß';
+$item-&#62;Location = 'At my home';
+$item-&#62;MinimumBid = '532.0'; $item-&#62;VisaMaster = 1;
+$item-&#62;ShippingType = 1;
+$item-&#62;CheckoutDetailsSpecified = 1;
+$item-&#62;Country = 'US';
+$item-&#62;SetShipToLocations(array('US', 'DE', 'GB'));
+$item-&#62;addShippingServiceOption(1, 1, 3, 1, array('US'));
+
+$result = $ebay-&#62;AddItem($item);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   The umlaut characters contained in the description of the item will be automatically converted
+   to UTF-8 when the XML-document is created. Furthermore the result document which is returned by
+   the eBay API will be decoded again to ISO-8859-1 so you do not have to worry about UTF-8 at all.
+  </P
+><P
+>&#13;   Of course, it is also possible to supply UTF-8 encoded data to <B
+CLASS="classname"
+>Services_Ebay</B
+>.
+   All you have to do is change the encoding type, when creating the session object.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN100854"><P
+><B
+>Example 60-2. Using UTF-8 in your script</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Services/Ebay.php';
+    
+// pass some authentication data
+$session = Services_Ebay::getSession($devId, $appId, $certId, 'UTF-8');
+$session-&#62;setToken($token);
+
+// create new proxy object
+$ebay = new Services_Ebay($session);
+
+
+$item = Services_Ebay::loadModel('Item', null, $session);
+$item-&#62;Category = 57882;
+$item-&#62;Title = 'International Item';
+$item-&#62;Description = utf8_encode('This description contains Umlaut characters like Ä, ü and ß');
+$item-&#62;Location = 'At my home';
+$item-&#62;MinimumBid = '532.0'; $item-&#62;VisaMaster = 1;
+$item-&#62;ShippingType = 1;
+$item-&#62;CheckoutDetailsSpecified = 1;
+$item-&#62;Country = 'US';
+$item-&#62;SetShipToLocations(array('US', 'DE', 'GB'));
+$item-&#62;addShippingServiceOption(1, 1, 3, 1, array('US'));
+
+$result = $ebay-&#62;AddItem($item);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   In this example you are using <B
+CLASS="function"
+>utf8_encode()</B
+> to encode the data prior
+   to passing it to <B
+CLASS="classname"
+>Services_Ebay</B
+>. To avoid duplicated encoding, you
+   need to set the encoding to UTF-8.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.webservices.services-ebay.getting-started.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.webservices.services-ebay.error-handling.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Getting started</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.webservices.services-ebay.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Error Handling</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

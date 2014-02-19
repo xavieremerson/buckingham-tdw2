@@ -1,0 +1,706 @@
+<HTML
+><HEAD
+><TITLE
+>XML_Unserializer Options</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_Serializer"
+HREF="package.xml.xml-serializer.html"><LINK
+REL="PREVIOUS"
+TITLE="Class Summary XML_Unserializer"
+HREF="package.xml.xml-serializer.xml-unserializer-summary.html"><LINK
+REL="NEXT"
+TITLE="XML_Unserializer::XML_Unserializer"
+HREF="package.xml.xml-serializer.xml-unserializer.xml-unserializer.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-serializer.xml-unserializer-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-serializer.xml-unserializer.xml-unserializer.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.xml.xml-serializer.xml-unserializer.options">XML_Unserializer Options</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN103568"
+></A
+>XML_Unserializer Options&nbsp;--&nbsp;List of all XML_Unserializer options</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-serializer.xml-unserializer.options.refsect1"
+></A
+><H2
+>Introduction to options</H2
+><P
+>&#13;	Options let you influence, how XML_Unserializer treats the parsed XML.
+	It allows you to define, whether attributes should be parsed, whether
+	to use associative arrays or objects for complex data types and more.
+   </P
+><P
+>&#13;    Options can be passed as an associative array to the
+    <A
+HREF="package.xml.xml-serializer.xml-unserializer.xml-unserializer.html"
+>constructor of XML_Unserializer</A
+>.
+    You may also use <A
+HREF="package.xml.xml-serializer.xml-unserializer.setoption.html"
+><B
+CLASS="function"
+>setOption()</B
+></A
+>,
+    or <A
+HREF="package.xml.xml-serializer.xml-unserializer.setoptions.html"
+><B
+CLASS="function"
+>setOptions()</B
+></A
+> to set
+    one or more options after the instance of XML_Unserializer has been created.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-serializer.xml-unserializer.options.refsect2"
+></A
+><H2
+>All available options</H2
+><P
+>&#13;    Here is a list of all options supported by XML_Unserializer.
+   </P
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN103584"><P
+><B
+>Table 61-1. XML_Unserializer options</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Option</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Possible values</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Default</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>complexType</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>'array' or 'object'</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>'array'</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Defines, whether nested tags should be returned as associative arrays or objects</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>tagAsClass</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> or <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Defines, whether the tag name should be used as the class name if complexType is set to 'object'.
+          If no class with the name of the tag exists, that class defined by 'defaultClass' is used.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>defaultClass</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>any string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>stdClass</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Defines the class that is used to create objects, if the complexType option is set to 'object'.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>keyAttribute</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>any string or array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>'_originalKey'</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          If the attribute specified in this option exists for a tag, the value will be used as key
+          or property name in the parent object or array. You may also specify an associative array
+          if you want to use differnt key attributes for different tags. In this case, the array key
+          contains the tag name and the array vallue the corresponding attribute name.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>typeAttribute</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>any string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>'_type'</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>If this attribute exists for a tag, the tag content will be converted to the specified type. Possible types are: string, integer, float, boolean, array and object</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>classAttribute</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>any string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>'_class'</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          If XML_Unserializer creates an object, it will be an instance of the value specified with the defaultClass
+          option, unless the tag has the attribute specified in this option. If it is set, the classname stored in
+          the attribute value will be used.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>parseAttributes</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> or <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>With this option, you may tell XML_Unserializer to also parse the attributes of the tags. The next two options define how to treat the parsed attributes.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>attributesArray</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> or any string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>If set to false, the attributes will be treated like nested tags. If you set it to a string, a new aray will be created and stored in the parent structure using key you specified in this option</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>prependAttributes</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>any string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>''</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Allows you to specify a prefix for attribute names.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>contentName</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>any string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>'_content'</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>If you decide to parse attributes or a tag contains cdata and tags, then the cdata will be stored in the index specified here.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>tagMap</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>associative array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array()</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>This allows you to map tag names to PHP classes. The names of the tags have to be in the keys and the values contain the class names to use for each tag.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>forceEnum</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>indexed array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array()</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          This allows you to specify a list of tags which will automatically be converted to an indexed array,
+          independent of the number of repetitions of the tag. This can save you a some if conditions in your
+          code.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>encoding</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>any valid encoding string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>null</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Defines the encoding of the original document.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>targetEncoding</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>any valid encoding string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>null</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Defines the target encoding of the resulting data.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>decodeFunction</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>any valid PHP callback</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>null</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          This option allows you to define a callback function or method, that will be applied to all character data
+          and attributes in the document before they are stored in the result. This allows you to decode any decoded data
+          in the XML or convert all content to lowercase.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>returnResult</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> or <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          If set to <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> <B
+CLASS="function"
+>XML_Unserializer::unserialize()()</B
+> will return the result if the
+          document could be unserialized instead of just <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>.
+         </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-serializer.xml-unserializer.options.example1"
+></A
+><H2
+>Options example</H2
+><P
+>&#13;    The following examples shows how to set options for XML_Unserializer.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN103691"><P
+><B
+>Example 61-1. Using the constructor</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "XML/Unserializer.php";
+$options = array(
+                    'complexType'       =&#62; 'array'
+                );
+
+$us = new XML_Unserializer($options);
+$result = $us-&#62;unserialize('example.xml', true);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;    The following example shows how to set options for XML_Unserializer,
+    if the instance already has been created.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN103695"><P
+><B
+>Example 61-2. Using setOption() and setOptions()</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "XML/Unserializer.php";
+$us = new XML_Unserializer();
+$options = array(
+                    'tagMap'            =&#62; array( 'util' =&#62; 'XML_Util' ),
+                    'classAttribute'    =&#62; '_classname'
+                );
+
+$us-&#62;setOptions($options);
+$us-&#62;setOption('complexType', 'object');
+$result = $us-&#62;unserialize('example.xml', true);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-serializer.xml-unserializer-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-serializer.xml-unserializer.xml-unserializer.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Class Summary <B
+CLASS="classname"
+>XML_Unserializer</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.xml-serializer.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>XML_Unserializer::XML_Unserializer()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

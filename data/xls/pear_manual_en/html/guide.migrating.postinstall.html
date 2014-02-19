@@ -1,0 +1,222 @@
+<HTML
+><HEAD
+><TITLE
+>Post-installation Scripts</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="New features in PEAR 1.4"
+HREF="guide-migrating.html"><LINK
+REL="PREVIOUS"
+TITLE="Creating customized tasks in PHP"
+HREF="guide.migrating.customtasks.php.html"><LINK
+REL="NEXT"
+TITLE="Structure of a post-install script"
+HREF="guide.migrating.postinstall.structure.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="chapter"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="guide.migrating.customtasks.php.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="guide.migrating.postinstall.structure.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="chapter"
+><H1
+><A
+NAME="guide.migrating.postinstall"
+>Chapter 25. Post-installation Scripts</A
+></H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="guide.migrating.postinstall.html#guide.migrating.postinstall.naming"
+>Naming requirements for a post-install script PHP file</A
+></DT
+><DT
+><A
+HREF="guide.migrating.postinstall.structure.html"
+>Structure of a post-install script</A
+></DT
+></DL
+></DIV
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Incomplete documentation</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>Documentation is not yet complete</P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>&#13;  The XML format for defining a post-install script in package.xml is documented
+  <A
+HREF="guide.developers.package2.tasks.html#guide.developers.package2.tasks.postinstallscript"
+>here</A
+>.  This
+  document describes the required elements for the PHP post-install script itself.
+ </P
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="guide.migrating.postinstall.naming">Naming requirements for a post-install script PHP file</H1
+><P
+>&#13;   Post-install script files can be named anything one desires, but the class within
+   the file must be the same name as the file with all path separators replaced by
+   underscores.  In other words, this postinstall script:
+  </P
+><P
+>&#13;   <TT
+CLASS="filename"
+>Path/To/Script.php</TT
+>
+  </P
+><P
+>&#13;   Must contain a class named <B
+CLASS="classname"
+>Path_To_Script</B
+>.  Due to
+   casing differences between operating systems, it is recommended to always use
+   lowercased file names.
+  </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="guide.migrating.customtasks.php.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="guide.migrating.postinstall.structure.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Creating customized tasks in PHP</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="guide-migrating.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Structure of a post-install script</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

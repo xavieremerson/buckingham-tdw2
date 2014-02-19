@@ -1,0 +1,558 @@
+<HTML
+><HEAD
+><TITLE
+>QuickStart</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Introduction"
+HREF="package.html.html-quickform.html#package.html.html-quickform.introduction"><LINK
+REL="PREVIOUS"
+TITLE="HTML_QuickForm"
+HREF="package.html.html-quickform.html"><LINK
+REL="NEXT"
+TITLE="QuickHelp"
+HREF="package.html.html-quickform.intro-faq.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.intro-faq.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.tutorial">QuickStart</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN52296"
+></A
+>QuickStart&nbsp;--&nbsp;A tutorial for HTML_QuickForm</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.tutorial.purpose"
+></A
+><H2
+>Introduction</H2
+><P
+>&#13;The purpose of this tutorial is to give the new users of QuickForm an overview of its features and usage
+patterns. It describes a small subset of available functionality, but points to the parts of the 
+documentation that give a more in-depth overview. 
+    </P
+><P
+>&#13;There also exists <A
+HREF="http://www.thelinuxconsultancy.co.uk/quickform.php"
+TARGET="_top"
+>a somewhat bigger tutorial</A
+> on QuickForm usage made by Keith Edmunds.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.tutorial.firstform"
+></A
+><H2
+>Your first form</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN52306"><P
+><B
+>Example 41-1. Basic QuickForm usage</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// Load the main class
+require_once 'HTML/QuickForm.php';
+
+// Instantiate the HTML_QuickForm object
+$form = new HTML_QuickForm('firstForm');
+
+// Set defaults for the form elements
+$form-&#62;setDefaults(array(
+    'name' =&#62; 'Joe User'
+));
+
+// Add some elements to the form
+$form-&#62;addElement('header', null, 'QuickForm tutorial example');
+$form-&#62;addElement('text', 'name', 'Enter your name:', array('size' =&#62; 50, 'maxlength' =&#62; 255));
+$form-&#62;addElement('submit', null, 'Send');
+
+// Define filters and validation rules
+$form-&#62;applyFilter('name', 'trim');
+$form-&#62;addRule('name', 'Please enter your name', 'required', null, 'client');
+
+// Try to validate a form 
+if ($form-&#62;validate()) {
+    echo '&#60;h1&#62;Hello, ' . htmlspecialchars($form-&#62;exportValue('name')) . '!&#60;/h1&#62;';
+    exit;
+}
+
+// Output the form
+$form-&#62;display();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Lets review this example step by step.
+    </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform.tutorial.firstform.building"
+></A
+><H3
+>Building the form</H3
+><P
+>&#13;The line 
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$form = new HTML_QuickForm('firstForm');</PRE
+></TD
+></TR
+></TABLE
+>
+creates a HTML_QuickForm object that will contain the objects representing elements and all the other 
+necessary information. We only pass the form's name to the <A
+HREF="package.html.html-quickform.html-quickform.html-quickform.html"
+>constructor</A
+>, 
+which means that default values will be used for other parameters. In particular, the form's method will 
+default to <TT
+CLASS="literal"
+>POST</TT
+> and the form's action to the current file. When using QuickForm, it is 
+easier to keep all the form related logic in one file.
+     </P
+><P
+>&#13;You might guess that 
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$form-&#62;setDefaults(array(
+    'name' =&#62; 'Joe User'
+));</PRE
+></TD
+></TR
+></TABLE
+>
+sets the default value for <TT
+CLASS="literal"
+>name</TT
+> element to <TT
+CLASS="literal"
+>'Joe User'</TT
+>. QuickForm has the 
+concept of default values (set via <A
+HREF="package.html.html-quickform.html-quickform.setdefaults.html"
+><B
+CLASS="function"
+>setDefaults()</B
+></A
+> method) and
+constant ones (set via <A
+HREF="package.html.html-quickform.html-quickform.setconstants.html"
+><B
+CLASS="function"
+>setConstants()</B
+></A
+>).
+The difference between them is that user's input overrides default values but not constant ones.
+     </P
+><P
+>&#13;Our form will consist of three elements:
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$form-&#62;addElement('header', null, 'QuickForm tutorial example');
+$form-&#62;addElement('text', 'name', 'Enter your name:', array('size' =&#62; 50, 'maxlength' =&#62; 255));
+$form-&#62;addElement('submit', null, 'Send');</PRE
+></TD
+></TR
+></TABLE
+>
+The first one is not the 'real' element, it is just a heading to improve presentation. The second one 
+actually is a text input box and the third is a submit button. Note that parameters for <A
+HREF="package.html.html-quickform.html-quickform.addelement.html"
+><B
+CLASS="function"
+>addElement()</B
+></A
+>
+method have different meanings for different elements. That is so because they are actually passed to 
+these elements' constructors.
+     </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform.tutorial.firstform.checking"
+></A
+><H3
+>Checking input</H3
+><P
+>&#13;The line
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$form-&#62;applyFilter('name', 'trim');</PRE
+></TD
+></TR
+></TABLE
+>
+defines a <A
+HREF="package.html.html-quickform.intro-validation.html#package.html.html-quickform.intro-validation.filters"
+>filter</A
+> for the 'name' element value - the function that will be applied to it after form submit.
+In this case it is a builtin <A
+HREF="http://www.php.net/manual-lookup.php?pattern=trim"
+TARGET="_top"
+><B
+CLASS="function"
+>trim()</B
+></A
+> function,
+but can be any valid <A
+HREF="http://www.php.net/manual/language.pseudo-types.php"
+TARGET="_top"
+>callback</A
+>. Thus we will strip 
+all whitespace from the name, as we do not actually need it and as we want to be sure that a name was entered, 
+not just some spaces.
+     </P
+><P
+>&#13;Next we define a <A
+HREF="package.html.html-quickform.intro-validation.html#package.html.html-quickform.intro-validation.rules"
+>rule</A
+> for the name field:
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$form-&#62;addRule('name', 'Please enter your name', 'required', null, 'client');</PRE
+></TD
+></TR
+></TABLE
+>
+This means that QuickForm will display an error message if the name was not entered. The 
+<TT
+CLASS="literal"
+>'client'</TT
+> modifier is here to switch on client-side JavaScript validation in addition to 
+server-side one. Note also that QuickForm will automatically mark required fields in the form.
+     </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-quickform.tutorial.firstform.processing"
+></A
+><H3
+>Validating and processing</H3
+><P
+>&#13;We now have the form built and rules defined and need to decide whether to process it or display:
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>if ($form-&#62;validate()) {
+    // Do some stuff
+}</PRE
+></TD
+></TR
+></TABLE
+>
+The <A
+HREF="package.html.html-quickform.html-quickform.validate.html"
+><B
+CLASS="function"
+>validate()</B
+></A
+> method
+will consider the form valid (i.e. return <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>) if some data was actually submitted and all the rules 
+defined for the form were satisfied. In our case this means that 'name' element was not empty.
+     </P
+><P
+>&#13;If the form is validated we need to process the values
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>echo '&#60;h1&#62;Hello, ' . htmlspecialchars($form-&#62;exportValue('name')) . '!&#60;/h1&#62;';
+exit;</PRE
+></TD
+></TR
+></TABLE
+>
+This is an example, in your scripts you'll usually want to store the values somewhere and to redirect to some other page to
+prevent a duplicate submit. The <A
+HREF="package.html.html-quickform.html-quickform.process.html"
+><B
+CLASS="function"
+>process()</B
+></A
+>
+and <A
+HREF="package.html.html-quickform.html-quickform.exportvalues.html"
+><B
+CLASS="function"
+>exportvalues()</B
+></A
+>
+methods may be of interest here.
+     </P
+><P
+>&#13;The last line is pretty easy: 
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$form-&#62;display();</PRE
+></TD
+></TR
+></TABLE
+>
+If the form is not valid, which means that it either was not yet submitted or that there were errors, it
+will be displayed. Error messages (if any) will be displayed near the corresponding elements.
+     </P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.tutorial.advanced"
+></A
+><H2
+>Advanced features</H2
+><P
+>&#13;You now should have an understanding of basic QuickForm functionality, but there are many more features in
+the package, each of them deserving a separate tutorial. This section will give a short overview of them
+and point you to the complete documentation.
+     </P
+><P
+>&#13;<A
+HREF="package.html.html-quickform.html#package.html.html-quickform.groups"
+>Groups</A
+> allow to combine several individual
+elements into one entity and to use it as one element. This is also used to create pseudo-elements like date
+and hierselect.
+     </P
+><P
+>&#13;QuickForm offers a lot of possibilities to customize form layout and appearance. Form output is done via
+<A
+HREF="package.html.html-quickform.intro-renderers.html"
+>renderers</A
+> - special classes containing
+necessary logic. There are renderers that <A
+HREF="package.html.html-quickform.html-quickform-renderer-default.html"
+>directly output HTML</A
+>
+and those that <A
+HREF="package.html.html-quickform.html#package.html.html-quickform.output.template-renderers"
+>use template engines</A
+> for this.
+     </P
+><P
+>&#13;And finally, you can extend QuickForm by adding your own element types, rules and
+<A
+HREF="package.html.html-quickform.html#package.html.html-quickform.output.renderer-doc"
+>renderers</A
+>.
+     </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.intro-faq.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_QuickForm</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.introduction"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>QuickHelp</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

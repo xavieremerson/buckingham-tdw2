@@ -1,0 +1,197 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB_DataObject_FormBuilder"
+HREF="package.database.db-dataobject-formbuilder.html"><LINK
+REL="PREVIOUS"
+TITLE="DB_DataObject_FormBuilder"
+HREF="package.database.db-dataobject-formbuilder.html"><LINK
+REL="NEXT"
+TITLE="DB_QueryTool"
+HREF="package.database.db-querytool.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject-formbuilder.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db-querytool.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.db.dataobject-formbuilder.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN27541"
+></A
+>Introduction&nbsp;--&nbsp;
+ A package for building HTML forms from DataObject classes
+      </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN27544"
+></A
+><H2
+>DB_DataObject_FormBuilder Description</H2
+><P
+>&#13;DB_DataObject_FormBuilder will aid you in rapid application development using the packages 
+DB_DataObject  and HTML_QuickForm.
+For having a quick but working prototype of your application, simply model the database, run DataObject createTable script over it and write a script that passes one of the resulting objects to the FormBuilder class.
+
+The FormBuilder will automatically generate a simple but working HTML_QuickForm object that you can use to test
+your application. It also provides a processing method that will automatically detect if an insert() or update(
+)command has to be executed after the form has been submitted.
+
+If you have set up DataObject links.ini file correctly, it will also automatically detect if a table field is a foreign key and will populate a selectbox with the linked tables entries.
+
+There are many optional parameters that you can place in your DataObjects.ini or in the properties
+of your derived classes, that you can use to fine-tune the form-generation, gradually turning the prototypes into fully-featured forms, and you can take control at any stage of the process.
+
+Basic usage:
+ <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$do =&#38; new MyDataObject();
+// Insert "$do-&#62;get($some_id);" here to edit an 
+// existing object instead of making a new one
+$fg =&#38; DB_DataObject_FormBuilder::create($do);
+$form =&#38; $fg-&#62;getForm();
+if ($form-&#62;validate()) {
+    $form-&#62;process(array(&#38;$fg,'processForm'), false);
+$form-&#62;freeze();
+}
+$form-&#62;display();</PRE
+></TD
+></TR
+></TABLE
+>
+
+      </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject-formbuilder.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db-querytool.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>DB_DataObject_FormBuilder</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject-formbuilder.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>DB_QueryTool</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

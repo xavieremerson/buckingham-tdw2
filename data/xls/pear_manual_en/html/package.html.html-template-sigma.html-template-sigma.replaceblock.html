@@ -1,0 +1,457 @@
+<HTML
+><HEAD
+><TITLE
+>replaceBlock()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_Sigma"
+HREF="package.html.html-template-sigma.html"><LINK
+REL="PREVIOUS"
+TITLE="placeholderExists()"
+HREF="package.html.html-template-sigma.html-template-sigma.placeholderexists.html"><LINK
+REL="NEXT"
+TITLE="replaceBlockfile()"
+HREF="package.html.html-template-sigma.html-template-sigma.replaceblockfile.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.placeholderexists.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.replaceblockfile.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.replaceblock">replaceBlock()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN71742"
+></A
+>replaceBlock()&nbsp;--&nbsp;Replaces an existing block with new content.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN71745"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN71746"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/Template/Sigma.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed       <B
+CLASS="function"
+>HTML_Template_Sigma::replaceBlock</B
+></CODE
+> (string $block, string $template [, boolean $keepContent = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.replaceblock.desc"
+></A
+><H2
+>Description</H2
+><P
+>Replaces an existing block with new content. This function will replace a block of the template and all blocks  contained in it and add a new block instead. This means you can  dynamically change your template.</P
+><P
+>Sigma analyses the way you've nested blocks and knows which block  belongs into another block. This nesting information helps to make the  API short and simple. Replacing blocks does not only mean that Sigma  has to update the nesting information (relatively time consuming task)  but you have to make sure that you do not get confused due to the  template change yourself.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.replaceblock.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$block</I
+></TT
+></DT
+><DD
+><P
+>&#13;        name of a block to replace
+       </P
+></DD
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$template</I
+></TT
+></DT
+><DD
+><P
+>&#13;        new content
+       </P
+></DD
+><DT
+>boolean
+        <TT
+CLASS="parameter"
+><I
+>$keepContent</I
+></TT
+></DT
+><DD
+><P
+>&#13;        <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> if the parsed contents of the block should be kept
+       </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.replaceblock.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>return</I
+></SPAN
+> SIGMA_OK on success, error object on failure
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.replaceblock.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN71793"><P
+><B
+>Table 41-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>SIGMA_BLOCK_NOT_FOUND</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Cannot find block '<TT
+CLASS="parameter"
+><I
+>$block</I
+></TT
+>'</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>There is no block <TT
+CLASS="parameter"
+><I
+>$block</I
+></TT
+> in the template</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Check the block name spelling, check whether you added all the necessary blocks to the template</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>SIGMA_BLOCK_DUPLICATE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The name of a block must be unique within a template. Block 'blockname' found twice.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The new block contains a subblock that has the same name as the existing one</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Check the <TT
+CLASS="parameter"
+><I
+>$template</I
+></TT
+> and rename the block to something else</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           <TT
+CLASS="constant"
+><B
+>SIGMA_CALLBACK_SYNTAX_ERROR</B
+></TT
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           Cannot parse template function: (error description)
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           Bogus syntax for template function parameters.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           Fix the template function definition, pay special attention to
+           <A
+HREF="package.html.html-template-sigma.intro-syntax.html#package.html.html-template-sigma.intro-syntax.callback.quoting"
+>quoting rules</A
+>.
+         </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.replaceblock.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>see</I
+></SPAN
+> <A
+HREF="package.html.html-template-sigma.html-template-sigma.replaceblockfile.html"
+><B
+CLASS="function"
+>HTML_Template_Sigma::replaceBlockfile()</B
+></A
+>, <A
+HREF="package.html.html-template-sigma.html-template-sigma.addblock.html"
+><B
+CLASS="function"
+>HTML_Template_Sigma::addBlock()</B
+></A
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.replaceblock.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.placeholderexists.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.replaceblockfile.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>placeholderExists()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-sigma.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>replaceBlockfile()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

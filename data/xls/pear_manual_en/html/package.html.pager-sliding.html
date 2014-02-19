@@ -1,0 +1,288 @@
+<HTML
+><HEAD
+><TITLE
+>Pager_Sliding</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML"
+HREF="package.html.html"><LINK
+REL="PREVIOUS"
+TITLE="Pager::Pager"
+HREF="package.html.pager.pager.html"><LINK
+REL="NEXT"
+TITLE="Introduction"
+HREF="package.html.pager-sliding.intro.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.pager.pager.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 41. HTML</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.pager-sliding.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.html.pager-sliding">Pager_Sliding</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.html.pager-sliding.intro.html"
+>Introduction</A
+>&nbsp;--&nbsp;Usage of <B
+CLASS="classname"
+>Pager_Sliding</B
+></DT
+><DT
+><A
+HREF="package.html.pager-sliding.compare.html"
+><B
+CLASS="classname"
+>Pager</B
+> (v.1.x) vs. <B
+CLASS="classname"
+>Pager_Sliding</B
+></A
+>&nbsp;--&nbsp;Feature comparison of the two classes</DT
+><DT
+><A
+HREF="package.html.pager-sliding.getcurrentpageid.html"
+><B
+CLASS="function"
+>Pager_Sliding::getCurrentPageID()</B
+></A
+>&nbsp;--&nbsp;Returns current page number</DT
+><DT
+><A
+HREF="package.html.pager-sliding.getlinks.html"
+><B
+CLASS="function"
+>Pager_Sliding::getLinks()</B
+></A
+>&nbsp;--&nbsp;
+     Returns back/next/first/last and page links,
+     both as ordered and associative array.
+    </DT
+><DT
+><A
+HREF="package.html.pager-sliding.getnextpageid.html"
+><B
+CLASS="function"
+>Pager_Sliding::getNextPageID()</B
+></A
+>&nbsp;--&nbsp;Returns next page number.</DT
+><DT
+><A
+HREF="package.html.pager-sliding.getoffsetbypageid.html"
+><B
+CLASS="function"
+>Pager_Sliding::getOffsetByPageId()</B
+></A
+>&nbsp;--&nbsp;Returns offsets for given pageID.</DT
+><DT
+><A
+HREF="package.html.pager-sliding.getpagedata.html"
+><B
+CLASS="function"
+>Pager_Sliding::getPageData()</B
+></A
+>&nbsp;--&nbsp;Returns an array of current pages data</DT
+><DT
+><A
+HREF="package.html.pager-sliding.getpageidbyoffset.html"
+><B
+CLASS="function"
+>Pager_Sliding::getPageIdByOffset()</B
+></A
+>&nbsp;--&nbsp;Overload PEAR::Pager method. VOID.</DT
+><DT
+><A
+HREF="package.html.pager-sliding.getpreviouspageid.html"
+><B
+CLASS="function"
+>Pager_Sliding::getPreviousPageID()</B
+></A
+>&nbsp;--&nbsp;Returns previous page number.</DT
+><DT
+><A
+HREF="package.html.pager-sliding.isfirstpage.html"
+><B
+CLASS="function"
+>Pager_Sliding::isFirstPage()</B
+></A
+>&nbsp;--&nbsp;Returns whether current page is first page</DT
+><DT
+><A
+HREF="package.html.pager-sliding.islastpage.html"
+><B
+CLASS="function"
+>Pager_Sliding::isLastPage()</B
+></A
+>&nbsp;--&nbsp;Returns whether current page is last page</DT
+><DT
+><A
+HREF="package.html.pager-sliding.islastpagecomplete.html"
+><B
+CLASS="function"
+>Pager_Sliding::isLastPageComplete()</B
+></A
+>&nbsp;--&nbsp;Returns whether last page is complete</DT
+><DT
+><A
+HREF="package.html.pager-sliding.numitems.html"
+><B
+CLASS="function"
+>Pager_Sliding::numItems()</B
+></A
+>&nbsp;--&nbsp;Returns number of items</DT
+><DT
+><A
+HREF="package.html.pager-sliding.numpages.html"
+><B
+CLASS="function"
+>Pager_Sliding::numPages()</B
+></A
+>&nbsp;--&nbsp;Returns number of pages</DT
+><DT
+><A
+HREF="package.html.pager-sliding.sliding.html"
+><B
+CLASS="function"
+>Pager_Sliding::Sliding()</B
+></A
+>&nbsp;--&nbsp;Creates a pager instance</DT
+></DL
+></DIV
+><P
+>&#13;  Data paging class which also builds links to the pages.
+ </P
+><P
+>&#13;
+ </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.pager.pager.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.pager-sliding.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>Pager::Pager()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

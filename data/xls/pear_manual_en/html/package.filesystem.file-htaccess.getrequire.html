@@ -1,0 +1,356 @@
+<HTML
+><HEAD
+><TITLE
+>File_HtAccess::getRequire()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File_HtAccess"
+HREF="package.filesystem.file-htaccess.html"><LINK
+REL="PREVIOUS"
+TITLE="File_HtAccess::delRequire()"
+HREF="package.filesystem.file-htaccess.delrequire.html"><LINK
+REL="NEXT"
+TITLE="File_HtAccess::setProperties()"
+HREF="package.filesystem.file-htaccess.setproperties.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-htaccess.delrequire.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-htaccess.setproperties.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.filesystem.file-htaccess.getrequire">File_HtAccess::getRequire()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN49076"
+></A
+>File_HtAccess::getRequire()&nbsp;--&nbsp;get the value(s) of require property</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN49079"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN49080"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>File_HtAccess::getRequire</B
+></CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-htaccess.getrequire.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Get the value(s) of require property as an array. Require property
+   contains the usernames or groups users who are allowed to access
+   protected resources. Value valid-user means all users listed in
+   password file are allowed to access.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-htaccess.getrequire.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>string $type</I
+></TT
+> - if 'string' return value
+       will be a string with usernames separated by a space character. 
+       Otherwise return value will be an array(). Defaults to an array.
+     </P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-htaccess.getrequire.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   mixed string or array depending on $type parameter.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.file-htaccess.getrequire.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.file-htaccess.getrequire.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>&#13;     <A
+HREF="package.filesystem.file-htaccess.setrequire.html"
+>&#13;      <B
+CLASS="function"
+>File_HtAccess::setRequire()</B
+>
+     </A
+>
+    </TD
+></TR
+><TR
+><TD
+>&#13;     <A
+HREF="package.filesystem.file-htaccess.delrequire.html"
+>&#13;      <B
+CLASS="function"
+>File_HtAccess::delRequire()</B
+>
+     </A
+>
+    </TD
+></TR
+><TR
+><TD
+>&#13;     <A
+HREF="package.filesystem.file-htaccess.getrequire.html"
+>&#13;      <B
+CLASS="function"
+>File_HtAccess::getRequire()</B
+>
+     </A
+>
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-htaccess.getrequire.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN49116"><P
+><B
+>Example 38-1. Using <B
+CLASS="function"
+>File_HtAccess::getrequire()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once('File/HtAccess.php');
+
+/* add user tuupola and viemero to list of users to be granted access */
+$fh = new File_HtAccess('.htaccess');
+$fh-&#62;addRequire('tuupola');
+$fh-&#62;addRequire('viemero');
+
+$require1 = $fh-&#62;getRequire();
+$require2 = $fh-&#62;getRequire('string');
+
+print_r($require1);
+
+/* Array              */
+/* (                  */
+/*    [0] =&#62; tuupola  */
+/*    [1] =&#62; viemero  */
+/* )                  */
+
+print_r($require2);
+
+/* tuupola viemero    */
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-htaccess.delrequire.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-htaccess.setproperties.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>File_HtAccess::delRequire()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-htaccess.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>File_HtAccess::setProperties()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

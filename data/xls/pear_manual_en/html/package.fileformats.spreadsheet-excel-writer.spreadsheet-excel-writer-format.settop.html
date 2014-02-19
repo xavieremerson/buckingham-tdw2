@@ -1,0 +1,345 @@
+<HTML
+><HEAD
+><TITLE
+>Format::setTop</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Spreadsheet_Excel_Writer"
+HREF="package.fileformats.spreadsheet-excel-writer.html"><LINK
+REL="PREVIOUS"
+TITLE="Format::setBottom"
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setbottom.html"><LINK
+REL="NEXT"
+TITLE="Format::setLeft"
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setleft.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setbottom.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setleft.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.settop">Format::setTop</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN44299"
+></A
+>Format::setTop&nbsp;--&nbsp;Sets the width for the top border of the cell</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN44302"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN44303"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once "Spreadsheet/Excel/Writer.php";</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>Format::setTop</B
+></CODE
+> (integer $style)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.settop.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Sets the width for the top border of the cell
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.settop.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>integer $style</I
+></TT
+> -
+        style of the cell top border. 1 =&#62; thin, 2 =&#62; thick.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.settop.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+></P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.settop.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN44326"><P
+><B
+>Example 37-1. Using <B
+CLASS="function"
+>setTop()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Spreadsheet/Excel/Writer.php';
+
+$workbook = new Spreadsheet_Excel_Writer();
+$worksheet =&#38; $workbook-&#62;addWorksheet();
+// we can set set all properties on instantiation
+$upper_right_side_brick =&#38; $workbook-&#62;addFormat(array('right' =&#62; 5, 'top' =&#62; 5, 'size' =&#62; 15,
+                                                      'pattern' =&#62; 1, 'bordercolor' =&#62; 'blue',
+                                                      'fgcolor' =&#62; 'red'));
+// or set all properties one by one
+$upper_left_side_brick =&#38; $workbook-&#62;addFormat();
+$upper_left_side_brick-&#62;setLeft(5);
+$upper_left_side_brick-&#62;setTop(5);
+$upper_left_side_brick-&#62;setSize(15);
+$upper_left_side_brick-&#62;setPattern(1);
+$upper_left_side_brick-&#62;setBorderColor('blue');
+$upper_left_side_brick-&#62;setFgColor('red');
+
+$lower_right_side_brick =&#38; $workbook-&#62;addFormat(array('right' =&#62; 5, 'bottom' =&#62; 5, 'size' =&#62; 15,
+                                                      'pattern' =&#62; 1, 'bordercolor' =&#62; 'blue',
+                                                      'fgcolor' =&#62; 'red'));
+$lower_left_side_brick =&#38; $workbook-&#62;addFormat(array('left' =&#62; 5, 'bottom' =&#62; 5, 'size' =&#62; 15,
+                                                     'pattern' =&#62; 1, 'bordercolor' =&#62; 'blue',
+                                                     'fgcolor' =&#62; 'red'));
+
+$worksheet-&#62;setColumn(0, 20, 6);
+
+// Sky
+$sky =&#38; $workbook-&#62;addFormat(array('fgcolor' =&#62; 'cyan', 'pattern' =&#62; 1, 'size' =&#62; 15));
+for ($i = 0; $i &#60;= 10; $i++)
+{
+    for ($j = 0; $j &#60; 20; $j++) {
+        $worksheet-&#62;writeBlank($i, $j, $sky);
+    }
+}
+
+// Cloud
+$cloud =&#38; $workbook-&#62;addFormat(array('fgcolor' =&#62; 'white', 'pattern' =&#62; 1, 'size' =&#62; 15));
+$worksheet-&#62;writeBlank(5, 7, $cloud);
+$worksheet-&#62;writeBlank(4, 8, $cloud);
+$worksheet-&#62;writeBlank(5, 8, $cloud);
+$worksheet-&#62;writeBlank(6, 8, $cloud);
+$worksheet-&#62;writeBlank(4, 9, $cloud);
+$worksheet-&#62;writeBlank(5, 9, $cloud);
+$worksheet-&#62;writeBlank(5, 10, $cloud);
+
+// Bricks
+for ($j = 0; $j &#60; 20; $j++)
+{
+    for ($i = 5; $i &#60;= 11; $i++)
+    {
+        if (($i + $j)%2 == 1) // right side of brick
+        {
+            $worksheet-&#62;writeBlank(2*$i, $j, $upper_right_side_brick);
+            $worksheet-&#62;writeBlank(2*$i + 1, $j, $lower_right_side_brick);
+        }
+        else // left side of brick
+        {
+            $worksheet-&#62;writeBlank(2*$i, $j, $upper_left_side_brick);
+            $worksheet-&#62;writeBlank(2*$i + 1, $j, $lower_left_side_brick);
+        }
+    }
+}
+
+// hide gridlines so they don't mess with our Excel art.
+$worksheet-&#62;hideGridLines();
+
+$workbook-&#62;send('bricks.xls');
+$workbook-&#62;close();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setbottom.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setleft.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Format::setBottom</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Format::setLeft</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

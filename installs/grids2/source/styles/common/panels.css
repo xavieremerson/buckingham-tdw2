@@ -1,0 +1,124 @@
+/*****************************************************************
+
+	ActiveWidgets 2.0.b3 (beta3)
+	Copyright (C) 2003-2005 ActiveWidgets Ltd. All Rights Reserved. 
+	http://www.activewidgets.com/
+
+	WARNING: This software program is protected by copyright law 
+	and international treaties. Unauthorized reproduction or
+	distribution of this program, or any portion of it, may result
+	in severe civil and criminal penalties, and will be prosecuted
+	to the maximum extent possible under the law.
+
+	FOR TESTING AND EVALUATION ONLY:
+	This software is not free and is licensed to you for testing 
+	and evaluation only. You are not allowed to distribute 
+	or use any parts of this software for any other purposes.
+
+*****************************************************************/
+.aw-vpanel-template, .aw-vpanel-box,
+.aw-vpanel-left, .aw-vpanel-center, .aw-vpanel-right {
+	display: block;
+	position: relative;
+	overflow: hidden;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.aw-vpanel-box {
+	padding-left: 100px;
+	padding-right: 0px;
+}
+
+.aw-strict .aw-vpanel-box {
+	width: auto;
+}
+
+.aw-vpanel-left {
+	position: absolute;
+	width: 100px;
+}
+
+.aw-vpanel-right {
+	position: absolute;
+	left: auto;
+	right: 0px;
+	width: 0px;
+}
+
+.aw-strict .aw-vpanel-left, .aw-strict .aw-vpanel-right {
+	width: 96px;
+}
+
+/* horizontal */
+
+.aw-hpanel-template, .aw-hpanel-box,
+.aw-hpanel-top, .aw-hpanel-middle, .aw-hpanel-bottom {
+	display: block;
+	position: absolute;
+	overflow: hidden;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.aw-strict .aw-hpanel-box {
+	bottom: 0px;
+	height: auto;
+}
+
+.aw-hpanel-middle {
+	height: auto;
+	_position: relative;
+	_height: 100%;
+}
+
+.aw-hpanel-bottom {
+	top: auto;
+	bottom: 0px;
+}
+
+
+/* grid */
+
+.aw-gpanel-template, .aw-gpanel-box,
+.aw-gpanel-top, .aw-gpanel-middle, .aw-gpanel-bottom,
+.aw-gpanel-left, .aw-gpanel-center, .aw-gpanel-right {
+	display: block;
+	position: absolute;
+	overflow: hidden;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.aw-strict .aw-gpanel-box {
+	bottom: 0px;
+	height: auto;
+}
+
+.aw-gpanel-middle {
+	height: auto;
+	_position: relative;
+	_height: 100%;
+}
+
+.aw-gpanel-bottom {
+	top: auto;
+	bottom: 0px;
+}
+
+.aw-gpanel-center {
+	width: auto;
+	_position: relative;
+	_width: 100%;
+}
+
+.aw-gpanel-right {
+	left: auto;
+	right: 0px;
+}

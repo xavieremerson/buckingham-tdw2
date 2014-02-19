@@ -1,0 +1,1363 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - Results</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="MDB2"
+HREF="package.database.mdb2.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction - Query"
+HREF="package.database.mdb2.intro-query.html"><LINK
+REL="NEXT"
+TITLE="Introduction - Prepare & Execute"
+HREF="package.database.mdb2.intro-execute.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb2.intro-query.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb2.intro-execute.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.mdb2.intro-fetch">Introduction - Results</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN31317"
+></A
+>Introduction - Results&nbsp;--&nbsp;Obtaining data from query results</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb2.intro-fetch.desc"
+></A
+><H2
+>Description</H2
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.mdb2.intro-fetch.desc.fetch"
+></A
+><H3
+>Fetching Individual Rows From Query Results</H3
+><P
+>&#13;    The MDB2_Result_Common object provides two
+    methods for fetching data from rows of a result set:
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Result_Common.html#methodfetchOne"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>fetchOne()</B
+></A
+>,
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Result_Common.html#methodfetchRow"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>fetchRow()</B
+></A
+>,
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Result_Common.html#methodfetchCol"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>fetchCol()</B
+></A
+> and
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Result_Common.html#methodfetchAll"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>fetchAll()</B
+></A
+>.
+   </P
+><P
+>&#13;    <B
+CLASS="function"
+>fetchRow()</B
+> and <B
+CLASS="function"
+>fetchOne()</B
+> read an
+    entire row or a single column respectively. The result pointer gets moved to
+    the next row each time these methods are called. <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> is returned
+    when the end of the result set is reached.
+   </P
+><P
+>&#13;    <B
+CLASS="function"
+>fetchRow()</B
+> reads an entire row as an array and
+    <B
+CLASS="function"
+>fetchOne()</B
+> reads an single column into a scalar.
+    The result pointer gets moved to the next row each time these methods are
+    called. <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> is returned when the end of the result set is reached.
+   </P
+><P
+>&#13;    MDB2_Error is returned if an error is encountered.
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31342"><P
+><B
+>Example 33-1. Fetching a result set</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Create a valid MDB2 object named $mdb2
+// at the beginning of your program...
+require_once 'MDB2.php';
+
+$mdb2 =&#38; MDB2::connect('pgsql://usr:pw@localhost/dbnam');
+if (PEAR::isError($mdb2)) {
+    die($mdb2-&#62;getMessage());
+}
+
+// Proceed with getting some data...
+$res =&#38; $mdb2-&#62;query('SELECT * FROM mytable');
+
+// Get each row of data on each iteration until
+// there are no more rows
+while (($row = $res-&#62;fetchRow())) {
+    // Assuming MDB2's default fetchmode is MDB2_FETCHMODE_ORDERED
+    echo $row[0] . "\n";
+}
+
+// while (($one = $res-&#62;fetchOne())) {
+//     echo $one . "\n";
+// }
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.mdb2.intro-fetch.desc.format"
+></A
+><H3
+>Formats of Fetched Rows</H3
+><P
+>&#13;    The data from the row of a query result can be
+    placed into one of three constructs:
+    an ordered array (with column numbers as keys),
+    an associative array (with column names as keys) or
+    an object (with column names as properties).
+   </P
+><P
+>&#13;    <TT
+CLASS="constant"
+><B
+>MDB2_FETCHMODE_ORDERED</B
+></TT
+> (default)
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [0] =&#62; 28
+    [1] =&#62; hi
+)</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    <TT
+CLASS="constant"
+><B
+>MDB2_FETCHMODE_ASSOC</B
+></TT
+>
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [a] =&#62; 28
+    [b] =&#62; hi
+)</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    <TT
+CLASS="constant"
+><B
+>MDB2_FETCHMODE_OBJECT</B
+></TT
+>
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>stdClass Object
+(
+    [a] =&#62; 28
+    [b] =&#62; hi
+)</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    NOTE: When a query contains the same column name more
+    than once (such as when joining tables which have
+    duplicate column names) and the fetch mode is
+    <TT
+CLASS="constant"
+><B
+>MDB2_FETCHMODE_ASSOC</B
+></TT
+> or
+    <TT
+CLASS="constant"
+><B
+>MDB2_FETCHMODE_OBJECT</B
+></TT
+>,
+    the data from the last column with a given name will
+    be the one returned. There are two immediate options
+    to work around this issue:
+    <P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>&#13;      Use aliases in your query, for example
+      <TT
+CLASS="userinput"
+><B
+>People.Name AS PersonName</B
+></TT
+>
+     </TD
+></TR
+><TR
+><TD
+>&#13;      Change the fetch mode to <TT
+CLASS="constant"
+><B
+>MDB2_FETCHMODE_ORDERED</B
+></TT
+>
+     </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+   </P
+><P
+>&#13;    TIP: If you are running into this issue, it likely
+    indicates poor planning of the database schema. Either
+    data is needlessly being duplicated or the same names are
+    being used for different kinds of data.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.mdb2.intro-fetch.desc.set"
+></A
+><H3
+>How to Set Formats</H3
+><P
+>&#13;    You can set the fetch mode each time you call a
+    fetch method and/or you can set the default fetch
+    mode for the whole MDB2 instance by using the
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodsetFetchMode"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>setFetchMode()</B
+></A
+> method.
+
+    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31371"><P
+><B
+>Example 33-2. Determining fetch mode per call</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$res =&#38; $mdb2-&#62;query('SELECT * FROM users');
+
+while ($row = $res-&#62;fetchRow(MDB2_FETCHMODE_ASSOC)) {
+    echo $row['id'] . "\n";
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31374"><P
+><B
+>Example 33-3. Changing default fetch mode</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$mdb2-&#62;setFetchMode(MDB2_FETCHMODE_ASSOC);
+
+$res =&#38; $mdb2-&#62;query('SELECT * FROM users');
+
+while ($row = $res-&#62;fetchRow()) {
+    echo $row['id'] . "\n";
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.mdb2.intro-fetch.desc.number"
+></A
+><H3
+>Fetch Rows by Number</H3
+><P
+>&#13;    The PEAR MDB2 fetch system also supports an extra parameter
+    to the fetch statement. So you can fetch rows from a result
+    by number. This is especially helpful if you only want to show
+    sets of an entire result (for example in building paginated
+    HTML lists), fetch rows in an special order, etc.
+    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31380"><P
+><B
+>Example 33-4. Fetching by number</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+
+// the row to start fetching
+$from = 50;
+
+// how many results per page
+$resPage = 10;
+
+// the last row to fetch for this page
+$to = $from + $resPage;
+
+foreach (range($from, $to) as $rowNum) {
+    if (!($row = $res-&#62;fetchRow(MDB2_FETCHMODE_ORDERED, $rowNum))) {
+        break;
+    }
+    echo $row[0] . "\n";
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.mdb2.intro-fetch.desc.rows"
+></A
+><H3
+>Getting Entire Result Sets</H3
+><P
+>&#13;    The MDB2_Result_Common object provides several
+    methods to read entire results sets:
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Result_Common.html#methodfetchCol"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>fetchCol()</B
+></A
+> and
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Result_Common.html#methodfetchAll"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>fetchAll()</B
+></A
+>.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.mdb2.intro-fetch.desc.free"
+></A
+><H3
+>Freeing Result Sets</H3
+><P
+>&#13;    Once you finish using a result set, if your script
+    continues for a while, it's a good idea to save
+    memory by freeing the result set via
+    Use <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Result_Common.html#methodfree"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>free()</B
+></A
+>.
+    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31395"><P
+><B
+>Example 33-5. Freeing</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$res =&#38; $mdb2-&#62;query('SELECT name, address FROM clients');
+while ($row = $res-&#62;fetchRow()) {
+    echo $row['name'] . ', ' . $row['address'] . "\n";
+}
+$res-&#62;free();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.mdb2.intro-fetch.desc.getResource"
+></A
+><H3
+>Getting the native result resource</H3
+><P
+>&#13;    If whatever data you need to read from a result set is not yet implemented
+    in MDB2 you can get the native result resource using the
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Result_Common.html#methodgetResource"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>getResource()</B
+></A
+> method and then call the
+    underlying PHP extension directly (though this would of course require that
+    it is not upto you to make this sufficiently portable).
+    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31403"><P
+><B
+>Example 33-6. Native result resource</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$res =&#38; $mdb2-&#62;query('SELECT name, address FROM clients');
+$native_result = $res-&#62;getResource();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.mdb2.intro-fetch.desc.more"
+></A
+><H3
+>Getting More Information From Query Results</H3
+><P
+>&#13;    With MDB2 there are four ways to retrieve useful
+    information about the query result sets themselves:
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31409"><P
+><B
+>Example 33-7. 
+     <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Result_Common.html#methodnumRows"
+TARGET="_top"
+>&#13;      <B
+CLASS="function"
+>numRows()</B
+></A
+> tells how many
+     rows are in a <B
+CLASS="command"
+>SELECT</B
+> query result
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$res =&#38; $mdb2-&#62;query('SELECT * FROM phptest');
+if ($mdb2-&#62;getOption('result_buffering')) {
+    echo $res-&#62;numRows();
+} else {
+    echo 'cannot get number of rows in the result set when "result_buffering" is disabled';
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31415"><P
+><B
+>Example 33-8. 
+     <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Result_Common.html#methodnumCols"
+TARGET="_top"
+>&#13;      <B
+CLASS="function"
+>numCols()</B
+></A
+> tells how many
+     columns are in a <B
+CLASS="command"
+>SELECT</B
+> query result
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$res =&#38; $mdb2-&#62;query('SELECT * FROM phptest');
+echo $res-&#62;numCols();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31421"><P
+><B
+>Example 33-9. 
+     <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Result_Common.html#methodrowCount"
+TARGET="_top"
+>&#13;      <B
+CLASS="function"
+>rowCount()</B
+></A
+> tells which row number
+      the internal result row pointer currently points to
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$res =&#38; $mdb2-&#62;query('SELECT * FROM phptest');
+$res-&#62;fetchRow();
+// returns 2 if the result set contains at least 2 rows
+echo $res-&#62;rowCount();
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31426"><P
+><B
+>Example 33-10. 
+     <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Result_Common.html#methodgetColumnNames"
+TARGET="_top"
+>&#13;      <B
+CLASS="function"
+>getColumnNames()</B
+></A
+> returns an associative
+     array with the names of the column of the result set as keys and the
+     position inside the result set as the values
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$res =&#38; $mdb2-&#62;query('SELECT * FROM phptest');
+print_r($res-&#62;getColumnNames());
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31431"><P
+><B
+>Example 33-11. 
+     <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Result_Common.html#methodseek"
+TARGET="_top"
+>&#13;      <B
+CLASS="function"
+>seek()</B
+></A
+> allows to seek to a specific row inside
+     a result set. Note that seeking to previously read rows is only possible
+     if the 'result_buffering' option is left enabled, otherwise only forward
+     seeking is supported.
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$res =&#38; $mdb2-&#62;query('SELECT * FROM phptest');
+// Seek to the 10th row in the result set
+$res-&#62;seek(10));
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31436"><P
+><B
+>Example 33-12. 
+     <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Result_Common.html#methodnextResult"
+TARGET="_top"
+>&#13;      <B
+CLASS="function"
+>nextResult()</B
+></A
+> allows iterate over multiple
+      results returned by a multi query.
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$multi_query = $this-&#62;db-&#62;setOption('multi_query', true);
+// check if multi_query can be enabled
+if (!PEAR::isError($multi_query)) {
+    $res =&#38; $mdb2-&#62;query('SELECT * FROM phptest; SELECT * FROM phptest2;');
+    $data1 = $res-&#62;fetchAll();
+    // move result pointer to the next result
+    $res-&#62;nextResult();
+    $data2 = $res-&#62;fetchAll();
+} else {
+    echo 'multi_query option is not supported';
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31441"><P
+><B
+>Example 33-13. 
+     <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Result_Common.html#methodbindColumn"
+TARGET="_top"
+>&#13;      <B
+CLASS="function"
+>bindColumn()</B
+></A
+> allows to bind a reference to
+      a user variable to a specific field inside the result set. This means that
+      when fetching the next row, this variable is automatically updated.
+    </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$name = $address = null;
+$res =&#38; $mdb2-&#62;query('SELECT id, name, address FROM clients', array('id' =&#62; 'integer'));
+$res-&#62;bindColumn('id', $name);
+// provide a type for the column not included in the query() call
+$res-&#62;bindColumn('id', $name, 'text');
+// but specifying a type is as always optional in MDB2
+$res-&#62;bindColumn('address', $address);
+while ($res-&#62;fetchRow()) {
+    echo "The address of '$name' (user id '$id') is '$address'\n";
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.mdb2.intro-fetch.desc.convinience"
+></A
+><H3
+>Querying and fetching in one call</H3
+><P
+>&#13;    All of the fetch methods are also available in a variant that executes a
+    query directly:
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Result_Common.html#methodqueryOne"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>queryOne()</B
+></A
+>,
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Result_Common.html#methodqueryRow"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>queryRow()</B
+></A
+>,
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Result_Common.html#methodqueryCol"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>queryCol()</B
+></A
+> and
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Result_Common.html#methodqueryAll"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>queryAll()</B
+></A
+>.
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31457"><P
+><B
+>Example 33-14. </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$data = $mdb2-&#62;queryAll('SELECT * FROM phptest');
+print_r($data);
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Users that prefer to use prepared statements can make use of the
+    following methods from the <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Extended.html"
+TARGET="_top"
+>&#13;    Extended</A
+> module:
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Extended.html#methodgetOne"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>getOne()</B
+></A
+>,
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Extended.html#methodgetRow"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>getRow()</B
+></A
+>,
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Extended.html#methodgetCol"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>getCol()</B
+></A
+>,
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Extended.html#methodgetAll"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>getAll()</B
+></A
+> and
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Extended.html#methodgetAssoc"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>getAssoc()</B
+></A
+>.
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31472"><P
+><B
+>Example 33-15. </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$mdb2-&#62;loadModule('Extended');
+$query = 'SELECT * FROM phptest WHERE id = ?';
+$data = $mdb2-&#62;extended-&#62;getRow($query, null, array(1), array('integer'));
+print_r($data);
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.mdb2.intro-fetch.desc.datatypes"
+></A
+><H3
+>Data types</H3
+><P
+>&#13;    MDB2 supports a number of data types across all drivers. These can be set
+    for result sets at query or prepare time or using the
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Result_Common.html#methodsetResultTypes"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>setResultTypes()</B
+></A
+> method.
+    You can find an overview of the supported data types and their format
+    <A
+HREF="http://cvs.php.net/viewcvs.cgi/*checkout*/pear/MDB2/docs/datatypes.html"
+TARGET="_top"
+>&#13;    here</A
+>.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.database.mdb2.intro-fetch.desc.error"
+></A
+><H3
+>Checking for Errors</H3
+><P
+>&#13;    Don't forget to use
+    <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2.html#methodisError"
+TARGET="_top"
+>&#13;     <B
+CLASS="function"
+>isError()</B
+></A
+> to check
+    if your actions return a MDB2_Error object.
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.intro-query.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.intro-execute.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction - Query</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction - Prepare &#38; Execute</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

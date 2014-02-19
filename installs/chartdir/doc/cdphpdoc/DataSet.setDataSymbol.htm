@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<Title>DataSet.setDataSymbol</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1"><a href="DataSet.htm">DataSet</a>.setDataSymbol</p>
+<hr class="separator">
+<p class="heading2a">Usage</p>
+<div class="content">
+setDataSymbol(symbol[, size[, fillColor[, edgeColor[, lineWidth ]]])
+</div>
+<p class="heading2">Description</p>
+<div class="content">
+Use one of the built-in symbols as the graphics symbol to plot the data points.<br><br>
+In the current version of ChartDirector, data symbols are supported only in <a href="LineLayer.htm">LineLayer</a>, <a href="SplineLayer.htm">SplineLayer</a>, <a href="StepLineLayer.htm">StepLineLayer</a> and <a href="ScatterLayer.htm">ScatterLayer</a>. To use data symbols in other layer types, add a <a href="ScatterLayer.htm">ScatterLayer</a> on top of that layer.<br><br>
+The built-in symbols are specified by using the following pre-defined constants as the <b>symbol</b> argument.<br><br>
+<table width="98%" border="1" cellpadding="5" cellspacing="0"> <tr><th width="19%">Constant</th><th width="19%">Value</th><th width="30%">Symbol at 15 pixels</th><th width="30%">Symbol at 5 pixels</th></tr> <tr><td> SquareSymbol</td><td>1</td><td><img src="images/largeSymbol1.png"></td><td><img src="images/smallSymbol1.png"> </td></tr><tr><td> DiamondSymbol</td><td>2</td><td><img src="images/largeSymbol2.png"></td><td><img src="images/smallSymbol2.png"> </td></tr><tr><td> TriangleSymbol</td><td>3</td><td><img src="images/largeSymbol3.png"></td><td><img src="images/smallSymbol3.png"> </td></tr><tr><td> RightTriangleSymbol</td><td>4</td><td><img src="images/largeSymbol4.png"></td><td><img src="images/smallSymbol4.png"> </td></tr><tr><td> LeftTriangleSymbol</td><td>5</td><td><img src="images/largeSymbol5.png"></td><td><img src="images/smallSymbol5.png"> </td></tr><tr><td> InvertedTriangleSymbol</td><td>6</td><td><img src="images/largeSymbol6.png"></td><td><img src="images/smallSymbol6.png"> </td></tr><tr><td> CircleSymbol</td><td>7</td><td><img src="images/largeSymbol7.png"></td><td><img src="images/smallSymbol7.png"> </td></tr><tr><td> CrossSymbol</td><td>8</td><td><img src="images/largeSymbol8.png"></td><td><img src="images/smallSymbol8.png"> </td></tr><tr><td> Cross2Symbol</td><td>9</td><td><img src="images/largeSymbol9.png"></td><td><img src="images/smallSymbol9.png"> </td></tr></table>
+</div>
+<p class="heading2">Arguments</p>
+
+<div class="content">
+<table border="1" cellpadding="5" cellspacing="0" width="98%"> 
+<tr>
+<th width="19%">Argument</th><th width="19%">Default</th><th width="60%">Description</th>
+</tr>
+<tr>
+<td>symbol</td><td>(Mandatory)</td><td>One of the pre-defined symbol constants (see above) to specify the symbol to use.</td></tr><tr><td>size</td><td>5</td><td>The width and height of the symbol in pixels.</td></tr><tr><td>fillColor</td><td>-1</td><td>The color used to fill the symbol. -1 means the color of the data set will be used.</td></tr><tr><td>edgeColor</td><td>-1</td><td>The edge color used to draw the edge of the symbol. -1 means the edge color of the data set will be used.</td></tr><tr><td>lineWidth</td><td>1</td><td>The line width used for drawing the symbols.</td>
+</tr>
+</table>
+</div>
+
+<p class="heading2">Return Value</p>
+<div class="content">
+None
+</div>
+<br><hr class="separator">
+<div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

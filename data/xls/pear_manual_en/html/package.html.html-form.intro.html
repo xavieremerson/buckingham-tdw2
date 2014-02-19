@@ -1,0 +1,306 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Form"
+HREF="package.html.html-form.html"><LINK
+REL="PREVIOUS"
+TITLE="HTML_Form"
+HREF="package.html.html-form.html"><LINK
+REL="NEXT"
+TITLE="Usage examples"
+HREF="package.html.html-form.examples.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-form.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-form.examples.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-form.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN50172"
+></A
+>Introduction&nbsp;--&nbsp;Generating <SPAN
+CLASS="acronym"
+>HTML</SPAN
+> forms.</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-form.intro.whatis"
+></A
+><H2
+>What is HTML_Form?</H2
+><P
+>&#13;   This is a simple <SPAN
+CLASS="acronym"
+>HTML</SPAN
+> form generator. It 
+   supports all the <SPAN
+CLASS="acronym"
+>HTML</SPAN
+> form element types
+   including file uploads, may return or print the form, just
+   individual form elements or the full form in <SPAN
+CLASS="QUOTE"
+>"table mode"</SPAN
+>
+   with a fixed layout. 
+  </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-form.intro.whatis.range"
+></A
+><H3
+>Range of use</H3
+><P
+>&#13;    Generally one can use <B
+CLASS="classname"
+>HTML_Form</B
+> in
+    <SPAN
+CLASS="acronym"
+>HTML</SPAN
+> based projects of any form. But especially
+    when using the package in <SPAN
+CLASS="QUOTE"
+>"table mode"</SPAN
+> one may soon
+    run into design problems, because the table that is created by
+    <B
+CLASS="classname"
+>HTML_Form</B
+> cannot be equipped with
+    <SPAN
+CLASS="acronym"
+>CSS</SPAN
+> or other ways to control their look. Thus
+    the main usage area of <B
+CLASS="classname"
+>HTML_Form</B
+> are sites
+    where design does not play the most important role but where it
+    is necessary to get fast results while keeping the code clean at
+    the same time. (Examples are back office websites or places like
+    <A
+HREF="http://pear.php.net/"
+TARGET="_top"
+>pear.php.net</A
+>, where
+    the package is used at a lot of places.)
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-form.intro.whatis.example"
+></A
+><H3
+>Simple usage example</H3
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN50194"><P
+><B
+>Example 41-1. Basic example</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "HTML/Form.php";
+
+$form = new HTML_Form('receivingscript.php');
+
+$form-&#62;addText("name", "What's your name?");
+$form-&#62;addSubmit("submit", "Go, Go");
+
+$form-&#62;display();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;    The above example code creates a <SPAN
+CLASS="acronym"
+>HTML</SPAN
+> form
+    that only contains a single textfield with the name
+    <SPAN
+CLASS="QUOTE"
+>"name"</SPAN
+> and with the label 
+    <SPAN
+CLASS="QUOTE"
+>"What's your name"</SPAN
+> and a submit button labeled
+    <SPAN
+CLASS="QUOTE"
+>"Go, Go"</SPAN
+>.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.html.html-form.intro.whatis.tags"
+></A
+><H3
+>Supported tags</H3
+><P
+>&#13;    The following <SPAN
+CLASS="acronym"
+>HTML</SPAN
+> form tags are supported by
+    <B
+CLASS="classname"
+>HTML_Form</B
+>: textfields, password fields,
+    checkboxes, textareas, submit buttons, reset buttons, select
+    fields, radio buttons, image fields, hidden fields, file upload
+    fields. Additionally one can add blank spaces and plain text to
+    the form.
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-form.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-form.examples.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_Form</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-form.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Usage examples</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

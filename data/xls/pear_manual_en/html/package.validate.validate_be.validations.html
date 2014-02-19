@@ -1,0 +1,912 @@
+<HTML
+><HEAD
+><TITLE
+>List of aivailable validations</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Validate_BE"
+HREF="package.validate.validate-be.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.validate.validate_be.intro.html"><LINK
+REL="NEXT"
+TITLE="Validate_CA"
+HREF="package.validate.validate-ca.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.validate.validate_be.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.validate.validate-ca.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.validate.validate_be.validations">List of aivailable validations</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN100094"
+></A
+>List of aivailable validations&nbsp;--&nbsp;aivailable validation in validate_be</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.validate.validate_be.validations.nationalId"
+></A
+><H2
+>Validate a Belgian nationalId</H2
+><P
+>&#13;   The belgian nationalId on the identity card of all belgian.
+  </P
+><P
+>&#13;   A check digit is the last one,
+   computed the standard _get_control_number function.
+  </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.validate.validate_be.validations.nationalId.sample"
+></A
+><H3
+>sample</H3
+><P
+>&#13;    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+// Include the package
+require_once('Validate/BE.php');
+
+$badNationalId = '730111-361-99';
+$result = Validate_BE::nationalId($badNationalId);
+echo 'Test ' . $badNationalId .' : &#60;br /&#62;';
+var_export($result);
+
+echo '&#60;br /&#62;&#60;br /&#62;';
+$goodNationalId = '730111 361 73';
+$result = Validate_BE::nationalId($goodNationalId);
+echo 'Test ' . $goodNationalId .' : &#60;br /&#62;';
+var_export($result);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    Output :
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="computeroutput"
+>&#13;Test 730111-361-99 :
+false
+
+Test 730111 361 73 :
+true
+     </TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.validate.validate_be.validations.ssn"
+></A
+><H2
+>Validate a Belgian social security number</H2
+><P
+>&#13;   The belgian social security number is on the SIS card of all belgian.
+  </P
+><P
+>&#13;   A check digit is the last one, computed the standard _get_control_number function.
+  </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.validate.validate_be.validations.ssn.sample"
+></A
+><H3
+>sample</H3
+><P
+>&#13;    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+// Include the package
+require_once('Validate/BE.php');
+
+$badSsn = '72011136173';
+$result = Validate_BE::ssn($badSsn);
+echo 'Test ' . $badSsn .' : &#60;br /&#62;';
+var_export($result);
+
+echo '&#60;br /&#62;&#60;br /&#62;';
+$goodSsn = '73011136173';
+$result = Validate_BE::ssn($goodSsn);
+echo 'Test ' . $goodSsn .' : &#60;br /&#62;';
+var_export($result);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    Output :
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="computeroutput"
+>&#13;Test 72011136173 :
+false
+
+Test 73011136173 :
+true
+     </TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.validate.validate_be.validations.postcode"
+></A
+><H2
+>Validate a Belgian postcode</H2
+><P
+>Belgian post code are 4 digit formed.</P
+><P
+>First parameter is the post code to validate.</P
+><P
+>&#13;   An optional parameter for activate strong
+   checks using a list of postcodes.
+  </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.validate.validate_be.validations.postcode.sample"
+></A
+><H3
+>sample</H3
+><P
+>&#13;    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+// Include the package
+require_once('Validate/BE.php');
+
+$badPostCode = 'ABCD';
+$result = Validate_BE::postalCode($badPostCode);
+echo 'Test ' . $badPostCode .' : &#60;br /&#62;';
+var_export($result);
+
+echo '&#60;br /&#62;&#60;br /&#62;';
+$goodPostCode = '7930';
+$result = Validate_BE::postalCode($goodPostCode);
+echo 'Test ' . $goodPostCode .' : &#60;br /&#62;';
+var_export($result);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    Output :
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="computeroutput"
+>&#13;Test ABCD :
+false
+
+Test 7930 :
+true
+     </TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.validate.validate_be.validations.postcode.sample.strong"
+></A
+><H3
+>sample unsing strong parameter</H3
+><P
+>&#13;    1234 like a good post code, but dont exit in the official list.
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+// Include the package
+require_once('Validate/BE.php');
+
+$badPostCode = '1234';
+$goodPostCode = '7930';
+
+$result = Validate_BE::postalCode($badPostCode);
+echo 'Test ' . $badPostCode .' : &#60;br /&#62;';
+var_export($result);
+
+$result = Validate_BE::postalCode($badPostCode,false);
+echo '&#60;br /&#62;&#60;br /&#62;Test ' . $badPostCode .' : &#60;br /&#62;';
+var_export($result);
+
+$result = Validate_BE::postalCode($badPostCode,true);
+echo '&#60;br /&#62;&#60;br /&#62;Test ' . $badPostCode .' : &#60;br /&#62;';
+var_export($result);
+
+$result = Validate_BE::postalCode($goodPostCode);
+echo '&#60;br /&#62;&#60;br /&#62;Test ' . $goodPostCode .' : &#60;br /&#62;';
+var_export($result);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    Output :
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="computeroutput"
+>&#13;Test 1234 :
+true
+
+Test 1234 :
+true
+
+Test 1234 :
+false
+
+Test 7930 :
+true
+     </TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.validate.validate_be.validations.bank.account"
+></A
+><H2
+>Validate a Belgian bank account number</H2
+><P
+>&#13;    Belgian bankcodes consist of
+    <P
+></P
+><UL
+><LI
+><P
+>3 figure number for the bank society</P
+></LI
+><LI
+><P
+>7-figure number for the account number</P
+></LI
+><LI
+><P
+>2-figure number for mod 97</P
+></LI
+></UL
+>
+   </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.validate.validate_be.validations.bank.account.sample"
+></A
+><H3
+>sample</H3
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+// Include the package
+require_once('Validate/BE.php');
+$badBankCode = '310164533227';
+$result = Validate_BE::bankCode($badBankCode);
+echo 'Test ' . $badBankCode .' : &#60;br /&#62;';
+var_export($result);
+
+echo '&#60;br /&#62;&#60;br /&#62;';
+$goodBankCode = '310164533207';
+$result = Validate_BE::bankCode($goodBankCode);
+echo 'Test ' . $goodBankCode .' : &#60;br /&#62;';
+var_export($result);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    Output :
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="computeroutput"
+>&#13;Test 310164533227 :
+false
+
+Test 310164533207 :
+true
+     </TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.validate.validate_be.validations.bank.transfert"
+></A
+><H2
+>Validate a Belgian transfert message</H2
+><P
+>&#13;    Belgian transfert (virement) can be done with a structured message
+    12 figures
+    <P
+></P
+><UL
+><LI
+><P
+>10-figure number for the message</P
+></LI
+><LI
+><P
+>2-figure number for mod 97</P
+></LI
+></UL
+>
+  </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.validate.validate_be.validations.bank.transfert.sample"
+></A
+><H3
+>sample</H3
+><P
+>&#13;    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+// Include the package
+require_once('Validate/BE.php');
+
+$badBankTransferMessage = '053/3140/16211';
+$result = Validate_BE::bankTransferMessage($badBankTransferMessage);
+echo 'Test ' . $badBankTransferMessage .' : &#60;br /&#62;';
+var_export($result);
+
+echo '&#60;br /&#62;&#60;br /&#62;';
+$goodBankTransferMessage = '054/3140/16211';
+$result = Validate_BE::bankTransferMessage($goodBankTransferMessage);
+echo 'Test ' . $goodBankTransferMessage .' : &#60;br /&#62;';
+var_export($result);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    Output :
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="computeroutput"
+>&#13;Test 053/3140/16211 :
+false
+
+Test 054/3140/16211 :
+true
+     </TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.validate.validate_be.validations.vat"
+></A
+><H2
+>Validate a VAT account number</H2
+><P
+>Belgian VAT consist of 3-figure number.</P
+><P
+>Actually no doc was found about a checksum.</P
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.validate.validate_be.validations.vat.sample"
+></A
+><H3
+>sample</H3
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+// Include the package
+require_once('Validate/BE.php');
+
+$badVAT = '102.239.951';
+$result = Validate_BE::vat($badVAT);
+echo 'Test ' . $badVAT .' : &#60;br /&#62;';
+var_export($result);
+
+echo '&#60;br /&#62;&#60;br /&#62;';
+$goodVAT = '202-239-951';
+$result = Validate_BE::vat($goodVAT);
+echo 'Test ' . $goodVAT .' : &#60;br /&#62;';
+var_export($result);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    Output :
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="computeroutput"
+>&#13;Test 102.239.951 :
+false
+
+Test 202-239-951 :
+true
+     </TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.validate.validate_be.validations.phonenumber"
+></A
+><H2
+>Validate a phonenumber</H2
+><P
+>&#13;   Validate a belgian phone number passed as first param second
+   specify if it's would be a mobile or a traditional line or both.
+   <SPAN
+CLASS="QUOTE"
+>"/"</SPAN
+> (slash),
+   <SPAN
+CLASS="QUOTE"
+>"-"</SPAN
+> (dash),
+   <SPAN
+CLASS="QUOTE"
+>"."</SPAN
+> (dot),  and white spaces are ignored.
+   <SPAN
+CLASS="QUOTE"
+>"+"</SPAN
+> are use a exit code : 0 in Belgium.
+  </P
+><P
+>&#13;   NOTE : this validate want a BELGIAN phonenumber to return true,
+   not a valid number to call FROM belgium
+  </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.validate.validate_be.validations.phonenumber.sample"
+></A
+><H3
+>sample</H3
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+// Include the package
+require_once('Validate/BE.php');
+
+$badPhone = '00 32 12 123 45 67';
+$result = Validate_BE::phoneNumber($badPhone);
+echo 'Test ' . $badPhone .' : &#60;br /&#62;';
+var_export($result);
+
+echo '&#60;br /&#62;&#60;br /&#62;';
+$goodPhone = '00 32 45 12 34 56';
+$result = Validate_BE::phoneNumber($goodPhone);
+echo 'Test ' . $goodPhone .' : &#60;br /&#62;';
+var_export($result);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    Output :
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="computeroutput"
+>&#13;Test '00 32 12 123 45 67' :
+false
+
+Test '00 32 45 12 34 56' :
+true
+     </TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.validate.validate_be.validations.vat.phonenumber.filtred"
+></A
+><H3
+>sample</H3
+><P
+>&#13;     See now with the parameter
+   </P
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+// Include the package
+require_once('Validate/BE.php');
+
+$goodPhone = '00 32 45 12 34 56';
+$mobilePhone = '00 32 485 34 56';
+
+echo 'Test ' . $goodPhone .' : &#60;br /&#62;';
+$result = Validate_BE::phoneNumber($goodPhone);
+var_export($result) . '-';
+$result = Validate_BE::phoneNumber($goodPhone,VALIDATE_BE_PHONENUMBER_TYPE_ANY);
+var_export($result) . '-';
+$result = Validate_BE::phoneNumber($goodPhone,VALIDATE_BE_PHONENUMBER_TYPE_NORMAL);
+var_export($result) . '-';
+$result = Validate_BE::phoneNumber($goodPhone,VALIDATE_BE_PHONENUMBER_TYPE_MOBILE);
+var_export($result) . '-';
+
+echo '&#60;br /&#62;&#60;br /&#62;';
+$result = Validate_BE::phoneNumber($mobilePhone);
+var_export($result) . '-';
+$result = Validate_BE::phoneNumber($mobilePhone,VALIDATE_BE_PHONENUMBER_TYPE_ANY);
+var_export($result) . '-';
+$result = Validate_BE::phoneNumber($mobilePhone,VALIDATE_BE_PHONENUMBER_TYPE_NORMAL);
+var_export($result) . '-';
+$result = Validate_BE::phoneNumber($mobilePhone,VALIDATE_BE_PHONENUMBER_TYPE_MOBILE);
+var_export($result);
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    Output :
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="computeroutput"
+>&#13;Test 00 32 45 12 34 56 :
+true - true - true - false
+
+Test 00 32 485 34 56 :
+false - false - false - false
+     </TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.validate.validate_be.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.validate.validate-ca.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.validate.validate-be.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Validate_CA</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

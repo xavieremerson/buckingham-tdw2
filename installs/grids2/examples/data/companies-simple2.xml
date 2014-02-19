@@ -1,0 +1,23 @@
+<companies>
+	<company>
+		<ticker>MSFT</ticker>
+		<name>Microsoft Corporation</name>
+		<mktcap>314,571.156</mktcap>
+		<sales>32,187.000</sales>
+		<employees>55000</employees>
+	</company>
+	<company>
+		<ticker>ORCL</ticker>
+		<name>Oracle Corporation</name>
+		<mktcap>62,615.266</mktcap>
+		<sales>9,519.000</sales>
+		<employees>40650</employees>
+	</company>
+	<company>
+		<ticker>SAP</ticker>
+		<name>SAP AG (ADR)</name>
+		<mktcap>40,986.328</mktcap>
+		<sales>8,296.420</sales>
+		<employees>28961</employees>
+	</company>
+</companies>

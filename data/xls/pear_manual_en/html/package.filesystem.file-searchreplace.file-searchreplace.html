@@ -1,0 +1,295 @@
+<HTML
+><HEAD
+><TITLE
+>File_SearchReplace::File_SearchReplace()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File_SearchReplace"
+HREF="package.filesystem.file-searchreplace.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.filesystem.file-searchreplace.intro.html"><LINK
+REL="NEXT"
+TITLE="File_SearchReplace::getNumOccurences()"
+HREF="package.filesystem.file-searchreplace.getnumoccurences.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-searchreplace.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-searchreplace.getnumoccurences.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.filesystem.file-searchreplace.file-searchreplace">File_SearchReplace::File_SearchReplace()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN48482"
+></A
+>File_SearchReplace::File_SearchReplace()&nbsp;--&nbsp;constructor</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN48485"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN48486"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'File/SearchReplace.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void
+     <B
+CLASS="function"
+>File_SearchReplace::File_SearchReplace</B
+></CODE
+> (mixed $find, mixed $replace, string $files [, mixed $directories = '' [, boolean 
+      $include_subdir = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> [, array $ignore_lines = array()]]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-searchreplace.file-searchreplace.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Constructor
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-searchreplace.file-searchreplace.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;    <P
+></P
+><UL
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>mixed $find</I
+></TT
+> - the string/regex or array
+       of strings/regexes to find
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>mixed $replace</I
+></TT
+> - the string/regex or
+       array of strings/regexes to replace $find
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>array $files</I
+></TT
+> - the file(s) to perform
+       this operation on.
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>array $directories</I
+></TT
+> - the directories
+       to perform this operation on.
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>boolean $include_subdir</I
+></TT
+> - if performing on
+       directories, whether to traverse subdirectories.
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>array $ignore_lines</I
+></TT
+> - ignore lines beginning
+       with any of the strings in this array. This feature only
+       works with the "normal" search.
+      </P
+></LI
+></UL
+>     
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-searchreplace.file-searchreplace.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-searchreplace.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-searchreplace.getnumoccurences.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-searchreplace.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>File_SearchReplace::getNumOccurences()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

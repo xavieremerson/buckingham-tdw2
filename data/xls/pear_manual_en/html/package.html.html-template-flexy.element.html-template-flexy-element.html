@@ -1,0 +1,594 @@
+<HTML
+><HEAD
+><TITLE
+>new  HTML_Template_Flexy_Element</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_Flexy"
+HREF="package.html.html-template-flexy.html"><LINK
+REL="PREVIOUS"
+TITLE="$flexy->getElements()"
+HREF="package.html.html-template-flexy.html-template-flexy.getelements.html"><LINK
+REL="NEXT"
+TITLE="$element->setValue()"
+HREF="package.html.html-template-flexy.element.setvalue.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.getelements.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.element.setvalue.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-flexy.element.html-template-flexy-element">new  HTML_Template_Flexy_Element</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN68906"
+></A
+>new  HTML_Template_Flexy_Element&nbsp;--&nbsp;Class constructor</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN68909"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN68910"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/Template/Flexy/Element.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>new    <B
+CLASS="function"
+>HTML_Template_Flexy_Element</B
+></CODE
+> ([string $tag = '' [, array $attributes = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.element.html-template-flexy-element.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;       Flexy uses a single lightweight class  to represent All HTML Tags, All the variables of the class are 
+       public, and you are encouraged to use them. And the methods provide generic assignment and conversion abilities.
+     </P
+><P
+>&#13;       To force th toHtml() method to generate XHTML, rather than standard HTML, use $element-&#62;setAttribute('flexy:xhtml','yes'); 
+	or add flexy:xhtml="true" to the attribute of the element in the template.
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.element.html-template-flexy-element.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;      <P
+></P
+><UL
+><LI
+><P
+>&#13;            <TT
+CLASS="parameter"
+><I
+>$tag</I
+></TT
+> -  The name of the HTML Tag eg. img for &#60;img ....
+          </P
+></LI
+></UL
+>
+      <P
+></P
+><UL
+><LI
+><P
+>&#13;            <TT
+CLASS="parameter"
+><I
+>$attributes</I
+></TT
+> - 
+            Associative array of attributes, where key="value" is output when you turn it
+            in toHtml(), If you need to represent a attribute without a value, use <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> as the value.
+            This also accepts a string in the format "href='/test.jpg' alt='test'", which will be 
+            parsed into the attributes array of the object.
+          </P
+></LI
+></UL
+>
+     
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN68938"
+></A
+><H2
+>Public Properties</H2
+><P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+            <TT
+CLASS="parameter"
+><I
+>$element-&#62;tag</I
+></TT
+></DT
+><DD
+><P
+>&#13;            The name of the html element eg. img for &#60;img...
+            </P
+></DD
+><DT
+>array
+            <TT
+CLASS="parameter"
+><I
+>$element-&#62;attributes</I
+></TT
+></DT
+><DD
+><P
+>&#13;            Attributes for the element
+            </P
+></DD
+><DT
+>array
+            <TT
+CLASS="parameter"
+><I
+>$element-&#62;children</I
+></TT
+></DT
+><DD
+><P
+>&#13;            All the sub elements inside this, can be any object that implements toHtml(), or a string.
+            
+            </P
+></DD
+><DT
+>string
+            <TT
+CLASS="parameter"
+><I
+>$element-&#62;override</I
+></TT
+></DT
+><DD
+><P
+>&#13;           this value of thiswill be output when toHtml() is called, rather than the tags.
+            
+            </P
+></DD
+><DT
+>string|object
+            <TT
+CLASS="parameter"
+><I
+>$element-&#62;prefix</I
+></TT
+></DT
+><DD
+><P
+>&#13;             string or object that implements toHtml() method, and is returned by toHtml() before the tag HTML
+            </P
+></DD
+><DT
+>string|object
+            <TT
+CLASS="parameter"
+><I
+>$element-&#62;suffix</I
+></TT
+></DT
+><DD
+><P
+>&#13;             string or object that implements toHtml() method, and is returned by toHtml() after the tag HTML
+            
+            </P
+></DD
+><DT
+>mixed
+            <TT
+CLASS="parameter"
+><I
+>$element-&#62;value</I
+></TT
+></DT
+><DD
+><P
+>&#13;            when you create an element, that is to be merged later with a full definition, you can assign the 
+            value here, and during toHtml(), the toValue() method will be called and select options, checkboxes and 
+            input values will be correctly filled in.
+            
+            </P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.element.html-template-flexy-element.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> no exceptions thrown
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.element.html-template-flexy-element.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.element.html-template-flexy-element.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN68992"><P
+><B
+>Example 41-1. Using an element to change a template.</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$form = new HTML_Template_Flexy();
+$form-&#62;compile('some_file_name');
+
+// create an instance (note you dont have to specify any details..)
+
+$elements['test'] = new HTML_Template_Flexy_Element;
+
+// change an attribute
+$elements['test']-&#62;attributes['class'] = 'bold';
+
+// sets the value
+$elements['test']-&#62;setValue('Fred');
+
+
+// wrap it with something
+$elements['test']-&#62;prefix = '******';
+$elements['test']-&#62;suffix = '!!!!!!';
+
+
+
+// for the different types of elements:
+$elements['test_textarea'] = new HTML_Template_Flexy_Element;
+$elements['test_textarea']-&#62;setValue('Blogs');
+
+
+// select options
+$elements['test_select'] = new HTML_Template_Flexy_Element;
+$elements['test_select']-&#62;setOptions( array(
+  '123' =&#62; 'a select option',
+  '1234' =&#62; 'another select option'
+));
+$elements['test_select']-&#62;setValue('1234');
+
+// checkboxes
+$elements['test_checkbox'] = new HTML_Template_Flexy_Element;
+$elements['test_checkbox']-&#62;setValue(1);
+$elements['test_checkbox']-&#62;setAttribute('flexy:xhtml','yes');
+
+// array type checkboxes..
+$elements['test_checkbox_array[]'] = new HTML_Template_Flexy_Element;
+$elements['test_checkbox_array[]']-&#62;setValue(array(1,2));
+
+// radio buttons
+$elements['test_radio'] = new HTML_Template_Flexy_Element;
+$elements['test_radio']-&#62;setValue('yes');
+
+
+$form-&#62;outputObject(new StdClass, $elements);
+
+// in the example below, the new data you have added is to the existing attributes</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN68995"><P
+><B
+>Example 41-2. template example</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>&#60;body&#62;
+  &#60;form name="xxxx"&#62;
+  
+    &#60;input name="test" length="12"&#62;
+    
+    &#60;textarea name="test_textarea"&#62;&#60;/textarea&#62;
+    
+    &#60;select name="test_select"&#62;&#60;/select&#62;
+    
+    &#60;input name="test_checkbox" type="checkbox" value="1"&#62;
+    
+    &#60;input name="test_checkbox_array[]" type="checkbox" value="1" /&#62;1&#60;br /&#62;
+    &#60;input name="test_checkbox_array[]" type="checkbox" value="2" /&#62;2&#60;br /&#62;
+    &#60;input name="test_checkbox_array[]" type="checkbox" value="3" /&#62;3&#60;br /&#62;
+    
+    &#60;input name="test_radio" type="radio" id="yes" value="yes" /&#62;yes&#60;br /&#62;
+    &#60;input name="test_radio" type="radio" id="no" value="no" /&#62;no&#60;br /&#62;
+    
+  &#60;/form&#62;
+&#60;/body&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN68998"><P
+><B
+>Example 41-3. output from the Template</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>&#60;body&#62;
+  &#60;form name="xxxx"&#62;
+  
+    ******&#60;input name="test"  length="12" class="bold" value="fred"&#62;!!!!!!
+    
+    &#60;textarea name="test_textarea"&#62;blogs&#60;/textarea&#62;
+    
+    &#60;select name="test_select"&#62;
+      &#60;option value="123"&#62;a selection option&#60;/option&#62;
+      &#60;option value="1234" selected&#62;another selection option&#60;/option&#62;
+      
+    &#60;/select&#62;
+    
+    &#60;input name="test_checkbox" type="checkbox" value="1" checked="checked" /&#62;
+    
+    &#60;input name="test_checkbox_array[]" type="checkbox" value="1" checked&#62;1&#60;br /&#62;
+    &#60;input name="test_checkbox_array[]" type="checkbox" value="2" checked&#62;2&#60;br /&#62;
+    &#60;input name="test_checkbox_array[]" type="checkbox" value="3"&#62;3&#60;br /&#62;
+    
+    &#60;input name="test_radio" type="radio" id="yes" value="yes" checked&#62;yes&#60;br /&#62;
+    &#60;input name="test_radio" type="radio" id="no" value="no"&#62;no&#60;br /&#62;
+    
+    
+  &#60;/form&#62;
+&#60;/body&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.getelements.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.element.setvalue.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>$flexy-&#62;getElements()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>$element-&#62;setValue()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,373 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_Template_IT::setRoot()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_IT"
+HREF="package.html.html-template-it.html"><LINK
+REL="PREVIOUS"
+TITLE="HTML_Template_IT::setCurrentBlock()"
+HREF="package.html.html-template-it.setcurrentblock.html"><LINK
+REL="NEXT"
+TITLE="HTML_Template_IT::setTemplate()"
+HREF="package.html.html-template-it.settemplate.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-it.setcurrentblock.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-it.settemplate.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-it.setroot">HTML_Template_IT::setRoot()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN70324"
+></A
+>HTML_Template_IT::setRoot()&nbsp;--&nbsp;set the template root directory</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN70327"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN70328"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/Template/IT.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void
+      <B
+CLASS="function"
+>HTML_Template_IT::setRoot</B
+></CODE
+> (string $root)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.setroot.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;    Sets the path to the template directory where <B
+CLASS="function"
+>HTML_Template_IT::loadTemplatefile()</B
+>
+searches for templates. Every filename is prefixed with the given string.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.setroot.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $root</I
+></TT
+> - 
+        Path to the template directory.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.setroot.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN70348"><P
+><B
+>Example 41-1. Directorytree.</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>./
+./testscript.php
+./templates/design01/main.tpl.htm
+./templates/design01/table.tpl.htm
+./templates/design02/main.tpl.htm
+./templates/design02/table.tpl.htm</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN70351"><P
+><B
+>Example 41-2. script - testscript.php</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php 
+  /* 
+   * testscipt.php - sets a random design
+   */
+
+  require_once "HTML/Template/IT.php";
+
+  $tpl = new HTML_Template_IT();
+ 
+  $randomNumber = (int) round(rand(0,1));
+  switch ($randomNumber) 
+  {
+     case 0:
+         // Set root to design01 so the called main.tpl.htm is searched there
+         $tpl-&#62;setRoot("./templates/design01");
+         break;
+     case 1:
+     default:
+         // Set root to design02 so the called main.tpl.htm is searched there
+         $tpl-&#62;setRoot("./templates/design02");
+         break;
+  }
+
+  /* Loads either ./templates/design01/main.tpl.htm
+   * or ./templates/design02/main.tpl.htm depending on the root directory set
+   * with setRoot in the switch */
+  $tpl-&#62;loadTemplatefile("main.tpl.htm", true, true);
+
+  /* ... assign variables .. */
+
+  // show
+  $tpl-&#62;show();
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.setroot.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.setroot.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;     <A
+HREF="package.html.html-template-it.html-template-it.html"
+>&#13;      <B
+CLASS="function"
+>HTML_Template_IT::HTML_Template_IT()</B
+></A
+>,
+     <A
+HREF="package.html.html-template-it.loadtemplatefile.html"
+>&#13;      <B
+CLASS="function"
+>HTML_Template_IT::loadTemplatefile()</B
+></A
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-it.setcurrentblock.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-it.settemplate.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_Template_IT::setCurrentBlock()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-it.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_Template_IT::setTemplate()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

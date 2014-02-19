@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+<Title>Background and Wallpaper</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">Background and Wallpaper</p>
+<hr class="separator">
+<div class="content">
+<img src="images/background0.png">&nbsp;&nbsp;<img src="images/background1.png">&nbsp;&nbsp;<img src="images/background2.png">&nbsp;&nbsp;<img src="images/background3.png">
+<br><br>
+This example illustrates some of the background effects supported by ChartDirector.<br><br>
+ChartDirector supports the use of an image file as the wallpaper of the entire chart background and/or as the background of the plot area only. The former is by using <a href="BaseChart.setWallpaper.htm">BaseChart.setWallpaper</a>. The latter is by using the <a href="PlotArea.setBackground2.htm">PlotArea.setBackground2</a>.<br><br>
+In addition to wallpapers, ChartDirector also supports different kinds of background colors. The plot area background can be alternately colored using <a href="PlotArea.setBackground.htm">PlotArea.setBackground</a>. You can also switch to a dark background with white lines and text in one step by changing the color palette to a <a href="colorspec.htm#builtinpalette">whiteOnBlackPalette</a> using <a href="BaseChart.setColors.htm">BaseChart.setColors</a>.
+</div>
+<p class="heading2">Source Code Listing</p>
+<div class="content">
+[File: phpdemo/background.php]<br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp><?php
+include("phpchartdir.php");
+
+#The data for the chart
+$data = array(85, 156, 179.5, 211, 123);
+$labels = array("Mon", "Tue", "Wed", "Thu", "Fri");
+
+#Create a XYChart object of size 270 x 270 pixels
+$c = new XYChart(270, 270);
+
+#Set the plot area at (40, 32) and of size 200 x 200 pixels
+$plotarea = $c->setPlotArea(40, 32, 200, 200);
+
+#Set the background style based on the input parameter
+if ($HTTP_GET_VARS["img"] == "0") {
+    #Has wallpaper image
+    $c->setWallpaper(dirname(__FILE__)."/tile.gif");
+} else if ($HTTP_GET_VARS["img"] == "1") {
+    #Use a background image as the plot area background
+    $plotarea->setBackground2(dirname(__FILE__)."/bg.png");
+} else if ($HTTP_GET_VARS["img"] == "2") {
+    #Use white (0xffffff) and grey (0xe0e0e0) as two alternate plotarea
+    #background colors
+    $plotarea->setBackground(0xffffff, 0xe0e0e0);
+} else {
+    #Use a dark background palette
+    $c->setColors($whiteOnBlackPalette);
+}
+
+#Set the labels on the x axis
+$c->xAxis->setLabels($labels);
+
+#Add a color bar layer using the given data. Use a 1 pixel 3D border for the
+#bars.
+$barLayer3Obj = $c->addBarLayer3($data);
+$barLayer3Obj->setBorderColor(-1, 1);
+
+#output the chart
+header("Content-type: image/png");
+print($c->makeChart2(PNG));
+?></xmp>
+</td></tr></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

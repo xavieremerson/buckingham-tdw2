@@ -1,0 +1,233 @@
+<HTML
+><HEAD
+><TITLE
+>Example</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_Server"
+HREF="package.networking.net-server.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.networking.net-server.intro.html"><LINK
+REL="NEXT"
+TITLE="Class Summary Net_Server"
+HREF="package.networking.net-server.net-server-summary.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-server.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-server.net-server-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-server.example">Example</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN87566"
+></A
+>Example&nbsp;--&nbsp;using Net_Server</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-server.example.example1"
+></A
+><H2
+>Creating a simple daemon</H2
+><P
+>&#13;    The following example shows, how easy it is to build
+    a forking server that receives data and sends it back
+    to the user.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN87572"><P
+><B
+>Example 48-1. Creating a simple talkback daemon</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>#!/usr/local/bin/php
+&#60;?php
+    // server base class
+    require_once 'Net/Server.php';
+    
+    // base class for the handler
+    require_once 'Net/Server/Handler.php';
+
+/**
+ * simple example that implements a talkback.
+ *
+ * Normally this should be a bit more code and in a separate file
+ */
+class Net_Server_Handler_Talkback extends Net_Server_Handler
+{
+   /**
+    * If the user sends data, send it back to him
+    *
+    * @access   public
+    * @param    integer $clientId
+    * @param    string  $data
+    */
+    function    onReceiveData( $clientId = 0, $data = "" )
+    {
+        $this-&#62;_server-&#62;sendData( $clientId, "You said: $data" );
+    }
+}
+    
+    // create a server that forks new processes
+    $server  = &#38;Net_Server::create('fork', 'localhost', 9090);
+    
+    $handler = &#38;new Net_Server_Handler_Talkback;
+    
+    // hand over the object that handles server events
+    $server-&#62;setCallbackObject($handler);
+    
+    // start the server
+    $server-&#62;start();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-server.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-server.net-server-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-server.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class Summary <B
+CLASS="classname"
+>Net_Server</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,388 @@
+<HTML
+><HEAD
+><TITLE
+>Cache_Lite::get</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Cache_Lite"
+HREF="package.caching.cache-lite.html"><LINK
+REL="PREVIOUS"
+TITLE="constructor Cache_Lite::Cache_Lite"
+HREF="package.caching.cache-lite.cache-lite.cache-lite.html"><LINK
+REL="NEXT"
+TITLE="Cache_Lite::save"
+HREF="package.caching.cache-lite.cache-lite.save.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.caching.cache-lite.cache-lite.cache-lite.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.caching.cache-lite.cache-lite.save.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.caching.cache-lite.cache-lite.get"><B
+CLASS="function"
+>Cache_Lite::get()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN17876"
+></A
+><B
+CLASS="function"
+>Cache_Lite::get()</B
+>&nbsp;--&nbsp;Test if a cache is available and (if yes) return it</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN17880"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN17881"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Cache/Lite.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>string      <B
+CLASS="function"
+>Cache_Lite::get</B
+></CODE
+> (string $id [, string $group = 'default' [, boolean $doNotTestCacheValidity = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.caching.cache-lite.cache-lite.get.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      One of the main method of Cache_Lite : test the validity of a cache file
+      and return it if it's available (<TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> else)
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.caching.cache-lite.cache-lite.get.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+                 <TT
+CLASS="parameter"
+><I
+>$id</I
+></TT
+></DT
+><DD
+><P
+>&#13;         cache id
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+                 <TT
+CLASS="parameter"
+><I
+>$group</I
+></TT
+></DT
+><DD
+><P
+>&#13;         name of the cache group
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>boolean
+                 <TT
+CLASS="parameter"
+><I
+>$doNotTestCacheValidity</I
+></TT
+></DT
+><DD
+><P
+>&#13;         if set to <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, the cache validity won't be tested
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.caching.cache-lite.cache-lite.get.returns"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>returns</I
+></SPAN
+> data of the cache (or false if no cache available)
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.caching.cache-lite.cache-lite.get.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.caching.cache-lite.cache-lite.get.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN17933"><P
+><B
+>Example 30-1. Usage</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once "Cache/Lite.php";
+
+$options = array(
+    'cacheDir' =&#62; '/tmp/',
+    'lifeTime' =&#62; 7200,
+    'pearErrorMode' =&#62; CACHE_LITE_ERROR_DIE
+);
+$cache = new Cache_Lite($options);
+
+if ($data = $cache-&#62;get('id_of_the_page')) {
+
+    // Cache hit !
+    // Content is in $data
+    // (...)
+
+} else { 
+    
+    // No valid cache found (you have to make and save the page)
+    // (...)
+    
+}
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.caching.cache-lite.cache-lite.cache-lite.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.caching.cache-lite.cache-lite.save.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>constructor <B
+CLASS="function"
+>Cache_Lite::Cache_Lite()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.caching.cache-lite.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Cache_Lite::save()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

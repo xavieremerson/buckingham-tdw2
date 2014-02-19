@@ -1,0 +1,351 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_Table::addRow</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Table"
+HREF="package.html.html-table.html"><LINK
+REL="PREVIOUS"
+TITLE="HTML_Table::addCol"
+HREF="package.html.html-table.html-table.addcol.html"><LINK
+REL="NEXT"
+TITLE="HTML_Table::altRowAttributes"
+HREF="package.html.html-table.html-table.altrowattributes.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-table.html-table.addcol.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-table.html-table.altrowattributes.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-table.html-table.addrow">HTML_Table::addRow</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN67200"
+></A
+>HTML_Table::addRow&nbsp;--&nbsp;Add row</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN67203"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN67204"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/Table.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int <B
+CLASS="function"
+>HTML_Table::addRow</B
+></CODE
+> ([array $contents = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> [, mixed $attributes = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> [, string $type='TD' [, boolean $inTR = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>]]]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-table.html-table.addrow.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Adds a table row and returns the row identifier 
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-table.html-table.addrow.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>array $contents</I
+></TT
+> -
+								Must be an indexed array of valid cell contents
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>mixed $attributes</I
+></TT
+> -
+        Associative array or string of table row attributes.
+        This can also be an array of attributes, in which case the attributes
+        will be repeated in a loop.
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $type</I
+></TT
+> -
+								Cell type either <TT
+CLASS="parameter"
+><I
+>'th'</I
+></TT
+> or 
+								<TT
+CLASS="parameter"
+><I
+>'td'</I
+></TT
+>
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>boolean $inTR</I
+></TT
+> -
+        <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>, if attributes are to be 
+        applied in <TT
+CLASS="parameter"
+><I
+>TD</I
+></TT
+> tags;
+        <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, if attributes are to be 
+        applied in <TT
+CLASS="parameter"
+><I
+>TR</I
+></TT
+> tag
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-table.html-table.addrow.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;					<TT
+CLASS="parameter"
+><I
+>int</I
+></TT
+> - 
+					the row identifier
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-table.html-table.addrow.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-table.html-table.addrow.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;     <A
+HREF="package.html.html-table.html-table.addcol.html"
+>&#13;													<B
+CLASS="function"
+>HTML_Table::addCol()</B
+>
+     </A
+>     
+				</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-table.html-table.addcol.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-table.html-table.altrowattributes.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_Table::addCol</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-table.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_Table::altRowAttributes</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

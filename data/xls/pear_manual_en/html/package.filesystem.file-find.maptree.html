@@ -1,0 +1,341 @@
+<HTML
+><HEAD
+><TITLE
+>File_Find::maptree()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File_Find"
+HREF="package.filesystem.file-find.html"><LINK
+REL="PREVIOUS"
+TITLE="File_Find::glob()"
+HREF="package.filesystem.file-find.glob.html"><LINK
+REL="NEXT"
+TITLE="File_Find::mapTreeMultiple()"
+HREF="package.filesystem.file-find.maptreemultiple.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-find.glob.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-find.maptreemultiple.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.filesystem.file-find.maptree">File_Find::maptree()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN47393"
+></A
+>File_Find::maptree()&nbsp;--&nbsp;create a view map for a directory</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN47396"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN47397"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'File/Find.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array
+     <B
+CLASS="function"
+>&#38;File_Find::maptree</B
+></CODE
+> (string $directory)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-find.maptree.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;    Map the directory tree given by the directory_path parameter.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-find.maptree.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;    <P
+></P
+><UL
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>string $directory</I
+></TT
+> - contains the directory
+       path that you want to map
+      </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-find.maptree.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>array</I
+></TT
+> - a two element array, the first
+       element containing a list of all the directories, the second
+       element containing a list of all the files.
+      </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-find.maptree.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-find.maptree.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN47423"><P
+><B
+>Example 38-1. Get the map of a directory</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>include "File/Find.php";
+
+$dir = "File_Find";
+list($directories, $files) = File_Find::maptree($dir);
+
+echo "Directories ";
+print_r($directories);
+
+echo "Files ";
+print_r($files);</PRE
+></TD
+></TR
+></TABLE
+><P
+>The above example will output something similar to:</P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Directories Array
+(
+    [0] =&#62; File_Find
+    [1] =&#62; File_Find\dir2
+    [2] =&#62; File_Find\dir2\2
+    [3] =&#62; File_Find\dir2\1
+    [4] =&#62; File_Find\dir2\0
+    [5] =&#62; File_Find\dir
+    [6] =&#62; File_Find\dir\txtdir
+    [7] =&#62; File_Find\dir\dir3
+    [8] =&#62; File_Find\dir\dir2
+)
+Files Array
+(
+    [0] =&#62; File_Find\dir2\2\1.txt
+    [1] =&#62; File_Find\dir2\1\1.txt
+    [2] =&#62; File_Find\dir2\0\1.txt
+    [3] =&#62; File_Find\dir\1.txt
+    [4] =&#62; File_Find\dir\2.txt
+    [5] =&#62; File_Find\dir\txtdir\5.txt
+    [6] =&#62; File_Find\dir\dir3\4.bak
+    [7] =&#62; File_Find\dir\dir3\4.txt
+    [8] =&#62; File_Find\dir\dir2\3.bak
+    [9] =&#62; File_Find\dir\dir2\3.txt
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-find.glob.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-find.maptreemultiple.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>File_Find::glob()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-find.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>File_Find::mapTreeMultiple()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,319 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;    Color Representation inside PEAR Packages
+   </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Recommendations"
+HREF="developers.recommendations.html"><LINK
+REL="PREVIOUS"
+TITLE="Recommendations"
+HREF="developers.recommendations.html"><LINK
+REL="NEXT"
+TITLE="Writing documentation"
+HREF="developers.documentation.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="developers.recommendations.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 19. Recommendations</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="developers.documentation.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="developers.faq.colorrepresentation">Color Representation inside PEAR Packages</H1
+><P
+>&#13;    In case a package has to deal with colors, it is recommended that
+    developers store and use an array representation of the color values
+    in their PEAR packages. All values are in the range of 0..255.
+   </P
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="AEN2920">RGB represesentation</H2
+><P
+>&#13;     The following snippet defines an array that holds the RGB
+     definition of the green coloring that is used in the official PEAR
+     logo.
+     
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$color = array(0x33, 0x99, 0x00);</PRE
+></TD
+></TR
+></TABLE
+>
+
+     or
+     
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$color = array(51, 153, 0);</PRE
+></TD
+></TR
+></TABLE
+>
+
+     Please note that the internal, numerical representation of both forms 
+     of the example are equal. The values represent the RGB (red, green, 
+     blue) values. It was decided not to use "r", "g" and "b" as indices 
+     for the array, because numerical indices allow easier creation of
+     color arrays in the sourcecode, make handling less complicated and
+     are an already commonly used array representation for colors.
+    </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="AEN2925">RGB representation with alpha-values</H2
+><P
+>&#13;     Since this an extension of the RGB representation above, it is
+     recommended to use a forth value for alpha-channel-prepresentation. 
+     An example of the <SPAN
+CLASS="QUOTE"
+>"PEAR-green"</SPAN
+> with aprox. 80% 
+     intensity would be:
+
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$color = array(0x33, 0x99, 0x00, 0xCC);</PRE
+></TD
+></TR
+></TABLE
+>
+             
+     For consistency the alpha-value is also from the range 0..255. A 
+     value of 255 means fully opaque (full color-intensity, same as in RGB-
+     notation), 0 means fully transparent.
+    </P
+><P
+>&#13;     Please note this is in contrast to the alpha-value used by 
+     imagecolorallocate(). The alpha-representation used in PEAR was
+     choosen for consistency with the other RGB values and because it is
+     commonly accepted practise in many other applications
+     (image-processing tools, etc.).
+    </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="AEN2931">Other color representations than RGB(A)</H2
+><P
+>&#13;     Since RGB/RGBA will used for graphic generation on a computer we 
+     decided to leave out an optional type-identifier classifying colors 
+     as RGB/RGBA. However for different color-representations an 
+     identifier is needed. The optional identifier "type" can be added to 
+     the color array.
+
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$color = array(0x33, 0x99, 0x00, 0xCC, "type" =&#62; "RGB");</PRE
+></TD
+></TR
+></TABLE
+>
+             
+     Currently the following types are definied, with array-indices from 
+     0..n follwing the colornames listed behind them:
+    </P
+><P
+></P
+><UL
+><LI
+><P
+>RGB - red, green, blue</P
+></LI
+><LI
+><P
+>CYMK - cyan, yellow, magenta, black (key)</P
+></LI
+></UL
+><P
+>&#13;     Please note that also the RGBA representation has the type "RGB" 
+     since it's closely related.
+    </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="AEN2941">Conversion to/between the color-representations</H2
+><P
+>&#13;     The PEAR-package <A
+HREF="http://pear.php.net/package/Image_Color"
+TARGET="_top"
+>Image_Color</A
+>
+     will (hopefully soon) contain all needed functions to convert arbitrary
+     color formats to the internal RGBA representation and convert different
+     color representations.
+    </P
+><P
+>&#13;     Status: Currently Image_Color already offers functions to convert 
+     color-names (e.g. "green") and hex-representations-strings (e.g. 
+     "#339900") to the PEAR-RGBA-format. We are working to get alpha-
+     channel support added hopefully soon and will later add funtions for 
+     CYMK-conversion as well.
+    </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="developers.recommendations.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="developers.documentation.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Recommendations</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="developers.recommendations.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Writing documentation</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

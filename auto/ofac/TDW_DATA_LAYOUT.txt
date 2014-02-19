@@ -1,0 +1,78 @@
+------------------------------------------------------------------------
+DATA LAYOUT: USED BY TDW
+------------------------------------------------------------------------
+
+FORMAT SDN CSV
+
+Main table, text file name SDN.CSV
+
+Column
+sequence Column name  Type     Size  Description
+-------- ------------ -------  ----  ---------------------
+1        ent_num     number          unique record
+                                     identifier/unique
+                                     listing identifier
+2        SDN_Name     text     350   name of SDN
+3        SDN_Type     text     12    type of SDN
+4        Program      text     50    sanctions program name
+5        Title        text     200   title of an individual
+6        Call_Sign    text     8     vessel call sign
+7        Vess_type    text     25    vessel type
+8        Tonnage      text     14    vessel tonnage
+9        GRT          text     8     gross registered tonnage
+10       Vess_flag    text     40    vessel flag
+11       Vess_owner   text     150   vessel owner
+12       Remarks      text     1000  remarks on SDN
+
+Address table, text file name ADD.CSV
+
+Column
+sequence Column name  Type     Size  Description
+-------- ------------ -------  ----  ---------------------
+1        Ent_num      number         link to unique listing
+2        Add_num      number         unique record identifier
+3        Address      text     750   street address of SDN
+4        City         text     50    city of address
+5        Country      text     250   country of address
+6        Add_remarks  text     200   remarks on address
+
+Alternate identity table, text file name ALT.CSV
+
+Column
+sequence Column name  Type     Size  Description
+-------- ------------ -------  ----  ---------------------
+1        ent_num      number         link to unique listing
+2        alt_num      number         unique record identifier
+3        alt_type     text     8     type of alternate identity
+                                     (aka, fka, nka)
+4        alt_name     text     350   alternate identity name
+5        alt_remarks  text     200   remarks on alternate identity
+
+Record separator:              carriage return
+field (value) delimiter:       ,
+text value quotes:             "
+null:                          -0-
+
+=======================================================================================
+
+The boolean full-text search capability supports the following operators:
+
++ A leading plus sign indicates that this word must be present in every row returned. 
+
+- A leading minus sign indicates that this word must not be present in any row returned. 
+
+" A phrase that is enclosed within double quote (") characters matches only rows that contain the phrase literally, as it was typed. The full-text engine splits the phrase into words, performs a search in the FULLTEXT index for the words. Phrase searching requires only that matches contain exactly the same words as the phrase and in the same order. For example, "test phrase" matches "test, phrase"
+
+(no operator) By default (when neither + nor - is specified) the word is optional, but the rows that contain it are rated higher. 
+
+( ) Parentheses are used to group words into subexpressions. Parenthesized groups can be nested. 
+
+> < These two operators are used to change a word's contribution to the relevance value that is assigned to a row. The > operator increases the contribution and the < operator decreases it. See the example below. 
+
+~ A leading tilde acts as a negation operator, causing the word's contribution to the row relevance to be negative. It's useful for marking noise words. A row that contains such a word is rated lower than others, but is not excluded altogether, as it would be with the - operator. 
+
+* An asterisk is the truncation operator. Unlike the other operators, it must be appended to the word. 
+ 
+The Resource Center is partially supported by the Jane Pulliam Trust, The Florence and John Schumann Foundation and the John S. & James. L. Knight Foundation.  
+
+===========================================================================================

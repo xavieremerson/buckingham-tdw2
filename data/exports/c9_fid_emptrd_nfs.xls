@@ -1,0 +1,2944 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+				<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+				<body><table width="800" border="1" cellspacing="0" cellpadding="0">
+					<tr>
+							<td width="85">Trade Date</td>
+							<td width="200">Name</td>
+							<td width="100">Account</td> 
+							<td width="60">Symbol</td>
+							<td width="100">Cusip</td> 
+							<td width="320">Sec. Description</td>
+							<td width="40">Buy/Sell</td>
+							<td width="70">Quantity</td>
+							<td width="100">Price</td>
+							<td width="80">Ord Entry</td>
+							<td width="75">Ord Exec</td>
+					</tr><tr>
+										<td>11/20/2013</td>
+										<td>LARA HUNT SMITH</td>
+										<td>121482340</td>
+										<td>GOL</td>
+										<td>1761979JF</td>
+										<td>CALL (GOL) GOL LINHAS AEREAS</td>
+										<td>B</td>
+										<td>25</td>
+										<td>0.66</td>
+										<td>9:57AM</td>
+										<td>9:57AM</td>
+									</tr><tr>
+										<td>11/22/2013</td>
+										<td>LARA HUNT SMITH</td>
+										<td>121482340</td>
+										<td>PNRA</td>
+										<td>1518519NH</td>
+										<td>CALL (PNRA) PANERA BREAD COMPANY</td>
+										<td>S</td>
+										<td>5</td>
+										<td>15.45</td>
+										<td>3:59PM</td>
+										<td>3:59PM</td>
+									</tr><tr>
+										<td>11/20/2013</td>
+										<td>MICHAEL ALEXANDER SM</td>
+										<td>121484210</td>
+										<td>GOL</td>
+										<td>1761979JF</td>
+										<td>CALL (GOL) GOL LINHAS AEREAS</td>
+										<td>B</td>
+										<td>100</td>
+										<td>0.64</td>
+										<td>9:56AM</td>
+										<td>9:56AM</td>
+									</tr><tr>
+										<td>11/22/2013</td>
+										<td>MICHAEL ALEXANDER SM</td>
+										<td>121484210</td>
+										<td>PNRA</td>
+										<td>1506059BX</td>
+										<td>CALL (PNRA) PANERA BREAD COMPANY</td>
+										<td>S</td>
+										<td>15</td>
+										<td>18.29</td>
+										<td>3:59PM</td>
+										<td>3:59PM</td>
+									</tr><tr>
+										<td>11/11/2013</td>
+										<td>KATHERINE L O'GORMAN</td>
+										<td>180348554</td>
+										<td>NAV</td>
+										<td>63934E108</td>
+										<td>NAVISTAR INTL CORP </td>
+										<td>B</td>
+										<td>700</td>
+										<td>40.97</td>
+										<td>12:45PM</td>
+										<td>12:45PM</td>
+									</tr><tr>
+										<td>11/04/2013</td>
+										<td>RAVI  SADARANGANI</td>
+										<td>186596876</td>
+										<td>DVN</td>
+										<td>25179M103</td>
+										<td>DEVON ENERGY CORP NEW</td>
+										<td>S</td>
+										<td>500</td>
+										<td>64.57</td>
+										<td>2:53PM</td>
+										<td>2:53PM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>RAVI  SADARANGANI</td>
+										<td>186596876</td>
+										<td>FUEL</td>
+										<td>773111109</td>
+										<td>ROCKET FUEL INC USD0.001</td>
+										<td>B</td>
+										<td>100</td>
+										<td>45.00</td>
+										<td>11:12AM</td>
+										<td>12:05PM</td>
+									</tr><tr>
+										<td>11/07/2013</td>
+										<td>RAVI  SADARANGANI</td>
+										<td>186596876</td>
+										<td>GSVC</td>
+										<td>36191J101</td>
+										<td>GSV CAP CORP COM</td>
+										<td>S</td>
+										<td>1,000</td>
+										<td>14.04</td>
+										<td>11:31AM</td>
+										<td>11:31AM</td>
+									</tr><tr>
+										<td>11/15/2013</td>
+										<td>RAVI  SADARANGANI</td>
+										<td>186596876</td>
+										<td>LPX</td>
+										<td>546347105</td>
+										<td>LOUISIANA PACIFIC </td>
+										<td>B</td>
+										<td>1,000</td>
+										<td>16.53</td>
+										<td>9:48AM</td>
+										<td>9:48AM</td>
+									</tr><tr>
+										<td>11/04/2013</td>
+										<td>RAVI  SADARANGANI</td>
+										<td>191567752</td>
+										<td>HAL</td>
+										<td>406216101</td>
+										<td>HALLIBURTON CO HOLDING CO FRMLY</td>
+										<td>S</td>
+										<td>100</td>
+										<td>53.80</td>
+										<td>2:54PM</td>
+										<td>2:54PM</td>
+									</tr><tr>
+										<td>11/04/2013</td>
+										<td>ROHINI T SADARANGANI</td>
+										<td>192552810</td>
+										<td>SWN</td>
+										<td>845467109</td>
+										<td>SOUTHWESTERN ENERGY CO DELAWARE</td>
+										<td>S</td>
+										<td>500</td>
+										<td>37.70</td>
+										<td>3:03PM</td>
+										<td>3:03PM</td>
+									</tr><tr>
+										<td>11/20/2013</td>
+										<td>MICHAEL ALEXANDER SM</td>
+										<td>207710482</td>
+										<td>GOL</td>
+										<td>1761979JF</td>
+										<td>CALL (GOL) GOL LINHAS AEREAS</td>
+										<td>B</td>
+										<td>100</td>
+										<td>0.64</td>
+										<td>9:57AM</td>
+										<td>9:57AM</td>
+									</tr><tr>
+										<td>11/22/2013</td>
+										<td>MICHAEL ALEXANDER SM</td>
+										<td>207710482</td>
+										<td>PNRA</td>
+										<td>1506059BX</td>
+										<td>CALL (PNRA) PANERA BREAD COMPANY</td>
+										<td>S</td>
+										<td>10</td>
+										<td>17.57</td>
+										<td>3:59PM</td>
+										<td>3:59PM</td>
+									</tr><tr>
+										<td>11/05/2013</td>
+										<td>CHRISTOPHER ROBERT C</td>
+										<td>330523011</td>
+										<td>ACW</td>
+										<td>00439T206</td>
+										<td>ACCURIDE CORP NEW COM NEW</td>
+										<td>S</td>
+										<td>500</td>
+										<td>3.16</td>
+										<td>2:15PM</td>
+										<td>2:15PM</td>
+									</tr><tr>
+										<td>11/15/2013</td>
+										<td>CHRISTOPHER ROBERT C</td>
+										<td>330523011</td>
+										<td>BUFTX</td>
+										<td>119530103</td>
+										<td>BUFFALO DISCOVERY FUND</td>
+										<td>B</td>
+										<td>436</td>
+										<td>20.62</td>
+										<td>9:13PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/15/2013</td>
+										<td>CHRISTOPHER ROBERT C</td>
+										<td>330523011</td>
+										<td>FCNTX</td>
+										<td>316071109</td>
+										<td>FIDELITY CONTRAFUND PROSPECTUS UNDER</td>
+										<td>B</td>
+										<td>26</td>
+										<td>99.48</td>
+										<td>9:16PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/15/2013</td>
+										<td>CHRISTOPHER ROBERT C</td>
+										<td>330523011</td>
+										<td>FDIVX</td>
+										<td>315910802</td>
+										<td>FIDELITY DIVERSIFIED INTERNATIONAL</td>
+										<td>B</td>
+										<td>83</td>
+										<td>36.12</td>
+										<td>9:15PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/05/2013</td>
+										<td>CHRISTOPHER ROBERT C</td>
+										<td>330523011</td>
+										<td>GLRE</td>
+										<td>G4095J109</td>
+										<td>GREENLIGHT CAPITAL RE LTD COM STK</td>
+										<td>S</td>
+										<td>300</td>
+										<td>30.33</td>
+										<td>2:15PM</td>
+										<td>2:15PM</td>
+									</tr><tr>
+										<td>11/05/2013</td>
+										<td>CHRISTOPHER ROBERT C</td>
+										<td>330523011</td>
+										<td>IOC</td>
+										<td>460951106</td>
+										<td>INTEROIL CORP COM NPV</td>
+										<td>S</td>
+										<td>50</td>
+										<td>69.34</td>
+										<td>2:15PM</td>
+										<td>2:15PM</td>
+									</tr><tr>
+										<td>11/18/2013</td>
+										<td>SARA J SCHWARZWALDER</td>
+										<td>411055921</td>
+										<td>FFRHX</td>
+										<td>315916783</td>
+										<td>FIDELITY FLOATING RATE HIGH INCOME</td>
+										<td>B</td>
+										<td>1,602</td>
+										<td>9.99</td>
+										<td>9:42PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/14/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>487705403</td>
+										<td></td>
+										<td>624758AB4</td>
+										<td>MUELLER WTR PRODS INC</td>
+										<td>S</td>
+										<td>5,000</td>
+										<td>101.84</td>
+										<td>11:25AM</td>
+										<td>11:35AM</td>
+									</tr><tr>
+										<td>11/15/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>487705403</td>
+										<td>ACT</td>
+										<td>G0083B108</td>
+										<td>ACTAVIS PLC USD0.0001</td>
+										<td>S</td>
+										<td>1,600</td>
+										<td>164.55</td>
+										<td>11:12AM</td>
+										<td>11:12AM</td>
+									</tr><tr>
+										<td>11/07/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>487705403</td>
+										<td>AGN</td>
+										<td>018490102</td>
+										<td>ALLERGAN INC </td>
+										<td>B</td>
+										<td>4,000</td>
+										<td>88.94</td>
+										<td>9:51AM</td>
+										<td>9:51AM</td>
+									</tr><tr>
+										<td>11/13/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>487705403</td>
+										<td>AGN</td>
+										<td>018490102</td>
+										<td>ALLERGAN INC </td>
+										<td>B</td>
+										<td>2,000</td>
+										<td>92.97</td>
+										<td>10:21AM</td>
+										<td>10:21AM</td>
+									</tr><tr>
+										<td>11/05/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>487705403</td>
+										<td>CVGI</td>
+										<td>202608105</td>
+										<td>COMMERCIAL VEHICLE GROUP INC</td>
+										<td>B</td>
+										<td>5,000</td>
+										<td>7.14</td>
+										<td>3:47PM</td>
+										<td>3:47PM</td>
+									</tr><tr>
+										<td>11/20/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>487705403</td>
+										<td>DVN</td>
+										<td>1870949GE</td>
+										<td>CALL (DVN) DEVON ENERGY CORP</td>
+										<td>S</td>
+										<td>60</td>
+										<td>3.60</td>
+										<td>9:39AM</td>
+										<td>9:39AM</td>
+									</tr><tr>
+										<td>11/14/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>487705403</td>
+										<td>GLW</td>
+										<td>219350105</td>
+										<td>CORNING INC </td>
+										<td>S</td>
+										<td>10,000</td>
+										<td>16.90</td>
+										<td>11:20AM</td>
+										<td>11:20AM</td>
+									</tr><tr>
+										<td>11/01/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>487705403</td>
+										<td>MRC</td>
+										<td>55345K103</td>
+										<td>MRC GLOBAL INC COM USD0.01</td>
+										<td>B</td>
+										<td>10,000</td>
+										<td>28.00</td>
+										<td>10:37AM</td>
+										<td>10:37AM</td>
+									</tr><tr>
+										<td>11/25/2013</td>
+										<td>JASON ERIC COHEN</td>
+										<td>487705896</td>
+										<td>FOR</td>
+										<td>346233109</td>
+										<td>FORESTAR GROUP INC </td>
+										<td>S</td>
+										<td>280</td>
+										<td>19.67</td>
+										<td>9:58AM</td>
+										<td>9:58AM</td>
+									</tr><tr>
+										<td>11/14/2013</td>
+										<td>JOHN MICHAEL ZOLIDIS</td>
+										<td>487706310</td>
+										<td>BBW</td>
+										<td>120076104</td>
+										<td>BUILD-A-BEAR WORKSHOP INC  COM</td>
+										<td>S</td>
+										<td>1,500</td>
+										<td>10.05</td>
+										<td>9:49AM</td>
+										<td>2:12PM</td>
+									</tr><tr>
+										<td>11/05/2013</td>
+										<td>JOHN MICHAEL ZOLIDIS</td>
+										<td>487706310</td>
+										<td>DFZ</td>
+										<td>068798107</td>
+										<td>BARRY R G CORP OHIO </td>
+										<td>S</td>
+										<td>500</td>
+										<td>18.47</td>
+										<td>11:33AM</td>
+										<td>11:34AM</td>
+									</tr><tr>
+										<td>11/27/2013</td>
+										<td>JOHN MICHAEL ZOLIDIS</td>
+										<td>487706310</td>
+										<td>GNC</td>
+										<td>36191G107</td>
+										<td>GNC HOLDINGS INC COM USD0.001</td>
+										<td>B</td>
+										<td>200</td>
+										<td>59.99</td>
+										<td>10:02AM</td>
+										<td>10:02AM</td>
+									</tr><tr>
+										<td>11/20/2013</td>
+										<td>JOHN MICHAEL ZOLIDIS</td>
+										<td>487706310</td>
+										<td>HLF</td>
+										<td>G4412G101</td>
+										<td>HERBALIFE LTD COM USD0.002</td>
+										<td>B</td>
+										<td>100</td>
+										<td>70.24</td>
+										<td>2:41PM</td>
+										<td>2:41PM</td>
+									</tr><tr>
+										<td>11/07/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>487706329</td>
+										<td>HRC</td>
+										<td>431475102</td>
+										<td>HILL ROM HLDGS COM AVERAGE PRICE TRADE</td>
+										<td>S</td>
+										<td>400</td>
+										<td>40.62</td>
+										<td>1:07PM</td>
+										<td>1:07PM</td>
+									</tr><tr>
+										<td>11/11/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>487706329</td>
+										<td>PINC</td>
+										<td>74051N102</td>
+										<td>PREMIER INC COM USD0.01 CL A</td>
+										<td>B</td>
+										<td>400</td>
+										<td>31.10</td>
+										<td>2:42PM</td>
+										<td>2:42PM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>487706329</td>
+										<td>WYNN</td>
+										<td>983134107</td>
+										<td>WYNN RESORTS LTD </td>
+										<td>B</td>
+										<td>100</td>
+										<td>164.16</td>
+										<td>2:37PM</td>
+										<td>2:37PM</td>
+									</tr><tr>
+										<td>11/11/2013</td>
+										<td>KEVIN MICHAEL O'GORM</td>
+										<td>487706345</td>
+										<td>NAV</td>
+										<td>63934E108</td>
+										<td>NAVISTAR INTL CORP </td>
+										<td>B</td>
+										<td>700</td>
+										<td>40.98</td>
+										<td>12:44PM</td>
+										<td>12:44PM</td>
+									</tr><tr>
+										<td>11/18/2013</td>
+										<td>FRANCIS MICHAEL MCCA</td>
+										<td>487706396</td>
+										<td>RL</td>
+										<td>751212101</td>
+										<td>RALPH LAUREN CORP COM USD0.01 CLASS  A</td>
+										<td>B</td>
+										<td>50</td>
+										<td>174.83</td>
+										<td>10:57AM</td>
+										<td>10:57AM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>MARGARET ANNE MCAULE</td>
+										<td>487706400</td>
+										<td>MSO</td>
+										<td>573083102</td>
+										<td>MARTHA STEWART LIVING</td>
+										<td>B</td>
+										<td>300</td>
+										<td>2.87</td>
+										<td>9:34AM</td>
+										<td>9:34AM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>LEE F BACKUS</td>
+										<td>487722855</td>
+										<td>C</td>
+										<td>172967424</td>
+										<td>CITIGROUP INC COM NEW</td>
+										<td>B</td>
+										<td>2,000</td>
+										<td>48.63</td>
+										<td>11:25AM</td>
+										<td>11:25AM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>LEE F BACKUS</td>
+										<td>487722855</td>
+										<td>DAL</td>
+										<td>247361702</td>
+										<td>DELTA AIR LINES INC DEL COM NEW</td>
+										<td>S</td>
+										<td>3,000</td>
+										<td>27.19</td>
+										<td>11:24AM</td>
+										<td>11:24AM</td>
+									</tr><tr>
+										<td>11/13/2013</td>
+										<td>LEE F BACKUS</td>
+										<td>487722855</td>
+										<td>HTZ</td>
+										<td>42805T105</td>
+										<td>HERTZ GLOBAL HLDGS INC COM</td>
+										<td>B</td>
+										<td>2,000</td>
+										<td>23.56</td>
+										<td>2:48PM</td>
+										<td>2:48PM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>LEE F BACKUS</td>
+										<td>487722855</td>
+										<td>SAH</td>
+										<td>83545G102</td>
+										<td>SONIC AUTOMOTIVE INC </td>
+										<td>S</td>
+										<td>1,000</td>
+										<td>22.40</td>
+										<td>11:24AM</td>
+										<td>11:24AM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>LEE F BACKUS</td>
+										<td>487722855</td>
+										<td>VAC</td>
+										<td>57164Y107</td>
+										<td>MARRIOTT VACATIONS WORLDWIDE CORP COM</td>
+										<td>S</td>
+										<td>3,000</td>
+										<td>50.73</td>
+										<td>11:25AM</td>
+										<td>11:25AM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>LEE F BACKUS</td>
+										<td>487722855</td>
+										<td>YOSN</td>
+										<td>98740Q101</td>
+										<td>YOSEN GROUP INC COM USD0.001</td>
+										<td>S</td>
+										<td>2,000</td>
+										<td>0.23</td>
+										<td>11:26AM</td>
+										<td>11:27AM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>CICILY S BACKUS</td>
+										<td>487722863</td>
+										<td>YOSN</td>
+										<td>98740Q101</td>
+										<td>YOSEN GROUP INC COM USD0.001</td>
+										<td>S</td>
+										<td>4,000</td>
+										<td>0.23</td>
+										<td>11:30AM</td>
+										<td>11:30AM</td>
+									</tr><tr>
+										<td>11/14/2013</td>
+										<td>MARK ANTHONY GRONET</td>
+										<td>487722901</td>
+										<td>GSVC</td>
+										<td>36191J101</td>
+										<td>GSV CAP CORP COM</td>
+										<td>S</td>
+										<td>1,000</td>
+										<td>13.15</td>
+										<td>1:38PM</td>
+										<td>1:38PM</td>
+									</tr><tr>
+										<td>11/13/2013</td>
+										<td>MARC PAUL LUCHANSKY</td>
+										<td>487723002</td>
+										<td>BIPIX</td>
+										<td>743185480</td>
+										<td>BIOTECHNOLOGY ULTRA SECTOR PRO FD INVS</td>
+										<td>B</td>
+										<td>105</td>
+										<td>189.71</td>
+										<td>9:52AM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/08/2013</td>
+										<td>MARC PAUL LUCHANSKY</td>
+										<td>487723002</td>
+										<td>FWM</td>
+										<td>30603D109</td>
+										<td>FAIRWAY GROUP HLDGS CORP COM USD0.00001</td>
+										<td>B</td>
+										<td>200</td>
+										<td>21.82</td>
+										<td>11:28AM</td>
+										<td>11:28AM</td>
+									</tr><tr>
+										<td>11/07/2013</td>
+										<td>MARC PAUL LUCHANSKY</td>
+										<td>487723002</td>
+										<td>GSVC</td>
+										<td>36191J101</td>
+										<td>GSV CAP CORP COM</td>
+										<td>S</td>
+										<td>200</td>
+										<td>13.77</td>
+										<td>11:14AM</td>
+										<td>11:14AM</td>
+									</tr><tr>
+										<td>11/15/2013</td>
+										<td>MARC PAUL LUCHANSKY</td>
+										<td>487723002</td>
+										<td>JBLU</td>
+										<td>477143101</td>
+										<td>JETBLUE AWYS CORP </td>
+										<td>B</td>
+										<td>1,000</td>
+										<td>8.69</td>
+										<td>9:35AM</td>
+										<td>9:35AM</td>
+									</tr><tr>
+										<td>11/05/2013</td>
+										<td>MARC PAUL LUCHANSKY</td>
+										<td>487723002</td>
+										<td>SGGHD</td>
+										<td>82670C209</td>
+										<td>SIGNATURE GROUP HOLDINGS INC USD0.01</td>
+										<td>B</td>
+										<td>500</td>
+										<td>11.01</td>
+										<td>2:30PM</td>
+										<td>2:30PM</td>
+									</tr><tr>
+										<td>11/11/2013</td>
+										<td>MARC PAUL LUCHANSKY</td>
+										<td>487723002</td>
+										<td>TSLA</td>
+										<td>88160R101</td>
+										<td>TESLA MOTORS INC COM USD0.001</td>
+										<td>B</td>
+										<td>10</td>
+										<td>143.64</td>
+										<td>10:20AM</td>
+										<td>10:20AM</td>
+									</tr><tr>
+										<td>11/08/2013</td>
+										<td>MARC PAUL LUCHANSKY</td>
+										<td>487723002</td>
+										<td>TWTR</td>
+										<td>90184L102</td>
+										<td>TWITTER INC COM USD0.000005</td>
+										<td>B</td>
+										<td>20</td>
+										<td>45.42</td>
+										<td>9:38AM</td>
+										<td>9:38AM</td>
+									</tr><tr>
+										<td>11/27/2013</td>
+										<td>JOSEPH CIRO AMATURO</td>
+										<td>487723371</td>
+										<td>FWM</td>
+										<td>30603D109</td>
+										<td>FAIRWAY GROUP HLDGS CORP COM USD0.00001</td>
+										<td>B</td>
+										<td>2,500</td>
+										<td>18.55</td>
+										<td>12:26PM</td>
+										<td>12:26PM</td>
+									</tr><tr>
+										<td>11/08/2013</td>
+										<td>NILSA  VAZQUEZ</td>
+										<td>488211311</td>
+										<td>FWM</td>
+										<td>30603D109</td>
+										<td>FAIRWAY GROUP HLDGS CORP COM USD0.00001</td>
+										<td>B</td>
+										<td>500</td>
+										<td>21.31</td>
+										<td>11:34AM</td>
+										<td>11:34AM</td>
+									</tr><tr>
+										<td>11/05/2013</td>
+										<td>NILSA  VAZQUEZ</td>
+										<td>488211311</td>
+										<td>JBLU</td>
+										<td>477143101</td>
+										<td>JETBLUE AWYS CORP </td>
+										<td>B</td>
+										<td>3,000</td>
+										<td>7.52</td>
+										<td>10:58AM</td>
+										<td>10:58AM</td>
+									</tr><tr>
+										<td>11/13/2013</td>
+										<td>MANNY I KORMAN</td>
+										<td>488551643</td>
+										<td>SLMAP</td>
+										<td>78442P205</td>
+										<td>SLM CORP PFD 6.97%</td>
+										<td>B</td>
+										<td>3,000</td>
+										<td>47.00</td>
+										<td>10:42AM</td>
+										<td>12:25PM</td>
+									</tr><tr>
+										<td>11/25/2013</td>
+										<td>DANIEL JORDAN COHEN</td>
+										<td>488628123</td>
+										<td>FOR</td>
+										<td>346233109</td>
+										<td>FORESTAR GROUP INC </td>
+										<td>S</td>
+										<td>60</td>
+										<td>19.64</td>
+										<td>9:58AM</td>
+										<td>9:58AM</td>
+									</tr><tr>
+										<td>11/05/2013</td>
+										<td>ALICE BEEBE LONGLEY</td>
+										<td>489389013</td>
+										<td>JRO</td>
+										<td>6706EN100</td>
+										<td>NUVEEN FLOATING RATE INCOME OPPORTUNITY</td>
+										<td>B</td>
+										<td>6,600</td>
+										<td>12.10</td>
+										<td>12:03PM</td>
+										<td>12:03PM</td>
+									</tr><tr>
+										<td>11/13/2013</td>
+										<td>YANAI A FRANK</td>
+										<td>489766410</td>
+										<td>DIOD</td>
+										<td>254543101</td>
+										<td>DIODES INC </td>
+										<td>B</td>
+										<td>750</td>
+										<td>20.03</td>
+										<td>11:36AM</td>
+										<td>11:36AM</td>
+									</tr><tr>
+										<td>11/19/2013</td>
+										<td>YANAI A FRANK</td>
+										<td>489766410</td>
+										<td>DIOD</td>
+										<td>254543101</td>
+										<td>DIODES INC </td>
+										<td>B</td>
+										<td>525</td>
+										<td>19.40</td>
+										<td>3:51PM</td>
+										<td>3:51PM</td>
+									</tr><tr>
+										<td>11/15/2013</td>
+										<td>YANAI A FRANK</td>
+										<td>489766410</td>
+										<td>DVA</td>
+										<td>23918K108</td>
+										<td>DAVITA INC COM</td>
+										<td>B</td>
+										<td>250</td>
+										<td>58.93</td>
+										<td>9:56AM</td>
+										<td>9:56AM</td>
+									</tr><tr>
+										<td>11/22/2013</td>
+										<td>YANAI A FRANK</td>
+										<td>489766410</td>
+										<td>DVA</td>
+										<td>23918K108</td>
+										<td>DAVITA INC COM</td>
+										<td>B</td>
+										<td>180</td>
+										<td>56.39</td>
+										<td>2:59PM</td>
+										<td>2:59PM</td>
+									</tr><tr>
+										<td>11/15/2013</td>
+										<td>YANAI A FRANK</td>
+										<td>489766410</td>
+										<td>ISRG</td>
+										<td>46120E602</td>
+										<td>INTUITIVE SURGICAL INC COM NEW</td>
+										<td>B</td>
+										<td>50</td>
+										<td>388.99</td>
+										<td>9:56AM</td>
+										<td>9:56AM</td>
+									</tr><tr>
+										<td>11/21/2013</td>
+										<td>JACK H CHERNUS</td>
+										<td>489999466</td>
+										<td>EPB</td>
+										<td>283702108</td>
+										<td>EL PASO PIPELINE PARTNERS L P COM</td>
+										<td>S</td>
+										<td>660</td>
+										<td>40.95</td>
+										<td>2:37PM</td>
+										<td>2:42PM</td>
+									</tr><tr>
+										<td>11/04/2013</td>
+										<td>MITCHELL JAMES SPEIS</td>
+										<td>X07625620</td>
+										<td>SOCL</td>
+										<td>37950E416</td>
+										<td>GLOBAL X FDS GLOBAL X SOCIAL</td>
+										<td>B</td>
+										<td>500</td>
+										<td>19.61</td>
+										<td>2:46PM</td>
+										<td>2:46PM</td>
+									</tr><tr>
+										<td>11/20/2013</td>
+										<td>GAVIN N CADWALLADER</td>
+										<td>X13905178</td>
+										<td>FIEUX</td>
+										<td>316343300</td>
+										<td>FIDELITY EUROPE PROSPECTUS UNDER</td>
+										<td>B</td>
+										<td>133</td>
+										<td>37.58</td>
+										<td>12:47PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/26/2013</td>
+										<td>MICHAEL C PERILLO</td>
+										<td>X39818968</td>
+										<td>ARCO</td>
+										<td>G0457F107</td>
+										<td>ARCOS DORADOS HOLDINGS INC COM NPV</td>
+										<td>S</td>
+										<td>250</td>
+										<td>11.65</td>
+										<td>10:46AM</td>
+										<td>10:47AM</td>
+									</tr><tr>
+										<td>11/15/2013</td>
+										<td>MICHAEL C PERILLO</td>
+										<td>X39818968</td>
+										<td>SWN</td>
+										<td>845467109</td>
+										<td>SOUTHWESTERN ENERGY CO DELAWARE</td>
+										<td>S</td>
+										<td>80</td>
+										<td>36.28</td>
+										<td>10:30AM</td>
+										<td>10:30AM</td>
+									</tr><tr>
+										<td>11/04/2013</td>
+										<td>BRIAN PATRICK O'GORM</td>
+										<td>X45549584</td>
+										<td>KEG</td>
+										<td>492914106</td>
+										<td>KEY ENERGY SERVICES INC</td>
+										<td>B</td>
+										<td>20</td>
+										<td>8.23</td>
+										<td>10:28AM</td>
+										<td>10:28AM</td>
+									</tr><tr>
+										<td>11/08/2013</td>
+										<td>ANGELO CHRISTOS EFST</td>
+										<td>X49790400</td>
+										<td>FWM</td>
+										<td>30603D109</td>
+										<td>FAIRWAY GROUP HLDGS CORP COM USD0.00001</td>
+										<td>B</td>
+										<td>100</td>
+										<td>21.14</td>
+										<td>11:22AM</td>
+										<td>11:22AM</td>
+									</tr><tr>
+										<td>11/29/2013</td>
+										<td>RAVI  SADARANGANI</td>
+										<td>X50737070</td>
+										<td>FB</td>
+										<td>1857559MK</td>
+										<td>PUT (FB) FACEBOOK INC COM</td>
+										<td>S</td>
+										<td>20</td>
+										<td>2.51</td>
+										<td>10:18AM</td>
+										<td>10:18AM</td>
+									</tr><tr>
+										<td>11/20/2013</td>
+										<td>RAVI  SADARANGANI</td>
+										<td>X50737070</td>
+										<td>GOL</td>
+										<td>1806659AS</td>
+										<td>CALL (GOL) GOL LINHAS AEREAS</td>
+										<td>B</td>
+										<td>50</td>
+										<td>0.90</td>
+										<td>9:56AM</td>
+										<td>9:56AM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>JESSICA LYNN MEOLA</td>
+										<td>X51513776</td>
+										<td>CVGI</td>
+										<td>202608105</td>
+										<td>COMMERCIAL VEHICLE GROUP INC</td>
+										<td>B</td>
+										<td>130</td>
+										<td>7.21</td>
+										<td>3:56PM</td>
+										<td>3:56PM</td>
+									</tr><tr>
+										<td>11/18/2013</td>
+										<td>SPENCER TODD CHERNUS</td>
+										<td>X64928117</td>
+										<td>DDD</td>
+										<td>88554D205</td>
+										<td>3D SYSTEMS CORP DEL COM NEW</td>
+										<td>S</td>
+										<td>10</td>
+										<td>83.22</td>
+										<td>11:04AM</td>
+										<td>11:04AM</td>
+									</tr><tr>
+										<td>11/15/2013</td>
+										<td>NICOLAS EVAN PAKLER</td>
+										<td>X65794760</td>
+										<td>BREFX</td>
+										<td>06828M702</td>
+										<td>BARON REAL ESTATE FUND RETAIL</td>
+										<td>S</td>
+										<td>540</td>
+										<td>21.28</td>
+										<td>1:54PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/19/2013</td>
+										<td>NICOLAS EVAN PAKLER</td>
+										<td>X65794760</td>
+										<td>FCNTX</td>
+										<td>316071109</td>
+										<td>FIDELITY CONTRAFUND PROSPECTUS UNDER</td>
+										<td>B</td>
+										<td>122</td>
+										<td>98.38</td>
+										<td>10:18AM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/14/2013</td>
+										<td>JARROD MICHAEL FEINS</td>
+										<td>X66801068</td>
+										<td>ALGN</td>
+										<td>016255101</td>
+										<td>ALIGN TECHNOLOGY INC </td>
+										<td>B</td>
+										<td>100</td>
+										<td>54.70</td>
+										<td>3:01PM</td>
+										<td>3:01PM</td>
+									</tr><tr>
+										<td>11/29/2013</td>
+										<td>JARROD MICHAEL FEINS</td>
+										<td>X66801068</td>
+										<td>FIO</td>
+										<td>36112J107</td>
+										<td>FUSION-IO COM USD0.0002</td>
+										<td>S</td>
+										<td>200</td>
+										<td>9.92</td>
+										<td>11:14AM</td>
+										<td>11:14AM</td>
+									</tr><tr>
+										<td>11/29/2013</td>
+										<td>JARROD MICHAEL FEINS</td>
+										<td>X66801068</td>
+										<td>NES</td>
+										<td>67091K104</td>
+										<td>NUVERRA ENVIRONMENTAL</td>
+										<td>S</td>
+										<td>1,000</td>
+										<td>1.71</td>
+										<td>11:13AM</td>
+										<td>11:13AM</td>
+									</tr><tr>
+										<td>11/19/2013</td>
+										<td>JARROD MICHAEL FEINS</td>
+										<td>X66801068</td>
+										<td>ONVO</td>
+										<td>68620A104</td>
+										<td>ORGANOVO HLDGS INC COM</td>
+										<td>B</td>
+										<td>700</td>
+										<td>8.96</td>
+										<td>1:58PM</td>
+										<td>1:58PM</td>
+									</tr><tr>
+										<td>11/18/2013</td>
+										<td>JARROD MICHAEL FEINS</td>
+										<td>X66801068</td>
+										<td>TSLA</td>
+										<td>88160R101</td>
+										<td>TESLA MOTORS INC COM USD0.001</td>
+										<td>B</td>
+										<td>50</td>
+										<td>125.49</td>
+										<td>1:49PM</td>
+										<td>1:49PM</td>
+									</tr><tr>
+										<td>11/29/2013</td>
+										<td>JARROD MICHAEL FEINS</td>
+										<td>X66801068</td>
+										<td>WTSL</td>
+										<td>961840105</td>
+										<td>WET SEAL INC CL A </td>
+										<td>S</td>
+										<td>2,000</td>
+										<td>3.34</td>
+										<td>11:12AM</td>
+										<td>11:12AM</td>
+									</tr><tr>
+										<td>11/15/2013</td>
+										<td>YANAI A FRANK</td>
+										<td>X66826401</td>
+										<td>LNKD</td>
+										<td>53578A108</td>
+										<td>LINKEDIN CORP COM USD0.0001</td>
+										<td>S</td>
+										<td>65</td>
+										<td>230.60</td>
+										<td>12:01PM</td>
+										<td>12:01PM</td>
+									</tr><tr>
+										<td>11/07/2013</td>
+										<td>YANAI A FRANK</td>
+										<td>X66826401</td>
+										<td>MXIM</td>
+										<td>57772K101</td>
+										<td>MAXIM INTEGRATED PRODS INC</td>
+										<td>B</td>
+										<td>500</td>
+										<td>28.46</td>
+										<td>3:46PM</td>
+										<td>3:46PM</td>
+									</tr><tr>
+										<td>11/26/2013</td>
+										<td>YANAI A FRANK</td>
+										<td>X66826401</td>
+										<td>TWTR</td>
+										<td>90184L102</td>
+										<td>TWITTER INC COM USD0.000005</td>
+										<td>S</td>
+										<td>250</td>
+										<td>40.08</td>
+										<td>2:59PM</td>
+										<td>2:59PM</td>
+									</tr><tr>
+										<td>11/15/2013</td>
+										<td>TIFFANY  KANAGA</td>
+										<td>X66874509</td>
+										<td>ONVO</td>
+										<td>68620A104</td>
+										<td>ORGANOVO HLDGS INC COM</td>
+										<td>B</td>
+										<td>1,500</td>
+										<td>12.97</td>
+										<td>10:05AM</td>
+										<td>10:05AM</td>
+									</tr><tr>
+										<td>11/19/2013</td>
+										<td>TIFFANY  KANAGA</td>
+										<td>X66874509</td>
+										<td>ONVO</td>
+										<td>68620A104</td>
+										<td>ORGANOVO HLDGS INC COM</td>
+										<td>B</td>
+										<td>1,500</td>
+										<td>10.25</td>
+										<td>11:35AM</td>
+										<td>11:35AM</td>
+									</tr><tr>
+										<td>11/15/2013</td>
+										<td>TIFFANY  KANAGA</td>
+										<td>X66874509</td>
+										<td>VJET</td>
+										<td>92912L107</td>
+										<td>VOXELJET AG ADS EACH REPR 0.20 OR</td>
+										<td>B</td>
+										<td>350</td>
+										<td>58.21</td>
+										<td>10:32AM</td>
+										<td>10:32AM</td>
+									</tr><tr>
+										<td>11/19/2013</td>
+										<td>TIFFANY  KANAGA</td>
+										<td>X66874509</td>
+										<td>VJET</td>
+										<td>92912L107</td>
+										<td>VOXELJET AG ADS EACH REPR 0.20 OR</td>
+										<td>B</td>
+										<td>88</td>
+										<td>55.78</td>
+										<td>2:14PM</td>
+										<td>2:14PM</td>
+									</tr><tr>
+										<td>11/19/2013</td>
+										<td>KEVIN  MAREK</td>
+										<td>X69506335</td>
+										<td>AMRI</td>
+										<td>012423109</td>
+										<td>ALBANY MOLECULAR RESEARCH</td>
+										<td>B</td>
+										<td>60</td>
+										<td>13.20</td>
+										<td>9:57AM</td>
+										<td>9:57AM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>IOANNIS  KOULOURIOTI</td>
+										<td>X77607021</td>
+										<td>XOOM</td>
+										<td>98419Q101</td>
+										<td>XOOM CORP COM USD0.0001</td>
+										<td>B</td>
+										<td>85</td>
+										<td>29.80</td>
+										<td>11:34AM</td>
+										<td>11:36AM</td>
+									</tr><tr>
+										<td>11/07/2013</td>
+										<td>IOANNIS  KOULOURIOTI</td>
+										<td>X77607021</td>
+										<td>XOOM</td>
+										<td>98419Q101</td>
+										<td>XOOM CORP COM USD0.0001</td>
+										<td>B</td>
+										<td>75</td>
+										<td>27.90</td>
+										<td>1:15PM</td>
+										<td>1:15PM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>KELLY ELIZABETH CLIF</td>
+										<td>Y90657654</td>
+										<td>FCSAX</td>
+										<td>31635R504</td>
+										<td>STRATEGIC ADVISERS CORE FUND</td>
+										<td>B</td>
+										<td>27</td>
+										<td>14.69</td>
+										<td>12:42PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>KELLY ELIZABETH CLIF</td>
+										<td>Y90657654</td>
+										<td>FILFX</td>
+										<td>31635R868</td>
+										<td>STRATEGIC ADVISERS INTERNATIONAL FUND</td>
+										<td>B</td>
+										<td>47</td>
+										<td>10.57</td>
+										<td>12:48PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/25/2013</td>
+										<td>KELLY ELIZABETH CLIF</td>
+										<td>Y90657654</td>
+										<td>FNSXX</td>
+										<td>31607A109</td>
+										<td>FIMM MMKT PORT INST CL</td>
+										<td>S</td>
+										<td>532</td>
+										<td>1.00</td>
+										<td>12:34PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>KELLY ELIZABETH CLIF</td>
+										<td>Y90657654</td>
+										<td>FPCIX</td>
+										<td>31635R884</td>
+										<td>STRATEGIC ADVISERS CORE INCOME FUND</td>
+										<td>B</td>
+										<td>85</td>
+										<td>10.53</td>
+										<td>12:52PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>KELLY ELIZABETH CLIF</td>
+										<td>Y90657654</td>
+										<td>FSHBX</td>
+										<td>316146208</td>
+										<td>FIDELITY SHORT TERM BOND</td>
+										<td>S</td>
+										<td>81</td>
+										<td>8.59</td>
+										<td>12:40PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>KELLY ELIZABETH CLIF</td>
+										<td>Y90657654</td>
+										<td>FVSAX</td>
+										<td>31635R702</td>
+										<td>STRATEGIC ADVISERS VALUE FUND</td>
+										<td>S</td>
+										<td>22</td>
+										<td>17.91</td>
+										<td>12:44PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>KELLY ELIZABETH CLIF</td>
+										<td>Y90657654</td>
+										<td>PSFAX</td>
+										<td>693390734</td>
+										<td>PIMCO SHORT TERM ADMINISTRATIVE SHS</td>
+										<td>S</td>
+										<td>71</td>
+										<td>9.87</td>
+										<td>12:38PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>MARC PAUL LUCHANSKY</td>
+										<td>Y91426555</td>
+										<td>FCSAX</td>
+										<td>31635R504</td>
+										<td>STRATEGIC ADVISERS CORE FUND</td>
+										<td>B</td>
+										<td>41</td>
+										<td>14.69</td>
+										<td>12:42PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>MARC PAUL LUCHANSKY</td>
+										<td>Y91426555</td>
+										<td>FILFX</td>
+										<td>31635R868</td>
+										<td>STRATEGIC ADVISERS INTERNATIONAL FUND</td>
+										<td>B</td>
+										<td>57</td>
+										<td>10.57</td>
+										<td>12:48PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>MARC PAUL LUCHANSKY</td>
+										<td>Y91426555</td>
+										<td>FNSXX</td>
+										<td>31607A109</td>
+										<td>FIMM MMKT PORT INST CL</td>
+										<td>B</td>
+										<td>500</td>
+										<td>1.00</td>
+										<td>12:40PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/25/2013</td>
+										<td>MARC PAUL LUCHANSKY</td>
+										<td>Y91426555</td>
+										<td>FNSXX</td>
+										<td>31607A109</td>
+										<td>FIMM MMKT PORT INST CL</td>
+										<td>S</td>
+										<td>444</td>
+										<td>1.00</td>
+										<td>12:35PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>MARC PAUL LUCHANSKY</td>
+										<td>Y91426555</td>
+										<td>FPCIX</td>
+										<td>31635R884</td>
+										<td>STRATEGIC ADVISERS CORE INCOME FUND</td>
+										<td>B</td>
+										<td>57</td>
+										<td>10.53</td>
+										<td>12:53PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>MARC PAUL LUCHANSKY</td>
+										<td>Y91426555</td>
+										<td>FSGFX</td>
+										<td>31635R603</td>
+										<td>STRATEGIC ADVISERS GROWTH FUND</td>
+										<td>S</td>
+										<td>64</td>
+										<td>15.63</td>
+										<td>12:43PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>MARC PAUL LUCHANSKY</td>
+										<td>Y91426555</td>
+										<td>FSHBX</td>
+										<td>316146208</td>
+										<td>FIDELITY SHORT TERM BOND</td>
+										<td>S</td>
+										<td>105</td>
+										<td>8.59</td>
+										<td>12:40PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>MARC PAUL LUCHANSKY</td>
+										<td>Y91426555</td>
+										<td>PSFAX</td>
+										<td>693390734</td>
+										<td>PIMCO SHORT TERM ADMINISTRATIVE SHS</td>
+										<td>S</td>
+										<td>91</td>
+										<td>9.87</td>
+										<td>12:38PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>MARC PAUL LUCHANSKY</td>
+										<td>Y91426555</td>
+										<td>TPINX</td>
+										<td>880208103</td>
+										<td>TEMPLETON GLOBAL BOND CLASS A</td>
+										<td>B</td>
+										<td>38</td>
+										<td>13.12</td>
+										<td>12:36PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/22/2013</td>
+										<td>MICHAEL ALEXANDER SM</td>
+										<td>Z46121169</td>
+										<td>PNRA</td>
+										<td>1506059BX</td>
+										<td>CALL (PNRA) PANERA BREAD COMPANY</td>
+										<td>S</td>
+										<td>4</td>
+										<td>17.61</td>
+										<td>3:59PM</td>
+										<td>3:59PM</td>
+									</tr><tr>
+										<td>11/05/2013</td>
+										<td>CHRISTOPHER ROBERT C</td>
+										<td>Z46909220</td>
+										<td>BX</td>
+										<td>09253U108</td>
+										<td>BLACKSTONE GROUP L P COM UNIT REPSTG</td>
+										<td>B</td>
+										<td>200</td>
+										<td>27.50</td>
+										<td>2:11PM</td>
+										<td>2:11PM</td>
+									</tr><tr>
+										<td>11/22/2013</td>
+										<td>CHRISTOPHER ROBERT C</td>
+										<td>Z46909220</td>
+										<td>FSCGX</td>
+										<td>316390533</td>
+										<td>FIDELITY SELECT INDUSTRIAL EQUIPMENT</td>
+										<td>B</td>
+										<td>107</td>
+										<td>46.76</td>
+										<td>8:42AM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/05/2013</td>
+										<td>CHRISTOPHER ROBERT C</td>
+										<td>Z46909220</td>
+										<td>TEU</td>
+										<td>Y09675102</td>
+										<td>BOX SHIPS INC COM USD0.01</td>
+										<td>S</td>
+										<td>900</td>
+										<td>3.88</td>
+										<td>2:12PM</td>
+										<td>2:12PM</td>
+									</tr><tr>
+										<td>11/05/2013</td>
+										<td>CHRISTOPHER ROBERT C</td>
+										<td>Z46909220</td>
+										<td>ZNGA</td>
+										<td>98986T108</td>
+										<td>ZYNGA INC COM USD0.00000625  CLASS</td>
+										<td>S</td>
+										<td>1,000</td>
+										<td>3.74</td>
+										<td>2:13PM</td>
+										<td>2:13PM</td>
+									</tr><tr>
+										<td>11/08/2013</td>
+										<td>JOSEPH CIRO AMATURO</td>
+										<td>Z69558214</td>
+										<td>FBIOX</td>
+										<td>316390772</td>
+										<td>FIDELITY SELECT BIOTECHNOLOGY</td>
+										<td>B</td>
+										<td>122</td>
+										<td>164.14</td>
+										<td>1:56PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/21/2013</td>
+										<td>JOHN M HICKEY</td>
+										<td>Z69618918</td>
+										<td>AB</td>
+										<td>01881G106</td>
+										<td>ALLIANCEBERNSTEIN HLDG L P UNIT</td>
+										<td>S</td>
+										<td>800</td>
+										<td>21.62</td>
+										<td>9:49AM</td>
+										<td>9:49AM</td>
+									</tr><tr>
+										<td>11/21/2013</td>
+										<td>JOHN M HICKEY</td>
+										<td>Z69618918</td>
+										<td>MU</td>
+										<td>595112103</td>
+										<td>MICRON TECHNOLOGY </td>
+										<td>S</td>
+										<td>800</td>
+										<td>19.26</td>
+										<td>9:50AM</td>
+										<td>9:50AM</td>
+									</tr><tr>
+										<td>11/04/2013</td>
+										<td>DOUGLAS R ROGERS</td>
+										<td>Z70505234</td>
+										<td></td>
+										<td>63934EAM0</td>
+										<td>NAVISTAR INTL CORP NOTE</td>
+										<td>B</td>
+										<td>180,000</td>
+										<td>102.63</td>
+										<td>3:57PM</td>
+										<td>3:57PM</td>
+									</tr><tr>
+										<td>11/19/2013</td>
+										<td>DOUGLAS R ROGERS</td>
+										<td>Z70505234</td>
+										<td></td>
+										<td>78490FZV4</td>
+										<td>SLM CORP EDNOTES BOOK ENTRY</td>
+										<td>B</td>
+										<td>100,000</td>
+										<td>87.12</td>
+										<td>11:38AM</td>
+										<td>11:39AM</td>
+									</tr><tr>
+										<td>11/08/2013</td>
+										<td>ANGELOS  EFSTATHIOU</td>
+										<td>Z70506966</td>
+										<td>FWM</td>
+										<td>30603D109</td>
+										<td>FAIRWAY GROUP HLDGS CORP COM USD0.00001</td>
+										<td>B</td>
+										<td>300</td>
+										<td>21.19</td>
+										<td>11:23AM</td>
+										<td>11:23AM</td>
+									</tr><tr>
+										<td>11/14/2013</td>
+										<td>ANGELOS  EFSTATHIOU</td>
+										<td>Z70506966</td>
+										<td>WY</td>
+										<td>962166104</td>
+										<td>WEYERHAEUSER CO COM</td>
+										<td>B</td>
+										<td>300</td>
+										<td>29.80</td>
+										<td>2:00PM</td>
+										<td>2:00PM</td>
+									</tr><tr>
+										<td>11/12/2013</td>
+										<td>PATRICK  O'GRADY</td>
+										<td>Z70508209</td>
+										<td>GLBS</td>
+										<td>Y27265209</td>
+										<td>GLOBUS MARITIME LTD COM USD0.01</td>
+										<td>S</td>
+										<td>300</td>
+										<td>2.61</td>
+										<td>12:59PM</td>
+										<td>12:59PM</td>
+									</tr><tr>
+										<td>11/11/2013</td>
+										<td>BRIAN P CLIFFORD</td>
+										<td>Z70572357</td>
+										<td>AIRM</td>
+										<td>009128307</td>
+										<td>AIR METHODS COM NEW</td>
+										<td>B</td>
+										<td>500</td>
+										<td>51.64</td>
+										<td>11:07AM</td>
+										<td>11:07AM</td>
+									</tr><tr>
+										<td>11/21/2013</td>
+										<td>BRIAN P CLIFFORD</td>
+										<td>Z70572357</td>
+										<td>CI</td>
+										<td>125509109</td>
+										<td>CIGNA CORP SHORT COVER</td>
+										<td>B</td>
+										<td>500</td>
+										<td>87.07</td>
+										<td>10:30AM</td>
+										<td>12:00AM</td>
+									</tr><tr>
+										<td>11/11/2013</td>
+										<td>BRIAN P CLIFFORD</td>
+										<td>Z70572357</td>
+										<td>MU</td>
+										<td>595112103</td>
+										<td>MICRON TECHNOLOGY </td>
+										<td>S</td>
+										<td>2,000</td>
+										<td>17.98</td>
+										<td>11:14AM</td>
+										<td>11:14AM</td>
+									</tr><tr>
+										<td>11/11/2013</td>
+										<td>BRIAN P CLIFFORD</td>
+										<td>Z70572357</td>
+										<td>SLXP</td>
+										<td>795435106</td>
+										<td>SALIX PHARMACEUTICALS LTD</td>
+										<td>B</td>
+										<td>1,000</td>
+										<td>85.10</td>
+										<td>11:06AM</td>
+										<td>11:06AM</td>
+									</tr><tr>
+										<td>11/07/2013</td>
+										<td>MATTHEW FRANCIS BUCK</td>
+										<td>Z72364126</td>
+										<td>HRC</td>
+										<td>431475102</td>
+										<td>HILL ROM HLDGS COM AVERAGE PRICE TRADE</td>
+										<td>S</td>
+										<td>250</td>
+										<td>40.65</td>
+										<td>1:06PM</td>
+										<td>1:06PM</td>
+									</tr><tr>
+										<td>11/26/2013</td>
+										<td>MATTHEW FRANCIS BUCK</td>
+										<td>Z72364126</td>
+										<td>RYN</td>
+										<td>754907103</td>
+										<td>RAYONIER INC </td>
+										<td>S</td>
+										<td>300</td>
+										<td>44.08</td>
+										<td>1:16PM</td>
+										<td>1:16PM</td>
+									</tr><tr>
+										<td>11/26/2013</td>
+										<td>MATTHEW FRANCIS BUCK</td>
+										<td>Z72364126</td>
+										<td>TWTR</td>
+										<td>90184L102</td>
+										<td>TWITTER INC COM USD0.000005</td>
+										<td>B</td>
+										<td>300</td>
+										<td>40.49</td>
+										<td>1:16PM</td>
+										<td>1:16PM</td>
+									</tr><tr>
+										<td>11/01/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>ACWV</td>
+										<td>464286525</td>
+										<td>ISHARES INC MSCI ALL CTY WRLD MIN ETF</td>
+										<td>B</td>
+										<td>2,000</td>
+										<td>64.00</td>
+										<td>12:29PM</td>
+										<td>12:29PM</td>
+									</tr><tr>
+										<td>11/01/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>AMRI</td>
+										<td>012423109</td>
+										<td>ALBANY MOLECULAR RESEARCH</td>
+										<td>B</td>
+										<td>2,000</td>
+										<td>12.99</td>
+										<td>10:29AM</td>
+										<td>1:23PM</td>
+									</tr><tr>
+										<td>11/27/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>AMRI</td>
+										<td>012423109</td>
+										<td>ALBANY MOLECULAR RESEARCH</td>
+										<td>B</td>
+										<td>2,000</td>
+										<td>11.91</td>
+										<td>1:37PM</td>
+										<td>1:37PM</td>
+									</tr><tr>
+										<td>11/08/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>AMRN</td>
+										<td>023111206</td>
+										<td>AMARIN CORP ADR EACH REP 1 ORD GBP0.50</td>
+										<td>B</td>
+										<td>7,500</td>
+										<td>1.62</td>
+										<td>12:51PM</td>
+										<td>1:09PM</td>
+									</tr><tr>
+										<td>11/15/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>AMZN</td>
+										<td>1812869DZ</td>
+										<td>CALL (AMZN) AMAZON.COM INC</td>
+										<td>B</td>
+										<td>10</td>
+										<td>13.52</td>
+										<td>11:16AM</td>
+										<td>11:16AM</td>
+									</tr><tr>
+										<td>11/15/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>AMZN</td>
+										<td>1447999TT</td>
+										<td>CALL (AMZN) AMAZON.COM INC</td>
+										<td>S</td>
+										<td>10</td>
+										<td>42.51</td>
+										<td>11:16AM</td>
+										<td>11:16AM</td>
+									</tr><tr>
+										<td>11/01/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>BAX</td>
+										<td>1835359SQ</td>
+										<td>CALL (BAX) BAXTER INTL INC</td>
+										<td>S</td>
+										<td>3,030</td>
+										<td>32.93</td>
+										<td>3:36PM</td>
+										<td>3:36PM</td>
+									</tr><tr>
+										<td>11/01/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>COLM</td>
+										<td>198516106</td>
+										<td>COLUMBIA SPORTSWEAR CO</td>
+										<td>B</td>
+										<td>500</td>
+										<td>66.75</td>
+										<td>10:29AM</td>
+										<td>11:00AM</td>
+									</tr><tr>
+										<td>11/01/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>DIS</td>
+										<td>1843209RP</td>
+										<td>PUT (DIS) DISNEY WALT CO</td>
+										<td>S</td>
+										<td>100</td>
+										<td>1.33</td>
+										<td>12:30PM</td>
+										<td>12:30PM</td>
+									</tr><tr>
+										<td>11/01/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>EL</td>
+										<td>518439104</td>
+										<td>ESTEE LAUDER COMPANIES INC CL A</td>
+										<td>B</td>
+										<td>3,000</td>
+										<td>70.03</td>
+										<td>11:02AM</td>
+										<td>11:02AM</td>
+									</tr><tr>
+										<td>11/01/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>ETY</td>
+										<td>27828N102</td>
+										<td>EATON VANCE TAX MANAGED DIVERSIFIED</td>
+										<td>B</td>
+										<td>2,500</td>
+										<td>10.70</td>
+										<td>12:28PM</td>
+										<td>12:28PM</td>
+									</tr><tr>
+										<td>11/11/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>FBIOX</td>
+										<td>316390772</td>
+										<td>FIDELITY SELECT BIOTECHNOLOGY</td>
+										<td>B</td>
+										<td>755</td>
+										<td>165.64</td>
+										<td>10:55AM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/11/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>HDV</td>
+										<td>46429B663</td>
+										<td>ISHARES TRUST HIGH DIVIDEND ETF</td>
+										<td>B</td>
+										<td>2,000</td>
+										<td>70.07</td>
+										<td>2:41PM</td>
+										<td>2:41PM</td>
+									</tr><tr>
+										<td>11/07/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>HRC</td>
+										<td>431475102</td>
+										<td>HILL ROM HLDGS COM AVERAGE PRICE TRADE</td>
+										<td>S</td>
+										<td>2,000</td>
+										<td>40.61</td>
+										<td>1:06PM</td>
+										<td>1:06PM</td>
+									</tr><tr>
+										<td>11/01/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>LNKD</td>
+										<td>1842179SQ</td>
+										<td>PUT (LNKD) LINKEDIN CORP COM</td>
+										<td>S</td>
+										<td>10</td>
+										<td>1.55</td>
+										<td>3:37PM</td>
+										<td>3:37PM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>MPW</td>
+										<td>58463J304</td>
+										<td>MEDICAL PPTYS TR INC AVERAGE PRICE TRADE</td>
+										<td>B</td>
+										<td>2,000</td>
+										<td>13.07</td>
+										<td>2:39PM</td>
+										<td>2:39PM</td>
+									</tr><tr>
+										<td>11/11/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>NLY</td>
+										<td>035710409</td>
+										<td>ANNALY CAPITAL MANAGEMENT INC COM</td>
+										<td>S</td>
+										<td>5,000</td>
+										<td>10.34</td>
+										<td>2:41PM</td>
+										<td>2:41PM</td>
+									</tr><tr>
+										<td>11/27/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>PDII</td>
+										<td>69329V100</td>
+										<td>PDI INC </td>
+										<td>S</td>
+										<td>12,000</td>
+										<td>5.18</td>
+										<td>1:36PM</td>
+										<td>2:07PM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>PINC</td>
+										<td>74051N102</td>
+										<td>PREMIER INC COM USD0.01 CL A</td>
+										<td>B</td>
+										<td>1,000</td>
+										<td>31.02</td>
+										<td>2:38PM</td>
+										<td>2:38PM</td>
+									</tr><tr>
+										<td>11/27/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>PINC</td>
+										<td>74051N102</td>
+										<td>PREMIER INC COM USD0.01 CL A</td>
+										<td>B</td>
+										<td>1,000</td>
+										<td>31.14</td>
+										<td>1:38PM</td>
+										<td>1:38PM</td>
+									</tr><tr>
+										<td>11/22/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>POST</td>
+										<td>737446104</td>
+										<td>POST HOLDINGS INC COM USD0.01</td>
+										<td>B</td>
+										<td>4,000</td>
+										<td>47.21</td>
+										<td>3:43PM</td>
+										<td>3:43PM</td>
+									</tr><tr>
+										<td>11/26/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>PVH</td>
+										<td>693656100</td>
+										<td>PVH CORPORATION COM USD1.00</td>
+										<td>B</td>
+										<td>1,000</td>
+										<td>134.62</td>
+										<td>1:15PM</td>
+										<td>1:15PM</td>
+									</tr><tr>
+										<td>11/07/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>QCOR</td>
+										<td>74835Y101</td>
+										<td>QUESTCOR PHAR INC AVERAGE PRICE TRADE</td>
+										<td>S</td>
+										<td>2,000</td>
+										<td>58.03</td>
+										<td>3:37PM</td>
+										<td>3:37PM</td>
+									</tr><tr>
+										<td>11/08/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>QCOR</td>
+										<td>1620489HB</td>
+										<td>CALL (QCOR) QUESTCOR PHAR INC</td>
+										<td>B</td>
+										<td>30</td>
+										<td>2.49</td>
+										<td>12:49PM</td>
+										<td>12:49PM</td>
+									</tr><tr>
+										<td>11/26/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>RYN</td>
+										<td>754907103</td>
+										<td>RAYONIER INC AVERAGE PRICE TRADE</td>
+										<td>S</td>
+										<td>2,000</td>
+										<td>44.09</td>
+										<td>1:15PM</td>
+										<td>1:15PM</td>
+									</tr><tr>
+										<td>11/26/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>TWTR</td>
+										<td>90184L102</td>
+										<td>TWITTER INC COM USD0.000005</td>
+										<td>B</td>
+										<td>2,000</td>
+										<td>40.47</td>
+										<td>1:16PM</td>
+										<td>1:16PM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>WYNN</td>
+										<td>983134107</td>
+										<td>WYNN RESORTS LTD AVERAGE PRICE TRADE</td>
+										<td>B</td>
+										<td>1,200</td>
+										<td>164.18</td>
+										<td>2:37PM</td>
+										<td>2:37PM</td>
+									</tr><tr>
+										<td>11/11/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>WYNN</td>
+										<td>983134107</td>
+										<td>WYNN RESORTS LTD </td>
+										<td>B</td>
+										<td>300</td>
+										<td>165.59</td>
+										<td>2:18PM</td>
+										<td>2:18PM</td>
+									</tr><tr>
+										<td>11/01/2013</td>
+										<td>DAVID GEORGE BUCK</td>
+										<td>Z72364134</td>
+										<td>XON</td>
+										<td>1815199AS</td>
+										<td>PUT (XON) INTREXON CORP COM</td>
+										<td>B</td>
+										<td>20</td>
+										<td>2.55</td>
+										<td>12:26PM</td>
+										<td>12:26PM</td>
+									</tr><tr>
+										<td>11/21/2013</td>
+										<td>MANNY I KORMAN</td>
+										<td>Z72364266</td>
+										<td>AAPL</td>
+										<td>037833100</td>
+										<td>APPLE INC </td>
+										<td>S</td>
+										<td>1,000</td>
+										<td>515.54</td>
+										<td>11:19AM</td>
+										<td>11:19AM</td>
+									</tr><tr>
+										<td>11/21/2013</td>
+										<td>MANNY I KORMAN</td>
+										<td>Z72364266</td>
+										<td>AMGN</td>
+										<td>031162100</td>
+										<td>AMGEN INC </td>
+										<td>S</td>
+										<td>2,500</td>
+										<td>112.60</td>
+										<td>11:20AM</td>
+										<td>11:20AM</td>
+									</tr><tr>
+										<td>11/05/2013</td>
+										<td>MANNY I KORMAN</td>
+										<td>Z72364266</td>
+										<td>BA</td>
+										<td>097023105</td>
+										<td>BOEING CO ASSIGNED CALLS</td>
+										<td>S</td>
+										<td>5,000</td>
+										<td>105.00</td>
+										<td>12:00AM</td>
+										<td>7:24AM</td>
+									</tr><tr>
+										<td>11/12/2013</td>
+										<td>MANNY I KORMAN</td>
+										<td>Z72364266</td>
+										<td>BIIB</td>
+										<td>09062X103</td>
+										<td>BIOGEN IDEC INC </td>
+										<td>B</td>
+										<td>1,000</td>
+										<td>234.82</td>
+										<td>10:54AM</td>
+										<td>10:54AM</td>
+									</tr><tr>
+										<td>11/19/2013</td>
+										<td>MANNY I KORMAN</td>
+										<td>Z72364266</td>
+										<td>CYH</td>
+										<td>203668108</td>
+										<td>COMMUNITY HEALTH SYS INC NEW</td>
+										<td>S</td>
+										<td>4,000</td>
+										<td>40.10</td>
+										<td>11:31AM</td>
+										<td>11:31AM</td>
+									</tr><tr>
+										<td>11/01/2013</td>
+										<td>MANNY I KORMAN</td>
+										<td>Z72364266</td>
+										<td>DISCA</td>
+										<td>25470F104</td>
+										<td>DISCOVERY COMMUNICATIONS INC</td>
+										<td>S</td>
+										<td>2,000</td>
+										<td>87.87</td>
+										<td>1:12PM</td>
+										<td>1:12PM</td>
+									</tr><tr>
+										<td>11/25/2013</td>
+										<td>MANNY I KORMAN</td>
+										<td>Z72364266</td>
+										<td>EQIX</td>
+										<td>29444U502</td>
+										<td>EQUINIX INC NEW </td>
+										<td>B</td>
+										<td>2,000</td>
+										<td>162.54</td>
+										<td>11:58AM</td>
+										<td>11:58AM</td>
+									</tr><tr>
+										<td>11/21/2013</td>
+										<td>MANNY I KORMAN</td>
+										<td>Z72364266</td>
+										<td>EXPE</td>
+										<td>30212P303</td>
+										<td>EXPEDIA INC DEL COM NEW</td>
+										<td>B</td>
+										<td>3,000</td>
+										<td>62.47</td>
+										<td>11:22AM</td>
+										<td>11:22AM</td>
+									</tr><tr>
+										<td>11/20/2013</td>
+										<td>MANNY I KORMAN</td>
+										<td>Z72364266</td>
+										<td>GILD</td>
+										<td>375558103</td>
+										<td>GILEAD SCIENCES INC</td>
+										<td>B</td>
+										<td>3,000</td>
+										<td>70.34</td>
+										<td>9:42AM</td>
+										<td>9:42AM</td>
+									</tr><tr>
+										<td>11/22/2013</td>
+										<td>MANNY I KORMAN</td>
+										<td>Z72364266</td>
+										<td>IP</td>
+										<td>460146103</td>
+										<td>INTL PAPER CO </td>
+										<td>B</td>
+										<td>4,000</td>
+										<td>46.25</td>
+										<td>10:37AM</td>
+										<td>10:37AM</td>
+									</tr><tr>
+										<td>11/04/2013</td>
+										<td>MANNY I KORMAN</td>
+										<td>Z72364266</td>
+										<td>MRK</td>
+										<td>58933Y105</td>
+										<td>MERCK & CO INC NEW COM</td>
+										<td>B</td>
+										<td>5,000</td>
+										<td>46.00</td>
+										<td>10:09AM</td>
+										<td>11:02AM</td>
+									</tr><tr>
+										<td>11/21/2013</td>
+										<td>MANNY I KORMAN</td>
+										<td>Z72364266</td>
+										<td>PNRA</td>
+										<td>69840W108</td>
+										<td>PANERA BREAD COMPANY CL A</td>
+										<td>B</td>
+										<td>3,000</td>
+										<td>174.89</td>
+										<td>11:21AM</td>
+										<td>11:21AM</td>
+									</tr><tr>
+										<td>11/15/2013</td>
+										<td>MANNY I KORMAN</td>
+										<td>Z72364266</td>
+										<td>SAVE</td>
+										<td>848577102</td>
+										<td>SPIRIT AIRLINES INC COM USD0.0001</td>
+										<td>B</td>
+										<td>3,000</td>
+										<td>44.37</td>
+										<td>11:55AM</td>
+										<td>11:55AM</td>
+									</tr><tr>
+										<td>11/01/2013</td>
+										<td>MANNY I KORMAN</td>
+										<td>Z72364266</td>
+										<td>VRTX</td>
+										<td>92532F100</td>
+										<td>VERTEX PHARMACEUTCLS INC</td>
+										<td>S</td>
+										<td>3,000</td>
+										<td>67.56</td>
+										<td>11:21AM</td>
+										<td>11:21AM</td>
+									</tr><tr>
+										<td>11/11/2013</td>
+										<td>MARC PAUL LUCHANSKY</td>
+										<td>Z72364274</td>
+										<td>FOR</td>
+										<td>346233109</td>
+										<td>FORESTAR GROUP INC </td>
+										<td>S</td>
+										<td>500</td>
+										<td>20.50</td>
+										<td>10:14AM</td>
+										<td>10:14AM</td>
+									</tr><tr>
+										<td>11/22/2013</td>
+										<td>MARC PAUL LUCHANSKY</td>
+										<td>Z72364274</td>
+										<td>PNRA</td>
+										<td>1518519OI</td>
+										<td>CALL (PNRA) PANERA BREAD COMPANY</td>
+										<td>S</td>
+										<td>2</td>
+										<td>11.80</td>
+										<td>11:19AM</td>
+										<td>11:19AM</td>
+									</tr><tr>
+										<td>11/18/2013</td>
+										<td>MARC PAUL LUCHANSKY</td>
+										<td>Z72364274</td>
+										<td>TSLA</td>
+										<td>1748469SO</td>
+										<td>PUT (TSLA) TESLA MOTORS INC COM</td>
+										<td>B</td>
+										<td>1</td>
+										<td>6.89</td>
+										<td>10:41AM</td>
+										<td>10:41AM</td>
+									</tr><tr>
+										<td>11/01/2013</td>
+										<td>JOHN FRANCIS MCERLEA</td>
+										<td>Z72364282</td>
+										<td>PSUN</td>
+										<td>694873100</td>
+										<td>PACIFIC SUNWEAR CALIF INC</td>
+										<td>S</td>
+										<td>2,000</td>
+										<td>2.58</td>
+										<td>2:30PM</td>
+										<td>2:30PM</td>
+									</tr><tr>
+										<td>11/25/2013</td>
+										<td>JOHN FRANCIS MCERLEA</td>
+										<td>Z72364282</td>
+										<td>PSUN</td>
+										<td>694873100</td>
+										<td>PACIFIC SUNWEAR CALIF INC</td>
+										<td>S</td>
+										<td>2,000</td>
+										<td>2.97</td>
+										<td>3:13PM</td>
+										<td>3:13PM</td>
+									</tr><tr>
+										<td>11/08/2013</td>
+										<td>HARALAMBOS  EFSTATHI</td>
+										<td>Z72364304</td>
+										<td>FWM</td>
+										<td>30603D109</td>
+										<td>FAIRWAY GROUP HLDGS CORP COM USD0.00001</td>
+										<td>B</td>
+										<td>700</td>
+										<td>21.13</td>
+										<td>11:18AM</td>
+										<td>11:18AM</td>
+									</tr><tr>
+										<td>11/14/2013</td>
+										<td>HARALAMBOS  EFSTATHI</td>
+										<td>Z72364304</td>
+										<td>WY</td>
+										<td>962166104</td>
+										<td>WEYERHAEUSER CO COM</td>
+										<td>B</td>
+										<td>600</td>
+										<td>29.80</td>
+										<td>2:00PM</td>
+										<td>2:00PM</td>
+									</tr><tr>
+										<td>11/19/2013</td>
+										<td>NICOLAS EVAN PAKLER</td>
+										<td>Z72364312</td>
+										<td>FBGRX</td>
+										<td>316389303</td>
+										<td>FIDELITY BLUE CHIP GROWTH</td>
+										<td>B</td>
+										<td>489</td>
+										<td>61.31</td>
+										<td>10:42AM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/14/2013</td>
+										<td>NICOLAS EVAN PAKLER</td>
+										<td>Z72364312</td>
+										<td>TSLA</td>
+										<td>88160R101</td>
+										<td>TESLA MOTORS INC COM USD0.001</td>
+										<td>S</td>
+										<td>105</td>
+										<td>134.47</td>
+										<td>12:09PM</td>
+										<td>12:09PM</td>
+									</tr><tr>
+										<td>11/01/2013</td>
+										<td>JONATHAN RICHARD HAR</td>
+										<td>Z72364320</td>
+										<td>CBK</td>
+										<td>171046105</td>
+										<td>CHRISTOPHER & BANKS CORP</td>
+										<td>B</td>
+										<td>1,000</td>
+										<td>5.62</td>
+										<td>11:16AM</td>
+										<td>11:16AM</td>
+									</tr><tr>
+										<td>11/08/2013</td>
+										<td>JONATHAN RICHARD HAR</td>
+										<td>Z72364320</td>
+										<td>CBK</td>
+										<td>171046105</td>
+										<td>CHRISTOPHER & BANKS CORP</td>
+										<td>B</td>
+										<td>2,000</td>
+										<td>5.79</td>
+										<td>9:33AM</td>
+										<td>12:00AM</td>
+									</tr><tr>
+										<td>11/07/2013</td>
+										<td>JONATHAN RICHARD HAR</td>
+										<td>Z72364320</td>
+										<td>WTSL</td>
+										<td>961840105</td>
+										<td>WET SEAL INC CL A </td>
+										<td>S</td>
+										<td>7,500</td>
+										<td>3.19</td>
+										<td>10:05AM</td>
+										<td>10:05AM</td>
+									</tr><tr>
+										<td>11/07/2013</td>
+										<td>ANTHONY  SUTERA</td>
+										<td>Z72364339</td>
+										<td>AEO</td>
+										<td>02553E106</td>
+										<td>AMERICAN EAGLE OUTFITTERS</td>
+										<td>S</td>
+										<td>1,000</td>
+										<td>15.20</td>
+										<td>3:24PM</td>
+										<td>3:24PM</td>
+									</tr><tr>
+										<td>11/19/2013</td>
+										<td>ANTHONY  SUTERA</td>
+										<td>Z72364339</td>
+										<td>AMRI</td>
+										<td>012423109</td>
+										<td>ALBANY MOLECULAR RESEARCH</td>
+										<td>B</td>
+										<td>500</td>
+										<td>12.60</td>
+										<td>11:10AM</td>
+										<td>11:11AM</td>
+									</tr><tr>
+										<td>11/20/2013</td>
+										<td>ANTHONY  SUTERA</td>
+										<td>Z72364339</td>
+										<td>AMRI</td>
+										<td>012423109</td>
+										<td>ALBANY MOLECULAR RESEARCH</td>
+										<td>B</td>
+										<td>1,000</td>
+										<td>11.50</td>
+										<td>11:17AM</td>
+										<td>12:00AM</td>
+									</tr><tr>
+										<td>11/08/2013</td>
+										<td>ANTHONY  SUTERA</td>
+										<td>Z72364339</td>
+										<td>AXL</td>
+										<td>024061103</td>
+										<td>AMERICAN AXLE & MFG HOLDINGS</td>
+										<td>B</td>
+										<td>1,000</td>
+										<td>17.46</td>
+										<td>9:31AM</td>
+										<td>9:31AM</td>
+									</tr><tr>
+										<td>11/20/2013</td>
+										<td>ANTHONY  SUTERA</td>
+										<td>Z72364339</td>
+										<td>BALT</td>
+										<td>Y0553W103</td>
+										<td>BALTIC TRADING LIMITED COM USD0.01</td>
+										<td>S</td>
+										<td>3,000</td>
+										<td>4.65</td>
+										<td>11:17AM</td>
+										<td>11:17AM</td>
+									</tr><tr>
+										<td>11/07/2013</td>
+										<td>ANTHONY  SUTERA</td>
+										<td>Z72364339</td>
+										<td>FWM</td>
+										<td>30603D109</td>
+										<td>FAIRWAY GROUP HLDGS CORP COM USD0.00001</td>
+										<td>B</td>
+										<td>2,000</td>
+										<td>18.83</td>
+										<td>3:26PM</td>
+										<td>3:26PM</td>
+									</tr><tr>
+										<td>11/07/2013</td>
+										<td>ANTHONY  SUTERA</td>
+										<td>Z72364339</td>
+										<td>PCYO</td>
+										<td>746228303</td>
+										<td>PURE CYCLE CORP COM NEW</td>
+										<td>S</td>
+										<td>1,200</td>
+										<td>6.00</td>
+										<td>3:24PM</td>
+										<td>3:24PM</td>
+									</tr><tr>
+										<td>11/07/2013</td>
+										<td>ANTHONY  SUTERA</td>
+										<td>Z72364339</td>
+										<td>WNC</td>
+										<td>929566107</td>
+										<td>WABASH NATL CORP </td>
+										<td>S</td>
+										<td>2,000</td>
+										<td>11.20</td>
+										<td>3:23PM</td>
+										<td>3:23PM</td>
+									</tr><tr>
+										<td>11/18/2013</td>
+										<td>FRANCIS MICHAEL MCCA</td>
+										<td>Z72369160</td>
+										<td>UAL</td>
+										<td>910047109</td>
+										<td>UNITED CONTINENTAL HOLDINGS INC COM</td>
+										<td>B</td>
+										<td>200</td>
+										<td>37.06</td>
+										<td>10:13AM</td>
+										<td>10:13AM</td>
+									</tr><tr>
+										<td>11/19/2013</td>
+										<td>WILLIAM J GAULT</td>
+										<td>Z72369497</td>
+										<td>ECT</td>
+										<td>26827L109</td>
+										<td>ECA MARCELLUS TR I COM UNIT</td>
+										<td>B</td>
+										<td>3,000</td>
+										<td>7.20</td>
+										<td>3:58PM</td>
+										<td>3:58PM</td>
+									</tr><tr>
+										<td>11/18/2013</td>
+										<td>MARK  MEGALLI</td>
+										<td>Z72369500</td>
+										<td>CRMB</td>
+										<td>228803102</td>
+										<td>CRUMBS BAKE SHOP INC COM USD0.0001</td>
+										<td>S</td>
+										<td>5,000</td>
+										<td>1.01</td>
+										<td>1:56PM</td>
+										<td>1:56PM</td>
+									</tr><tr>
+										<td>11/04/2013</td>
+										<td>IAN L MILLER</td>
+										<td>Z72369691</td>
+										<td>CNW</td>
+										<td>205944101</td>
+										<td>CON WAY INC COM</td>
+										<td>B</td>
+										<td>25</td>
+										<td>41.64</td>
+										<td>10:36AM</td>
+										<td>10:36AM</td>
+									</tr><tr>
+										<td>11/07/2013</td>
+										<td>IAN L MILLER</td>
+										<td>Z72369691</td>
+										<td>FBC</td>
+										<td>337930705</td>
+										<td>FLAGSTAR BANCORP INC COM PAR$.001</td>
+										<td>S</td>
+										<td>100</td>
+										<td>18.03</td>
+										<td>10:07AM</td>
+										<td>10:07AM</td>
+									</tr><tr>
+										<td>11/04/2013</td>
+										<td>IAN L MILLER</td>
+										<td>Z72369691</td>
+										<td>QTWW</td>
+										<td>74765E307</td>
+										<td>QUANTUM FUEL SYS TECHNOLOGIES</td>
+										<td>B</td>
+										<td>250</td>
+										<td>4.44</td>
+										<td>11:01AM</td>
+										<td>11:01AM</td>
+									</tr><tr>
+										<td>11/18/2013</td>
+										<td>IAN L MILLER</td>
+										<td>Z72369691</td>
+										<td>QUASX</td>
+										<td>01877E107</td>
+										<td>ALLIANCEBER SMALL CAP GROWTH CLASS A</td>
+										<td>B</td>
+										<td>9</td>
+										<td>53.94</td>
+										<td>3:40PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/25/2013</td>
+										<td>IAN L MILLER</td>
+										<td>Z72369691</td>
+										<td>RL</td>
+										<td>751212101</td>
+										<td>RALPH LAUREN CORP COM USD0.01 CLASS  A</td>
+										<td>S</td>
+										<td>7</td>
+										<td>175.24</td>
+										<td>1:21PM</td>
+										<td>1:21PM</td>
+									</tr><tr>
+										<td>11/04/2013</td>
+										<td>IAN L MILLER</td>
+										<td>Z72369691</td>
+										<td>RYN</td>
+										<td>754907103</td>
+										<td>RAYONIER INC </td>
+										<td>B</td>
+										<td>15</td>
+										<td>46.31</td>
+										<td>10:41AM</td>
+										<td>10:41AM</td>
+									</tr><tr>
+										<td>11/15/2013</td>
+										<td>IAN L MILLER</td>
+										<td>Z72369691</td>
+										<td>VXX</td>
+										<td>06742E711</td>
+										<td>BARCLAYS BK PLC IPATH S&P 500 VIX</td>
+										<td>B</td>
+										<td>15</td>
+										<td>47.19</td>
+										<td>10:54AM</td>
+										<td>10:54AM</td>
+									</tr><tr>
+										<td>11/13/2013</td>
+										<td>LBP ENTERPRI SES INC</td>
+										<td>Z72409294</td>
+										<td>AMGN</td>
+										<td>031162100</td>
+										<td>AMGEN INC </td>
+										<td>S</td>
+										<td>1,000</td>
+										<td>113.13</td>
+										<td>2:47PM</td>
+										<td>2:47PM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>LBP ENTERPRI SES INC</td>
+										<td>Z72409294</td>
+										<td>ARP</td>
+										<td>04941A101</td>
+										<td>ATLAS RESOURCE PARTNERS L P</td>
+										<td>S</td>
+										<td>2,000</td>
+										<td>20.27</td>
+										<td>11:29AM</td>
+										<td>11:29AM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>CICILY S BACKUS</td>
+										<td>Z72409820</td>
+										<td>ARP</td>
+										<td>04941A101</td>
+										<td>ATLAS RESOURCE PARTNERS L P</td>
+										<td>S</td>
+										<td>2,000</td>
+										<td>20.28</td>
+										<td>11:20AM</td>
+										<td>11:20AM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>CICILY S BACKUS</td>
+										<td>Z72409820</td>
+										<td>AXP</td>
+										<td>025816109</td>
+										<td>AMERICAN EXPRESS CO </td>
+										<td>S</td>
+										<td>1,000</td>
+										<td>82.04</td>
+										<td>11:16AM</td>
+										<td>11:16AM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>CICILY S BACKUS</td>
+										<td>Z72409820</td>
+										<td>C</td>
+										<td>172967424</td>
+										<td>CITIGROUP INC COM NEW</td>
+										<td>B</td>
+										<td>2,000</td>
+										<td>48.60</td>
+										<td>11:22AM</td>
+										<td>11:22AM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>CICILY S BACKUS</td>
+										<td>Z72409820</td>
+										<td>SAH</td>
+										<td>83545G102</td>
+										<td>SONIC AUTOMOTIVE INC </td>
+										<td>S</td>
+										<td>3,000</td>
+										<td>22.36</td>
+										<td>11:18AM</td>
+										<td>11:18AM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>LEE F BACKUS</td>
+										<td>Z72409839</td>
+										<td>CVGI</td>
+										<td>202608105</td>
+										<td>COMMERCIAL VEHICLE GROUP INC</td>
+										<td>S</td>
+										<td>2,000</td>
+										<td>7.20</td>
+										<td>11:36AM</td>
+										<td>11:36AM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>LEE F BACKUS</td>
+										<td>Z72409839</td>
+										<td>SCRH</td>
+										<td>80917W202</td>
+										<td>SCORES HLDG INC COM NEW</td>
+										<td>S</td>
+										<td>500</td>
+										<td>0.02</td>
+										<td>11:35AM</td>
+										<td>11:35AM</td>
+									</tr><tr>
+										<td>11/01/2013</td>
+										<td>MARK ANTHONY GRONET</td>
+										<td>Z72409863</td>
+										<td>AIG</td>
+										<td>026874784</td>
+										<td>AMERICAN INTL GROUP INC COM NEW</td>
+										<td>B</td>
+										<td>300</td>
+										<td>48.51</td>
+										<td>2:23PM</td>
+										<td>2:23PM</td>
+									</tr><tr>
+										<td>11/14/2013</td>
+										<td>MARK ANTHONY GRONET</td>
+										<td>Z72409863</td>
+										<td>ARR</td>
+										<td>042315101</td>
+										<td>ARMOUR RESIDENTIAL REIT INC COM</td>
+										<td>S</td>
+										<td>10,000</td>
+										<td>4.11</td>
+										<td>12:15PM</td>
+										<td>12:15PM</td>
+									</tr><tr>
+										<td>11/27/2013</td>
+										<td>MARK ANTHONY GRONET</td>
+										<td>Z72409863</td>
+										<td>ATI</td>
+										<td>01741R102</td>
+										<td>ALLEGHENY TECH INC </td>
+										<td>S</td>
+										<td>1,000</td>
+										<td>33.15</td>
+										<td>2:16PM</td>
+										<td>2:16PM</td>
+									</tr><tr>
+										<td>11/14/2013</td>
+										<td>MARK ANTHONY GRONET</td>
+										<td>Z72409863</td>
+										<td>BA</td>
+										<td>097023105</td>
+										<td>BOEING CO </td>
+										<td>S</td>
+										<td>400</td>
+										<td>134.76</td>
+										<td>1:01PM</td>
+										<td>1:01PM</td>
+									</tr><tr>
+										<td>11/27/2013</td>
+										<td>MARK ANTHONY GRONET</td>
+										<td>Z72409863</td>
+										<td>CCMNX</td>
+										<td>204029409</td>
+										<td>CCM ACTIVE INCOME FUND INSTITUTIONAL</td>
+										<td>B</td>
+										<td>9,775</td>
+										<td>10.23</td>
+										<td>2:12PM</td>
+										<td>4:00PM</td>
+									</tr><tr>
+										<td>11/27/2013</td>
+										<td>MARK ANTHONY GRONET</td>
+										<td>Z72409863</td>
+										<td>DD</td>
+										<td>263534109</td>
+										<td>DU PONT E I DE NEMOURS & CO</td>
+										<td>S</td>
+										<td>1,000</td>
+										<td>61.50</td>
+										<td>2:18PM</td>
+										<td>2:18PM</td>
+									</tr><tr>
+										<td>11/14/2013</td>
+										<td>MARK ANTHONY GRONET</td>
+										<td>Z72409863</td>
+										<td>GSVC</td>
+										<td>36191J101</td>
+										<td>GSV CAP CORP COM</td>
+										<td>S</td>
+										<td>1,000</td>
+										<td>13.12</td>
+										<td>1:38PM</td>
+										<td>1:38PM</td>
+									</tr><tr>
+										<td>11/27/2013</td>
+										<td>MARK ANTHONY GRONET</td>
+										<td>Z72409863</td>
+										<td>PWE</td>
+										<td>707887105</td>
+										<td>PENN WEST PETROLEUM LTD COM NPV</td>
+										<td>S</td>
+										<td>3,096</td>
+										<td>8.43</td>
+										<td>2:31PM</td>
+										<td>2:31PM</td>
+									</tr><tr>
+										<td>11/01/2013</td>
+										<td>MARK ANTHONY GRONET</td>
+										<td>Z72409863</td>
+										<td>V</td>
+										<td>92826C839</td>
+										<td>VISA INC COM CL A </td>
+										<td>B</td>
+										<td>100</td>
+										<td>198.67</td>
+										<td>2:26PM</td>
+										<td>2:26PM</td>
+									</tr><tr>
+										<td>11/14/2013</td>
+										<td>MARK ANTHONY GRONET</td>
+										<td>Z72409863</td>
+										<td>VRNG</td>
+										<td>92911N104</td>
+										<td>VRINGO INC COM USD0.01</td>
+										<td>B</td>
+										<td>3,000</td>
+										<td>3.12</td>
+										<td>1:21PM</td>
+										<td>1:21PM</td>
+									</tr><tr>
+										<td>11/25/2013</td>
+										<td>ALANA J A MADIGAN-SI</td>
+										<td>Z72409901</td>
+										<td>TWTR</td>
+										<td>90184L102</td>
+										<td>TWITTER INC COM USD0.000005</td>
+										<td>B</td>
+										<td>100</td>
+										<td>40.49</td>
+										<td>9:43AM</td>
+										<td>9:43AM</td>
+									</tr><tr>
+										<td>11/20/2013</td>
+										<td>ELLIOT  LUCHANSKY</td>
+										<td>Z72409944</td>
+										<td>BA</td>
+										<td>097023105</td>
+										<td>BOEING CO </td>
+										<td>S</td>
+										<td>100</td>
+										<td>133.44</td>
+										<td>2:07PM</td>
+										<td>2:07PM</td>
+									</tr><tr>
+										<td>11/01/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>Z72409979</td>
+										<td>ACT</td>
+										<td>1825749CW</td>
+										<td>CALL (ACT) ACTAVIS PLC</td>
+										<td>S</td>
+										<td>40</td>
+										<td>7.40</td>
+										<td>12:25PM</td>
+										<td>12:25PM</td>
+									</tr><tr>
+										<td>11/25/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>Z72409979</td>
+										<td>ADT</td>
+										<td>00101J106</td>
+										<td>ADT CORP COM </td>
+										<td>B</td>
+										<td>10,000</td>
+										<td>40.37</td>
+										<td>9:36AM</td>
+										<td>9:36AM</td>
+									</tr><tr>
+										<td>11/25/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>Z72409979</td>
+										<td>CBT</td>
+										<td>127055101</td>
+										<td>CABOT CORP ASSIGNED CALLS</td>
+										<td>S</td>
+										<td>14,000</td>
+										<td>40.00</td>
+										<td>12:00AM</td>
+										<td>7:28AM</td>
+									</tr><tr>
+										<td>11/26/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>Z72409979</td>
+										<td>CBT</td>
+										<td>1751349LF</td>
+										<td>CALL (CBT) CABOT CORP</td>
+										<td>B</td>
+										<td>10</td>
+										<td>9.10</td>
+										<td>2:29PM</td>
+										<td>2:29PM</td>
+									</tr><tr>
+										<td>11/07/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>Z72409979</td>
+										<td>DXPE</td>
+										<td>1771009EY</td>
+										<td>CALL (DXPE) DXP ENTERPRISES INC</td>
+										<td>B</td>
+										<td>20</td>
+										<td>26.00</td>
+										<td>12:31PM</td>
+										<td>12:31PM</td>
+									</tr><tr>
+										<td>11/26/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>Z72409979</td>
+										<td>DXPE</td>
+										<td>1771009EY</td>
+										<td>CALL (DXPE) DXP ENTERPRISES INC</td>
+										<td>B</td>
+										<td>20</td>
+										<td>27.00</td>
+										<td>2:33PM</td>
+										<td>2:33PM</td>
+									</tr><tr>
+										<td>11/06/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>Z72409979</td>
+										<td>FCX</td>
+										<td>1828439CA</td>
+										<td>CALL (FCX) FREEPORT MCMORAN</td>
+										<td>S</td>
+										<td>100</td>
+										<td>2.07</td>
+										<td>10:11AM</td>
+										<td>10:11AM</td>
+									</tr><tr>
+										<td>11/05/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>Z72409979</td>
+										<td>HWCC</td>
+										<td>44244K109</td>
+										<td>HOUSTON WIRE & CABLE CO COM</td>
+										<td>S</td>
+										<td>19,800</td>
+										<td>13.85</td>
+										<td>1:10PM</td>
+										<td>1:13PM</td>
+									</tr><tr>
+										<td>11/01/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>Z72409979</td>
+										<td>KEM</td>
+										<td>488360207</td>
+										<td>KEMET CORP COM NEW </td>
+										<td>S</td>
+										<td>10,000</td>
+										<td>5.94</td>
+										<td>12:08PM</td>
+										<td>12:08PM</td>
+									</tr><tr>
+										<td>11/15/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>Z72409979</td>
+										<td>MET</td>
+										<td>1851749HH</td>
+										<td>CALL (MET) METLIFE INC</td>
+										<td>S</td>
+										<td>110</td>
+										<td>2.49</td>
+										<td>2:16PM</td>
+										<td>2:16PM</td>
+									</tr><tr>
+										<td>11/01/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>Z72409979</td>
+										<td>MRC</td>
+										<td>55345K103</td>
+										<td>MRC GLOBAL INC COM USD0.01</td>
+										<td>B</td>
+										<td>10,000</td>
+										<td>29.00</td>
+										<td>9:32AM</td>
+										<td>9:32AM</td>
+									</tr><tr>
+										<td>11/20/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>Z72409979</td>
+										<td>NES</td>
+										<td>67091K104</td>
+										<td>NUVERRA ENVIRONMENTAL</td>
+										<td>B</td>
+										<td>100,000</td>
+										<td>1.84</td>
+										<td>11:11AM</td>
+										<td>11:11AM</td>
+									</tr><tr>
+										<td>11/27/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>Z72409979</td>
+										<td>NLY</td>
+										<td>035710409</td>
+										<td>ANNALY CAPITAL MANAGEMENT INC COM</td>
+										<td>B</td>
+										<td>15,000</td>
+										<td>10.16</td>
+										<td>1:18PM</td>
+										<td>1:18PM</td>
+									</tr><tr>
+										<td>11/05/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>Z72409979</td>
+										<td>SCSC</td>
+										<td>806037107</td>
+										<td>SCANSOURCE INC </td>
+										<td>S</td>
+										<td>4,000</td>
+										<td>39.87</td>
+										<td>1:23PM</td>
+										<td>1:23PM</td>
+									</tr><tr>
+										<td>11/15/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>Z72409979</td>
+										<td>SCSC</td>
+										<td>1853579DD</td>
+										<td>CALL (SCSC) SCANSOURCE INC</td>
+										<td>S</td>
+										<td>110</td>
+										<td>1.75</td>
+										<td>10:39AM</td>
+										<td>12:00AM</td>
+									</tr><tr>
+										<td>11/04/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>Z72409979</td>
+										<td>SWFT</td>
+										<td>1832919MG</td>
+										<td>CALL (SWFT) SWIFT TRANSPORTATION</td>
+										<td>S</td>
+										<td>150</td>
+										<td>2.00</td>
+										<td>9:44AM</td>
+										<td>10:26AM</td>
+									</tr><tr>
+										<td>11/01/2013</td>
+										<td>EDWARD W WHEELER</td>
+										<td>Z72409979</td>
+										<td>TWI</td>
+										<td>88830M102</td>
+										<td>TITAN INTL INC </td>
+										<td>S</td>
+										<td>5,000</td>
+										<td>14.28</td>
+										<td>12:03PM</td>
+										<td>12:03PM</td>
+									</tr><tr>
+										<td>11/27/2013</td>
+										<td>JAMES  RATCLIFFE</td>
+										<td>Z83148407</td>
+										<td>EQIX</td>
+										<td>29444U502</td>
+										<td>EQUINIX INC NEW </td>
+										<td>S</td>
+										<td>75</td>
+										<td>162.29</td>
+										<td>9:35AM</td>
+										<td>9:35AM</td>
+									</tr><tr>
+										<td>11/07/2013</td>
+										<td>JASON ERIC COHEN</td>
+										<td>Z85840718</td>
+										<td>FBNIQ</td>
+										<td>360921209</td>
+										<td>FURNITURE BRANDS INTL INC COM USD1</td>
+										<td>S</td>
+										<td>2,085</td>
+										<td>0.59</td>
+										<td>2:47PM</td>
+										<td>3:24PM</td>
+									</tr><tr>
+										<td>11/15/2013</td>
+										<td>JASON ERIC COHEN</td>
+										<td>Z85840718</td>
+										<td>HLF</td>
+										<td>1463259TP</td>
+										<td>PUT (HLF) HERBALIFE LTD COM</td>
+										<td>B</td>
+										<td>30</td>
+										<td>0.80</td>
+										<td>2:17PM</td>
+										<td>2:17PM</td>
+									</tr><tr>
+										<td>11/15/2013</td>
+										<td>JASON ERIC COHEN</td>
+										<td>Z85840718</td>
+										<td>NFLX</td>
+										<td>64110L106</td>
+										<td>NETFLIX COM INC COM</td>
+										<td>B</td>
+										<td>40</td>
+										<td>348.78</td>
+										<td>3:33PM</td>
+										<td>3:33PM</td>
+									</tr></table></body></html>

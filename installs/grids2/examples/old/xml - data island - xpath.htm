@@ -1,0 +1,76 @@
+<html>
+<head>
+	<title>ActiveWidgets Grid :: Examples</title>
+
+	<!-- ActiveWidgets stylesheet and scripts -->
+	<link href="../../runtime/styles/xp/aw.css" rel="stylesheet" type="text/css" ></link>
+	<script src="../../runtime/lib/aw.js"></script>
+
+	<!-- grid format -->
+	<style>
+		.aw-grid-control {height: 150px; width: 100%; font: menu;}
+	</style>
+</head>
+<body>
+	<xml id="xmlDataIsland">
+		<companies>
+			<company>
+				<ticker>MSFT</ticker>
+				<name>Microsoft Corporation</name>
+				<mktcap>314,571.156</mktcap>
+				<sales>32,187.000</sales>
+				<employees>55000</employees>
+			</company>
+			<company>
+				<name>Oracle Corporation</name>
+				<mktcap>62,615.266</mktcap>
+				<sales>9,519.000</sales>
+				<employees>40650</employees>
+			</company>
+			<company>
+				<ticker>SAP</ticker>
+				<sales>8,296.420</sales>
+			</company>
+		</companies>
+	</xml>
+	<script>
+
+	//	create ActiveWidgets data model - XML-based table
+	var table = new AW.XML.Table;
+
+	//  get reference to the xml data island node (IE)
+	var xml = document.getElementById("xmlDataIsland");
+
+	//	set columns XPath
+	table.setColumns(["ticker", "name", "mktcap", "sales", "employees"]);
+
+	//	define data formats
+	var str = new AW.Formats.String;
+	var num = new AW.Formats.Number;
+
+	table.setFormats([str, str, num, num, num]);
+
+	//	provide data XML
+	table.setXML(xml);
+
+	//	define column labels
+	var columns = ["Ticker", "Company Name", "Market Cap.", "$ Sales", "Employees"];
+
+	//	create ActiveWidgets Grid javascript object
+	var obj = new AW.UI.Grid;
+
+	obj.setColumnCount(5);
+	obj.setRowCount(3);
+
+	//	provide column labels
+	obj.setHeaderText(columns);
+
+	//	provide external model as a grid data source
+	obj.setCellModel(table);
+
+	//	write grid html to the page
+	document.write(obj);
+
+	</script>
+</body>
+</html>

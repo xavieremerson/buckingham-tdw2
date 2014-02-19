@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+<Title>Log Scale Axis</Title>
+<link type='text/css' rel='Stylesheet' href="maxchartapi.css" />
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 5.0 (PHP Edition)</p>
+<p class="heading1">Log Scale Axis</p>
+<hr class="separator">
+<div class="content">
+<img src="images/logaxis0.png">&nbsp;&nbsp;<img src="images/logaxis1.png">
+<br><br>
+This example demonstrates using a log scale axis versus a linear scale axis.<br><br>
+In ChartDirector, log scale axis can be configured using <a href="Axis.setLogScale.htm">Axis.setLogScale</a>, <a href="Axis.setLogScale2.htm">Axis.setLogScale2</a> or <a href="Axis.setLogScale3.htm">Axis.setLogScale3</a>.
+</div>
+<p class="heading1a">Source Code Listing</p>
+<div class="content">
+<b>[File: phpdemo/logaxis.php]</b>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc"><pre>&lt;?php
+require_once("../lib/phpchartdir.php");
+
+# The data for the chart
+$data = array(100, 125, 260, 147, 67);
+$labels = array("Mon", "Tue", "Wed", "Thu", "Fri");
+
+# Create a XYChart object of size 200 x 180 pixels
+$c = new XYChart(200, 180);
+
+# Set the plot area at (30, 10) and of size 140 x 130 pixels
+$c-&gt;setPlotArea(30, 10, 140, 130);
+
+# Ise log scale axis if required
+if ($_REQUEST["img"] == "1") {
+    $c-&gt;yAxis-&gt;setLogScale3();
+}
+
+# Set the labels on the x axis
+$c-&gt;xAxis-&gt;setLabels($labels);
+
+# Add a color bar layer using the given data. Use a 1 pixel 3D border for the bars.
+$barLayerObj = $c-&gt;addBarLayer3($data);
+$barLayerObj-&gt;setBorderColor(-1, 1);
+
+# Output the chart
+header("Content-type: image/png");
+print($c-&gt;makeChart2(PNG));
+?&gt;</pre></tr></td></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2008 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

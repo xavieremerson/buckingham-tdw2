@@ -1,0 +1,154 @@
+/*****************************************************************
+
+	ActiveWidgets 2.0.b3 (beta3)
+	Copyright (C) 2003-2005 ActiveWidgets Ltd. All Rights Reserved. 
+	http://www.activewidgets.com/
+
+	WARNING: This software program is protected by copyright law 
+	and international treaties. Unauthorized reproduction or
+	distribution of this program, or any portion of it, may result
+	in severe civil and criminal penalties, and will be prosecuted
+	to the maximum extent possible under the law.
+
+	FOR TESTING AND EVALUATION ONLY:
+	This software is not free and is licensed to you for testing 
+	and evaluation only. You are not allowed to distribute 
+	or use any parts of this software for any other purposes.
+
+*****************************************************************/
+.aw-item-control {
+	width: 75px;
+	height: 23px;
+}
+
+.aw-strict .aw-item-control {
+	width: 67px;
+	height: 19px;
+	padding: 0px 8px 4px 0px;
+}
+
+.aw-item-template {
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	width: 100px;
+	height: 16px;
+	margin: 0px;
+}
+
+.aw-strict .aw-item-template {
+	height: 12px;
+	width: 92px;
+	padding: 0px 8px 4px 0px;
+}
+
+.aw-gecko .aw-item-template	{
+	display: -moz-inline-box;
+	overflow: visible;
+}
+
+.aw-templates-html,
+.aw-templates-text,
+.aw-templates-image,
+.aw-templates-link {
+	text-overflow: ellipsis;
+	padding: 0px 4px 0px 4px;
+}
+
+.aw-strict .aw-templates-html,
+.aw-strict .aw-templates-text,
+.aw-strict .aw-templates-image,
+.aw-strict .aw-templates-link {
+	padding: 0px 4px 4px 4px;
+}
+
+.aw-gecko .aw-templates-html,
+.aw-gecko .aw-templates-text,
+.aw-gecko .aw-templates-image,
+.aw-gecko .aw-templates-link {
+	-moz-binding: url(gecko.xml#box);
+	padding: 0px;
+}
+
+.aw-strict.aw-gecko .aw-templates-html,
+.aw-strict.aw-gecko .aw-templates-text,
+.aw-strict.aw-gecko .aw-templates-image,
+.aw-strict.aw-gecko .aw-templates-link {
+	padding: 0px 8px 4px 0px;
+}
+
+
+.aw-item-box {
+	display: block;
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	padding: 0px 4px 0px 4px;
+/*	white-space: nowrap; */
+	text-overflow: ellipsis;
+	vertical-align: top;
+}
+
+.aw-gecko .aw-item-box {
+	width: auto;
+	-moz-box-flex: 1;
+}
+
+.aw-strict .aw-item-box {
+	margin:  0px -8px -4px 0px;
+	padding: 0px 4px 4px 4px;
+}
+
+.aw-item-box * {
+	vertical-align: middle;
+}
+
+.aw-item-marker {
+	display: inline-block;
+	overflow: hidden;
+	height: 14px;
+	width: 14px;
+	margin-right: 4px;
+	vertical-align: middle;
+}
+
+.aw-item-ruler {
+	display: inline-block;
+	overflow: hidden;
+	height: 100%;
+	width: 0px;
+	vertical-align: middle;
+}
+
+.aw-strict .aw-item-ruler {
+	padding-bottom: 4px;
+}
+
+.aw-item-image {
+	display: inline-block;
+	overflow: hidden;
+	height: 18px;
+	width: 18px;
+	margin: -8px 4px -8px -2px;
+	vertical-align: middle;
+}
+
+.aw-gecko .aw-item-marker,
+.aw-gecko .aw-item-ruler,
+.aw-gecko .aw-item-image {
+	display: -moz-inline-box;
+	overflow: visible;
+}
+
+.aw-item-text {
+	margin: 0px;
+}
+
+.aw-opera .aw-item-text {
+	line-height: 0.7em;
+}
+
+.aw-image-none, .aw-gecko .aw-image-none {
+	display: none;
+}

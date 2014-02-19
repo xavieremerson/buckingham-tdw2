@@ -1,0 +1,79 @@
+<HTML>
+<HEAD>
+<Title>Stacked Bar Chart</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">Stacked Bar Chart</p>
+<hr class="separator">
+<div class="content">
+<img src="images/stackedbar.png">
+<br><br>
+This example demonstrates creating a stacked bar chart, completed with bar labels and legend box. The key features in this example are:<br><br>
+<ul><li> Add a legend to the chart using <a href="BaseChart.addLegend.htm">BaseChart.addLegend</a>.<br><br>
+<li> Add a title to the y-axis using <a href="Axis.setTitle.htm">Axis.setTitle</a>, and draw the title upright using <a href="TextBox.setFontAngle.htm">TextBox.setFontAngle</a> (the default for y-axis is to draw the title rotated by 90 degrees). Note the y-axis title can contain multiple lines by including the line break character.<br><br>
+<li> Add a stacked bar layer using <a href="XYChart.addBarLayer2.htm">XYChart.addBarLayer2</a> with the <a href="Layer.setDataCombineMethod.htm">Stack</a> pre-defined constant.<br><br>
+<li> Add multiple data sets to the bar layer using <a href="Layer.addDataSet.htm">Layer.addDataSet</a>.<br><br>
+<li> Include labels for the whole bar using <a href="Layer.setAggregateLabelStyle.htm">Layer.setAggregateLabelStyle</a>.<br><br>
+<li> Include labels for the bar segments within a stacked bar using <a href="Layer.setDataLabelStyle.htm">Layer.setDataLabelStyle</a>.</ul>
+For bar labels, <a href="Layer.setDataLabelStyle.htm">Layer.setDataLabelStyle</a> and <a href="Layer.setAggregateLabelStyle.htm">Layer.setAggregateLabelStyle</a> control the styles (fonts, colors, backgrounds, etc), while <a href="Layer.setDataLabelFormat.htm">Layer.setDataLabelFormat</a> and <a href="Layer.setAggregateLabelFormat.htm">Layer.setAggregateLabelFormat</a> control the formats (the contents of the label, number of decimal points in numbers, etc). You may also add custom labels to the bars using <a href="Layer.addCustomDataLabel.htm">Layer.addCustomDataLabel</a> and <a href="Layer.addCustomAggregateLabel.htm">Layer.addCustomAggregateLabel</a>.
+</div>
+<p class="heading2">Source Code Listing</p>
+<div class="content">
+[File: phpdemo/stackedbar.php]<br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp><?php
+include("phpchartdir.php");
+
+#The data for the bar chart
+$data0 = array(100, 125, 245, 147, 67);
+$data1 = array(85, 156, 179, 211, 123);
+$data2 = array(97, 87, 56, 267, 157);
+
+#The labels for the bar chart
+$labels = array("Mon", "Tue", "Wed", "Thu", "Fri");
+
+#Create a XYChart object of size 500 x 320 pixels
+$c = new XYChart(500, 320);
+
+#Set the plotarea at (100, 40) and of size 280 x 240 pixels
+$c->setPlotArea(100, 40, 280, 240);
+
+#Add a legend box at (400, 100)
+$c->addLegend(400, 100);
+
+#Add a title to the chart using 14 points Times Bold Itatic font
+$c->addTitle("Weekday Network Load", "timesbi.ttf", 14);
+
+#Add a title to the y axis. Draw the title upright (font angle = 0)
+$titleObj = $c->yAxis->setTitle("Average\nWorkload\n(MBytes\nPer Hour)");
+$titleObj->setFontAngle(0);
+
+#Set the labels on the x axis
+$c->xAxis->setLabels($labels);
+
+#Add a stacked bar layer and set the layer 3D depth to 8 pixels
+$layer = $c->addBarLayer2(Stack, 8);
+
+#Add the three data sets to the bar layer
+$layer->addDataSet($data0, 0xff8080, "Server # 1");
+$layer->addDataSet($data1, 0x80ff80, "Server # 2");
+$layer->addDataSet($data2, 0x8080ff, "Server # 3");
+
+#Enable bar label for the whole bar
+$layer->setAggregateLabelStyle();
+
+#Enable bar label for each segment of the stacked bar
+$layer->setDataLabelStyle();
+
+#output the chart
+header("Content-type: image/png");
+print($c->makeChart2(PNG));
+?></xmp>
+</td></tr></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

@@ -1,0 +1,414 @@
+ChartDirector Version 3.0
+Copyright (C) 2003 Advanced Software Engineering Limited
+All Rights Reserved
+
+************************** RELEASE NOTES ****************************
+
+An HTML version of this release notes is available at
+http://www.advsofteng.com/release30.html
+	
+*********************************************************************
+                     Enhancements Since Ver 3.0 
+*********************************************************************
+
+ChartDirector Mark Up Language
+==============================
+Text labels in ChartDirector can now be encoded with the ChartDirector 
+Mark Up Language (CDML). CDML is a simple language similar to HTML. It 
+allows text to be marked up with special tags, so that a text can 
+contain multiple fonts of various sizes and colors, with images and 
+icons embedded, etc. 
+
+Anti-Alias
+==========
+All chart types now support anti-alias. The anti-alias mode for text 
+and graphics can be independently configured. 
+
+Multi-Chart
+===========
+A new chart type that acts as a container for other charts. Useful for 
+combining several charts in a single chart image, such as when 
+creating complex financial charts. 
+
+Polar/Radar Chart
+=================
+A new chart type for supporting polar/radar charts. Supports line, 
+spline, area, and spline area layers. Data points can be labeled with 
+text and be represented with data symbols of variable sizes (polar 
+scatter and bubble charts). 
+
+Variable Depth/Height Pie Chart
+===============================
+A pie chart in which the 3D depth or height of the sectors are 
+variable and controlled by another data series. Each sector can have a 
+different 3D depth or height. 
+
+Sector Explode Group
+====================
+Multiple sectors in a pie chart can now explode as a group. In normal 
+sector explosion, each exploded sector will become a separate piece. 
+In a grouped sector explosion, the sectors in the group (the sectors 
+must be adjacent to each others) will remain in one piece. 
+
+Spline Line Layer
+=================
+A new XYChart layer which uses spline curves with configurable tension 
+to join the data points.
+
+Step Line Layer
+===============
+A new XYChart layer which uses step lines to join the data points. 
+
+InterLine Layer
+===============
+A new XYChart layer which can be used to fill the region between any 
+two lines from line layers, spline line layers, step line layers, 
+trend line layers, or axis marks. Different colors can be used 
+depending on which line is on top. 
+
+Box-Whisker Layer
+=================
+A new XYChart layer which represents data as box-whisker symbols or 
+its subset (such as just a box or just a whisker line). For example, a 
+simple gantt chart can be created by using just the box part of the 
+symbol. 
+
+Variable Symbol Size (Bubble Chart)
+===================================
+The data symbol sizes can now be controlled by another data series. 
+Each symbol can have a different size. The horizontal and vertical 
+symbol sizes can be independently controllable. This feature can be 
+used to create zones around data points. If circles are used as data 
+symbols, the chart is becomes a bubble chart. 
+
+Percentage Bar Layer
+====================
+A new data combine method in which the data sets are scaled so that 
+each stacked position is sum to 100. 
+
+Percentage Area Layer
+=====================
+A new data combine method in which the data sets are scaled so that 
+each stacked position is sum to 100. 
+
+Mutli-Stacked Bar Layer
+=======================
+A bar chart type combining the multi-bar style with the stacked bar 
+style. It creates stacked bars that can be clustered into groups. 
+
+Touching Bars
+=============
+A special constant to allow the bars to touch each others so that they 
+shared a single border. 
+
+Auto Hide Data Labels
+=====================
+For stacked bar and area charts, if a stack segment is too small, 
+there may be insufficient space for the data labels. In previous 
+version of ChartDirector, the data labels will overflow to adjacent 
+stack segments. Now it is possible to automatically hide the data 
+labels if there is insufficient space. 
+
+Confidence and Prediction Band
+==============================
+The trend line layer now supports confidence and prediction bands 
+around the trend. These bands represents the confidence interval of 
+the trend line and the data points. For example, a 95% confidence band 
+means there is 95% probability that the "real" trend line is in the 
+band. 
+
+Trend Layer Parameters
+======================
+The trend line layer now supports querying of linear regression 
+parameters, including slope, intercept, correlation coefficient and 
+standard error. 
+
+Plot Area Clipping
+==================
+ChartDirector can now clip the plot area to avoid drawing outside the 
+plot area even if the axis scale is insufficient to cover the data 
+points. (This will not occur in auto-scaling but can occur if the axis 
+scale is chosen manually.) 
+
+X and Y Zone Colors
+===================
+In previous version of ChartDirector, zones of different colors can be 
+defined on the plot area background to represent data ranges. It is 
+now possible to define the zones as a dynamic color, and use this 
+color to draw the chart. For example, if a zone color is used to draw 
+a line or fill an area, the line or area will have different colors 
+depending on the data values represented by the pixel coordinates. 
+
+XY Axis Swapping
+================
+All XY Chart layers now support XY axis swapping. For example, it is 
+now possible to draw a stacked area chart in which the area stacked 
+from left to right (instead of bottom to top). 
+
+Axis Reversal Support
+=====================
+Both X and Y axes can now reverse in direction. For example, instead 
+of pointing from bottom to top, the vertical y-axis can now point from 
+top to bottom. 
+
+Auto-Scaling Support for X-Axis
+===============================
+In previous versions of ChartDirector, only the y-axis has auto-
+scaling. Now both x and y axes supports auto-scaling. 
+
+True Date/Time Axis Scale
+=========================
+Both x and y axes can now support true date/time scale, in addition to 
+linear, log and enumeration scales. 
+
+Major and Minor Ticks and Grid Lines
+====================================
+Both x and y axes can now support major and minor tick and grid lines, 
+with independent style control. 
+
+Axis Querying
+=============
+In previous version of ChartDirector, if auto-scaling is used, it is 
+difficult to obtain the axis automatically determined axis range. Now 
+special APIs are provided to obtain these information. 
+
+Extra Field Support
+===================
+ChartDirector now supports user defined fields in labels, image maps, 
+etc. For example, you may add icons as extra fields to labels, or add 
+hidden id fields for the data points to be used in image maps. 
+
+Parameter Substitution
+======================
+The parameter substituion mechanism has been expanded to include more 
+variables. Examples include percentages and accumulated percentages 
+for stacked charts, and user defined fields for labels and image maps. 
+
+Output to Session Varaibles
+===========================
+[ASP/COM/VB, .NET and PHP editions only] ChartDirector now has a 
+special method to simply outputting chart images to session variables. 
+
+Output to Temporay File with Garbage Collection
+===============================================
+[ASP/COM/VB, .NET, Perl and Python editions only] ChartDirector now 
+supports output to a temporary file in a given directory. 
+ChartDirector will automatically create a unique temporary file name. 
+It will also automatically remove temporary files older than a certain 
+period to avoid accumulation of files. 
+
+Output to OLE IPicture Interface (VB Picture/Image Controls)
+============================================================
+[ASP/COM/VB edition only] ChartDirector now supports output to an 
+object with an OLE IPicture interface. The OLE IPicture interface is 
+the interface used by Visual Basic Picture and Image Controls. So the 
+chart image can be displayed directly by these controls without going 
+through intermediate files. 
+
+Output to .NET Image Objects
+============================
+[.NET edition only] ChartDirector now supports output to a .NET Image 
+object. This allows ChartDirector charts to be displayed in .NET 
+Windows Forms easily using standard PictureBox controls.
+
+Output to BMP
+=============
+ChartDirector now supports outputting the BMP images in addition to 
+PNG, alternative GIF, JPEG and WBMP. 
+
+Optimized Color Reduction Algorithm
+===================================
+ChartDirector now supports an optimized color reduction algorithm for 
+reducing the number of colors in a chart to 256, with very little loss 
+in chart quality that is hardly visible to the human eye. The charts, 
+however, will be much smaller in file size because palette mode 
+formats can be used instead of true color formats. This is most useful 
+for Internet applications with bandwidth efficiency concerns. 
+
+Data Manipulation Utilities
+===========================
+Provides many data manipulation functions operating on arrays, such as 
+array add, subtract, multiply, divide, computing moving averages, 
+moving standard deviations, moving correlations, filtering, shifting, 
+inserting, etc. Useful for creating financial indicators. 
+
+Random Table Utilities
+======================
+A utility to generate a table with random numbers to simulate a 
+database table. This is intended for demonstration and testing 
+purposes. 
+
+Database Table Utility
+======================
+[ASP/COM/VB and .NET editions only] A utility to read from a database 
+table, and retrieve its rows and columns as arrays for use with 
+ChartDirector. 
+
+Font Table
+==========
+ChartDirector now supports specified fonts as an index to a font 
+table. The default fonts are also specified in the font table. This 
+feature allows all fonts in a chart to be configued in one place. This 
+also facilitates internationalization by changing the default fonts to 
+fonts that contain international characters. 
+
+Default Number Formatting and Date/Time Representation
+======================================================
+By default, ChartDirector uses "dot" as the decimal point, and use 
+English for dates that needs to be specified in textual form (eg. 
+"Sun", "Mon", "Tue", ... and "Jan", "Feb", "Mar" ....). These default 
+settings are configurable to facilitate internationalization. 
+
+Low Level Image Manipulation
+============================
+The low level graphics API now supports many more graphics operation, 
+such as resizing, rotating, and various transformations (affinity 
+transform, wave transform, etc), with configurable resampling filters. 
+
+*********************************************************************
+                       Changes Since Ver 2.5
+*********************************************************************
+
+Anti-Alias
+==========
+ChartDirector Ver 3.0 by default creates charts with anti-alias shapes 
+and text. Previous versions of ChartDirector only uses anti-alias in 
+text. 
+
+Anti-alias produces charts of much higher quality. For pie, line and 
+area charts in PNG image formats, the image size in bytes may become 
+larger. It is because anti-alias may increase the number of colors 
+significantly for these types of charts. A chart that originally can 
+be saved in palette mode may now need true color mode. This increases 
+image size. 
+
+If larger image size is of a concern, it can be addressed by using the 
+optimized color reduction algorithm (see below). Another option is to 
+disable anti-alias for shapes by using the BaseChart.setAntiAlias 
+method. 
+
+Optimized Color Reduction Algorithm 
+===================================
+In previous version of ChartDirector, if an image is to be converted 
+to 256 colors, a standard "web-safe palette" is used. The web-safe 
+palette is designed to be optimal for very old browsers (eg. Netscape 
+1.x/2.x browsers) on 256 color computers. Dithering is then used to 
+approximate a color by mixing pixels from the web-safe palette. 
+Dithering may introduce "dot patterns" on the image. 
+
+In ChartDirector Ver 3.0, the default color reduction algorithm is 
+enhanced to use an optimized color palette generated dynamically based 
+on the image. Because the color palette is optimal, no dithering is 
+needed. The image created will be very close to the original image, 
+with disortions hardly visible to the human eye. 
+
+Unless you are using very old browsers on 256 color displays, the new 
+algorithm should produce images with much higher quality. 
+
+The old algorithm is still available by using the 
+DrawArea.setPaletteMode method. 
+
+Auto-scaling Margins 
+====================
+In previous versions of ChartDirector, auto-scaling will try to use 
+the maximum possible region in the plot area to plot charts. As a 
+result, the data representation may touch the top or bottom edges of 
+the plot area. 
+
+In ChartDirector Ver 3.0, by default there will be a 10% margin. As a 
+result, the axis scale chosen by ChartDirector Ver 3.0 may be slightly 
+different from the scale chosen by previous versions of ChartDirector. 
+
+The auto-scaling margins can be configured with the Axis.setAutoScale 
+method. 
+
+X-Axis setLinearScale 
+=====================
+In previous version of ChartDirector, if the "setLinearScale" method 
+of the XAxis object is used without specifying any tick increment, the 
+x-axis will have no tick. 
+
+In ChartDirector Ver 3.0, if you use "setLinearScale" without 
+specifying any tick increment, the ticks will be automatically 
+determined. This is to make the "setLinearScale" methods of the x-axis 
+and y-axis behave in a consistent manner. (In ChartDirector Ver 3.0, 
+the x and y axes are symmetrical and unified into a single Axis 
+object.) 
+
+*********************************************************************
+                       Upgrade Considerations
+*********************************************************************
+
+Code Compatibility
+==================
+ChartDirector Ver 3.0 is designed to be code compatible with all 
+previous versions of ChartDirector. That means all source code should 
+run without modification. 
+
+Link Compatibility
+==================
+For compiled programming languages that needs to link to ChartDirector 
+at compile time, it may be necessary to recompile and/or relink the 
+programs. 
+
+For C++, the programs need to recompile using the updated headers and 
+relink to "chartdir30.dll" (instead of "chartdir25.dll" or other 
+earlier versions of ChartDirector DLL). 
+
+For ASP.NET programs in code-behind style or for .NET Windows Forms 
+programs, the programs need to recompile with the updated 
+ChartDirector assemblies. 
+
+For Visual Basic programs, if they access ChartDirector.API using late 
+binding (that is, using CreateObject), there is no need to recompile 
+the programs. Note that all sample codes and documentation that come 
+with ChartDirector use late binding. If your code uses the same method 
+as the examples, there should be no need to recompile your programs. 
+
+On the other hand, if a Visual Basic program access ChartDirector 
+using early binding (that is, using "New ChartDirector.API"), it is 
+necessary to recompile the program with the updated ChartDirector 
+component. 
+
+Behavioural Compatibility
+=========================
+The charts produced by ChartDirector Ver 3.0 could be slightly 
+different from the charts produced by earlier versions of 
+ChartDirector using the same source code. Please refer to "Changes 
+Since Ver 2.5" for details. 
+
+License Compatibility
+=====================
+Advanced Software Engineering's licensing policy is that all 
+commercial software licenses will be entitled to free upgrade for the 
+next version of the software, and thereafter, free upgrade for another 
+12 months. 
+
+Therefore, all existing ChartDirector Ver 1.x and Ver 2.x licenses are 
+still valid for ChartDirector Ver 3.0. The license code is compatible 
+and does not need to change. 
+
+Upgrade Procedure
+=================
+If you are using ChartDirector with Microsoft IIS, before the upgrade, 
+you would need to stop the "IIS Admin" service first using the Service 
+Control Panel. It is because IIS may lock up several ChartDirector 
+files, preventing the upgrade. Stopping IIS using the "Internet 
+Services Manager" or stopping the "World Wide Web Publishing" service 
+is not sufficient, as it does not actually stop IIS. 
+
+To upgrade ChartDirector, simply install the new version on top of the 
+old version. 
+
+For the ASP/COM/VB and .NET editions of ChartDirector, the setup 
+program will uninstall the existing ChartDirector before installing 
+the new version. 
+
+For the PHP/Perl/Python editions of ChartDirector, please remember to 
+update the files "phpchartdir.php", "perlchartdir.pm" and 
+"pychartdir.py". These files may have been copied to the various 
+scripting directories in your computer. It is impossible to use the 
+old versions of these files with the new version of ChartDirector. 
+
+For PHP running on Apache servers, you may need to restart the Apache 
+servers for the updated ChartDirector to take effect. 

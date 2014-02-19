@@ -1,0 +1,355 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;   constructor
+   PEAR_PackageFile::PEAR_PackageFile
+  </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR"
+HREF="core.ppm.pear-packagefile.html"><LINK
+REL="PREVIOUS"
+TITLE="
+    Class Summary
+    PEAR_PackageFile
+   "
+HREF="core.ppm.pear-packagefile-summary.html"><LINK
+REL="NEXT"
+TITLE="
+   PEAR_PackageFile::factory
+  "
+HREF="core.ppm.pear-packagefile.factory.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-packagefile-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-packagefile.factory.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.ppm.pear-packagefile.pear-packagefile">constructor
+   <B
+CLASS="function"
+>PEAR_PackageFile::PEAR_PackageFile()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN13321"
+></A
+>
+   constructor
+   <B
+CLASS="function"
+>PEAR_PackageFile::PEAR_PackageFile()</B
+>
+  &nbsp;--&nbsp;PEAR_PackageFile</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN13325"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN13326"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once '/PackageFile.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     void      constructor
+     <B
+CLASS="function"
+>PEAR_PackageFile::PEAR_PackageFile</B
+>
+    </CODE
+> (PEAR_Config
+     &#38;$config, bool
+     [$debug = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>], string
+     [$tmpdir = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-packagefile.pear-packagefile.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Prepare for parsing one or more package.xml files.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-packagefile.pear-packagefile.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+><A
+HREF="core.ppm.pear-config.html"
+><B
+CLASS="classname"
+>PEAR_Config</B
+></A
+>
+      <TT
+CLASS="parameter"
+><I
+>&#38;$config</I
+></TT
+></DT
+><DD
+><P
+>&#13;       The configuration to use for parsing and channel registry (needed for
+       channel-specific validators).
+      </P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>boolean
+      <TT
+CLASS="parameter"
+><I
+>$debug</I
+></TT
+></DT
+><DD
+><P
+>&#13;       The debug logging level (this is usually the value of the <TT
+CLASS="literal"
+>verbose</TT
+>
+       configuration variable).
+      </P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+      <TT
+CLASS="parameter"
+><I
+>$tmpdir</I
+></TT
+></DT
+><DD
+><P
+>&#13;       The temporary directory to extract files in.  By default, a new temporary
+       directory is created using
+       <A
+HREF="core.pear.system.mktemp.html"
+><B
+CLASS="function"
+>System::mktemp()</B
+></A
+>.
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-packagefile.pear-packagefile.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+>
+   no exceptions thrown
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-packagefile.pear-packagefile.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-packagefile-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-packagefile.factory.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Class Summary
+    <B
+CLASS="classname"
+>PEAR_PackageFile</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-packagefile.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_PackageFile::factory()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

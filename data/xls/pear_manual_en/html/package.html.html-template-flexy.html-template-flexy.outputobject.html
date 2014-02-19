@@ -1,0 +1,355 @@
+<HTML
+><HEAD
+><TITLE
+>$flexy-&#62;outputObject()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_Flexy"
+HREF="package.html.html-template-flexy.html"><LINK
+REL="PREVIOUS"
+TITLE="$flexy->compile()"
+HREF="package.html.html-template-flexy.html-template-flexy.compile.html"><LINK
+REL="NEXT"
+TITLE="$flexy->bufferedOutputObject()"
+HREF="package.html.html-template-flexy.html-template-flexy.bufferedoutputobject.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.compile.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.bufferedoutputobject.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-flexy.html-template-flexy.outputobject">$flexy-&#62;outputObject()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN68783"
+></A
+>$flexy-&#62;outputObject()&nbsp;--&nbsp;Merges a controller object with the template and outputs the result</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN68786"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN68787"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void $flexy-&#62;
+     <B
+CLASS="function"
+>outputObject</B
+></CODE
+> (object $controllerObject [, array  $elements])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.html-template-flexy.outputobject.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      This makes the values of the supplied object (and optionally loads the HTML_Template_Flexy_Elements) 
+      available to the template when it is run.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.html-template-flexy.outputobject.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>object $controllerObject</I
+></TT
+> - 
+       The object you want to use with the template, the values of the object will
+       relate to the $controllerObject-&#62;tag will map to {tag} on the template
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>array $elements</I
+></TT
+> - 
+       This is an associative array of form, or dynamic elements names (or id's) which will be merged with 
+       the one defined in the template.
+      </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.html-template-flexy.outputobject.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.html-template-flexy.outputobject.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN68814"><P
+><B
+>Example 41-1. PHP code initiating the template, and outputing it</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>class example {
+  var $tag = "&#62;&#62; hello world";
+}
+
+$data = new example;
+
+$elements['test'] = new HTML_Template_Flexy_Element;
+$elements['test']-&#62;setValue("hello input");
+
+$output = new HTML_Template_Flexy();
+$output-&#62;compile("hello.html");
+$output-&#62;outputObject($data,$elements);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN68817"><P
+><B
+>Example 41-2. The Template with some tags</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>&#60;B&#62;{tag}&#60;/B&#62;
+&#60;B&#62;{tag:h}&#60;/B&#62;
+&#60;INPUT name="test"&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN68820"><P
+><B
+>Example 41-3. Resulting output</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>&#60;B&#62;&#38;gt;&#38;gt; hello world&#60;/B&#62;
+&#60;B&#62;&#62;&#62; hello world&#60;/B&#62;
+&#60;INPUT name="test" value="hello input"&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.compile.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.bufferedoutputobject.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>$flexy-&#62;compile()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>$flexy-&#62;bufferedOutputObject()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

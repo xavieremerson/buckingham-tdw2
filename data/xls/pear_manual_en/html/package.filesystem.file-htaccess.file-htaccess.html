@@ -1,0 +1,360 @@
+<HTML
+><HEAD
+><TITLE
+>File_HtAccess::file_htaccess()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File_HtAccess"
+HREF="package.filesystem.file-htaccess.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.filesystem.file-htaccess.intro.html"><LINK
+REL="NEXT"
+TITLE="File_HtAccess::load"
+HREF="package.filesystem.file-htaccess.load.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-htaccess.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-htaccess.load.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.filesystem.file-htaccess.file-htaccess">File_HtAccess::file_htaccess()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN48819"
+></A
+>File_HtAccess::file_htaccess()&nbsp;--&nbsp;constructor</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN48822"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN48823"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>object <B
+CLASS="function"
+>new File_HtAccess</B
+></CODE
+> ([string $file='.htaccess' [, array $params]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-htaccess.file-htaccess.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Creates an instance of a <B
+CLASS="classname"
+>File_HtAccess</B
+> object.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-htaccess.file-htaccess.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>string $file</I
+></TT
+> - filename to use. Defaults
+       to <TT
+CLASS="parameter"
+><I
+>.htaccess</I
+></TT
+>
+       </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>array $params</I
+></TT
+> - 
+       a array of parameters which can be:
+       <P
+></P
+><UL
+><LI
+><P
+>&#13;          <TT
+CLASS="parameter"
+><I
+>$params['authname']</I
+></TT
+> - authname
+         </P
+></LI
+><LI
+><P
+>&#13;          <TT
+CLASS="parameter"
+><I
+>$params['authtype']</I
+></TT
+> - authtype
+         </P
+></LI
+><LI
+><P
+>&#13;          <TT
+CLASS="parameter"
+><I
+>$params['authuserfile']</I
+></TT
+> - authuserfile
+         </P
+></LI
+><LI
+><P
+>&#13;          <TT
+CLASS="parameter"
+><I
+>$params['authgroupfile']</I
+></TT
+> - authgroupfile
+         </P
+></LI
+><LI
+><P
+>&#13;          <TT
+CLASS="parameter"
+><I
+>$params['require']</I
+></TT
+> - require
+         </P
+></LI
+><LI
+><P
+>&#13;          <TT
+CLASS="parameter"
+><I
+>$params['additional']</I
+></TT
+> - additional
+         </P
+></LI
+></UL
+>
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-htaccess.file-htaccess.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>object</I
+></TT
+> - instance of <B
+CLASS="classname"
+>File_HtAccess</B
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-htaccess.file-htaccess.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN48874"><P
+><B
+>Example 38-1. How to create new instance of <B
+CLASS="classname"
+>File_HtAccess</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once('File/HtAccess.php');
+$fh = new File_HtAccess('.htaccess');
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-htaccess.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-htaccess.load.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-htaccess.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>File_HtAccess::load()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

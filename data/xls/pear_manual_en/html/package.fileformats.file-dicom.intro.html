@@ -1,0 +1,265 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File_DICOM"
+HREF="package.fileformats.file-dicom.html"><LINK
+REL="PREVIOUS"
+TITLE="File_DICOM"
+HREF="package.fileformats.file-dicom.html"><LINK
+REL="NEXT"
+TITLE="File_DICOM::File_DICOM"
+HREF="package.default.file-dicom.file-dicom.file-dicom.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.file-dicom.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.default.file-dicom.file-dicom.file-dicom.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.fileformats.file-dicom.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN36543"
+></A
+>Introduction&nbsp;--&nbsp;using File_DICOM</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-dicom.intro.whatis"
+></A
+><H2
+>What is DICOM?</H2
+><P
+>&#13;    <B
+CLASS="classname"
+>File_DICOM</B
+> allows reading and modifying of DICOM files.
+    DICOM stands for Digital Imaging and COmmunications in Medicine, and is a
+    standard for creating, storing and transfering digital images (X-rays,
+    tomography) and related information used in medicine.
+    This package in particular does not support the exchange/transfer of
+    DICOM data, nor any network related functionality.
+    More information on the DICOM standard can be found at the 
+    <A
+HREF="http://medical.nema.org/"
+TARGET="_top"
+>NEMA site</A
+>.
+   </P
+><P
+>&#13;    Please be aware that any use of the information produced by this
+    package for diagnosing purposes is strongly discouraged by the
+    author. See <A
+HREF="http://www.gnu.org/licenses/lgpl.html"
+TARGET="_top"
+>here</A
+>
+     for more information.
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-dicom.intro.using-it"
+></A
+><H2
+>Using it</H2
+><P
+>&#13;   <B
+CLASS="classname"
+>File_DICOM</B
+> can be used to accomplish two things,
+   to retrieve data from a file (including image data), and to set new values
+   for that data (allowing to write the modified file).
+   </P
+><P
+>&#13;    Let's see how we could show some relevant data from a DICOM file and
+    export it's image data at the same time.
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN36558"><P
+><B
+>Example 37-1. Showing data</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once('File/DICOM.php');
+
+$dicom = new File_DICOM();
+$res = $dicom-&#62;parse("test.dcm");
+
+// check for errors
+if (PEAR::isError($res)) {
+    die("Error: ".$res-&#62;getMessage()."\n");
+}
+
+// show a few attributes of the DICOM file using group and element index
+echo 'StudyDate : '.$dicom-&#62;getValue(0x0008, 0x0020)."\n";
+echo 'Image Date : '.$dicom-&#62;getValue(0x0008, 0x0023)."\n";
+echo 'Image Type : '.$dicom-&#62;getValue(0x0008, 0x0008)."\n";
+echo 'Study Time : '.$dicom-&#62;getValue(0x0008, 0x0030)."\n";
+echo 'Institution Name : '.$dicom-&#62;getValue(0x0008, 0x0080)."\n";
+echo 'Manufacturer : '.$dicom-&#62;getValue(0x0008, 0x0070)."\n";
+echo 'Manufacturer Model Name : '.$dicom-&#62;getValue(0x0008, 0x1090)."\n";
+// or using element name
+echo 'Patient Name : '.$dicom-&#62;getValue('PatientName')."\n";
+echo 'Patient Age : '.$dicom-&#62;getValue('PatientAge')."\n";
+
+// dump a PGM image from the file data
+$res = $dicom-&#62;dumpImage('test.pgm');
+if (PEAR::isError($res)) {
+    die("Error: ".$res-&#62;getMessage()."\n");
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-dicom.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.default.file-dicom.file-dicom.file-dicom.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>File_DICOM</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-dicom.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>File_DICOM::File_DICOM()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

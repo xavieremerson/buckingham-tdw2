@@ -1,0 +1,287 @@
+<HTML
+><HEAD
+><TITLE
+>Saving</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File_Fstab"
+HREF="package.fileformats.file-fstab.html"><LINK
+REL="PREVIOUS"
+TITLE="Entries"
+HREF="package.fileformats.file-fstab.entries.html"><LINK
+REL="NEXT"
+TITLE="File_Passwd"
+HREF="package.fileformats.file-passwd.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.file-fstab.entries.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.file-passwd.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.fileformats.file-fstab.saving">Saving</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN36898"
+></A
+>Saving&nbsp;--&nbsp;
+   Saving your changes
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.file-fstab.saving.overview"
+></A
+><H2
+>Saving your changes</H2
+><P
+>&#13;   After modifying a fstab file, you will want to save your changes.
+   The <B
+CLASS="function"
+>save()</B
+> function does this.
+  </P
+><P
+>&#13;    <DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;            Comments from the loaded file are not preserved when saving,
+            and whitespace may change. This has no effect on the functionality
+            of the fstab file, but you may lose helpful comments.
+        </P
+></TD
+></TR
+></TABLE
+></DIV
+>
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN36908"><P
+><B
+>Example 37-1. Save to the same file</B
+></P
+><P
+>&#13;      This will save your changes back to the file you loaded, overwriting
+      the old file.
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'File/Fstab.php';
+$fstab =&#38; new File_Fstab();
+$floppy =&#38; new File_Fstab_Entry();
+$floppy-&#62;fsType = 'vfat';
+$floppy-&#62;device = '/dev/fd0';
+$floppy-&#62;mountPoint = '/floppy';
+$fstab-&#62;addEntry($floppy);
+$res = $fstab-&#62;save();
+if (PEAR::isError($res)) {
+    die($res-&#62;getMessage());
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN36912"><P
+><B
+>Example 37-2. Save to a different file</B
+></P
+><P
+>&#13;      This will save your changes to a different file than the one you
+      originally loaded.
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'File/Fstab.php';
+$fstab =&#38; new File_Fstab();
+$floppy =&#38; new File_Fstab_Entry();
+$floppy-&#62;fsType = 'vfat';
+$floppy-&#62;device = '/dev/fd0';
+$floppy-&#62;mountPoint = '/floppy';
+$fstab-&#62;addEntry($floppy);
+$res = $fstab-&#62;save('/tmp/fstab.new');
+if (PEAR::isError($res)) {
+    die($res-&#62;getMessage());
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-fstab.entries.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-passwd.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Entries</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.fileformats.file-fstab.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>File_Passwd</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

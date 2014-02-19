@@ -1,0 +1,552 @@
+<HTML
+><HEAD
+><TITLE
+>Tutorial</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Mail_Queue"
+HREF="package.default.mail-queue.html"><LINK
+REL="PREVIOUS"
+TITLE="Class Summary Mail_Queue"
+HREF="package.default.mail-queue.mail-queue-summary.html"><LINK
+REL="NEXT"
+TITLE="constructor Mail_Queue::Mail_Queue"
+HREF="package.mail.mail-queue.mail-queue.mail-queue.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.default.mail-queue.mail-queue-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-queue.mail-queue.mail-queue.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.mail.mail-queue.mail-queue.tutorial">Tutorial</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN81352"
+></A
+>Tutorial&nbsp;--&nbsp;A tutorial for Mail_Queue</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.tutorial.part1"
+></A
+><H2
+>Mail_Queue usage with a simple example</H2
+><P
+>&#13;We are using the db-container for the example and a mysql database.
+You need to create some tables in the mysql-database to store the messages:
+</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.tutorial.part2"
+></A
+><H2
+></H2
+><P
+>&#13; <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN81361"><P
+><B
+>Example 46-1. mysql.sql</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>CREATE TABLE mail_queue (
+  id bigint(20) NOT NULL default '0',
+  create_time datetime NOT NULL default '0000-00-00 00:00:00',
+  time_to_send datetime NOT NULL default '0000-00-00 00:00:00',
+  sent_time datetime default NULL,
+  id_user bigint(20) NOT NULL default '0',
+  ip varchar(20) NOT NULL default 'unknown',
+  sender varchar(50) NOT NULL default '',
+  recipient text NOT NULL,
+  headers text NOT NULL,
+  body longtext NOT NULL,
+  try_sent tinyint(4) NOT NULL default '0',
+  delete_after_send tinyint(1) NOT NULL default '1',
+  PRIMARY KEY  (id),
+  KEY id (id),
+  KEY time_to_send (time_to_send),
+  KEY id_user (id_user)
+);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.tutorial.part3"
+></A
+><H2
+></H2
+><P
+>&#13;First you need to define some options.
+As you need them two times (once for adding messages, once for sending the messages)
+its always good to add them to a config-file. Lets call it config.php
+</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.tutorial.part4"
+></A
+><H2
+></H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN81369"><P
+><B
+>Example 46-2. config.php</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+require_once "Mail/Queue.php";
+
+// options for storing the messages
+// type is the container used, currently there are db and mdb available
+$db_options['type']       = 'db';
+// the others are the options for the used container
+// here are some for db
+$db_options['dsn']        = 'mysql://user:password@host/database';
+$db_options['mail_table'] = 'mail_queue';
+
+// here are the options for sending the messages themselves
+// these are the options needed for the Mail-Class, especially used for Mail::factory()
+$mail_options['driver']    = 'smtp';
+$mail_options['host']      = 'your_server_smtp.com';
+$mail_options['port']      = 25;
+$mail_options['localhost'] = 'localhost'; //optional Mail_smtp parameter
+$mail_options['auth']      = false;
+$mail_options['username']  = '';
+$mail_options['password']  = '';
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.tutorial.part5"
+></A
+><H2
+></H2
+><P
+>&#13;So we are done configuring it, now let's use it.
+
+First we need to construct a mail-message and add it to the queue:
+</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.tutorial.part6"
+></A
+><H2
+></H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN81377"><P
+><B
+>Example 46-3. add_message.php</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+include './config.php';
+/* we use the db_options and mail_options here */
+$mail_queue =&#38; new Mail_Queue($db_options, $mail_options);
+
+
+$from = 'user@server.com';
+$to = "user2@server.com";
+$message = 'Hi! This is test message!! :)';
+
+$hdrs = array( 'From'    =&#62; $from,
+               'To'      =&#62; $to,
+               'Subject' =&#62; "test message body"  );
+
+/* we use Mail_mime() to construct a valid mail */
+$mime =&#38; new Mail_mime();
+$mime-&#62;setTXTBody($message);
+$body = $mime-&#62;get();
+$hdrs = $mime-&#62;headers($hdrs);
+
+
+/* Put message to queue */
+$mail_queue-&#62;put( $from, $to, $hdrs, $body );
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.tutorial.part7"
+></A
+><H2
+></H2
+><P
+>&#13;Ok, now we've used the simple way to add a message ... there are more advanced options, please check
+docs of the put-function for these.
+
+Now we need to send the messages. This is most often done by using a cron-job which regularly runs
+a script to send the messages.
+
+Here is a simple script to achieve this:
+</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.tutorial.part8"
+></A
+><H2
+></H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN81385"><P
+><B
+>Example 46-4. send_messages.php</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+include './config.php';
+
+/* How many mails could we send each time the script is called */
+$max_amount_mails = 50;
+
+/* we use the db_options and mail_options from the config again  */
+$mail_queue =&#38; new Mail_Queue($db_options, $mail_options);
+
+/* really sending the messages */
+$mail_queue-&#62;sendMailsInQueue($max_amount_mails);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.tutorial.part9"
+></A
+><H2
+></H2
+><P
+>&#13;We are done.
+Now run the last script regularly and add your mails to the queue as needed.
+</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.tutorial.part10"
+></A
+><H2
+></H2
+><P
+>&#13;Since <B
+CLASS="classname"
+>Mail_Queue</B
+> v.1.1, the <B
+CLASS="function"
+>preload()</B
+>
+method doesn't preload ALL the mails in memory, but just a few of them each time.
+When the buffer is empty, it is filled again automatically. You can set the size
+of the buffer via the new <B
+CLASS="function"
+>setBufferSize()</B
+> method.
+</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.tutorial.part11"
+></A
+><H2
+></H2
+><P
+>&#13;You can also send the stored emails one by one.
+Here is a simple script to achieve this:
+</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.tutorial.part12"
+></A
+><H2
+></H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN81402"><P
+><B
+>Example 46-5. send_messages_one_by_one.php</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// set the internal buffer size according your
+// memory resources (the number indicates how
+// many emails can stay in the buffer at any
+// given time)
+
+$mail_queue-&#62;setBufferSize(20);
+
+//set the queue size (i.e. the number of mails to send)
+$limit = 50;
+$mail_queue-&#62;setOption($limit);
+
+// loop through the stored emails and send them
+while ($mail = $mail_queue-&#62;get()) {
+    $result = $mail_queue-&#62;sendMail($mail);
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.default.mail-queue.mail-queue-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.mail.mail-queue.mail-queue.mail-queue.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Class Summary <B
+CLASS="classname"
+>Mail_Queue</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.default.mail-queue.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>constructor <B
+CLASS="function"
+>Mail_Queue::Mail_Queue()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

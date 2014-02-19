@@ -1,0 +1,723 @@
+<HTML
+><HEAD
+><TITLE
+>Method Overview</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Calendar"
+HREF="package.datetime.calendar.html"><LINK
+REL="PREVIOUS"
+TITLE="Package Overview"
+HREF="package.datetime.calendar.intro-overview.html"><LINK
+REL="NEXT"
+TITLE="Calendar Decorators"
+HREF="package.datetime.calendar.intro-decorators.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.datetime.calendar.intro-overview.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.datetime.calendar.intro-decorators.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.datetime.calendar.intro-overview-methods">Method Overview</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN32418"
+></A
+>Method Overview&nbsp;--&nbsp;
+        Summary of Calendar API
+      </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32421"
+></A
+><H2
+>Method Overview</H2
+><P
+>&#13;       For the main Calendar classes (the subclasses of <B
+CLASS="classname"
+>Calendar</B
+>) all share a common API (a common set of class methods). Although there are some minor variations in specific cases, you should find it intuitive and easy to remember, once you are familiar with what's available. This section summarizes the common methods and highlights the variations. For further information, consult the API documentation.
+       </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32425"
+></A
+><H2
+>Constructors</H2
+><P
+>The constructors of the Date classes accept integer date values as their arguments, beginning with the year (on the left) across to the second (on the right), depending on what class you're using, for example;
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// Natural Calendar Classes
+$Year = new Calendar_Year(2003);                         // 2003
+$Month = new Calendar_Month(2003, 10);                   // October 2003
+$Day = new Calendar_Day(2003, 10, 25);                   // 25th October 2003
+$Hour = new Calendar_Hour(2003, 10, 25, 13);             // 25th October 2003 13:00:00
+$Minute = new Calendar_Minute(2003, 10, 25, 13, 31);     // 25th October 2003 13:31:00
+$Second = new Calendar_Second(2003, 10, 25, 13, 31, 45); // 25th October 2003 13:31:45
+
+// Tabular Calendar Classes
+$Month = new Calendar_Month_Weekdays(2003, 10);          // October 2003
+$Month = new Calendar_Month_Weeks(2003, 10);             // October 2003
+$Week = new Calendar_Week(2003, 10, 25);                 // week containing 25th October 2003</PRE
+></TD
+></TR
+></TABLE
+>
+        Note that the tabular classes, <B
+CLASS="classname"
+>Calendar_Month_Weekdays</B
+> and <B
+CLASS="classname"
+>Calendar_Month_Weeks</B
+> both take an optional third argument (integer) which specifies the first day of the week and adjust tabular display (normally it defaults to Monday (1) - pass the integer value 0 to switch to Sunday as the first day, for example). <B
+CLASS="classname"
+>Calendar_Week</B
+> accepts the first day argument as the fourth to its constructor.
+       </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32432"
+></A
+><H2
+>Location Methods</H2
+><P
+>&#13;        All date and tabular date classes share the methods defined in the abstract base class <B
+CLASS="classname"
+>Calendar</B
+>. Among these are methods for an object of any of these classes to identify itself (what's its date is) and the previous and next dates. For example;
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// Create a day
+$Day = new Calendar_Day(2003, 10, 1); // 1st October 2003
+
+echo $Day-&#62;thisDay(); // Displays 1
+echo $Day-&#62;prevDay(); // Displays 30 (the 30th of September)
+echo $Day-&#62;nextDay(); // Displays 2
+
+echo $Day-&#62;thisMonth(); // Displays 10
+echo $Day-&#62;prevMonth(); // Displays 9
+echo $Day-&#62;nextMonth(); // Displays 11</PRE
+></TD
+></TR
+></TABLE
+>
+        Notice that from the <TT
+CLASS="varname"
+>$Day</TT
+> I can find out not just about the day itself but also the month (or year/hour/minute/second). Notice also how <B
+CLASS="function"
+>prevDay()</B
+> returned 30, taking care of working out that the previous day is in September for you. There are <B
+CLASS="function"
+>this***()</B
+>, <B
+CLASS="function"
+>prev***()</B
+> and <B
+CLASS="function"
+>next***()</B
+> methods for years, months, days, hours, minutes and seconds.
+        </P
+><P
+>&#13;        Calling any of these methods and passing the value TRUE will result in a timestamp being returned (the type of timestamp depends on the Calendar Engine you are using - see the FAQ), for example;
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// Create a second
+$Second = new Calendar_Second(2003, 10, 25, 13, 32, 44);
+
+echo $Second-&#62;thisYear(TRUE);     // Displays 1041375600
+echo $Second-&#62;thisMonth(TRUE);    // Displays 1064959200
+echo $Second-&#62;thisDay(TRUE);      // Displays 1067032800
+echo $Second-&#62;thisHour(TRUE);     // Displays 1067079600
+echo $Second-&#62;thisMinute(TRUE);   // Displays 1067081520
+echo $Second-&#62;thisSecond(TRUE);   // Displays 1067081564</PRE
+></TD
+></TR
+></TABLE
+>
+        Notice how the timestamp return increases, depending on the method that was called to obtain it. The first, obtained from <B
+CLASS="function"
+>thisYear(TRUE)()</B
+> is a timestamp for the beginning of the year 2003 (1st January 2003 in fact) while the third from <B
+CLASS="function"
+>thisDay(TRUE)()</B
+> is a timestamp for 25th October 2003.
+        </P
+><P
+>&#13;            <DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;            The <B
+CLASS="function"
+>prev***()</B
+> and <B
+CLASS="function"
+>next***()</B
+> methods return values calculated relative to the <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>current</I
+></SPAN
+> Calendar object you are working with. In the above example, if you wanted the day <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>and</I
+></SPAN
+> month of the next day (which should be 2nd October 2003), calling <B
+CLASS="function"
+>nextDay()</B
+> then <B
+CLASS="function"
+>nextMonth()</B
+> would give you the 2nd of <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>November</I
+></SPAN
+> not October.
+            Instead you should call <B
+CLASS="function"
+>nextDay()</B
+> passing it the argument TRUE, to get back a timestamp from which the next day can be obtained. Be aware of the <B
+CLASS="classname"
+>Calendar_Decorator_Uri</B
+> which is designed to help build URLs for next / prev links.
+            </P
+></TD
+></TR
+></TABLE
+></DIV
+>
+        </P
+><P
+>&#13;        There are also the methods <B
+CLASS="function"
+>thisWeek()</B
+>, <B
+CLASS="function"
+>prevWeek()</B
+> and <B
+CLASS="function"
+>nextWeek()</B
+> which only become available if you're using an instance of <B
+CLASS="classname"
+>Calendar_Week</B
+>. The returned value format can be chosen among 'timestamp', 'n_in_month', 'n_in_year' or 'array'. Be careful - if you select 'n_in_month', it will return NULL if it reaches the beginning or end of a month.
+        </P
+><P
+>&#13;        Finally all Calendar objects provide the methods <B
+CLASS="function"
+>getTimeStamp()</B
+> and <B
+CLASS="function"
+>setTimeStamp()</B
+>. The former returns a timestamp in the format used by the calendar engine you are working with (i.e. Unix Timestamp if it's the default UnixTs engine or of format YYYY-MM-DD HH:MM:SS). The later excepts a timestamp which is used to replace the values the Calendar object was constructed with.
+        </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32466"
+></A
+><H2
+>Building and Fetching</H2
+><P
+>&#13;        Every date and tabular date class has a <B
+CLASS="function"
+>build()</B
+> method which is used to generate the children of that date object. For example <B
+CLASS="classname"
+>Calendar_Month</B
+> builds <B
+CLASS="classname"
+>Calendar_Day</B
+> objects, the days being <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>"children"</I
+></SPAN
+> of the month.
+        </P
+><P
+>&#13;        Once <B
+CLASS="function"
+>build()</B
+> is called, the children can be fetched from the date object using the simple <B
+CLASS="function"
+>fetch()</B
+> iterator, for example;
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$Month = new Calendar_Month(2003, 10);
+
+$Month-&#62;build();
+
+while ($Day = $Month-&#62;fetch()) {
+    echo $Day-&#62;thisDay()."&#60;br /&#62;\n";
+}</PRE
+></TD
+></TR
+></TABLE
+>
+        The <B
+CLASS="function"
+>fetch()</B
+> method returns one child at a time, in ascending date order, and returns FALSE when there are no more children. It also automatically resets the internal collection of children, meaning you can loop over them as many times as you like.
+        </P
+><P
+>&#13;        If you don't like the iterator, and wish to use your own, you can simply extract the children with the <B
+CLASS="function"
+>fetchAll()</B
+> method (returns an indexed array of child date objects) and check the number you got back with <B
+CLASS="function"
+>size()</B
+>. Be careful the index of the array you get back from <B
+CLASS="function"
+>fetchAll()</B
+>. For <B
+CLASS="classname"
+>Calendar_Year</B
+>, <B
+CLASS="classname"
+>Calendar_Month</B
+>, <B
+CLASS="classname"
+>Calendar_Month_Weekdays</B
+>, <B
+CLASS="classname"
+>Calendar_Month_Weeks</B
+> and <B
+CLASS="classname"
+>Calendar_Week</B
+>, the first index of the array is 1 while for <B
+CLASS="classname"
+>Calendar_Day</B
+>, <B
+CLASS="classname"
+>Calendar_Hour</B
+>, <B
+CLASS="classname"
+>Calendar_Minute</B
+> and <B
+CLASS="classname"
+>Calendar_Second</B
+> the index begins with 0. Why? Consider 2003-1-1 00:00:00 ...
+        </P
+><P
+>Note: Calendar_Second::build() doesn't do anything - it has no children.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32492"
+></A
+><H2
+>Selecting Children</H2
+><P
+>&#13;        To help with rendering the calendar, the <B
+CLASS="function"
+>build()</B
+> methods accept an index array of date objects which is compares with the children it is building. If it finds that an object that was passed to it matches a child, it set's the childs state to selected, meaning the <B
+CLASS="function"
+>isSelected()</B
+> method (available on any date or tabular date objects) returns TRUE. For example;
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$Month = new Calendar_Month(2003, 10);
+
+$DayX = new Calendar_Day(2003, 10, 15);
+$DayY = new Calendar_Day(2003, 10, 23);
+$selection = array($DayX, $DayY);
+
+$Month-&#62;build($selection);
+
+while ($Day = $Month-&#62;fetch()) {
+    if ($Day-&#62;isSelected()) {
+        echo $Day-&#62;thisDay()."&#60;br /&#62;\n"; // Displays 15 or 23
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+>
+        In the above example, only 15th October 2003 and 23rd October 2003 are displayed.
+        </P
+><P
+>&#13;        The objects you pass to <B
+CLASS="function"
+>build()</B
+> which match children that are being built <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>replace</I
+></SPAN
+> the child (i.e. if there was a match, you get your object back). This allows you to "inject" your own objects into the loop, best accomplished by extending <B
+CLASS="classname"
+>Calendar_Decorator</B
+>.
+        </P
+><P
+>&#13;        Note: the <B
+CLASS="classname"
+>Calendar_Year</B
+>::<B
+CLASS="function"
+>build()</B
+> method takes a second argument to specify the first day of the week (see above discussion on Constructors).
+        </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32505"
+></A
+><H2
+>Tabular Days</H2
+><P
+>&#13;        The <B
+CLASS="classname"
+>Calendar_Day</B
+> class has three unique methods, which don't appear elsewhere, and are used purely for building tabular calendars. The <B
+CLASS="function"
+>isEmpty()</B
+> is used to determine whether the day is an empty day or not (see FAQ for explaination of empty days). The methods <B
+CLASS="function"
+>isFirst()</B
+> and <B
+CLASS="function"
+>isLast()</B
+> are used to mark the beginning and and of a week.
+        </P
+><P
+>&#13;        Whether you need to use these methods depends on which class was used to build the day objects. If the day was built with <B
+CLASS="classname"
+>Calendar_Month_Weekdays</B
+>, all three of these methods are applicable (you may have empty days and <B
+CLASS="classname"
+>Calendar_Month_Weekdays</B
+> builts a complete month but delimits the beginning and end of each week so you can find it with <B
+CLASS="function"
+>isFirst()</B
+> and <B
+CLASS="function"
+>isLast()</B
+>). If the day was built with <B
+CLASS="classname"
+>Calendar_Week</B
+>, only the  <B
+CLASS="function"
+>isEmpty()</B
+> method is applicable (the first or last week in a month may contain empty days). For day objects built in any other manner, <B
+CLASS="function"
+>isEmpty()</B
+>, <B
+CLASS="function"
+>isFirst()</B
+> and <B
+CLASS="function"
+>isLast()</B
+> are meaningless.
+        </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN32522"
+></A
+><H2
+>Validation</H2
+><P
+>&#13;        All date objects and tabular objects (except weeks) are capable of validating themselves. By default they accept whatever arguments they are given on construction but you can validate the date with the <B
+CLASS="function"
+>isValid()</B
+> method, for example;
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$Day = new Calendar_Day(2003, 10, 32);
+
+if (!$Day-&#62;isValid()) {
+    die ('Invalid date');
+}</PRE
+></TD
+></TR
+></TABLE
+>
+        For more fine grained validation, you can first call the <B
+CLASS="function"
+>getValidator()</B
+> method, to return an instance of <B
+CLASS="classname"
+>Calendar_Validator</B
+> then list the validation errors;
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$Day = new Calendar_Day(2003, 10, 32);
+
+if (!$Day-&#62;isValid()) {
+    $Validator = &#38; $Day-&#62;getValidator();
+    while ($Error = $Validator-&#62;fetch()) {
+        echo $Error-&#62;getUnit().' is invalid&#60;br&#62;';
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+>
+        or...
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$Day = new Calendar_Day(2003, 10, 32);
+
+$Validator = &#38; $Day-&#62;getValidator();
+if (!$Validator-&#62;isValid()) {
+    while ($Error = $Validator-&#62;fetch()) {
+        echo $Error-&#62;toString().'&#60;br&#62;';
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+>
+        </P
+><P
+>Note that rather than validating dates, you may prefer to automatically adjust them with the <B
+CLASS="function"
+>adjust()</B
+> method, for example;
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$Day = new Calendar_Day(2003, 10, 32);
+
+$Day-&#62;adjust();
+
+echo $Day-&#62;thisYear();      // 2003
+echo $Day-&#62;thisMonth();     // 11 (moved forward a month)
+echo $Day-&#62;thisDay();       // 1 (the first of the month)</PRE
+></TD
+></TR
+></TABLE
+>
+        </P
+><P
+>&#13;        That summarizes all the methods available within PEAR::Calendar, apart from the those provided in the Decorator classes.
+       </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.datetime.calendar.intro-overview.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.datetime.calendar.intro-decorators.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Package Overview</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.datetime.calendar.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Calendar Decorators</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

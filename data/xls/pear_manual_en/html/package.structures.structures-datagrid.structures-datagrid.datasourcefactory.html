@@ -1,0 +1,416 @@
+<HTML
+><HEAD
+><TITLE
+>Structures_DataGrid::dataSourceFactory</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Class Structures_DataGrid"
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.class-structures-datagrid"><LINK
+REL="PREVIOUS"
+TITLE="Structures_DataGrid::build"
+HREF="package.structures.structures-datagrid.structures-datagrid.build.html"><LINK
+REL="NEXT"
+TITLE="Structures_DataGrid::fill"
+HREF="package.structures.structures-datagrid.structures-datagrid.fill.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.build.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.fill.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid.datasourcefactory"><B
+CLASS="function"
+>Structures_DataGrid::dataSourceFactory()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN94538"
+></A
+><B
+CLASS="function"
+>Structures_DataGrid::dataSourceFactory()</B
+>&nbsp;--&nbsp;Datasource driver Factory</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN94542"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN94543"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Structures/DataGrid.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>Structures_DataGrid_DataSource|PEAR_Error&#38;      <B
+CLASS="function"
+>Structures_DataGrid::dataSourceFactory</B
+></CODE
+> (mixed $source [, array $options = array() [, string $type = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid.datasourcefactory.desc"
+></A
+><H2
+>Description</H2
+><P
+>A clever method which loads and instantiate data source drivers.</P
+><P
+>Can be called in various ways:</P
+><P
+>Detect the source type and load the appropriate driver with default  options:  <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php-highlighted"
+>$driver =&#38; <A
+HREF="package.structures.structures-datagrid.structures-datagrid.structures-datagrid.html"
+>Structures_DataGrid</A
+>::<A
+HREF="package.structures.structures-datagrid.structures-datagrid.datasourcefactory.html"
+>dataSourceFactory</A
+>($source);</PRE
+></TD
+></TR
+></TABLE
+></P
+><P
+>Detect the source type and load the appropriate driver with custom  options:  <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php-highlighted"
+>$driver =&#38; <A
+HREF="package.structures.structures-datagrid.structures-datagrid.structures-datagrid.html"
+>Structures_DataGrid</A
+>::<A
+HREF="package.structures.structures-datagrid.structures-datagrid.datasourcefactory.html"
+>dataSourceFactory</A
+>($source, $options);</PRE
+></TD
+></TR
+></TABLE
+></P
+><P
+>Load a driver for an explicit type (faster, bypasses detection routine):  <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php-highlighted"
+>$driver =&#38; <A
+HREF="package.structures.structures-datagrid.structures-datagrid.structures-datagrid.html"
+>Structures_DataGrid</A
+>::<A
+HREF="package.structures.structures-datagrid.structures-datagrid.datasourcefactory.html"
+>dataSourceFactory</A
+>($source, $options, $type);</PRE
+></TD
+></TR
+></TABLE
+></P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid.datasourcefactory.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>mixed
+                         <TT
+CLASS="parameter"
+><I
+>$source</I
+></TT
+></DT
+><DD
+><P
+>&#13;         The data source respective to the driver
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array
+                         <TT
+CLASS="parameter"
+><I
+>$options</I
+></TT
+></DT
+><DD
+><P
+>&#13;         An associative array of the form:                              
+array(optionName =&#62; optionValue, ...)
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+                         <TT
+CLASS="parameter"
+><I
+>$type</I
+></TT
+></DT
+><DD
+><P
+>&#13;         The data source type constant (of the form                              
+DATAGRID_SOURCE_*)
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid.datasourcefactory.returns"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>returns</I
+></SPAN
+> driver object or PEAR_Error on failure
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid.datasourcefactory.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> no exceptions thrown
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid.datasourcefactory.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>see</I
+></SPAN
+> Structures_DataGrid::_detectSourceType()
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid.datasourcefactory.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.build.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.fill.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>Structures_DataGrid::build()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.class-structures-datagrid"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Structures_DataGrid::fill()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

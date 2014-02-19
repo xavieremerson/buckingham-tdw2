@@ -1,0 +1,407 @@
+<HTML
+><HEAD
+><TITLE
+>constructor Mail_Queue::Mail_Queue</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Mail_Queue"
+HREF="package.default.mail-queue.html"><LINK
+REL="PREVIOUS"
+TITLE="Tutorial"
+HREF="package.mail.mail-queue.mail-queue.tutorial.html"><LINK
+REL="NEXT"
+TITLE="Mail_Queue::deleteMail"
+HREF="package.mail.mail-queue.mail-queue.deletemail.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-queue.mail-queue.tutorial.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-queue.mail-queue.deletemail.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.mail.mail-queue.mail-queue.mail-queue">constructor <B
+CLASS="function"
+>Mail_Queue::Mail_Queue()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN81406"
+></A
+>constructor <B
+CLASS="function"
+>Mail_Queue::Mail_Queue()</B
+>&nbsp;--&nbsp;Mail_Queue constructor</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN81410"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN81411"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Mail/Queue.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed      constructor <B
+CLASS="function"
+>Mail_Queue::Mail_Queue</B
+></CODE
+> (array $container_options, array $mail_options)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.mail-queue.desc"
+></A
+><H2
+>Description</H2
+><P
+>Creates a new mail queue object to store mails in, fetch mails from
+     and send mails with.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.mail-queue.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array
+        <TT
+CLASS="parameter"
+><I
+>$container_options</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Array of container (mail storage) options. See tutorial for details.
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array
+        <TT
+CLASS="parameter"
+><I
+>$mail_options</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Array of mailer options. See tutorial for details.
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN81440"
+></A
+><H2
+></H2
+><P
+>&#13;    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN81443"><P
+><B
+>Example 46-1. </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+
+require_once 'Mail/Queue.php';
+
+$container_options = array(
+    'type'        =&#62; 'db',
+    'database'    =&#62; 'dbname',
+    'phptype'     =&#62; 'mysql',
+    'username'    =&#62; 'root',
+    'password'    =&#62; '',
+    'mail_table'  =&#62; 'mail_queue',
+);
+//optionally, a 'dns' string can be provided instead of db parameters.
+//look at DB::connect() method or at DB or MDB docs for details.
+//you could also use mdb container instead db
+$mail_options = array(
+    'driver'   =&#62; 'smtp',
+    'host'     =&#62; 'your_smtp_server.com',
+    'port'     =&#62; 25,
+    'auth'     =&#62; false,
+    'username' =&#62; '',
+    'password' =&#62; '',
+);
+
+$mail_queue =&#38; new Mail_Queue($container_options, $mail_options);
+
+* *****************************************************************
+* // TO ADD AN EMAIL TO THE QUEUE
+* *****************************************************************
+$from             = 'user@server.com';
+$from_name        = 'admin';
+$recipient        = 'recipient@other_server.com';
+$recipient_name   = 'recipient';
+$message          = 'Test message';
+$from_params      = empty($from_name) ? '&#60;'.$from.'&#62;' : '"'.$from_name.'" &#60;'.$from.'&#62;';
+$recipient_params = empty($recipient_name) ? '&#60;'.$recipient.'&#62;' : '"'.$recipient_name.'" &#60;'.$recipient.'&#62;';
+$hdrs = array(
+    'From'    =&#62; $from_params,
+    'To'      =&#62; $recipient_params,
+    'Subject' =&#62; 'test message body',
+);
+$mime =&#38; new Mail_mime();
+$mime-&#62;setTXTBody($message);
+$body = $mime-&#62;get();
+$hdrs = $mime-&#62;headers($hdrs);
+
+// Put message to queue
+$mail_queue-&#62;put($from, $recipient, $hdrs, $body);
+
+// Also you could put this msg in more advanced mode
+$seconds_to_send = 3600;
+$delete_after_send = false;
+$id_user = 7;
+$mail_queue-&#62;put( $from, $recipient, $hdrs, $body, $seconds_to_send, $delete_after_send, $id_user );
+
+// TO SEND EMAILS IN THE QUEUE
+
+// How many mails could we send each time
+$max_ammount_mails = 50;
+$mail_queue =&#38; new Mail_Queue($container_options, $mail_options);
+$mail_queue-&#62;sendMailsInQueue($max_ammount_mails);
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.mail-queue.returns"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>returns</I
+></SPAN
+>True on success else pear error class.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.mail-queue.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> no exceptions thrown
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-queue.mail-queue.mail-queue.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.mail.mail-queue.mail-queue.tutorial.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.mail.mail-queue.mail-queue.deletemail.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Tutorial</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.default.mail-queue.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Mail_Queue::deleteMail()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

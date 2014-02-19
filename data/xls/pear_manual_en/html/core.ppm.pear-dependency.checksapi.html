@@ -1,0 +1,333 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR_Dependency::checkSAPI</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR_Dependency"
+HREF="core.ppm.pear-dependency.html"><LINK
+REL="PREVIOUS"
+TITLE="PEAR_Dependency::checkProgram"
+HREF="core.ppm.pear-dependency.checkprogram.html"><LINK
+REL="NEXT"
+TITLE="PEAR_Dependency::checkZend"
+HREF="core.ppm.pear-dependency.checkzend.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-dependency.checkprogram.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-dependency.checkzend.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.ppm.pear-dependency.checksapi"><B
+CLASS="function"
+>PEAR_Dependency::checkSAPI()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN11850"
+></A
+><B
+CLASS="function"
+>PEAR_Dependency::checkSAPI()</B
+>&nbsp;--&nbsp;Check SAPI backend</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN11854"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN11855"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'PEAR/Dependency.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed       <B
+CLASS="function"
+>PEAR_Dependency::checkSAPI</B
+></CODE
+> (mixed &#38;$errmsg, string $name [, string $req = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> [, string $relation = 'has']])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-dependency.checksapi.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      SAPI backend check method. 
+      Version comparison is not yet available here.
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-dependency.checksapi.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>mixed
+         <TT
+CLASS="parameter"
+><I
+>&#38;$errmsg</I
+></TT
+></DT
+><DD
+><P
+>&#13;         this variable will contains an error message, if
+         check fail          
+        </P
+></DD
+><DT
+>string
+         <TT
+CLASS="parameter"
+><I
+>$name</I
+></TT
+></DT
+><DD
+><P
+>&#13;         name of SAPI backend
+        </P
+></DD
+><DT
+>string
+         <TT
+CLASS="parameter"
+><I
+>$req</I
+></TT
+></DT
+><DD
+><P
+>&#13;         which version to compare (currently unused)
+        </P
+></DD
+><DT
+>string
+         <TT
+CLASS="parameter"
+><I
+>$relation</I
+></TT
+></DT
+><DD
+><P
+>&#13;         how to compare versions (currently
+         hardcoded to 'has')
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-dependency.checksapi.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   <TT
+CLASS="parameter"
+><I
+>mixed</I
+></TT
+> - 
+     <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> if dependency could be resolved
+     <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>successfully(!)</I
+></SPAN
+>; or an
+     <TT
+CLASS="constant"
+><B
+>PEAR_DEPENDENCY_*</B
+></TT
+> constant
+     in case of unresolved dependency.
+
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-dependency.checksapi.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-dependency.checkprogram.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-dependency.checkzend.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Dependency::checkProgram()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-dependency.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Dependency::checkZend()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

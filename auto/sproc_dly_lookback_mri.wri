@@ -1,0 +1,16 @@
+trade_date_to_process = [2014-02-14]
+Array
+(
+    [0] => SHPG
+    [1] => AVP
+    [2] => BWA
+    [3] => SHPG
+    [4] => AVP
+    [5] => BWA
+)
+
+&nbsp;&nbsp;4 = [AVP]<br>&nbsp;&nbsp;1 = [AVP]<br>&nbsp;&nbsp;5 = [BWA]<br>&nbsp;&nbsp;2 = [BWA]<br>&nbsp;&nbsp;0 = [SHPG]<br>&nbsp;&nbsp;3 = [SHPG]<br>
+
+
+SHIRE PLC
+d:\tdw\tdw\includes\createpdf.bat lookback_2014-02-14.pdf lookback_2014-02-14.html<br>http://192.168.20.63/tdw/repsvr.php?rep=DCARV2&src=205496212014N02N1479QQQQQQQQ1a24123a7d54440f454344944d7f2e08<br>http://192.168.20.63/tdw/repsvr.php?rep=DCARV2&src=786590572014N02N14QQQQQQQQQQ1a24123a7d54440f454344944d7f2e08<br>

@@ -1,0 +1,316 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR_Config::setInstallRoot</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR_Config"
+HREF="core.ppm.pear-config.html"><LINK
+REL="PREVIOUS"
+TITLE="PEAR_Config::setChannels"
+HREF="core.ppm.pear-config.setchannels.html"><LINK
+REL="NEXT"
+TITLE="PEAR_Config::setRegistry"
+HREF="core.ppm.pear-config.setregistry.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-config.setchannels.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-config.setregistry.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.ppm.pear-config.setinstallroot"><B
+CLASS="function"
+>PEAR_Config::setInstallRoot()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN11177"
+></A
+><B
+CLASS="function"
+>PEAR_Config::setInstallRoot()</B
+>&nbsp;--&nbsp;setInstallRoot</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN11181"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN11182"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once '/Config.php'; (since PEAR 1.4.0)</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>PEAR_Config::setInstallRoot</B
+></CODE
+> (string|false $root)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-config.setinstallroot.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      This is used to implement the --installroot option for installation.  In earlier
+      PEAR versions, this was implemented in <B
+CLASS="function"
+>PEAR_Installer::install()</B
+>,
+      but this makes it more difficult to track with the introduction of channels, and to
+      satisfy better encapsulation, it has been moved to <B
+CLASS="classname"
+>PEAR_Config</B
+>.
+     </P
+><P
+>&#13;      Pass in a full path.  On retrieving any directory configuration variable, the
+      value will be prepended with the installroot specified in this method.  For example,
+      if <TT
+CLASS="literal"
+>php_dir</TT
+> is <TT
+CLASS="literal"
+>/usr/lib/php</TT
+>, and
+      <B
+CLASS="function"
+>setInstallRoot()</B
+> is used with <TT
+CLASS="literal"
+>/hoopla/boo</TT
+>,
+      the value returned from <B
+CLASS="function"
+>get()</B
+> would be
+      <TT
+CLASS="literal"
+>/hoopla/boo/usr/lib/php</TT
+>.  Use an empty string <TT
+CLASS="literal"
+>''</TT
+>
+      to reset an installroot.
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-config.setinstallroot.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string|<TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>
+        <TT
+CLASS="parameter"
+><I
+>$root</I
+></TT
+></DT
+><DD
+><P
+>&#13;         installation directory to prepend to all _dir variables, or <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> to     
+         disable
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-config.setinstallroot.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> no exceptions thrown
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-config.setinstallroot.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-config.setchannels.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-config.setregistry.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Config::setChannels()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-config.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Config::setRegistry()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<script src="../../runtime/lib/aw.js"></script>
+<link href="../../runtime/styles/mono/aw.css" rel="stylesheet"></link>
+<style>
+	body {font: menu}
+	p {margin: 10px 0px 5px 0px}
+	table {font: menu; table-layout: fixed}
+
+
+</style>
+</head>
+<body class="aw-background-1">
+<table><tr><td>
+<p>
+Label:
+</p>
+<script>
+	var obj = new AW.UI.Label;
+	obj.setControlText("Label");
+	obj.setControlImage("favorites");
+	document.write(obj);
+</script>
+</td><td colspan="3">
+<p>
+Group:
+</p>
+<script>
+	var obj = new AW.UI.Group;
+	obj.setControlSize(300, 50);
+	obj.setControlText("Group/Fieldset");
+	obj.setControlImage("favorites");
+	document.write(obj);
+</script>
+</td></tr><tr><td>
+<p>
+Button:
+</p>
+<script>
+	var obj = new AW.UI.Button;
+	obj.setControlText("Button");
+	obj.setControlImage("favorites");
+	document.write(obj);
+</script>
+</td><td>
+<p>
+Link:
+</p>
+<script>
+	var obj = new AW.UI.Link;
+	obj.setControlText("Hyperlink");
+	obj.setControlImage("home");
+	obj.setControlLink("http://www.google.com");
+	document.write(obj);
+</script>
+</td><td>
+<p>
+Input:
+</p>
+<script>
+	var obj = new AW.UI.Input;
+	obj.setControlText("Input");
+	obj.setControlImage("search");
+	document.write(obj);
+</script>
+</td><td>
+<p>
+Combo:
+</p>
+<script>
+	var obj = new AW.UI.Combo;
+	obj.setControlText("Combo");
+	obj.setControlImage("favorites");
+	obj.setItemText(["Home", "Favorites", "Font size", "Search"]);
+	obj.setItemImage(["home", "favorites", "fontsize", "search"]);
+	obj.setItemCount(4);
+	document.write(obj);
+</script>
+</td></tr><tr><td colspan="3">
+<p>
+Tabs:
+</p>
+<script>
+	var obj = new AW.UI.Tabs;
+	obj.setItemText(["Home", "Favorites", "Font size", "Search"]);
+	obj.setItemImage(["home", "favorites", "fontsize", "search"]);
+	obj.setItemCount(4);
+	obj.setSelectedItems([0]);
+	document.write(obj);
+</script>
+<div style="border-top:1px solid #aaa; font-size:1px; width:300px" ></div>
+</td><td>
+<p>
+Checkbox:
+</p>
+<script>
+	var obj = new AW.UI.Checkbox;
+	obj.setControlText("Checkbox");
+	obj.setControlImage("fontsize");
+	obj.setControlValue("mixed");
+	document.write(obj);
+</script>
+</td></tr><tr><td>
+<p>
+List:
+</p>
+<script>
+	var obj = new AW.UI.List;
+	obj.setItemText(["Home", "Favorites", "Font size", "Search"]);
+	obj.setItemImage(["home", "favorites", "fontsize", "search"]);
+	obj.setItemCount(4);
+	document.write(obj);
+</script>
+</td><td>
+<p>
+Checked List:
+</p>
+<script>
+	var obj = new AW.UI.CheckedList;
+	obj.setItemText(["Home", "Favorites", "Font size", "Search"]);
+	obj.setItemImage(["home", "favorites", "fontsize", "search"]);
+	obj.setItemCount(4);
+	document.write(obj);
+</script>
+</td><td>
+<p>
+Tree:
+</p>
+<script>
+
+	var tree = {
+		0: [1, 2, 3, 4],
+		1: [5, 6],
+		2: [7],
+		3: [8],
+		4: [9]
+	}
+
+	var obj = new AW.UI.Tree;
+	obj.setItemText(["", "Home", "Favorites", "Font size", "Search", "Child node 1", "Child node 2"]);
+	obj.setItemImage(["", "home", "favorites", "fontsize", "search"]);
+	obj.setViewCount(function(i){return tree[i] ? tree[i].length : 0});
+	obj.setViewIndices(function(i){return tree[i]});
+	document.write(obj);
+</script>
+</td><td>
+<p>
+Radio:
+</p>
+<script>
+	var obj = new AW.UI.Radio;
+	obj.setItemText(["Home", "Favorites", "Font size", "Search"]);
+	obj.setItemImage(["home", "favorites", "fontsize", "search"]);
+	obj.setItemCount(4);
+	obj.setSelectedItems([0]);
+	document.write(obj);
+</script>
+</td></tr></table>
+<p>
+Grid:
+</p>
+<script>
+	var obj = new AW.UI.Grid;
+	obj.setControlSize(400, 100);
+	obj.setCellText("cell");
+	obj.setHeaderText("header");
+	obj.setColumnCount(5);
+	obj.setRowCount(10);
+	document.write(obj);
+</script>
+<p>
+Extended Grid (fixed columns &amp; footer):
+</p>
+<script>
+	var obj = new AW.Grid.Extended;
+	obj.setControlSize(400, 100);
+	obj.setCellText("cell");
+	obj.setHeaderText("header");
+	obj.setFooterText("footer");
+	obj.setFooterVisible(true);
+	obj.setColumnCount(5);
+	obj.setRowCount(10);
+	document.write(obj);
+</script>
+</body>
+</html>

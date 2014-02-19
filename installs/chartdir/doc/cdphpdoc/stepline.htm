@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+<Title>Step Line Chart</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">Step Line Chart</p>
+<hr class="separator">
+<div class="content">
+<img src="images/stepline.png">
+<br><br>
+This example demonstrates joining data points with steps. It also demonstrates irregularly spaced data points on a true date/time axis.<br><br>
+The step line layer is created using <a href="XYChart.addStepLineLayer.htm">XYChart.addStepLineLayer</a>.<br><br>
+Most of the sample charts in this document use enumerated x-axes. In this axis type, the data points are assumed to be evenly spread on the x-direction, so it is not necessary to supply the x values of the data points. The x-axis is treated as a series of text labels using <a href="Axis.setLabels.htm">Axis.setLabels</a>. The labels can be dates/times, numbers, names, or any arbitrary text in any format. Enumerated x-axis is an easy to use yet extremely flexible axis type that is suitable for most charts.<br><br>
+However, for charts with data points not regularly spaced, it is necessary to supply the x values of the data points using <a href="Layer.setXData.htm">Layer.setXData</a>. In this case, ChartDirector can automatically determine the type and scale on the x-axis (auto-scaling).<br><br>
+For date/time axis, in many cases one may need to control the date/time label format. This can be done using <a href="Axis.setDateScale3.htm">Axis.setDateScale3</a>.<br><br>
+<table width="98%%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc"> Because in ChartDirector, <a href="dateformat.htm">dates/times</a> are also represented as numbers (as seconds elapsed since 1-1-01 00:00:00 - this is to support programming languages that do not have a date/time data type), it cannot distinguish for sure if the x values are dates/times or numeric quantities.<br><br>
+Instead, ChartDirector assumes that if the all x-values are between year 1800 (=56770934400) and year 2200 (=69393715200), the x-axis represents date/time, otherwise it represents numeric quantities.<br><br>
+It is unlikely but possible that ChartDirector may mistaken a date/time axis as a numeric axis (linear axis) if the date/time is outside of year 1800 - 2200. Conversely, it may mistaken a linear axis as a date/time axis if all x values happen to be in the range 56770934400 - 69393715200. In these case, you may use the <a href="Axis.setLinearScale3.htm">Axis.setLinearScale3</a> or <a href="Axis.setDateScale3.htm">Axis.setDateScale3</a> to explicitly inform ChartDirector the axis type. </td></tr></table>
+</div>
+<p class="heading2">Source Code Listing</p>
+<div class="content">
+[File: phpdemo/stepline.php]<br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp><?php
+include("phpchartdir.php");
+
+#The data for the chart
+$dataY0 = array(4, 4.5, 5, 5.25, 5.75, 5.25, 5, 4.5, 4, 3, 2.5, 2.5);
+$dataX0 = array(chartTime(1997, 1, 1), chartTime(1998, 6, 25), chartTime(1999,
+    9, 6), chartTime(2000, 2, 6), chartTime(2000, 9, 21), chartTime(2001, 3, 4),
+    chartTime(2001, 6, 8), chartTime(2002, 2, 4), chartTime(2002, 5, 19),
+    chartTime(2002, 8, 16), chartTime(2002, 12, 1), chartTime(2003, 1, 1));
+
+$dataY1 = array(7, 6.5, 6, 5, 6.5, 7, 6, 5.5, 5, 4, 3.5, 3.5);
+$dataX1 = array(chartTime(1997, 1, 1), chartTime(1997, 7, 1), chartTime(1997,
+    12, 1), chartTime(1999, 1, 15), chartTime(1999, 6, 9), chartTime(2000, 3, 3
+    ), chartTime(2000, 8, 13), chartTime(2001, 5, 5), chartTime(2001, 9, 16),
+    chartTime(2002, 3, 16), chartTime(2002, 6, 1), chartTime(2003, 1, 1));
+
+#Create a XYChart object of size 500 x 270 pixels, with a pale blue (0xe0e0ff)
+#background, a light blue (0xccccff) border, and 1 pixel 3D border effect.
+$c = new XYChart(500, 270, 0xe0e0ff, 0xccccff, 1);
+
+#Set the plotarea at (50, 50) and of size 420 x 180 pixels, using white
+#(0xffffff) as the plot area background color. Turn on both horizontal and
+#vertical grid lines with light grey color (0xc0c0c0)
+$plotAreaObj = $c->setPlotArea(50, 50, 420, 180, 0xffffff);
+$plotAreaObj->setGridColor(0xc0c0c0, 0xc0c0c0);
+
+#Add a legend box at (55, 25) (top of the chart) with horizontal layout. Use 10
+#pts Arial Bold Italic font. Set the background and border color to Transparent.
+$legendObj = $c->addLegend(55, 25, false, "arialbi.ttf", 10);
+$legendObj->setBackground(Transparent);
+
+#Add a title to the chart using 14 points Times Bold Itatic font, using blue
+#(0x9999ff) as the background color
+$titleObj = $c->addTitle("Interest Rates", "timesbi.ttf", 14);
+$titleObj->setBackground(0x9999ff);
+
+#Set the y axis label format to display a percentage sign
+$c->yAxis->setLabelFormat("{value}%");
+
+#Add a red (0xff0000) step line layer to the chart and set the line width to 2
+#pixels
+$layer0 = $c->addStepLineLayer($dataY0, 0xff0000, "Country AAA");
+$layer0->setXData($dataX0);
+$layer0->setLineWidth(2);
+
+#Add a blue (0x0000ff) step line layer to the chart and set the line width to 2
+#pixels
+$layer1 = $c->addStepLineLayer($dataY1, 0xff, "Country BBB");
+$layer1->setXData($dataX1);
+$layer1->setLineWidth(2);
+
+#output the chart
+header("Content-type: image/png");
+print($c->makeChart2(PNG));
+?></xmp>
+</td></tr></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

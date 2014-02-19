@@ -1,0 +1,29 @@
+2014-02-18<br>Today is not a holiday, hence proceeding with program execution!
+Proceeding after holiday check....
+
+Checking if the previous NFS filecopy attempt succeeded.
+
+Checking for existence of D:\tdw\tdw\auto\nfs\getreports\tmp\FBNR216A0218.TXT
+
+Have to process the filecopy sequence, as files do not exist at the target location.
+
+copy \\192.168.20.54\nfs\FBNR216A0218.TXT D:\tdw\tdw\auto\nfs\getreports\tmp\
+Failed to copy file FBNR216A0218.TXT 
+copy \\192.168.20.54\nfs\FBNR215A0218.TXT D:\tdw\tdw\auto\nfs\getreports\tmp\
+11:30:00 pm ::: 4590 bytes ::: Copied file FBNR215A0218.TXT 
+copy \\192.168.20.54\nfs\FBNR213A0218.TXT D:\tdw\tdw\auto\nfs\getreports\tmp\
+Failed to copy file FBNR213A0218.TXT 
+copy \\192.168.20.54\nfs\FBNR213B0218.TXT D:\tdw\tdw\auto\nfs\getreports\tmp\
+Failed to copy file FBNR213B0218.TXT 
+Creating ZIP file...
+
+Copying ZIP file...
+
+copy D:\tdw\tdw\auto\nfs\getreports\tmp\FBNR_2014-02-18_587e709d.zip \\buckfilesrv\e$\nfs\_FBNR_FILES\<br>Writing status file log_Tuesday.html
+
+Array
+(
+    [FBNR215A0218.TXT] => D:\tdw\tdw\auto\nfs\getreports\tmp\FBNR215A0218.TXT
+)
+del D:\tdw\tdw\auto\nfs\getreports\tmp\*.TXT
+del D:\tdw\tdw\auto\nfs\getreports\tmp\*.zip

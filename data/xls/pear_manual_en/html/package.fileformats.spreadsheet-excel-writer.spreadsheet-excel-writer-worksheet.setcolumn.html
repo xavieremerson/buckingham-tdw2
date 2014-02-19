@@ -1,0 +1,349 @@
+<HTML
+><HEAD
+><TITLE
+>Worksheet::setColumn</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Spreadsheet_Excel_Writer"
+HREF="package.fileformats.spreadsheet-excel-writer.html"><LINK
+REL="PREVIOUS"
+TITLE="Worksheet::protect"
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.protect.html"><LINK
+REL="NEXT"
+TITLE="Worksheet::setSelection"
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setselection.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.protect.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setselection.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setcolumn">Worksheet::setColumn</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN42468"
+></A
+>Worksheet::setColumn&nbsp;--&nbsp;Set the width of a single column or a range of columns.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN42471"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN42472"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once "Spreadsheet/Excel/Writer.php";</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>Worksheet::setColumn</B
+></CODE
+> (integer $firstcol, integer $lastcol, float $width [, mixed $format=0 [, integer $hidden=0]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setcolumn.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Set the width of a single column or a range of columns.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setcolumn.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>integer $firstcol</I
+></TT
+> -
+        first column on the range
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>integer $lastcol</I
+></TT
+> -
+        last column on the range
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>float $width</I
+></TT
+> -
+        width to set
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>mixed $format</I
+></TT
+> -
+        The optional XF format to apply to the columns
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>integer $hidden</I
+></TT
+> -
+        The optional hidden atribute
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setcolumn.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+></P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setcolumn.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN42517"><P
+><B
+>Example 37-1. Using <B
+CLASS="function"
+>setColumn()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Spreadsheet/Excel/Writer.php';
+
+$workbook = new Spreadsheet_Excel_Writer();
+$worksheet =&#38; $workbook-&#62;addWorksheet();
+
+$radius = 20;
+$worksheet-&#62;setColumn(0,$radius*2,1);
+
+// Face
+for ($i = 0; $i &#60; 360; $i++)
+{
+    $worksheet-&#62;write(floor(sin((2*pi()*$i)/360)*$radius) + $radius + 1, floor(cos((2*pi()*$i)/360)*$radius) + $radius + 1, "x");
+}
+// Eyes (maybe use a format instead?)
+$worksheet-&#62;writeURL(floor($radius*0.8), floor($radius*0.8), "0");
+$worksheet-&#62;writeURL(floor($radius*0.8), floor($radius*1.2), "0");
+
+// Smile
+for ($i = 65; $i &#60; 115; $i++)
+{
+    $worksheet-&#62;write(floor(sin((2*pi()*$i)/360)*$radius*1.3) + floor($radius*0.2), floor(cos((2*pi()*$i)/360)*$radius*1.3) + $radius + 1, "x");
+}
+
+// hide gridlines so they don't mess with our Excel art.
+$worksheet-&#62;hideGridLines();
+
+$workbook-&#62;send('face.xls');
+$workbook-&#62;close();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.protect.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-worksheet.setselection.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Worksheet::protect</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Worksheet::setSelection</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,264 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;    I've got an old installation of PEAR and don't have the permissions to install a new version - what now?
+   </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="FAQ - Frequently Asked Questions"
+HREF="faq.html"><LINK
+REL="PREVIOUS"
+TITLE="FAQ - Frequently Asked Questions"
+HREF="faq.html"><LINK
+REL="NEXT"
+TITLE="
+   How do I install a package when I get the error message
+   &#34;No release with state equal to: 'stable' found for 'Packagename'&#34;?
+  "
+HREF="faq.noreleasesfound.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="faq.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 6. FAQ - Frequently Asked Questions</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="faq.noreleasesfound.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="faq.pearinhomedir">I've got an old installation of PEAR and don't have the permissions to install a new version - what now?</H1
+><P
+>&#13;    If <B
+CLASS="command"
+>$ which pear</B
+> gives you something like <TT
+CLASS="filename"
+>/usr/local/bin/pear</TT
+>
+    and <B
+CLASS="command"
+>$ pear -v</B
+> shows a very old version or if you don't want
+    to use it for other reasons, you have to install PEAR in your home directory.
+   </P
+><P
+>&#13;    Go to http://go-pear.org, save as <TT
+CLASS="filename"
+>gopear.php</TT
+> and do
+    <B
+CLASS="command"
+>$ php gopear.php</B
+> or try
+    <B
+CLASS="command"
+>$ lynx -source http://pear.php.net/go-pear | php -q</B
+>.
+   </P
+><P
+>&#13;    Use <TT
+CLASS="filename"
+>/home/user/pear</TT
+> as prefix while installing PEAR, where user is your
+    username.
+   </P
+><P
+>&#13;    Once the installation is done, edit your PATH variable to include your planned new PEAR directory
+    <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>before</I
+></SPAN
+> the old one.
+   </P
+><P
+>&#13;    For example put a <B
+CLASS="command"
+>export PATH=/home/user/pear/bin:$PATH</B
+>
+    at the end of your <TT
+CLASS="filename"
+>~/.bashrc</TT
+> or <TT
+CLASS="filename"
+>~/.profile</TT
+>
+    under Linux. <B
+CLASS="command"
+>$ echo $PATH</B
+> should give you now
+    <TT
+CLASS="filename"
+>/home/user/pear/bin:[...]</TT
+>
+   </P
+><P
+>&#13;    <B
+CLASS="command"
+>$ which pear</B
+> should result in <TT
+CLASS="filename"
+>/home/user/pear/bin/pear</TT
+>
+    and <B
+CLASS="command"
+>$ pear -v</B
+> something like "PEAR Version: 1.4.8"
+    (at the time of writing) or newer. Check the latest stable version at
+    http://pear.php.net/package/PEAR under <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Current Release</I
+></SPAN
+>.
+   </P
+><P
+>&#13;    Now all you need is to set your <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>include_path</I
+></SPAN
+> correctly, most
+    likely via
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+ $path = ini_get('include_path');
+ ini_set('include_path', '/home/user/pear'.PATH_SEPARATOR.$path);
+ ?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="faq.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="faq.noreleasesfound.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>FAQ - Frequently Asked Questions</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="faq.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>How do I install a package when I get the error message
+   "No release with state equal to: 'stable' found for 'Packagename'"?</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,322 @@
+<HTML
+><HEAD
+><TITLE
+>XML_RDDL::getResourcesByLanguage</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_RDDL"
+HREF="package.xml.xml-rddl.html"><LINK
+REL="PREVIOUS"
+TITLE="XML_RDDL::getResourcesByPurpose"
+HREF="package.xml.xml-rddl.xml-rddl.getresourcesbypurpose.html"><LINK
+REL="NEXT"
+TITLE="XML_RDDL::apiVersion"
+HREF="package.xml.xml-rddl.xml-rddl.apiversion.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-rddl.xml-rddl.getresourcesbypurpose.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-rddl.xml-rddl.apiversion.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.xml.xml-rddl.xml-rddl.getresourcesbylanguage"><B
+CLASS="function"
+>XML_RDDL::getResourcesByLanguage()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN102944"
+></A
+><B
+CLASS="function"
+>XML_RDDL::getResourcesByLanguage()</B
+>&nbsp;--&nbsp;selects all resources of a specified language</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN102948"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN102949"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'XML/RDDL.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>XML_RDDL::getResourcesByLanguage</B
+></CODE
+> (string $language)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-rddl.xml-rddl.getresourcesbylanguage.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      Gets all resources of a given language from an RDDL document. You have to call
+	  <A
+HREF="package.xml.xml-rddl.xml-rddl.parserddl.html"
+>XML_RDDL::parseRDDL()</A
+>
+	  first. If a resource has no xml:lang attribute, the xml:lang attribute of the
+      root of the document is used.
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.default.xml-rddl.xml-rddl.getresourcesbylanguage.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;    <P
+></P
+><UL
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>string $language</I
+></TT
+> - language of the resources you want to get.
+      </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-rddl.xml-rddl.getresourcesbylanguage.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>array</I
+></SPAN
+> array containing all resources with the specified language.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-rddl.xml-rddl.getresourcesbylanguage.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-rddl.xml-rddl.getresourcesbylanguage.example1"
+></A
+><H2
+>Usage example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN102976"><P
+><B
+>Example 61-1. Getting all english resource</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "XML/RDDL.php";
+// create new parser
+$rddl   = &#38;new XML_RDDL();
+	
+// parse a document that contains RDDL resources
+$result = $rddl-&#62;parseRDDL('http://www.rddl.org');
+// check for error
+if (PEAR::isError($result)) {
+    echo sprintf( "ERROR: %s (code %d)", $result-&#62;getMessage(), $result-&#62;getCode());
+    exit;
+}
+// get all english resources
+$en = $rddl-&#62;getResourcesByLanguage('en');
+echo "&#60;pre&#62;";
+print_r($en);
+echo "&#60;/pre&#62;";</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-rddl.xml-rddl.getresourcesbypurpose.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-rddl.xml-rddl.apiversion.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>XML_RDDL::getResourcesByPurpose()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.xml-rddl.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>XML_RDDL::apiVersion()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,485 @@
+<HTML
+><HEAD
+><TITLE
+>loadTemplateFile()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_Sigma"
+HREF="package.html.html-template-sigma.html"><LINK
+REL="PREVIOUS"
+TITLE="hideBlock()"
+HREF="package.html.html-template-sigma.html-template-sigma.hideblock.html"><LINK
+REL="NEXT"
+TITLE="parse()"
+HREF="package.html.html-template-sigma.html-template-sigma.parse.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.hideblock.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.parse.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.loadtemplatefile">loadTemplateFile()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN71461"
+></A
+>loadTemplateFile()&nbsp;--&nbsp;Loads a template file.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN71464"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN71465"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/Template/Sigma.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed       <B
+CLASS="function"
+>HTML_Template_Sigma::loadTemplateFile</B
+></CODE
+> (string $filename [, boolean $removeUnknownVariables = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> [, boolean $removeEmptyBlocks = <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.loadtemplatefile.desc"
+></A
+><H2
+>Description</H2
+><P
+>Loads a template file. If caching is on, then it checks whether a "prepared" template exists.  If it does, it gets loaded instead of the original, if it does not, then  the original gets loaded and prepared and then the prepared version is saved.  <A
+HREF="package.html.html-template-sigma.html-template-sigma.addblockfile.html"
+><B
+CLASS="function"
+>addBlockfile()</B
+></A
+> and <A
+HREF="package.html.html-template-sigma.html-template-sigma.replaceblockfile.html"
+><B
+CLASS="function"
+>replaceBlockfile()</B
+></A
+> implement quite the same logic.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.loadtemplatefile.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$filename</I
+></TT
+></DT
+><DD
+><P
+>&#13;        filename
+       </P
+></DD
+><DT
+>boolean
+        <TT
+CLASS="parameter"
+><I
+>$removeUnknownVariables</I
+></TT
+></DT
+><DD
+><P
+>&#13;        remove unknown/unused variables?
+       </P
+></DD
+><DT
+>boolean
+        <TT
+CLASS="parameter"
+><I
+>$removeEmptyBlocks</I
+></TT
+></DT
+><DD
+><P
+>&#13;        remove empty blocks?
+       </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.loadtemplatefile.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>return</I
+></SPAN
+> <TT
+CLASS="constant"
+><B
+>SIGMA_OK</B
+></TT
+> on success, error object on failure
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.loadtemplatefile.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN71517"><P
+><B
+>Table 41-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>SIGMA_TPL_NOT_FOUND</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Cannot read the template file '<TT
+CLASS="parameter"
+><I
+>$filename</I
+></TT
+>'</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>File is unreadable for some reason</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Check if the file exists and has correct permissions set</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>SIGMA_CACHE_ERROR</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Cannot save template file 'filename'</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>A prepared template file cannot be saved</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Check if the directory for prepared templates cache exists and is writeable for your script</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>SIGMA_BLOCK_DUPLICATE</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The name of a block must be unique within a template. Block 'blockname' found twice.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The loaded file contains two blocks sharing the same name</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Check the file and rename one of the the blocks to something else</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           <TT
+CLASS="constant"
+><B
+>SIGMA_CALLBACK_SYNTAX_ERROR</B
+></TT
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           Cannot parse template function: (error description)
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           Bogus syntax for template function parameters.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           Fix the template function definition, pay special attention to
+           <A
+HREF="package.html.html-template-sigma.intro-syntax.html#package.html.html-template-sigma.intro-syntax.callback.quoting"
+>quoting rules</A
+>.
+         </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.loadtemplatefile.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>see</I
+></SPAN
+> <A
+HREF="package.html.html-template-sigma.html-template-sigma.settemplate.html"
+><B
+CLASS="function"
+>HTML_Template_Sigma::setTemplate()</B
+></A
+>, <TT
+CLASS="varname"
+>HTML_Template_Sigma::$removeUnknownVariables</TT
+>, <TT
+CLASS="varname"
+>HTML_Template_Sigma::$removeEmptyBlocks</TT
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-sigma.html-template-sigma.loadtemplatefile.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.hideblock.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-sigma.html-template-sigma.parse.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>hideBlock()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-sigma.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>parse()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

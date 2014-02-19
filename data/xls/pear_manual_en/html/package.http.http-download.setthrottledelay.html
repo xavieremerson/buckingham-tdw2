@@ -1,0 +1,259 @@
+<HTML
+><HEAD
+><TITLE
+>HTTP_Download::setThrottleDelay</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTTP_Download"
+HREF="package.http.http-download.html"><LINK
+REL="PREVIOUS"
+TITLE="HTTP_Download::setBufferSize"
+HREF="package.http.http-download.setbuffersize.html"><LINK
+REL="NEXT"
+TITLE="HTTP_Download::setContentType"
+HREF="package.http.http-download.setcontenttype.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.http.http-download.setbuffersize.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.http.http-download.setcontenttype.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.http.http-download.setthrottledelay"><B
+CLASS="function"
+>HTTP_Download::setThrottleDelay()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN75208"
+></A
+><B
+CLASS="function"
+>HTTP_Download::setThrottleDelay()</B
+>&nbsp;--&nbsp;
+   Set throttle delay in seconds
+  </DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN75212"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN75213"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     void
+     <B
+CLASS="function"
+>HTTP_Download::setThrottleDelay</B
+>
+    </CODE
+> (float
+     [$seconds = 0])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.setthrottledelay.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Set the amount of seconds to sleep after each chunck that has been sent. 
+
+   One can implement some sort of throttle through adjusting the
+   buffer size and the throttle delay. 
+
+   With a setting of buffersize=25600 and throttledelay=1 HTTP_Download will 
+   sleep a second after each 25 K of data sent.
+  </P
+><P
+>&#13;   Just be aware that if gzip'ing is enabled, decreasing the chunk size 
+   too much leads to proportionally increased network traffic due to added
+   gzip header and bottom bytes around each chunk.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.setthrottledelay.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      float
+      <TT
+CLASS="parameter"
+><I
+>&#13;       [$seconds = 0]
+      </I
+></TT
+>
+      - amount of seconds to sleep
+     </P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.setthrottledelay.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   Returns void.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.setthrottledelay.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.http.http-download.setbuffersize.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.http.http-download.setcontenttype.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>HTTP_Download::setBufferSize()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.http.http-download.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>HTTP_Download::setContentType()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

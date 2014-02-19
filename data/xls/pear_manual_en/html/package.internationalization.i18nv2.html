@@ -1,0 +1,547 @@
+<HTML
+><HEAD
+><TITLE
+>I18Nv2</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Internationalization"
+HREF="package.internationalization.html"><LINK
+REL="PREVIOUS"
+TITLE="Internationalization"
+HREF="package.internationalization.html"><LINK
+REL="NEXT"
+TITLE="Class Summary I18Nv2"
+HREF="package.internationalization.i18nv2.i18nv2-summary.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.internationalization.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 44. Internationalization</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.internationalization.i18nv2.i18nv2-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.internationalization.i18nv2">I18Nv2</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-summary.html"
+>Class Summary <B
+CLASS="classname"
+>I18Nv2</B
+></A
+>&nbsp;--&nbsp;I18Nv2 - Internationalization v2</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.intro.html"
+>Intro</A
+>&nbsp;--&nbsp;Introduction to I18Nv2</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.examples.html"
+>Examples</A
+>&nbsp;--&nbsp;Usage example for I18Nv2</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.constants.html"
+>I18Nv2 Constants</A
+>&nbsp;--&nbsp;Constants defined in and used by I18Nv2</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2.setlocale.html"
+><B
+CLASS="function"
+>I18Nv2::setLocale()</B
+></A
+>&nbsp;--&nbsp;Set locale</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2.lastlocale.html"
+><B
+CLASS="function"
+>I18Nv2::lastLocale()</B
+></A
+>&nbsp;--&nbsp;Get current/prior locale</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2.getinfo.html"
+><B
+CLASS="function"
+>I18Nv2::getInfo()</B
+></A
+>&nbsp;--&nbsp;Get several locale specific information</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2.autoconv.html"
+><B
+CLASS="function"
+>I18Nv2::autoConv()</B
+></A
+>&nbsp;--&nbsp;Automatically transform output between character sets</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2.createlocale.html"
+><B
+CLASS="function"
+>I18Nv2::createLocale()</B
+></A
+>&nbsp;--&nbsp;Create an I18Nv2_Locale object</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2.createnegotiator.html"
+><B
+CLASS="function"
+>I18Nv2::createNegotiator()</B
+></A
+>&nbsp;--&nbsp;Create an I18Nv2_Negotiator object</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2.langs2locales.html"
+><B
+CLASS="function"
+>I18Nv2::langs2locales()</B
+></A
+>&nbsp;--&nbsp;Transform languages to locales</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2.locales2langs.html"
+><B
+CLASS="function"
+>I18Nv2::locales2langs()</B
+></A
+>&nbsp;--&nbsp;Transform locales to languages</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-locale-summary.html"
+>Class Summary <B
+CLASS="classname"
+>I18Nv2_Locale</B
+></A
+>&nbsp;--&nbsp;I18Nv2_Locale</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-locale.i18nv2-locale.html"
+><B
+CLASS="function"
+>I18Nv2_Locale::I18Nv2_Locale()</B
+></A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-locale.initialize.html"
+><B
+CLASS="function"
+>I18Nv2_Locale::initialize()</B
+></A
+>&nbsp;--&nbsp;Initialize</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-locale.loadextension.html"
+><B
+CLASS="function"
+>I18Nv2_Locale::loadExtension()</B
+></A
+>&nbsp;--&nbsp;Loads corresponding locale extension</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-locale.setlocale.html"
+><B
+CLASS="function"
+>I18Nv2_Locale::setLocale()</B
+></A
+>&nbsp;--&nbsp;Set locale</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-locale.setdefaults.html"
+><B
+CLASS="function"
+>I18Nv2_Locale::setDefaults()</B
+></A
+>&nbsp;--&nbsp;Set defaults</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-locale.setcustomformat.html"
+><B
+CLASS="function"
+>I18Nv2_Locale::setCustomFormat()</B
+></A
+>&nbsp;--&nbsp;Set custom format</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-locale.setcurrencyformat.html"
+><B
+CLASS="function"
+>I18Nv2_Locale::setCurrencyFormat()</B
+></A
+>&nbsp;--&nbsp;Set currency format</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-locale.setdateformat.html"
+><B
+CLASS="function"
+>I18Nv2_Locale::setDateFormat()</B
+></A
+>&nbsp;--&nbsp;Set date format</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-locale.setnumberformat.html"
+><B
+CLASS="function"
+>I18Nv2_Locale::setNumberFormat()</B
+></A
+>&nbsp;--&nbsp;Set number format</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-locale.settimeformat.html"
+><B
+CLASS="function"
+>I18Nv2_Locale::setTimeFormat()</B
+></A
+>&nbsp;--&nbsp;Set time format</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-locale.formatdate.html"
+><B
+CLASS="function"
+>I18Nv2_Locale::formatDate()</B
+></A
+>&nbsp;--&nbsp;Format a date</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-locale.formattime.html"
+><B
+CLASS="function"
+>I18Nv2_Locale::formatTime()</B
+></A
+>&nbsp;--&nbsp;Format a time</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-locale.formatnumber.html"
+><B
+CLASS="function"
+>I18Nv2_Locale::formatNumber()</B
+></A
+>&nbsp;--&nbsp;Format a number</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-locale.formatcurrency.html"
+><B
+CLASS="function"
+>I18Nv2_Locale::formatCurrency()</B
+></A
+>&nbsp;--&nbsp;Format currency</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-locale.date.html"
+><B
+CLASS="function"
+>I18Nv2_Locale::date()</B
+></A
+>&nbsp;--&nbsp;Get local date</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-locale.time.html"
+><B
+CLASS="function"
+>I18Nv2_Locale::time()</B
+></A
+>&nbsp;--&nbsp;Get local time</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-locale.dayname.html"
+><B
+CLASS="function"
+>I18Nv2_Locale::dayName()</B
+></A
+>&nbsp;--&nbsp;Get local day name</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-locale.monthname.html"
+><B
+CLASS="function"
+>I18Nv2_Locale::monthName()</B
+></A
+>&nbsp;--&nbsp;Get local month name</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-negotiator-summary.html"
+>Class Summary <B
+CLASS="classname"
+>I18Nv2_Negotiator</B
+></A
+>&nbsp;--&nbsp;I18Nv2_Negotiator</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-negotiator.i18nv2-negotiator.html"
+><B
+CLASS="function"
+>I18Nv2_Negotiator::I18Nv2_Negotiator()</B
+></A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-negotiator.getcharsetmatch.html"
+><B
+CLASS="function"
+>I18Nv2_Negotiator::getCharsetMatch()</B
+></A
+>&nbsp;--&nbsp;Get character set match</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-negotiator.getcountrymatch.html"
+><B
+CLASS="function"
+>I18Nv2_Negotiator::getCountryMatch()</B
+></A
+>&nbsp;--&nbsp;Get country match</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-negotiator.getlanguagematch.html"
+><B
+CLASS="function"
+>I18Nv2_Negotiator::getLanguageMatch()</B
+></A
+>&nbsp;--&nbsp;Get language match</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-negotiator.getlocalematch.html"
+><B
+CLASS="function"
+>I18Nv2_Negotiator::getLocaleMatch()</B
+></A
+>&nbsp;--&nbsp;Get locale match</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-negotiator.getvariantinfo.html"
+><B
+CLASS="function"
+>I18Nv2_Negotiator::getVariantInfo()</B
+></A
+>&nbsp;--&nbsp;Return variant info for passed parameter.</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-negotiator.singlei18ncountry.html"
+><B
+CLASS="function"
+>I18Nv2_Negotiator::singleI18NCountry()</B
+></A
+>&nbsp;--&nbsp;Create the Country helper object</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-negotiator.singlei18nlanguage.html"
+><B
+CLASS="function"
+>I18Nv2_Negotiator::singleI18NLanguage()</B
+></A
+>&nbsp;--&nbsp;Create the Language helper object</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-country-summary.html"
+>Class Summary <B
+CLASS="classname"
+>I18Nv2_Country</B
+></A
+>&nbsp;--&nbsp;I18Nv2_Country</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-country.i18nv2-country.html"
+><B
+CLASS="function"
+>I18Nv2_Country::I18Nv2_Country()</B
+></A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-country.getallcodes.html"
+><B
+CLASS="function"
+>I18Nv2_Country::getAllCodes()</B
+></A
+>&nbsp;--&nbsp;Get all codes</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-country.getname.html"
+><B
+CLASS="function"
+>I18Nv2_Country::getName()</B
+></A
+>&nbsp;--&nbsp;Get country name</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-country.isvalidcode.html"
+><B
+CLASS="function"
+>I18Nv2_Country::isValidCode()</B
+></A
+>&nbsp;--&nbsp;Check if country code is valid</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-language-summary.html"
+>Class Summary <B
+CLASS="classname"
+>I18Nv2_Language</B
+></A
+>&nbsp;--&nbsp;I18Nv2_Language</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-language.i18nv2-language.html"
+><B
+CLASS="function"
+>I18Nv2_Language::I18Nv2_Language()</B
+></A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-language.getallcodes.html"
+><B
+CLASS="function"
+>I18Nv2_Language::getAllCodes()</B
+></A
+>&nbsp;--&nbsp;Get all codes</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-language.getname.html"
+><B
+CLASS="function"
+>I18Nv2_Language::getName()</B
+></A
+>&nbsp;--&nbsp;Return name of the language for language code</DT
+><DT
+><A
+HREF="package.internationalization.i18nv2.i18nv2-language.isvalidcode.html"
+><B
+CLASS="function"
+>I18Nv2_Language::isValidCode()</B
+></A
+>&nbsp;--&nbsp;Check if language code is valid</DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.internationalization.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.internationalization.i18nv2.i18nv2-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Internationalization</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.internationalization.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class Summary <B
+CLASS="classname"
+>I18Nv2</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

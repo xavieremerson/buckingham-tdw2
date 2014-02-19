@@ -1,0 +1,112 @@
+<?xml version="1.0" standalone="yes" ?>
+
+<mm_report>
+	<mm_reportname>	ResultsReport.xml</mm_reportname>
+	<mm_reportdate>09/19/13 09:45:02</mm_reportdate>
+	<mm_reportlocation>Z:\\tdw\</mm_reportlocation>
+	<mm_reportitem>
+		<mm_file>cust_vs_street.php</mm_file>
+		<mm_displaystr><![CDATA[  FROM tradeware_trades_consolidated ]]></mm_displaystr>
+		<mm_data mm_rangemin="5701" mm_rangemax="5718" mm_filename="Z:\tdw\cust_vs_street.php" mm_replaced="false" mm_matchedtextdirty="false" />
+	</mm_reportitem>
+	<mm_reportitem>
+		<mm_file>cust_vs_street_ajx.php</mm_file>
+		<mm_displaystr><![CDATA[  FROM tradeware_trades_consolidated ]]></mm_displaystr>
+		<mm_data mm_rangemin="1661" mm_rangemax="1678" mm_filename="Z:\tdw\cust_vs_street_ajx.php" mm_replaced="false" mm_matchedtextdirty="false" />
+	</mm_reportitem>
+	<mm_reportitem>
+		<mm_file>gta_processes_ajx.php</mm_file>
+		<mm_displaystr><![CDATA[...= "select trade_date, symbol, quantity from tradeware_trades_remove_stepins where trade_date between...]]></mm_displaystr>
+		<mm_data mm_rangemin="1078" mm_rangemax="1095" mm_filename="Z:\tdw\gta_processes_ajx.php" mm_replaced="false" mm_matchedtextdirty="false" />
+	</mm_reportitem>
+	<mm_reportitem>
+		<mm_file>client_orders\process_tradeware_data.php</mm_file>
+		<mm_displaystr><![CDATA[ $qry = "insert into tradeware_trades ]]></mm_displaystr>
+		<mm_data mm_rangemin="2683" mm_rangemax="2700" mm_filename="Z:\tdw\auto\bloomberg\client_orders\process_tradeware_data.php" mm_replaced="false" mm_matchedtextdirty="false" />
+	</mm_reportitem>
+	<mm_reportitem>
+		<mm_file>client_orders_trades\process_tradeware_data.php</mm_file>
+		<mm_displaystr><![CDATA[ $qry = "insert into tradeware_trades ]]></mm_displaystr>
+		<mm_data mm_rangemin="2683" mm_rangemax="2700" mm_filename="Z:\tdw\auto\bloomberg\client_orders_trades\process_tradeware_data.php" mm_replaced="false" mm_matchedtextdirty="false" />
+	</mm_reportitem>
+	<mm_reportitem>
+		<mm_file>client_orders_trades\sproc_tradeware_trades.php</mm_file>
+		<mm_displaystr><![CDATA[ $qry = "insert into tradeware_trades ]]></mm_displaystr>
+		<mm_data mm_rangemin="4449" mm_rangemax="4466" mm_filename="Z:\tdw\auto\bloomberg\client_orders_trades\sproc_tradeware_trades.php" mm_replaced="false" mm_matchedtextdirty="false" />
+	</mm_reportitem>
+	<mm_reportitem>
+		<mm_file>client_orders_trades\sproc_tradeware_trades.php</mm_file>
+		<mm_displaystr><![CDATA[ $qry_consolidate = "insert into tradeware_trades_consolidated select ]]></mm_displaystr>
+		<mm_data mm_rangemin="8424" mm_rangemax="8441" mm_filename="Z:\tdw\auto\bloomberg\client_orders_trades\sproc_tradeware_trades.php" mm_replaced="false" mm_matchedtextdirty="false" />
+	</mm_reportitem>
+	<mm_reportitem>
+		<mm_file>client_orders_trades\sproc_tradeware_trades.php</mm_file>
+		<mm_displaystr><![CDATA[     from tradeware_trades ]]></mm_displaystr>
+		<mm_data mm_rangemin="8920" mm_rangemax="8937" mm_filename="Z:\tdw\auto\bloomberg\client_orders_trades\sproc_tradeware_trades.php" mm_replaced="false" mm_matchedtextdirty="false" />
+	</mm_reportitem>
+	<mm_reportitem>
+		<mm_file>client_orders_trades\sproc_tradeware_trades_bulk_dates.php</mm_file>
+		<mm_displaystr><![CDATA[ $qry = "insert into tradeware_trades ]]></mm_displaystr>
+		<mm_data mm_rangemin="2682" mm_rangemax="2699" mm_filename="Z:\tdw\auto\bloomberg\client_orders_trades\sproc_tradeware_trades_bulk_dates.php" mm_replaced="false" mm_matchedtextdirty="false" />
+	</mm_reportitem>
+	<mm_reportitem>
+		<mm_file>client_orders_trades\sproc_tradeware_trades_specific_date.php</mm_file>
+		<mm_displaystr><![CDATA[ $qry = "insert into tradeware_trades ]]></mm_displaystr>
+		<mm_data mm_rangemin="4449" mm_rangemax="4466" mm_filename="Z:\tdw\auto\bloomberg\client_orders_trades\sproc_tradeware_trades_specific_date.php" mm_replaced="false" mm_matchedtextdirty="false" />
+	</mm_reportitem>
+	<mm_reportitem>
+		<mm_file>client_orders_trades\sproc_tradeware_trades_specific_date.php</mm_file>
+		<mm_displaystr><![CDATA[ $qry_consolidate = "insert into tradeware_trades_consolidated select ]]></mm_displaystr>
+		<mm_data mm_rangemin="8424" mm_rangemax="8441" mm_filename="Z:\tdw\auto\bloomberg\client_orders_trades\sproc_tradeware_trades_specific_date.php" mm_replaced="false" mm_matchedtextdirty="false" />
+	</mm_reportitem>
+	<mm_reportitem>
+		<mm_file>client_orders_trades\sproc_tradeware_trades_specific_date.php</mm_file>
+		<mm_displaystr><![CDATA[     from tradeware_trades ]]></mm_displaystr>
+		<mm_data mm_rangemin="8920" mm_rangemax="8937" mm_filename="Z:\tdw\auto\bloomberg\client_orders_trades\sproc_tradeware_trades_specific_date.php" mm_replaced="false" mm_matchedtextdirty="false" />
+	</mm_reportitem>
+	<mm_reportitem>
+		<mm_file>tradeware_trades\log.txt</mm_file>
+		<mm_displaystr><![CDATA[ insert into tradeware_trades_consolidated select ]]></mm_displaystr>
+		<mm_data mm_rangemin="351" mm_rangemax="368" mm_filename="Z:\tdw\auto\tradeware_trades\log.txt" mm_replaced="false" mm_matchedtextdirty="false" />
+	</mm_reportitem>
+	<mm_reportitem>
+		<mm_file>tradeware_trades\log.txt</mm_file>
+		<mm_displaystr><![CDATA[     from tradeware_trades ]]></mm_displaystr>
+		<mm_data mm_rangemin="847" mm_rangemax="864" mm_filename="Z:\tdw\auto\tradeware_trades\log.txt" mm_replaced="false" mm_matchedtextdirty="false" />
+	</mm_reportitem>
+	<mm_reportitem>
+		<mm_file>tradeware_trades\sproc_tradeware_trades.php</mm_file>
+		<mm_displaystr><![CDATA[ $qry = "insert into tradeware_trades ]]></mm_displaystr>
+		<mm_data mm_rangemin="4449" mm_rangemax="4466" mm_filename="Z:\tdw\auto\tradeware_trades\sproc_tradeware_trades.php" mm_replaced="false" mm_matchedtextdirty="false" />
+	</mm_reportitem>
+	<mm_reportitem>
+		<mm_file>tradeware_trades\sproc_tradeware_trades.php</mm_file>
+		<mm_displaystr><![CDATA[ $qry_consolidate = "insert into tradeware_trades_consolidated select ]]></mm_displaystr>
+		<mm_data mm_rangemin="8424" mm_rangemax="8441" mm_filename="Z:\tdw\auto\tradeware_trades\sproc_tradeware_trades.php" mm_replaced="false" mm_matchedtextdirty="false" />
+	</mm_reportitem>
+	<mm_reportitem>
+		<mm_file>tradeware_trades\sproc_tradeware_trades.php</mm_file>
+		<mm_displaystr><![CDATA[     from tradeware_trades ]]></mm_displaystr>
+		<mm_data mm_rangemin="8920" mm_rangemax="8937" mm_filename="Z:\tdw\auto\tradeware_trades\sproc_tradeware_trades.php" mm_replaced="false" mm_matchedtextdirty="false" />
+	</mm_reportitem>
+	<mm_reportitem>
+		<mm_file>tradeware_trades\sproc_tradeware_trades_bulk_dates.php</mm_file>
+		<mm_displaystr><![CDATA[ $qry = "insert into tradeware_trades ]]></mm_displaystr>
+		<mm_data mm_rangemin="2682" mm_rangemax="2699" mm_filename="Z:\tdw\auto\tradeware_trades\sproc_tradeware_trades_bulk_dates.php" mm_replaced="false" mm_matchedtextdirty="false" />
+	</mm_reportitem>
+	<mm_reportitem>
+		<mm_file>tradeware_trades\sproc_tradeware_trades_specific_date.php</mm_file>
+		<mm_displaystr><![CDATA[ $qry = "insert into tradeware_trades ]]></mm_displaystr>
+		<mm_data mm_rangemin="4449" mm_rangemax="4466" mm_filename="Z:\tdw\auto\tradeware_trades\sproc_tradeware_trades_specific_date.php" mm_replaced="false" mm_matchedtextdirty="false" />
+	</mm_reportitem>
+	<mm_reportitem>
+		<mm_file>tradeware_trades\sproc_tradeware_trades_specific_date.php</mm_file>
+		<mm_displaystr><![CDATA[ $qry_consolidate = "insert into tradeware_trades_consolidated select ]]></mm_displaystr>
+		<mm_data mm_rangemin="8424" mm_rangemax="8441" mm_filename="Z:\tdw\auto\tradeware_trades\sproc_tradeware_trades_specific_date.php" mm_replaced="false" mm_matchedtextdirty="false" />
+	</mm_reportitem>
+	<mm_reportitem>
+		<mm_file>tradeware_trades\sproc_tradeware_trades_specific_date.php</mm_file>
+		<mm_displaystr><![CDATA[     from tradeware_trades ]]></mm_displaystr>
+		<mm_data mm_rangemin="8920" mm_rangemax="8937" mm_filename="Z:\tdw\auto\tradeware_trades\sproc_tradeware_trades_specific_date.php" mm_replaced="false" mm_matchedtextdirty="false" />
+	</mm_reportitem>
+</mm_report>

@@ -1,0 +1,409 @@
+<HTML
+><HEAD
+><TITLE
+>constructor PEAR_ErrorStack::PEAR_ErrorStack</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Intelligent Error Handling with PEAR_ErrorStack"
+HREF="core.pear.pear-errorstack.html"><LINK
+REL="PREVIOUS"
+TITLE="
+   Introduction to using PEAR_ErrorStack for advanced error handling
+  "
+HREF="core.pear.pear-errorstack.intro.html"><LINK
+REL="NEXT"
+TITLE="PEAR_ErrorStack::getErrorMessage"
+HREF="core.pear.pear-errorstack.geterrormessage.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.pear.pear-errorstack.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.pear.pear-errorstack.geterrormessage.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.pear.pear-errorstack.pear-errorstack">constructor <B
+CLASS="function"
+>PEAR_ErrorStack::PEAR_ErrorStack()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN5089"
+></A
+>constructor <B
+CLASS="function"
+>PEAR_ErrorStack::PEAR_ErrorStack()</B
+>&nbsp;--&nbsp;Set up a new error stack instance</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN5093"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN5094"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'PEAR/ErrorStack.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void      constructor <B
+CLASS="function"
+>PEAR_ErrorStack::PEAR_ErrorStack</B
+></CODE
+> (string $package [, callback $msgCallback = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> [, callback $contextCallback = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> [, boolean $throwPEAR_Error = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>]]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear-errorstack.pear-errorstack.bcwarning"
+></A
+><H2
+>Backwards Compatibility Warning</H2
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;       As of PEAR 1.3.2, PEAR_ErrorStack no longer instantiates and returns an Exception object in PHP5, and
+       the last parameter has been removed.  Code that relies upon this behavior will break.
+      </P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear-errorstack.pear-errorstack.desc"
+></A
+><H2
+>Description</H2
+><P
+>Creates a new private PEAR_ErrorStack.  To access a universal stack, use <A
+HREF="core.pear.pear-errorstack.singleton.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::singleton()</B
+></A
+></P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear-errorstack.pear-errorstack.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$package</I
+></TT
+></DT
+><DD
+><P
+>&#13;         name of the package this error stack represents
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>callback
+        <TT
+CLASS="parameter"
+><I
+>$msgCallback</I
+></TT
+></DT
+><DD
+><P
+>&#13;         callback used for error message generation
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>callback
+        <TT
+CLASS="parameter"
+><I
+>$contextCallback</I
+></TT
+></DT
+><DD
+><P
+>&#13;         callback used for context generation, defaults to <A
+HREF="core.pear.pear-errorstack.getfileline.html"
+><B
+CLASS="function"
+>getFileLine()</B
+></A
+>
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>boolean
+        <TT
+CLASS="parameter"
+><I
+>$throwPEAR_Error</I
+></TT
+></DT
+><DD
+><P
+>&#13;         
+        </P
+></DD
+></DL
+></DIV
+>
+     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+        <TT
+CLASS="parameter"
+><I
+>$exceptionClass</I
+></TT
+></DT
+><DD
+><P
+>&#13;         exception class to instantiate if                  in PHP 5
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear-errorstack.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> no exceptions thrown
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear-errorstack.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.pear.pear-errorstack.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.pear.pear-errorstack.geterrormessage.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction to using PEAR_ErrorStack for advanced error handling</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.pear.pear-errorstack.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_ErrorStack::getErrorMessage()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

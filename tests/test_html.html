@@ -1,0 +1,2929 @@
+
+
+
+
+
+
+<html>
+<head>
+<!--Server: 192.168.20.63-->
+<!--Client: 192.168.20.78-->
+<!--Administrator Email: support@centersys.com-->
+<!--Page Process Time: Mon, 11/06/2006 02:47 pm-->
+<link rel="shortcut icon" href="../favicon.ico"></link>
+<link rel="bookmark" href="../favicon.ico"></link>
+<title>TDW v 1.0b /tdw/rep_all_rep_ca_container.php</title>
+<script language="JavaScript" src="../includes/highlight_tables/tigra_tables.js"></script>
+<script language='JavaScript' src='../includes/js/javascript.js'></script>
+<script language='JavaScript' src='../includes/js/timer.js'></script>
+<script language='JavaScript' src='../includes/js/ajax.js'></script>
+<script language="JavaScript" src="../includes/js/popup.js"></script>
+<script language="JavaScript" src="../includes/js/tbl_sort.js"></script>
+<script language="JavaScript" src="../includes/js/tblsort.js"></script>
+
+<script type="text/javascript" src="../includes/about/common.js"></script>
+<script type="text/javascript" src="../includes/about/subModal.js"></script>
+
+<script language="JavaScript" src="../includes/menu/JSCookMenu.js" type="text/javascript"></script>
+<script language="JavaScript" src="../includes/menu/js/ThemeOffice/theme.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../includes/menu/css/template_css.css" type="text/css" />
+<link rel="stylesheet" href="../includes/menu/css/theme.css" type="text/css" />
+
+<!-- TEMP PPRA -->
+<link href="../includes/mainpage.css" rel="stylesheet" type="text/css">
+<!-- TEMP PPRA -->
+
+<link rel="stylesheet" type="text/css" href="../includes/styles.css">
+<link rel="stylesheet" type="text/css" href="../includes/about/subModal.css" />
+<link rel="stylesheet" type="text/css" href="../status_app/style.css">
+</head>
+<!-- <body background="images/bk1.jpg" leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0"> -->
+<!-- <body bgcolor="#F4F8FB" leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" onLoad="InitializeTimer()"> -->
+<body bgcolor="#F4F8FB" leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0">
+
+<!-- TOP LEVEL TABLE -->
+<!-- <table width="100%" height="100%" border="3" cellpadding="0" cellspacing="0" bordercolor="#333333" bordercolorlight="#999999" bordercolordark="#000000" background="images/bk1.jpg"> -->
+<table width="100%" height="100%" border="3" cellpadding="0" cellspacing="0" bordercolor="#333333" bordercolorlight="#999999" bordercolordark="#000000" bgcolor="#F4F8FB">
+	<tr valign="top">
+    <td height="20"> 
+<!-- This section not required
+<div id="dhtmltooltip"></div>
+<script language='JavaScript' src='includes/tooltip.js'></script> -->
+<!-- background="images/table_bkground_grey.jpg" -->
+<!-- <table width="100%"  border="0" cellpadding="0" cellspacing="0" background="images/bk2.jpg" > -->
+<table width="100%"  border="0" cellpadding="0" cellspacing="0" bgcolor="FFFFFF">
+  <tr> 
+    <!-- <td width="50" height="50"><img src="images/compliancelogo_v1.gif" ></td> -->
+	<td width="91"><img src="../images/logo.gif" ></td>
+    <td align="right" valign="top"> 
+			<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td> 
+						<table width="100%"  border="0" cellspacing="1" cellpadding="1">
+              <tr> 
+								<td align="left" valign="top"><img src="../images/client_app.jpg" border="0"></td>
+              </tr>
+            </table>
+					</td>
+        </tr>
+			</table>
+		</td>
+		<td valign="top">
+			<table width="100%" height="57">
+				<tr>
+					<td align="right" valign="top"><a class="links10top">User: zPravin Prasad <!--[Login expires on Jul 28th, 2007 at 5:00 PM]--> </a> (<a href="../logout.php?logoutval=zPravin Prasad" class="links10top">Logout</a>) </td>
+				</tr>
+				<tr>
+					<td align="right" nowrap><a class="ghm">This application is still in beta and as such please alert IT with  any problems encountered.</a></td>
+				</tr>
+      </table>
+		</td>
+  </tr>
+</table>
+<!-- Menu bar. -->
+<div id="wrapper">
+</div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" background="../images/themes/standard/menubarbkground.jpg" class="menubar">
+  <tr> 
+    <td class="menubackgr"> <div id="myMenuID"></div>
+      <script language="JavaScript" type="text/javascript">
+		var myMenu =
+		[
+			/*[null,'Home','main.php',null,'Main Page'],
+			_cmSplit,
+			[null,'Trades',null,null,'Site Management',
+				['<img src="./includes/menu/js/ThemeOffice/preview.png" />','View Trades','vtrades.php',null,'View Trades'],
+			],
+			_cmSplit,
+			[null,'Accounts',null,null,'Accounts Menu',
+				['<img src="./includes/menu/js/ThemeOffice/menus.png" />','View Accounts','acctview.php',null,'View Accounts'],
+				['<img src="./includes/menu/js/ThemeOffice/excel.png" />','Export Accounts (Excel)','acctexpcsv.php',null,'Export Accounts (Excel)'],
+			],
+			_cmSplit,*/
+			[null,'Reports',null,null,'Reports',
+				['<img src="./includes/menu/js/ThemeOffice/reports.png" />','<b>Mgmt :</b> Business Summary','rep_bssrc_container.php',null,'Client Activity'],
+				['<img src="./includes/menu/js/ThemeOffice/reports.png" />','<b>Mgmt : Sales Rep : </b>Commissions','rep_msrc_container.php',null,'Client Activity'],
+				['<img src="./includes/menu/js/ThemeOffice/reports.png" />','<b>Mgmt :</b> Client Activity','rep_all_rep_ca_container.php',null,'Client Activity'],
+				_cmSplit,
+				['<img src="./includes/menu/js/ThemeOffice/reports.png" />','<b>Mgmt :</b> Compliance Review Log','rep_viewed_mgmt.php',null,'Compliance Review Log'],
+				_cmSplit,
+				['<img src="./includes/menu/js/ThemeOffice/reports.png" />','<b>Operations :</b> Reconcile Commissions','reconcile_comm_container.php',null,'Reconcile Commissions'],
+				['<img src="./includes/menu/js/ThemeOffice/reports.png" />','<b>Operations :</b> Client Activity','rep_all_rep_ca_container.php',null,'Client Activity'],
+				['<img src="./includes/menu/js/ThemeOffice/reports.png" />','<b>Operations :</b> Adjustments','rep_adj_all_rep_ca_container.php',null,'Client Activity'],
+				['<img src="./includes/menu/js/ThemeOffice/reports.png" />','<b>Operations :</b> View Adjustments History','rep_adj_report.php',null,' View Adjustments History'],
+				['<img src="./includes/menu/js/ThemeOffice/reports.png" />','<b>Operations :</b> Checks & Payments',null,null,'Checks & Payments',
+					['<img src="./includes/menu/js/ThemeOffice/reports.png" />','Data Entry','pde_payment_entry_container.php',null,'Data Entry'],
+					['<img src="./includes/menu/js/ThemeOffice/reports.png" />','Data Management','check_mgmt.php?type=manage',null,'Data Management'],
+				],
+			_cmSplit,
+			],
+			_cmSplit,
+			[null,'Administration',null,null,'System Administration',
+				['<img src="./includes/menu/js/ThemeOffice/users.png" />','My Profile','myprofile.php',null,'View/Update My Profile'],
+				['<img src="./includes/menu/js/ThemeOffice/users.png" />','Users',null,null,'Manage Users',
+					['<img src="./includes/menu/js/ThemeOffice/users.png" />','Manage Users','umgmt.php?type=manage',null,'Manage Users'],
+					['<img src="./includes/menu/js/ThemeOffice/users.png" />','Add User','umgmt.php?type=create',null,'Manage Users'],
+				],
+				['<img src="./includes/menu/js/ThemeOffice/install.png" />','Change my password','javascript:CreateWnd(\'passwdchange.php?ID=79\', 350, 250, false);',null,'Change my password'],
+				_cmSplit,
+				['<img src="./includes/menu/js/ThemeOffice/install.png" />', 'RR Maintenance','maint_srep.php',null,'RR Maintenance'],
+				_cmSplit,
+				['<img src="./includes/menu/js/ThemeOffice/install.png" />', 'Client Maintenance','cmgmt.php?type=manage',null,'Client Maintenance'],
+			],
+			_cmSplit,
+			_cmSplit,
+			  [null,'Help',null,null,'Help',
+				['<img src="./includes/menu/js/ThemeOffice/messaging_email.png" />', 'Email Technical Support', 'mailto:support@centersysgroup.com?Subject=Technical Support Request (The Buckingham Research Group, Inc. : TDW v 1.0b)&Body=Problem Description:%0D--------------------%0D%0D%0D%0DSeverity:%0D---------%0D%0D%0D%0DMy Contact Information:%0D-----------------------', null,'Email Technical Support'],
+				_cmSplit,
+				//['<img src="./includes/menu/js/ThemeOffice/about.png" />', 'About TDW', 'about_ly.php', null, 'About TDW'],
+				['<img src="./includes/menu/js/ThemeOffice/about.png" onclick="showPopWin(\'includes/about/about.php\', 400, 200, null);" />', 'About TDW', 'javascript:showPopWin(\'includes/about/about.php\', 400, 200, null);', null, 'About TDW'],
+			]
+		];
+		cmDraw ('myMenuID', myMenu, 'hbr', cmThemeOffice, 'ThemeOffice');
+		</script> </td>
+  </tr>
+</table>
+
+
+<!-- End Menu bar -->
+<!--<br><br>-->
+
+	</td>
+</tr>
+<tr valign="top">
+	<td valign="top">
+	
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>	
+	<td valign="top">
+		<!-- START TABLE 1 -->
+		<table width="100%" height="100%" border="0" cellspacing="1" cellpadding="0">
+			<tr> 
+				<td valign="top">
+				
+
+									
+<table width="100%" cellpadding="1" cellspacing="1">
+		<tr>
+		<td>
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class="test">
+						<tr> 
+							<td>
+								<table width="100%" border="0" cellpadding="0" cellspacing="0">
+									<tr> 
+										<td height="20" valign="middle" background="../images/tables3/header_bk.jpg">
+										&nbsp;&nbsp;<a class="table_heading_text">CLIENT ACTIVITY</a>
+										</td>
+									</tr>
+									<tr> 
+										<td valign="middle">			
+
+				<!-- START TABLE 3 -->
+					<table width="100%" cellpadding="1", cellspacing="0" bgcolor="#CCCCCC">
+						<tr>
+							<td valign="top">
+								<!-- START TABLE 4 -->
+								<!-- class="tablewithdata" -->
+												<table width="100%" bgcolor="#FFFFFF">
+													<tr>
+														<td>
+														<table width="100%" cellpadding="0" cellspacing="0">
+														<form name="clnt_activity" id="idclnt_activity" action="" method="post">
+															<tr>
+																<td width="100">
+																<select class="Text1" name="sel_rep" size="1" >
+																<option value="^ALL^">&nbsp;REGISTERED REPS.&nbsp;(ALL)</option>
+																<option value="^ALL^">____________</option>
+																																					<option value="005^197">Backus, Lee&nbsp; &nbsp; (005)</option>
+																																					<option value="045^217">Baker, Aaron&nbsp; &nbsp; (045)</option>
+																																					<option value="096^263">Barr, John&nbsp; &nbsp; (096)</option>
+																																					<option value="012^218">Brunner, Scott&nbsp; &nbsp; (012)</option>
+																																					<option value="033^219">Colburn, Brian&nbsp; &nbsp; (033)</option>
+																																					<option value="048^220">Davey, John&nbsp; &nbsp; (048)</option>
+																																					<option value="065^244">Demartini, John&nbsp; &nbsp; (065)</option>
+																																					<option value="032^221">Donner, Robert&nbsp; &nbsp; (032)</option>
+																																					<option value="044^228">Efstathiou, Bob&nbsp; &nbsp; (044)</option>
+																																					<option value="063^241">Gault, William&nbsp; &nbsp; (063)</option>
+																																					<option value="059^201">Glick, David&nbsp; &nbsp; (059)</option>
+																																					<option value="030^230">Gronet, Mark&nbsp; &nbsp; (030)</option>
+																																					<option value="001^95">Keidan, David&nbsp; &nbsp; (001)</option>
+																																					<option value="035^225">Leddy, Tom&nbsp; &nbsp; (035)</option>
+																																					<option value="002^269">Leeds, Larry&nbsp; &nbsp; (002)</option>
+																																					<option value="036^226">Luchansky, Marc&nbsp; &nbsp; (036)</option>
+																																					<option value="039^233">Maguire, John&nbsp; &nbsp; (039)</option>
+																																					<option value="090^268">Maguire, Steven&nbsp; &nbsp; (090)</option>
+																																					<option value="028^234">Mccartan, Fran&nbsp; &nbsp; (028)</option>
+																																					<option value="067^281">Nolan, Michael&nbsp; &nbsp; (067)</option>
+																																					<option value="046^276">O'Gorman, Kevin&nbsp; &nbsp; (046)</option>
+																																					<option value="043^192">Redemann, Glenn&nbsp; &nbsp; (043)</option>
+																																					<option value="040^235">Rogers, Doug&nbsp; &nbsp; (040)</option>
+																																					<option value="034^236">Rosenberg, Jill&nbsp; &nbsp; (034)</option>
+																																					<option value="037^237">Scheiner, Richard&nbsp; &nbsp; (037)</option>
+																																					<option value="031^238">Sinclair, Andrew&nbsp; &nbsp; (031)</option>
+																																					<option value="042^239">Sullivan, Vincent&nbsp; &nbsp; (042)</option>
+																																					<option value="060^245">Sutera, Anthony&nbsp; &nbsp; (060)</option>
+																																					<option value="038^240">Turetsky, Howard&nbsp; &nbsp; (038)</option>
+																																					<option value="024^213">Weintraub, Mark&nbsp; &nbsp; (024)</option>
+																																					<option value="008^214">Wheeler, Ted&nbsp; &nbsp; (008)</option>
+																																					<option value="011^216">Zolidis, John&nbsp; &nbsp; (011)</option>
+																																</select>
+																</td>
+																<td width="5">&nbsp;</td>
+																<td width="100">
+																<select class="Text1" name="sel_client" size="1" >
+																<option value="^ALL^">&nbsp;CLIENTS&nbsp;(ALL)</option>
+																<option value="^ALL^">____________</option>
+																                                <option value="RIDB">RIDB</option>
+																                                <option value="ROCK">ROCK</option>
+																                                <option value="XXXX">XXXX</option>
+																                                <option value="COBB">COBB</option>
+																                                <option value="DONT">DONT</option>
+																                                <option value="TIGR">TIGR</option>
+																                                <option value="CLOC">CLOC</option>
+																                                <option value="CANT">CANT</option>
+																                                <option value="ZWIG">ZWIG</option>
+																                                <option value="FASS">FASS</option>
+																                                <option value="RAND">RAND</option>
+																                                <option value="COEU">COEU</option>
+																                                <option value="0648">0648</option>
+																                                <option value="MELP">MELP</option>
+																                                <option value="HOMB">HOMB</option>
+																                                <option value="PDYG">PDYG</option>
+																                                <option value="MLIM">MLIM</option>
+																                                <option value="BWAM">BWAM</option>
+																                                <option value="MILA">MILA</option>
+																                                <option value="WTRA">WTRA</option>
+																                                <option value="RSIM">RSIM</option>
+																                                <option value="CL00">CL00</option>
+																                                <option value="SSRD">SSRD</option>
+																                                <option value="MARK">MARK</option>
+																                                <option value="NCNC">NCNC</option>
+																                                <option value="HAVN">HAVN</option>
+																                                <option value="1837">1837 PARTNERS/RMB CAP   </option>
+																                                <option value="3NOT">3 NOTCH CAPITAL         </option>
+																                                <option value="AIMA">A.I.M. ADVISORS INC     </option>
+
+																                                <option value="AADC">AAD CAPITAL             </option>
+																                                <option value="ACKA">ACK ASSET               </option>
+																                                <option value="ADAG">ADAGE CAPITAL MGMT      </option>
+																                                <option value="AELT">AELTUS/ING IVESTMENT MGT</option>
+																                                <option value="ALLN">ALLEN & CO              </option>
+																                                <option value="ALCA">ALLIANCE CAPITAL        </option>
+																                                <option value="ALSO">ALSON CAPITAL           </option>
+																                                <option value="ALTA">ALTA CAPITAL MGMT       </option>
+																                                <option value="AMAR">AMARANTH                </option>
+																                                <option value="AMBR">AMBER CAPITAL           </option>
+																                                <option value="AMEX">AMER EX/RIVER SOURCE-IDS</option>
+																                                <option value="ANDE">ANDERSON HOAGLAND & CO  </option>
+																                                <option value="ANTA">ANTEUS ASSOC.BAEL      </option>
+																                                <option value="APEX">APEX CAPITAL MGMT.      </option>
+																                                <option value="ARDS">ARDSLEY PARTNERS        </option>
+																                                <option value="ARIE">ARIENCE CAPITAL         </option>
+																                                <option value="ARTP">ARTISAN PARTNERS LP     </option>
+																                                <option value="ASCE">ASCEND PARTNERS         </option>
+																                                <option value="ATLA">ATLAS CAPITAL           </option>
+																                                <option value="AVEN">AVENUE CAPITAL MGMT     </option>
+																                                <option value="AVES">AVESTA CAP              </option>
+																                                <option value="AWAD">AWAD ASSET MGMT         </option>
+																                                <option value="AXIA">AXIA CAPITAL MGMT       </option>
+																                                <option value="BCAP">B CAPITAL               </option>
+																                                <option value="BAIR">BAIRD INVESTMENT        </option>
+																                                <option value="BALY">BALYASNY ASSET MGMT     </option>
+																                                <option value="BONY">BANK OF NEW YORK        </option>
+																                                <option value="BARO">BARON ASSET MGMT*       </option>
+																                                <option value="BARR">BARROW HANLEY MEWHINNEY </option>
+																                                <option value="BSAM">BEAR STEARNS ASSET MGMT.</option>
+																                                <option value="BMOL">BECK MACK & OLIVER LLC  </option>
+																                                <option value="BECK">BECKER ADV              </option>
+																                                <option value="BELA">BELAY CAPITAL           </option>
+																                                <option value="BELM">BELMONT GLOBAL ADV      </option>
+																                                <option value="BENC">BENCHMARK               </option>
+																                                <option value="BENL">BENNETT LAWRENCE        </option>
+																                                <option value="BERK">BERKLEY                 </option>
+																                                <option value="BESS">BESSIMER TRUST          </option>
+																                                <option value="BLRS">BLACKROCK/BOSTON        </option>
+																                                <option value="BLUH">BLUE HARBOR             </option>
+																                                <option value="BONZ">BONANZA PARTNERS        </option>
+																                                <option value="BRAH">BRAHMAN CAPITAL         </option>
+																                                <option value="BRAM">BRAMWELL CAP            </option>
+																                                <option value="BREN">BRENCOURT               </option>
+																                                <option value="BRIG">BRIGHTPOINT CAP         </option>
+																                                <option value="BROM">BROMPTON CROSS          </option>
+																                                <option value="BROO">BROOKSIDE CAPITAL PART  </option>
+																                                <option value="BUCK">BUCK CAPITAL MGMT       </option>
+																                                <option value="BULL">BULL PATH CAPITAL       </option>
+																                                <option value="CADM">CADMUS CAP              </option>
+																                                <option value="CDPC">CAISSE DEPOT PLACEMENT Q</option>
+																                                <option value="CAMB">CAMBIAR CAP             </option>
+																                                <option value="CAPG">CAPITAL GROWTH MGMT.    </option>
+																                                <option value="CAPW">CAPITAL WORKS           </option>
+																                                <option value="CARD">CARDINAL CAPITAL        </option>
+																                                <option value="CARL">CARLSON CAPITAL         </option>
+																                                <option value="CASA">CASTLE ARK              </option>
+																                                <option value="CAST">CASTLEROCK              </option>
+																                                <option value="CAXT">CAXTON PART             </option>
+																                                <option value="CENT">CENTURION PARTNERS      </option>
+																                                <option value="CHAT">CHART WELL ADV          </option>
+																                                <option value="CHAR">CHARTER OAK             </option>
+																                                <option value="CHIL">CHILTON CAPITAL MGMT.   </option>
+																                                <option value="CIBC">CIBC ADV.               </option>
+																                                <option value="CIRC">CIRCLE T PART           </option>
+																                                <option value="CLEA">CLEARBRIDGE             </option>
+																                                <option value="CLOR">CLOVER CAPITAL          </option>
+																                                <option value="CLOV">CLOVIS CAPITAL          </option>
+																                                <option value="COBA">COBALT                  </option>
+																                                <option value="COHE">COHE & STEERS           </option>
+																                                <option value="COLO">COLONIAL FUND LLC       </option>
+																                                <option value="COLP">COLUMBIA PARTNERS       </option>
+																                                <option value="COLC">COLUMBUS CIRCLE         </option>
+																                                <option value="COMB">COMMERCE BANK           </option>
+																                                <option value="COMM">COMMISSUM CAPITAL       </option>
+																                                <option value="COOK">COOKBIELER              </option>
+																                                <option value="COUG">COUGAR TRADING          </option>
+																                                <option value="CRIN">CR INTRINIC INVESTMENT  </option>
+																                                <option value="CRSB">CRAMER ROSENTHAL/SCOTT  </option>
+																                                <option value="CREF">CREF                    </option>
+																                                <option value="CROC">CROSS CAPITAL           </option>
+																                                <option value="CSFB">CSFB GLOBAL PROPRIETARY </option>
+																                                <option value="CUMB">CUMBERLAND              </option>
+																                                <option value="DALT">DALTON GREINER          </option>
+																                                <option value="DARU">DARUMA ASSET MGMT INC   </option>
+																                                <option value="DJGR">DAVID J GREEN & CO      </option>
+																                                <option value="DAVI">DAVIDSON KEMPNER ADVISOR</option>
+																                                <option value="DAWS">DAWSON SANBERG & CO     </option>
+																                                <option value="DCCA">DC CAPITAL              </option>
+																                                <option value="DEEP">DEEPHAVEN               </option>
+																                                <option value="DELM">DELAWARE MANAGEMENT     </option>
+																                                <option value="DELT">DELTEC ASSET MGMT.      </option>
+																                                <option value="DENV">DENVER INST. ADV        </option>
+																                                <option value="DGCA">DG CAPITAL              </option>
+																                                <option value="DIAM">DIAMONDBACK CAP MGMT    </option>
+																                                <option value="DISI">DISIPLINED GROWTH INV.  </option>
+																                                <option value="DKRC">DKR CAPITAL             </option>
+																                                <option value="DOVV">DOUBLE V/PBX            </option>
+																                                <option value="DOWN">DOWNTOWN ASSOC          </option>
+																                                <option value="DSGC">DSG CAPITAL             </option>
+																                                <option value="DSMC">DSM CAPITAL PARTNERS    </option>
+																                                <option value="DUNC">DUNCAN HURST CAP        </option>
+																                                <option value="DURA">DURANGO INVESTMENTS     </option>
+																                                <option value="EAGL">EAGLE ASSET MGMT        </option>
+																                                <option value="EATO">EATON VANCE MGMT        </option>
+																                                <option value="EGAS">EGS ASSOCIATES LP       </option>
+																                                <option value="EIDE">EIDELMAN,FINGER & CO    </option>
+																                                <option value="ELAZ">ELAZAR ADV              </option>
+																                                <option value="ELLI">ELLIOTT ADV             </option>
+																                                <option value="ELMR">ELM RIDGE ADVISORS      </option>
+																                                <option value="EMIN">EMINENCE CAPITAL        </option>
+																                                <option value="EMPY">EMPYREAN CAP            </option>
+																                                <option value="ENDE">ENDEAVOUR CAPITAL       </option>
+																                                <option value="ENTR">ENTRUST CAPITAL         </option>
+																                                <option value="EOSP">EOS PARTNERS            </option>
+																                                <option value="EQUI">EQUINOX                 </option>
+																                                <option value="ESSX">ESSEX CAP MGMT          </option>
+																                                <option value="ESTA">ESTABROOK               </option>
+																                                <option value="ETON">ETON PARK CAPITAL       </option>
+																                                <option value="EXTO">EXTON CAP MGMT          </option>
+																                                <option value="FARA">FARALLON CAP MGMT       </option>
+																                                <option value="FARB">FARBER/WEISS PECK       </option>
+																                                <option value="FSIL">FINANCIAL STOCK LP      </option>
+																                                <option value="FIMC">FIRST INV MGMT CORP     </option>
+																                                <option value="FNYS">FIRST NEW YORK LEDDY    </option>
+																                                <option value="FORC">FORCE CAPITAL MGMT      </option>
+																                                <option value="FORD">FORD FDN.               </option>
+																                                <option value="FORS">FORSTMAN LEFF           </option>
+																                                <option value="FORB">FORSTMAN/BOSTON         </option>
+																                                <option value="FORT">FORTRESS CAPITAL        </option>
+																                                <option value="FOUN">FOUNDERS                </option>
+																                                <option value="FOXP">FOX POINT/WILLIAMS      </option>
+																                                <option value="FFCA">FRANKLIN FUND OF CALIFOR</option>
+																                                <option value="FFNJ">FRANKLIN FUNDS N J      </option>
+																                                <option value="FRIS">FRIESS MGMT             </option>
+																                                <option value="FROP">FRONTPOINT              </option>
+																                                <option value="FULL">FULLER & THALER ASSET   </option>
+																                                <option value="GSPS">G S PRINCIPAL STRATEGIES</option>
+																                                <option value="GABE">GABELLI FUNDS           </option>
+																                                <option value="GALL">GALLEON MGMT LP         </option>
+																                                <option value="GARN">GARNET GROUP            </option>
+																                                <option value="GABC">GARTMORE/B COLBURN      </option>
+																                                <option value="GART">GARTMORE/NORTHPOINT/VILL</option>
+																                                <option value="GEIC">GENERAL ELECTIC CO      </option>
+																                                <option value="GMIC">GENERAL MOTORS INV CO   </option>
+																                                <option value="GENE">GENERIC TRADING         </option>
+																                                <option value="WEIS">GEORGE WEISS            </option>
+																                                <option value="GLEH">GLENHILL CAPITAL        </option>
+																                                <option value="GLEV">GLENVIEW CAPITAL        </option>
+																                                <option value="GLGP">GLG PARTNERS            </option>
+																                                <option value="GSSS">GOLD SACHS SPECIAL SIT  </option>
+																                                <option value="GTRE">GOLDEN TREE             </option>
+																                                <option value="GSAM">GOLDMAN SACHS ASSET MGMT</option>
+																                                <option value="GRAC">GRACIE CAPITAL          </option>
+																                                <option value="GRIN">GRANAHAN INV            </option>
+																                                <option value="GRAN">GRANITE CAPITAL         </option>
+																                                <option value="GRWH">GREENWICH P B           </option>
+																                                <option value="GRBR">GRUBER MACBAINE         </option>
+																                                <option value="GUAR">GUARDIAN LIFE           </option>
+																                                <option value="GULF">GULF STREAM EQUITY MGMT </option>
+																                                <option value="HARR">HARRIS ASSOCIATES       </option>
+																                                <option value="HARV">HARVEST MGMT            </option>
+																                                <option value="HAYG">HAYGROUND COE           </option>
+																                                <option value="HAYS">HAYSTACK CAPITAL        </option>
+																                                <option value="HBKF">HBK FUNDS               </option>
+																                                <option value="HEIR">HEIRLOOM CAPITAL        </option>
+																                                <option value="HELI">HELIOS                  </option>
+																                                <option value="HERM">HERMES                  </option>
+																                                <option value="HIGB">HIGHBRIDGE CAPITAL      </option>
+																                                <option value="HIGF">HIGHFIELDS CAP MGMT     </option>
+																                                <option value="HIGL">HIGHLINE ADV            </option>
+																                                <option value="HOLD">HOLLAND CAP MGMT        </option>
+																                                <option value="HOOV">HOOVER INV. MGMT        </option>
+																                                <option value="HOTS">HOTCHKIS & WILEY        </option>
+																                                <option value="HUNT">HUNTER GLOBAL INVESTOR  </option>
+																                                <option value="IMPA">IMPALA ASSET MMT        </option>
+																                                <option value="INDC">INDEPENDENCE CAPITAL    </option>
+																                                <option value="INDE">INDEPENDENCE INV        </option>
+																                                <option value="INTE">INTEGRITY CAPITAL MGMT  </option>
+																                                <option value="INVS">INVISTA CAP/PRINCIPAL   </option>
+																                                <option value="IRAM">IRIDIAN ASSET MGMT.     </option>
+																                                <option value="IHCM">IRON HORSE CAPITAL MGMT </option>
+																                                <option value="IROB">IRONBOUND CAPITAL       </option>
+																                                <option value="IRON">IRONWOOD CAPITAL        </option>
+																                                <option value="IVOR">IVORY CAPITAL           </option>
+																                                <option value="JLFA">J L F ASSET MGMT        </option>
+																                                <option value="JWSE">J.W. SELIGMAN           </option>
+																                                <option value="JANA">JANA CAPITAL            </option>
+																                                <option value="JANU">JANUS CAPITAL CORP      </option>
+																                                <option value="JCKP">JCK PARTNERS            </option>
+																                                <option value="JEFF">JEFFERIES ASSET/PARAGON </option>
+																                                <option value="JEFL">JEFFRIES MIKE           </option>
+																                                <option value="JENN">JENNISON                </option>
+																                                <option value="JETS">JETSTREAM GLOBAL FUND LP</option>
+																                                <option value="JMPA">JMP ASSET MGMT          </option>
+																                                <option value="LEVN">JOHN A LEVIN & CO       </option>
+																                                <option value="JMIC">JOHN MCSTAY/BRAZOS CAP  </option>
+																                                <option value="JPMV">JP MORGAN VENTURES      </option>
+																                                <option value="JWBR">JW BRISTOL              </option>
+																                                <option value="KAIA">KAIA INV MGMT           </option>
+																                                <option value="KARS">KARSCH CAPITAL          </option>
+																                                <option value="KBWA">KEEFE BRUYETTE WOODS A  </option>
+																                                <option value="KEEL">KEEL CAPITAL            </option>
+																                                <option value="KENN">KENNEDY CAPITAL         </option>
+																                                <option value="KENS">KENSICO CAPITAL         </option>
+																                                <option value="KEYA">KEY ASSET MGMT/VICTORY  </option>
+																                                <option value="KEYS">KEYSTONE/EVERGREEN      </option>
+																                                <option value="KINP">KINGD POINT PARTNERS    </option>
+																                                <option value="KIND">KINGDON ASSET MGMT      </option>
+																                                <option value="KINF">KINGSFORD CAPITAL       </option>
+																                                <option value="KIRR">KIRR MARBACH            </option>
+																                                <option value="KLIN">KLINGENSTEIN,FIELDS & CO</option>
+																                                <option value="KNOT">KNOTT PARTNERS          </option>
+																                                <option value="LAKE">LAKEWAY CAPITAL MGMT    </option>
+																                                <option value="LAPI">LAPIDES ASSET MGMT      </option>
+																                                <option value="LATE">LATEFF MGMT             </option>
+																                                <option value="LAZZ">LAZARD ASSET MGMT       </option>
+																                                <option value="LEHM">LEHMAN PROPRIETARY TRAD </option>
+																                                <option value="LEST">LESTER BROS CAPITAL LLC </option>
+																                                <option value="LEVS">LEVIN CAPITAL STRATEGIES</option>
+																                                <option value="LIBE">LIBERTYVIEW CAPITAL MGMT</option>
+																                                <option value="LINC">LINCOLN FUNDS           </option>
+																                                <option value="LOCO">LOCUS WOOD CAPITAL MGMT </option>
+																                                <option value="LONG">LONG TRAIL CAP          </option>
+																                                <option value="LOOM">LOOMIS SALES/BOSTON     </option>
+																                                <option value="LORD">LORD ABBETT & COMPANY   </option>
+																                                <option value="KRAS">M. KRAUS & CO.          </option>
+																                                <option value="MAGN">MAGNETAR FINANCIAL      </option>
+																                                <option value="MAIR">MAIRS AND POWER INV     </option>
+																                                <option value="MANN">MANNING & NAPIER        </option>
+																                                <option value="MARA">MARATHON CAPITAL MGMT.  </option>
+																                                <option value="MASO">MASON CAPITAL           </option>
+																                                <option value="MATA">MATADOR CAPITAL         </option>
+																                                <option value="MATX">MATRIX ASSET ADV.       </option>
+																                                <option value="MATT">MATTHES CAPITAL MGMT    </option>
+																                                <option value="MAZA">MAZAMA CAPITAL MGMT.    </option>
+																                                <option value="MELL">MELLON INV              </option>
+																                                <option value="MERR">MERRILL ASSET           </option>
+																                                <option value="MLSI">MERRILL LYNCH STRATEGICI</option>
+																                                <option value="METR">METROPOLITAN CAPITAL    </option>
+																                                <option value="MFPI">MFP INVESTORS           </option>
+																                                <option value="MHRC">MHR CAPITAL MGMT        </option>
+																                                <option value="MILP">MILLENIUM PARTNERS      </option>
+																                                <option value="MILR">MILLRACE FUND LP        </option>
+																                                <option value="MISS">MISSOURI VALLEY PART    </option>
+																                                <option value="MOOR">MOORE CAPITAL           </option>
+																                                <option value="JPMB">MORGAN BANK /JPM        </option>
+																                                <option value="MORL">MORGAN LEWIS/MLH        </option>
+																                                <option value="MSAM">MORGAN STANLEY ASSET MGT</option>
+																                                <option value="MORG">MORGENS WATERFALL       </option>
+																                                <option value="MORR">MORRISON & FRASIER      </option>
+																                                <option value="MORT">MORTAR ROCK             </option>
+																                                <option value="MSPS">MS PRINCIPAL STRATEGIES </option>
+																                                <option value="MTBI">MTB INV ADV             </option>
+																                                <option value="MUHL">MUHLENKAMP FUND         </option>
+																                                <option value="NATL">NATIONAL CITY/ARMADA FD </option>
+																                                <option value="NCMC">NCM CAPITAL MGMT        </option>
+																                                <option value="NEED">NEEDHAM CAP             </option>
+																                                <option value="NBER">NEUBERGER BERMAN        </option>
+																                                <option value="NEWJ">NEW  JERSEY DIV OF INV. </option>
+																                                <option value="NEWV">NEW VERNON              </option>
+																                                <option value="NICH">NICHOLAS ADVISORS       </option>
+																                                <option value="APPL">NICOLAS APPLEGATE       </option>
+																                                <option value="NMIL">NORTHROP/MILLNIUM GRONET</option>
+																                                <option value="STAR">NORTHSTAR               </option>
+																                                <option value="NWQI">NWQ INVESTMENT MGMT CO  </option>
+																                                <option value="OMGA">OMEGA ADVISORS          </option>
+																                                <option value="OPPM">OPPENHEIMER MGMT.       </option>
+																                                <option value="OPTI">OPTIMUM INV ADV         </option>
+																                                <option value="OSSC">OSS CAPITAL/KEVIN DANN  </option>
+																                                <option value="OWLC">OWL CREEK INV           </option>
+																                                <option value="PALS">PALISADE CAPITAL MGMT.  </option>
+																                                <option value="PALM">PALMYRA CAPITAL         </option>
+																                                <option value="PART">PARTNER FUND MGMT LP    </option>
+																                                <option value="PASS">PASSPORT CAPITAL        </option>
+																                                <option value="PATT">PATTEN & PATTEN         </option>
+																                                <option value="PAWP">PAW PARTNERS            </option>
+																                                <option value="PBEX">PB EXEC/BODRI/MS PRIME  </option>
+																                                <option value="PBXB">PBEX/BODRI TOM L        </option>
+																                                <option value="PECO">PECONIC PARTNERS        </option>
+																                                <option value="PELL">PELL RUDMAN/ATLANTIC TR </option>
+																                                <option value="PENN">PENN CAPITAL MGMT       </option>
+																                                <option value="PEQU">PEQUOT CAPITAL MGMT     </option>
+																                                <option value="PERE">PEREGRINE               </option>
+																                                <option value="PERR">PERRY PARTNERS          </option>
+																                                <option value="PERS">PERSHING SQUARE         </option>
+																                                <option value="PHIL">PHILADELPHIA FINANCIAL  </option>
+																                                <option value="PHIN">PHINITY/PBX             </option>
+																                                <option value="PIED">PIEDRA CAPITAL          </option>
+																                                <option value="PILO">PILOT ADV               </option>
+																                                <option value="PILR">PILOT ROCK              </option>
+																                                <option value="PIOO">PIONEER OAKRIDGE        </option>
+																                                <option value="PION">PIONEERING MGMT CORP    </option>
+																                                <option value="PLAT">PLATTE RIVER CAPITAL    </option>
+																                                <option value="POLY">POLYGON INVESTMENT      </option>
+																                                <option value="PORT">PORTER-ORLIN-FELDMAN    </option>
+																                                <option value="POST">POST ROAD CAP           </option>
+																                                <option value="PREN">PRENTICE                </option>
+																                                <option value="PRES">PRESIDIO                </option>
+																                                <option value="PRIM">PRIME CAPITAL           </option>
+																                                <option value="PRIL">PRIME LOGIC ADV         </option>
+																                                <option value="PRIN">PRINCIPLE CAPITAL       </option>
+																                                <option value="PROV">PROVIDENT INV COUNSEL   </option>
+																                                <option value="PZEN">PZENA INV ADV           </option>
+																                                <option value="RAIN">RAINIER INV MGMT        </option>
+																                                <option value="RAMI">RAMIUS CAP              </option>
+																                                <option value="RANG">RANGER                  </option>
+																                                <option value="RBCC">RBC CAPITAL MARKETS     </option>
+																                                <option value="RICH">REICH AND TANG          </option>
+																                                <option value="REIN">REINHART & MAHONEY      </option>
+																                                <option value="RHCA">RH CAPITAL ASSOCIATES   </option>
+																                                <option value="RICE">RICE HALL AND JAMES     </option>
+																                                <option value="RIDG">RIDGECRST PARTNERS      </option>
+																                                <option value="RIVE">RIVER RUN MGMT          </option>
+																                                <option value="RKCA">RK CAPITAL MGMT LLC     </option>
+																                                <option value="ROAR">ROARING BLUE LION MGMT  </option>
+																                                <option value="RSBC">ROBERTSON STEVENS BC    </option>
+																                                <option value="ROSN">ROSENBERG CAPITAL MGMT  </option>
+																                                <option value="ROTH">ROTHSCHILD ASSET        </option>
+																                                <option value="ROXB">ROXBURY CAPITAL MGMT    </option>
+																                                <option value="ROYA">ROYAL CAPITAL           </option>
+																                                <option value="ROYC">ROYCE TRADING           </option>
+																                                <option value="RUDM">RUDMAN ASSOCIATES       </option>
+																                                <option value="SACC">S.A.C. CAPITAL MGMT.    </option>
+																                                <option value="SABC">SAB CAPITAL             </option>
+																                                <option value="SACD">SAC DOUG RODGERS        </option>
+																                                <option value="SACH">SAC TRADING HOWARD      </option>
+																                                <option value="SACB">SAC TRADING/BILLY       </option>
+																                                <option value="SAGE">SAGE ASSET MGMT         </option>
+																                                <option value="SAIL">SAILFISH                </option>
+																                                <option value="SANL">SANDELL ADV             </option>
+																                                <option value="SAND">SANDLER CAPITAL         </option>
+																                                <option value="SANO">SANDLER O'NEILL ASSET   </option>
+																                                <option value="SARA">SARANAC CAPITAL/SOLMON2 </option>
+																                                <option value="SARS">SARAS CAPITAL           </option>
+																                                <option value="SASC">SASCO                   </option>
+																                                <option value="SATE">SATELLITE ASSET MGMT    </option>
+																                                <option value="SAVA">SAVANNAH-BALTIMORE      </option>
+																                                <option value="SAXO">SAXON WOODS ADVISORS    </option>
+																                                <option value="SCHO">SCHOTTENFELD ASSOC      </option>
+																                                <option value="SCAB">SCHRODER                </option>
+																                                <option value="SCOP">SCOPUS FUND             </option>
+																                                <option value="SCOU">SCOUT CAPITAL           </option>
+																                                <option value="SCUF">SCUDDER HEDGE           </option>
+																                                <option value="SEAR">SEAROCK CAPITAL MANAGE  </option>
+																                                <option value="SECO">SECOND CURVE            </option>
+																                                <option value="SECU">SECURITY MGMT           </option>
+																                                <option value="SEGA">SEGAL BRYANT HAMMILL    </option>
+																                                <option value="SEMI">SEMINOLE CAP            </option>
+																                                <option value="SECA">SENECA CA               </option>
+																                                <option value="SENE">SENECA CAPITAL LP NY    </option>
+																                                <option value="SENT">SENTINAL CAPITAL        </option>
+																                                <option value="SEQU">SEQUENCE CAPITAL        </option>
+																                                <option value="SHAK">SHAKER INV              </option>
+																                                <option value="SHAR">SHAREVEST CAPITAL MGMT. </option>
+																                                <option value="SIBE">SIGMA CAP BOBBY         </option>
+																                                <option value="SIGM">SIGMA CAPITAL ASSOCIATES</option>
+																                                <option value="SLSC">SLS CAPITAL LLC         </option>
+																                                <option value="SNYD">SNYDER CAPITAL          </option>
+																                                <option value="SOLA">SOLARIS INV MGMT        </option>
+																                                <option value="SOME">SOMERSET ADV            </option>
+																                                <option value="SONA">SONAR CAP MGMT          </option>
+																                                <option value="SORO">SOROS                   </option>
+																                                <option value="SPRI">SPRINGBOC               </option>
+																                                <option value="SSII">SSI INVESTORS           </option>
+																                                <option value="STAD">STADIA CAPITAL          </option>
+																                                <option value="SPAC">STANDARD PACIFIC CAPITAL</option>
+																                                <option value="STEI">STEINBERG               </option>
+																                                <option value="STEP">STEPHENS INC            </option>
+																                                <option value="STEL">STERLING JOHNSTON       </option>
+																                                <option value="STGI">STG INVESTORS           </option>
+																                                <option value="STRA">STRAUSS ASSET MGMT      </option>
+																                                <option value="SCMG">STRONG/MARK GRONET      </option>
+																                                <option value="SCHT">STRONG/WELL HOWARD      </option>
+																                                <option value="SUFF">SUFFOLK CAPITAL MGMT    </option>
+																                                <option value="SUNA">SUN AMERICA ASSET MGMT  </option>
+																                                <option value="SUNO">SUNOVA CAPITAL          </option>
+																                                <option value="SUSQ">SUSQUEHANNA CAPITAL     </option>
+																                                <option value="SUTT">SUTTONBROOK CAPITAL     </option>
+																                                <option value="SYST">SYSTEMATIC FINANCIAL MGT</option>
+																                                <option value="TROW">T. ROWE PRICE           </option>
+																                                <option value="TERA">TERRA NOVA ASSET LLC.   </option>
+																                                <option value="BOST">THE BOSTON COMPANY      </option>
+																                                <option value="GOLD">THE JAY GOLDMAN         </option>
+																                                <option value="THES">THESIS CAPITAL          </option>
+																                                <option value="3CAP">THIRD COAST CAPITAL     </option>
+																                                <option value="THIR">THIRD POINT MGMT        </option>
+																                                <option value="THNB">THOMSON HORSTMAN BRYANT </option>
+																                                <option value="TILL">TILLDALE MGMT.          </option>
+																                                <option value="TIME">TIME SQUARE CAP MGMT    </option>
+																                                <option value="TOCQ">TOCQUEVILLE ASSET MGMT  </option>
+																                                <option value="TOKI">TOKIO MARINE ASSET MGMT </option>
+																                                <option value="TORR">TORREY PINE MASTER FUND </option>
+																                                <option value="TPGA">TPG-AXON                </option>
+																                                <option value="TRAF">TRAFELET & COMP.        </option>
+																                                <option value="TREL">TRELLUS PARTNERS LP     </option>
+																                                <option value="TRIS">TRI SUN CAPITAL         </option>
+																                                <option value="TRIB">TRIBECA                 </option>
+																                                <option value="TRID">TRIBECA/DOUG            </option>
+																                                <option value="TRIV">TRIVIUM CAP MGMT        </option>
+																                                <option value="TROO">TROOB CAPITAL           </option>
+																                                <option value="TROU">TROUBH PART             </option>
+																                                <option value="TRLA">TRUST CO L.A.           </option>
+																                                <option value="TCWK">TRUST CO OF THE WEST/NY </option>
+																                                <option value="TRCO">TRUST CO/COWEN/CALF.    </option>
+																                                <option value="TUDR">TUDOR INVESTORS         </option>
+																                                <option value="TYEE">TYEE/TYGH               </option>
+																                                <option value="USTC">U.S.TRUST COMPANY       </option>
+																                                <option value="UBST">UBS O'CONNOR/TOM LEDDY  </option>
+																                                <option value="UBSO">UBS OCONNOR             </option>
+																                                <option value="USBC">US BANCORP              </option>
+																                                <option value="VANK">VAN KAMPEN ADV          </option>
+																                                <option value="VAND">VANDER MOOLEN           </option>
+																                                <option value="VARD">VARDON PARTNERS         </option>
+																                                <option value="VENT">VENTANA CAPITAL         </option>
+																                                <option value="VERI">VERITY CAPITAL          </option>
+																                                <option value="VICT">VICTORIA INVESTORS LP   </option>
+																                                <option value="VIKI">VIKING GLOBAL           </option>
+																                                <option value="VINI">VINIK ASSET MGMT.       </option>
+																                                <option value="VISH">VISIUM/BALY HOWARD      </option>
+																                                <option value="WDWI">W.D.WITTER              </option>
+																                                <option value="WALK">WALKER SMITH            </option>
+																                                <option value="WANG">WANGER ASS              </option>
+																                                <option value="WARB">WARBURG                 </option>
+																                                <option value="WASH">WASHINGTON ASSET        </option>
+																                                <option value="WEIN">WEINTRAUB CAPITAL MGT.  </option>
+																                                <option value="PECK">WEISS PECK              </option>
+																                                <option value="WPAR">WEISS PECK/ARB          </option>
+																                                <option value="WCAP">WELLS/STRONG LEDDY      </option>
+																                                <option value="WENT">WENTWORTH HAUSER VIOLICK</option>
+																                                <option value="WESL">WESLEY CAPITAL          </option>
+																                                <option value="WLAN">WESTLANE CAPITAL        </option>
+																                                <option value="WHAL">WHALE ROCK CAP          </option>
+																                                <option value="WPIN">WHITE PINE CAPITAL      </option>
+																                                <option value="WHIT">WHITTIER CAP            </option>
+																                                <option value="WBLA">WILLIAM BLAIR           </option>
+																                                <option value="WTJR">WILLIAMS TRADING /JILL  </option>
+																                                <option value="WTHT">WILLIAMS TRADING/HOWARD </option>
+																                                <option value="WILL">WILLOW CREEK            </option>
+																                                <option value="WOOS">WOOSTER CAPITAL         </option>
+																                                <option value="WYPE">WYPER CAPITAL           </option>
+																                                <option value="XYLM">XYLEM GLOBAL            </option>
+																                                <option value="YAHK">YAHK CAPITAL            </option>
+																                                <option value="YORK">YORK CAPITAL            </option>
+																                                <option value="ZAND">ZANDER CAPITAL MGMT     </option>
+																																</select>
+																</td>
+																<td width="5">&nbsp;</td>
+																<td width="100">																
+																<select class="Text1" name="sel_symbol" size="1" >
+																<option value="^ALL^">&nbsp;SYMBOLS&nbsp;(ALL)&nbsp;&nbsp;</option>
+																<option value="^ALL^">_____________</option><option value=""></option>
+																<option value="A">A</option>
+																<option value="AA">AA</option>
+																<option value="AAI">AAI</option>
+																<option value="AAP">AAP</option>
+																<option value="AAPL">AAPL</option>
+																<option value="AB">AB</option>
+																<option value="ABB">ABB</option>
+																<option value="ABC">ABC</option>
+																<option value="ABD">ABD</option>
+																<option value="ABFS">ABFS</option>
+																<option value="ABG">ABG</option>
+																<option value="ABI">ABI</option>
+																<option value="ABK">ABK</option>
+																<option value="ABS">ABS</option>
+																<option value="ABT">ABT</option>
+																<option value="ABTL">ABTL</option>
+																<option value="ABX">ABX</option>
+																<option value="AC">AC</option>
+																<option value="ACAD">ACAD</option>
+																<option value="ACE">ACE</option>
+																<option value="ACF">ACF</option>
+																<option value="ACGY">ACGY</option>
+																<option value="ACI">ACI</option>
+																<option value="ACL">ACL</option>
+																<option value="ACLS">ACLS</option>
+																<option value="ACMR">ACMR</option>
+																<option value="ACN">ACN</option>
+																<option value="ACS">ACS</option>
+																<option value="ACTI">ACTI</option>
+																<option value="ACTS">ACTS</option>
+																<option value="ACV">ACV</option>
+																<option value="ACXM">ACXM</option>
+																<option value="AD">AD</option>
+																<option value="ADBE">ADBE</option>
+																<option value="ADBL">ADBL</option>
+																<option value="ADCT">ADCT</option>
+																<option value="ADI">ADI</option>
+																<option value="ADLR">ADLR</option>
+																<option value="ADM">ADM</option>
+																<option value="ADP">ADP</option>
+																<option value="ADRU">ADRU</option>
+																<option value="ADRX">ADRX</option>
+																<option value="ADS">ADS</option>
+																<option value="ADSK">ADSK</option>
+																<option value="ADTN">ADTN</option>
+																<option value="AEE">AEE</option>
+																<option value="AEL">AEL</option>
+																<option value="AEM">AEM</option>
+																<option value="AEOS">AEOS</option>
+																<option value="AEP">AEP</option>
+																<option value="AES">AES</option>
+																<option value="AET">AET</option>
+																<option value="AFCE">AFCE</option>
+																<option value="AFL">AFL</option>
+																<option value="AFR">AFR</option>
+																<option value="AG">AG</option>
+																<option value="AGE">AGE</option>
+																<option value="AGI">AGI</option>
+																<option value="AGII">AGII</option>
+																<option value="AGN">AGN</option>
+																<option value="AGO">AGO</option>
+																<option value="AGP">AGP</option>
+																<option value="AGR">AGR</option>
+																<option value="AGU">AGU</option>
+																<option value="AH">AH</option>
+																<option value="AHC">AHC</option>
+																<option value="AHM">AHM</option>
+																<option value="AHR">AHR</option>
+																<option value="AHS">AHS</option>
+																<option value="AIC">AIC</option>
+																<option value="AIG">AIG</option>
+																<option value="AIN">AIN</option>
+																<option value="AIQ">AIQ</option>
+																<option value="AIT">AIT</option>
+																<option value="AIX">AIX</option>
+																<option value="AIZ">AIZ</option>
+																<option value="AJG">AJG</option>
+																<option value="AKAM">AKAM</option>
+																<option value="AKS">AKS</option>
+																<option value="AL">AL</option>
+																<option value="ALA">ALA</option>
+																<option value="ALB">ALB</option>
+																<option value="ALK">ALK</option>
+																<option value="ALKS">ALKS</option>
+																<option value="ALL">ALL</option>
+																<option value="ALV">ALV</option>
+																<option value="ALXN">ALXN</option>
+																<option value="AM">AM</option>
+																<option value="AMAT">AMAT</option>
+																<option value="AMCC">AMCC</option>
+																<option value="AMD">AMD</option>
+																<option value="AMED">AMED</option>
+																<option value="AMG">AMG</option>
+																<option value="AMGN">AMGN</option>
+																<option value="AMH">AMH</option>
+																<option value="AMK">AMK</option>
+																<option value="AMLN">AMLN</option>
+																<option value="AMMD">AMMD</option>
+																<option value="AMP">AMP</option>
+																<option value="AMR">AMR</option>
+																<option value="AMT">AMT</option>
+																<option value="AMTD">AMTD</option>
+																<option value="AMX">AMX</option>
+																<option value="AMZN">AMZN</option>
+																<option value="ANDW">ANDW</option>
+																<option value="ANF">ANF</option>
+																<option value="ANH">ANH</option>
+																<option value="ANN">ANN</option>
+																<option value="ANPI">ANPI</option>
+																<option value="ANR">ANR</option>
+																<option value="ANT">ANT</option>
+																<option value="ANX">ANX</option>
+																<option value="AOC">AOC</option>
+																<option value="AOI">AOI</option>
+																<option value="APA">APA</option>
+																<option value="APC">APC</option>
+																<option value="APCC">APCC</option>
+																<option value="APCS">APCS</option>
+																<option value="APD">APD</option>
+																<option value="APH">APH</option>
+																<option value="APOL">APOL</option>
+																<option value="APPB">APPB</option>
+																<option value="AQNT">AQNT</option>
+																<option value="ARA">ARA</option>
+																<option value="ARB">ARB</option>
+																<option value="ARG">ARG</option>
+																<option value="ARJ">ARJ</option>
+																<option value="ARNA">ARNA</option>
+																<option value="ARO">ARO</option>
+																<option value="ARP">ARP</option>
+																<option value="ARRS">ARRS</option>
+																<option value="ARS">ARS</option>
+																<option value="ARTC">ARTC</option>
+																<option value="ARW">ARW</option>
+																<option value="ARXX">ARXX</option>
+																<option value="ASBC">ASBC</option>
+																<option value="ASCA">ASCA</option>
+																<option value="ASD">ASD</option>
+																<option value="ASF">ASF</option>
+																<option value="ASH">ASH</option>
+																<option value="ASML">ASML</option>
+																<option value="ASO">ASO</option>
+																<option value="ASPM">ASPM</option>
+																<option value="ASVI">ASVI</option>
+																<option value="AT">AT</option>
+																<option value="ATE">ATE</option>
+																<option value="ATEC">ATEC</option>
+																<option value="ATG">ATG</option>
+																<option value="ATHR">ATHR</option>
+																<option value="ATI">ATI</option>
+																<option value="ATK">ATK</option>
+																<option value="ATML">ATML</option>
+																<option value="ATR">ATR</option>
+																<option value="ATRS">ATRS</option>
+																<option value="ATSN">ATSN</option>
+																<option value="ATU">ATU</option>
+																<option value="ATVI">ATVI</option>
+																<option value="ATW">ATW</option>
+																<option value="ATYT">ATYT</option>
+																<option value="AV">AV</option>
+																<option value="AVA">AVA</option>
+																<option value="AVB">AVB</option>
+																<option value="AVCT">AVCT</option>
+																<option value="AVID">AVID</option>
+																<option value="AVP">AVP</option>
+																<option value="AVT">AVT</option>
+																<option value="AVX">AVX</option>
+																<option value="AVY">AVY</option>
+																<option value="AVZ">AVZ</option>
+																<option value="AW">AW</option>
+																<option value="AXE">AXE</option>
+																<option value="AXL">AXL</option>
+																<option value="AXP">AXP</option>
+																<option value="AXS">AXS</option>
+																<option value="AYE">AYE</option>
+																<option value="AYI">AYI</option>
+																<option value="AZN">AZN</option>
+																<option value="AZO">AZO</option>
+																<option value="AZPN">AZPN</option>
+																<option value="B">B</option>
+																<option value="BA">BA</option>
+																<option value="BAC">BAC</option>
+																<option value="BAS">BAS</option>
+																<option value="BAX">BAX</option>
+																<option value="BBA">BBA</option>
+																<option value="BBBY">BBBY</option>
+																<option value="BBI">BBI</option>
+																<option value="BBSI">BBSI</option>
+																<option value="BBT">BBT</option>
+																<option value="BBV">BBV</option>
+																<option value="BBW">BBW</option>
+																<option value="BBY">BBY</option>
+																<option value="BC">BC</option>
+																<option value="BCR">BCR</option>
+																<option value="BCRX">BCRX</option>
+																<option value="BDE">BDE</option>
+																<option value="BDK">BDK</option>
+																<option value="BE">BE</option>
+																<option value="BEAS">BEAS</option>
+																<option value="BEAV">BEAV</option>
+																<option value="BEBE">BEBE</option>
+																<option value="BEC">BEC</option>
+																<option value="BEN">BEN</option>
+																<option value="BER">BER</option>
+																<option value="BEZ">BEZ</option>
+																<option value="BFAM">BFAM</option>
+																<option value="BFT">BFT</option>
+																<option value="BG">BG</option>
+																<option value="BGC">BGC</option>
+																<option value="BGG">BGG</option>
+																<option value="BGP">BGP</option>
+																<option value="BHE">BHE</option>
+																<option value="BHI">BHI</option>
+																<option value="BHP">BHP</option>
+																<option value="BID">BID</option>
+																<option value="BIG">BIG</option>
+																<option value="BIIB">BIIB</option>
+																<option value="BJ">BJ</option>
+																<option value="BJS">BJS</option>
+																<option value="BK">BK</option>
+																<option value="BKC">BKC</option>
+																<option value="BKE">BKE</option>
+																<option value="BKI">BKI</option>
+																<option value="BKMU">BKMU</option>
+																<option value="BKS">BKS</option>
+																<option value="BLC">BLC</option>
+																<option value="BLD">BLD</option>
+																<option value="BLDR">BLDR</option>
+																<option value="BLI">BLI</option>
+																<option value="BLK">BLK</option>
+																<option value="BLL">BLL</option>
+																<option value="BLS">BLS</option>
+																<option value="BLT">BLT</option>
+																<option value="BLUD">BLUD</option>
+																<option value="BMA">BMA</option>
+																<option value="BMC">BMC</option>
+																<option value="BMD">BMD</option>
+																<option value="BMET">BMET</option>
+																<option value="BMHC">BMHC</option>
+																<option value="BMR">BMR</option>
+																<option value="BMS">BMS</option>
+																<option value="BMY">BMY</option>
+																<option value="BNI">BNI</option>
+																<option value="BNPQY">BNPQY</option>
+																<option value="BOBE">BOBE</option>
+																<option value="BOBJ">BOBJ</option>
+																<option value="BOH">BOH</option>
+																<option value="BOL">BOL</option>
+																<option value="BONT">BONT</option>
+																<option value="BORL">BORL</option>
+																<option value="BOW">BOW</option>
+																<option value="BP">BP</option>
+																<option value="BPL">BPL</option>
+																<option value="BRC">BRC</option>
+																<option value="BRCD">BRCD</option>
+																<option value="BRCM">BRCM</option>
+																<option value="BRL">BRL</option>
+																<option value="BRNC">BRNC</option>
+																<option value="BRO">BRO</option>
+																<option value="BRY">BRY</option>
+																<option value="BSC">BSC</option>
+																<option value="BSG">BSG</option>
+																<option value="BSX">BSX</option>
+																<option value="BTRX">BTRX</option>
+																<option value="BTU">BTU</option>
+																<option value="BUCY">BUCY</option>
+																<option value="BUD">BUD</option>
+																<option value="BWA">BWA</option>
+																<option value="BWLD">BWLD</option>
+																<option value="BWNG">BWNG</option>
+																<option value="BWS">BWS</option>
+																<option value="BWTR">BWTR</option>
+																<option value="BXC">BXC</option>
+																<option value="BXP">BXP</option>
+																<option value="BXS">BXS</option>
+																<option value="BYD">BYD</option>
+																<option value="BYI">BYI</option>
+																<option value="BZH">BZH</option>
+																<option value="C">C</option>
+																<option value="CA">CA</option>
+																<option value="CAB">CAB</option>
+																<option value="CACH">CACH</option>
+																<option value="CAG">CAG</option>
+																<option value="CAH">CAH</option>
+																<option value="CAI">CAI</option>
+																<option value="CAKE">CAKE</option>
+																<option value="CAL">CAL</option>
+																<option value="CAM">CAM</option>
+																<option value="CAO">CAO</option>
+																<option value="CAR">CAR</option>
+																<option value="CAS">CAS</option>
+																<option value="CASY">CASY</option>
+																<option value="CAT">CAT</option>
+																<option value="CB">CB</option>
+																<option value="CBB">CBB</option>
+																<option value="CBE">CBE</option>
+																<option value="CBG">CBG</option>
+																<option value="CBH">CBH</option>
+																<option value="CBI">CBI</option>
+																<option value="CBK">CBK</option>
+																<option value="CBL">CBL</option>
+																<option value="CBM">CBM</option>
+																<option value="CBPRB">CBPRB</option>
+																<option value="CBR">CBR</option>
+																<option value="CBRL">CBRL</option>
+																<option value="CBS">CBS</option>
+																<option value="CBSS">CBSS</option>
+																<option value="CBT">CBT</option>
+																<option value="CC">CC</option>
+																<option value="CCBL">CCBL</option>
+																<option value="CCC">CCC</option>
+																<option value="CCE">CCE</option>
+																<option value="CCI">CCI</option>
+																<option value="CCJ">CCJ</option>
+																<option value="CCK">CCK</option>
+																<option value="CCL">CCL</option>
+																<option value="CCMP">CCMP</option>
+																<option value="CCMS">CCMS</option>
+																<option value="CCOI">CCOI</option>
+																<option value="CCRT">CCRT</option>
+																<option value="CCU">CCU</option>
+																<option value="CD">CD</option>
+																<option value="CDE">CDE</option>
+																<option value="CDL">CDL</option>
+																<option value="CDWC">CDWC</option>
+																<option value="CE">CE</option>
+																<option value="CEC">CEC</option>
+																<option value="CEG">CEG</option>
+																<option value="CELG">CELG</option>
+																<option value="CELL">CELL</option>
+																<option value="CEM">CEM</option>
+																<option value="CEN">CEN</option>
+																<option value="CENT">CENT</option>
+																<option value="CEPH">CEPH</option>
+																<option value="CERN">CERN</option>
+																<option value="CEVA">CEVA</option>
+																<option value="CF">CF</option>
+																<option value="CFC">CFC</option>
+																<option value="CG">CG</option>
+																<option value="CGT">CGT</option>
+																<option value="CGX">CGX</option>
+																<option value="CHB">CHB</option>
+																<option value="CHCI">CHCI</option>
+																<option value="CHD">CHD</option>
+																<option value="CHDX">CHDX</option>
+																<option value="CHE">CHE</option>
+																<option value="CHIC">CHIC</option>
+																<option value="CHIR">CHIR</option>
+																<option value="CHK">CHK</option>
+																<option value="CHKP">CHKP</option>
+																<option value="CHRD">CHRD</option>
+																<option value="CHRS">CHRS</option>
+																<option value="CHRT">CHRT</option>
+																<option value="CHRW">CHRW</option>
+																<option value="CHS">CHS</option>
+																<option value="CHTR">CHTR</option>
+																<option value="CHTT">CHTT</option>
+																<option value="CHUX">CHUX</option>
+																<option value="CI">CI</option>
+																<option value="CIEN">CIEN</option>
+																<option value="CINF">CINF</option>
+																<option value="CIT">CIT</option>
+																<option value="CKFR">CKFR</option>
+																<option value="CKP">CKP</option>
+																<option value="CKR">CKR</option>
+																<option value="CL">CL</option>
+																<option value="CLB">CLB</option>
+																<option value="CLC">CLC</option>
+																<option value="CLE">CLE</option>
+																<option value="CLF">CLF</option>
+																<option value="CLHB">CLHB</option>
+																<option value="CLK">CLK</option>
+																<option value="CLMS">CLMS</option>
+																<option value="CLP">CLP</option>
+																<option value="CLRK">CLRK</option>
+																<option value="CLS">CLS</option>
+																<option value="CLX">CLX</option>
+																<option value="CMA">CMA</option>
+																<option value="CMC">CMC</option>
+																<option value="CMCO">CMCO</option>
+																<option value="CMCSA">CMCSA</option>
+																<option value="CMCSK">CMCSK</option>
+																<option value="CME">CME</option>
+																<option value="CMED">CMED</option>
+																<option value="CMG">CMG</option>
+																<option value="CMGB">CMGB</option>
+																<option value="CMGBWI">CMGBWI</option>
+																<option value="CMI">CMI</option>
+																<option value="CMN">CMN</option>
+																<option value="CMRG">CMRG</option>
+																<option value="CMTL">CMTL</option>
+																<option value="CMVT">CMVT</option>
+																<option value="CMX">CMX</option>
+																<option value="CNB">CNB</option>
+																<option value="CNC">CNC</option>
+																<option value="CNCT">CNCT</option>
+																<option value="CNET">CNET</option>
+																<option value="CNO">CNO</option>
+																<option value="CNP">CNP</option>
+																<option value="CNQ">CNQ</option>
+																<option value="CNX">CNX</option>
+																<option value="CNXT">CNXT</option>
+																<option value="COCO">COCO</option>
+																<option value="COF">COF</option>
+																<option value="COG">COG</option>
+																<option value="COGN">COGN</option>
+																<option value="COH">COH</option>
+																<option value="COL">COL</option>
+																<option value="COLM">COLM</option>
+																<option value="COO">COO</option>
+																<option value="COP">COP</option>
+																<option value="CORS">CORS</option>
+																<option value="COSI">COSI</option>
+																<option value="COST">COST</option>
+																<option value="COT">COT</option>
+																<option value="CP">CP</option>
+																<option value="CPB">CPB</option>
+																<option value="CPII">CPII</option>
+																<option value="CPKI">CPKI</option>
+																<option value="CPO">CPO</option>
+																<option value="CPS">CPS</option>
+																<option value="CPSI">CPSI</option>
+																<option value="CPSS">CPSS</option>
+																<option value="CPST">CPST</option>
+																<option value="CPTS">CPTS</option>
+																<option value="CPWM">CPWM</option>
+																<option value="CPWR">CPWR</option>
+																<option value="CPX">CPX</option>
+																<option value="CQB">CQB</option>
+																<option value="CR">CR</option>
+																<option value="CRA">CRA</option>
+																<option value="CRAY">CRAY</option>
+																<option value="CRE">CRE</option>
+																<option value="CRI">CRI</option>
+																<option value="CRK">CRK</option>
+																<option value="CRL">CRL</option>
+																<option value="CRM">CRM</option>
+																<option value="CRMT">CRMT</option>
+																<option value="CRN">CRN</option>
+																<option value="CROX">CROX</option>
+																<option value="CRR">CRR</option>
+																<option value="CRS">CRS</option>
+																<option value="CRZO">CRZO</option>
+																<option value="CSAR">CSAR</option>
+																<option value="CSC">CSC</option>
+																<option value="CSCC">CSCC</option>
+																<option value="CSCO">CSCO</option>
+																<option value="CSE">CSE</option>
+																<option value="CSG">CSG</option>
+																<option value="CSGP">CSGP</option>
+																<option value="CSL">CSL</option>
+																<option value="CSX">CSX</option>
+																<option value="CT">CT</option>
+																<option value="CTAS">CTAS</option>
+																<option value="CTB">CTB</option>
+																<option value="CTHR">CTHR</option>
+																<option value="CTL">CTL</option>
+																<option value="CTR">CTR</option>
+																<option value="CTRN">CTRN</option>
+																<option value="CTSH">CTSH</option>
+																<option value="CTV">CTV</option>
+																<option value="CTX">CTX</option>
+																<option value="CTXS">CTXS</option>
+																<option value="CVA">CVA</option>
+																<option value="CVC">CVC</option>
+																<option value="CVG">CVG</option>
+																<option value="CVH">CVH</option>
+																<option value="CVO">CVO</option>
+																<option value="CVS">CVS</option>
+																<option value="CVTX">CVTX</option>
+																<option value="CVX">CVX</option>
+																<option value="CWST">CWST</option>
+																<option value="CWTR">CWTR</option>
+																<option value="CX">CX</option>
+																<option value="CXG">CXG</option>
+																<option value="CXR">CXR</option>
+																<option value="CXW">CXW</option>
+																<option value="CY">CY</option>
+																<option value="CYB">CYB</option>
+																<option value="CYBX">CYBX</option>
+																<option value="CYH">CYH</option>
+																<option value="CYMI">CYMI</option>
+																<option value="CYN">CYN</option>
+																<option value="CYT">CYT</option>
+																<option value="CYTC">CYTC</option>
+																<option value="CZN">CZN</option>
+																<option value="D">D</option>
+																<option value="DA">DA</option>
+																<option value="DADE">DADE</option>
+																<option value="DAKT">DAKT</option>
+																<option value="DBD">DBD</option>
+																<option value="DBRN">DBRN</option>
+																<option value="DBSDY">DBSDY</option>
+																<option value="DCEL">DCEL</option>
+																<option value="DCGN">DCGN</option>
+																<option value="DCI">DCI</option>
+																<option value="DCP">DCP</option>
+																<option value="DD">DD</option>
+																<option value="DDE">DDE</option>
+																<option value="DDS">DDS</option>
+																<option value="DE">DE</option>
+																<option value="DEI">DEI</option>
+																<option value="DEL">DEL</option>
+																<option value="DELL">DELL</option>
+																<option value="DENN">DENN</option>
+																<option value="DEO">DEO</option>
+																<option value="DF">DF</option>
+																<option value="DG">DG</option>
+																<option value="DGIN">DGIN</option>
+																<option value="DGX">DGX</option>
+																<option value="DHI">DHI</option>
+																<option value="DHR">DHR</option>
+																<option value="DIA">DIA</option>
+																<option value="DIGE">DIGE</option>
+																<option value="DIOD">DIOD</option>
+																<option value="DIS">DIS</option>
+																<option value="DISCA">DISCA</option>
+																<option value="DISH">DISH</option>
+																<option value="DIVX">DIVX</option>
+																<option value="DJ">DJ</option>
+																<option value="DJO">DJO</option>
+																<option value="DKS">DKS</option>
+																<option value="DLIA">DLIA</option>
+																<option value="DLM">DLM</option>
+																<option value="DLP">DLP</option>
+																<option value="DLTR">DLTR</option>
+																<option value="DLX">DLX</option>
+																<option value="DNA">DNA</option>
+																<option value="DNB">DNB</option>
+																<option value="DNR">DNR</option>
+																<option value="DO">DO</option>
+																<option value="DOV">DOV</option>
+																<option value="DOW">DOW</option>
+																<option value="DOX">DOX</option>
+																<option value="DP">DP</option>
+																<option value="DPII">DPII</option>
+																<option value="DPL">DPL</option>
+																<option value="DPTR">DPTR</option>
+																<option value="DPZ">DPZ</option>
+																<option value="DRC">DRC</option>
+																<option value="DRH">DRH</option>
+																<option value="DRI">DRI</option>
+																<option value="DRIV">DRIV</option>
+																<option value="DRRX">DRRX</option>
+																<option value="DRS">DRS</option>
+																<option value="DRTE">DRTE</option>
+																<option value="DSCM">DSCM</option>
+																<option value="DSL">DSL</option>
+																<option value="DST">DST</option>
+																<option value="DSW">DSW</option>
+																<option value="DTAS">DTAS</option>
+																<option value="DTC">DTC</option>
+																<option value="DTV">DTV</option>
+																<option value="DUK">DUK</option>
+																<option value="DV">DV</option>
+																<option value="DVA">DVA</option>
+																<option value="DVN">DVN</option>
+																<option value="DVW">DVW</option>
+																<option value="DWA">DWA</option>
+																<option value="DWSN">DWSN</option>
+																<option value="DXCM">DXCM</option>
+																<option value="DY">DY</option>
+																<option value="DYN">DYN</option>
+																<option value="EAC">EAC</option>
+																<option value="EAGL">EAGL</option>
+																<option value="EAS">EAS</option>
+																<option value="EAT">EAT</option>
+																<option value="EBAY">EBAY</option>
+																<option value="EC">EC</option>
+																<option value="ECA">ECA</option>
+																<option value="ECL">ECL</option>
+																<option value="ECLP">ECLP</option>
+																<option value="ECPG">ECPG</option>
+																<option value="EDO">EDO</option>
+																<option value="EDS">EDS</option>
+																<option value="EDU">EDU</option>
+																<option value="EEM">EEM</option>
+																<option value="EEP">EEP</option>
+																<option value="EFA">EFA</option>
+																<option value="EFD">EFD</option>
+																<option value="EFII">EFII</option>
+																<option value="EFX">EFX</option>
+																<option value="EGN">EGN</option>
+																<option value="EGY">EGY</option>
+																<option value="EHTH">EHTH</option>
+																<option value="EICU">EICU</option>
+																<option value="EIX">EIX</option>
+																<option value="EK">EK</option>
+																<option value="EL">EL</option>
+																<option value="ELK">ELK</option>
+																<option value="ELN">ELN</option>
+																<option value="ELOS">ELOS</option>
+																<option value="ELX">ELX</option>
+																<option value="ELY">ELY</option>
+																<option value="EMC">EMC</option>
+																<option value="EMKR">EMKR</option>
+																<option value="EMN">EMN</option>
+																<option value="EMR">EMR</option>
+																<option value="ENCY">ENCY</option>
+																<option value="ENDP">ENDP</option>
+																<option value="ENH">ENH</option>
+																<option value="ENR">ENR</option>
+																<option value="ENTG">ENTG</option>
+																<option value="EOG">EOG</option>
+																<option value="EON">EON</option>
+																<option value="EP">EP</option>
+																<option value="EPD">EPD</option>
+																<option value="EPIC">EPIC</option>
+																<option value="EPL">EPL</option>
+																<option value="EPP">EPP</option>
+																<option value="EQ">EQ</option>
+																<option value="EQIX">EQIX</option>
+																<option value="EQT">EQT</option>
+																<option value="EQY">EQY</option>
+																<option value="ERJ">ERJ</option>
+																<option value="ERS">ERS</option>
+																<option value="ERTS">ERTS</option>
+																<option value="ESALY">ESALY</option>
+																<option value="ESE">ESE</option>
+																<option value="ESL">ESL</option>
+																<option value="ESV">ESV</option>
+																<option value="ET">ET</option>
+																<option value="ETE">ETE</option>
+																<option value="ETH">ETH</option>
+																<option value="ETM">ETM</option>
+																<option value="ETN">ETN</option>
+																<option value="ETR">ETR</option>
+																<option value="EV">EV</option>
+																<option value="EVC">EVC</option>
+																<option value="EVR">EVR</option>
+																<option value="EVST">EVST</option>
+																<option value="EVVV">EVVV</option>
+																<option value="EW">EW</option>
+																<option value="EWBC">EWBC</option>
+																<option value="EWG">EWG</option>
+																<option value="EWJ">EWJ</option>
+																<option value="EWT">EWT</option>
+																<option value="EXBD">EXBD</option>
+																<option value="EXC">EXC</option>
+																<option value="EXLS">EXLS</option>
+																<option value="EXP">EXP</option>
+																<option value="EXPD">EXPD</option>
+																<option value="EXPE">EXPE</option>
+																<option value="EXTR">EXTR</option>
+																<option value="EYE">EYE</option>
+																<option value="F">F</option>
+																<option value="FAF">FAF</option>
+																<option value="FAL">FAL</option>
+																<option value="FAST">FAST</option>
+																<option value="FBN">FBN</option>
+																<option value="FBR">FBR</option>
+																<option value="FCH">FCH</option>
+																<option value="FCL">FCL</option>
+																<option value="FCN">FCN</option>
+																<option value="FCS">FCS</option>
+																<option value="FCX">FCX</option>
+																<option value="FD">FD</option>
+																<option value="FDC">FDC</option>
+																<option value="FDO">FDO</option>
+																<option value="FDRY">FDRY</option>
+																<option value="FDS">FDS</option>
+																<option value="FDX">FDX</option>
+																<option value="FE">FE</option>
+																<option value="FED">FED</option>
+																<option value="FFCH">FFCH</option>
+																<option value="FFIV">FFIV</option>
+																<option value="FHN">FHN</option>
+																<option value="FHRX">FHRX</option>
+																<option value="FIC">FIC</option>
+																<option value="FII">FII</option>
+																<option value="FILE">FILE</option>
+																<option value="FINL">FINL</option>
+																<option value="FIS">FIS</option>
+																<option value="FISV">FISV</option>
+																<option value="FITB">FITB</option>
+																<option value="FIX">FIX</option>
+																<option value="FL">FL</option>
+																<option value="FLA">FLA</option>
+																<option value="FLE">FLE</option>
+																<option value="FLEX">FLEX</option>
+																<option value="FLO">FLO</option>
+																<option value="FLOW">FLOW</option>
+																<option value="FLR">FLR</option>
+																<option value="FLS">FLS</option>
+																<option value="FLSH">FLSH</option>
+																<option value="FLWS">FLWS</option>
+																<option value="FMC">FMC</option>
+																<option value="FMD">FMD</option>
+																<option value="FMER">FMER</option>
+																<option value="FMR">FMR</option>
+																<option value="FMT">FMT</option>
+																<option value="FMX">FMX</option>
+																<option value="FNF">FNF</option>
+																<option value="FNM">FNM</option>
+																<option value="FNSR">FNSR</option>
+																<option value="FNT">FNT</option>
+																<option value="FO">FO</option>
+																<option value="FOE">FOE</option>
+																<option value="FORM">FORM</option>
+																<option value="FOSL">FOSL</option>
+																<option value="FPL">FPL</option>
+																<option value="FR">FR</option>
+																<option value="FRC">FRC</option>
+																<option value="FRE">FRE</option>
+																<option value="FRED">FRED</option>
+																<option value="FRK">FRK</option>
+																<option value="FRNT">FRNT</option>
+																<option value="FRP">FRP</option>
+																<option value="FRX">FRX</option>
+																<option value="FS">FS</option>
+																<option value="FSH">FSH</option>
+																<option value="FSI">FSI</option>
+																<option value="FSL">FSL</option>
+																<option value="FSLB">FSLB</option>
+																<option value="FSP">FSP</option>
+																<option value="FSS">FSS</option>
+																<option value="FST">FST</option>
+																<option value="FSTR">FSTR</option>
+																<option value="FTBK">FTBK</option>
+																<option value="FTD">FTD</option>
+																<option value="FTI">FTI</option>
+																<option value="FTO">FTO</option>
+																<option value="FUN">FUN</option>
+																<option value="FVE">FVE</option>
+																<option value="FWLT">FWLT</option>
+																<option value="FWRD">FWRD</option>
+																<option value="GAIA">GAIA</option>
+																<option value="GAP">GAP</option>
+																<option value="GBL">GBL</option>
+																<option value="GCI">GCI</option>
+																<option value="GCO">GCO</option>
+																<option value="GD">GD</option>
+																<option value="GDI">GDI</option>
+																<option value="GDT">GDT</option>
+																<option value="GDW">GDW</option>
+																<option value="GE">GE</option>
+																<option value="GEF">GEF</option>
+																<option value="GEG">GEG</option>
+																<option value="GEHL">GEHL</option>
+																<option value="GEMS">GEMS</option>
+																<option value="GENZ">GENZ</option>
+																<option value="GEO">GEO</option>
+																<option value="GES">GES</option>
+																<option value="GET">GET</option>
+																<option value="GFF">GFF</option>
+																<option value="GFI">GFI</option>
+																<option value="GG">GG</option>
+																<option value="GGG">GGG</option>
+																<option value="GGI">GGI</option>
+																<option value="GGL">GGL</option>
+																<option value="GGXY">GGXY</option>
+																<option value="GHDX">GHDX</option>
+																<option value="GHL">GHL</option>
+																<option value="GIII">GIII</option>
+																<option value="GIL">GIL</option>
+																<option value="GILD">GILD</option>
+																<option value="GIS">GIS</option>
+																<option value="GLBC">GLBC</option>
+																<option value="GLBL">GLBL</option>
+																<option value="GLG">GLG</option>
+																<option value="GLP">GLP</option>
+																<option value="GLT">GLT</option>
+																<option value="GLW">GLW</option>
+																<option value="GM">GM</option>
+																<option value="GME">GME</option>
+																<option value="GMR">GMR</option>
+																<option value="GMRK">GMRK</option>
+																<option value="GMST">GMST</option>
+																<option value="GNA">GNA</option>
+																<option value="GNTX">GNTX</option>
+																<option value="GNW">GNW</option>
+																<option value="GOL">GOL</option>
+																<option value="GOOG">GOOG</option>
+																<option value="GPC">GPC</option>
+																<option value="GPI">GPI</option>
+																<option value="GPN">GPN</option>
+																<option value="GPRO">GPRO</option>
+																<option value="GPS">GPS</option>
+																<option value="GPX">GPX</option>
+																<option value="GR">GR</option>
+																<option value="GRA">GRA</option>
+																<option value="GRMN">GRMN</option>
+																<option value="GROW">GROW</option>
+																<option value="GRP">GRP</option>
+																<option value="GS">GS</option>
+																<option value="GSF">GSF</option>
+																<option value="GSK">GSK</option>
+																<option value="GSS">GSS</option>
+																<option value="GT">GT</option>
+																<option value="GTI">GTI</option>
+																<option value="GTK">GTK</option>
+																<option value="GTRC">GTRC</option>
+																<option value="GVA">GVA</option>
+																<option value="GW">GW</option>
+																<option value="GWW">GWW</option>
+																<option value="GY">GY</option>
+																<option value="GYI">GYI</option>
+																<option value="GYMB">GYMB</option>
+																<option value="H">H</option>
+																<option value="HAE">HAE</option>
+																<option value="HAIN">HAIN</option>
+																<option value="HAL">HAL</option>
+																<option value="HANS">HANS</option>
+																<option value="HAR">HAR</option>
+																<option value="HAS">HAS</option>
+																<option value="HBAN">HBAN</option>
+																<option value="HBC">HBC</option>
+																<option value="HBG">HBG</option>
+																<option value="HBI">HBI</option>
+																<option value="HC">HC</option>
+																<option value="HCA">HCA</option>
+																<option value="HCBK">HCBK</option>
+																<option value="HCR">HCR</option>
+																<option value="HD">HD</option>
+																<option value="HDI">HDI</option>
+																<option value="HEI">HEI</option>
+																<option value="HELX">HELX</option>
+																<option value="HES">HES</option>
+																<option value="HET">HET</option>
+																<option value="HEW">HEW</option>
+																<option value="HGO">HGO</option>
+																<option value="HGSI">HGSI</option>
+																<option value="HGT">HGT</option>
+																<option value="HHH">HHH</option>
+																<option value="HHS">HHS</option>
+																<option value="HIBB">HIBB</option>
+																<option value="HIG">HIG</option>
+																<option value="HLF">HLF</option>
+																<option value="HLT">HLT</option>
+																<option value="HLX">HLX</option>
+																<option value="HMA">HMA</option>
+																<option value="HMB">HMB</option>
+																<option value="HMC">HMC</option>
+																<option value="HMX">HMX</option>
+																<option value="HNT">HNT</option>
+																<option value="HNZ">HNZ</option>
+																<option value="HOC">HOC</option>
+																<option value="HOG">HOG</option>
+																<option value="HOLX">HOLX</option>
+																<option value="HON">HON</option>
+																<option value="HORC">HORC</option>
+																<option value="HOT">HOT</option>
+																<option value="HOTT">HOTT</option>
+																<option value="HOV">HOV</option>
+																<option value="HP">HP</option>
+																<option value="HPC">HPC</option>
+																<option value="HPQ">HPQ</option>
+																<option value="HPT">HPT</option>
+																<option value="HPY">HPY</option>
+																<option value="HR">HR</option>
+																<option value="HRB">HRB</option>
+																<option value="HRH">HRH</option>
+																<option value="HRL">HRL</option>
+																<option value="HRS">HRS</option>
+																<option value="HRZ">HRZ</option>
+																<option value="HS">HS</option>
+																<option value="HSC">HSC</option>
+																<option value="HSIC">HSIC</option>
+																<option value="HSP">HSP</option>
+																<option value="HST">HST</option>
+																<option value="HSY">HSY</option>
+																<option value="HTCH">HTCH</option>
+																<option value="HTLD">HTLD</option>
+																<option value="HTV">HTV</option>
+																<option value="HUBB">HUBB</option>
+																<option value="HUM">HUM</option>
+																<option value="HUMC">HUMC</option>
+																<option value="HURC">HURC</option>
+																<option value="HVT">HVT</option>
+																<option value="HW">HW</option>
+																<option value="HWAY">HWAY</option>
+																<option value="HWK">HWK</option>
+																<option value="HXL">HXL</option>
+																<option value="HXM">HXM</option>
+																<option value="HYC">HYC</option>
+																<option value="HYGS">HYGS</option>
+																<option value="HYSL">HYSL</option>
+																<option value="IACI">IACI</option>
+																<option value="IBB">IBB</option>
+																<option value="IBM">IBM</option>
+																<option value="IBN">IBN</option>
+																<option value="ICE">ICE</option>
+																<option value="ICGE">ICGE</option>
+																<option value="ICI">ICI</option>
+																<option value="ICO">ICO</option>
+																<option value="ICON">ICON</option>
+																<option value="ID">ID</option>
+																<option value="IDC">IDC</option>
+																<option value="IDIX">IDIX</option>
+																<option value="IDR">IDR</option>
+																<option value="IDTI">IDTI</option>
+																<option value="IFC">IFC</option>
+																<option value="IFF">IFF</option>
+																<option value="IFIN">IFIN</option>
+																<option value="IFLO">IFLO</option>
+																<option value="IFS">IFS</option>
+																<option value="IFSIA">IFSIA</option>
+																<option value="IGT">IGT</option>
+																<option value="IHP">IHP</option>
+																<option value="IHS">IHS</option>
+																<option value="ILA">ILA</option>
+																<option value="ILSE">ILSE</option>
+																<option value="IMCL">IMCL</option>
+																<option value="IMGC">IMGC</option>
+																<option value="IMH">IMH</option>
+																<option value="IMN">IMN</option>
+																<option value="IMO">IMO</option>
+																<option value="IN">IN</option>
+																<option value="INAP">INAP</option>
+																<option value="INFA">INFA</option>
+																<option value="INFS">INFS</option>
+																<option value="INPC">INPC</option>
+																<option value="INT">INT</option>
+																<option value="INTC">INTC</option>
+																<option value="INTU">INTU</option>
+																<option value="IO">IO</option>
+																<option value="IOC">IOC</option>
+																<option value="IP">IP</option>
+																<option value="IPAR">IPAR</option>
+																<option value="IPCR">IPCR</option>
+																<option value="IPG">IPG</option>
+																<option value="IPS">IPS</option>
+																<option value="IPSU">IPSU</option>
+																<option value="IR">IR</option>
+																<option value="IRF">IRF</option>
+																<option value="IRIS">IRIS</option>
+																<option value="ISE">ISE</option>
+																<option value="ISIL">ISIL</option>
+																<option value="ISRG">ISRG</option>
+																<option value="ISSC">ISSC</option>
+																<option value="ISSX">ISSX</option>
+																<option value="IT">IT</option>
+																<option value="ITG">ITG</option>
+																<option value="ITRI">ITRI</option>
+																<option value="ITT">ITT</option>
+																<option value="ITW">ITW</option>
+																<option value="IUSA">IUSA</option>
+																<option value="IVV">IVV</option>
+																<option value="IWF">IWF</option>
+																<option value="IWM">IWM</option>
+																<option value="IWN">IWN</option>
+																<option value="IWO">IWO</option>
+																<option value="IWOV">IWOV</option>
+																<option value="IXJ">IXJ</option>
+																<option value="IYK">IYK</option>
+																<option value="IYR">IYR</option>
+																<option value="IYT">IYT</option>
+																<option value="IYW">IYW</option>
+																<option value="JAH">JAH</option>
+																<option value="JAS">JAS</option>
+																<option value="JBL">JBL</option>
+																<option value="JBLU">JBLU</option>
+																<option value="JBSS">JBSS</option>
+																<option value="JBX">JBX</option>
+																<option value="JCG">JCG</option>
+																<option value="JCI">JCI</option>
+																<option value="JCP">JCP</option>
+																<option value="JDSU">JDSU</option>
+																<option value="JEC">JEC</option>
+																<option value="JEF">JEF</option>
+																<option value="JJZ">JJZ</option>
+																<option value="JKHY">JKHY</option>
+																<option value="JLG">JLG</option>
+																<option value="JLL">JLL</option>
+																<option value="JNC">JNC</option>
+																<option value="JNJ">JNJ</option>
+																<option value="JNPR">JNPR</option>
+																<option value="JNS">JNS</option>
+																<option value="JNY">JNY</option>
+																<option value="JOE">JOE</option>
+																<option value="JOF">JOF</option>
+																<option value="JOSB">JOSB</option>
+																<option value="JOYG">JOYG</option>
+																<option value="JP">JP</option>
+																<option value="JPM">JPM</option>
+																<option value="JRC">JRC</option>
+																<option value="JRN">JRN</option>
+																<option value="JSDA">JSDA</option>
+																<option value="JTX">JTX</option>
+																<option value="JUPM">JUPM</option>
+																<option value="JWN">JWN</option>
+																<option value="K">K</option>
+																<option value="KAI">KAI</option>
+																<option value="KBH">KBH</option>
+																<option value="KCI">KCI</option>
+																<option value="KCP">KCP</option>
+																<option value="KCS">KCS</option>
+																<option value="KEA">KEA</option>
+																<option value="KEGS">KEGS</option>
+																<option value="KEI">KEI</option>
+																<option value="KEM">KEM</option>
+																<option value="KEP">KEP</option>
+																<option value="KEX">KEX</option>
+																<option value="KEY">KEY</option>
+																<option value="KFI">KFI</option>
+																<option value="KFT">KFT</option>
+																<option value="KFX">KFX</option>
+																<option value="KFY">KFY</option>
+																<option value="KG">KG</option>
+																<option value="KGC">KGC</option>
+																<option value="KKD">KKD</option>
+																<option value="KLAC">KLAC</option>
+																<option value="KMB">KMB</option>
+																<option value="KMG">KMG</option>
+																<option value="KMI">KMI</option>
+																<option value="KMT">KMT</option>
+																<option value="KMX">KMX</option>
+																<option value="KND">KND</option>
+																<option value="KNDL">KNDL</option>
+																<option value="KNL">KNL</option>
+																<option value="KNOT">KNOT</option>
+																<option value="KNX">KNX</option>
+																<option value="KO">KO</option>
+																<option value="KOSP">KOSP</option>
+																<option value="KPA">KPA</option>
+																<option value="KR">KR</option>
+																<option value="KSS">KSS</option>
+																<option value="KSU">KSU</option>
+																<option value="KSWS">KSWS</option>
+																<option value="KTO">KTO</option>
+																<option value="KUL">KUL</option>
+																<option value="KVA">KVA</option>
+																<option value="KWD">KWD</option>
+																<option value="KWK">KWK</option>
+																<option value="KYPH">KYPH</option>
+																<option value="L">L</option>
+																<option value="LAB">LAB</option>
+																<option value="LAD">LAD</option>
+																<option value="LAMR">LAMR</option>
+																<option value="LAZ">LAZ</option>
+																<option value="LBTYA">LBTYA</option>
+																<option value="LBTYK">LBTYK</option>
+																<option value="LCAPA">LCAPA</option>
+																<option value="LCAV">LCAV</option>
+																<option value="LCC">LCC</option>
+																<option value="LDG">LDG</option>
+																<option value="LEA">LEA</option>
+																<option value="LEG">LEG</option>
+																<option value="LEH">LEH</option>
+																<option value="LEN">LEN</option>
+																<option value="LEND">LEND</option>
+																<option value="LF">LF</option>
+																<option value="LFB">LFB</option>
+																<option value="LFG">LFG</option>
+																<option value="LGF">LGF</option>
+																<option value="LGND">LGND</option>
+																<option value="LH">LH</option>
+																<option value="LI">LI</option>
+																<option value="LII">LII</option>
+																<option value="LINTA">LINTA</option>
+																<option value="LIZ">LIZ</option>
+																<option value="LLL">LLL</option>
+																<option value="LLY">LLY</option>
+																<option value="LM">LM</option>
+																<option value="LMNX">LMNX</option>
+																<option value="LMS">LMS</option>
+																<option value="LMT">LMT</option>
+																<option value="LNC">LNC</option>
+																<option value="LNCR">LNCR</option>
+																<option value="LNN">LNN</option>
+																<option value="LNY">LNY</option>
+																<option value="LOW">LOW</option>
+																<option value="LPNT">LPNT</option>
+																<option value="LPX">LPX</option>
+																<option value="LRCX">LRCX</option>
+																<option value="LRW">LRW</option>
+																<option value="LSCC">LSCC</option>
+																<option value="LSI">LSI</option>
+																<option value="LSS">LSS</option>
+																<option value="LTD">LTD</option>
+																<option value="LTM">LTM</option>
+																<option value="LTR">LTR</option>
+																<option value="LU">LU</option>
+																<option value="LUB">LUB</option>
+																<option value="LUK">LUK</option>
+																<option value="LUV">LUV</option>
+																<option value="LVLT">LVLT</option>
+																<option value="LVS">LVS</option>
+																<option value="LWSN">LWSN</option>
+																<option value="LXP">LXP</option>
+																<option value="LYO">LYO</option>
+																<option value="LZ">LZ</option>
+																<option value="LZB">LZB</option>
+																<option value="MA">MA</option>
+																<option value="MAN">MAN</option>
+																<option value="MAR">MAR</option>
+																<option value="MAS">MAS</option>
+																<option value="MAT">MAT</option>
+																<option value="MATK">MATK</option>
+																<option value="MAV">MAV</option>
+																<option value="MBI">MBI</option>
+																<option value="MBT">MBT</option>
+																<option value="MCD">MCD</option>
+																<option value="MCHP">MCHP</option>
+																<option value="MCK">MCK</option>
+																<option value="MCO">MCO</option>
+																<option value="MDC">MDC</option>
+																<option value="MDCO">MDCO</option>
+																<option value="MDP">MDP</option>
+																<option value="MDR">MDR</option>
+																<option value="MDT">MDT</option>
+																<option value="MDU">MDU</option>
+																<option value="MDY">MDY</option>
+																<option value="MDZ">MDZ</option>
+																<option value="ME">ME</option>
+																<option value="MECA">MECA</option>
+																<option value="MEDI">MEDI</option>
+																<option value="MEE">MEE</option>
+																<option value="MEK">MEK</option>
+																<option value="MEL">MEL</option>
+																<option value="MENT">MENT</option>
+																<option value="MER">MER</option>
+																<option value="MERQ">MERQ</option>
+																<option value="MET">MET</option>
+																<option value="MEU">MEU</option>
+																<option value="MFB">MFB</option>
+																<option value="MFE">MFE</option>
+																<option value="MFI">MFI</option>
+																<option value="MFW">MFW</option>
+																<option value="MGA">MGA</option>
+																<option value="MGI">MGI</option>
+																<option value="MGLN">MGLN</option>
+																<option value="MGM">MGM</option>
+																<option value="MHI">MHI</option>
+																<option value="MHK">MHK</option>
+																<option value="MHL">MHL</option>
+																<option value="MHP">MHP</option>
+																<option value="MHS">MHS</option>
+																<option value="MI">MI</option>
+																<option value="MIG">MIG</option>
+																<option value="MIK">MIK</option>
+																<option value="MIL">MIL</option>
+																<option value="MIM">MIM</option>
+																<option value="MINI">MINI</option>
+																<option value="MIR">MIR</option>
+																<option value="MKC">MKC</option>
+																<option value="MKTX">MKTX</option>
+																<option value="MLI">MLI</option>
+																<option value="MLM">MLM</option>
+																<option value="MLNM">MLNM</option>
+																<option value="MLS">MLS</option>
+																<option value="MMC">MMC</option>
+																<option value="MMM">MMM</option>
+																<option value="MNC">MNC</option>
+																<option value="MNI">MNI</option>
+																<option value="MNST">MNST</option>
+																<option value="MNT">MNT</option>
+																<option value="MO">MO</option>
+																<option value="MOGN">MOGN</option>
+																<option value="MON">MON</option>
+																<option value="MOS">MOS</option>
+																<option value="MOT">MOT</option>
+																<option value="MPW">MPW</option>
+																<option value="MRH">MRH</option>
+																<option value="MRK">MRK</option>
+																<option value="MRO">MRO</option>
+																<option value="MROI">MROI</option>
+																<option value="MRT">MRT</option>
+																<option value="MRVC">MRVC</option>
+																<option value="MRVL">MRVL</option>
+																<option value="MRX">MRX</option>
+																<option value="MS">MS</option>
+																<option value="MSC">MSC</option>
+																<option value="MSCC">MSCC</option>
+																<option value="MSF">MSF</option>
+																<option value="MSFT">MSFT</option>
+																<option value="MSM">MSM</option>
+																<option value="MSSR">MSSR</option>
+																<option value="MT">MT</option>
+																<option value="MTG">MTG</option>
+																<option value="MTH">MTH</option>
+																<option value="MTU">MTU</option>
+																<option value="MTW">MTW</option>
+																<option value="MTZ">MTZ</option>
+																<option value="MU">MU</option>
+																<option value="MUR">MUR</option>
+																<option value="MVK">MVK</option>
+																<option value="MVL">MVL</option>
+																<option value="MW">MW</option>
+																<option value="MWA">MWA</option>
+																<option value="MWV">MWV</option>
+																<option value="MXIM">MXIM</option>
+																<option value="MYG">MYG</option>
+																<option value="MYL">MYL</option>
+																<option value="MYOG">MYOG</option>
+																<option value="N">N</option>
+																<option value="NABI">NABI</option>
+																<option value="NAL">NAL</option>
+																<option value="NAV">NAV</option>
+																<option value="NBL">NBL</option>
+																<option value="NBR">NBR</option>
+																<option value="NCC">NCC</option>
+																<option value="NCI">NCI</option>
+																<option value="NCR">NCR</option>
+																<option value="NCX">NCX</option>
+																<option value="NDAQ">NDAQ</option>
+																<option value="NDE">NDE</option>
+																<option value="NDN">NDN</option>
+																<option value="NE">NE</option>
+																<option value="NEM">NEM</option>
+																<option value="NETL">NETL</option>
+																<option value="NEW">NEW</option>
+																<option value="NEXT">NEXT</option>
+																<option value="NFB">NFB</option>
+																<option value="NFLX">NFLX</option>
+																<option value="NFX">NFX</option>
+																<option value="NG">NG</option>
+																<option value="NGAS">NGAS</option>
+																<option value="NGS">NGS</option>
+																<option value="NHWK">NHWK</option>
+																<option value="NI">NI</option>
+																<option value="NIHD">NIHD</option>
+																<option value="NIKOY">NIKOY</option>
+																<option value="NILE">NILE</option>
+																<option value="NITE">NITE</option>
+																<option value="NKE">NKE</option>
+																<option value="NKTR">NKTR</option>
+																<option value="NLS">NLS</option>
+																<option value="NLY">NLY</option>
+																<option value="NMTI">NMTI</option>
+																<option value="NOC">NOC</option>
+																<option value="NOK">NOK</option>
+																<option value="NOOF">NOOF</option>
+																<option value="NOV">NOV</option>
+																<option value="NOVL">NOVL</option>
+																<option value="NP">NP</option>
+																<option value="NPO">NPO</option>
+																<option value="NR">NR</option>
+																<option value="NRF">NRF</option>
+																<option value="NRG">NRG</option>
+																<option value="NSC">NSC</option>
+																<option value="NSM">NSM</option>
+																<option value="NSR">NSR</option>
+																<option value="NSRGY">NSRGY</option>
+																<option value="NSS">NSS</option>
+																<option value="NT">NT</option>
+																<option value="NTAP">NTAP</option>
+																<option value="NTGR">NTGR</option>
+																<option value="NTLI">NTLI</option>
+																<option value="NTLS">NTLS</option>
+																<option value="NTRS">NTRS</option>
+																<option value="NTT">NTT</option>
+																<option value="NTY">NTY</option>
+																<option value="NU">NU</option>
+																<option value="NUAN">NUAN</option>
+																<option value="NUE">NUE</option>
+																<option value="NURO">NURO</option>
+																<option value="NUS">NUS</option>
+																<option value="NUVA">NUVA</option>
+																<option value="NVDA">NVDA</option>
+																<option value="NVL">NVL</option>
+																<option value="NVLS">NVLS</option>
+																<option value="NVO">NVO</option>
+																<option value="NVR">NVR</option>
+																<option value="NVS">NVS</option>
+																<option value="NVT">NVT</option>
+																<option value="NVTL">NVTL</option>
+																<option value="NWK">NWK</option>
+																<option value="NWL">NWL</option>
+																<option value="NWN">NWN</option>
+																<option value="NWS">NWS</option>
+																<option value="NWSA">NWSA</option>
+																<option value="NWY">NWY</option>
+																<option value="NXL">NXL</option>
+																<option value="NXTM">NXTM</option>
+																<option value="NXTP">NXTP</option>
+																<option value="NYB">NYB</option>
+																<option value="NYT">NYT</option>
+																<option value="NYX">NYX</option>
+																<option value="NZT">NZT</option>
+																<option value="OATS">OATS</option>
+																<option value="OCAS">OCAS</option>
+																<option value="OCR">OCR</option>
+																<option value="ODP">ODP</option>
+																<option value="OEF">OEF</option>
+																<option value="OEH">OEH</option>
+																<option value="OGE">OGE</option>
+																<option value="OHI">OHI</option>
+																<option value="OI">OI</option>
+																<option value="OIH">OIH</option>
+																<option value="OII">OII</option>
+																<option value="OIIM">OIIM</option>
+																<option value="OIS">OIS</option>
+																<option value="OKE">OKE</option>
+																<option value="OLN">OLN</option>
+																<option value="OMC">OMC</option>
+																<option value="OMCL">OMCL</option>
+																<option value="OMG">OMG</option>
+																<option value="OMN">OMN</option>
+																<option value="OMX">OMX</option>
+																<option value="ONNN">ONNN</option>
+																<option value="ONXX">ONXX</option>
+																<option value="OO">OO</option>
+																<option value="OPSW">OPSW</option>
+																<option value="OPWV">OPWV</option>
+																<option value="OPY">OPY</option>
+																<option value="ORB">ORB</option>
+																<option value="ORCL">ORCL</option>
+																<option value="ORLY">ORLY</option>
+																<option value="OS">OS</option>
+																<option value="OSG">OSG</option>
+																<option value="OSI">OSI</option>
+																<option value="OSIP">OSIP</option>
+																<option value="OSK">OSK</option>
+																<option value="OSUR">OSUR</option>
+																<option value="OTEX">OTEX</option>
+																<option value="OXM">OXM</option>
+																<option value="OXPS">OXPS</option>
+																<option value="OXY">OXY</option>
+																<option value="PACR">PACR</option>
+																<option value="PALM">PALM</option>
+																<option value="PARL">PARL</option>
+																<option value="PAY">PAY</option>
+																<option value="PAYX">PAYX</option>
+																<option value="PBCT">PBCT</option>
+																<option value="PBH">PBH</option>
+																<option value="PBI">PBI</option>
+																<option value="PBR">PBR</option>
+																<option value="PBRA">PBRA</option>
+																<option value="PBT">PBT</option>
+																<option value="PBW">PBW</option>
+																<option value="PBY">PBY</option>
+																<option value="PCBC">PCBC</option>
+																<option value="PCG">PCG</option>
+																<option value="PCH">PCH</option>
+																<option value="PCL">PCL</option>
+																<option value="PCP">PCP</option>
+																<option value="PCR">PCR</option>
+																<option value="PCU">PCU</option>
+																<option value="PD">PD</option>
+																<option value="PDC">PDC</option>
+																<option value="PDCO">PDCO</option>
+																<option value="PDE">PDE</option>
+																<option value="PDLI">PDLI</option>
+																<option value="PDS">PDS</option>
+																<option value="PDX">PDX</option>
+																<option value="PEC">PEC</option>
+																<option value="PEET">PEET</option>
+																<option value="PENN">PENN</option>
+																<option value="PEP">PEP</option>
+																<option value="PER">PER</option>
+																<option value="PERY">PERY</option>
+																<option value="PETC">PETC</option>
+																<option value="PETM">PETM</option>
+																<option value="PFCB">PFCB</option>
+																<option value="PFE">PFE</option>
+																<option value="PFG">PFG</option>
+																<option value="PFGC">PFGC</option>
+																<option value="PG">PG</option>
+																<option value="PGI">PGI</option>
+																<option value="PGL">PGL</option>
+																<option value="PGN">PGN</option>
+																<option value="PGR">PGR</option>
+																<option value="PH">PH</option>
+																<option value="PHH">PHH</option>
+																<option value="PHM">PHM</option>
+																<option value="PHO">PHO</option>
+																<option value="PHRM">PHRM</option>
+																<option value="PHTN">PHTN</option>
+																<option value="PII">PII</option>
+																<option value="PIR">PIR</option>
+																<option value="PJC">PJC</option>
+																<option value="PKE">PKE</option>
+																<option value="PKG">PKG</option>
+																<option value="PKI">PKI</option>
+																<option value="PKS">PKS</option>
+																<option value="PL">PL</option>
+																<option value="PLAY">PLAY</option>
+																<option value="PLB">PLB</option>
+																<option value="PLCE">PLCE</option>
+																<option value="PLCM">PLCM</option>
+																<option value="PLD">PLD</option>
+																<option value="PLL">PLL</option>
+																<option value="PLNR">PLNR</option>
+																<option value="PLT">PLT</option>
+																<option value="PLXS">PLXS</option>
+																<option value="PLXT">PLXT</option>
+																<option value="PMCS">PMCS</option>
+																<option value="PMI">PMI</option>
+																<option value="PMTI">PMTI</option>
+																<option value="PNC">PNC</option>
+																<option value="PNK">PNK</option>
+																<option value="PNM">PNM</option>
+																<option value="PNR">PNR</option>
+																<option value="PNRA">PNRA</option>
+																<option value="PNX">PNX</option>
+																<option value="POL">POL</option>
+																<option value="PONR">PONR</option>
+																<option value="POP">POP</option>
+																<option value="POS">POS</option>
+																<option value="POT">POT</option>
+																<option value="POZN">POZN</option>
+																<option value="PPC">PPC</option>
+																<option value="PPCO">PPCO</option>
+																<option value="PPDI">PPDI</option>
+																<option value="PPG">PPG</option>
+																<option value="PPL">PPL</option>
+																<option value="PPP">PPP</option>
+																<option value="PQE">PQE</option>
+																<option value="PRE">PRE</option>
+																<option value="PRFT">PRFT</option>
+																<option value="PRGS">PRGS</option>
+																<option value="PRU">PRU</option>
+																<option value="PRX">PRX</option>
+																<option value="PRZ">PRZ</option>
+																<option value="PSA">PSA</option>
+																<option value="PSMT">PSMT</option>
+																<option value="PSO">PSO</option>
+																<option value="PSS">PSS</option>
+																<option value="PSUN">PSUN</option>
+																<option value="PSYS">PSYS</option>
+																<option value="PTEN">PTEN</option>
+																<option value="PTI">PTI</option>
+																<option value="PTP">PTP</option>
+																<option value="PTRY">PTRY</option>
+																<option value="PTV">PTV</option>
+																<option value="PVH">PVH</option>
+																<option value="PWAV">PWAV</option>
+																<option value="PWEI">PWEI</option>
+																<option value="PX">PX</option>
+																<option value="PXD">PXD</option>
+																<option value="PXP">PXP</option>
+																<option value="PXPL">PXPL</option>
+																<option value="PXR">PXR</option>
+																<option value="PYX">PYX</option>
+																<option value="PZZA">PZZA</option>
+																<option value="Q">Q</option>
+																<option value="QCOM">QCOM</option>
+																<option value="QD">QD</option>
+																<option value="QLGC">QLGC</option>
+																<option value="QLTI">QLTI</option>
+																<option value="QQQQ">QQQQ</option>
+																<option value="QRCP">QRCP</option>
+																<option value="RA">RA</option>
+																<option value="RACK">RACK</option>
+																<option value="RAD">RAD</option>
+																<option value="RADS">RADS</option>
+																<option value="RAH">RAH</option>
+																<option value="RAI">RAI</option>
+																<option value="RAIL">RAIL</option>
+																<option value="RARE">RARE</option>
+																<option value="RAS">RAS</option>
+																<option value="RBA">RBA</option>
+																<option value="RBAK">RBAK</option>
+																<option value="RBN">RBN</option>
+																<option value="RCII">RCII</option>
+																<option value="RCKY">RCKY</option>
+																<option value="RCL">RCL</option>
+																<option value="RCRC">RCRC</option>
+																<option value="RDA">RDA</option>
+																<option value="RDC">RDC</option>
+																<option value="RDEN">RDEN</option>
+																<option value="RDK">RDK</option>
+																<option value="RDN">RDN</option>
+																<option value="RDSA">RDSA</option>
+																<option value="RE">RE</option>
+																<option value="RESP">RESP</option>
+																<option value="REV">REV</option>
+																<option value="REY">REY</option>
+																<option value="RF">RF</option>
+																<option value="RFMD">RFMD</option>
+																<option value="RGA">RGA</option>
+																<option value="RGC">RGC</option>
+																<option value="RGE">RGE</option>
+																<option value="RGF">RGF</option>
+																<option value="RGS">RGS</option>
+																<option value="RHAT">RHAT</option>
+																<option value="RHD">RHD</option>
+																<option value="RHHBY">RHHBY</option>
+																<option value="RHI">RHI</option>
+																<option value="RI">RI</option>
+																<option value="RIG">RIG</option>
+																<option value="RIMG">RIMG</option>
+																<option value="RIMM">RIMM</option>
+																<option value="RIO">RIO</option>
+																<option value="RJF">RJF</option>
+																<option value="RKH">RKH</option>
+																<option value="RKT">RKT</option>
+																<option value="RL">RL</option>
+																<option value="RMIX">RMIX</option>
+																<option value="RMK">RMK</option>
+																<option value="RML">RML</option>
+																<option value="RNOW">RNOW</option>
+																<option value="RNR">RNR</option>
+																<option value="RNT">RNT</option>
+																<option value="ROC">ROC</option>
+																<option value="ROCK">ROCK</option>
+																<option value="ROG">ROG</option>
+																<option value="ROH">ROH</option>
+																<option value="ROK">ROK</option>
+																<option value="ROP">ROP</option>
+																<option value="ROST">ROST</option>
+																<option value="RPB">RPB</option>
+																<option value="RRC">RRC</option>
+																<option value="RRD">RRD</option>
+																<option value="RRGB">RRGB</option>
+																<option value="RRI">RRI</option>
+																<option value="RS">RS</option>
+																<option value="RSAS">RSAS</option>
+																<option value="RSG">RSG</option>
+																<option value="RSH">RSH</option>
+																<option value="RSP">RSP</option>
+																<option value="RSTO">RSTO</option>
+																<option value="RTH">RTH</option>
+																<option value="RTI">RTI</option>
+																<option value="RTN">RTN</option>
+																<option value="RTP">RTP</option>
+																<option value="RUS">RUS</option>
+																<option value="RUSHA">RUSHA</option>
+																<option value="RUTH">RUTH</option>
+																<option value="RVBD">RVBD</option>
+																<option value="RVI">RVI</option>
+																<option value="RX">RX</option>
+																<option value="RYAN">RYAN</option>
+																<option value="RYL">RYL</option>
+																<option value="RYN">RYN</option>
+																<option value="S">S</option>
+																<option value="SAH">SAH</option>
+																<option value="SAI">SAI</option>
+																<option value="SAM">SAM</option>
+																<option value="SANM">SANM</option>
+																<option value="SAP">SAP</option>
+																<option value="SAX">SAX</option>
+																<option value="SAY">SAY</option>
+																<option value="SBAC">SBAC</option>
+																<option value="SBL">SBL</option>
+																<option value="SBNY">SBNY</option>
+																<option value="SBUX">SBUX</option>
+																<option value="SCG">SCG</option>
+																<option value="SCHL">SCHL</option>
+																<option value="SCHN">SCHN</option>
+																<option value="SCHW">SCHW</option>
+																<option value="SCI">SCI</option>
+																<option value="SCS">SCS</option>
+																<option value="SCSS">SCSS</option>
+																<option value="SCT">SCT</option>
+																<option value="SCVL">SCVL</option>
+																<option value="SEE">SEE</option>
+																<option value="SEIC">SEIC</option>
+																<option value="SEO">SEO</option>
+																<option value="SEPR">SEPR</option>
+																<option value="SF">SF</option>
+																<option value="SFD">SFD</option>
+																<option value="SFG">SFG</option>
+																<option value="SFI">SFI</option>
+																<option value="SFN">SFN</option>
+																<option value="SGDE">SGDE</option>
+																<option value="SGMS">SGMS</option>
+																<option value="SGP">SGP</option>
+																<option value="SGR">SGR</option>
+																<option value="SHFL">SHFL</option>
+																<option value="SHLD">SHLD</option>
+																<option value="SHOE">SHOE</option>
+																<option value="SHOO">SHOO</option>
+																<option value="SHPGY">SHPGY</option>
+																<option value="SHW">SHW</option>
+																<option value="SIAL">SIAL</option>
+																<option value="SIE">SIE</option>
+																<option value="SII">SII</option>
+																<option value="SIL">SIL</option>
+																<option value="SIMG">SIMG</option>
+																<option value="SIRF">SIRF</option>
+																<option value="SIRI">SIRI</option>
+																<option value="SIX">SIX</option>
+																<option value="SIZ">SIZ</option>
+																<option value="SJM">SJM</option>
+																<option value="SJT">SJT</option>
+																<option value="SJW">SJW</option>
+																<option value="SKIL">SKIL</option>
+																<option value="SKS">SKS</option>
+																<option value="SKT">SKT</option>
+																<option value="SKX">SKX</option>
+																<option value="SKYW">SKYW</option>
+																<option value="SLAB">SLAB</option>
+																<option value="SLB">SLB</option>
+																<option value="SLE">SLE</option>
+																<option value="SLGN">SLGN</option>
+																<option value="SLM">SLM</option>
+																<option value="SLR">SLR</option>
+																<option value="SLXP">SLXP</option>
+																<option value="SM">SM</option>
+																<option value="SMA">SMA</option>
+																<option value="SMBI">SMBI</option>
+																<option value="SMG">SMG</option>
+																<option value="SMH">SMH</option>
+																<option value="SMP">SMP</option>
+																<option value="SMTL">SMTL</option>
+																<option value="SNA">SNA</option>
+																<option value="SNDK">SNDK</option>
+																<option value="SNE">SNE</option>
+																<option value="SNPS">SNPS</option>
+																<option value="SNS">SNS</option>
+																<option value="SNTS">SNTS</option>
+																<option value="SNV">SNV</option>
+																<option value="SNX">SNX</option>
+																<option value="SNY">SNY</option>
+																<option value="SO">SO</option>
+																<option value="SON">SON</option>
+																<option value="SONC">SONC</option>
+																<option value="SONS">SONS</option>
+																<option value="SOV">SOV</option>
+																<option value="SPA">SPA</option>
+																<option value="SPC">SPC</option>
+																<option value="SPF">SPF</option>
+																<option value="SPLS">SPLS</option>
+																<option value="SPP">SPP</option>
+																<option value="SPW">SPW</option>
+																<option value="SPWR">SPWR</option>
+																<option value="SPY">SPY</option>
+																<option value="SRDX">SRDX</option>
+																<option value="SRE">SRE</option>
+																<option value="SRT">SRT</option>
+																<option value="SRVY">SRVY</option>
+																<option value="SRX">SRX</option>
+																<option value="SRZ">SRZ</option>
+																<option value="SSCC">SSCC</option>
+																<option value="SSD">SSD</option>
+																<option value="SSI">SSI</option>
+																<option value="SSL">SSL</option>
+																<option value="SSP">SSP</option>
+																<option value="SSW">SSW</option>
+																<option value="STA">STA</option>
+																<option value="STAR">STAR</option>
+																<option value="STE">STE</option>
+																<option value="STGS">STGS</option>
+																<option value="STI">STI</option>
+																<option value="STJ">STJ</option>
+																<option value="STLD">STLD</option>
+																<option value="STN">STN</option>
+																<option value="STP">STP</option>
+																<option value="STR">STR</option>
+																<option value="STST">STST</option>
+																<option value="STT">STT</option>
+																<option value="STX">STX</option>
+																<option value="STXN">STXN</option>
+																<option value="STXS">STXS</option>
+																<option value="STZ">STZ</option>
+																<option value="SU">SU</option>
+																<option value="SUF">SUF</option>
+																<option value="SUNH">SUNH</option>
+																<option value="SUNW">SUNW</option>
+																<option value="SVC">SVC</option>
+																<option value="SVU">SVU</option>
+																<option value="SWC">SWC</option>
+																<option value="SWHC">SWHC</option>
+																<option value="SWK">SWK</option>
+																<option value="SWKS">SWKS</option>
+																<option value="SWN">SWN</option>
+																<option value="SWY">SWY</option>
+																<option value="SY">SY</option>
+																<option value="SYD">SYD</option>
+																<option value="SYK">SYK</option>
+																<option value="SYMC">SYMC</option>
+																<option value="SYNA">SYNA</option>
+																<option value="SYT">SYT</option>
+																<option value="SYY">SYY</option>
+																<option value="T">T</option>
+																<option value="TAL">TAL</option>
+																<option value="TAP">TAP</option>
+																<option value="TARO">TARO</option>
+																<option value="TASR">TASR</option>
+																<option value="TBL">TBL</option>
+																<option value="TCB">TCB</option>
+																<option value="TCBI">TCBI</option>
+																<option value="TCC">TCC</option>
+																<option value="TCK">TCK</option>
+																<option value="TCO">TCO</option>
+																<option value="TCT">TCT</option>
+																<option value="TDS">TDS</option>
+																<option value="TDW">TDW</option>
+																<option value="TDY">TDY</option>
+																<option value="TE">TE</option>
+																<option value="TECD">TECD</option>
+																<option value="TEK">TEK</option>
+																<option value="TELK">TELK</option>
+																<option value="TER">TER</option>
+																<option value="TEVA">TEVA</option>
+																<option value="TEX">TEX</option>
+																<option value="TFR">TFR</option>
+																<option value="TFSM">TFSM</option>
+																<option value="TFX">TFX</option>
+																<option value="TGT">TGT</option>
+																<option value="THC">THC</option>
+																<option value="THE">THE</option>
+																<option value="THG">THG</option>
+																<option value="THI">THI</option>
+																<option value="THO">THO</option>
+																<option value="THQI">THQI</option>
+																<option value="THX">THX</option>
+																<option value="TIBX">TIBX</option>
+																<option value="TIE">TIE</option>
+																<option value="TIF">TIF</option>
+																<option value="TIN">TIN</option>
+																<option value="TIVO">TIVO</option>
+																<option value="TJX">TJX</option>
+																<option value="TK">TK</option>
+																<option value="TKLC">TKLC</option>
+																<option value="TKR">TKR</option>
+																<option value="TLAB">TLAB</option>
+																<option value="TLB">TLB</option>
+																<option value="TLCV">TLCV</option>
+																<option value="TLM">TLM</option>
+																<option value="TLT">TLT</option>
+																<option value="TM">TM</option>
+																<option value="TMA">TMA</option>
+																<option value="TMK">TMK</option>
+																<option value="TMO">TMO</option>
+																<option value="TMR">TMR</option>
+																<option value="TMX">TMX</option>
+																<option value="TNL">TNL</option>
+																<option value="TOA">TOA</option>
+																<option value="TOL">TOL</option>
+																<option value="TOM">TOM</option>
+																<option value="TOO">TOO</option>
+																<option value="TOT">TOT</option>
+																<option value="TPP">TPP</option>
+																<option value="TPX">TPX</option>
+																<option value="TR">TR</option>
+																<option value="TRA">TRA</option>
+																<option value="TRAD">TRAD</option>
+																<option value="TRB">TRB</option>
+																<option value="TRFC">TRFC</option>
+																<option value="TRI">TRI</option>
+																<option value="TRID">TRID</option>
+																<option value="TRIN">TRIN</option>
+																<option value="TRLG">TRLG</option>
+																<option value="TRMB">TRMB</option>
+																<option value="TRN">TRN</option>
+																<option value="TROW">TROW</option>
+																<option value="TS">TS</option>
+																<option value="TSA">TSA</option>
+																<option value="TSAI">TSAI</option>
+																<option value="TSCM">TSCM</option>
+																<option value="TSCO">TSCO</option>
+																<option value="TSM">TSM</option>
+																<option value="TSN">TSN</option>
+																<option value="TSO">TSO</option>
+																<option value="TTC">TTC</option>
+																<option value="TTEK">TTEK</option>
+																<option value="TTI">TTI</option>
+																<option value="TTMI">TTMI</option>
+																<option value="TTWO">TTWO</option>
+																<option value="TUES">TUES</option>
+																<option value="TUP">TUP</option>
+																<option value="TV">TV</option>
+																<option value="TWB">TWB</option>
+																<option value="TWI">TWI</option>
+																<option value="TWP">TWP</option>
+																<option value="TWTC">TWTC</option>
+																<option value="TWTR">TWTR</option>
+																<option value="TWX">TWX</option>
+																<option value="TXI">TXI</option>
+																<option value="TXN">TXN</option>
+																<option value="TXRH">TXRH</option>
+																<option value="TXT">TXT</option>
+																<option value="TXU">TXU</option>
+																<option value="TYC">TYC</option>
+																<option value="UAG">UAG</option>
+																<option value="UARM">UARM</option>
+																<option value="UAUA">UAUA</option>
+																<option value="UB">UB</option>
+																<option value="UBB">UBB</option>
+																<option value="UBH">UBH</option>
+																<option value="UBS">UBS</option>
+																<option value="UCO">UCO</option>
+																<option value="UFI">UFI</option>
+																<option value="UHCO">UHCO</option>
+																<option value="UHS">UHS</option>
+																<option value="UIS">UIS</option>
+																<option value="UL">UL</option>
+																<option value="ULTI">ULTI</option>
+																<option value="UN">UN</option>
+																<option value="UNFI">UNFI</option>
+																<option value="UNH">UNH</option>
+																<option value="UNM">UNM</option>
+																<option value="UNP">UNP</option>
+																<option value="UNT">UNT</option>
+																<option value="UPL">UPL</option>
+																<option value="UPS">UPS</option>
+																<option value="URBN">URBN</option>
+																<option value="URI">URI</option>
+																<option value="USAP">USAP</option>
+																<option value="USB">USB</option>
+																<option value="USG">USG</option>
+																<option value="USIH">USIH</option>
+																<option value="USPI">USPI</option>
+																<option value="UST">UST</option>
+																<option value="USTR">USTR</option>
+																<option value="UTEK">UTEK</option>
+																<option value="UTI">UTI</option>
+																<option value="UTX">UTX</option>
+																<option value="UVN">UVN</option>
+																<option value="VAL">VAL</option>
+																<option value="VAR">VAR</option>
+																<option value="VAS">VAS</option>
+																<option value="VC">VC</option>
+																<option value="VCI">VCI</option>
+																<option value="VCLK">VCLK</option>
+																<option value="VCP">VCP</option>
+																<option value="VDSI">VDSI</option>
+																<option value="VFC">VFC</option>
+																<option value="VIAB">VIAB</option>
+																<option value="VIGN">VIGN</option>
+																<option value="VITL">VITL</option>
+																<option value="VLCM">VLCM</option>
+																<option value="VLO">VLO</option>
+																<option value="VLTR">VLTR</option>
+																<option value="VMC">VMC</option>
+																<option value="VMSI">VMSI</option>
+																<option value="VOD">VOD</option>
+																<option value="VOL">VOL</option>
+																<option value="VPHM">VPHM</option>
+																<option value="VPRT">VPRT</option>
+																<option value="VRSN">VRSN</option>
+																<option value="VRTX">VRTX</option>
+																<option value="VRX">VRX</option>
+																<option value="VSAT">VSAT</option>
+																<option value="VSE">VSE</option>
+																<option value="VSEA">VSEA</option>
+																<option value="VSH">VSH</option>
+																<option value="VTAL">VTAL</option>
+																<option value="VTIV">VTIV</option>
+																<option value="VTS">VTS</option>
+																<option value="VVC">VVC</option>
+																<option value="VVI">VVI</option>
+																<option value="VVTV">VVTV</option>
+																<option value="VZ">VZ</option>
+																<option value="WAB">WAB</option>
+																<option value="WAG">WAG</option>
+																<option value="WAL">WAL</option>
+																<option value="WAT">WAT</option>
+																<option value="WB">WB</option>
+																<option value="WBSN">WBSN</option>
+																<option value="WCC">WCC</option>
+																<option value="WCI">WCI</option>
+																<option value="WCRX">WCRX</option>
+																<option value="WDC">WDC</option>
+																<option value="WDR">WDR</option>
+																<option value="WEC">WEC</option>
+																<option value="WEN">WEN</option>
+																<option value="WERN">WERN</option>
+																<option value="WFC">WFC</option>
+																<option value="WFMI">WFMI</option>
+																<option value="WFR">WFR</option>
+																<option value="WFT">WFT</option>
+																<option value="WGII">WGII</option>
+																<option value="WGL">WGL</option>
+																<option value="WGO">WGO</option>
+																<option value="WGR">WGR</option>
+																<option value="WHQ">WHQ</option>
+																<option value="WHR">WHR</option>
+																<option value="WIN">WIN</option>
+																<option value="WIRE">WIRE</option>
+																<option value="WITS">WITS</option>
+																<option value="WLK">WLK</option>
+																<option value="WLL">WLL</option>
+																<option value="WLM">WLM</option>
+																<option value="WLP">WLP</option>
+																<option value="WLSC">WLSC</option>
+																<option value="WLT">WLT</option>
+																<option value="WLV">WLV</option>
+																<option value="WM">WM</option>
+																<option value="WMB">WMB</option>
+																<option value="WMG">WMG</option>
+																<option value="WMI">WMI</option>
+																<option value="WMS">WMS</option>
+																<option value="WMT">WMT</option>
+																<option value="WNC">WNC</option>
+																<option value="WNR">WNR</option>
+																<option value="WOLF">WOLF</option>
+																<option value="WON">WON</option>
+																<option value="WOOF">WOOF</option>
+																<option value="WOR">WOR</option>
+																<option value="WPC">WPC</option>
+																<option value="WPI">WPI</option>
+																<option value="WPL">WPL</option>
+																<option value="WPP">WPP</option>
+																<option value="WPTE">WPTE</option>
+																<option value="WRES">WRES</option>
+																<option value="WRNC">WRNC</option>
+																<option value="WSH">WSH</option>
+																<option value="WSM">WSM</option>
+																<option value="WSO">WSO</option>
+																<option value="WTKWY">WTKWY</option>
+																<option value="WTM">WTM</option>
+																<option value="WTS">WTS</option>
+																<option value="WTSLA">WTSLA</option>
+																<option value="WTW">WTW</option>
+																<option value="WTZ">WTZ</option>
+																<option value="WU">WU</option>
+																<option value="WWW">WWW</option>
+																<option value="WWY">WWY</option>
+																<option value="WXS">WXS</option>
+																<option value="WY">WY</option>
+																<option value="WYE">WYE</option>
+																<option value="WYN">WYN</option>
+																<option value="WYNN">WYNN</option>
+																<option value="WZEN">WZEN</option>
+																<option value="X">X</option>
+																<option value="XBI">XBI</option>
+																<option value="XEC">XEC</option>
+																<option value="XEL">XEL</option>
+																<option value="XHB">XHB</option>
+																<option value="XL">XL</option>
+																<option value="XLB">XLB</option>
+																<option value="XLE">XLE</option>
+																<option value="XLI">XLI</option>
+																<option value="XLK">XLK</option>
+																<option value="XLNX">XLNX</option>
+																<option value="XLU">XLU</option>
+																<option value="XLV">XLV</option>
+																<option value="XMSR">XMSR</option>
+																<option value="XOHO">XOHO</option>
+																<option value="XOM">XOM</option>
+																<option value="XPL">XPL</option>
+																<option value="XPRT">XPRT</option>
+																<option value="XRM">XRM</option>
+																<option value="XRT">XRT</option>
+																<option value="XRX">XRX</option>
+																<option value="XTO">XTO</option>
+																<option value="XTXI">XTXI</option>
+																<option value="YCC">YCC</option>
+																<option value="YHOO">YHOO</option>
+																<option value="YRCW">YRCW</option>
+																<option value="YUM">YUM</option>
+																<option value="ZBRA">ZBRA</option>
+																<option value="ZGEN">ZGEN</option>
+																<option value="ZION">ZION</option>
+																<option value="ZLC">ZLC</option>
+																<option value="ZMH">ZMH</option>
+																<option value="ZOLL">ZOLL</option>
+																<option value="ZOLT">ZOLT</option>
+																<option value="ZQK">ZQK</option>
+																<option value="ZRAN">ZRAN</option>
+																<option value="ZUMZ">ZUMZ</option>
+																<option value="ZZ">ZZ</option>
+																																</select>
+																</td>
+																<td width="5">&nbsp;</td>
+																<td width="100">																
+																<select class="Text1" name="sel_month" size="1" >
+																<option value="">&nbsp;BROKERAGE MONTH&nbsp;&nbsp;</option>
+																<option value="">_______________</option>
+																<option value="Nov^2006">Nov 2006</option><option value="Oct^2006">Oct 2006</option><option value="Sep^2006">Sep 2006</option><option value="Aug^2006">Aug 2006</option><option value="Jul^2006">Jul 2006</option><option value="Jun^2006">Jun 2006</option><option value="May^2006">May 2006</option><option value="Apr^2006">Apr 2006</option><option value="Mar^2006">Mar 2006</option><option value="Feb^2006">Feb 2006</option><option value="Jan^2006">Jan 2006</option>																</select>
+																</td>
+
+																<SCRIPT LANGUAGE="JavaScript" SRC="../includes/calendarpopup/CalendarPopup.js"></SCRIPT>
+																<SCRIPT LANGUAGE="JavaScript">document.write(getCalendarStyles());</SCRIPT>
+																	<SCRIPT LANGUAGE="JavaScript">
+																	var calfrom = new CalendarPopup("divfrom");
+																	calfrom.addDisabledDates("11/06/2006",null);
+																	var calto = new CalendarPopup("divto");
+																	calto.addDisabledDates("11/06/2006",null);
+																	
+																	</SCRIPT>																
+																<td width="5">&nbsp;</td>
+																<td width="10">From:</td>
+																<td width="10"><input type="text" id="iddatefrom" class="Text1" name="datefrom" readonly size="12" maxlength="12" value="11/03/2006"></td>
+																<td width="20" align="center"><A HREF="#" onClick="calfrom.select(document.forms['clnt_activity'].datefrom,'anchor1','MM/dd/yyyy'); return false;" NAME="anchor1" ID="anchor1"><img src="../images/lf_v1/sel_date.png" border="0"></A></td>
+																<td width="5">&nbsp;</td>
+																<td width="10">To:</td>
+																<td width="10"><input type="text" id="iddateto" class="Text1" name="dateto" readonly size="12" maxlength="12" value="11/03/2006"></td>
+																<td width="20" align="center"><A HREF="#" onClick="calto.select(document.forms['clnt_activity'].dateto,'anchor2','MM/dd/yyyy'); return false;" NAME="anchor2" ID="anchor2"><img src="../images/lf_v1/sel_date.png" border="0"></A></td>
+																<td width="5">&nbsp;</td>
+																<td width="10"><input type="image" src="../images/lf_v1/form_submit.png"></td>
+																<td width="10" align="center">&nbsp;</td>
+																<td width="10" align="center">&nbsp;</td>
+																<td>&nbsp;</td>
+															</tr>
+														</form>			
+														</table>
+														</td> 
+													</tr>
+												</table>
+												<!-- END TABLE 4 -->
+              </td>
+						</tr>
+						</table>
+						<!-- END TABLE 3 -->
+				</td>
+			</tr>
+			<tr id="pbd"> <!--  style="display=none; visibility=hidden" -->
+				<td>
+					
+<table width="100%" cellpadding="1", cellspacing="0" bgcolor="#CCCCCC">
+	<tr>
+		<td valign="top">				
+		<table width="100%" border="0" cellspacing="1" cellpadding="2" bgcolor="#FFFFFF">				
+			<tr>
+					<td align="left"><a class="links_temp" href="../rep_all_rep_ca_exp_trade_excel.php?xl=eae27d77ca20db309e056e3d2dcd7d69^^2006-11-03^2006-11-03^^^" target="_blank">GET TO EXCEL</a>&nbsp;&nbsp;&nbsp;<font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#666666"><strong></strong>&nbsp;&nbsp;</font></td>
+					<td>&nbsp;</td>
+				</tr>
+		</table>
+
+				
+				
+		<table width="100%" border="0" cellspacing="1" cellpadding="2" bgcolor="#FFFFFF">
+		  <thead class="datadisplay"> <!--  class="datadisplay" -->
+				<tr bgcolor="#333333" class="tblhead_a">
+					<th width="80"> <a href="" onClick="this.blur(); return sortTable('offTblBdy', 0, false);" title="Trade Date">Trade Date</a></th>
+				  <th width="276"><a href="" onClick="this.blur(); return sortTable('offTblBdy', 1, false);" title="ADVISOR / CLIENT">ADVISOR / CLIENT</a></th>
+					<th width="56"> <a href="" onClick="this.blur(); return sortTable('offTblBdy', 2, false);" title="RR #">RR #</a></th>
+					<th width="80"> <a href="" onClick="this.blur(); return sortTable('offTblBdy', 3, false);" title="Symbol">Symbol</a></th>
+					<th width="80"> <a href="" onClick="this.blur(); return sortTable('offTblBdy', 4, false);" title="Buy/Sell">B/S</a></th>
+					<th width="80"> <a href="" onClick="this.blur(); return sortTable('offTblBdy', 5, false);" title="Shares">Shares</a></th>
+					<th width="80"> <a href="" onClick="this.blur(); return sortTable('offTblBdy', 6, false);" title="Price">Price</a></th>
+					<th width="80"> <a href="" onClick="this.blur(); return sortTable('offTblBdy', 7, false);" title="Commission">Commission</a></th>
+					<th width="100"> <a href="" onClick="this.blur(); return sortTable('offTblBdy', 8, false);" title="Comm./Shr. ($)">Comm./Shr. ($)</a></th>
+					<th><a href="#" title="RESEARCH">&nbsp;&nbsp;&nbsp;RESEARCH</a></th>
+				</tr>
+  		</thead>
+  		<tbody id="offTblBdy" class="datadisplay">			
+			<script type="text/javascript">
+				var displaytrades = new Array()
+
+			displaytrades [0] = "11/03/2006^AMBER CAPITAL           ^046^ROH^&nbsp;&nbsp;&nbsp;&nbsp;S^11,100^51.34^444.00^0.040^1";
+displaytrades [1] = "11/03/2006^AVESTA CAP              ^229^CBE^B^25,000^89.57^1,250.00^0.050^1";
+displaytrades [2] = "11/03/2006^BALYASNY ASSET MGMT     ^044^BEN^&nbsp;&nbsp;&nbsp;&nbsp;S^5,000^109.50^250.00^0.050^1";
+displaytrades [3] = "11/03/2006^BALYASNY ASSET MGMT     ^044^FII^B^20,000^33.57^1,000.00^0.050^1";
+displaytrades [4] = "11/03/2006^BALYASNY ASSET MGMT     ^044^JPM^&nbsp;&nbsp;&nbsp;&nbsp;S^20,000^46.70^1,000.00^0.050^1";
+displaytrades [5] = "11/03/2006^BALYASNY ASSET MGMT     ^044^KEY^&nbsp;&nbsp;&nbsp;&nbsp;S^15,000^36.72^750.00^0.050^0";
+displaytrades [6] = "11/03/2006^BALYASNY ASSET MGMT     ^044^NTRS^&nbsp;&nbsp;&nbsp;&nbsp;S^20,000^58.20^1,000.00^0.050^1";
+displaytrades [7] = "11/03/2006^BALYASNY ASSET MGMT     ^044^NYB^&nbsp;&nbsp;&nbsp;&nbsp;S^30,000^15.74^1,500.00^0.050^0";
+displaytrades [8] = "11/03/2006^BALYASNY ASSET MGMT     ^044^WFC^&nbsp;&nbsp;&nbsp;&nbsp;S^20,000^36.14^1,000.00^0.050^0";
+displaytrades [9] = "11/03/2006^BALYASNY ASSET MGMT     ^044^ZION^B^15,000^77.95^750.00^0.050^0";
+displaytrades [10] = "11/03/2006^BEAR STEARNS ASSET MGMT.^033^COST^B^36,700^52.21^1,468.00^0.040^1";
+displaytrades [11] = "11/03/2006^BENCHMARK               ^028^JNS^&nbsp;&nbsp;&nbsp;&nbsp;S^20,000^19.19^1,000.00^0.050^1";
+displaytrades [12] = "11/03/2006^BUCK CAPITAL MGMT       ^001^BIG^&nbsp;&nbsp;&nbsp;&nbsp;S^5,000^20.37^200.00^0.040^1";
+displaytrades [13] = "11/03/2006^BUCK CAPITAL MGMT       ^001^CLE^B^30,000^27.69^1,200.00^0.040^1";
+displaytrades [14] = "11/03/2006^BUCK CAPITAL MGMT       ^001^COH^B^10,000^38.81^400.00^0.040^1";
+displaytrades [15] = "11/03/2006^BUCK CAPITAL MGMT       ^001^DSW^B^100,000^30.24^4,000.00^0.040^0";
+displaytrades [16] = "11/03/2006^BUCK CAPITAL MGMT       ^001^FD^&nbsp;&nbsp;&nbsp;&nbsp;S^150,000^40.21^6,000.00^0.040^1";
+displaytrades [17] = "11/03/2006^BUCK CAPITAL MGMT       ^001^FDO^&nbsp;&nbsp;&nbsp;&nbsp;S^30,000^27.66^1,200.00^0.040^1";
+displaytrades [18] = "11/03/2006^BUCK CAPITAL MGMT       ^001^GES^B^10,000^63.03^400.00^0.040^0";
+displaytrades [19] = "11/03/2006^BUCK CAPITAL MGMT       ^001^JCP^B^20,000^76.06^800.00^0.040^1";
+displaytrades [20] = "11/03/2006^BUCK CAPITAL MGMT       ^001^KCP^&nbsp;&nbsp;&nbsp;&nbsp;S^50,000^23.25^2,000.00^0.040^1";
+displaytrades [21] = "11/03/2006^BUCK CAPITAL MGMT       ^001^KWD^&nbsp;&nbsp;&nbsp;&nbsp;S^5,000^29.63^200.00^0.040^0";
+displaytrades [22] = "11/03/2006^BUCK CAPITAL MGMT       ^001^RL^B^10,000^69.72^400.00^0.040^1";
+displaytrades [23] = "11/03/2006^BUCK CAPITAL MGMT       ^001^TBL^B^45,000^28.57^1,800.00^0.040^1";
+displaytrades [24] = "11/03/2006^BUCK CAPITAL MGMT       ^001^TLB^B^10,000^25.90^400.00^0.040^1";
+displaytrades [25] = "11/03/2006^CAPITAL GROWTH MGMT.    ^241^PCU^&nbsp;&nbsp;&nbsp;&nbsp;S^20,000^52.59^1,000.00^0.050^0";
+displaytrades [26] = "11/03/2006^CAXTON PART             ^040^TGT^&nbsp;&nbsp;&nbsp;&nbsp;S^97,771^56.50^3,910.84^0.040^1";
+displaytrades [27] = "11/03/2006^CIRCLE T PART           ^035^DLTR^&nbsp;&nbsp;&nbsp;&nbsp;S^10,000^30.37^400.00^0.040^1";
+displaytrades [28] = "11/03/2006^COUGAR TRADING          ^044^CBK^B^5,000^21.82^250.00^0.050^1";
+displaytrades [29] = "11/03/2006^COUGAR TRADING          ^044^CLE^&nbsp;&nbsp;&nbsp;&nbsp;S^10,000^27.42^500.00^0.050^1";
+displaytrades [30] = "11/03/2006^COUGAR TRADING          ^044^EAT^&nbsp;&nbsp;&nbsp;&nbsp;S^15,000^45.07^750.00^0.050^1";
+displaytrades [31] = "11/03/2006^COUGAR TRADING          ^044^GPS^&nbsp;&nbsp;&nbsp;&nbsp;S^15,000^19.65^750.00^0.050^1";
+displaytrades [32] = "11/03/2006^DALTON GREINER          ^012^TROW^&nbsp;&nbsp;&nbsp;&nbsp;S^95,990^45.37^4,799.50^0.050^1";
+displaytrades [33] = "11/03/2006^DAWSON SANBERG & CO     ^036^JBX^&nbsp;&nbsp;&nbsp;&nbsp;S^75,900^53.66^3,795.00^0.050^1";
+displaytrades [34] = "11/03/2006^DIAMONDBACK CAP MGMT    ^232^COP^B^25,000^61.41^1,250.00^0.050^0";
+displaytrades [35] = "11/03/2006^DIAMONDBACK CAP MGMT    ^232^DLTR^&nbsp;&nbsp;&nbsp;&nbsp;S^4,000^30.40^200.00^0.050^1";
+displaytrades [36] = "11/03/2006^DIAMONDBACK CAP MGMT    ^232^HAL^B^2,000^31.70^100.00^0.050^0";
+displaytrades [37] = "11/03/2006^DIAMONDBACK CAP MGMT    ^232^LH^&nbsp;&nbsp;&nbsp;&nbsp;S^39,700^67.31^1,985.00^0.050^0";
+displaytrades [38] = "11/03/2006^DIAMONDBACK CAP MGMT    ^232^LUV^B^200,000^14.64^10,000.00^0.050^0";
+displaytrades [39] = "11/03/2006^DIAMONDBACK CAP MGMT    ^232^OXY^B^60,000^47.44^3,000.00^0.050^0";
+displaytrades [40] = "11/03/2006^DIAMONDBACK CAP MGMT    ^232^TWB^B^62,000^41.29^3,100.00^0.050^1";
+displaytrades [41] = "11/03/2006^DSG CAPITAL             ^225^AVZ^&nbsp;&nbsp;&nbsp;&nbsp;S^19,700^22.65^985.00^0.050^1";
+displaytrades [42] = "11/03/2006^EGS ASSOCIATES LP       ^059^FD^B^3,000^39.98^180.00^0.060^1";
+displaytrades [43] = "11/03/2006^FARALLON CAP MGMT       ^040^DGX^B^60,000^49.68^2,400.00^0.040^0";
+displaytrades [44] = "11/03/2006^FARALLON CAP MGMT       ^040^XLU^B^400,000^35.49^12,000.00^0.030^0";
+displaytrades [45] = "11/03/2006^FIRST NEW YORK LEDDY    ^035^FDO^&nbsp;&nbsp;&nbsp;&nbsp;S^15,000^27.63^900.00^0.060^1";
+displaytrades [46] = "11/03/2006^FRIESS MGMT             ^042^CBK^&nbsp;&nbsp;&nbsp;&nbsp;S^315,300^21.92^14,188.50^0.045^1";
+displaytrades [47] = "11/03/2006^GALLEON MGMT LP         ^033^FDO^&nbsp;&nbsp;&nbsp;&nbsp;S^15,000^27.68^750.00^0.050^1";
+displaytrades [48] = "11/03/2006^GALLEON MGMT LP         ^033^INTC^B^50,000^20.62^2,500.00^0.050^0";
+displaytrades [49] = "11/03/2006^GALLEON MGMT LP         ^033^WRNC^&nbsp;&nbsp;&nbsp;&nbsp;S^15,000^24.03^750.00^0.050^1";
+displaytrades [50] = "11/03/2006^GLG PARTNERS            ^034^FD^&nbsp;&nbsp;&nbsp;&nbsp;S^15,000^41.04^750.00^0.050^1";
+displaytrades [51] = "11/03/2006^GRACIE CAPITAL          ^028^NRG^B^125,000^51.85^6,250.00^0.050^0";
+displaytrades [52] = "11/03/2006^GRUBER MACBAINE         ^033^FDO^&nbsp;&nbsp;&nbsp;&nbsp;S^20,000^27.64^800.00^0.040^1";
+displaytrades [53] = "11/03/2006^HIGHBRIDGE CAPITAL      ^038^ALB^B^11,000^64.10^550.00^0.050^0";
+displaytrades [54] = "11/03/2006^HIGHBRIDGE CAPITAL      ^038^DOW^B^9,000^40.59^450.00^0.050^1";
+displaytrades [55] = "11/03/2006^HIGHBRIDGE CAPITAL      ^038^KEY^B^5,000^36.94^250.00^0.050^0";
+displaytrades [56] = "11/03/2006^HIGHBRIDGE CAPITAL      ^038^PPG^B^7,000^67.40^350.00^0.050^1";
+displaytrades [57] = "11/03/2006^HIGHBRIDGE CAPITAL      ^038^RF^B^4,000^37.41^200.00^0.050^0";
+displaytrades [58] = "11/03/2006^JANUS CAPITAL CORP      ^046^WFMI^&nbsp;&nbsp;&nbsp;&nbsp;S^200,000^47.18^7,000.00^0.035^0";
+displaytrades [59] = "11/03/2006^JEFFRIES MIKE           ^067^CBK^B^40,000^21.95^2,000.00^0.050^1";
+displaytrades [60] = "11/03/2006^LEVIN CAPITAL STRATEGIES^012^CLE^&nbsp;&nbsp;&nbsp;&nbsp;S^10,000^27.42^400.00^0.040^1";
+displaytrades [61] = "11/03/2006^LEVIN CAPITAL STRATEGIES^012^FDO^&nbsp;&nbsp;&nbsp;&nbsp;S^15,000^27.58^600.00^0.040^1";
+displaytrades [62] = "11/03/2006^M. KRAUS & CO.          ^037^SBL^&nbsp;&nbsp;&nbsp;&nbsp;S^14,575^14.85^728.75^0.050^1";
+displaytrades [63] = "11/03/2006^MATTHES CAPITAL MGMT    ^033^FDO^&nbsp;&nbsp;&nbsp;&nbsp;S^25,000^27.63^1,000.00^0.040^1";
+displaytrades [64] = "11/03/2006^MAZAMA CAPITAL MGMT.    ^035^EVR^B^36,000^35.08^1,440.00^0.040^0";
+displaytrades [65] = "11/03/2006^MAZAMA CAPITAL MGMT.    ^035^FIX^&nbsp;&nbsp;&nbsp;&nbsp;S^29,600^12.76^1,184.00^0.040^0";
+displaytrades [66] = "11/03/2006^MERRILL ASSET           ^032^DCP^&nbsp;&nbsp;&nbsp;&nbsp;S^20,000^10.58^1,000.00^0.050^0";
+displaytrades [67] = "11/03/2006^MERRILL ASSET           ^032^DRC^B^26,200^22.07^1,310.00^0.050^0";
+displaytrades [68] = "11/03/2006^PEREGRINE               ^030^ZQK^&nbsp;&nbsp;&nbsp;&nbsp;S^80,000^13.56^4,000.00^0.050^1";
+displaytrades [69] = "11/03/2006^PILOT ADV               ^038^MWV^B^65,000^27.80^2,600.00^0.040^1";
+displaytrades [70] = "11/03/2006^PRINCIPLE CAPITAL       ^040^FDO^&nbsp;&nbsp;&nbsp;&nbsp;S^50,000^27.59^2,000.00^0.040^1";
+displaytrades [71] = "11/03/2006^ROTHSCHILD ASSET        ^040^MSM^&nbsp;&nbsp;&nbsp;&nbsp;S^45,200^38.33^2,034.00^0.045^0";
+displaytrades [72] = "11/03/2006^ROYAL CAPITAL           ^039^LZB^B^8,400^12.00^420.00^0.050^0";
+displaytrades [73] = "11/03/2006^S.A.C. CAPITAL MGMT.    ^044^VPHM^B^10,384^12.70^519.20^0.050^0";
+displaytrades [74] = "11/03/2006^SAC TRADING HOWARD      ^038^GPS^&nbsp;&nbsp;&nbsp;&nbsp;S^50,000^19.64^2,500.00^0.050^1";
+displaytrades [75] = "11/03/2006^SAGE ASSET MGMT         ^012^DE^B^78,700^86.24^3,935.00^0.050^0";
+displaytrades [76] = "11/03/2006^SAGE ASSET MGMT         ^012^HTV^B^25,000^25.35^1,250.00^0.050^0";
+displaytrades [77] = "11/03/2006^SANDELL ADV             ^040^CEG^B^50,000^63.00^2,500.00^0.050^0";
+displaytrades [78] = "11/03/2006^SANDLER CAPITAL         ^038^TLB^B^70,000^26.15^4,200.00^0.060^1";
+displaytrades [79] = "11/03/2006^SEAROCK CAPITAL MANAGE  ^012^EAT^&nbsp;&nbsp;&nbsp;&nbsp;S^30,000^44.82^1,200.00^0.040^1";
+displaytrades [80] = "11/03/2006^SEAROCK CAPITAL MANAGE  ^012^YUM^&nbsp;&nbsp;&nbsp;&nbsp;S^30,000^57.94^1,200.00^0.040^1";
+displaytrades [81] = "11/03/2006^SUN AMERICA ASSET MGMT  ^030^MO^&nbsp;&nbsp;&nbsp;&nbsp;S^28,000^81.17^1,400.00^0.050^0";
+displaytrades [82] = "11/03/2006^SUN AMERICA ASSET MGMT  ^030^TLAB^B^58,000^10.77^2,900.00^0.050^1";
+displaytrades [83] = "11/03/2006^SUN AMERICA ASSET MGMT  ^030^WTW^&nbsp;&nbsp;&nbsp;&nbsp;S^48,300^46.57^2,415.00^0.050^0";
+displaytrades [84] = "11/03/2006^THE JAY GOLDMAN         ^034^ARO^&nbsp;&nbsp;&nbsp;&nbsp;S^18,000^29.57^720.00^0.040^1";
+displaytrades [85] = "11/03/2006^THOMSON HORSTMAN BRYANT ^040^NWY^B^60,000^12.83^3,000.00^0.050^1";
+displaytrades [86] = "11/03/2006^TROUBH PART             ^067^FOSL^&nbsp;&nbsp;&nbsp;&nbsp;S^2,318^21.60^115.90^0.050^1";
+displaytrades [87] = "11/03/2006^TRUST CO/COWEN/CALF.    ^040^PIR^B^29,830^6.07^1,193.20^0.040^0";
+displaytrades [88] = "11/03/2006^VANDER MOOLEN           ^040^GE^B^10,000^34.96^500.00^0.050^0";
+displaytrades [89] = "11/03/2006^VIKING GLOBAL           ^030^WAG^B^340,000^42.92^17,000.00^0.050^0";
+displaytrades [90] = "11/03/2006^VISIUM/BALY HOWARD      ^038^BKS^B^30,000^40.69^1,500.00^0.050^0";
+displaytrades [91] = "11/03/2006^WEISS PECK              ^040^CMX^&nbsp;&nbsp;&nbsp;&nbsp;S^10,000^47.65^400.00^0.040^0";
+displaytrades [92] = "11/03/2006^WEISS PECK              ^040^CVS^B^16,700^29.00^668.00^0.040^0";
+displaytrades [93] = "11/03/2006^WEISS PECK              ^040^FSLB^B^15,000^39.52^600.00^0.040^0";
+displaytrades [94] = "11/03/2006^XYLEM GLOBAL            ^024^LPX^B^50,000^19.11^2,500.00^0.050^1";
+		
+				var now         = new Date();
+				var datefromString = (now.getMonth()-2) + '-' + now.getDate() + '-' + now.getYear();
+				var datetoString = (now.getMonth()+1) + '-' + now.getDate() + '-' + now.getYear();
+				
+				for (i=0;i<displaytrades.length;i++)
+					{
+					var rowtrades_array = new Array()
+					var rowclass
+					var research_link
+					if (i%2 == 0) {
+						rowclass = " class=\"alternateRow\"";
+					} else {
+						rowclass = "";
+					}
+					
+					rowtrades_array=displaytrades[i].split("^");
+					
+					if (rowtrades_array[9]==1) {
+					research_link = "<a href='http://192.168.20.63/rv/sr/?in_ticker="+
+										rowtrades_array[3]+
+										"&datefrom=" + datefromString + "&dateto=" + datetoString +
+										"'" +
+										" target='_blank'><img src='images/lf_v1/research.png' border='0' alt='Recent Research on "+
+										rowtrades_array[3]+
+										"'></a>";
+					} else {
+					research_link = "";
+					}
+					
+						document.write(
+										"<tr" + rowclass + ">"+"<td>&nbsp;&nbsp;&nbsp;"+rowtrades_array[0]+"</td>"+
+										"<td><div align='left'>&nbsp; &nbsp; &nbsp; "+rowtrades_array[1]+"</div></td>"+
+										"<td>&nbsp;&nbsp;&nbsp;"+rowtrades_array[2]+"</td>"+
+										"<td>&nbsp;&nbsp;&nbsp;"+rowtrades_array[3]+"</td>"+
+										"<td>&nbsp;&nbsp;&nbsp;"+rowtrades_array[4]+"</td>"+
+										"<td align='right'>"+rowtrades_array[5]+"&nbsp;&nbsp;&nbsp;</td>"+
+										"<td align='right'>"+rowtrades_array[6]+"&nbsp;&nbsp;&nbsp;</td>"+
+										"<td align='right'>"+rowtrades_array[7]+"&nbsp;&nbsp;&nbsp;</td>"+
+										"<td align='right'>"+rowtrades_array[8]+"&nbsp;&nbsp;&nbsp;</td>"+
+										"<td align='right'>&nbsp;" + research_link + "&nbsp;&nbsp;&nbsp;</td></tr>");
+					}
+					</script>
+
+				</tbody>
+					<tr bgcolor="#CCCCCC" class="display_totals">
+						<td><div align="left">&nbsp;&nbsp;TOTALS:</div></td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td align="right">&nbsp;</td>
+						<td align="right">&nbsp;</td>
+						<td align="right">190,388.89&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td align="right">&nbsp;</td>
+						<td>&nbsp;</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>				</td>
+			</tr>
+
+		</table>
+		</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+	<DIV ID="divfrom" STYLE="position:absolute;visibility:hidden;background-color:white;layer-background-color:white;"></DIV>
+	<DIV ID="divto" STYLE="position:absolute;visibility:hidden;background-color:white;layer-background-color:white;"></DIV>			
+				</td>
+			</tr>
+		</table>
+		<!-- END TABLE 1 -->
+	</td>
+</tr>
+<tr valign="bottom">
+<td>
+	<table width="100%" height="20">
+		<tr valign="top">
+		<td align="center" valign="bottom">
+			<table width="100%" height="20" border="0" cellpadding="0" cellspacing="0">
+				<tr valign="top"> 
+				<td align="center" valign="bottom">
+						<hr align="center" size="1" color="#CCCCCC" noshade>
+						<center><a class="centersys" href="http://www.centersysgroup.com" target="_blank">CenterSys Group, Inc.</a>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="centersys">
+						 0.0000742 s.						</center></a>
+				</td>
+				</tr>
+			</table>
+		</td>
+		</tr>
+	</table>
+</td>
+</tr>
+</table>
+</body>
+</html>

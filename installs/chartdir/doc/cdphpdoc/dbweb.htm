@@ -1,0 +1,60 @@
+<HTML>
+<HEAD>
+<Title>Using ChartDirector with Database in Web Pages</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">Using ChartDirector with Database in Web Pages</p>
+<hr class="separator">
+<div class="content">
+To display any image in a HTML web page, one needs to insert an &lt;IMG&gt; tag
+in the HTML web page. When the browser sees the &lt;IMG&gt; tag, it will load the
+image using the URL in the &lt;IMG&gt; tag in another HTTP connection.
+<br><br>
+This is no difference to display a ChartDirector chart in a HTML web page. An
+&lt;IMG&gt; tag must be used. In this case, the URL in the &lt;IMG&gt; tag
+points to a "ChartDirector script" (a script using ChartDirector to create and
+deliver chart images) instead of a static image file.
+<br><br>
+Thus two scripts can be invoked when displaying a ChartDirector chart in a HTML
+web page - the script that create the HTML web page, and the script referenced
+in the URL of &lt;IMG&gt; tag that delivers the chart to the browser.
+</div>
+<p class="heading2">Strategies in Passing Data to ChartDirector</p>
+<div class="content">
+To create a chart in which the data come from a database, there are
+several options:
+<br><br>
+<ol>
+<li>Perform the database query in the ChartDirector script (the script
+referenced in the &lt;IMG&gt; tag) to obtain the data and create the chart.
+<br><br>
+<li>Perform the database query in script for the containing HTML page, and pass
+the data to the ChartDirector script as HTTP query parameters.
+<br><br>
+This method allows the data from the database query to be used in multiple
+charts in the HTML page, and in the HTML page itself (eg. displayed as tables).
+<br><br>
+<li>Same as above, but instead of using HTTP query parameters to pass the
+data, use "session variables".
+<br><br>
+One limitation of HTTP query parameters is the query cannot exceed 2048 bytes,
+so it cannot pass too much data. "Session variables" can be used in this case
+to transfer data among scripts.
+<br><br>
+<li>Perform the database query and create the chart image in the
+script for the containing HTML page. Save the chart image to a "session
+variable". Use an &lt;IMG&gt; tag inform the browser to pick up the image from
+the "session variable".
+<br><br>
+This approach is commonly used in creating <a href="clickablecharts.htm">
+clickable charts</a>, but it can be used for other charts as well. ChartDirector
+has a special method <a href="BaseChart.makeSession.htm">BaseChart.makeSession</a> to support this approach.
+<br><br>
+<b>Note:</b> When using temporary files, make sure the security settings allow
+the web server anonymous user to write to the temporary directory. (By default
+anonymous users cannot write to any directory.)
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div></body>
+</HTML>

@@ -1,0 +1,677 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Menu"
+HREF="package.html.html-menu.html"><LINK
+REL="PREVIOUS"
+TITLE="HTML_Menu"
+HREF="package.html.html-menu.html"><LINK
+REL="NEXT"
+TITLE="constructor HTML_Menu::HTML_Menu()"
+HREF="package.html.html-menu.html-menu.html-menu.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-menu.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-menu.html-menu.html-menu.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-menu.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN50252"
+></A
+>Introduction&nbsp;--&nbsp;Menu structure and supported output modes</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-menu.intro.hash"
+></A
+><H2
+>Menu hash structure</H2
+><P
+>&#13;     The menu structure is defined by a multidimensional hash. This makes it quite easy to generate and traverse:
+     <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN50258"><P
+><B
+>Example 41-1. Menu multidimensional hash</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>array(
+    1 =&#62; array(
+        'title' =&#62; 'Menu item 1', 
+        'url' =&#62; '/item1.php',
+        'sub' =&#62; array(
+            11 =&#62; array('title' =&#62; 'Menu item 1.1', 'url' =&#62; '/item1.1.php'),
+            12 =&#62; array(
+                'title' =&#62; 'Menu item 1.2', 
+                'url' =&#62; '/item1.2.php',
+                'sub' =&#62; array(
+                    121 =&#62; array('title' =&#62; 'Menu item 1.2.1', 'url' =&#62; '/item1.2.1.php'),
+                    122 =&#62; array('title' =&#62; 'Menu item 1.2.2', 'url' =&#62; '/item1.2.2.php')
+                )
+            )
+        )
+    ),
+    2 =&#62; array(
+        'title' =&#62; 'Menu item 2', 
+        'url' =&#62; '/item2.php',
+        'sub' =&#62; array(
+            21 =&#62; array('title' =&#62; 'Menu item 2.1', 'url' =&#62; '/item2.1.php'),
+            22 =&#62; array('title' =&#62; 'Menu item 2.2', 'url' =&#62; '/item2.2.php')
+        )
+    )
+);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+     Each entry should have at least <TT
+CLASS="literal"
+>'url'</TT
+> and <TT
+CLASS="literal"
+>'title'</TT
+> 
+     keys and may also have <TT
+CLASS="literal"
+>'sub'</TT
+> key containing the children of this entry. Note that
+     keys in the entry arrays serve as node identifiers and should be unique.
+    </P
+><P
+>&#13;    The menu entries can also contain custom keys. If such keys are present, then they will be used by renderers in creating the output (this usually means that the content of such a key will be assigned to the template placeholder with the same name).
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-menu.intro.types"
+></A
+><H2
+>Supported output modes</H2
+><P
+>&#13;      <B
+CLASS="classname"
+>HTML_Menu</B
+> supports five output modes: <TT
+CLASS="literal"
+>'tree'</TT
+> (default), <TT
+CLASS="literal"
+>'rows'</TT
+>, <TT
+CLASS="literal"
+>'urhere'</TT
+>, <TT
+CLASS="literal"
+>'prevnext'</TT
+> and <TT
+CLASS="literal"
+>'sitemap'</TT
+>.
+      Lets use the array defined above as menu structure assuming that element <TT
+CLASS="literal"
+>'Menu item 1.2'</TT
+> is currently active and try each menu type.
+    </P
+><P
+></P
+><DIV
+CLASS="variablelist"
+><P
+><B
+>Possible menu types</B
+></P
+><DL
+><DT
+><TT
+CLASS="literal"
+>'tree'</TT
+></DT
+><DD
+><P
+>This type of the menu mostly follows the internal structure of the menu hash.
+    Different levels of the menu are marked by indentation, only the elements leading to the active item 
+    or immediately following it are shown.
+     <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN50282"><P
+><B
+>Example 41-2. Output for menu type 'tree'</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><A
+HREF="#"
+TARGET="_top"
+>Menu item 1</A
+>
+    <A
+HREF="#"
+TARGET="_top"
+>Menu item 1.1</A
+>   
+    <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Menu item 1.2</I
+></SPAN
+>
+        <A
+HREF="#"
+TARGET="_top"
+>Menu item 1.2.1</A
+>
+        <A
+HREF="#"
+TARGET="_top"
+>Menu item 1.2.2</A
+>
+<A
+HREF="#"
+TARGET="_top"
+>Menu item 2</A
+></PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'rows'</TT
+></DT
+><DD
+><P
+>This is quite similar to <TT
+CLASS="literal"
+>'tree'</TT
+> type, only different levels
+    are not marked by indentation, but are shown on different rows of the menu.
+     <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN50297"><P
+><B
+>Example 41-3. Output for menu type 'rows'</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><A
+HREF="#"
+TARGET="_top"
+>Menu item 1</A
+>  <A
+HREF="#"
+TARGET="_top"
+>Menu item 2</A
+>
+<A
+HREF="#"
+TARGET="_top"
+>Menu item 1.1</A
+>  <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Menu item 1.2</I
+></SPAN
+>
+<A
+HREF="#"
+TARGET="_top"
+>Menu item 1.2.1</A
+>  <A
+HREF="#"
+TARGET="_top"
+>Menu item 1.2.2</A
+></PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'urhere'</TT
+></DT
+><DD
+><P
+>This is so-called 'breadcrumb' navigation, allowing to easily understand
+    your position within site hierarchy.
+     <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN50311"><P
+><B
+>Example 41-4. Output for menu type 'urhere'</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><A
+HREF="#"
+TARGET="_top"
+>Menu item 1</A
+> &#62;&#62; <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Menu item 1.2</I
+></SPAN
+></PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'prevnext'</TT
+></DT
+><DD
+><P
+>This is the menu often used in documentation (including the PEAR manual), the links
+    lead to previous, next and parent entries of the current entry.
+     <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN50321"><P
+><B
+>Example 41-5. Output for menu type 'prevnext'</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><A
+HREF="#"
+TARGET="_top"
+>&#60;&#60; Menu item 1.1</A
+>  <A
+HREF="#"
+TARGET="_top"
+>^ Menu item 1 ^</A
+>  <A
+HREF="#"
+TARGET="_top"
+>Menu item 1.2.1 &#62;&#62;</A
+></PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'sitemap'</TT
+></DT
+><DD
+><P
+>This is <TT
+CLASS="literal"
+>'tree'</TT
+> type menu, but with all entries shown.
+     <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN50333"><P
+><B
+>Example 41-6. Output for menu type 'sitemap'</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><A
+HREF="#"
+TARGET="_top"
+>Menu item 1</A
+>
+    <A
+HREF="#"
+TARGET="_top"
+>Menu item 1.1</A
+>
+    <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Menu item 1.2</I
+></SPAN
+>
+        <A
+HREF="#"
+TARGET="_top"
+>Menu item 1.2.1</A
+>
+        <A
+HREF="#"
+TARGET="_top"
+>Menu item 1.2.2</A
+>
+<A
+HREF="#"
+TARGET="_top"
+>Menu item 2</A
+>
+    <A
+HREF="#"
+TARGET="_top"
+>Menu item 2.1</A
+>
+    <A
+HREF="#"
+TARGET="_top"
+>Menu item 2.2</A
+></PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    </P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-menu.intro.example"
+></A
+><H2
+>Usage example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN50346"><P
+><B
+>Example 41-7. Very basic usage example</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// Load the class
+require_once 'HTML/Menu.php';
+
+// Instantiate the menu object, we presume that $data contains menu structure
+$menu =&#38; new HTML_Menu($data, 'tree');
+
+// Output the menu
+$menu-&#62;show();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-menu.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-menu.html-menu.html-menu.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_Menu</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-menu.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>constructor HTML_Menu::HTML_Menu()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

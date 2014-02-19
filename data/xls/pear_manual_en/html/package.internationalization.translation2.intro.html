@@ -1,0 +1,682 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Translation2"
+HREF="package.internationalization.translation2.html"><LINK
+REL="PREVIOUS"
+TITLE="
+    Class Summary
+    Translation2
+   "
+HREF="package.internationalization.translation2.translation2-summary.html"><LINK
+REL="NEXT"
+TITLE="Admin Introduction"
+HREF="package.internationalization.translation2.introadmin.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.internationalization.translation2.translation2-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.internationalization.translation2.introadmin.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.internationalization.translation2.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN78233"
+></A
+>Introduction&nbsp;--&nbsp;Usage of <B
+CLASS="classname"
+>Translation2</B
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.translation2.intro.whatis"
+></A
+><H2
+>What is Translation2?</H2
+><P
+>&#13;    <B
+CLASS="classname"
+>Translation2</B
+> is a class for multilingual applications management.
+    It provides an easy way to retrieve all the strings for a multilingual
+    site from a data source (i.e. db).
+    The API is designed to be clean, simple to use, yet powerful and extensible.
+    A <A
+HREF="package.internationalization.translation2.translation2-admin-summary.html"
+>&#13;    <B
+CLASS="classname"
+>Translation2_Admin</B
+></A
+> class is provided to easily manage
+    translations (add/remove a language, add/remove a string).
+   </P
+><P
+>&#13;    The following containers (data source drivers) are provided:
+    <P
+></P
+><UL
+><LI
+><P
+><B
+CLASS="classname"
+>PEAR::DB</B
+></P
+></LI
+><LI
+><P
+><B
+CLASS="classname"
+>PEAR::MDB</B
+></P
+></LI
+><LI
+><P
+><B
+CLASS="classname"
+>PEAR::MDB2</B
+></P
+></LI
+><LI
+><P
+>gettext</P
+></LI
+><LI
+><P
+><B
+CLASS="classname"
+>PEAR::DB_DataObject</B
+> (experimental, used by
+      PEAR::<A
+HREF="package.html.html-template-flexy.html"
+>&#13;         <B
+CLASS="classname"
+>HTML_Template_Flexy</B
+></A
+>)
+      </P
+></LI
+><LI
+><P
+>XML</P
+></LI
+></UL
+>
+   </P
+><P
+>&#13;    Some decorator classes will help in various tasks. They can be layered/stacked
+    one on top of the other, in any number. This approach should suit everyone's needs.
+    Currently, the following decorators are provided:
+    <P
+></P
+><UL
+><LI
+><P
+>&#13;        <A
+HREF="package.internationalization.translation2.translation2-decorator-cachelitefunction-summary.html"
+>&#13;        CacheLiteFunction</A
+> (for fast file-based caching)
+      </P
+></LI
+><LI
+><P
+>&#13;        <A
+HREF="package.internationalization.translation2.translation2-decorator-cachememory-summary.html"
+>&#13;        CacheMemory</A
+> (for memory-based caching)
+      </P
+></LI
+><LI
+><P
+>&#13;        <A
+HREF="package.internationalization.translation2.translation2-decorator-defaulttext-summary.html"
+>&#13;        DefaultText</A
+> (to replace empty strings with their keys or a default text)
+      </P
+></LI
+><LI
+><P
+>&#13;        <A
+HREF="package.internationalization.translation2.translation2-decorator-errortext-summary.html"
+>&#13;        ErrorText</A
+> (to replace empty strings with an "error_text" fallback message)
+      </P
+></LI
+><LI
+><P
+>&#13;        <A
+HREF="package.internationalization.translation2.translation2-decorator-iconv-summary.html"
+>&#13;        Iconv</A
+> (to switch from/to different encodings)
+      </P
+></LI
+><LI
+><P
+>&#13;        <A
+HREF="package.internationalization.translation2.translation2-decorator-lang-summary.html"
+>&#13;        Lang</A
+> (resort to fallback languages for empty strings)
+      </P
+></LI
+><LI
+><P
+>&#13;        <A
+HREF="package.internationalization.translation2.translation2-decorator-specialchars-summary.html"
+>&#13;        SpecialChars</A
+> (replace html entities with their hex codes)
+      </P
+></LI
+><LI
+><P
+>&#13;        <A
+HREF="package.internationalization.translation2.translation2-decorator-specialchars-summary.html"
+>&#13;        UTF-8</A
+> (convert UTF-8 strings to ISO-8859-1)
+      </P
+></LI
+></UL
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.translation2.intro.example1"
+></A
+><H2
+>Usage example</H2
+><P
+>&#13;     This simple example will show how you can instanciate a
+     <B
+CLASS="classname"
+>Translation2</B
+> object and use it to retrieve your
+     translated strings from a db, using the <B
+CLASS="classname"
+>MDB2</B
+> driver:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// set the parameters to connect to your db
+$dbinfo = array(
+    'hostspec' =&#62; 'host',
+    'database' =&#62; 'dbname',
+    'phptype'  =&#62; 'mysql',
+    'username' =&#62; 'user',
+    'password' =&#62; 'pwd'
+);
+
+define('TABLE_PREFIX', 'mytable_');
+
+// tell Translation2 about your db-tables structure,
+// if it's different from the default one.
+// NB: the default db structure is:
+//
+// Table "langs" (available languages and meta info)
+// +----+------+------+------------+
+// | ID | name | meta | error_text |
+// +----+------+------+------------+
+//
+// Table "strings" (translations)
+// +----+---------+----+----+----+-----+
+// | ID | page_id | en | de | it | ... |
+// +----+---------+----+----+----+-----+
+// You can have one table per translation, instead
+// of one table for all the languages
+//
+$params = array(
+    'langs_avail_table' =&#62; TABLE_PREFIX.'langs_avail',
+    'lang_id_col'     =&#62; 'ID',
+    'lang_name_col'   =&#62; 'name',
+    'lang_meta_col'   =&#62; 'meta',
+    'lang_errmsg_col' =&#62; 'error_text',
+    'strings_tables'  =&#62; array(
+                            'en' =&#62; TABLE_PREFIX.'i18n',
+                            'it' =&#62; TABLE_PREFIX.'i18n',
+                            'de' =&#62; TABLE_PREFIX.'i18n'
+                         ),
+    'string_id_col'      =&#62; 'ID',
+    'string_page_id_col' =&#62; 'pageID',
+    'string_text_col'    =&#62; '%s'  //'%s' will be replaced by the lang code
+);
+
+$driver = 'MDB2';
+
+require_once 'Translation2.php';
+$tr =&#38; Translation2::factory($driver, $dbinfo, $params);
+
+//always check for errors. In this examples, error checking is omitted
+//to make the example concise.
+if (PEAR::isError($tr)) {
+    //deal with it
+}
+
+// set primary language
+$tr-&#62;setLang('it');
+
+// set the group of strings you want to fetch from
+$tr-&#62;setPageID('defaultGroup');
+
+// add a Lang decorator to provide a fallback language
+$tr =&#38; $tr-&#62;getDecorator('Lang');
+$tr-&#62;setOption('fallbackLang', 'en');
+
+// add another Lang decorator to provide another fallback language,
+// in case some strings are not translated in Italian or English
+$tr =&#38; $tr-&#62;getDecorator('Lang');
+$tr-&#62;setOption('fallbackLang', 'de');
+
+// fetch the string with the 'test' stringID
+echo $tr-&#62;get('test');
+
+// fetch a string not translated into Italian (test fallback language)
+echo $tr-&#62;get('only_english');
+
+// fetch the whole group of strings, without resorting to the fallback lang
+// and without any "decoration"
+$rawPage = $tr-&#62;getRawPage();
+print_r($rawPage);
+
+// fetch the whole group of strings, but applying the decorators
+$page = $tr-&#62;getPage();
+print_r($page);
+
+// you can force the lang and the group of the string you're requesting
+echo $tr-&#62;get('month_01', 'calendar', 'it');
+
+// the same is true for getRawPage() and getPage()
+$page = $tr-&#62;getPage('calendar', 'de');
+print_r($page);</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>&#13;     As you can see, the main methods are
+     <A
+HREF="package.internationalization.translation2.translation2.get.html"
+><B
+CLASS="function"
+>get()</B
+></A
+>,
+     <A
+HREF="package.internationalization.translation2.translation2.getpage.html"
+><B
+CLASS="function"
+>getPage()</B
+></A
+>
+     and
+     <A
+HREF="package.internationalization.translation2.translation2.getrawpage.html"
+><B
+CLASS="function"
+>getRawPage()</B
+></A
+>.
+     The full syntax is
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>get($stringID, $pageID, $langID);</PRE
+></TD
+></TR
+></TABLE
+>
+     but if you set the pageID and the langID beforehand, you won't need to
+     specify them at each
+     <A
+HREF="package.internationalization.translation2.translation2.get.html"
+><B
+CLASS="function"
+>get()</B
+></A
+>
+     invocation.
+    </P
+><P
+>&#13;     <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>NB:</I
+></SPAN
+> you have to check for errors at least on the first invocation
+     of one of these methods, since the db connection is only estabilished at this point,
+     so the chances of failures are higher here.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.translation2.intro.example2"
+></A
+><H2
+>Extracting language info</H2
+><P
+>&#13;     Now let's see how we can extract some meta info from the db:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$tr-&#62;getLang();     // no langID =&#62; get current lang
+$tr-&#62;getLang('it'); // same as above, if the current lang is Italian
+
+// the first parameter is the lang code,
+// with the second parameter you can filter the info you need
+$tr-&#62;getLang('it', 'error_text');
+$tr-&#62;getLang('en', 'name');
+$tr-&#62;getLang('de', 'meta');
+$tr-&#62;getLang('de', 'encoding');</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.translation2.intro.example3"
+></A
+><H2
+>Using decorators</H2
+><P
+>&#13;     <B
+CLASS="classname"
+>Translation2</B
+> uses
+
+     <A
+HREF="package.internationalization.translation2.translation2-decorator-summary.html"
+>decorators</A
+>
+     to filter/change the retrieved strings. You can have a chain of decorators (filters),
+     and you can also add yours.
+
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$tr =&#38; Translation2::factory($driver, $dbinfo, $params);
+$tr-&#62;setLang('en');
+$tr-&#62;setPageID('calendar');
+
+// add a memory-based cache decorator, to do some basic prefetching and
+// reduce the load on the db
+$tr = &#38; $tr-&#62;getDecorator('CacheMemory');
+
+// add a file-based cache decorator, to cache the query results through pages
+$tr =&#38; $tr-&#62;getDecorator('CacheLiteFunction');
+$tr-&#62;setOption('cacheDir', 'cache/');
+$tr-&#62;setOption('lifeTime', 3600*24);
+
+// add a fallback lang decorator
+$tr = &#38; $tr-&#62;getDecorator('Lang');
+$tr-&#62;setOption('fallbackLang', 'it');
+
+// add a special chars decorator to replace special characters with the html entity
+$tr = &#38; $tr-&#62;getDecorator('SpecialChars');
+// control the charset to use
+$tr-&#62;setOption('charset', 'ISO-8859-2');
+
+// add a UTF-8 decorator to automatically decode UTF-8 strings
+$tr = &#38; $tr-&#62;getDecorator('UTF8');
+
+// add a default text decorator to deal with empty strings
+$tr = &#38; $tr-&#62;getDecorator('DefaultText');
+// replace the empty string with its stringID
+echo $tr-&#62;get('emptyString');
+// use a custom fallback text
+echo $tr-&#62;get('emptyString', 'stringGroup', 'en', 'show this default text');</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.translation2.intro.example4"
+></A
+><H2
+>Getting the stringID from a string</H2
+><P
+>&#13;     The <A
+HREF="package.internationalization.translation2.translation2.getstringid.html"
+>&#13;     <B
+CLASS="function"
+>getStringID()</B
+></A
+> method is the reverse of
+     <A
+HREF="package.internationalization.translation2.translation2.get.html"
+>&#13;     <B
+CLASS="function"
+>get()</B
+></A
+>.
+     If you want to translate a string to another language,
+     but you don't know the associated stringID,
+     you can retrieve it with this method:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$tr-&#62;setLang('it');
+
+// translate the Italian string "gennaio" into the English "january"
+$stringID = $tr-&#62;getStringID('gennaio', 'calendar');
+echo $translatedString = $tr-&#62;get($stringID, 'calendar', 'en');</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.internationalization.translation2.intro.example5"
+></A
+><H2
+>Parameter substitution</H2
+><P
+>&#13;    <B
+CLASS="classname"
+>Translation2</B
+> can handle parametric strings,
+     and replace them with parameters passed at runtime (they can be
+     numeric or associative arrays).
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// "hello_user" = "hello &#38;&#38;user&#38;&#38;, today is &#38;&#38;weekday&#38;&#38;, &#38;&#38;day&#38;&#38;th &#38;&#38;month&#38;&#38; &#38;&#38;year&#38;&#38;"
+
+$tr-&#62;setParams(array(
+    0         =&#62; '',
+    'user'    =&#62; 'Joe',
+    'day'     =&#62; '15',
+    'month'   =&#62; $tr-&#62;get('month_01', 'calendar', 'en'),
+    'year'    =&#62; '2004',
+    'weekday' =&#62; $tr-&#62;get('day_5', 'calendar', 'en')
+));
+
+echo $tr-&#62;get('hello_user');
+// the above line will print "hello Joe, today is Friday, 15th January 2004"</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.internationalization.translation2.translation2-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.internationalization.translation2.introadmin.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Class Summary
+    <B
+CLASS="classname"
+>Translation2</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.internationalization.translation2.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Admin Introduction</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

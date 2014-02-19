@@ -1,0 +1,395 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Text_Statistics"
+HREF="package.text.text-statistics.html"><LINK
+REL="PREVIOUS"
+TITLE="Text_Statistics"
+HREF="package.text.text-statistics.html"><LINK
+REL="NEXT"
+TITLE="Text_Wiki"
+HREF="package.text.text-wiki.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.text.text-statistics.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.text.text-wiki.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.text.text-statistics.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN98804"
+></A
+>Introduction&nbsp;--&nbsp;
+   computation of readability  scores for text documents.     
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN98807"
+></A
+><H2
+>Text_Statistics Description</H2
+><P
+>&#13;   Text_Statistics allows for computation of 
+   readability indexes for
+   text documents.     
+  </P
+><P
+>&#13;   Text_Statistics calculates some basic 
+   readability metrics on a 
+   block of text.  
+     
+   The number of words, the number of sentences,
+   and the number of total syllables is counted.  
+     
+   These statistics can be used to calculate the 
+   Flesch score for a sentence, 
+   which is  a number (usually between 0 and 100) 
+   that represents the readability of the text.  
+   A basic breakdown of scores is:
+   <DIV
+CLASS="informaltable"
+><A
+NAME="AEN98811"><P
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;         <P
+>90 to 100</P
+>
+        </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;         <P
+>5th grade </P
+>
+        </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;         <P
+>80 to 90 </P
+>
+        </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;         <P
+>6th grade </P
+>
+        </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;         <P
+>70 to 80 </P
+>
+        </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;         <P
+>7th grade </P
+>
+        </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;         <P
+>60 to 70 </P
+>
+        </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;         <P
+>8th and 9th grade </P
+>
+        </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;         <P
+>50 to 60 </P
+>
+        </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;         <P
+>10th to 12th grade (high school) </P
+>
+        </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;         <P
+>30 to 50 </P
+>
+        </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;         <P
+>college </P
+>
+        </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;         <P
+>0 to 30 </P
+>
+        </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;         <P
+>college graduate </P
+>
+        </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></DIV
+>
+    
+   More info can be read up on  
+   <A
+HREF="http://en.wikipedia.org/wiki/Flesch-Kincaid_Readability_Test"
+TARGET="_top"
+>&#13;    WikiPedia article</A
+> 
+   </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN98850"><P
+><B
+>Example 57-1. Example Text_Statistics</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+  require 'Text/Statistics.php';
+  $block = new Text_Statistics($sometext);
+  $block-&#62;flesch; // returns flesch score for $sometext
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   see the unit tests for additional examples.
+   </P
+><P
+>&#13;   Text_Word calculates the number of syllables in a word, based off of
+   the number of contiguous vowel groupings in the word and applying
+   matches to detect special cases.
+   <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN98855"><P
+><B
+>Example 57-2. Example <B
+CLASS="function"
+>numSyllables()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+ require_once 'Text/Word.php'
+ $word = new Text_Word('word');
+ $word-&#62;numSyllables();  // returns 1
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.text.text-statistics.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.text.text-wiki.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Text_Statistics</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.text.text-statistics.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Text_Wiki</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

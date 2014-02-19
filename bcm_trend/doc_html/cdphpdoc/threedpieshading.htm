@@ -1,0 +1,81 @@
+<HTML>
+<HEAD>
+<Title>3D Pie Shading</Title>
+<link type='text/css' rel='Stylesheet' href="maxchartapi.css" />
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 5.0 (PHP Edition)</p>
+<p class="heading1">3D Pie Shading</p>
+<hr class="separator">
+<div class="content">
+<img src="images/threedpieshading0.png">&nbsp;&nbsp;<img src="images/threedpieshading1.png">&nbsp;&nbsp;<img src="images/threedpieshading2.png">&nbsp;&nbsp;<img src="images/threedpieshading3.png">&nbsp;&nbsp;<img src="images/threedpieshading4.png">&nbsp;&nbsp;<img src="images/threedpieshading5.png">&nbsp;&nbsp;<img src="images/threedpieshading6.png">
+<br><br>
+This example demonstrates various sector shading effects applicable to 3D pie charts.
+</div>
+<p class="heading1a">Source Code Listing</p>
+<div class="content">
+<b>[File: phpdemo/threedpieshading.php]</b>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc"><pre>&lt;?php
+require_once("../lib/phpchartdir.php");
+
+# The data for the pie chart
+$data = array(18, 30, 20, 15);
+
+# The colors to use for the sectors
+$colors = array(0x66aaee, 0xeebb22, 0xbbbbbb, 0x8844ff);
+
+# Create a PieChart object of size 200 x 200 pixels. Use a vertical gradient color
+# from blue (0000cc) to deep blue (000044) as background. Use rounded corners of 16
+# pixels radius.
+$c = new PieChart(200, 200);
+$c-&gt;setBackground($c-&gt;linearGradientColor(0, 0, 0, $c-&gt;getHeight(), 0x0000cc,
+    0x000044));
+$c-&gt;setRoundedFrame(0xffffff, 16);
+
+# Set the center of the pie at (100, 100) and the radius to 80 pixels
+$c-&gt;setPieSize(100, 100, 80);
+
+# Set the pie data
+$c-&gt;setData($data);
+
+# Set the sector colors
+$c-&gt;setColors2(DataColor, $colors);
+
+# Draw the pie in 3D with a pie thickness of 20 pixels
+$c-&gt;set3D(20);
+
+# Demonstrates various shading modes
+if ($_REQUEST["img"] == "0") {
+    $c-&gt;addTitle("Default Shading", "bold", 12, 0xffffff);
+} else if ($_REQUEST["img"] == "1") {
+    $c-&gt;addTitle("Flat Gradient", "bold", 12, 0xffffff);
+    $c-&gt;setSectorStyle(FlatShading);
+} else if ($_REQUEST["img"] == "2") {
+    $c-&gt;addTitle("Local Gradient", "bold", 12, 0xffffff);
+    $c-&gt;setSectorStyle(LocalGradientShading);
+} else if ($_REQUEST["img"] == "3") {
+    $c-&gt;addTitle("Global Gradient", "bold", 12, 0xffffff);
+    $c-&gt;setSectorStyle(GlobalGradientShading);
+} else if ($_REQUEST["img"] == "4") {
+    $c-&gt;addTitle("Concave Shading", "bold", 12, 0xffffff);
+    $c-&gt;setSectorStyle(ConcaveShading);
+} else if ($_REQUEST["img"] == "5") {
+    $c-&gt;addTitle("Rounded Edge", "bold", 12, 0xffffff);
+    $c-&gt;setSectorStyle(RoundedEdgeShading);
+} else if ($_REQUEST["img"] == "6") {
+    $c-&gt;addTitle("Radial Gradient", "bold", 12, 0xffffff);
+    $c-&gt;setSectorStyle(RadialShading);
+}
+
+# Disable the sector labels by setting the color to Transparent
+$c-&gt;setLabelStyle("", 8, Transparent);
+
+# Output the chart
+header("Content-type: image/png");
+print($c-&gt;makeChart2(PNG));
+?&gt;</pre></tr></td></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2008 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

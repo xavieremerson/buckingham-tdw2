@@ -1,0 +1,2570 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- ====== This page contains code that is Copyright Ferant.com 2003 ===== -->
+<HTML>
+	<HEAD>
+		<TITLE>Ferant DHTML Windows</TITLE>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<style type="text/css"> 
+body {MARGIN: 0px; BACKGROUND-COLOR: #ffffff}
+.fr {font-size:11px; font-family:verdana, sans-serif}
+.mytitle { FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #0b467f; FONT-FAMILY: verdana,sans-serif }
+.pssubtitle { FONT-WEIGHT: bold; FONT-SIZE: 11px; FONT-FAMILY: verdana,sans-serif }
+</style>
+		<script language="javascript" src="inc/FerantLib.js"></script>
+		<script src="inc/edit.js" language="javascript"></script>
+	</HEAD>
+	<BODY LEFTMARGIN="0" TOPMARGIN="0" RIGHTMARGIN="0">
+		<script language="javascript" type='text/javascript'>		
+<!--
+    
+var params =  	
+{	 
+   BorderWidth : 2, 
+   ContentColor : 'white', 
+   ContentHTML : 'Colors can be specified in HTML pages in two ways-by using a color name, or by using numbers to denote an RGB color value. An RGB color value consists of three two-digit hexadecimal numbers specifying the intensity of the corresponding color.  <br><br>  For example, the color value #FF0000 is rendered red because the red number is set to its highest value, FF (or 255 in decimal form).  <br><br>   <b>Note.</b>   While these color names might not be recognized by other browsers, the RGB color values should display accurately across browsers. When specifying color values for Web pages targeted to work across different browsers, use the RGB color values.', 
+   ContentPadding : 13, 
+   Height : 300, 
+   Width: 300,
+   InnerBorderColor : '#cccccc', 
+   InnerBorderWidth : 0, 
+   OuterBorderColor : '#3973ad', 
+   ResizeBoxSrc : 'img/resize7blue.gif', 
+   ResizeBoxWidth: 7,
+   ResizeBoxHeight : 7,
+   StatusBarHeight : 17, 
+   StatusBarText : '', 
+   StatusColor : 'white', 
+   TitleBarText : 'Web Colors', 
+   TitleColor : '#3973ad', 
+   TitleFontSize : 12, 
+   ContentFontSize : 11, 
+   Id  : 'WebColors'
+} 
+
+ var WebColors = new FerantDHTMLWindow(params); 
+ 
+ 	var params = {	
+		Top: 5,
+		BorderWidth : 0, 
+		CloseBoxHeight : 11, 
+		CloseBoxSrc : 'img/close11transparent_blue.gif', 
+		CloseBoxWidth : 11, 
+		ContentColor : '#285b94', 
+		ContentPadding: (navigator.appName=="Netscape")?0:10,
+		ContentHTML : '<p align=center style=\'FONT-SIZE: 12px; FONT-FAMILY: verdana\'><b>It makes windows for web.</b>', 
+		Height : 56, 
+		InnerBorderColor : '#6b95BD', 
+		OuterBorderWidth : 0, 
+		StatusBarHeight : 0, 
+		StatusColor : '#285b94', 
+		TitleBarHeight : 17, 
+		TitleBarText : 'Ferant DHTML Studio Lite', 
+		TitleColor : '#285b94', 
+		TitleFontColor : '#6b95BD', 
+		TitleFontWeight : 'normal',
+		ContentFontColor : '#6b95BD',
+		Id: 'toplogo'
+	}
+	
+	var toplogo = new FerantDHTMLWindow(params); 
+	toplogo.OpenWindow();
+ 
+ if(document.location.hash == '' || document.location.hash == '#'){  
+	alert('This file must not be open directly. Please open index.htm first.');
+	document.location.href = 'index.htm';
+}
+
+
+	var hsh = document.location.hash.substring(1);
+	
+	var arr = hsh.split("_");
+	
+	var _703 = arr[0];
+	var temp = arr[1];
+	
+	switch(temp){
+	case "t1":
+		 var params = {	
+			BorderWidth : 0, 
+			ContentColor : '#eff3f7', 
+			ContentHTML : 'With the assassination of President McKinley, Theodore Roosevelt, not quite 43, became the youngest President in the Nation\'s history. He brought new excitement and power to the Presidency, as he vigorously led Congress and the American public toward progressive reforms and a strong foreign policy.     <br><br>  He took the view that the President as a \"steward of the people\" should take whatever action necessary for the public good unless expressly forbidden by law or the Constitution.\" I did not usurp power,\" he wrote, \"but I did greatly broaden the use of executive power.\"   <br><br>  Roosevelt\'s youth differed sharply from that of the log cabin Presidents. He was born in New York City in 1858 into a wealthy family, but he too struggled--against ill health--and in his triumph became an advocate of the strenuous life. ', 
+			ContentPadding : 13, 
+			Height : 300, 
+			InnerBorderColor : '#6b8ec6', 
+			InnerBorderWidth : 2, 
+			OuterBorderWidth : 0, 
+			StatusBarText : 'Favorite proverb: Speak softly and carry a big stick', 
+			StatusBarAlign : 'left', 
+			StatusColor : '#cccccc', 
+			TitleBarHeight : 18, 
+			TitleBarText : 'Theodore Roosevelt ', 
+			TitleBarAlign : 'left', 
+			TitleColor : '#6b8ec6', 
+			Width : 380, 
+			ContentFontSize : 11
+		} 
+
+		break;
+		
+		case "t2":
+		var params =  { 
+			BorderWidth : 5, 
+			ContentColor : '#e7e7e7', 
+			ContentHTML : '<img src=\'img/prs.jpg\' width=42 height=57 align=right vspace=0 border=0> <b>Paris</b> city and capital of France, located in the north-central part of the country. The city was founded more than 2,000 years ago on an island in the Seine River, some 233 miles (375 kilometres) upstream from the river\'s mouth on the English Channel. The modern city has spread from the island (the Île de la Cité) and far beyond both banks of the Seine. <br><br>For centuries Paris has been one of the world\'s most important and attractive cities. It is appreciated for the opportunities it offers for business and commerce, for study, for culture, and for entertainment: its gastronomy, haute couture, painting, literature, and intellectual community especially enjoy an enviable reputation.', 
+			Height : 320,  
+			InnerBorderWidth : 0, 
+			OuterBorderColor : '#336699', 
+			OuterBorderWidth : 2, 
+			StatusBarHeight : 18, 
+			StatusBarText : '', 
+			StatusBarTextMargin : 6, 
+			StatusColor : '#e7e7e7', 
+			TitleBarHeight : 22, 
+			TitleBarText : 'Paris', 
+			TitleBarTextMargin : 6, 
+			TitleBarColor : '#336699', 
+			Width : 250
+		}
+		break;
+		
+		case "t3":
+		var params =
+		 {	
+			BorderColor : '#D0DBE8', 
+			BorderWidth : 4, 
+			CloseBoxHeight : 11, 
+			CloseBoxSrc : 'img/close11transparent.gif', 
+			CloseBoxWidth : 11, 
+			ContentColor : '#e0eBf8', 
+			ContentHTML : '<br> <br> Two households, both alike in dignity,<br> In fair Verona, where we lay our scene,<br> From ancient grudge break to new mutiny,<br> Where civil blood makes civil hands unclean.<br> From forth the fatal loins of these two foes<br> A pair of star-cross\'d lovers take their life;<br> Whole misadventured piteous overthrows<br> Do with their death bury their parents\' strife.<br> The fearful passage of their death-mark\'d love,<br> And the continuance of their parents\' rage,<br> Which, but their children\'s end, nought could remove,<br> Is now the two hours\' traffic of our stage;<br> The which if you with patient ears attend,<br> What here shall miss, our toil shall strive to mend.<br> ', 
+			Height : 300, 
+			InnerBorderColor : 'White', 
+			OuterBorderColor : '#999999', 
+			StatusBarText : 'William Shakespeare', 
+			StatusColor : '#D0DBE8', 
+			TitleBarHeight : 23, 
+			TitleBarText : 'ROMEO AND JULIET', 
+			ContentNoWrap : 'nowrap', 
+			TitleColor : '#D0DBE8', 
+			Width : 330, 
+			TitleFontColor : 'navy', 
+			ContentFontSize : 11, 
+			StatusFontColor : 'Navy'
+		}
+		break;
+		
+		case "t4":
+		 var params = 
+		{	
+			BorderWidth : 0, 
+			ContentColor : '#e4ecf6', 
+			ContentHTML : '<b>Napoleon Bonaparte</b> was born on August 15, 1769 in Ajaccio on the Mediterranean island of Corsica. Through his military exploits and his ruthless efficiency, Napoleon rose from obscurity to become Napoleon I, Empereur des Francais (Emperor of the French). He is both a historical figure and a legend-and it is sometimes difficult to separate the two. The events of his life fired the imaginations of great writers, film makers, and playwrights whose works have done much to create the Napoleonic legend.    <br><br>  Napoleon decided on a military career when he was a child, winning a scholarship to a French military academy. His meteoric rise shocked not only France but all of Europe, and his military conquests threatened the stability of the world.', 
+			ContentPadding : 13, 
+			Height : 260, 
+			Width : 400,
+			InnerBorderWidth : 0, 
+			OuterBorderStyle : 'solid', 
+			OuterBorderWidth : 0, 
+			StatusBarText : 'Napoleon I, Empereur des Francais', 
+			StatusBarAlign : 'center', 
+			StatusColor : '#cccccc', 
+			TitleBarText : 'Napoleon Bonaparte', 
+			TitleBarAlign : 'center', 
+			TitleColor : '#6b8ec6', 
+			ContentFontSize : 11
+		}
+		break;
+		
+		case "t5":
+		var params = 
+		{	
+			BorderWidth : 0, 
+			CloseBoxHeight : 13, 
+			CloseBoxSrc : 'img/clsboxgray.gif', 
+			CloseBoxWidth : 13, 
+			ContentHTML : '<img src=\'img/liberty.jpg\' width=40 height=60 align=right vspace=0 border=0>   New York&nbsp;city and port located at the mouth of the Hudson River,   southeastern New York state, northeastern U.S. It is the largest and most influential American   metropolis, encompassing Manhattan and Staten islands, the western sections of Long Island,  and a small portion of the New York state mainland to the north of Manhattan. ', 
+			ContentPadding : 13, 
+			InnerBorderColor : '#cccccc', 
+			OuterBorderWidth : 0, 
+			StatusBarHeight : 0, 
+			StatusBarAlign : 'left', 
+			StatusColor : 'white', 
+			TitleBarHeight : 19, 
+			TitleBarText : 'New York', 
+			TitleBarAlign : 'center', 
+			TitleColor : 'white', 
+			TitleFontColor : '#FF00FF', 
+			ContentFontSize : 11, 
+			ContentFontFamily : 'verdana, sans-serif', 
+			ContentFontColor : '#FF00FF'
+		}
+ 
+		break;
+		
+		case "t6":
+		var params = 
+		{	
+			BorderWidth : 0, 
+			CloseBoxHeight : 11, 
+			CloseBoxSrc : 'img/close11transparent_blue.gif', 
+			CloseBoxWidth : 11, 
+			ContentColor : '#285b94', 
+			ContentHTML : 'Born in 1732 into a Virginia planter family, he learned the morals, manners, and body of knowledge requisite for an 18th century Virginia gentleman.   <br><br> He pursued two intertwined interests: military arts and western expansion. At 16 he helped survey Shenandoah lands for Thomas, Lord Fairfax. Commissioned a lieutenant colonel in 1754, he fought the first skirmishes of what grew into the French and Indian War. The next year, as an aide to Gen. Edward Braddock, he escaped injury although four bullets ripped his coat and two horses were shot from under him. ', 
+			ContentPadding : 10, 
+			InnerBorderColor : '#6b95BD', 
+			OuterBorderWidth : 0, 
+			StatusBarHeight : 0, 
+			StatusColor : '#285b94', 
+			TitleBarHeight : 21, 
+			TitleBarText : 'George Washington ', 
+			TitleColor : '#285b94', 
+			Width : 370, 
+			TitleFontColor : '#6b95BD', 
+			ContentFontColor : '#6b95BD'
+		} 	
+ 
+		break;
+		
+		case "t7":
+		var params = 
+		{	
+			BorderWidth : 2, 
+			ContentColor : 'white', 
+			ContentHTML : '<br>A dreamer is one who can only find his way by moonlight, and his punishment is that he sees the dawn before the rest of the world. ', 
+			ContentPadding : 13, 
+			Height : 121, 
+			InnerBorderColor : '#cccccc', 
+			InnerBorderWidth : 0, 
+			OuterBorderColor : '#3973ad',
+			ResizeBoxSrc : 'img/resize7blue.gif', 
+			ResizeBoxWidth: 7,
+			ResizeBoxHeight : 7,  
+			StatusBarHeight : 17, 
+			StatusBarText : '', 
+			StatusColor : 'white', 
+			TitleBarText : 'Oscar Wilde', 
+			TitleColor : '#3973ad', 
+			TitleFontSize : 12, 
+			Shadow: true,
+			ContentFontColor : 'Navy'
+		}
+			 
+		break;
+		
+		case "t8":
+		var params = 
+		{	
+			BorderColor : 'transparent', 
+			BorderWidth : 2, 
+			CloseBoxHeight : 0, 
+			CloseBoxSrc : '', 
+			CloseBoxWidth : 0, 
+			ContentColor : 'white', 
+			ContentHTML : '<form method=post action=\"index.aspx\"     onsubmit=\"document.getElementById(\'praseempty\').style.visibility = \'hidden\'; if(document.FormSearch1.phrase.value == \'\'){document.getElementById(\'praseempty\').style.visibility = \'visible\';  return false;} alert(\'You need to write server side code to do search on your site.\'); return false;\"       id=\"FormSearch1\" name=\"FormSearch1\">   <b>Phrase:</b><span id=\"praseempty\" style=\"visibility:hidden; color: red\" name=\"praseempty\">      Enter a phrase</span>  										  <br>  											  <input type=\"text\" name=\"phrase\" value=\"\" size=15 maxlength=50>    <br> <br> <b>Using:</b>  <br>   <input type=\"radio\" value=\"V1\" checked name=\"using\"> Any Word<br>  <input type=\"radio\" value=\"V3\"  name=\"using\"> Exact Phrase <br><br>&nbsp; <input type=\"submit\" value=\"Search\" border=0 >  </form>', 
+			ContentLeftBorderColor : '#333333', 
+			ContentLeftBorderWidth : 1, 
+			ContentRightBorderColor : '#333333', 
+			ContentRightBorderWidth : 1, 
+			Height : 260, 
+			InnerBorderColor : '#cccccc', 
+			InnerBorderWidth : 0, 
+			OuterBorderColor : '#3973ad', 
+			OuterBorderWidth : 0, 
+			Resizable : 'none', 
+			ResizeBoxHeight : 0, 
+			ResizeBoxSrc : '', 
+			ResizeBoxWidth : 0, 
+			StatusBarHeight : 24, 
+			StatusBarHTML : '<table height=24 width=173 border=0 cellpadding=0 cellspacing=0 background=\'img/nbottom1.gif\'>   <tr>  <td    valign=middle align=right>  <a href=\'JavaScript:' + _703  +'.CloseWindow()\'><SPAN style=\'FONT-SIZE: 10px; FONT-FAMILY: verdana,sans-serif\'>Close</span></a>  &nbsp;&nbsp;&nbsp;  </td>  </tr></table>', 
+			StatusColor : 'transparent', 
+			TitleBarHeight : 63, 
+			TitleBarHTML : '<img src=\'img/tsr2.gif\' vspace=0 border=0>', 
+			TitleBarText : 'DHTML Window', 
+			ContentNoWrap : 'nowrap', 
+			TitleColor : 'transparent', 
+			Width : 177, 
+			TitleFontSize : 12, 
+			ContentFontColor : 'Navy'
+		}
+ 
+		break;
+		
+		case "t9":
+		var params = {	
+			BorderColor : 'transparent', 
+			BorderWidth : 0, 
+			CloseBoxHeight : 11, 
+			CloseBoxSrc : 'img/close11transparent_blue.gif', 
+			CloseBoxWidth : 11, 
+			ContentColor : 'transparent', 
+			ContentHTML : '<table border=0 cellpadding=2 cellspacing=0  color=\"transparent\" >      <tr ><td height=1><img src=\"img/spacer.gif\" height=1></td></tr><tr>      <td background=\"img/body.gif\" width=445 height=253 class=fr style=\"padding:19px\"><p align=center><b>Tale of Two Cities</b></p> IT WAS the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way- in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only.     </td>   </tr>  </table>  ', 
+			ContentPadding : 0, 
+			Height : 280, 
+			Resizable: 'none',
+			InnerBorderColor : '#6b95BD', 
+			InnerBorderWidth : 0, 
+			OuterBorderWidth : 0, 
+			StatusBarHeight : 0, 
+			StatusColor : '#285b94', 
+			TitleBarHeight : 19, 
+			TitleBarHTML : '<img src=\"img/title9.gif\" border=0 height=19 width=445>', 
+			TitleColor : 'transparent', 
+			Width : 445, 
+			ContentFontColor : '#6b95BD'
+		}
+						 
+		break;
+		
+		case "t10":
+		var params = 
+		{ 
+			BorderColor : 'Transparent', 
+			BorderWidth : 0, 
+			CloseBoxHeight : 15, 
+			CloseBoxSrc : 'img/box_close.gif', 
+			CloseBoxWidth : 15, 
+			ContentColor : '#efefef',  
+			ContentHTML : '<br><UL style=\'FONT-SIZE: 11px; FONT-FAMILY: verdana\'> <LI>It allows you to visually integrate your DHTML windows with any project.</LI> <LI>Provides rich web content for borders, status bar, and title bar.</LI> <LI>Supports non-rectangular DHTML windows. </LI> <LI>Can add 3-D effect to DHTML windows.</LI> <LI>Makes it easy for developers to create their own DHTML windows style.</LI> </UL> ', 
+			ContentLeftBorderColor : '#3973ad', 
+			ContentLeftBorderWidth : 1, 
+			ContentRightBorderWidth : 1, 
+			ContentRightBorderColor : '#3973ad', 
+			Height : 260, 
+			InnerBorderWidth : 0, 
+			OuterBorderColor : '#336699',  
+			OuterBorderWidth : 0, 
+			Resizable : 'None', 
+			StatusBarHTML : '<img alt=\"\"  src=\'img/box_bottom.gif\' align=center>', 
+			StatusBarTextMargin : 6, 
+			StatusColor : 'Transparent', 
+			TitleBarHeight : 37, 
+			TitleBarHTML : '<img alt=\"\"  src=\"img/box_top.gif\" border=\"0\" width=\"266\" height=\"37\">',
+			TitleColor : 'Transparent', 
+			Width : 266, 
+			ContentFontSize : 9
+		} 
+ 
+		break;
+		
+		case "t11":
+		var params = 
+		{	 
+			BorderWidth : 0, 
+			CloseBoxHeight : 11, 
+			CloseBoxSrc : 'img/closebox_small.gif', 
+			CloseBoxWidth : 11, 
+			ContentColor : '#eff3f7', 
+			ContentHTML : '<img src=\'img/prs.jpg\' width=42 height=57 align=right vspace=0 border=0> <b>Paris</b> city and capital of France, located in the north-central part of the country. The city was founded more than 2,000 years ago on an island in the Seine River, some 233 miles upstream from the rivers mouth on the English Channel.', 
+			ContentPadding : 13, 
+			Height : 210, 
+			InnerBorderColor : '#6b8ec6', 
+			OuterBorderWidth : 0, 
+			StatusBarHeight : 15, 
+			StatusBarHTML : '&nbsp;<img src=\'img/arr_silver.gif\' width=9 height=7 border=0> Page: <a href=\'JavaScript:FerantDHTMLWindow1.UpdateContentHTML(\"<img src=img/prs.jpg width=42 height=57 align=right vspace=0 border=0> <b>Paris</b> city and capital of France, located in the north-central part of the country. The city was founded more than 2,000 years ago on an island in the Seine River, some 233 miles upstream from the rivers mouth on the English Channel.\")\'>1</a> <a href=\'JavaScript:FerantDHTMLWindow1.UpdateContentHTML(\"<img src=img/liberty.jpg width=40 height=60 align=right vspace=0 border=0>  <b>New York</b>&nbsp;city and port located at the mouth of the Hudson River,   southeastern New York state, northeastern U.S. It is the largest and most influential American   metropolis.\")\'>2</a> <a href=\'JavaScript:FerantDHTMLWindow1.UpdateContentHTML(\"<img src=img/kemlin.jpg width=38 height=58 align=right vspace=0 border=0>  <b>Moscow</b> city, capital of Russia. It is located in the western part   of the country,  about 400 miles (640 kilometres) southeast of St. Petersburg   and 600 miles (970 kilometres) east of the Polish border.\")\'>3</a>', 
+			StatusBarText : 'Romeo and Juliet ', 
+			StatusBarAlign : 'left', 
+			StatusColor : '#cccccc', 
+			TitleBarHeight : 15, 
+			TitleBarHTML : '&nbsp;<img src=\'img/arrow_test.gif\' width=6 height=6 border=0>    This is a DHTML window!', 
+			TitleBarAlign : 'left', 
+			TitleColor : '#6b8ec6', 
+			Width : 230, 
+			TitleFontWeight : 'normal', 
+			ContentFontSize : 11
+		}
+ 
+		break;
+		
+		case "t12":
+		var params = 
+		{	
+			BorderColor : 'Transparent',
+			BorderWidth : 0, 
+			CloseBoxHeight : 11, 
+			CloseBoxSrc : 'img/close11transparent.gif', 
+			CloseBoxWidth : 11, 
+			ContentColor : '#ffffcc', 
+			ContentBottomBorderColor : '#cccccc', 
+			ContentBottomBorderWidth : 1, 
+			ContentHTML : '<img src=\'img/kemlin.jpg\' width=38 height=58 align=right vspace=0 border=0>  <b>Moscow</b> city, capital of Russia. It is located in the western part   of the country,  about 400 miles (640 kilometres) southeast of St. Petersburg   and 600 miles (970 kilometres) east of the Polish border. <br><br>   Moscow River river flowing through Moscow oblast (province) and part of   Smolensk oblast, in western Russia. It is a left-bank tributary of the Oka River in   the Volga basin. Rising in the Smolensk-Moscow Upland, the river flows 312 mi (502 km)   in a southeasterly direction and drains an area of 6,800 sq mi (17,600 sq km).   It is an important source of Moscow\'s water supply.<br><br>  In 1703 Peter I began constructing St. Petersburg on the Gulf of Finland, and in 1712 he   transferred the capital to his new, \"westernized,\" and outward-looking city.', 
+			ContentLeftBorderColor : '#cccccc', 
+			ContentLeftBorderWidth : 1, 
+			ContentPadding : 13, 
+			ContentRightBorderColor : '#cccccc', 
+			ContentRightBorderWidth : 1, 
+			ContentTopBorderColor : '#cccccc', 
+			ContentTopBorderWidth : 1, 
+			Height : 370, 
+			InnerBorderWidth : 0, 
+			OuterBorderWidth : 0, 
+			Resizable : 'VerticalOnly', 
+			StatusBarHeight : 0, 
+			StatusBarAlign : 'left', 
+			TitleBarHeight : 25, 
+			TitleBarHTML : '<table height=25 width=268 border=0 cellpadding=0 cellspacing=0 background=\'img/btop.gif\'>   <tr>  <td    valign=middle align=center  style=\"font-size:12px; font-family:\'verdana, sans-serif\'; font-color:\'#ffffcc\';\"  ><font color=white><b>Moscow</b></font></td>  </tr></table>', 
+			TitleBarAlign : 'left', 
+			TitleColor : 'transparent',  
+			Width : 268, 
+			ContentFontSize : 11, 
+			StatusFontColor : 'white'
+		}
+ 
+		break;	
+
+	}
+	
+	var FerantDHTMLWindow1 = new FerantDHTMLWindow(params); 
+	eval('var ' + _703 + ' = FerantDHTMLWindow1;');
+	 
+ 	
+ 	// -->  
+		</script>
+		<TABLE id="Table11" height="66" cellSpacing="0" cellPadding="0" width="100%" bgColor="#285b94" border="0">
+			<TBODY>
+				<TR>
+					<TD>&nbsp;</TD>
+				</TR>
+			</TBODY></TABLE>
+		<TABLE id="Table12" cellSpacing="0" cellPadding="0" width="100%" border="0">
+			<TBODY>
+				<TR>
+					<TD bgColor="#ffffff" colSpan="3"><IMG class="imgblock" height="1" alt="" src="img/spacer.gif" width="1"></TD>
+				</TR>
+				<TR>
+					<TD bgColor="#184a84" colSpan="3"><IMG class="imgblock" height="1" alt="" src="img/spacer.gif" width="1"></TD>
+				</TR>
+				<TR>
+					<TD bgColor="#ffffff" colSpan="3"><IMG class="imgblock" height="1" alt="" src="img/spacer.gif" width="1"></TD>
+				</TR>
+				<TR>
+					<TD bgColor="#cccccc" colSpan="3"><IMG class="imgblock" height="7" alt="" src="img/spacer.gif" width="1"></TD>
+				</TR>
+				<TR>
+					<TD bgColor="#666666" colSpan="3"><IMG class="imgblock" height="1" alt="" src="img/spacer.gif" width="1"></TD>
+				</TR>
+				<TR>
+					<TD bgColor="#215284" colSpan="3"><IMG class="imgblock" height="1" alt="" src="img/spacer.gif" width="1"></TD>
+				</TR>
+			</TBODY></TABLE>
+		<TABLE cellSpacing="0" cellPadding="0" width="100%" summary="" border="0">
+			<TBODY>
+				<TR>
+					<TD colSpan="3"><IMG class="imgblock" height="4" alt="" src="img/spacer.gif" width="1"></TD>
+				</TR>
+				<TR>
+					<TD background="img/dots_h.gif" colSpan="3"><IMG class="imgblock" height="1" alt="" src="img/spacer.gif" width="1"></TD>
+				</TR>
+				<TR>
+					<TD align="left"></TD>
+					<TD valign="middle" width="780">
+						<TABLE cellSpacing="0" cellPadding="0" width="800" summary="" border="0" height="100%">
+							<TBODY>
+								<TR>
+									<TD vAlign="top" width="1" background="img/dots_v.gif"><IMG height="500" alt="" src="img/spacer.gif" width="1"></TD>
+									<TD align="left" vAlign="top" width="250" bgcolor='#f7f7f7'>
+										<div style="PADDING-RIGHT:10px; PADDING-LEFT:10px; PADDING-BOTTOM:10px; OVERFLOW:auto; WIDTH:250px; PADDING-TOP:10px; HEIGHT:500px" id="menu2">
+											<table border="0" cellpadding="0" cellspacing="0" style="BORDER-COLLAPSE: collapse" ID="Table1">
+												<tr>
+													<td class="fr" width="100%"><a href="JavaScript:f(1)"><img border="0" src="img/minus.gif" width="19" height="9" id="imgnode1"></a>Read 
+														Me First</td>
+												</tr>
+												<tr>
+													<td class="fr" width="100%">
+														<div align="left" id="block1"  style="DISPLAY:block">
+															<table border="0" cellpadding="0" cellspacing="0" bordercolor="#111111" ID="Table2">
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr_l.gif" width="19" height="16"></td>
+																	<td nowrap class="fr" id='tdAboutProperties'><a href="JavaScript:_702('AboutProperties')" style="TEXT-DECORATION: none">How 
+																			to modify DHTML window.</a></td>
+																</tr>
+															</table>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td class="fr" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+												</tr>
+												<tr>
+													<td class="fr" width="100%"><a href="JavaScript:f(2)"><img border="0" src="img/plus.gif" width="19" height="9" id="imgnode2"></a>Properties</td>
+												</tr>
+												<tr>
+													<td class="fr" width="100%">
+														<div align="left" id="block2" style="DISPLAY:none">
+															<table border="0" cellpadding="0" cellspacing="0" bordercolor="#111111" ID="Table3">
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdBorderColor'><a href="JavaScript:_701('BorderColor')" style="TEXT-DECORATION: none">Border 
+																			Color</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdBorderInactiveColor'><a href="JavaScript:_701('BorderInactiveColor')" style="TEXT-DECORATION: none">Border 
+																			Inactive Color</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdBorderWidth'><a href="JavaScript:_701('BorderWidth')" style="TEXT-DECORATION: none">Border 
+																			Width</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdCloseBoxHeight'><a href="JavaScript:_701('CloseBoxHeight')" style="TEXT-DECORATION: none">Close 
+																			Box Height</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdCloseBoxSrc'><a href="JavaScript:_701('CloseBoxSrc')" style="TEXT-DECORATION: none">Close 
+																			Box Src</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdCloseBoxWidth'><a href="JavaScript:_701('CloseBoxWidth')" style="TEXT-DECORATION: none">Close 
+																			Box Width</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdContentColor'><a href="JavaScript:_701('ContentColor')" style="TEXT-DECORATION: none">Content 
+																			Color</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdContentBottomBorderColor'><a href="JavaScript:_701('ContentBottomBorderColor')" style="TEXT-DECORATION: none">Content 
+																			Bottom Border Color</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdContentBottomBorderWidth'><a href="JavaScript:_701('ContentBottomBorderWidth')" style="TEXT-DECORATION: none">Content 
+																			Bottom Border Width</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdContentFontColor'><a href="JavaScript:_701('ContentFontColor')" style="TEXT-DECORATION: none">Content 
+																			Font Color</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdContentFontFamily'><a href="JavaScript:_701('ContentFontFamily')" style="TEXT-DECORATION: none">Content 
+																			Font Family</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdContentFontSize'><a href="JavaScript:_701('ContentFontSize')" style="TEXT-DECORATION: none">Content 
+																			Font Size</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdContentFontStyle'><a href="JavaScript:_701('ContentFontStyle')" style="TEXT-DECORATION: none">Content 
+																			Font Style</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdContentFontWeight'><a href="JavaScript:_701('ContentFontWeight')" style="TEXT-DECORATION: none">Content 
+																			Font Weight</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdContentHTML'><a href="JavaScript:_701('ContentHTML')" style="TEXT-DECORATION: none">Content 
+																			HTML</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdContentInactiveColor'><a href="JavaScript:_701('ContentInactiveColor')" style="TEXT-DECORATION: none">Content 
+																			Inactive Color</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdContentLeftBorderColor'><a href="JavaScript:_701('ContentLeftBorderColor')" style="TEXT-DECORATION: none">Content 
+																			Left Border Color</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdContentLeftBorderWidth'><a href="JavaScript:_701('ContentLeftBorderWidth')" style="TEXT-DECORATION: none">Content 
+																			Left Border Width</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdContentNoWrap'><a href="JavaScript:_701('ContentNoWrap')" style="TEXT-DECORATION: none">Content 
+																			No Wrap</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdContentPadding'><a href="JavaScript:_701('ContentPadding')" style="TEXT-DECORATION: none">Content 
+																			Padding</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdContentRightBorderColor'><a href="JavaScript:_701('ContentRightBorderColor')" style="TEXT-DECORATION: none">Content 
+																			Right Border Color</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdContentRightBorderWidth'><a href="JavaScript:_701('ContentRightBorderWidth')" style="TEXT-DECORATION: none">Content 
+																			Right Border Width</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdContentTopBorderColor'><a href="JavaScript:_701('ContentTopBorderColor')" style="TEXT-DECORATION: none">Content 
+																			Top Border Color</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdContentTopBorderWidth'><a href="JavaScript:_701('ContentTopBorderWidth')" style="TEXT-DECORATION: none">Content 
+																			Top Border Width</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdDragable'><a href="JavaScript:_701('Dragable')" style="TEXT-DECORATION: none">Dragable</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdHeight'><a href="JavaScript:_701('Height')" style="TEXT-DECORATION: none">Height</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdInnerBorderColor'><a href="JavaScript:_701('InnerBorderColor')" style="TEXT-DECORATION: none">Inner 
+																			Border Color</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdInnerBorderStyle'><a href="JavaScript:_701('InnerBorderStyle')" style="TEXT-DECORATION: none">Inner 
+																			Border Style</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdInnerBorderWidth'><a href="JavaScript:_701('InnerBorderWidth')" style="TEXT-DECORATION: none">Inner 
+																			Border Width</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdLeft'><a href="JavaScript:_701('Left')" style="TEXT-DECORATION: none">Left</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdMaxHeight'><a href="JavaScript:_701('MaxHeight')" style="TEXT-DECORATION: none">Max 
+																			Height</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdMaxWidth'><a href="JavaScript:_701('MaxWidth')" style="TEXT-DECORATION: none">Max 
+																			Width</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdMinHeight'><a href="JavaScript:_701('MinHeight')" style="TEXT-DECORATION: none">Min 
+																			Height</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdMinWidth'><a href="JavaScript:_701('MinWidth')" style="TEXT-DECORATION: none">Min 
+																			Width</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdOuterBorderColor'><a href="JavaScript:_701('OuterBorderColor')" style="TEXT-DECORATION: none">Outer 
+																			Border Color</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdOuterBorderInactiveColor'><a href="JavaScript:_701('OuterBorderInactiveColor')" style="TEXT-DECORATION: none">Outer 
+																			Border Inactive Color</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdOuterBorderStyle'><a href="JavaScript:_701('OuterBorderStyle')" style="TEXT-DECORATION: none">Outer 
+																			Border Style</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdOuterBorderWidth'><a href="JavaScript:_701('OuterBorderWidth')" style="TEXT-DECORATION: none">Outer 
+																			Border Width</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdResizable'><a href="JavaScript:_701('Resizable')" style="TEXT-DECORATION: none">Resizable</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdResizeBoxHeight'><a href="JavaScript:_701('ResizeBoxHeight')" style="TEXT-DECORATION: none">Resize 
+																			Box Height</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdResizeBoxSrc'><a href="JavaScript:_701('ResizeBoxSrc')" style="TEXT-DECORATION: none">Resize 
+																			Box Src</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdResizeBoxWidth'><a href="JavaScript:_701('ResizeBoxWidth')" style="TEXT-DECORATION: none">Resize 
+																			Box Width</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdShadow'><a href="JavaScript:_701('Shadow')" style="TEXT-DECORATION: none">Shadow</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdStatusBarAlign'><a href="JavaScript:_701('StatusBarAlign')" style="TEXT-DECORATION: none">Status 
+																			Bar Align</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdStatusBarHeight'><a href="JavaScript:_701('StatusBarHeight')" style="TEXT-DECORATION: none">Status 
+																			Bar Height</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdStatusBarHTML'><a href="JavaScript:_701('StatusBarHTML')" style="TEXT-DECORATION: none">Status 
+																			Bar HTML</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdStatusBarInactiveColor'><a href="JavaScript:_701('StatusBarInactiveColor')" style="TEXT-DECORATION: none">Status 
+																			Bar Inactive Color</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdStatusBarText'><a href="JavaScript:_701('StatusBarText')" style="TEXT-DECORATION: none">Status 
+																			Bar Text</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdStatusLeftMargin'><a href="JavaScript:_701('StatusLeftMargin')" style="TEXT-DECORATION: none">Status 
+																			Bar Text Left Margin</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdStatusColor'><a href="JavaScript:_701('StatusColor')" style="TEXT-DECORATION: none">Status 
+																			Color</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdStatusFontColor'><a href="JavaScript:_701('StatusFontColor')" style="TEXT-DECORATION: none">Status 
+																			Font Color</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdStatusFontFamily'><a href="JavaScript:_701('StatusFontFamily')" style="TEXT-DECORATION: none">Status 
+																			Font Family</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdStatusFontSize'><a href="JavaScript:_701('StatusFontSize')" style="TEXT-DECORATION: none">Status 
+																			Font Size</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdStatusFontStyle'><a href="JavaScript:_701('StatusFontStyle')" style="TEXT-DECORATION: none">Status 
+																			Font Style</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdStatusFontWeight'><a href="JavaScript:_701('StatusFontWeight')" style="TEXT-DECORATION: none">Status 
+																			Font Weight</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdTitleBarAlign'><a href="JavaScript:_701('TitleBarAlign')" style="TEXT-DECORATION: none">Title 
+																			Bar Align</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdTitleBarHeight'><a href="JavaScript:_701('TitleBarHeight')" style="TEXT-DECORATION: none">Title 
+																			Bar Height</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdTitleBarHTML'><a href="JavaScript:_701('TitleBarHTML')" style="TEXT-DECORATION: none">Title 
+																			Bar HTML</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdTitleBarInactiveColor'><a href="JavaScript:_701('TitleBarInactiveColor')" style="TEXT-DECORATION: none">Title 
+																			Bar Inactive Color</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdTitleBarText'><a href="JavaScript:_701('TitleBarText')" style="TEXT-DECORATION: none">Title 
+																			Bar Text</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdTitleLeftMargin'><a href="JavaScript:_701('TitleLeftMargin')" style="TEXT-DECORATION: none">Title 
+																			Bar Text Left Margin</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdTitleColor'><a href="JavaScript:_701('TitleColor')" style="TEXT-DECORATION: none">Title 
+																			Color</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdTitleFontColor'><a href="JavaScript:_701('TitleFontColor')" style="TEXT-DECORATION: none">Title 
+																			Font Color</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdTitleFontFamily'><a href="JavaScript:_701('TitleFontFamily')" style="TEXT-DECORATION: none">Title 
+																			Font Family</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdTitleFontSize'><a href="JavaScript:_701('TitleFontSize')" style="TEXT-DECORATION: none">Title 
+																			Font Size</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdTitleFontStyle'><a href="JavaScript:_701('TitleFontStyle')" style="TEXT-DECORATION: none">Title 
+																			Font Style</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdTitleFontWeight'><a href="JavaScript:_701('TitleFontWeight')" style="TEXT-DECORATION: none">Title 
+																			Font Weight</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdTop'><a href="JavaScript:_701('Top')" style="TEXT-DECORATION: none">Top</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr_l.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdWidth'><a href="JavaScript:_701('Width')" style="TEXT-DECORATION: none">Width</a></td>
+																</tr>
+															</table>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td class="fr" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+												</tr>
+												<tr>
+													<td class="fr" width="100%"><a href="JavaScript:f(3)"><img border="0" src="img/plus.gif" width="19" height="9" id="imgnode3"></a>Methods</td>
+												</tr>
+												<tr>
+													<td class="fr" width="100%">
+														<div align="left" id="block3" name="block3" style="DISPLAY:none">
+															<table border="0" cellpadding="0" cellspacing="0" bordercolor="#111111" ID="Table4">
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdCloseWindow'><a href="JavaScript:_702('CloseWindow')" style="TEXT-DECORATION: none">Close 
+																			Window</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdOpenWindow'><a href="JavaScript:_702('OpenWindow')" style="TEXT-DECORATION: none">Open 
+																			Window</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdUpdateContent'><a href="JavaScript:_702('UpdateContent')" style="TEXT-DECORATION: none">Update 
+																			Content</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdUpdateStatusBarHTML'><a href="JavaScript:_702('UpdateStatusBarHTML')" style="TEXT-DECORATION: none">Update 
+																			Status Bar HTML</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdUpdateStatusBarText'><a href="JavaScript:_702('UpdateStatusBarText')" style="TEXT-DECORATION: none">Update 
+																			Status Bar Text</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdUpdateTitleBarHTML'><a href="JavaScript:_702('UpdateTitleBarHTML')" style="TEXT-DECORATION: none">Update 
+																			Title Bar HTML</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr_l.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdUpdateTitleBarText'><a href="JavaScript:_702('UpdateTitleBarText')" style="TEXT-DECORATION: none">Update 
+																			Title Bar Text</a></td>
+																</tr>
+															</table>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td class="fr" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+												</tr>
+												<tr>
+													<td class="fr" width="100%"><a href="JavaScript:f(4)"><img border="0" src="img/plus.gif" width="19" height="9" id="imgnode4"></a>Customer 
+														Templates</td>
+												</tr>
+												<tr>
+													<td class="fr" width="100%">
+														<div align="left" id="block4" name="block4" style="DISPLAY:none">
+															<table border="0" cellpadding="0" cellspacing="0" bordercolor="#111111" ID="Table5">
+																<tr>
+																	<td class="fr" width="21" align="left">&nbsp;</td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdCreateCustomerTemplate'><a href="JavaScript:_702('CreateCustomerTemplate')" style="TEXT-DECORATION: none">Create 
+																			Customer Template</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left">&nbsp;</td>
+																	<td class="fr"><img border="0" src="img/hr_l.gif" width="19" height="16"></td>
+																	<td class="fr" id='tdLoadCustomerTemplate'><a href="JavaScript:_702('LoadCustomerTemplate')" style="TEXT-DECORATION: none">Load 
+																			Customer Template</a></td>
+																</tr>
+															</table>
+														</div>
+													</td>
+												</tr>
+											</table>
+											<p>&nbsp;</p>
+										</div>
+										<div style="PADDING-RIGHT:10px; DISPLAY:none; PADDING-LEFT:10px; PADDING-BOTTOM:10px; OVERFLOW:auto; WIDTH:250px; PADDING-TOP:10px; HEIGHT:500px" id="menu3">
+											<table border="0" cellpadding="0" cellspacing="0" style="BORDER-COLLAPSE: collapse" ID="Table6">
+												<tr>
+													<td class="fr" width="100%"><a href="JavaScript:f(5)"><img border="0" src="img/minus.gif" width="19" height="9" id="imgnode5"></a>Deployment
+													</td>
+												</tr>
+												<tr>
+													<td class="fr" width="100%">
+														<div align="left" id="block5" style="DISPLAY:block">
+															<table border="0" cellpadding="0" cellspacing="0" bordercolor="#111111" ID="Table7">
+																<tr>
+																	<td class="fr" width="21" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+																	<td class="fr"><img border="0" src="img/hr_l.gif" width="19" height="16"></td>
+																	<td class="fr" id='b2tdDeploy'><a href="JavaScript:_700('Deploy')" style="TEXT-DECORATION: none">Deploying 
+																			DHTML window</a></td>
+																</tr>
+															</table>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td class="fr" align="left"><img border="0" src="img/vertical.gif" width="16" height="16"></td>
+												</tr>
+												<tr>
+													<td class="fr" width="100%"><a href="JavaScript:f(6)"><img border="0" src="img/plus.gif" width="19" height="9" id="imgnode6"></a>See 
+														also</td>
+												</tr>
+												<tr>
+													<td class="fr" width="100%">
+														<div align="left" id="block6" style="DISPLAY:none">
+															<table border="0" cellpadding="0" cellspacing="0" bordercolor="#111111" ID="Table8">
+																<tr>
+																	<td class="fr" width="21" align="left">&nbsp;</td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='b2tdCloseWindow' nowrap><a href="JavaScript:_700('CloseWindow')" style="TEXT-DECORATION: none">How 
+																			to close Window</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left">&nbsp;</td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='b2tdOpenWindow' nowrap><a href="JavaScript:_700('OpenWindow')" style="TEXT-DECORATION: none">How 
+																			to open Window</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left">&nbsp;</td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='b2tdUpdateContent' nowrap><a href="JavaScript:_700('UpdateContent')" style="TEXT-DECORATION: none">How 
+																			to update Content</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left">&nbsp;</td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='b2tdUpdateStatusBarHTML' nowrap><a href="JavaScript:_700('UpdateStatusBarHTML')" style="TEXT-DECORATION: none">How 
+																			to update Status Bar HTML</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left">&nbsp;</td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='b2tdUpdateStatusBarText' nowrap><a href="JavaScript:_700('UpdateStatusBarText')" style="TEXT-DECORATION: none">How 
+																			to update Status Bar Text</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left">&nbsp;</td>
+																	<td class="fr"><img border="0" src="img/hr.gif" width="19" height="16"></td>
+																	<td class="fr" id='b2tdUpdateTitleBarHTML' nowrap><a href="JavaScript:_700('UpdateTitleBarHTML')" style="TEXT-DECORATION: none">How 
+																			to update Title Bar HTML</a></td>
+																</tr>
+																<tr>
+																	<td class="fr" width="21" align="left">&nbsp;</td>
+																	<td class="fr"><img border="0" src="img/hr_l.gif" width="19" height="16"></td>
+																	<td class="fr" id='b2tdUpdateTitleBarText' nowrap><a href="JavaScript:_700('UpdateTitleBarText')" style="TEXT-DECORATION: none">How 
+																			to update Title Bar Text</a></td>
+																</tr>
+															</table>
+														</div>
+													</td>
+												</tr>
+											</table>
+											<p>&nbsp;</p>
+										</div>
+									</TD>
+									<TD vAlign="top" width="1" background="img/dots_v.gif"><IMG height="1" alt="" src="img/spacer.gif" width="1"></TD>
+									<TD vAlign="top" align="left" width="550">
+										<form id="form1" name="form1" action="_ns.htm">
+											<TABLE cellSpacing="0" cellPadding="0" height="100%" border="0">
+												<tr>
+													<TD vAlign="top" align="left" width="550">
+														<div style="PADDING-RIGHT:5px; DISPLAY:block; PADDING-LEFT:5px; PADDING-BOTTOM:5px; OVERFLOW:auto; WIDTH:540px; PADDING-TOP:5px" id="iblock2">
+															<table ID="Table9" border="0" cellpadding="0" cellspacing="0" width="100%">
+																<TR valign="center">
+																	<TD bgColor="#e7f0fc" class="mytitle" width="400">&nbsp;<IMG height="10" alt="" src="img/triangle_pointer.gif" width="10" border="0">&nbsp;Step 
+																		2 of 3. Editing DHTML window properties.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+																	<TD align="left"><IMG height="23" alt="" src="img/light_blue_gradient.gif" width="110" border="0"></TD>
+																</TR>
+																<tr valign="center">
+																	<td>&nbsp;</td>
+																	<td colspan="4" align="left" nowrap><IMG height="7" alt="" src="img/arr.gif" width="9" border="0">
+																		<a class="fr" href="JavaScript:FerantDHTMLWindow1.OpenWindow()">Open DHTML Window</a></td>
+																</tr>
+																<tr valign="center">
+																	<td>&nbsp;</td>
+																	<td colspan="4" align="left" nowrap><IMG height="7" alt="" src="img/arr.gif" width="9" border="0">
+																		<a class="fr" href="JavaScript:FerantDHTMLWindow1.CloseWindow()">Close DHTML Window</a></td>
+																</tr>
+															</table>
+														</div>
+														<div style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px' id="iblock3">
+															<table ID="Table10" border="0" cellpadding="0" cellspacing="0" width="100%">
+																<TR valign="center">
+																	<TD bgColor="#e7f0fc" class="mytitle" width="400">&nbsp;<IMG height="10" alt="" src="img/triangle_pointer.gif" width="10" border="0">&nbsp;Step 
+																		3 of 3. Deploying DHTML window to your website.&nbsp;&nbsp;&nbsp;</TD>
+																	<TD align="left"><IMG height="23" alt="" src="img/light_blue_gradient.gif" width="110" border="0"></TD>
+																</TR>
+																<tr valign="center">
+																	<td>&nbsp;</td>
+																	<td colspan="4" align="left" nowrap><IMG height="7" alt="" src="img/arr.gif" width="9" border="0">
+																		<a class="fr" href="JavaScript:FerantDHTMLWindow1.OpenWindow()">Open DHTML Window</a></td>
+																</tr>
+																<tr valign="center">
+																	<td>&nbsp;</td>
+																	<td colspan="4" align="left" nowrap><IMG height="7" alt="" src="img/arr.gif" width="9" border="0">
+																		<a class="fr" href="JavaScript:FerantDHTMLWindow1.CloseWindow()">Close DHTML Window</a></td>
+																</tr>
+															</table>
+														</div>
+														<div id="divContentHTML" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Content HTML.</span><br>
+															<br>
+															Sets the content HTML.
+															<br>
+															<textarea class="fr" id="InputContentHTML" NAME="InputContentHTML" cols="75" rows="15"></textarea>
+															<br>
+															<br>
+															<INPUT id="Button1" type="button" value="Update" name="Button1" onclick="JavaScript:_699()">
+															<INPUT id="Button2" type="button" value="Cancel" name="Button2" onclick="InputContentHTML.value = FerantDHTMLWindow1._783">
+															<INPUT id="Button3" type="button" value="Restore Default" name="Button3" onclick="InputContentHTML.value = FerantDHTMLWindow1._861;_699()">
+															<P></P>
+														</div>
+														<div id="divBorderColor" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Border Color.</span>
+															<p class="fr">
+																<input type="text" id="InputBorderColor" NAME="InputBorderColor" size="20">
+																<br>
+																<br>
+																Sets the color behind the border.</p>
+															<P class="fr"><STRONG>Note.</STRONG> Border is invisible when the Border Width 
+																property is set to 0.
+															</P>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_696()' ID="Button4" NAME="Button4">
+																<INPUT type="button" value="Cancel" onclick='InputBorderColor.value =FerantDHTMLWindow1._803' ID="Button5" NAME="Button5">
+																<INPUT type="button" value='Restore Default' onclick='InputBorderColor.value =FerantDHTMLWindow1._871;_696()' ID="Button6" NAME="Button6">
+															</p>
+															<p class="fr">Possible Values: Any <a href="JavaScript:WebColors.OpenWindow()">web 
+																	color</a>.</p>
+														</div>
+														<div id="divBorderInactiveColor" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Border Inactive Color.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputBorderInactiveColor" NAME="InputBorderInactiveColor" size="20">
+																<br>
+																<br>
+																Sets the inactive color behind the border.</p>
+															<P class="fr"><STRONG>Note</STRONG>. On Lost Focus event is disabled when the 
+																Border Inactive Color property is set to transparent. To test inactive color 
+																you need two DHTML windows to be open.</P>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_693()' ID="Button7" NAME="Button7">
+																<INPUT type="button" value="Cancel" onclick='InputBorderInactiveColor.value =FerantDHTMLWindow1._740' ID="Button8" NAME="Button8">
+																<INPUT type="button" value='Restore Default' onclick='InputBorderInactiveColor.value =FerantDHTMLWindow1._870;_693()' ID="Button9" NAME="Button9">
+															</p>
+															<p class="fr">Possible Values: Any <a href="JavaScript:WebColors.OpenWindow()">web 
+																	color</a>.</p>
+														</div>
+														<div id="divBorderWidth" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Border Width.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputBorderWidth" NAME="InputBorderWidth" size="20">
+																<br>
+																<br>
+																Sets the width of the border.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_690()' ID="Button10" NAME="Button10">
+																<INPUT type="button" value="Cancel" onclick='InputBorderWidth.value =FerantDHTMLWindow1._800' ID="Button11" NAME="Button11">
+																<INPUT type="button" value='Restore Default' onclick='InputBorderWidth.value =FerantDHTMLWindow1._869;_690()' ID="Button12" NAME="Button12">
+															</p>
+														</div>
+														<div id="divCloseBoxHeight" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Close Box Height.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputCloseBoxHeight" NAME="InputCloseBoxHeight" size="20">
+																<br>
+																<br>
+																Sets the height of the close box.</p>
+															<P class="fr"><STRONG>Note</STRONG>. Close boxis invisible when the&nbsp;Close Box 
+																Height&nbsp;property is set to 0.
+															</P>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_687()' ID="Button13" NAME="Button13">
+																<INPUT type="button" value="Cancel" onclick='InputCloseBoxHeight.value =FerantDHTMLWindow1._816' ID="Button14" NAME="Button14">
+																<INPUT type="button" value='Restore Default' onclick='InputCloseBoxHeight.value =FerantDHTMLWindow1._868;_687()' ID="Button15" NAME="Button15">
+															</p>
+														</div>
+														<div id="divCloseBoxSrc" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Close Box Src.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputCloseBoxSrc" NAME="InputCloseBoxSrc" size="40">
+																<br>
+																<br>
+																Sets a URL to be loaded by the close box image. Possible values: string that 
+																specifies the URL.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_684()' ID="Button16" NAME="Button16">
+																<INPUT type="button" value="Cancel" onclick='InputCloseBoxSrc.value =FerantDHTMLWindow1._788' ID="Button17" NAME="Button17">
+																<INPUT type="button" value='Restore Default' onclick='InputCloseBoxSrc.value =FerantDHTMLWindow1._867;_684()' ID="Button18" NAME="Button18">
+															</p>
+														</div>
+														<div id="divCloseBoxWidth" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Close Box Width.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputCloseBoxWidth" NAME="InputCloseBoxWidth" size="20">
+																<br>
+																<br>
+																Sets the width of the close box.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_681()' ID="Button19" NAME="Button19">
+																<INPUT type="button" value="Cancel" onclick='InputCloseBoxWidth.value =FerantDHTMLWindow1._810' ID="Button20" NAME="Button20">
+																<INPUT type="button" value='Restore Default' onclick='InputCloseBoxWidth.value =FerantDHTMLWindow1._866;_681()' ID="Button21" NAME="Button21">
+															</p>
+														</div>
+														<div id="divContentColor" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Content Color.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputContentColor" NAME="InputContentColor" size="20">
+																<br>
+																<br>
+																Sets the color behind the content.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_678()' ID="Button22" NAME="Button22">
+																<INPUT type="button" value="Cancel" onclick='InputContentColor.value =FerantDHTMLWindow1._784' ID="Button23" NAME="Button23">
+																<INPUT type="button" value='Restore Default' onclick='InputContentColor.value =FerantDHTMLWindow1._865;_678()' ID="Button24" NAME="Button24">
+															</p>
+															<p class="fr">Possible Values: Any <a href="JavaScript:WebColors.OpenWindow()">web 
+																	color</a>.</p>
+														</div>
+														<div id="divContentInactiveColor" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Content Inactive Color.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputContentInactiveColor" NAME="InputContentInactiveColor" size="20">
+																<br>
+																<br>
+																Sets the inactive color behind the content.</p>
+															<P class="fr"><STRONG>Note</STRONG>. On Lost Focus event is disabled when the 
+																Inactive Color property is set to transparent. To test inactive color you need 
+																two DHTML windows to be open.
+															</P>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_675()' ID="Button25" NAME="Button25">
+																<INPUT type="button" value="Cancel" onclick='InputContentInactiveColor.value =FerantDHTMLWindow1._739' ID="Button26" NAME="Button26">
+																<INPUT type="button" value='Restore Default' onclick='InputContentInactiveColor.value =FerantDHTMLWindow1._864;_675()' ID="Button27" NAME="Button27">
+															</p>
+															<p class="fr">Possible Values: Any <a href="JavaScript:WebColors.OpenWindow()">web 
+																	color</a>.</p>
+														</div>
+														<div id="divContentBottomBorderColor" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Content Bottom Border Color.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputContentBottomBorderColor" NAME="InputContentBottomBorderColor" size="20">
+																<br>
+																<br>
+																Sets the color of the bottom border.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_672()' ID="Button28" NAME="Button28">
+																<INPUT type="button" value="Cancel" onclick='InputContentBottomBorderColor.value =FerantDHTMLWindow1._774' ID="Button29" NAME="Button29">
+																<INPUT type="button" value='Restore Default' onclick='InputContentBottomBorderColor.value =FerantDHTMLWindow1._863;_672()' ID="Button30" NAME="Button30">
+															</p>
+															<p class="fr">Possible Values: Any <a href="JavaScript:WebColors.OpenWindow()">web 
+																	color</a>.</p>
+														</div>
+														<div id="divContentBottomBorderWidth" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Content Bottom Border Width.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputContentBottomBorderWidth" NAME="InputContentBottomBorderWidth" size="20">
+																<br>
+																<br>
+																Sets the width of the bottom border.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_669()' ID="Button34" NAME="Button34">
+																<INPUT type="button" value="Cancel" onclick='InputContentBottomBorderWidth.value =FerantDHTMLWindow1._775' ID="Button35" NAME="Button35">
+																<INPUT type="button" value='Restore Default' onclick='InputContentBottomBorderWidth.value =FerantDHTMLWindow1._862;_669()' ID="Button36" NAME="Button36">
+															</p>
+														</div>
+														<div id="divContentLeftBorderColor" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Content Left Border Color.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputContentLeftBorderColor" NAME="InputContentLeftBorderColor" size="20">
+																<br>
+																<br>
+																Sets the color of the left border.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_666()' ID="Button37" NAME="Button37">
+																<INPUT type="button" value="Cancel" onclick='InputContentLeftBorderColor.value =FerantDHTMLWindow1._772' ID="Button38" NAME="Button38">
+																<INPUT type="button" value='Restore Default' onclick='InputContentLeftBorderColor.value =FerantDHTMLWindow1._860;_666()' ID="Button39" NAME="Button39">
+															</p>
+															<p class="fr">Possible Values: Any <a href="JavaScript:WebColors.OpenWindow()">web 
+																	color</a>.</p>
+														</div>
+														<div id="divContentLeftBorderWidth" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Content Left Border Width.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputContentLeftBorderWidth" NAME="InputContentLeftBorderWidth" size="20">
+																<br>
+																<br>
+																Sets the width of the left border.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_663()' ID="Button43" NAME="Button43">
+																<INPUT type="button" value="Cancel" onclick='InputContentLeftBorderWidth.value =FerantDHTMLWindow1._773' ID="Button44" NAME="Button44">
+																<INPUT type="button" value='Restore Default' onclick='InputContentLeftBorderWidth.value =FerantDHTMLWindow1._859;_663()' ID="Button45" NAME="Button45">
+															</p>
+														</div>
+														<div id="divContentPadding" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Content Padding.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputContentPadding" NAME="InputContentPadding" size="20">
+																<br>
+																<br>
+																Sets the amount of space to insert between the content and its margin or, if 
+																there is a border, between the content and its border.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_660()' ID="Button46" NAME="Button46">
+																<INPUT type="button" value="Cancel" onclick='InputContentPadding.value =FerantDHTMLWindow1._780' ID="Button47" NAME="Button47">
+																<INPUT type="button" value='Restore Default' onclick='InputContentPadding.value =FerantDHTMLWindow1._858;_660()' ID="Button48" NAME="Button48">
+															</p>
+														</div>
+														<div id="divContentRightBorderColor" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Content Right Border Color.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputContentRightBorderColor" NAME="InputContentRightBorderColor" size="20">
+																<br>
+																<br>
+																Sets the color of the right border.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_657()' ID="Button49" NAME="Button49">
+																<INPUT type="button" value="Cancel" onclick='InputContentRightBorderColor.value =FerantDHTMLWindow1._776' ID="Button50" NAME="Button50">
+																<INPUT type="button" value='Restore Default' onclick='InputContentRightBorderColor.value =FerantDHTMLWindow1._857;_657()' ID="Button51" NAME="Button51">
+															</p>
+															<p class="fr">Possible Values: Any <a href="JavaScript:WebColors.OpenWindow()">web 
+																	color</a>.</p>
+														</div>
+														<div id="divContentRightBorderWidth" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Content Right Border Width.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputContentRightBorderWidth" NAME="InputContentRightBorderWidth" size="20">
+																<br>
+																<br>
+																Sets the width of the right border.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_654()' ID="Button55" NAME="Button55">
+																<INPUT type="button" value="Cancel" onclick='InputContentRightBorderWidth.value =FerantDHTMLWindow1._777' ID="Button56" NAME="Button56">
+																<INPUT type="button" value='Restore Default' onclick='InputContentRightBorderWidth.value =FerantDHTMLWindow1._856;_654()' ID="Button57" NAME="Button57">
+															</p>
+														</div>
+														<div id="divContentTopBorderColor" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Content Top Border Color.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputContentTopBorderColor" NAME="InputContentTopBorderColor" size="20">
+																<br>
+																<br>
+																Sets the color of the top border.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_651()' ID="Button58" NAME="Button58">
+																<INPUT type="button" value="Cancel" onclick='InputContentTopBorderColor.value =FerantDHTMLWindow1._778' ID="Button59" NAME="Button59">
+																<INPUT type="button" value='Restore Default' onclick='InputContentTopBorderColor.value =FerantDHTMLWindow1._855;_651()' ID="Button60" NAME="Button60">
+															</p>
+															<p class="fr">Possible Values: Any <a href="JavaScript:WebColors.OpenWindow()">web 
+																	color</a>.</p>
+														</div>
+														<div id="divContentTopBorderWidth" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Content Top Border Width.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputContentTopBorderWidth" NAME="InputContentTopBorderWidth" size="20">
+																<br>
+																<br>
+																Sets the width of the top border.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_648()' ID="Button64" NAME="Button64">
+																<INPUT type="button" value="Cancel" onclick='InputContentTopBorderWidth.value =FerantDHTMLWindow1._779' ID="Button65" NAME="Button65">
+																<INPUT type="button" value='Restore Default' onclick='InputContentTopBorderWidth.value =FerantDHTMLWindow1._854;_648()' ID="Button66" NAME="Button66">
+															</p>
+														</div>
+														<div id="divDragable" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Dragable.</span>
+															<p class="fr">
+																<br>
+																<input type="radio" value="Both" checked id="InputDragable" NAME="InputDragable">Vertical 
+																and Horizontal &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" value="VerticalOnly" id="Radio1" NAME="InputDragable">Vertical 
+																Only &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" value="HorizontalOnly" id="Radio2" NAME="InputDragable">Horizontal 
+																Only &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" value="None" id="Radio3" NAME="InputDragable">None
+																<br>
+																<br>
+																Enables DHTML window to be dragable.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_645()' ID="Button67" NAME="Button67">
+																<INPUT type="button" value='Restore Default' onclick='document.form1.InputDragable[0].checked=true; _645()' ID="Button69" NAME="Button69">
+															</p>
+														</div>
+														<div id="divHeight" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Height.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputHeight" NAME="InputHeight" size="20">
+																<br>
+																<br>
+																Sets the height of the DHTML window.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_644()' ID="Button70" NAME="Button70">
+																<INPUT type="button" value="Cancel" onclick='InputHeight.value =FerantDHTMLWindow1._737' ID="Button71" NAME="Button71">
+																<INPUT type="button" value='Restore Default' onclick='InputHeight.value =FerantDHTMLWindow1._852;_644()' ID="Button72" NAME="Button72">
+															</p>
+														</div>
+														<div id="divInnerBorderColor" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Inner Border Color.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputInnerBorderColor" NAME="InputInnerBorderColor" size="20">
+																<br>
+																<br>
+																Sets the color of the inner border.</p>
+															<P class="fr"><STRONG>Note</STRONG>. Inner Border is invisible when the Inner 
+																Border Width property is set to 0.
+															</P>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_641()' ID="Button91" NAME="Button91">
+																<INPUT type="button" value="Cancel" onclick='InputInnerBorderColor.value =FerantDHTMLWindow1._798' ID="Button92" NAME="Button92">
+																<INPUT type="button" value='Restore Default' onclick='InputInnerBorderColor.value =FerantDHTMLWindow1._851;_641()' ID="Button93" NAME="Button93">
+															</p>
+															<p class="fr">Possible Values: Any <a href="JavaScript:WebColors.OpenWindow()">web 
+																	color</a>.</p>
+														</div>
+														<div id="divInnerBorderStyle" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Inner Border Style.</span>
+															<p class="fr">
+																<br>
+																<input type="radio" checked id="InputInnerBorderStyle" NAME="InputInnerBorderStyle" value='Solid'>
+																Solid &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" id="Radio4" NAME="InputInnerBorderStyle" value='Dashed'>
+																Dashed
+																<br>
+																<br>
+																Sets the inner border inline style.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_638()' ID="Button97" NAME="Button97">
+																<INPUT type="button" value='Restore Default' onclick='document.form1.InputInnerBorderStyle[0].checked = true;_638()' ID="Button99" NAME="Button99">
+															</p>
+														</div>
+														<div id="divInnerBorderWidth" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Inner Border Width.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputInnerBorderWidth" NAME="InputInnerBorderWidth" size="20">
+																<br>
+																<br>
+																Sets the inner border width.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_637()' ID="Button100" NAME="Button100">
+																<INPUT type="button" value="Cancel" onclick='InputInnerBorderWidth.value =FerantDHTMLWindow1._797' ID="Button101" NAME="Button101">
+																<INPUT type="button" value='Restore Default' onclick='InputInnerBorderWidth.value =FerantDHTMLWindow1._849;_637()' ID="Button102" NAME="Button102">
+															</p>
+														</div>
+														<div id="divLeft" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Left.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputLeft" NAME="InputLeft" size="20">
+																<br>
+																<br>
+																Sets the position of the DHTML window relative to the left edge of the browser 
+																window. Left = -1 puts DHTML window to the center of the browser.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_634()' ID="Button103" NAME="Button103">
+																<INPUT type="button" value="Cancel" onclick='InputLeft.value =FerantDHTMLWindow1._736' ID="Button104" NAME="Button104">
+																<INPUT type="button" value='Restore Default' onclick='InputLeft.value =FerantDHTMLWindow1._848;_634()' ID="Button105" NAME="Button105">
+															</p>
+														</div>
+														<div id="divMaxHeight" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Max Height.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputMaxHeight" NAME="InputMaxHeight" size="20">
+																<br>
+																<br>
+																Sets the maximum height of the DHTML window. MaxHeight = 0 sets no limitation 
+																to DHTML window height</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_631()' ID="Button106" NAME="Button106">
+																<INPUT type="button" value="Cancel" onclick='InputMaxHeight.value =FerantDHTMLWindow1._735' ID="Button107" NAME="Button107">
+																<INPUT type="button" value='Restore Default' onclick='InputMaxHeight.value =FerantDHTMLWindow1._847;_631()' ID="Button108" NAME="Button108">
+															</p>
+														</div>
+														<div id="divMaxWidth" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0"><span class="pssubtitle">Max Width.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputMaxWidth" NAME="InputMaxWidth" size="20">
+																<br>
+																<br>
+																Sets the maximum width of the DHTML window. MaxWidth = 0 sets no limitation to 
+																DHTML window width.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_628()' ID="Button109" NAME="Button109">
+																<INPUT type="button" value="Cancel" onclick='InputMaxWidth.value =FerantDHTMLWindow1._734' ID="Button110" NAME="Button110">
+																<INPUT type="button" value='Restore Default' onclick='InputMaxWidth.value =FerantDHTMLWindow1._846;_628()' ID="Button111" NAME="Button111">
+															</p>
+														</div>
+														<div id="divMinHeight" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Min Height.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputMinHeight" NAME="InputMinHeight" size="20">
+																<br>
+																<br>
+																Sets the minimum height of the DHTML window. MinHeight = 0 sets no limitation 
+																to DHTML window height</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_625()' ID="Button112" NAME="Button112">
+																<INPUT type="button" value="Cancel" onclick='InputMinHeight.value =FerantDHTMLWindow1._733' ID="Button113" NAME="Button113">
+																<INPUT type="button" value='Restore Default' onclick='InputMinHeight.value =FerantDHTMLWindow1._845;_625()' ID="Button114" NAME="Button114">
+															</p>
+														</div>
+														<div id="divMinWidth" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Min Width.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputMinWidth" NAME="InputMinWidth" size="20">
+																<br>
+																<br>
+																Sets the minimum width of the DHTML window. MinWidth = 0 sets no limitation to 
+																DHTML window width.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_622()' ID="Button115" NAME="Button115">
+																<INPUT type="button" value="Cancel" onclick='InputMinWidth.value =FerantDHTMLWindow1._732' ID="Button116" NAME="Button116">
+																<INPUT type="button" value='Restore Default' onclick='InputMinWidth.value =FerantDHTMLWindow1._844;_622()' ID="Button117" NAME="Button117">
+															</p>
+														</div>
+														<div id="divOuterBorderColor" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Outer Border Color.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputOuterBorderColor" NAME="InputOuterBorderColor" size="20">
+																<br>
+																<br>
+																Sets the color of the outer border.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_619()' ID="Button118" NAME="Button118">
+																<INPUT type="button" value="Cancel" onclick='InputOuterBorderColor.value =FerantDHTMLWindow1._804' ID="Button119" NAME="Button119">
+																<INPUT type="button" value='Restore Default' onclick='InputOuterBorderColor.value =FerantDHTMLWindow1._843;_619()' ID="Button120" NAME="Button120">
+															</p>
+															<p class="fr">Possible Values: Any <a href="JavaScript:WebColors.OpenWindow()">web 
+																	color</a>.</p>
+														</div>
+														<div id="divOuterBorderInactiveColor" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Outer Border Inactive Color.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputOuterBorderInactiveColor" NAME="InputOuterBorderInactiveColor" size="20">
+																<br>
+																<br>
+																Sets the inactive color of the outer border.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_616()' ID="Button121" NAME="Button121">
+																<INPUT type="button" value="Cancel" onclick='InputOuterBorderInactiveColor.value =FerantDHTMLWindow1._731' ID="Button122" NAME="Button122">
+																<INPUT type="button" value='Restore Default' onclick='InputOuterBorderInactiveColor.value =FerantDHTMLWindow1._842;_616()' ID="Button123" NAME="Button123">
+															</p>
+															<p class="fr">Possible Values: Any <a href="JavaScript:WebColors.OpenWindow()">web 
+																	color</a>.</p>
+														</div>
+														<div id="divOuterBorderStyle" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Outer Border Style.</span>
+															<p class="fr">
+																<br>
+																<input type="radio" checked id="InputOuterBorderStyle" NAME="InputOuterBorderStyle" VALUE="Solid">
+																Solid &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" id="Radio5" NAME="InputOuterBorderStyle" VALUE="Dashed">
+																Dashed
+																<br>
+																<br>
+																Sets the inline style of the outer border.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_613()' ID="Button124" NAME="Button124">
+																<INPUT type="button" value='Restore Default' onclick='InputOuterBorderStyle[0].checked = true; _613()' ID="Button126" NAME="Button126">
+															</p>
+														</div>
+														<div id="divOuterBorderWidth" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Outer Border Width.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputOuterBorderWidth" NAME="InputOuterBorderWidth" size="20">
+																<br>
+																<br>
+																Sets the width of the outer border.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_612()' ID="Button127" NAME="Button127">
+																<INPUT type="button" value="Cancel" onclick='InputOuterBorderWidth.value =FerantDHTMLWindow1._805' ID="Button128" NAME="Button128">
+																<INPUT type="button" value='Restore Default' onclick='InputOuterBorderWidth.value =FerantDHTMLWindow1._840;_612()' ID="Button129" NAME="Button129">
+															</p>
+														</div>
+														<div id="divResizable" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Resizable.</span>
+															<p class="fr">
+																<br>
+																<input type="radio" checked id="InputResizable" NAME="InputResizable" value='Both'>Vertical 
+																and Horizontal &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" id="Radio6" NAME="InputResizable" value="VerticalOnly">Vertical 
+																Only &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" id="Radio7" NAME="InputResizable" value='HorizontalOnly'>Horizontal 
+																Only &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" id="Radio8" NAME="InputResizable" value='None'>None
+																<br>
+																<br>
+																Enables DHTML window to be resizable.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_609()' ID="Button130" NAME="Button130">
+																<INPUT type="button" value='Restore Default' onclick='document.form1.InputResizable[0].checked = true ;_609()' ID="Button132" NAME="Button132">
+															</p>
+														</div>
+														<div id="divResizeBoxHeight" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Resize Box Height.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputResizeBoxHeight" NAME="InputResizeBoxHeight" size="20">
+																<br>
+																<br>
+																Sets the height of the resize box.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_608()' ID="Button133" NAME="Button133">
+																<INPUT type="button" value="Cancel" onclick='InputResizeBoxHeight.value =FerantDHTMLWindow1._814' ID="Button134" NAME="Button134">
+																<INPUT type="button" value='Restore Default' onclick='InputResizeBoxHeight.value =FerantDHTMLWindow1._838;_608()' ID="Button135" NAME="Button135">
+															</p>
+														</div>
+														<div id="divResizeBoxSrc" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Resize Box Src.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputResizeBoxSrc" NAME="InputResizeBoxSrc" size="20">
+																<br>
+																<br>
+																Sets a URL to be loaded by the resize box image. Possible values: string that 
+																specifies the URL.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_605()' ID="Button136" NAME="Button136">
+																<INPUT type="button" value="Cancel" onclick='InputResizeBoxSrc.value =FerantDHTMLWindow1._754' ID="Button137" NAME="Button137">
+																<INPUT type="button" value='Restore Default' onclick='InputResizeBoxSrc.value =FerantDHTMLWindow1._837;_605()' ID="Button138" NAME="Button138">
+															</p>
+														</div>
+														<div id="divResizeBoxWidth" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Resize Box Width.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputResizeBoxWidth" NAME="InputResizeBoxWidth" size="20">
+																<br>
+																<br>
+																Sets the width of the resize box.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_602()' ID="Button139" NAME="Button139">
+																<INPUT type="button" value="Cancel" onclick='InputResizeBoxWidth.value =FerantDHTMLWindow1._813' ID="Button140" NAME="Button140">
+																<INPUT type="button" value='Restore Default' onclick='InputResizeBoxWidth.value =FerantDHTMLWindow1._836;_602()' ID="Button141" NAME="Button141">
+															</p>
+														</div>
+														<div id="divShadow" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Shadow.</span>
+															<p class="fr">
+																<br>
+																<input type="radio" checked id="InputShadow" NAME="InputShadow" VALUE="false"> False 
+																&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" id="Radio9" NAME="InputShadow" VALUE="true">
+																True
+																<br>
+																<br>
+																Sets 3-D visual effects for DHTML window.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_599()' ID="Button142" NAME="Button142">
+																<INPUT type="button" value='Restore Default' onclick='document.form1.InputShadow[0].checked = true; _599()' ID="Button144" NAME="Button144">
+															</p>
+														</div>
+														<div id="divStatusBarHeight" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Status Bar Height.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputStatusBarHeight" NAME="InputStatusBarHeight" size="20">
+																<br>
+																<br>
+																Sets the height of the status bar.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_598()' ID="Button145" NAME="Button145">
+																<INPUT type="button" value="Cancel" onclick='InputStatusBarHeight.value =FerantDHTMLWindow1._812' ID="Button146" NAME="Button146">
+																<INPUT type="button" value='Restore Default' onclick='InputStatusBarHeight.value =FerantDHTMLWindow1._834;_598()' ID="Button147" NAME="Button147">
+															</p>
+														</div>
+														<div id="divStatusBarHTML" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Status Bar HTML.</span>
+															<p class="fr">
+																<br>
+																<textarea class="fr" id="InputStatusBarHTML" NAME="InputStatusBarHTML" cols="75" rows="15"></textarea>
+																<br>
+																Sets the status bar and its content in HTML</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_595()' ID="Button148" NAME="Button148">
+																<INPUT type="button" value="Cancel" onclick='InputStatusBarHTML.value =FerantDHTMLWindow1._756' ID="Button149" NAME="Button149">
+																<INPUT type="button" value='Restore Default' onclick='InputStatusBarHTML.value =FerantDHTMLWindow1._833;_595()' ID="Button150" NAME="Button150">
+															</p>
+														</div>
+														<div id="divStatusBarInactiveColor" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Status Bar Inactive Color.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputStatusBarInactiveColor" NAME="InputStatusBarInactiveColor" size="20">
+																<br>
+																<br>
+																Sets the inactive color of the status bar.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_592()' ID="Button151" NAME="Button151">
+																<INPUT type="button" value="Cancel" onclick='InputStatusBarInactiveColor.value =FerantDHTMLWindow1._728' ID="Button152" NAME="Button152">
+																<INPUT type="button" value='Restore Default' onclick='InputStatusBarInactiveColor.value =FerantDHTMLWindow1._832;_592()' ID="Button153" NAME="Button153">
+															</p>
+															<p class="fr">Possible Values: Any <a href="JavaScript:WebColors.OpenWindow()">web 
+																	color</a>.</p>
+														</div>
+														<div id="divStatusBarText" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Status Bar Text.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputStatusBarText" NAME="InputStatusBarText" size="40">
+																<br>
+																<br>
+																Sets the text of the status bar.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_589()' ID="Button154" NAME="Button154">
+																<INPUT type="button" value="Cancel" onclick='InputStatusBarText.value =FerantDHTMLWindow1._759' ID="Button155" NAME="Button155">
+																<INPUT type="button" value='Restore Default' onclick='InputStatusBarText.value =FerantDHTMLWindow1._831;_589()' ID="Button156" NAME="Button156">
+															</p>
+														</div>
+														<div id="divStatusLeftMargin" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Status Bar Text Left Margin.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputStatusLeftMargin" NAME="InputStatusLeftMargin" size="20">
+																<br>
+																<br>
+																Sets the left Margin of the status bar text.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_586()' ID="Button31" NAME="Button154">
+																<INPUT type="button" value="Cancel" onclick='InputStatusLeftMargin.value =FerantDHTMLWindow1._742' ID="Button32" NAME="Button155">
+																<INPUT type="button" value='Restore Default' onclick='InputStatusLeftMargin.value =FerantDHTMLWindow1._888;_586()' ID="Button33" NAME="Button156">
+															</p>
+														</div>
+														<div id="divTitleLeftMargin" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Title Bar Text Left Margin.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputTitleLeftMargin" NAME="InputTitleLeftMargin" size="20">
+																<br>
+																<br>
+																Sets the left Margin of the Title bar text.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_583()' ID="Button40" NAME="Button154">
+																<INPUT type="button" value="Cancel" onclick='InputTitleLeftMargin.value =FerantDHTMLWindow1._741' ID="Button41" NAME="Button155">
+																<INPUT type="button" value='Restore Default' onclick='InputTitleLeftMargin.value =FerantDHTMLWindow1._887;_583()' ID="Button42" NAME="Button156">
+															</p>
+														</div>
+														<div id="divStatusBarAlign" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Status Bar Align.</span>
+															<p class="fr">
+																<br>
+																<input type="radio" checked id="InputStatusBarAlign" NAME="InputStatusBarAlign" VALUE="Center">
+																Center &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" id="Radio10" NAME="InputStatusBarAlign" VALUE="Left">
+																Left
+																<br>
+																<br>
+																Sets whether the text in the status bar is left-aligned or centered.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_580()' ID="Button160" NAME="Button160">
+																<INPUT type="button" value='Restore Default' onclick='InputStatusBarAlign[0].checked = true; _580()' ID="Button162" NAME="Button162">
+															</p>
+														</div>
+														<div id="divStatusColor" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Status Color.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputStatusColor" NAME="InputStatusColor" size="20">
+																<br>
+																<br>
+																Sets the color behind the status bar.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_579()' ID="Button163" NAME="Button163">
+																<INPUT type="button" value="Cancel" onclick='InputStatusColor.value =FerantDHTMLWindow1._765' ID="Button164" NAME="Button164">
+																<INPUT type="button" value='Restore Default' onclick='InputStatusColor.value =FerantDHTMLWindow1._828;_579()' ID="Button165" NAME="Button165">
+															</p>
+															<p class="fr">Possible Values: Any <a href="JavaScript:WebColors.OpenWindow()">web 
+																	color</a>.</p>
+														</div>
+														<div id="divTitleBarHeight" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Title Bar Height.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputTitleBarHeight" NAME="InputTitleBarHeight" size="20">
+																<br>
+																<br>
+																Sets the height of the title bar.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_576()' ID="Button166" NAME="Button166">
+																<INPUT type="button" value="Cancel" onclick='InputTitleBarHeight.value =FerantDHTMLWindow1._817' ID="Button167" NAME="Button167">
+																<INPUT type="button" value='Restore Default' onclick='InputTitleBarHeight.value =FerantDHTMLWindow1._827;_576()' ID="Button168" NAME="Button168">
+															</p>
+														</div>
+														<div id="divTitleBarHTML" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Title Bar HTML.</span>
+															<p class="fr">
+																<br>
+																<textarea class="fr" id="InputTitleBarHTML" NAME="InputTitleBarHTML" cols="75" rows="15"></textarea>
+																<br>
+																Sets the title bar and its content in HTML</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_573()' ID="Button169" NAME="Button169">
+																<INPUT type="button" value="Cancel" onclick='InputTitleBarHTML.value =FerantDHTMLWindow1._757' ID="Button170" NAME="Button170">
+																<INPUT type="button" value='Restore Default' onclick='InputTitleBarHTML.value =FerantDHTMLWindow1._826;_573()' ID="Button171" NAME="Button171">
+															</p>
+														</div>
+														<div id="divTitleBarText" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Title Bar Text.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputTitleBarText" NAME="InputTitleBarText" size="40">
+																<br>
+																<br>
+																Sets the text of the text bar.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_570()' ID="Button172" NAME="Button172">
+																<INPUT type="button" value="Cancel" onclick='InputTitleBarText.value =FerantDHTMLWindow1._791' ID="Button173" NAME="Button173">
+																<INPUT type="button" value='Restore Default' onclick='InputTitleBarText.value =FerantDHTMLWindow1._825;_570()' ID="Button174" NAME="Button174">
+															</p>
+														</div>
+														<div id="divContentNoWrap" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Content No Wrap.</span>
+															<p class="fr">
+																<br>
+																<input type="radio" id="InputContentNoWrap" NAME="InputContentNoWrap" VALUE="Nowrap">
+																No wrap &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" checked id="Radio11" NAME="InputContentNoWrap" VALUE="Normal">
+																Normal
+																<br>
+																<br>
+																Sets the word wrapping of the content text.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_567()' ID="Button175" NAME="Button175">
+																<INPUT type="button" value='Restore Default' onclick='document.form1.InputContentNoWrap[1].checked = true;_567()' ID="Button177" NAME="Button177">
+															</p>
+														</div>
+														<div id="divTitleBarAlign" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Title Bar Align.</span>
+															<p class="fr">
+																<br>
+																<input type="radio" checked id="InputTitleBarAlign" NAME="InputTitleBarAlign" VALUE="Center">
+																Center &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" id="Radio12" NAME="InputTitleBarAlign" VALUE="Left">
+																Left
+																<br>
+																<br>
+																Sets whether the text in the title bar is left-aligned or centered.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_566()' ID="Button178" NAME="Button178">
+																<INPUT type="button" value='Restore Default' onclick='JavaScript:InputTitleBarAlign[0].checked = true; _566()' ID="Button180" NAME="Button180">
+															</p>
+														</div>
+														<div id="divTitleColor" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Title Color.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputTitleColor" NAME="InputTitleColor" size="20">
+																<br>
+																<br>
+																Sets the color behind the title bar.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_565()' ID="Button181" NAME="Button181">
+																<INPUT type="button" value="Cancel" onclick='InputTitleColor.value =FerantDHTMLWindow1._799' ID="Button182" NAME="Button182">
+																<INPUT type="button" value='Restore Default' onclick='InputTitleColor.value =FerantDHTMLWindow1._822;_565()' ID="Button183" NAME="Button183">
+															</p>
+															<p class="fr">Possible Values: Any <a href="JavaScript:WebColors.OpenWindow()">web 
+																	color</a>.</p>
+														</div>
+														<div id="divTitleBarInactiveColor" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Title Bar Inactive Color.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputTitleBarInactiveColor" NAME="InputTitleBarInactiveColor" size="20">
+																<br>
+																<br>
+																Sets the inactive color of the title bar.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_562()' ID="Button184" NAME="Button184">
+																<INPUT type="button" value="Cancel" onclick='InputTitleBarInactiveColor.value =FerantDHTMLWindow1._726' ID="Button185" NAME="Button185">
+																<INPUT type="button" value='Restore Default' onclick='InputTitleBarInactiveColor.value =FerantDHTMLWindow1._821;_562()' ID="Button186" NAME="Button186">
+															</p>
+															<p class="fr">Possible Values: Any <a href="JavaScript:WebColors.OpenWindow()">web 
+																	color</a>.</p>
+														</div>
+														<div id="divTop" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Top.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputTop" NAME="InputTop" size="20">
+																<br>
+																<br>
+																Sets the position of the DHTML window relative to the top edge of the browser 
+																window. Top = -1 puts DHTML window to the center of the browser.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_559()' ID="Button187" NAME="Button187">
+																<INPUT type="button" value="Cancel" onclick='InputTop.value =FerantDHTMLWindow1._725' ID="Button188" NAME="Button188">
+																<INPUT type="button" value='Restore Default' onclick='InputTop.value =FerantDHTMLWindow1._820;_559()' ID="Button189" NAME="Button189">
+															</p>
+														</div>
+														<div id="divWidth" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Width.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputWidth" NAME="InputWidth" size="20">
+																<br>
+																<br>
+																Sets the width of the DHTML window</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_556()' ID="Button190" NAME="Button190">
+																<INPUT type="button" value="Cancel" onclick='InputWidth.value =FerantDHTMLWindow1._724' ID="Button191" NAME="Button191">
+																<INPUT type="button" value='Restore Default' onclick='InputWidth.value =FerantDHTMLWindow1._819;_556()' ID="Button192" NAME="Button192">
+															</p>
+														</div>
+														<div id="divTitleFontSize" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Title Font Size.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputTitleFontSize" NAME="InputTitleFontSize" size="20">
+																<br>
+																<br>
+																Sets the font size of the title.</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_553()' ID="Button195" NAME="Button195">
+																<INPUT type="button" value="Cancel" onclick='InputTitleFontSize.value =FerantDHTMLWindow1._796' ID="Button196" NAME="Button196">
+																<INPUT type="button" value='Restore Default' onclick='InputTitleFontSize.value =FerantDHTMLWindow1._886;_553()' ID="Button198" NAME="Button198">
+															</p>
+														</div>
+														<div id="divTitleFontFamily" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Title Font Family.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputTitleFontFamily" NAME="InputTitleFontFamily" size="40">
+																<br>
+																<br>
+																Sets the font family of the title</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_550()' ID="Button199" NAME="Button199">
+																<INPUT type="button" value="Cancel" onclick='InputTitleFontFamily.value =FerantDHTMLWindow1._795' ID="Button200" NAME="Button200">
+																<INPUT type="button" value='Restore Default' onclick='InputTitleFontFamily.value =FerantDHTMLWindow1._885;_550()' ID="Button201" NAME="Button201">
+															</p>
+														</div>
+														<div id="divTitleFontWeight" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Title Font Weight.</span>
+															<p class="fr">
+																<br>
+																<input type="radio" id="InputTitleFontWeight" NAME="InputTitleFontWeight" VALUE="Bold">
+																Bold <input type="radio" checked id="Radio13" NAME="InputTitleFontWeight" VALUE="Normal">
+																Normal &nbsp;&nbsp;&nbsp;&nbsp;
+																<br>
+																<br>
+																Sets the font weight of the title</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_547()' ID="Button202" NAME="Button202">
+																<INPUT type="button" value='Restore Default' onclick='document.form1.InputTitleFontWeight[0].checked = true; _547()' ID="Button204" NAME="Button204">
+															</p>
+														</div>
+														<div id="divTitleFontColor" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Title Font Color.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputTitleFontColor" NAME="InputTitleFontColor" size="20">
+																<br>
+																<br>
+																Sets the font color of the title</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_546()' ID="Button205" NAME="Button205">
+																<INPUT type="button" value="Cancel" onclick='InputTitleFontColor.value =FerantDHTMLWindow1._793' ID="Button206" NAME="Button206">
+																<INPUT type="button" value='Restore Default' onclick='InputTitleFontColor.value =FerantDHTMLWindow1._883;_546()' ID="Button207" NAME="Button207">
+															</p>
+															<p class="fr">Possible Values: Any <a href="JavaScript:WebColors.OpenWindow()">web 
+																	color</a>.</p>
+														</div>
+														<div id="divTitleFontStyle" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Title Font Style.</span>
+															<p class="fr">
+																<br>
+																<input type="radio" checked id="InputTitleFontStyle" NAME="InputTitleFontStyle" VALUE="Normal">
+																Normal &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" id="Radio14" NAME="InputTitleFontStyle" VALUE="Italic">
+																Italic
+																<br>
+																<br>
+																Sets the font style of the title</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_543()' ID="Button208" NAME="Button208">
+																<INPUT type="button" value='Restore Default' onclick='document.form1.InputTitleFontStyle[0].checked = true; _543()' ID="Button210" NAME="Button210">
+															</p>
+														</div>
+														<div id="divContentFontSize" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Content Font Size.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputContentFontSize" NAME="InputContentFontSize" size="20">
+																<br>
+																<br>
+																Sets the font size of the content</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_542()' ID="Button211" NAME="Button211">
+																<INPUT type="button" value="Cancel" onclick='InputContentFontSize.value =FerantDHTMLWindow1._771' ID="Button212" NAME="Button212">
+																<INPUT type="button" value='Restore Default' onclick='InputContentFontSize.value =FerantDHTMLWindow1._881;_542()' ID="Button213" NAME="Button213">
+															</p>
+														</div>
+														<div id="divContentFontFamily" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Content Font Family.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputContentFontFamily" NAME="InputContentFontFamily" size="40">
+																<br>
+																<br>
+																Sets the font family of the content</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_539()' ID="Button214" NAME="Button214">
+																<INPUT type="button" value="Cancel" onclick='InputContentFontFamily.value =FerantDHTMLWindow1._770' ID="Button215" NAME="Button215">
+																<INPUT type="button" value='Restore Default' onclick='InputContentFontFamily.value =FerantDHTMLWindow1._880;_539()' ID="Button216" NAME="Button216">
+															</p>
+														</div>
+														<div id="divContentFontWeight" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Content Font Weight.</span>
+															<p class="fr">
+																<br>
+																<input type="radio" checked id="InputContentFontWeight" NAME="InputContentFontWeight" VALUE="Normal">
+																Normal &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" id="Radio15" NAME="InputContentFontWeight" VALUE="Bold">
+																Bold
+																<br>
+																<br>
+																Sets the font weight of the content</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_536()' ID="Button217" NAME="Button217">
+																<INPUT type="button" value='Restore Default' onclick='document.form1.InputContentFontWeight[0].checked=true; _536()' ID="Button219" NAME="Button219">
+															</p>
+														</div>
+														<div id="divContentFontColor" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Content Font Color.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputContentFontColor" NAME="InputContentFontColor" size="20">
+																<br>
+																<br>
+																Sets the font color of the content</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_535()' ID="Button220" NAME="Button220">
+																<INPUT type="button" value="Cancel" onclick='InputContentFontColor.value = FerantDHTMLWindow1._768' ID="Button221" NAME="Button221">
+																<INPUT type="button" value='Restore Default' onclick='InputContentFontColor.value =FerantDHTMLWindow1._878;_535()' ID="Button222" NAME="Button222">
+															</p>
+															<p class="fr">Possible Values: Any <a href="JavaScript:WebColors.OpenWindow()">web 
+																	color</a>.</p>
+														</div>
+														<div id="divContentFontStyle" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Content Font Style.</span>
+															<p class="fr">
+																<br>
+																<input type="radio" checked id="InputContentFontStyle" NAME="InputContentFontStyle" VALUE="Normal">
+																Normal &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" id="Radio16" NAME="InputContentFontStyle" VALUE="Italic">
+																Italic
+																<br>
+																<br>
+																Sets the font style of the content</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_532()' ID="Button223" NAME="Button223">
+																<INPUT type="button" value='Restore Default' onclick='document.form1.InputContentFontStyle[0].checked=true;_532()' ID="Button225" NAME="Button225">
+															</p>
+														</div>
+														<div id="divStatusFontSize" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Status Font Size.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputStatusFontSize" NAME="InputStatusFontSize" size="20">
+																<br>
+																<br>
+																Sets the font size of the status</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_531()' ID="Button226" NAME="Button226">
+																<INPUT type="button" value="Cancel" onclick='InputStatusFontSize.value =FerantDHTMLWindow1._764' ID="Button227" NAME="Button227">
+																<INPUT type="button" value='Restore Default' onclick='InputStatusFontSize.value =FerantDHTMLWindow1._876;_531()' ID="Button228" NAME="Button228">
+															</p>
+														</div>
+														<div id="divStatusFontFamily" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Status Font Family.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputStatusFontFamily" NAME="InputStatusFontFamily" size="40">
+																<br>
+																<br>
+																Sets the font family of the status</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_528()' ID="Button229" NAME="Button229">
+																<INPUT type="button" value="Cancel" onclick='InputStatusFontFamily.value =FerantDHTMLWindow1._763' ID="Button230" NAME="Button230">
+																<INPUT type="button" value='Restore Default' onclick='InputStatusFontFamily.value =FerantDHTMLWindow1._875;_528()' ID="Button231" NAME="Button231">
+															</p>
+														</div>
+														<div id="divStatusFontWeight" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Status Font Weight.</span>
+															<p class="fr">
+																<br>
+																<input type="radio" checked id="InputStatusFontWeight" NAME="InputStatusFontWeight" VALUE="Normal">
+																Normal &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" id="Radio17" NAME="InputStatusFontWeight" VALUE="Bold">
+																Bold
+																<br>
+																<br>
+																Sets the font weight of the status</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_525()' ID="Button232" NAME="Button232">
+																<INPUT type="button" value='Restore Default' onclick='document.form1.InputStatusFontWeight[0].checked = true; _525()' ID="Button234" NAME="Button234">
+															</p>
+														</div>
+														<div id="divStatusFontColor" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Status Font Color.</span>
+															<p class="fr">
+																<br>
+																<input type="text" id="InputStatusFontColor" NAME="InputStatusFontColor" size="20">
+																<br>
+																<br>
+																Sets the font color of the status</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_524()' ID="Button235" NAME="Button235">
+																<INPUT type="button" value="Cancel" onclick='InputStatusFontColor.value =FerantDHTMLWindow1._761' ID="Button236" NAME="Button236">
+																<INPUT type="button" value='Restore Default' onclick='InputStatusFontColor.value =FerantDHTMLWindow1._873;_524()' ID="Button237" NAME="Button237">
+															</p>
+															<p class="fr">Possible Values: Any <a href="JavaScript:WebColors.OpenWindow()">web 
+																	color</a>.</p>
+														</div>
+														<div id="divStatusFontStyle" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Status Font Style.</span>
+															<p class="fr">
+																<br>
+																<input type="radio" checked id="InputStatusFontStyle" NAME="InputStatusFontStyle" VALUE="Normal">
+																Normal &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" id="Radio18" NAME="InputStatusFontStyle" VALUE="Italic">
+																Italic
+																<br>
+																<br>
+																Sets the font style of the status</p>
+															<p class="fr">
+																<INPUT type="button" value="Update" onclick='JavaScript:_521()' ID="Button238" NAME="Button238">
+																<INPUT type="button" value='Restore Default' onclick='document.form1.InputStatusFontStyle[0].checked = true;_521()' ID="Button240" NAME="Button240">
+															</p>
+														</div>
+														<div id="divLoadCustomerTemplate" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Customer Template.</span>
+															<p class="fr">Template To Load: &nbsp;&nbsp;&nbsp; <textarea class="fr" id="InputTemplate" NAME="InputTemplate" cols="80" rows="11"></textarea>
+																<br>
+															<P class="fr">
+																<INPUT type="button" value="Load Template" onclick="JavaScript:_520();" ID="Button194" NAME="Button190"></P>
+															<P class="fr"><STRONG>Why do you need customer templates?</STRONG> If your new 
+																DHTML window is ready, you can hit Next Step to deploy it to your website. The 
+																problem is when you need to modify the window later; you have to start from the 
+																beginning. Create Customer Template option allows you to save DHTML window as a 
+																text file for further modification.
+															</P>
+															<P class="fr"><STRONG>Note.</STRONG> Ferant Studio can not&nbsp;access your hard 
+																disk (because it is written in JavaScript), so it is your job to save your new 
+																DHTML window as a customer template in some text file.</P>
+															<P class="fr">&nbsp;</P>
+														</div>
+														<div id="divCreateCustomerTemplate" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">Create Customer Template.</span>
+															<p class="fr">Template To Create And Save: &nbsp;&nbsp;&nbsp; <textarea class="fr" id="OutputTemplate" NAME="OutputTemplate" cols="75" rows="15"></textarea>
+																<br>
+															<p class="fr">
+																<INPUT type="button" value="Create Template" onclick="JavaScript:_519();" ID="Button52" NAME="Button190">
+															</p>
+														</div>
+														<div id="divAboutProperties" style='PADDING-RIGHT:5px; DISPLAY:block; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">How to modify DHTML window.</span>
+															<p class="fr">The left tree view has 79 editable properties for your DHTML window. To edit properties, select the property you want to modify, change the value, and click Update button. If you keep DHTML window open, the changes take effect immediately.</p>
+															<p class="fr"><b>Note.</b> Ferant DHTML Studio is written in JavaScript, so it can 
+																not save anything to hard disk. In order to save property values, use "Create 
+																Customer Template" option. A customer template has all property values, and it 
+																can be saved in a text file. Load Customer Template option allows you to 
+																restore properties, saved in a customer template.</p>
+														</div>
+														<div id="divCloseWindow" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">How to Close DHTML window.</span>
+															<p class="fr">To close window use CloseWindow() method.</p>
+															<p class="fr"><b>Example.</b></p>
+															<div class="fr" style="BACKGROUND-COLOR:#f7f7f7" id="method1">
+																<br>
+																&nbsp;&nbsp;&nbsp;&lt;a 
+																href="JavaScript:FerantDHTMLWindow1.CloseWindow()"&gt;Close DHTML 
+																Window&lt;/a&gt;<br>
+																&nbsp;
+															</div>
+															<p class="fr"><b>Show me.</b> &nbsp;&nbsp;&nbsp; <a href="JavaScript:FerantDHTMLWindow1.CloseWindow()">
+																	Close DHTML window</a></p>
+														</div>
+														<div id="divOpenWindow" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">How to open DHTML window.</span>
+															<p class="fr">To open DHTML window use OpenWindow() method.</p>
+															<p class="fr"><b>Example.</b></p>
+															<div class="fr" style="BACKGROUND-COLOR:#f7f7f7" id="method2">
+																<br>
+																&nbsp;&nbsp;&nbsp;&lt;a 
+																href="JavaScript:FerantDHTMLWindow1.OpenWindow()"&gt;Open DHTML 
+																Window&lt;/a&gt;<br>
+																<br>
+															</div>
+															<p class="fr"><b>Show me.</b> &nbsp;&nbsp;&nbsp; <a href="JavaScript:FerantDHTMLWindow1.OpenWindow()">
+																	Open DHTML window</a></p>
+														</div>
+														<div id="divUpdateContent" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">How to update DHTML window content programmatically.</span>
+															<p class="fr">To update DHTML window use UpdateContentHTML(newContentHTML) method.</p>
+															<p class="fr"><b>Example.</b></p>
+															<div class="fr" style="BACKGROUND-COLOR:#f7f7f7" id="method3">
+																<br>
+																&lt;a href="JavaScript:DoContentUpdate()"&gt;Update DHTML window 
+																content&lt;/a&gt;<br>
+																<br>
+																&lt;script language='javascript' type='text/javascript'&gt;<br>
+																<br>
+																&nbsp;&nbsp;&nbsp; function DoContentUpdate(){<br>
+																<br>
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var x = prompt("Enter HTML to update 
+																content","Hi, &lt;b&gt;world!&lt;/b&gt;");<br>
+																<br>
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+																FerantDHTMLWindow1.UpdateContentHTML(x);<br>
+																<br>
+																&nbsp;&nbsp;&nbsp; }<br>
+																<br>
+																&lt;/script&gt;<br>
+																&nbsp;
+															</div>
+															<p class="fr"><b>Show me.</b> &nbsp;&nbsp;&nbsp; <a href="JavaScript:DoContentUpdate()">
+																	Update DHTML window content</a></p>
+														</div>
+														<div id="divUpdateStatusBarHTML" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">How to update status bar HTML programmatically.</span>
+															<p class="fr">To update status bar text use UpdateStatusBarHTML(newStatusBarHTML) 
+																method.</p>
+															<p class="fr"><b>Example.</b></p>
+															<div class="fr" style="BACKGROUND-COLOR:#f7f7f7" id="method4">
+																<br>
+																&lt;a href="JavaScript:DoStatusBarHTMLUpdate()"&gt;Update Status Bar 
+																HTML&lt;/a&gt;<br>
+																<br>
+																&lt;script language='javascript' type='text/javascript'&gt;<br>
+																<br>
+																&nbsp;&nbsp;&nbsp; function DoStatusBarHTMLUpdate(){<br>
+																<br>
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var x = prompt("Enter HTML to update 
+																status bar HTML","Hi, &lt;b&gt;world!&lt;/b&gt;");<br>
+																<br>
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+																FerantDHTMLWindow1.UpdateStatusBarHTML(x);<br>
+																<br>
+																&nbsp;&nbsp;&nbsp; }<br>
+																<br>
+																&lt;/script&gt;<br>
+																&nbsp;
+															</div>
+															<p class="fr"><b>Show me.</b> &nbsp;&nbsp;&nbsp; <a href="JavaScript:DoStatusBarHTMLUpdate()">
+																	Update Status Bar HTML</a></p>
+														</div>
+														<div id="divUpdateStatusBarText" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">How to update status bar text programmatically.</span>
+															<p class="fr">To update DHTML window status bar use 
+																UpdateStatusBarText(newStatusBarText) method.</p>
+															<p class="fr"><b>Example.</b></p>
+															<div class="fr" style="BACKGROUND-COLOR:#f7f7f7" id="method5">
+																<br>
+																&lt;a href="JavaScript:DoContentUpdate()"&gt;Update status bar text&lt;/a&gt;<br>
+																<br>
+																&lt;script language='javascript' type='text/javascript'&gt;<br>
+																<br>
+																&nbsp;&nbsp;&nbsp; function DoStatusBarTextUpdate(){<br>
+																<br>
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var x = prompt("Enter text to update 
+																status bar","Hi, world!");<br>
+																<br>
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+																FerantDHTMLWindow1.UpdateStatusBarText(x);<br>
+																<br>
+																&nbsp;&nbsp;&nbsp; }<br>
+																<br>
+																&lt;/script&gt;<br>
+																&nbsp;
+															</div>
+															<p class="fr"><b>Show me.</b> &nbsp;&nbsp;&nbsp; <a href="JavaScript:DoStatusBarTextUpdate()">
+																	Update status bar text</a></p>
+														</div>
+														<div id="divUpdateTitleBarHTML" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">How to update title bar HTML programmatically.</span>
+															<p class="fr">To update DHTML window status bar use 
+																UpdateTitleBarHTML(newTitleBarHTML) method.</p>
+															<p class="fr"><b>Example.</b></p>
+															<div class="fr" style="BACKGROUND-COLOR:#f7f7f7" id="method6">
+																<br>
+																&lt;a href="JavaScript:DoTitleBarHTMLUpdate()"&gt;Update title bar 
+																HTML&lt;/a&gt;<br>
+																<br>
+																&lt;script language='javascript' type='text/javascript'&gt;<br>
+																<br>
+																&nbsp;&nbsp;&nbsp; function DoTitleBarHTMLUpdate(){<br>
+																<br>
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var x = prompt("Enter HTML to update 
+																title bar","Hi, &lt;b&gt;world!&lt;/b&gt;");<br>
+																<br>
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+																FerantDHTMLWindow1.UpdateTitleBarHTML(x);<br>
+																<br>
+																&nbsp;&nbsp;&nbsp; }<br>
+																<br>
+																&lt;/script&gt;<br>
+																&nbsp;
+															</div>
+															<p class="fr"><b>Show me.</b> &nbsp;&nbsp;&nbsp; <a href="JavaScript:DoTitleBarHTMLUpdate()">
+																	Update title bar HTML</a></p>
+														</div>
+														<div id="divUpdateTitleBarText" style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px'><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+															<span class="pssubtitle">How to update title bar text programmatically.</span>
+															<p class="fr">To update DHTML window status bar use 
+																UpdateTitleBarText(newTitleBarText) method.</p>
+															<p class="fr"><b>Example.</b></p>
+															<div class="fr" style="BACKGROUND-COLOR:#f7f7f7" id="method7">
+																<br>
+																&lt;a href="JavaScript:DoTitleBarTextUpdate()"&gt;Update title bar 
+																text&lt;/a&gt;<br>
+																<br>
+																&lt;script language='javascript' type='text/javascript'&gt;<br>
+																<br>
+																&nbsp;&nbsp;&nbsp; function DoTitleBarTextUpdate(){<br>
+																<br>
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var x = prompt("Enter text to update 
+																title bar","Hi, world!");<br>
+																<br>
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+																FerantDHTMLWindow1.UpdateTitleBarText(x);<br>
+																<br>
+																&nbsp;&nbsp;&nbsp; }<br>
+																<br>
+																&lt;/script&gt;<br>
+																&nbsp;
+															</div>
+															<p class="fr"><b>Show me.</b> &nbsp;&nbsp;&nbsp; <a href="JavaScript:DoTitleBarTextUpdate()">
+																	Update title bar text</a></p>
+														</div>
+														<div style='PADDING-RIGHT:5px; DISPLAY:none; PADDING-LEFT:5px; PADDING-BOTTOM:5px; PADDING-TOP:5px' id="divDeploy">
+															<p class="fr"><IMG height="7" alt="" src="img/three_dots.gif" width="7" border="0">
+																<span class="pssubtitle">How to deploy DHTML window to your website.</span><br>
+																<br>
+																<b>1.</b> Copy the following code to new file myWindow.js, and save (or FTP) 
+																the file to your website/inc folder.
+																<br>
+																<textarea class="fr" id="InputDeploy" NAME="InputDeploy" cols="77" rows="8"></textarea>
+															<p class="fr"><b>2.</b> Copy (or FTP)&nbsp;FerantLib.js file to your website/inc 
+																folder. This file contains JavaScript code to support DHTM windows. It comes 
+																with Ferant Studio and located in your
+																<span id="FerantStudioInc">FerantStudio/inc</span>
+																folder.</p>
+															<p class="fr"><b>3.</b> Copy (or FTP)&nbsp;image files from
+																<span id="FerantStudioImg">FerantStudio/img</span>
+																to your website/img folder.</p>
+															<p class="fr"><b>4.</b> Add the following two lines to the bottom of your page 
+																(after &lt;/HTML&gt; tag):</p>
+															<p class="fr" style="BACKGROUND-COLOR:#f7f7f7">
+																<br>
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/BODY&gt;<br>
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/HTML&gt;<br>
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;script language="JavaScript" 
+																src="inc/FerantLib.js"&gt; &lt;/script&gt;<br>
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;script language="JavaScript" 
+																src="inc/myWindow.js"&gt; &lt;/script&gt;
+																<br>
+																&nbsp;
+															</p>
+														</div>
+													</TD>
+												</tr>
+												<tr valign="bottom" align="middle">
+													<td bgcolor="white">
+														<div style="DISPLAY:block" id="navig2">
+															<img src="img/arr_left.gif" width="9" border="0">&nbsp;<a href="index.htm" class="fr">Previous 
+																Step</a>&nbsp; 
+															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+															&nbsp;<a href="JavaScript:Step3()" class="fr">Next Step</a>&nbsp;<IMG height="7" alt="" src="img/arr.gif" width="9" border="0">
+														</div>
+														<div style="DISPLAY:none" id="navig3" class="fr">
+															<img src="img/arr_left.gif" width="9" border="0">&nbsp;<a href="JavaScript:Step2()">Previous 
+																Step</a>&nbsp; 
+															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+															Thank you for using Ferant DHTML Studio!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+														</div>
+														<br>
+														&nbsp;
+													</td>
+												</tr>
+											</TABLE>
+											</form>
+									</TD>
+									<TD vAlign="top" width="1" background="img/dots_v.gif"><IMG height="1" alt="" src="img/spacer.gif" width="1"></TD>
+								</TR>
+							</TBODY></TABLE>
+						
+					</TD>
+					<TD align="right"></TD>
+				</TR>
+			</TBODY>
+		</TABLE>
+		<TABLE cellSpacing="0" cellPadding="0" width="100%" align="center" border="0">
+			<TBODY>
+				<TR>
+					<TD align="middle" background="img/dots_h.gif"><IMG class="imgblock" height="1" alt="" src="img/spacer.gif" width="1"></TD>
+				</TR>
+			</TBODY>
+		</TABLE>
+		<BR>
+		<p align="center" class="fr">
+			© 2003 Ferant, Inc. All Rights Reserved.
+		</p>
+		<script language="javascript" type='text/javascript'>
+ var x='';    
+      	if(_703!='FerantDHTMLWindow1'){
+		for(i=1;i<8;i++) {                                           
+			x = document.getElementById('method' + i).innerHTML.replace(/FerantDHTMLWindow1/g,_703);
+			document.getElementById('method' + i).innerHTML = x
+		}
+	
+	}
+
+var propOld = 'AboutProperties';
+var b2propOld = 'Deploy';
+
+function _702(propNew){  if(propOld == propNew) return;
+	
+	document.getElementById('td' + propNew).style.backgroundColor='yellow';		
+	document.getElementById('div' + propNew).style.display ='block';
+       	
+    if(propOld != ''){
+		 document.getElementById('div' + propOld).style.display ='none';
+		 document.getElementById('td' + propOld).style.backgroundColor='#f7f7f7';
+	}
+
+	propOld = propNew;
+
+}
+
+function _701(propNew){ 
+
+	if(propOld == propNew) return;
+	document.getElementById('td' + propNew).style.backgroundColor='yellow';
+
+		
+	document.getElementById('div' + propNew).style.display ='block'; 
+	
+    if(document.getElementById('Input' + propNew).type=='radio'){
+	
+		for(i=0;i<document.form1.elements.length;i++){
+			if(document.form1.elements[i].name=='Input' + propNew){
+				x=document.form1.elements[i].value;
+				y=FerantDHTMLWindow1[_891[propNew]].toString();
+				if(x.toLowerCase() == y.toLowerCase()){
+					document.form1.elements[i].checked = true;
+					break;
+				}
+			}
+		}
+    
+    }
+    else
+		document.getElementById('Input' + propNew).value = FerantDHTMLWindow1[_891[propNew]];
+					
+	document.getElementById('div' + propOld).style.display ='none';
+	document.getElementById('td' + propOld).style.backgroundColor='#f7f7f7';
+	propOld = propNew;
+
+}
+
+function _700(propNew){  
+
+	if(b2propOld == propNew) return;
+	
+	document.getElementById('b2td' + propNew).style.backgroundColor='yellow';		
+	document.getElementById('div' + propNew).style.display ='block';
+       	
+	document.getElementById('div' + b2propOld).style.display ='none';
+	document.getElementById('b2td' + b2propOld).style.backgroundColor='#f7f7f7';
+
+	b2propOld = propNew;
+
+}
+
+var node = new Array(7);
+node[1]=true;
+node[5]=true;
+
+function f(i){  
+    
+    if(node[i]){
+        document.getElementById('imgnode' + i).src = "img/plus.gif";
+        document.getElementById('block' + i).style.display = "none";
+    }else{
+        document.getElementById('imgnode' + i).src = "img/minus.gif";
+        document.getElementById('block' + i).style.display = "block"
+    }
+
+    node[i] = !node[i];
+}
+
+function DoContentUpdate(){
+
+	var x = prompt("Enter HTML to update content","Hi, <b>world!</b>");
+	
+	if(x!=null) FerantDHTMLWindow1.UpdateContentHTML(x);
+
+}
+
+function DoStatusBarHTMLUpdate(){
+
+	var x = prompt("Enter HTML to update status bar","Hi, <b>world!</b>");
+	
+	if(x!=null) FerantDHTMLWindow1.UpdateStatusBarHTML(x);
+
+}
+
+function DoTitleBarHTMLUpdate(){
+
+	var x = prompt("Enter HTML to update title bar","Hi, <b>world!</b>");
+	
+	if(x!=null) FerantDHTMLWindow1.UpdateTitleBarHTML(x);
+
+}
+
+function DoStatusBarTextUpdate(){
+
+	var x = prompt("Enter text to update status bar","Hi, world!");
+	
+	if(x!=null) FerantDHTMLWindow1.UpdateStatusBarText(x);
+
+}
+
+function DoTitleBarTextUpdate(){
+
+	var x = prompt("Enter text to update title bar","Hi, world!");
+	
+	if(x!=null) FerantDHTMLWindow1.UpdateTitleBarText(x);
+
+}
+
+var folder = document.location.href.toLowerCase();
+	
+	if(folder.indexOf('file:///')>=0) folder = folder.substr(8+folder.indexOf('file:///'),folder.length-1);
+	
+	if(folder.indexOf('_ns.htm')>=0) folder = folder.substr(0,folder.indexOf('_ns.htm'));
+	
+	document.getElementById('tdAboutProperties').style.backgroundColor='yellow';
+	document.getElementById('b2tdDeploy').style.backgroundColor='yellow';
+	document.getElementById('FerantStudioInc').innerHTML  = folder + 'inc';
+	document.getElementById('FerantStudioImg').innerHTML = folder + 'img';
+	
+		</script>
+	</BODY>
+</HTML>

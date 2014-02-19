@@ -1,0 +1,317 @@
+<HTML
+><HEAD
+><TITLE
+>Net_SMTP</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Networking"
+HREF="package.networking.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.networking.net-smartirc-intro.html"><LINK
+REL="NEXT"
+TITLE="Class Summary Net_SMTP"
+HREF="package.networking.net-smtp.net-smtp-summary.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-smartirc-intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 48. Networking</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-smtp.net-smtp-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.networking.net-smtp">Net_SMTP</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.networking.net-smtp.net-smtp-summary.html"
+>Class Summary <B
+CLASS="classname"
+>Net_SMTP</B
+></A
+>&nbsp;--&nbsp;Provides an implementation of the SMTP protocol using PEAR's 
+  Net_Socket:: class.</DT
+><DT
+><A
+HREF="package.networking.net-smtp.intro.html"
+>Introduction and Guide</A
+>&nbsp;--&nbsp;
+Provides an implementation of the SMTP protocol      </DT
+><DT
+><A
+HREF="package.networking.net-smtp.net-smtp.net-smtp.html"
+>constructor <B
+CLASS="function"
+>Net_SMTP::Net_SMTP()</B
+></A
+>&nbsp;--&nbsp;Instantiates a new Net_SMTP object, overriding any networkings  with
+parameters that are passed in.</DT
+><DT
+><A
+HREF="package.networking.net-smtp.net-smtp.auth.html"
+><B
+CLASS="function"
+>Net_SMTP::auth()</B
+></A
+>&nbsp;--&nbsp;Attempt to do SMTP authentication.</DT
+><DT
+><A
+HREF="package.networking.net-smtp.net-smtp.connect.html"
+><B
+CLASS="function"
+>Net_SMTP::connect()</B
+></A
+>&nbsp;--&nbsp;Attempt to connect to the SMTP server.</DT
+><DT
+><A
+HREF="package.networking.net-smtp.net-smtp.data.html"
+><B
+CLASS="function"
+>Net_SMTP::data()</B
+></A
+>&nbsp;--&nbsp;Send the DATA command to start message body</DT
+><DT
+><A
+HREF="package.networking.net-smtp.net-smtp.disconnect.html"
+><B
+CLASS="function"
+>Net_SMTP::disconnect()</B
+></A
+>&nbsp;--&nbsp;Attempt to disconnect from the SMTP server.</DT
+><DT
+><A
+HREF="package.networking.net-smtp.net-smtp.getresponse.html"
+><B
+CLASS="function"
+>Net_SMTP::getResponse()</B
+></A
+>&nbsp;--&nbsp;Return a 2-tuple containing the last response from the SMTP server.</DT
+><DT
+><A
+HREF="package.networking.net-smtp.net-smtp.helo.html"
+><B
+CLASS="function"
+>Net_SMTP::helo()</B
+></A
+>&nbsp;--&nbsp;Send the HELO command.</DT
+><DT
+><A
+HREF="package.networking.net-smtp.net-smtp.identifysender.html"
+><B
+CLASS="function"
+>Net_SMTP::identifySender()</B
+></A
+>&nbsp;--&nbsp;Backwards-compatibility method.identifySender()'s functionality is 
+now handled internally.</DT
+><DT
+><A
+HREF="package.networking.net-smtp.net-smtp.mailfrom.html"
+><B
+CLASS="function"
+>Net_SMTP::mailFrom()</B
+></A
+>&nbsp;--&nbsp;Send the MAIL FROM: command.</DT
+><DT
+><A
+HREF="package.networking.net-smtp.net-smtp.noop.html"
+><B
+CLASS="function"
+>Net_SMTP::noop()</B
+></A
+>&nbsp;--&nbsp;Send the NOOP command.</DT
+><DT
+><A
+HREF="package.networking.net-smtp.net-smtp.quotedata.html"
+><B
+CLASS="function"
+>Net_SMTP::quotedata()</B
+></A
+>&nbsp;--&nbsp;Quote the data so that it meets SMTP standards.</DT
+><DT
+><A
+HREF="package.networking.net-smtp.net-smtp.rcptto.html"
+><B
+CLASS="function"
+>Net_SMTP::rcptTo()</B
+></A
+>&nbsp;--&nbsp;Send the RCPT TO: command.</DT
+><DT
+><A
+HREF="package.networking.net-smtp.net-smtp.rset.html"
+><B
+CLASS="function"
+>Net_SMTP::rset()</B
+></A
+>&nbsp;--&nbsp;Send the RSET command.</DT
+><DT
+><A
+HREF="package.networking.net-smtp.net-smtp.saml-from.html"
+><B
+CLASS="function"
+>Net_SMTP::saml_from()</B
+></A
+>&nbsp;--&nbsp;Send the SAML FROM: command.</DT
+><DT
+><A
+HREF="package.networking.net-smtp.net-smtp.send-from.html"
+><B
+CLASS="function"
+>Net_SMTP::send_from()</B
+></A
+>&nbsp;--&nbsp;Send the SEND FROM: command.</DT
+><DT
+><A
+HREF="package.networking.net-smtp.net-smtp.setdebug.html"
+><B
+CLASS="function"
+>Net_SMTP::setDebug()</B
+></A
+>&nbsp;--&nbsp;Set the value of the debugging flag.</DT
+><DT
+><A
+HREF="package.networking.net-smtp.net-smtp.soml-from.html"
+><B
+CLASS="function"
+>Net_SMTP::soml_from()</B
+></A
+>&nbsp;--&nbsp;Send the SOML FROM: command.</DT
+><DT
+><A
+HREF="package.networking.net-smtp.net-smtp.vrfy.html"
+><B
+CLASS="function"
+>Net_SMTP::vrfy()</B
+></A
+>&nbsp;--&nbsp;Send the VRFY command.</DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-smartirc-intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-smtp.net-smtp-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class Summary <B
+CLASS="classname"
+>Net_SMTP</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

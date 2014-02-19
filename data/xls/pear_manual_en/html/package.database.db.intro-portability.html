@@ -1,0 +1,713 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - Portability</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction - autoPrepare & autoExecute"
+HREF="package.database.db.intro-auto.html"><LINK
+REL="NEXT"
+TITLE="Introduction - Sequences"
+HREF="package.database.db.intro-sequences.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.intro-auto.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.intro-sequences.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.intro-portability">Introduction - Portability</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN21592"
+></A
+>Introduction - Portability&nbsp;--&nbsp;Database portability features</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.intro-portability.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Each database management system (DBMS) has it's own behaviors.
+   For example, some databases capitalize field names in their output,
+   some lowercase them, while others leave them alone. These quirks
+   make it difficult to port your scripts over to another server type.
+   PEAR DB strives to overcome these differences so your program can
+   switch between DBMS's without any changes.
+  </P
+><P
+>&#13;   You control which portability modes are enabled by using
+   the <TT
+CLASS="varname"
+>portability</TT
+> configuration option.
+   Configuration options are set via
+   <A
+HREF="package.database.db.db.connect.html"
+>&#13;    <B
+CLASS="function"
+>connect()</B
+></A
+> and
+   <A
+HREF="package.database.db.db-common.setoption.html"
+>&#13;    <B
+CLASS="function"
+>setOption()</B
+></A
+>.
+  </P
+><P
+>&#13;   The portability modes are bitwised, so they can be combined using
+   <TT
+CLASS="literal"
+>|</TT
+> and removed using <TT
+CLASS="literal"
+>^</TT
+>.
+   See the examples section below on how to do this.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.intro-portability.constants"
+></A
+><H2
+>Portability Mode Constants</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      <TT
+CLASS="constant"
+><B
+>DB_PORTABILITY_ALL</B
+></TT
+>
+     </P
+><P
+>&#13;      turn on all portability features
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="constant"
+><B
+>DB_PORTABILITY_DELETE_COUNT</B
+></TT
+>
+     </P
+><P
+>&#13;      force reporting the number of rows deleted.
+      Some DBMS's don't count the number of rows deleted when performing
+      simple <TT
+CLASS="userinput"
+><B
+>DELETE FROM tablename</B
+></TT
+> queries. This mode
+      tricks such DBMS's into telling the count by adding
+      <TT
+CLASS="userinput"
+><B
+>WHERE 1=1</B
+></TT
+> to the end of <B
+CLASS="command"
+>DELETE</B
+>
+      queries.
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="constant"
+><B
+>DB_PORTABILITY_ERRORS</B
+></TT
+>
+     </P
+><P
+>&#13;      makes certain error messages in certain drivers compatible
+      with those from other DBMS's
+     </P
+><P
+>&#13;
+      <DIV
+CLASS="table"
+><A
+NAME="AEN21627"><P
+><B
+>Table 33-1. Error Code Re-mappings</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Driver</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Old Constant</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>New Constant</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           mysql, mysqli
+          </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           unique and primary key constraints
+          </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           <TT
+CLASS="constant"
+><B
+>DB_ERROR_ALREADY_EXISTS</B
+></TT
+>
+          </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           <TT
+CLASS="constant"
+><B
+>DB_ERROR_CONSTRAINT</B
+></TT
+>
+          </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           mysql, mysqli
+          </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           not-null constraints
+          </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           <TT
+CLASS="constant"
+><B
+>DB_ERROR_CONSTRAINT</B
+></TT
+>
+          </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           <TT
+CLASS="constant"
+><B
+>DB_ERROR_CONSTRAINT_NOT_NULL</B
+></TT
+>
+          </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           odbc(access)
+          </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           MS's ODBC driver mistakenly reports 'no such field' as code
+           <TT
+CLASS="computeroutput"
+>07001</TT
+>, which means
+           'too few parameters.'  When this option is on,
+           that code gets remapped.
+          </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           <TT
+CLASS="constant"
+><B
+>DB_ERROR_MISMATCH</B
+></TT
+>
+          </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           <TT
+CLASS="constant"
+><B
+>DB_ERROR_NOSUCHFIELD</B
+></TT
+>
+          </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="constant"
+><B
+>DB_PORTABILITY_LOWERCASE</B
+></TT
+>
+     </P
+><P
+>&#13;      convert names of tables and fields to lower case when using
+      <B
+CLASS="function"
+>get*()</B
+>, <B
+CLASS="function"
+>fetch*()</B
+> and
+      <B
+CLASS="function"
+>tableInfo()</B
+>
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="constant"
+><B
+>DB_PORTABILITY_NONE</B
+></TT
+> (default)
+     </P
+><P
+>&#13;      turn off all portability features
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="constant"
+><B
+>DB_PORTABILITY_NULL_TO_EMPTY</B
+></TT
+>
+     </P
+><P
+>&#13;      convert null values to empty strings in data output by
+      <B
+CLASS="function"
+>get*()</B
+> and <B
+CLASS="function"
+>fetch*()</B
+>.
+      Needed because Oracle considers empty strings to be null,
+      while most other DBMS's know the difference between empty and null.
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="constant"
+><B
+>DB_PORTABILITY_NUMROWS</B
+></TT
+>
+     </P
+><P
+>&#13;      enable hack that makes <B
+CLASS="function"
+>numRows()</B
+> work in Oracle
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="constant"
+><B
+>DB_PORTABILITY_RTRIM</B
+></TT
+>
+     </P
+><P
+>&#13;      right trim the data output by <B
+CLASS="function"
+>get*()</B
+> and
+      <B
+CLASS="function"
+>fetch*()</B
+>
+     </P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.intro-portability.compatibility"
+></A
+><H2
+>Backwards Compatibility</H2
+><P
+>&#13;   Some of this functionality used to be handled by the now deprecated
+   <TT
+CLASS="varname"
+>optimize</TT
+> option. For backwards compatibility, when
+   this option is set to <TT
+CLASS="literal"
+>portability</TT
+>, the following
+   databases get these portability modes turned on:
+   <P
+></P
+><UL
+><LI
+><P
+>&#13;      oci8:
+      <TT
+CLASS="constant"
+><B
+>DB_PORTABILITY_LOWERCASE</B
+></TT
+> and
+      <TT
+CLASS="constant"
+><B
+>DB_PORTABILITY_DELETE_COUNT</B
+></TT
+>
+     </P
+></LI
+><LI
+><P
+>&#13;      fbsql, mysql, mysqli, sqlite:
+      <TT
+CLASS="constant"
+><B
+>DB_PORTABILITY_DELETE_COUNT</B
+></TT
+>
+     </P
+></LI
+></UL
+>
+  </P
+><P
+>&#13;   When the <TT
+CLASS="varname"
+>optimize</TT
+> option gets set to
+   <TT
+CLASS="literal"
+>performance</TT
+> the portability mode is switched to
+   <TT
+CLASS="constant"
+><B
+>DB_PORTABILITY_NONE</B
+></TT
+>.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.intro-portability.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21706"><P
+><B
+>Example 33-1. Turning on all portability options while connecting</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'DB.php';
+
+$dsn = 'mysql://user:password@host/database'
+$options = array(
+    'debug'       =&#62; 2,
+    'portability' =&#62; DB_PORTABILITY_ALL,
+);
+
+$db =&#38; DB::connect($dsn, $options);
+if (PEAR::isError($db)) {
+    die($db-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21709"><P
+><B
+>Example 33-2. 
+    Using <B
+CLASS="function"
+>setOption()</B
+> to enable portability
+    for lowercasing and trimming
+   </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$db-&#62;setOption('portability',
+        DB_PORTABILITY_LOWERCASE | DB_PORTABILITY_RTRIM);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21713"><P
+><B
+>Example 33-3. 
+    Using <B
+CLASS="function"
+>setOption()</B
+> to enable all portability
+    options except trimming
+   </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$db-&#62;setOption('portability',
+        DB_PORTABILITY_ALL ^ DB_PORTABILITY_RTRIM);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.intro-auto.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.intro-sequences.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction - autoPrepare &#38; autoExecute</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction - Sequences</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,295 @@
+<HTML
+><HEAD
+><TITLE
+>Mail_Mbox</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Mail"
+HREF="package.mail.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.mail.mail-imap.intro.html"><LINK
+REL="NEXT"
+TITLE="
+    Class Summary
+    Mail_Mbox
+   "
+HREF="package.mail.mail-mbox.mail-mbox-summary.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-imap.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 46. Mail</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-mbox.mail-mbox-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.mail.mail-mbox">Mail_Mbox</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.mail.mail-mbox.mail-mbox-summary.html"
+>Class Summary
+    <B
+CLASS="classname"
+>Mail_Mbox</B
+></A
+>&nbsp;--&nbsp;Class to read mbox mail files.</DT
+><DT
+><A
+HREF="package.mail.mail-mbox.tutorial.html"
+>Tutorial</A
+>&nbsp;--&nbsp;How to use Mail_Mbox</DT
+><DT
+><A
+HREF="package.mail.mail-mbox.mail-mbox.mail-mbox.html"
+>constructor
+   <B
+CLASS="function"
+>Mail_Mbox::Mail_Mbox()</B
+></A
+>&nbsp;--&nbsp;Create a new Mbox class instance.</DT
+><DT
+><A
+HREF="package.mail.mail-mbox.mail-mbox.close.html"
+><B
+CLASS="function"
+>Mail_Mbox::close()</B
+></A
+>&nbsp;--&nbsp;Close a Mbox</DT
+><DT
+><A
+HREF="package.mail.mail-mbox.mail-mbox.get.html"
+><B
+CLASS="function"
+>Mail_Mbox::get()</B
+></A
+>&nbsp;--&nbsp;Get a message from the mbox</DT
+><DT
+><A
+HREF="package.mail.mail-mbox.mail-mbox.getdebug.html"
+><B
+CLASS="function"
+>Mail_Mbox::getDebug()</B
+></A
+>&nbsp;--&nbsp;Returns the debug flag setting</DT
+><DT
+><A
+HREF="package.mail.mail-mbox.mail-mbox.gettmpdir.html"
+><B
+CLASS="function"
+>Mail_Mbox::getTmpDir()</B
+></A
+>&nbsp;--&nbsp;Returns the temporary directory</DT
+><DT
+><A
+HREF="package.mail.mail-mbox.mail-mbox.hasbeenmodified.html"
+><B
+CLASS="function"
+>Mail_Mbox::hasBeenModified()</B
+></A
+>&nbsp;--&nbsp;Checks if the file was modified since it has been loaded.</DT
+><DT
+><A
+HREF="package.mail.mail-mbox.mail-mbox.insert.html"
+><B
+CLASS="function"
+>Mail_Mbox::insert()</B
+></A
+>&nbsp;--&nbsp;Insert a message</DT
+><DT
+><A
+HREF="package.mail.mail-mbox.mail-mbox.open.html"
+><B
+CLASS="function"
+>Mail_Mbox::open()</B
+></A
+>&nbsp;--&nbsp;Open the mbox file</DT
+><DT
+><A
+HREF="package.mail.mail-mbox.mail-mbox.remove.html"
+><B
+CLASS="function"
+>Mail_Mbox::remove()</B
+></A
+>&nbsp;--&nbsp;Remove a message from Mbox and save it.</DT
+><DT
+><A
+HREF="package.mail.mail-mbox.mail-mbox.setdebug.html"
+><B
+CLASS="function"
+>Mail_Mbox::setDebug()</B
+></A
+>&nbsp;--&nbsp;Set the debug flag</DT
+><DT
+><A
+HREF="package.mail.mail-mbox.mail-mbox.settmpdir.html"
+><B
+CLASS="function"
+>Mail_Mbox::setTmpDir()</B
+></A
+>&nbsp;--&nbsp;Set the directory for temporary files.</DT
+><DT
+><A
+HREF="package.mail.mail-mbox.mail-mbox.size.html"
+><B
+CLASS="function"
+>Mail_Mbox::size()</B
+></A
+>&nbsp;--&nbsp;Get number of messages in this mbox</DT
+><DT
+><A
+HREF="package.mail.mail-mbox.mail-mbox.update.html"
+><B
+CLASS="function"
+>Mail_Mbox::update()</B
+></A
+>&nbsp;--&nbsp;Update a message</DT
+><DT
+><A
+HREF="package.mail.mail-mbox.mail-mbox.-move.html"
+><B
+CLASS="function"
+>Mail_Mbox::_move()</B
+></A
+>&nbsp;--&nbsp;Copy a file to another</DT
+><DT
+><A
+HREF="package.mail.mail-mbox.mail-mbox.-process.html"
+><B
+CLASS="function"
+>Mail_Mbox::_process()</B
+></A
+>&nbsp;--&nbsp;Process the Mbox</DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.mail.mail-imap.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mbox.mail-mbox-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.mail.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class Summary
+    <B
+CLASS="classname"
+>Mail_Mbox</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

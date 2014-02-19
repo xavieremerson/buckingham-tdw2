@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+<Title>Multi-Color Bar Chart</Title>
+<link type='text/css' rel='Stylesheet' href="maxchartapi.css" />
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 5.0 (PHP Edition)</p>
+<p class="heading1">Multi-Color Bar Chart</p>
+<hr class="separator">
+<div class="content">
+<img src="images/colorbar.png">
+<br><br>
+This example demonstrates creating a multi-color bar chart, in which each bar has a different color. It also demonstrates metallic background colors and various 3D border effects.<br><br>
+A multi-color bar layer is a bar layer in which each bar has a different color. It is created using <a href="XYChart.addBarLayer3.htm">XYChart.addBarLayer3</a>. The colors can be specified explicitly (as is in this example), or can be taken automatically from the color palette.<br><br>
+<ul><li> Use <a href="phpchartdir.goldColor.htm">goldColor</a> to create a golden color. Set it as the background color with 3D border effects using <a href="XYChart.XYChart.htm">XYChart.XYChart</a>.<br><br>
+<li> Use <a href="phpchartdir.metalColor.htm">metalColor</a> to create a metallic blue color. Set it as the chart title background color with 3D border effects by using <a href="Box.setBackground.htm">Box.setBackground</a> of the title <a href="TextBox.htm">TextBox</a> object.<br><br>
+<li> Use <a href="XYChart.addBarLayer2.htm">XYChart.addBarLayer2</a> to create a multi-color bar layer.<br><br>
+<li> Set 3D border effects for the bars using <a href="Layer.setBorderColor.htm">Layer.setBorderColor</a>.</ul>
+</div>
+<p class="heading1a">Source Code Listing</p>
+<div class="content">
+<b>[File: phpdemo/colorbar.php]</b>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc"><pre>&lt;?php
+require_once("../lib/phpchartdir.php");
+
+# The data for the bar chart
+$data = array(85, 156, 179.5, 211, 123);
+
+# The labels for the bar chart
+$labels = array("Mon", "Tue", "Wed", "Thu", "Fri");
+
+# The colors for the bar chart
+$colors = array(0xb8bc9c, 0xa0bdc4, 0x999966, 0x333366, 0xc3c3e6);
+
+# Create a XYChart object of size 300 x 220 pixels. Use golden background color. Use
+# a 2 pixel 3D border.
+$c = new XYChart(300, 220, goldColor(), -1, 2);
+
+# Add a title box using 10 point Arial Bold font. Set the background color to
+# metallic blue (9999FF) Use a 1 pixel 3D border.
+$textBoxObj = $c-&gt;addTitle("Daily Network Load", "arialbd.ttf", 10);
+$textBoxObj-&gt;setBackground(metalColor(0x9999ff), -1, 1);
+
+# Set the plotarea at (40, 40) and of 240 x 150 pixels in size
+$c-&gt;setPlotArea(40, 40, 240, 150);
+
+# Add a multi-color bar chart layer using the given data and colors. Use a 1 pixel 3D
+# border for the bars.
+$barLayerObj = $c-&gt;addBarLayer3($data, $colors);
+$barLayerObj-&gt;setBorderColor(-1, 1);
+
+# Set the labels on the x axis.
+$c-&gt;xAxis-&gt;setLabels($labels);
+
+# Output the chart
+header("Content-type: image/png");
+print($c-&gt;makeChart2(PNG));
+?&gt;</pre></tr></td></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2008 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

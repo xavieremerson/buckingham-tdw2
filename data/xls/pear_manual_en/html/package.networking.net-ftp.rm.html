@@ -1,0 +1,407 @@
+<HTML
+><HEAD
+><TITLE
+>Net_FTP::rm()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_FTP"
+HREF="package.networking.net-ftp.html"><LINK
+REL="PREVIOUS"
+TITLE="Net_FTP::ls()"
+HREF="package.networking.net-ftp.ls.html"><LINK
+REL="NEXT"
+TITLE="Net_FTP::get()"
+HREF="package.networking.net-ftp.get.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-ftp.ls.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-ftp.get.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-ftp.rm">Net_FTP::rm()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN82943"
+></A
+>Net_FTP::rm()&nbsp;--&nbsp;deletes a file or directory.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN82946"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN82947"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Net/FTP.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>Net_FTP::rm</B
+></CODE
+> ([string $path = null [, string $recursive = false]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-ftp.rm.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     This method deletes a file or a directory. 
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-finger.rm.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $path = null</I
+></TT
+> - The file or directory to delete. In case you set
+        the second parameter to true, directories will be deleted even if not empty. All files and 
+        directories inside will be deleted.
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>$recursive = false</I
+></TT
+> - 
+        This parameter determines, whether a directory is deleted only if it's empty (standard) or if
+        all included files and directories will be deleted with it ($recursive = true).
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-ftp.rm.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>mixed</I
+></TT
+> - true on success, otherwise PEAR::Error.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-ftp.rm.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     Several errors may be returned by rm. The errornumber is unspecific (until now) and will not 
+     tell you anything about the errormessage. Possible errors are:
+    </P
+><P
+>&#13;        <DIV
+CLASS="table"
+><A
+NAME="AEN82980"><P
+><B
+>Table 48-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;                Could not delete file '$file'.
+            </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;                The file named $file (complete path) could not be deleted.
+            </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;                Either the file does not exist or you do not have the permission to delete it. So
+                check if the file exists and you have permissions on it.
+            </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;                Directory name '$dir' is invalid, has to end with '/'
+            </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;                You entered a directory for deletion ($recursive = true) without ending '/'.
+            </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;                Correct your parameter.
+            </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;                Could not delete directory '$dir'.
+            </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;                The directory $dir could not be deleted.
+            </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;                Maybe the directory is not empty ($recursive = false) or you do not have the permission
+                to delete the directory.
+            </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-ftp.rm.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-ftp.rm.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN83006"><P
+><B
+>Example 48-1. Using <B
+CLASS="function"
+>rm()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+     
+    var_dump($test-&#62;rm('/foo/bar/', true));
+    
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-ftp.ls.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-ftp.get.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Net_FTP::ls()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-ftp.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Net_FTP::get()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

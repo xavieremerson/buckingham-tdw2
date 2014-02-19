@@ -1,0 +1,316 @@
+<HTML
+><HEAD
+><TITLE
+>OrbitStruct</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Satellite CORBA client extension"
+HREF="pecl.satellite.html"><LINK
+REL="PREVIOUS"
+TITLE="OrbitEnum"
+HREF="pecl.satellite.orbitenum.html"><LINK
+REL="NEXT"
+TITLE="satellite_caught_exception"
+HREF="pecl.satellite.satellite-caught-exception.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="pecl.satellite.orbitenum.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="pecl.satellite.satellite-caught-exception.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="pecl.satellite.orbitstruct">OrbitStruct</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN106345"
+></A
+>OrbitStruct&nbsp;--&nbsp;Use CORBA structs</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN106348"
+></A
+><H2
+>Description</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN106350"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>new <B
+CLASS="function"
+>OrbitStruct</B
+></CODE
+> (string id)</CODE
+></P
+><P
+></P
+></DIV
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>This function is
+<SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>EXPERIMENTAL</I
+></SPAN
+>. That means, that the behaviour of this
+function, the function name, in concreto ANYTHING documented here can
+change in a future release of this package WITHOUT NOTICE. Be warned, and
+use this function at your own risk.</P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>&#13;     This class represents the structure identified with the
+     <TT
+CLASS="parameter"
+><I
+>id</I
+></TT
+> parameter.  The
+     <TT
+CLASS="parameter"
+><I
+>id</I
+></TT
+> can be either the name of the struct
+     (e.g "MyStruct"), or the full repository id
+     (e.g. "IDL:MyStruct:1.0").
+    </P
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN106363"><P
+><B
+>Example 1. Sample IDL file</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="idl"
+>struct MyStruct {
+    short shortvalue;
+    string stringvalue;
+};
+
+interface SomeInterface {
+  void SetValues (MyStruct values);
+  MyStruct GetValues();
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN106367"><P
+><B
+>Example 2. PHP code for accessing MyStruct</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+$obj = new OrbitObject ($ior);
+
+$initial_values = new OrbitStruct ("IDL:MyStruct:1.0");
+$initial_values-&#62;shortvalue = 42;
+$initial_values-&#62;stringvalue = "HGTTG";
+
+$obj-&#62;SetValues ($initial_values);
+
+$values = $obj-&#62;GetValues();
+
+echo $values-&#62;shortvalue;
+echo $values-&#62;stringvalue;
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="pecl.satellite.orbitenum.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="pecl.satellite.satellite-caught-exception.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>OrbitEnum</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="pecl.satellite.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>satellite_caught_exception</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

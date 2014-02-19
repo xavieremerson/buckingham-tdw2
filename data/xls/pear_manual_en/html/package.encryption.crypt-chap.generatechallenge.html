@@ -1,0 +1,296 @@
+<HTML
+><HEAD
+><TITLE
+>Crypt_CHAP::generateChallenge()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Crypt_CHAP"
+HREF="package.encryption.crypt-chap.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.encryption.crypt-chap.intro.html"><LINK
+REL="NEXT"
+TITLE="Crypt_CHAP_MD5::Crypt_CHAP_MD5()"
+HREF="package.encryption.crypt-chap.crypt-chap-md5.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.encryption.crypt-chap.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.encryption.crypt-chap.crypt-chap-md5.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.encryption.crypt-chap.generatechallenge">Crypt_CHAP::generateChallenge()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN35542"
+></A
+>Crypt_CHAP::generateChallenge()&nbsp;--&nbsp;Generates a new random challenge.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN35545"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN35546"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>string <B
+CLASS="function"
+>Crypt_CHAP::generateChallenge</B
+></CODE
+> ([string $varname = 'challenge' [, int $size = 8]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.encryption.crypt-chap.generatechallenge.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   This method generates a new random challenge and stores it in the given property, the default 
+   size of the challenge is 8 bytes.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.encryption.crypt-chap.generatechallenge.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>string $varname</I
+></TT
+> - name of the property for storing the challenge
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>int $size</I
+></TT
+> - the size of the challenge
+     </P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.encryption.crypt-chap.generatechallenge.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   <TT
+CLASS="parameter"
+><I
+>string</I
+></TT
+> - a String containing the challenge
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.encryption.crypt-chap.generatechallenge.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.encryption.crypt-chap.generatechallenge.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN35578"><P
+><B
+>Example 35-1. Using <B
+CLASS="function"
+>Crypt_CHAP::generateChallenge()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'File/SMBPasswd.php';
+
+$cr = new Crypt_CHAP_MD5();
+echo bin2hex($cr-&#62;challenge);
+// or generate a new challenge
+echo bin2hex(echo $cr-&#62;generateChallenge());
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.encryption.crypt-chap.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.encryption.crypt-chap.crypt-chap-md5.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.encryption.crypt-chap.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Crypt_CHAP_MD5::Crypt_CHAP_MD5()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

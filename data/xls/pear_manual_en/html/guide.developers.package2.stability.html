@@ -1,0 +1,205 @@
+<HTML
+><HEAD
+><TITLE
+>&#60;stability&#62;</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Detailed Tag Reference for package.xml version 2.0"
+HREF="guide.developers.package2.tags.html"><LINK
+REL="PREVIOUS"
+TITLE="<version>"
+HREF="guide.developers.package2.version.html"><LINK
+REL="NEXT"
+TITLE="<license>"
+HREF="guide.developers.package2.license.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="guide.developers.package2.version.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="guide.developers.package2.license.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="guide.developers.package2.stability">&#60;stability&#62;</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN2391"
+></A
+>&#60;stability&#62;&nbsp;--&nbsp;specifying release and API stability</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="guide.developers.package2.stability.purpose"
+></A
+><H2
+>Documenting release stability and API stability</H2
+><P
+>&#13;   In package.xml 1.0, stability was known as "state" which is not the most
+   accurate description.  package.xml 2.0 introduces the term stability and like version
+   splits the concept of stability into two components, release and api.
+  </P
+><P
+>&#13;   The release stability is the same familiar state from package.xml 1.0.  It can be one
+   of:
+  </P
+><P
+>&#13;   <P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>&#13;      snapshot - a frozen picture of development at a particular moment
+     </P
+></LI
+><LI
+><P
+>&#13;      devel - a very new non-production release.  Devel should be used for extremely new,
+      practically untested code.
+     </P
+></LI
+><LI
+><P
+>&#13;      alpha - a new non-production release.  Alpha should be used for new code that
+      has an unstable API or untested code.
+     </P
+></LI
+><LI
+><P
+>&#13;      beta - a non-production release.  Beta should be used for code that has a stable API
+      and is nearing a fully stable release.  Regresion tests and documentation should exist
+      or soon follow to qualify as a beta release.  Release candidates should use the beta
+      stability.
+     </P
+></LI
+><LI
+><P
+>&#13;      stable - a production release.  Stable releases must have a stable API, and must have
+      regression tests and documentation.
+     </P
+></LI
+></OL
+>
+  </P
+><P
+>&#13;   The API stability is informational only - the installer does not use it.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.version.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.license.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&#60;version&#62;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.tags.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>&#60;license&#62;</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

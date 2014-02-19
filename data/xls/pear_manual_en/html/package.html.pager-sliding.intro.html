@@ -1,0 +1,384 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Pager_Sliding"
+HREF="package.html.pager-sliding.html"><LINK
+REL="PREVIOUS"
+TITLE="Pager_Sliding"
+HREF="package.html.pager-sliding.html"><LINK
+REL="NEXT"
+TITLE="Pager (v.1.x) vs. Pager_Sliding"
+HREF="package.html.pager-sliding.compare.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.pager-sliding.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.pager-sliding.compare.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.pager-sliding.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN73362"
+></A
+>Introduction&nbsp;--&nbsp;Usage of <B
+CLASS="classname"
+>Pager_Sliding</B
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager-sliding.intro.whatis"
+></A
+><H2
+>What is Pager_Sliding?</H2
+><P
+>&#13;    <B
+CLASS="classname"
+>Pager_Sliding</B
+> is a class to page an array of data.
+    It is taken as input and it is paged according to various parameters.
+    <B
+CLASS="classname"
+>Pager_Sliding</B
+> also builds links within a specified range,
+    and allows complete customization of the output (it even works with mod_rewrite).
+    It is compatible with PEAR::Pager's API
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager-sliding.intro.deprecated"
+></A
+><H2
+>Deprecated</H2
+><P
+>&#13;      This package is <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>deprecated</I
+></SPAN
+> in favour of the new
+      <B
+CLASS="classname"
+>Pager</B
+> v.2.x.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager-sliding.intro.example1"
+></A
+><H2
+>Example 1</H2
+><P
+>&#13;     This simple example will page the array of alphabetical letters, giving back
+     pages with 3 letters per page, and links to the previous two / next two pages:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Pager/Sliding.php';
+$params = array(
+            'perPage'    =&#62; 3,
+            'delta'      =&#62; 2,
+            'itemData'   =&#62; array('a','b','c','d','e',[...omissis...],'z')
+            );
+$pager = &#38; new Pager_Sliding($params);
+$data  = $pager-&#62;getPageData();
+$links = $pager-&#62;getLinks();
+//$links is an ordered+associative array with 'back'/'pages'/'next'/'first'/'last'/'all' links.
+//NB: $links['all'] is the same as $pager-&#62;links;
+
+//echo links to other pages:
+echo $links['all']
+
+//Show data for current page:
+echo 'PAGED DATA: ' ; print_r($data);
+
+//Results from methods:
+echo 'getCurrentPageID()...: '; var_dump($pager-&#62;getCurrentPageID());
+echo 'getNextPageID()......: '; var_dump($pager-&#62;getNextPageID());
+echo 'getPreviousPageID()..: '; var_dump($pager-&#62;getPreviousPageID());
+echo 'numItems()...........: '; var_dump($pager-&#62;numItems());
+echo 'numPages()...........: '; var_dump($pager-&#62;numPages());
+echo 'isFirstPage()........: '; var_dump($pager-&#62;isFirstPage());
+echo 'isLastPage().........: '; var_dump($pager-&#62;isLastPage());
+echo 'isLastPageComplete().: '; var_dump($pager-&#62;isLastPageComplete());
+echo '$pager-&#62;range........: '; var_dump($pager-&#62;range);</PRE
+></TD
+></TR
+></TABLE
+>
+     In case you're wondering, $pager-&#62;range is a numeric array; its keys are the numbers of
+     the pages in the current range, and the matching values are booleans (<TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> if its key
+     represents currentPage, <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> otherwise). This array can be useful to build the links
+     manually, e.g. when using a template engine.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager-sliding.intro.example2"
+></A
+><H2
+>Example 2</H2
+><P
+>&#13;     This example shows how you can use this class with mod_rewite.
+     Let's suppose we have a .htaccess like this:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>---------
+RewriteEngine on
+#Options FollowSymlinks
+
+RewriteBase /
+RewriteRule ^articles/([a-z]{1,12})/art([0-9]{1,4})\.html$ /article.php?num=$2&#38;amp;month=$1 [L]
+---------</PRE
+></TD
+></TR
+></TABLE
+>
+     It should transform an url like "/articles/march/art15.html"
+     into "/article.php?num=15&#38;month=march"
+    </P
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Pager/Sliding.php';
+
+$month = 'september';
+$params = array(
+            'append'    =&#62; false,
+            'urlVar'    =&#62; 'num',
+            'path'      =&#62; 'http://myserver.com/articles/' . $month,
+            'fileName'  =&#62; 'art%d.html',  //Pager replaces "%d" with page number...
+            'itemData'  =&#62; array('a','b','c',[...omissis...],'z'),
+            'perPage'   =&#62; 3
+            );
+$pager = &#38; new Pager_Sliding($params);
+
+$data  = $pager-&#62;getPageData();
+echo $pager-&#62;links;
+echo 'Data for current page: '; print_r($data);</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager-sliding.intro.morepagers"
+></A
+><H2
+>More pagers in a single page</H2
+><P
+>&#13;     Using more than one pager in a single page is as simple as using a different
+     <TT
+CLASS="parameter"
+><I
+>urlVar</I
+></TT
+> for each pager:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Pager/Sliding.php';
+
+//first pager
+$params1 = array(
+            'perPage'    =&#62; 3,
+            'urlVar'     =&#62; pageID_articles,  //1st identifier
+            'itemData'   =&#62; $someArray
+            );
+$pager1 = &#38; new Pager_Sliding($params1);
+$data1  = $pager1-&#62;getPageData();
+$links1 = $pager1-&#62;getLinks();
+
+//second pager
+$params2 = array(
+            'perPage'    =&#62; 8,
+            'urlVar'     =&#62; pageID_news,      //2nd identifier
+            'itemData'   =&#62; $someOtherArray
+            );
+$pager2 = &#38; new Pager_Sliding($params2);
+$data2  = $pager2-&#62;getPageData();
+$links2 = $pager2-&#62;getLinks();</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.pager-sliding.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.pager-sliding.compare.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Pager_Sliding</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.pager-sliding.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="classname"
+>Pager</B
+> (v.1.x) vs. <B
+CLASS="classname"
+>Pager_Sliding</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

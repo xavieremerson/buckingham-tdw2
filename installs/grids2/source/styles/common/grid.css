@@ -1,0 +1,195 @@
+/*****************************************************************
+
+	ActiveWidgets 2.0.b3 (beta3)
+	Copyright (C) 2003-2005 ActiveWidgets Ltd. All Rights Reserved. 
+	http://www.activewidgets.com/
+
+	WARNING: This software program is protected by copyright law 
+	and international treaties. Unauthorized reproduction or
+	distribution of this program, or any portion of it, may result
+	in severe civil and criminal penalties, and will be prosecuted
+	to the maximum extent possible under the law.
+
+	FOR TESTING AND EVALUATION ONLY:
+	This software is not free and is licensed to you for testing 
+	and evaluation only. You are not allowed to distribute 
+	or use any parts of this software for any other purposes.
+
+*****************************************************************/
+.aw-grid-control {
+	width: 400px;
+	height: 200px;
+}
+
+.aw-gecko .aw-grid-control {
+	-moz-binding: url(gecko.xml#init);
+}
+
+.aw-strict .aw-grid-control {
+	width: 392px;
+	height: 196px;
+}
+
+
+.aw-grid-box {
+	display: block;
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	vertical-align: top;
+	-moz-box-flex: 1;
+}
+
+.aw-grid-view {
+	display: block;
+	position: relative;
+	overflow: hidden;
+	width: 99999px;
+	height: 999999px;
+}
+
+.aw-view-top,
+.aw-view-bottom {
+	display: block;
+	overflow: hidden;
+	width: 99999px;
+	font-size: 0px;
+	line-height: 0px;
+}
+
+.aw-grid-headers,
+.aw-grid-footers,
+.aw-grid-row {
+	display: block;
+	position: relative;
+	overflow: hidden;
+	width: 99999px;
+	height: 20px;
+}
+
+.aw-strict .aw-grid-headers,
+.aw-strict .aw-grid-footers,
+.aw-strict .aw-grid-row {
+	height: 16px;
+	padding: 0px 0px 4px 0px;
+	margin: 0px;
+}
+
+.aw-grid-row {
+	height: 18px;
+}
+
+.aw-strict .aw-grid-row {
+	height: 14px;
+}
+
+
+.aw-grid-cell,
+.aw-grid-header,
+.aw-grid-footer {
+	height: 100%;
+	width: 100px;
+	margin: 0;
+	vertical-align: top;
+}
+
+.aw-strict .aw-grid-cell,
+.aw-strict .aw-grid-header,
+.aw-strict .aw-grid-footer	{
+	width: 92px;
+	height: 100%;
+	margin: 0px 0px -4px 0px;
+}
+
+
+.aw-grid-header {
+	-moz-user-select: none;
+}
+
+.aw-grid-separator {
+	visibility: hidden;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	top: 10%;
+	left: -10px;
+	width: 20px;
+	height: 75%;
+	margin: 0px -20px 0px 0px;
+	vertical-align: top;
+	z-index: 1000;
+	cursor: e-resize;
+}
+
+.aw-header-0 .aw-grid-separator {
+	visibility: visible;
+}
+
+.aw-row-selector {
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	width: 18px;
+	height: 100%;
+	vertical-align: top;
+	text-align: center;
+}
+
+.aw-strict .aw-row-selector {
+	width: 10px;
+	height: 100%;
+	margin: 0px 0px -4px 0px;
+}
+
+.aw-grid-control .aw-column-space {
+	width: 3333px;
+}
+
+.aw-grid-control .aw-selector-space {
+	height: 3333px;
+}
+
+.aw-gecko .aw-grid-separator,
+.aw-gecko .aw-grid-selector {
+	display: -moz-inline-box;
+	overflow: visible;
+	vertical-align: top;
+}
+
+.aw-selectors-hidden .aw-selector-space,
+.aw-gpanel-center .aw-selector-space,
+.aw-gpanel-right .aw-selector-space {
+	display: none;
+}
+
+.aw-row-sample {
+	visibility: hidden;
+	display: block;
+	position: absolute;
+	overflow: hidden;
+	width: 100px;
+}
+
+.aw-grid-sort {
+	display: none;
+	position: relative;
+	overflow: hidden;
+	width: 10px;
+	height: 10px;
+	margin-left: 2px;
+	vertical-align: middle;
+}
+
+.aw-header-0 .aw-grid-sort {
+	display: inline-block;
+}
+
+.aw-gecko .aw-header-0 .aw-grid-sort {
+	display: -moz-inline-box;
+	top: -2px;
+}
+
+.aw-grid-header .aw-sort-none {
+	display: none;
+}

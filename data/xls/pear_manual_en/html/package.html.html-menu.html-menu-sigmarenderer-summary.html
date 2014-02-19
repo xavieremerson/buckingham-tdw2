@@ -1,0 +1,609 @@
+<HTML
+><HEAD
+><TITLE
+>Class Summary HTML_Menu_SigmaRenderer</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Menu"
+HREF="package.html.html-menu.html"><LINK
+REL="PREVIOUS"
+TITLE="ArrayRenderer::toArray()"
+HREF="package.html.html-menu.html-menu-arrayrenderer.toarray.html"><LINK
+REL="NEXT"
+TITLE="constructor HTML_Menu_SigmaRenderer()"
+HREF="package.html.html-menu.html-menu-sigmarenderer.html-menu-sigmarenderer.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-menu.html-menu-arrayrenderer.toarray.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-menu.html-menu-sigmarenderer.html-menu-sigmarenderer.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-menu.html-menu-sigmarenderer-summary">Class Summary <B
+CLASS="classname"
+>HTML_Menu_SigmaRenderer</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN51575"
+></A
+>Class Summary <B
+CLASS="classname"
+>HTML_Menu_SigmaRenderer</B
+>&nbsp;--&nbsp;The renderer that uses <A
+HREF="package.html.html-template-sigma.html"
+><B
+CLASS="classname"
+>HTML_Template_Sigma</B
+></A
+> instance for menu output.</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-menu.html-menu-sigmarenderer-summary.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   This renderer uses <A
+HREF="package.html.html-template-sigma.html"
+><B
+CLASS="classname"
+>HTML_Template_Sigma</B
+></A
+>
+   for actual HTML generation. This will allow you to easily plug <B
+CLASS="classname"
+>HTML_Menu</B
+> into
+   your site's structure if you are using this template engine.
+  </P
+><P
+>&#13;   The renderer offers more possibilites for output customization than <A
+HREF="package.html.html-menu.html-menu-directrenderer-summary.html"
+><B
+CLASS="classname"
+>HTML_Menu_DirectRenderer</B
+></A
+>.
+  </P
+><P
+>&#13;  The renderer <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>may</I
+></SPAN
+> also work with <A
+HREF="package.html.html-template-it.html"
+>HTML_Template_IT</A
+>
+  instance, but as menu templates tend to have lots of blocks, <B
+CLASS="classname"
+>HTML_Template_Sigma</B
+>'s 
+  <A
+HREF="package.html.html-template-sigma.intro-cache.html"
+>cache feature</A
+> will give
+  a significant performance improvement.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN51595"
+></A
+><H2
+>Template structure</H2
+><P
+>&#13; This minimal template will allow output of any available menu type:
+<TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#60;!-- BEGIN mu_menu_loop --&#62;
+&#60;table cellpadding="2" cellspacing="0" border="1"&#62;
+    &#60;!-- BEGIN mu_row_loop --&#62;
+    &#60;tr&#62;
+        &#60;!-- BEGIN mu_entry_loop --&#62;
+        &#60;!-- BEGIN mu_inactive --&#62;
+        &#60;td&#62;&#60;!-- BEGIN mu_inactive_indent --&#62;&#38;nbsp;&#38;nbsp;&#60;!-- END mu_inactive_indent --&#62;&#60;a href="{mu_url}"&#62;{mu_title}&#60;/a&#62;&#60;/td&#62;
+        &#60;!-- END mu_inactive --&#62;
+        &#60;!-- BEGIN mu_active --&#62;
+        &#60;td&#62;&#60;!-- BEGIN mu_active_indent --&#62;&#38;nbsp;&#38;nbsp;&#60;!-- END mu_active_indent --&#62;&#60;strong&#62;{mu_title}&#60;/strong&#62;&#60;/td&#62;
+        &#60;!-- END mu_active --&#62;
+        &#60;!-- BEGIN mu_activepath --&#62;
+        &#60;td&#62;&#60;!-- BEGIN mu_activepath_indent --&#62;&#38;nbsp;&#38;nbsp;&#60;!-- END mu_activepath_indent --&#62;&#60;a href="{mu_url}"&#62;&#60;strong&#62;{mu_title}&#60;/strong&#62;&#60;/a&#62;&#60;/td&#62;
+        &#60;!-- END mu_activepath --&#62;
+        &#60;!-- BEGIN mu_previous --&#62;
+        &#60;td&#62;&#60;a href="{mu_url}"&#62;&#38;lt;&#38;lt;&#38;lt; {mu_title}&#60;/a&#62;&#60;/td&#62;
+        &#60;!-- END mu_previous --&#62;
+        &#60;!-- BEGIN mu_next --&#62;
+        &#60;td&#62;&#60;a href="{mu_url}"&#62;{mu_title} &#38;gt;&#38;gt;&#38;gt;&#60;/a&#62;&#60;/td&#62;
+        &#60;!-- END mu_next --&#62;
+        &#60;!-- BEGIN mu_upper --&#62;
+        &#60;td&#62;&#60;a href="{mu_url}"&#62;^ {mu_title} ^&#60;/a&#62;&#60;/td&#62;
+        &#60;!-- END mu_upper --&#62;
+        &#60;!-- BEGIN mu_breadcrumb --&#62;
+        &#60;td&#62;&#60;a href="{mu_url}"&#62;{mu_title}&#60;/a&#62; &#38;gt;&#38;gt;&#38;gt;&#60;/td&#62;
+        &#60;!-- END mu_breadcrumb --&#62;
+        &#60;!-- END mu_entry_loop --&#62;
+    &#60;/tr&#62;
+    &#60;!-- END mu_row_loop --&#62;
+&#60;/table&#62;
+&#60;!-- END mu_menu_loop --&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+A more complete example showing possible customizations can be found in the package archive.
+ </P
+><P
+>&#13; Note that blocks and placeholders in the template have <TT
+CLASS="literal"
+>mu_</TT
+> prefix.
+ This is done to prevent name conflicts with existing blocks and placeholders, <TT
+CLASS="literal"
+>mu_</TT
+> is
+ the default prefix, another prefix can be passed to <A
+HREF="package.html.html-menu.html-menu-sigmarenderer.html-menu-sigmarenderer.html"
+>class constructor</A
+>.
+ </P
+><P
+></P
+><DIV
+CLASS="variablelist"
+><P
+><B
+>Blocks in the template (without prefix)</B
+></P
+><DL
+><DT
+><TT
+CLASS="varname"
+>menu_loop</TT
+></DT
+><DD
+><P
+>&#13;      If present, this block will be <B
+CLASS="function"
+>parse()</B
+>'d after outputting the current menu or (in case of <TT
+CLASS="literal"
+>'rows'</TT
+> type) current menu level.
+      If menu type is <TT
+CLASS="literal"
+>'rows'</TT
+> and <TT
+CLASS="varname"
+>%level%_menu_loop</TT
+> block is present, it will be <B
+CLASS="function"
+>parse()</B
+>'d instead.
+     </P
+></DD
+><DT
+><TT
+CLASS="varname"
+>row_loop</TT
+></DT
+><DD
+><P
+>&#13;      If present, this block will be <B
+CLASS="function"
+>parse()</B
+>'d after outputting the current menu row.
+      If menu type is <TT
+CLASS="literal"
+>'rows'</TT
+> and <TT
+CLASS="varname"
+>%level%_row_loop</TT
+> block is present, it will be <B
+CLASS="function"
+>parse()</B
+>'d instead.
+     </P
+></DD
+><DT
+><TT
+CLASS="varname"
+>entry_loop</TT
+></DT
+><DD
+><P
+>&#13;      This block should <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>always</I
+></SPAN
+> be present and should be a parent for all menu entries' blocks. It is used to implement "flow", to render entries one after another.
+     </P
+><P
+>&#13;      If menu type is <TT
+CLASS="literal"
+>'rows'</TT
+> and <TT
+CLASS="varname"
+>%level%_entry_loop</TT
+> block is present, it will be used instead.
+     </P
+></DD
+><DT
+><TT
+CLASS="varname"
+>inactive</TT
+>, <TT
+CLASS="varname"
+>active</TT
+>, <TT
+CLASS="varname"
+>activepath</TT
+>, <TT
+CLASS="varname"
+>previous</TT
+>, <TT
+CLASS="varname"
+>next</TT
+>, <TT
+CLASS="varname"
+>upper</TT
+>, <TT
+CLASS="varname"
+>breadcrumb</TT
+></DT
+><DD
+><P
+>&#13;      These blocks are used to output menu entries, they correspond to possible <A
+HREF="package.html.html-menu.constants.html"
+>entry types</A
+>. Each block should contain a <TT
+CLASS="varname"
+>{title}</TT
+> placeholder and may also contain <TT
+CLASS="varname"
+>{url}</TT
+> placeholder and <TT
+CLASS="varname"
+>indent</TT
+> block
+     </P
+><P
+>&#13;      If menu type is either of <TT
+CLASS="literal"
+>'tree'</TT
+>, <TT
+CLASS="literal"
+>'sitemap'</TT
+> or <TT
+CLASS="literal"
+>'rows'</TT
+> and <TT
+CLASS="varname"
+>%level%_%entry type%</TT
+> block exists, it will be used instead.
+     </P
+></DD
+><DT
+><TT
+CLASS="varname"
+>inactive_indent</TT
+>, <TT
+CLASS="varname"
+>active_indent</TT
+>, <TT
+CLASS="varname"
+>activepath_indent</TT
+></DT
+><DD
+><P
+>&#13;      If present, these blocks are used to indent the entries inside tree-type menus (<TT
+CLASS="literal"
+>'tree'</TT
+> and <TT
+CLASS="literal"
+>'sitemap'</TT
+>).
+     </P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN51662"
+></A
+><H2
+>Class Trees for <B
+CLASS="classname"
+>HTML_Menu_SigmaRenderer</B
+></H2
+><P
+>&#13;    <P
+></P
+><UL
+><LI
+><P
+>&#13;   <A
+HREF="package.html.html-menu.html-menu-renderer-summary.html"
+><B
+CLASS="classname"
+>HTML_Menu_Renderer</B
+></A
+>
+    <P
+></P
+><UL
+><LI
+><P
+>&#13;   HTML_Menu_SigmaRenderer
+      </P
+></LI
+></UL
+>
+    </P
+></LI
+></UL
+>
+   </P
+><P
+>&#13;  <B
+CLASS="classname"
+>HTML_Menu_SigmaRenderer</B
+> Inherited Methods
+ </P
+><P
+>&#13;       <DIV
+CLASS="table"
+><A
+NAME="AEN51677"><P
+><B
+>Table 41-1. Inherited from <A
+HREF="package.html.html-menu.html-menu-renderer-summary.html"
+><B
+CLASS="classname"
+>HTML_Menu_Renderer</B
+></A
+></B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Method Name</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Summary</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-menu.html-menu-renderer.finishlevel.html"
+><B
+CLASS="function"
+>HTML_Menu_Renderer::finishLevel()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Finish the tree level (for types <TT
+CLASS="literal"
+>'tree'</TT
+> and <TT
+CLASS="literal"
+>'sitemap'</TT
+>)</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-menu.html-menu-renderer.finishmenu.html"
+><B
+CLASS="function"
+>HTML_Menu_Renderer::finishMenu()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Finish the menu</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-menu.html-menu-renderer.finishrow.html"
+><B
+CLASS="function"
+>HTML_Menu_Renderer::finishRow()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Finish the row in the menu</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-menu.html-menu-renderer.renderentry.html"
+><B
+CLASS="function"
+>HTML_Menu_Renderer::renderEntry()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Renders the element of the menu</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-menu.html-menu-renderer.setmenutype.html"
+><B
+CLASS="function"
+>HTML_Menu_Renderer::setMenuType()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Sets the type of the menu being rendered.</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+      </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-menu.html-menu-arrayrenderer.toarray.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-menu.html-menu-sigmarenderer.html-menu-sigmarenderer.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>ArrayRenderer::toArray()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-menu.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>constructor HTML_Menu_SigmaRenderer()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,330 @@
+<HTML
+><HEAD
+><TITLE
+>Structures_DataGrid_DataSource_DBTable</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DataSource drivers"
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.structures-datagrid-datasource"><LINK
+REL="PREVIOUS"
+TITLE="Structures_DataGrid_DataSource_DBQuery"
+HREF="package.structures.structures-datagrid.structures-datagrid-datasource.dbquery.html"><LINK
+REL="NEXT"
+TITLE="Structures_DataGrid_DataSource_MDB2"
+HREF="package.structures.structures-datagrid.structures-datagrid-datasource.mdb2.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-datasource.dbquery.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-datasource.mdb2.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid-datasource.dbtable">Structures_DataGrid_DataSource_DBTable</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN96185"
+></A
+>Structures_DataGrid_DataSource_DBTable&nbsp;--&nbsp;PEAR::DB_Table Data Source Driver</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid-datasource.dbtable.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   This class is a data source driver for the PEAR::DB_Table object
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid-datasource.dbtable.options"
+></A
+><H2
+>Options</H2
+><P
+>&#13;   This driver accepts the following options:
+  </P
+><DIV
+CLASS="table"
+><A
+NAME="AEN96194"><P
+><B
+>Table 55-1. Options for this driver</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Option</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Type</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Default Value</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>fields</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Which data fields to fetch from the datasource. An empty array
+       means: all fields. Form: array(field1, field2, ...)</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array()</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>generate_columns</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>bool</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Generate Structures_DataGrid_Column objects with labels. See the
+       'labels' option.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>false</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>labels</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Data field to column label mapping. Only used when
+       'generate_columns' is true. Form: array(field =&#62; label, ...)</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array()</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>params</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Placeholder parameters for prepare/execute</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array()</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>view</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>The view from $sql array in your DB_Table object. This option is
+       required.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>where</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>A where clause for the SQL query.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>null</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid-datasource.dbtable.notes"
+></A
+><H2
+>General notes</H2
+><P
+>&#13;   If you use aliases in the select part of your view, the count() method from
+   DB_Table and, therefore, $datagrid-&#62;getRecordCount() might return a wrong
+   result. To avoid this, DB_Table uses a special query for counting if it is
+   given via a view that needs to be named as '__count_' followed by the name
+   of the view that this counting view belongs to. (For example: if you have a
+   view named 'all', the counting view needs to be named as '__count_all'.)
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-datasource.dbquery.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-datasource.mdb2.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Structures_DataGrid_DataSource_DBQuery</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.structures-datagrid-datasource"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Structures_DataGrid_DataSource_MDB2</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

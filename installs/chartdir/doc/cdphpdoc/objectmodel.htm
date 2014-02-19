@@ -1,0 +1,117 @@
+<HTML>
+<HEAD>
+<Title>ChartDirector Object Model Overview</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">ChartDirector Object Model Overview</p>
+<hr class="separator">
+<div class="content">
+This section will give a very brief high level overview of the ChartDirector
+object model.
+<br><br>
+At the top level, ChartDirector classifies charts into four main classes -
+<a href="PieChart.htm">PieChart</a>, <a href="XYChart.htm">XYChart</a>, <a href="PolarChart.htm">PolarChart</a> and <a href="MultiChart.htm">MultiChart</a>. They are all subclass
+of <a href="BaseChart.htm">BaseChart</a>.
+</div><p class="heading2">BaseChart</p><div class="content">
+The <a href="BaseChart.htm">BaseChart</a> class represents features common to all ChartDirector charts,
+such as the chart background, legend box, titles and custom text boxes. It also
+contains a <a href="DrawArea.htm">DrawArea</a> tool, which allows you to add arbitrary custom drawings to
+the chart.
+</div><p class="heading2">PieChart</p><div class="content">
+The <a href="PieChart.htm">PieChart</a> class, as it name implies, represents pie charts. PieChart
+objects contain <a href="Sector.htm">Sector</a> objects, which represent the sectors in the pie charts.
+</div><p class="heading2">XYChart</p><div class="content">
+The <a href="XYChart.htm">XYChart</a> class represents all chart types that have x and y axes. Each
+XYChart object contains a <a href="PlotArea.htm">PlotArea</a> object, representing the rectangular region
+where the chart is actually drawn. Each XYChart object also contains four <a href="Axis.htm">Axis</a>
+objects, representing two x axes and two y axes located objects at the four
+borders of the PlotArea.
+<br><br>
+The actual chart types in a XYChart are implemented as layers. The available
+layers are listed below. A XYChart can contain many layers, so combination and
+custom chart types can easily be created.
+<br><br>
+<table width="98%" border="1" cellpadding="5" cellspacing="0">
+<tr><th width="28%">Layer</th><th width="70%">Description</th></tr>
+<tr><td><a href="BarLayer.htm">BarLayer</a>
+</td><td>
+Represent all style of bar charts, such as simple bar charts, multi-bar
+charts, stacked bar charts, multi-stacked bar charts, percectange bar charts,
+depth bar charts.
+</td></tr><tr><td><a href="LineLayer.htm">LineLayer</a>
+</td><td>
+Represent line charts.
+</td></tr><tr><td><a href="SplineLayer.htm">SplineLayer</a>
+</td><td>
+Represent spline line charts.
+</td></tr><tr><td><a href="StepLineLayer.htm">StepLineLayer</a>
+</td><td>
+Represent step line charts.
+</td></tr><tr><td><a href="TrendLayer.htm">TrendLayer</a>
+</td><td>
+Represent trend line charts. A trend line the best fit straight line
+computed using the least square method.
+</td></tr><tr><td><a href="InterLineLayer.htm">InterLineLayer</a>
+</td><td>
+A layer used for filling regions between two lines. The lines can come from <a href="LineLayer.htm">LineLayer</a>,
+<a href="SplineLayer.htm">SplineLayer</a>, <a href="StepLineLayer.htm">StepLineLayer</a>, <a href="TrendLayer.htm">TrendLayer</a>, or from <a href="Mark.htm">Mark</a>.
+</td></tr><tr><td><a href="ScatterLayer.htm">ScatterLayer</a>
+</td><td>
+Represents scatter and bubble charts.
+</td></tr><tr><td><a href="AreaLayer.htm">AreaLayer</a>
+</td><td>
+Represent area charts.
+</td></tr><tr><td><a href="HLOCLayer.htm">HLOCLayer</a>
+</td><td>
+Represent high-low-open-close charts.
+</td></tr><tr><td><a href="CandleStickLayer.htm">CandleStickLayer</a>
+</td><td>
+Represent candlestick charts.
+</td></tr><tr><td><a href="BoxWhiskerLayer.htm">BoxWhiskerLayer</a>
+</td><td>
+Represent box-whisker charts.
+</td></tr></table><br>
+The above layers are subclass of the <a href="Layer.htm">Layer</a> class, which represents features
+common to all layers.
+<br><br>
+Each chart layer contains one or more <a href="DataSet.htm">DataSet</a> objects. A DataSet object
+represents a data series. Several chart types require multiple data series, such
+as high-low-open-close, candlestick and box-whisker charts. Other chart types
+support combining the data series in various ways. For example, in a bar chart,
+multiple data series can be combined to form a stacked bar chart, percentage bar
+chart, multi-bar chart, multi-stacked bar chart, etc.
+</div><p class="heading2">PolarChart</p><div class="content">
+The <a href="PolarChart.htm">PolarChart</a> class represents polar and radar charts. Each PolarChart object
+contains a <a href="RadialAxis.htm">RadialAxis</a> and an <a href="AngularAxis.htm">AngularAxis</a>. The actual chart types in a
+PolarChart are implemented as layers. A PolarChart can contain many layers, so
+combination and custom chart types can easily be created.
+<br><br>
+The available layers are listed below.
+<br><br>
+<table width="98%" border="1" cellpadding="5" cellspacing="0">
+<tr><th width="28%">Layer</th><th width="70%">Description</th></tr>
+<tr><td><a href="PolarLineLayer.htm">PolarLineLayer</a>
+</td><td>
+Represent line charts, as well as scatter and bubble charts. (A scatter chart is
+a line chart with line set to <a href="colorspec.htm#argb">Transparent</a>. A bubble chart is a scatter chart
+in which the data symbols are of variable sizes.)
+</td></tr><tr><td><a href="PolarAreaLayer.htm">PolarAreaLayer</a>
+</td><td>
+Represent area charts.
+</td></tr><tr><td><a href="PolarSplineLineLayer.htm">PolarSplineLineLayer</a>
+</td><td>
+Represent spline line charts.
+</td></tr><tr><td><a href="PolarSplineAreaLayer.htm">PolarSplineAreaLayer</a>
+</td><td>
+Represent spline area charts.
+</td></tr></table><br>
+The above layers are subclass of the <a href="PolarLayer.htm">PolarLayer</a> class, which represents features
+common to all layers.
+</div><p class="heading2">MultiChart</p><div class="content">
+A <a href="MultiChart.htm">MultiChart</a> object is a container for containing other <a href="BaseChart.htm">BaseChart</a> objects,
+including !PieChart, <a href="XYChart.htm">XYChart</a>, <a href="PolarChart.htm">PolarChart</a> and other <a href="MultiChart.htm">MultiChart</a> objects.
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div></body>
+</HTML>

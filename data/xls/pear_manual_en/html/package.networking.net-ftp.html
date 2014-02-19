@@ -1,0 +1,257 @@
+<HTML
+><HEAD
+><TITLE
+>Net_FTP</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Networking"
+HREF="package.networking.html"><LINK
+REL="PREVIOUS"
+TITLE="Net_Finger::query()"
+HREF="package.networking.net-finger.query.html"><LINK
+REL="NEXT"
+TITLE="Constants"
+HREF="package.networking.net-ftp.constants.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-finger.query.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 48. Networking</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-ftp.constants.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.networking.net-ftp">Net_FTP</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.networking.net-ftp.constants.html"
+>Constants</A
+>&nbsp;--&nbsp;predefined constants</DT
+><DT
+><A
+HREF="package.networking.net-ftp.net-ftp.html"
+>Net_FTP::Net_FTP()</A
+>&nbsp;--&nbsp;constructor</DT
+><DT
+><A
+HREF="package.networking.net-ftp.connect.html"
+>Net_FTP::connect()</A
+>&nbsp;--&nbsp;connects to a given FTP server</DT
+><DT
+><A
+HREF="package.networking.net-ftp.disconnect.html"
+>Net_FTP::disconnect()</A
+>&nbsp;--&nbsp;disconnects from the FTP server</DT
+><DT
+><A
+HREF="package.networking.net-ftp.login.html"
+>Net_FTP::login()</A
+>&nbsp;--&nbsp;logs into the FTP server you are connected to</DT
+><DT
+><A
+HREF="package.networking.net-ftp.cd.html"
+>Net_FTP::cd()</A
+>&nbsp;--&nbsp;changes the directory on the server.</DT
+><DT
+><A
+HREF="package.networking.net-ftp.pwd.html"
+>Net_FTP::pwd()</A
+>&nbsp;--&nbsp;returns the directory on the server you are currently in.</DT
+><DT
+><A
+HREF="package.networking.net-ftp.mkdir.html"
+>Net_FTP::mkdir()</A
+>&nbsp;--&nbsp;creates a new directory.</DT
+><DT
+><A
+HREF="package.networking.net-ftp.execute.html"
+>Net_FTP::execute()</A
+>&nbsp;--&nbsp;executes a command on the server.</DT
+><DT
+><A
+HREF="package.networking.net-ftp.mdtm.html"
+>Net_FTP::mdtm()</A
+>&nbsp;--&nbsp;returns the last modification date of a file.</DT
+><DT
+><A
+HREF="package.networking.net-ftp.size.html"
+>Net_FTP::size()</A
+>&nbsp;--&nbsp;returns the size in bytes of a file.</DT
+><DT
+><A
+HREF="package.networking.net-ftp.ls.html"
+>Net_FTP::ls()</A
+>&nbsp;--&nbsp;returns the listing of a directory in a specified way.</DT
+><DT
+><A
+HREF="package.networking.net-ftp.rm.html"
+>Net_FTP::rm()</A
+>&nbsp;--&nbsp;deletes a file or directory.</DT
+><DT
+><A
+HREF="package.networking.net-ftp.get.html"
+>Net_FTP::get()</A
+>&nbsp;--&nbsp;download a file to the computer your script runs on.</DT
+><DT
+><A
+HREF="package.networking.net-ftp.put.html"
+>Net_FTP::put()</A
+>&nbsp;--&nbsp;upload a file to the FTP server.</DT
+><DT
+><A
+HREF="package.networking.net-ftp.getrecursive.html"
+>Net_FTP::getRecursive()</A
+>&nbsp;--&nbsp;download a whole directory to the computer your script runs on.</DT
+><DT
+><A
+HREF="package.networking.net-ftp.putrecursive.html"
+>Net_FTP::putRecursive()</A
+>&nbsp;--&nbsp;upload a whole directory to the FTP server.</DT
+><DT
+><A
+HREF="package.networking.net-ftp.checkfileextension.html"
+>Net_FTP::checkFileExtension()</A
+>&nbsp;--&nbsp;check extensions.ini for the transfermode of a specific file.</DT
+></DL
+></DIV
+><P
+>&#13;     Net_FTP provides comfortable communication with FTP-Servers.
+     It mainly provides an OO wrapper to PHP's integrated FTP functions,
+     adding some missing features like recursive up- and downloading
+     of complete folders, so as deleting. The directory listing
+     possibilites were although extended to feature well structured
+     listing of directories and/or files.
+    </P
+><P
+>&#13;     Net_FTP works fine for it's functionality, which will be extended by
+     features like recursive filepermission change (over SITE command),
+     different ways of dirlistings, Windows support and more. Another idea 
+     is to implement a fallback for the PHP functions using sockets.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-finger.query.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-ftp.constants.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Net_Finger::query()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Constants</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

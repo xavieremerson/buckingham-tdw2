@@ -1,0 +1,73 @@
+<HTML>
+<HEAD>
+<Title>3D Bubble Chart (3)</Title>
+<link type='text/css' rel='Stylesheet' href="maxchartapi.css" />
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 5.0 (PHP Edition)</p>
+<p class="heading1">3D Bubble Chart (3)</p>
+<hr class="separator">
+<div class="content">
+<img src="images/threedbubble3.png">
+<br><br>
+This examples demonstrates a bubble chart using solid spheres as bubbles.
+</div>
+<p class="heading1a">Source Code Listing</p>
+<div class="content">
+<b>[File: phpdemo/threedbubble3.php]</b>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc"><pre>&lt;?php
+require_once("../lib/phpchartdir.php");
+
+# The XYZ points for the bubble chart
+$dataX0 = array(170, 300, 1000, 1700);
+$dataY0 = array(16, 69, 16, 75);
+$dataZ0 = array(52, 105, 88, 140);
+
+$dataX1 = array(500, 1000, 1300);
+$dataY1 = array(40, 58, 85);
+$dataZ1 = array(140, 202, 84);
+
+# Create a XYChart object of size 540 x 480 pixels
+$c = new XYChart(540, 480);
+
+# Set the plotarea at (70, 65) and of size 400 x 350 pixels. Turn on both horizontal
+# and vertical grid lines with light grey color (0xc0c0c0)
+$c-&gt;setPlotArea(70, 65, 400, 350, -1, -1, Transparent, 0xc0c0c0, -1);
+
+# Add a legend box at (70, 30) (top of the chart) with horizontal layout. Use 12 pts
+# Times Bold Italic font. Set the background and border color to Transparent.
+$legendObj = $c-&gt;addLegend(70, 30, false, "timesbi.ttf", 12);
+$legendObj-&gt;setBackground(Transparent);
+
+# Add a title to the chart using 18 pts Times Bold Itatic font.
+$c-&gt;addTitle("Product Comparison Chart", "timesbi.ttf", 18);
+
+# Add titles to the axes using 12 pts Arial Bold Italic font
+$c-&gt;yAxis-&gt;setTitle("Capacity (tons)", "arialbi.ttf", 12);
+$c-&gt;xAxis-&gt;setTitle("Range (miles)", "arialbi.ttf", 12);
+
+# Set the axes line width to 3 pixels
+$c-&gt;xAxis-&gt;setWidth(3);
+$c-&gt;yAxis-&gt;setWidth(3);
+
+# Add (dataX0, dataY0) as a scatter layer with red (ff3333) spheres, where the sphere
+# size is modulated by dataZ0. This creates a bubble effect.
+$scatterLayerObj = $c-&gt;addScatterLayer($dataX0, $dataY0, "Technology AAA",
+    SolidSphereShape, 15, 0xff3333);
+$scatterLayerObj-&gt;setSymbolScale($dataZ0);
+
+# Add (dataX1, dataY1) as a scatter layer with blue (0000ff) spheres, where the
+# sphere size is modulated by dataZ1. This creates a bubble effect.
+$scatterLayerObj = $c-&gt;addScatterLayer($dataX1, $dataY1, "Technology BBB",
+    SolidSphereShape, 15, 0x0000ff);
+$scatterLayerObj-&gt;setSymbolScale($dataZ1);
+
+# Output the chart
+header("Content-type: image/png");
+print($c-&gt;makeChart2(PNG));
+?&gt;</pre></tr></td></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2008 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

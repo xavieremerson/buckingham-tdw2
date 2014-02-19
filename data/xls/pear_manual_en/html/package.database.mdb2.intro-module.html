@@ -1,0 +1,599 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - Modules</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="MDB2"
+HREF="package.database.mdb2.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction - Transaction"
+HREF="package.database.mdb2.intro-transaction.html"><LINK
+REL="NEXT"
+TITLE="Introduction - autoPrepare & autoExecute"
+HREF="package.database.mdb2.intro-auto.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb2.intro-transaction.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb2.intro-auto.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.mdb2.intro-module">Introduction - Modules</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN31653"
+></A
+>Introduction - Modules&nbsp;--&nbsp;Loading and calling modules</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb2.intro-module.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   MDB2 follows a modular concept to provide functionality beyond the basic
+   ability to send queries to the database and fetch result sets. Currently
+   the following modules are available:
+
+  <P
+></P
+><UL
+><LI
+><P
+>&#13;     <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Datatype_Common.html"
+TARGET="_top"
+>&#13;       Datatype</A
+> module - handles datatype abstraction
+    </P
+></LI
+><LI
+><P
+>&#13;     <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Extended.html"
+TARGET="_top"
+>&#13;       Extended</A
+> module - provides numerous high-level methods
+    </P
+></LI
+><LI
+><P
+>&#13;     <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Function_Common.html"
+TARGET="_top"
+>&#13;       Function</A
+> module - handles SQL function abstraction
+    </P
+></LI
+><LI
+><P
+>&#13;     <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Manager_Common.html"
+TARGET="_top"
+>&#13;       Manager</A
+> module - handles data definition language (DDL) abstraction and
+     schema listing
+    </P
+></LI
+><LI
+><P
+>&#13;     <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Native_Common.html"
+TARGET="_top"
+>&#13;       Native</A
+> module - handles RDBMS specific functions
+    </P
+></LI
+><LI
+><P
+>&#13;     <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Reverse_Common.html"
+TARGET="_top"
+>&#13;       Reverse</A
+> module - handles schema reverse engineering abstraction
+    </P
+></LI
+></UL
+>
+  </P
+><P
+>&#13;   A module is loaded using the 
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodloadModule"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>loadModule()</B
+></A
+>
+   method. This method returns the module instance, but also stores the
+   instance in a property. The name of the property is either the lowercased
+   name of the module passed in as the first parameter, or optionally the non
+   null value of the second parameter. The optional third parameter is used to
+   differentiate modules that depend on a specific RDBMS (like the
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Datatype_Common.html"
+TARGET="_top"
+>&#13;   Datatype</A
+> module) and those that do not (like the
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Extended.html"
+TARGET="_top"
+>&#13;   Extended</A
+>. The method can also be used to load custom modules that are installed.
+  </P
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;    The third parameter is automatically detected if it is not set. On hosts
+    that have 'safe_mode' enabled automatic detection does however require
+    silenced falls to <B
+CLASS="function"
+>fopen()</B
+>. Error handling and error
+    handlers should be configured accordingly.
+   </P
+></TD
+></TR
+></TABLE
+></DIV
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31686"><P
+><B
+>Example 33-1. Loading a module</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'MDB2.php';
+
+$dsn = 'pgsql://someuser:apasswd@localhost/thedb';
+$options = array(
+    'debug' =&#62; 2,
+    'result_buffering' =&#62; false,
+);
+
+$mdb2 =&#38; MDB2::connect($dsn, $options);
+if (PEAR::isError($mdb2)) {
+    die($mdb2-&#62;getMessage());
+}
+
+// ...
+
+$mdb2-&#62;loadModule('Manager');
+// specifically stating that the module that is being loaded is RDBMS independent
+// this works around some needless internal calls
+$mdb2-&#62;loadModule('Extended', null, false);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31689"><P
+><B
+>Example 33-2. Loading a custom module that is RDBMS independent</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+/ ...
+
+// file must reside be [peardir]/MDB2/MyModule.php
+class MyModule extends MDB2_Module
+{
+  function myMethod()
+  {
+    $db =&#38; $this-&#62;getDBInstance();
+    if (PEAR::isError($db)) {
+        return $db;
+    }
+    ...
+  }
+} 
+?&#62;
+
+&#60;?php
+/ ...
+
+// file must reside be [peardir]/MDB2/MyModule.php
+$mdb2-&#62;loadModule('MyModule');
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31692"><P
+><B
+>Example 33-3. Loading a custom module that is RDBMS dependent</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+/ ...
+
+// file must reside be [peardir]/MDB2/Driver/MyRDBMSModule/pgsql.php
+// this is the class that would get loaded for an MDB2 PostgreSQL instance
+// equivalent classes for other backends would need to implemented,
+// potentially making use of a common base class
+class MyRDBMSModule_Driver_pgsql extends MDB2_Module
+{
+  function myRDBMSMethod()
+  {
+    $db =&#38; $this-&#62;getDBInstance();
+    if (PEAR::isError($db)) {
+        return $db;
+    }
+    ...
+  }
+} 
+?&#62;
+
+&#60;?php
+/ ...
+
+// file must reside be [peardir]/MDB2/Driver/MyRDBMSModule/[phptype].php
+$mdb2-&#62;loadModule('MyRDBMSModule');
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31695"><P
+><B
+>Example 33-4. Using a loaded module</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+/ ...
+
+// loading into default name
+$mdb2-&#62;loadModule('Manager');
+$tables = $mdb2-&#62;manager-&#62;listTables();
+
+// loading into non standard property $foo
+$mdb2-&#62;loadModule('Function', 'foo');
+$tables = $mdb2-&#62;foo-&#62;concat($str1, $str2);
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   On PHP5 users can also rely on overloading to load and call modules.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31699"><P
+><B
+>Example 33-5. Using the 'modules' option with PHP5 overloading</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'MDB2.php';
+
+$dsn = 'pgsql://someuser:apasswd@localhost/thedb';
+$options = array(
+    'debug' =&#62; 2,
+    'result_buffering' =&#62; false,
+);
+
+$mdb2 =&#38; MDB2::connect($dsn, $options);
+if (PEAR::isError($mdb2)) {
+    die($mdb2-&#62;getMessage());
+}
+
+// ...
+
+$module_shorthands = $mdb2-&#62;getOptions('modules');
+
+// use the shorthand key for the given module as a prefix for the method name
+// where the first letter of the original method name is uppercased
+$tables = $mdb2-&#62;mgListTables();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31702"><P
+><B
+>Example 33-6. Calling a method on a loaded module with PHP5 overloading</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'MDB2.php';
+
+$dsn = 'pgsql://someuser:apasswd@localhost/thedb';
+$options = array(
+    'debug' =&#62; 2,
+    'result_buffering' =&#62; false,
+);
+
+$mdb2 =&#38; MDB2::connect($dsn, $options);
+if (PEAR::isError($mdb2)) {
+    die($mdb2-&#62;getMessage());
+}
+
+// ...
+
+$mdb2-&#62;loadModule('Manager');
+
+// since the manager module is already loaded we can all the listTable() method
+$tables = $mdb2-&#62;listTables();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.intro-transaction.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.intro-auto.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction - Transaction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction - autoPrepare &#38; autoExecute</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

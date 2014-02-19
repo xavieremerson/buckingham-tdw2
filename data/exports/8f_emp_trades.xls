@@ -1,0 +1,355 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+				<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+				<body><table border="1" cellspacing="0" cellpadding="0">
+					<tr>
+							<td width="85">Trd Date</td>
+							<td width="160">Employee</td>
+							<td width="165">Acct. Name</td>
+							<td width="100">Account</td> 
+							<td width="160">Custodian</td> 
+							<td width="60">Symbol</td>
+							<td width="100">Cusip</td> 
+							<td width="180">Sec. Description</td>
+							<td width="40">Buy/Sell</td>
+							<td align="right">Quantity</td>
+							<td align="right" width="100">Price</td>
+							<td width="80" align="right">Ord Entry</td>
+							<td width="75" align="right">Ord Exec</td>
+							<td></td>
+					</tr><tr> 
+ 							<td>12/13/2012</td><td>John Demartini</td> 
+							<td>JOHN MICHAEL DEMAR</td>
+							<td>487706370</td>
+							<td>Fidelity</td>
+							<td>AMCC</td>
+							<td>03822W406</td>
+							<td>APPLIED MICRO CIRCUITS C</td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;S</td>
+							<td align="right">5,000</td>
+							<td align="right">7.84</td>
+							<td align="right">2:24PM</td>
+							<td align="right">2:24PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>Sergei Baranovsky</td> 
+							<td>SERGEI  BARANOVSKY</td>
+							<td>X69446122</td>
+							<td>Fidelity</td>
+							<td>AAPL</td>
+							<td>1455339FZ</td>
+							<td>CALL (AAPL) APPLE INC</td>
+							<td>B</td>
+							<td align="right">1</td>
+							<td align="right">3.43</td>
+							<td align="right">3:44PM</td>
+							<td align="right">3:44PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>Michael Marrano</td> 
+							<td>MICHAEL  MARRANO</td>
+							<td>Y97836290</td>
+							<td>Fidelity</td>
+							<td>ALSRX</td>
+							<td>015570104</td>
+							<td>ALGER SMALL CAP INSTL FU</td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;S</td>
+							<td align="right">102</td>
+							<td align="right">28.46</td>
+							<td align="right">11:11AM</td>
+							<td align="right">4:00PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>Michael Marrano</td> 
+							<td>MICHAEL  MARRANO</td>
+							<td>Y97836290</td>
+							<td>Fidelity</td>
+							<td>ARTSX</td>
+							<td>04314H105</td>
+							<td>ARTISAN SMALL CAP FUND I</td>
+							<td>B</td>
+							<td align="right">101</td>
+							<td align="right">20.28</td>
+							<td align="right">11:12AM</td>
+							<td align="right">4:00PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>Michael Marrano</td> 
+							<td>MICHAEL  MARRANO</td>
+							<td>Y97836290</td>
+							<td>Fidelity</td>
+							<td>IWD</td>
+							<td>464287598</td>
+							<td>ISHARES TR RUSSELL 1000 </td>
+							<td>B</td>
+							<td align="right">6</td>
+							<td align="right">72.92</td>
+							<td align="right">12:00AM</td>
+							<td align="right">11:12AM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>Michael Marrano</td> 
+							<td>MICHAEL  MARRANO</td>
+							<td>Y97836290</td>
+							<td>Fidelity</td>
+							<td>IWF</td>
+							<td>464287614</td>
+							<td>ISHARES TR RUSSELL 1000 </td>
+							<td>B</td>
+							<td align="right">21</td>
+							<td align="right">65.97</td>
+							<td align="right">12:00AM</td>
+							<td align="right">11:12AM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>Michael Marrano</td> 
+							<td>MICHAEL  MARRANO</td>
+							<td>Y97836290</td>
+							<td>Fidelity</td>
+							<td>PAHIX</td>
+							<td>741481204</td>
+							<td>T ROWE PRICE HIGH YIELD </td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;S</td>
+							<td align="right">85</td>
+							<td align="right">6.96</td>
+							<td align="right">11:11AM</td>
+							<td align="right">4:00PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>Patrick OGrady</td> 
+							<td>PATRICK  O'GRADY</td>
+							<td>Z70508209</td>
+							<td>Fidelity</td>
+							<td>DECK</td>
+							<td>243537107</td>
+							<td>DECKERS OUTDOOR </td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;S</td>
+							<td align="right">20</td>
+							<td align="right">38.56</td>
+							<td align="right">3:58PM</td>
+							<td align="right">3:58PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>Patrick OGrady</td> 
+							<td>PATRICK  O'GRADY</td>
+							<td>Z70508209</td>
+							<td>Fidelity</td>
+							<td>ROIAK</td>
+							<td>75040P405</td>
+							<td>RADIO ONE INC CL D NON V</td>
+							<td>B</td>
+							<td align="right">1,000</td>
+							<td align="right">0.77</td>
+							<td align="right">3:58PM</td>
+							<td align="right">3:58PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>Jonathan Hart</td> 
+							<td>JONATHAN RICHARD H</td>
+							<td>Z72364320</td>
+							<td>Fidelity</td>
+							<td>AXL</td>
+							<td>024061103</td>
+							<td>AMERICAN AXLE & MFG HOLD</td>
+							<td>B</td>
+							<td align="right">100</td>
+							<td align="right">10.18</td>
+							<td align="right">3:00PM</td>
+							<td align="right">3:00PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>Jonathan Hart</td> 
+							<td>JONATHAN RICHARD H</td>
+							<td>Z72364320</td>
+							<td>Fidelity</td>
+							<td>FBC</td>
+							<td>337930705</td>
+							<td>FLAGSTAR BANCORP INC COM</td>
+							<td>B</td>
+							<td align="right">50</td>
+							<td align="right">18.71</td>
+							<td align="right">3:01PM</td>
+							<td align="right">3:01PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>Jill Rosenberg</td> 
+							<td>VICTORIA JEAN DEFI</td>
+							<td>Z72364428</td>
+							<td>Fidelity</td>
+							<td>COH</td>
+							<td>189754104</td>
+							<td>COACH INC </td>
+							<td>B</td>
+							<td align="right">100</td>
+							<td align="right">56.42</td>
+							<td align="right">2:35PM</td>
+							<td align="right">2:35PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>Jill Rosenberg</td> 
+							<td>VICTORIA JEAN DEFI</td>
+							<td>Z72364428</td>
+							<td>Fidelity</td>
+							<td>LULU</td>
+							<td>550021109</td>
+							<td>LULULEMON ATHLETICA INC </td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;S</td>
+							<td align="right">75</td>
+							<td align="right">74.70</td>
+							<td align="right">2:09PM</td>
+							<td align="right">2:09PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>Jill Rosenberg</td> 
+							<td>ALEX JOSEPH DEFILI</td>
+							<td>Z72364436</td>
+							<td>Fidelity</td>
+							<td>COH</td>
+							<td>189754104</td>
+							<td>COACH INC </td>
+							<td>B</td>
+							<td align="right">100</td>
+							<td align="right">56.45</td>
+							<td align="right">2:35PM</td>
+							<td align="right">2:35PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>Jill Rosenberg</td> 
+							<td>ALEX JOSEPH DEFILI</td>
+							<td>Z72364436</td>
+							<td>Fidelity</td>
+							<td>JCP</td>
+							<td>708160106</td>
+							<td>PENNEY J C CO INC </td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;S</td>
+							<td align="right">100</td>
+							<td align="right">20.12</td>
+							<td align="right">11:23AM</td>
+							<td align="right">11:23AM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>Jill Rosenberg</td> 
+							<td>ALEX JOSEPH DEFILI</td>
+							<td>Z72364436</td>
+							<td>Fidelity</td>
+							<td>LULU</td>
+							<td>550021109</td>
+							<td>LULULEMON ATHLETICA INC </td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;S</td>
+							<td align="right">75</td>
+							<td align="right">74.68</td>
+							<td align="right">2:09PM</td>
+							<td align="right">2:09PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>Jill Rosenberg</td> 
+							<td>JILL  ROSENBERG</td>
+							<td>Z72364452</td>
+							<td>Fidelity</td>
+							<td>COH</td>
+							<td>189754104</td>
+							<td>COACH INC </td>
+							<td>B</td>
+							<td align="right">200</td>
+							<td align="right">56.44</td>
+							<td align="right">2:36PM</td>
+							<td align="right">2:36PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>Jill Rosenberg</td> 
+							<td>JILL  ROSENBERG</td>
+							<td>Z72364452</td>
+							<td>Fidelity</td>
+							<td>JCP</td>
+							<td>708160106</td>
+							<td>PENNEY J C CO INC </td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;S</td>
+							<td align="right">100</td>
+							<td align="right">20.13</td>
+							<td align="right">11:23AM</td>
+							<td align="right">11:23AM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>Jill Rosenberg</td> 
+							<td>JILL  ROSENBERG</td>
+							<td>Z72364452</td>
+							<td>Fidelity</td>
+							<td>LULU</td>
+							<td>550021109</td>
+							<td>LULULEMON ATHLETICA INC </td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;S</td>
+							<td align="right">100</td>
+							<td align="right">74.66</td>
+							<td align="right">2:10PM</td>
+							<td align="right">2:10PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>William Gault</td> 
+							<td>WILLIAM J GAULT</td>
+							<td>Z72369497</td>
+							<td>Fidelity</td>
+							<td>AMCC</td>
+							<td>03822W406</td>
+							<td>APPLIED MICRO CIRCUITS C</td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;S</td>
+							<td align="right">5,000</td>
+							<td align="right">7.86</td>
+							<td align="right">2:34PM</td>
+							<td align="right">2:34PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>John Zolidis</td> 
+							<td>JOHN MICHAEL ZOLID</td>
+							<td>Z72369713</td>
+							<td>Fidelity</td>
+							<td>NFLX</td>
+							<td>64110L106</td>
+							<td>NETFLIX COM INC COM</td>
+							<td>B</td>
+							<td align="right">50</td>
+							<td align="right">91.51</td>
+							<td align="right">9:40AM</td>
+							<td align="right">9:40AM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>John Zolidis</td> 
+							<td>JOHN MICHAEL ZOLID</td>
+							<td>Z72369713</td>
+							<td>Fidelity</td>
+							<td>TRLG</td>
+							<td>89784N104</td>
+							<td>TRUE RELIGION APPAREL IN</td>
+							<td>B</td>
+							<td align="right">200</td>
+							<td align="right">24.55</td>
+							<td align="right">9:43AM</td>
+							<td align="right">9:43AM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>Tom Leddy</td> 
+							<td>KAREN F LEDDY</td>
+							<td>Z72410004</td>
+							<td>Fidelity</td>
+							<td>AXL</td>
+							<td>024061103</td>
+							<td>AMERICAN AXLE & MFG HOLD</td>
+							<td>B</td>
+							<td align="right">1,000</td>
+							<td align="right">10.26</td>
+							<td align="right">3:47PM</td>
+							<td align="right">3:47PM</td>
+							<td></td>
+						</tr><tr> 
+ 							<td>12/13/2012</td><td>Tom Leddy</td> 
+							<td>KAREN F LEDDY</td>
+							<td>Z72410004</td>
+							<td>Fidelity</td>
+							<td>CBK</td>
+							<td>171046105</td>
+							<td>CHRISTOPHER & BANKS CORP</td>
+							<td>B</td>
+							<td align="right">2,000</td>
+							<td align="right">4.79</td>
+							<td align="right">3:43PM</td>
+							<td align="right">3:43PM</td>
+							<td></td>
+						</tr></table></body></html>

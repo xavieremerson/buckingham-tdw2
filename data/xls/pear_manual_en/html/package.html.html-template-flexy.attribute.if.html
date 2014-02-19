@@ -1,0 +1,392 @@
+<HTML
+><HEAD
+><TITLE
+>flexy:if="variable or method()"</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_Flexy"
+HREF="package.html.html-template-flexy.html"><LINK
+REL="PREVIOUS"
+TITLE='<SELECT NAME="name">'
+HREF="package.html.html-template-flexy.attribute.select.html"><LINK
+REL="NEXT"
+TITLE='flexy:foreach="variable,key,value"'
+HREF="package.html.html-template-flexy.attribute.foreach.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.attribute.select.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.attribute.foreach.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-flexy.attribute.if">flexy:if="variable or method()"</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN69708"
+></A
+>flexy:if="variable or method()"&nbsp;--&nbsp;creates a PHP if conditional tag</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN69711"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN69712"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     <B
+CLASS="function"
+>Usage</B
+></CODE
+> (flexy:if="variable", flexy:if="method()", flexy:if="object.method()")</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.attribute.if.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      creates an if condition surrounding the tag that it's included in.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.attribute.if.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>string variable</I
+></TT
+> - 
+       relates to $object-&#62;variable
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>string method</I
+></TT
+> - 
+       relates to $object-&#62;method()
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>string object.method</I
+></TT
+> 
+       relates to $object-&#62;object-&#62;method()
+      </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.attribute.if.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69740"><P
+><B
+>Example 41-1. Setting variables for foreach</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>class output {
+    function hasTest() {
+        return false;
+    }
+    
+    function run() {
+        $this-&#62;a = true;
+        $this-&#62;message = 'oops'
+        $template-&#62;outputObject($this);
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69743"><P
+><B
+>Example 41-2. flexy:if in template</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>&#60;a href="{baseURL}/somepath.html" flexy:if="a"&#62;this is the a link&#60;/a&#62;
+&#60;a href="{baseURL}/somepath.html" flexy:if="!a"&#62;this is not the a link&#60;/a&#62;
+&#60;b flexy:if="hasTest()"&#62;hasTest is true&#60;/b&#62;
+&#60;b flexy:if="!hasTest()"&#62;hasTest is false&#60;/b&#62;
+
+&#60;span flexy:if="message" class="error"&#62;{message}&#60;/span&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69746"><P
+><B
+>Example 41-3. Compiled template</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>&#60;?php if ($t-&#62;a)  { ?&#62;&#60;A HREF="&#60;?php echo htmlspecialchars($t-&#62;baseURL); ?&#62;/somepath.html"&#62;this is the a link&#60;/A&#62;&#60;?php } ?&#62;
+&#60;?php if (!$t-&#62;a)  { ?&#62;&#60;A HREF="&#60;?php echo htmlspecialchars($t-&#62;baseURL); ?&#62;/somepath.html"&#62;this is not the a link&#60;/A&#62;&#60;?php } ?&#62;
+&#60;?php if (isset($t) &#38;&#38; method_exists($t,'hasTest')) if ($t-&#62;hasTest()) {  ?&#62;&#60;B&#62;hasTest is true&#60;/B&#62;&#60;?php } ?&#62;
+&#60;?php if (isset($t) &#38;&#38; method_exists($t,'hasTest')) if (!$t-&#62;hasTest()) {  ?&#62;&#60;B&#62;hasTest is false&#60;/B&#62;&#60;?php } ?&#62;
+ 
+&#60;?php if ($t-&#62;message)  { ?&#62;&#60;SPAN CLASS="error"&#62;&#60;?php echo htmlspecialchars($t-&#62;message); ?&#62;&#60;/SPAN&#62;&#60;?php } ?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69749"><P
+><B
+>Example 41-4. Simple ouput example</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>this is the a link
+hasTest is false
+
+oops</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.attribute.select.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.attribute.foreach.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&#60;SELECT NAME="name"&#62;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>flexy:foreach="variable,key,value"</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,22 @@
+2014-02-18<br>Today is not a holiday or weekend, hence proceeding with program execution!<br>Proceeding after holiday/weekend check....<strong><font face="Verdana" color="#66666" size="1">trade_date_to_process : </font><font face="Verdana" color="#000000" size="1">2014-02-14</font></strong><br>Trade file exists. Processing ....
+<br>**********************************************************************
+*                        DAILY PROCESS                               *
+**********************************************************************
+Current Date/Time: [Tuesday, 02-18-2014 06:45 am]
+
+Trades not processed for 2014-02-14
+
+Starting process for Trades.
+
+Processing file TRADREV.TXT
+<br>from nameadd_u.php trade_date_to_process = [2014-02-14]
+Processing file NABASE.DAT
+<br>Process completed!
+Main tables populated.
+Trade date obtained from previous file = 2014-02-14
+
+mry_comm_rr is flushed and ready for the next set of data
+
+Data inserted to temporary table for further processing.
+
+<strong><font face="Verdana" color="#66666" size="1">Processsing Rep:  : </font><font face="Verdana" color="#000000" size="1">006</font></strong><br><strong><font face="Verdana" color="#66666" size="1">Processsing Rep:  : </font><font face="Verdana" color="#000000" size="1">025</font></strong><br><strong><font face="Verdana" color="#66666" size="1">Processsing Rep:  : </font><font face="Verdana" color="#000000" size="1">028</font></strong><br><strong><font face="Verdana" color="#66666" size="1">Processsing Rep:  : </font><font face="Verdana" color="#000000" size="1">030</font></strong><br><strong><font face="Verdana" color="#66666" size="1">Processsing Rep:  : </font><font face="Verdana" color="#000000" size="1">031</font></strong><br><strong><font face="Verdana" color="#66666" size="1">Processsing Rep:  : </font><font face="Verdana" color="#000000" size="1">033</font></strong><br><strong><font face="Verdana" color="#66666" size="1">Processsing Rep:  : </font><font face="Verdana" color="#000000" size="1">036</font></strong><br><strong><font face="Verdana" color="#66666" size="1">Processsing Rep:  : </font><font face="Verdana" color="#000000" size="1">040</font></strong><br><strong><font face="Verdana" color="#66666" size="1">Processsing Rep:  : </font><font face="Verdana" color="#000000" size="1">041</font></strong><br><strong><font face="Verdana" color="#66666" size="1">Processsing Rep:  : </font><font face="Verdana" color="#000000" size="1">044</font></strong><br><strong><font face="Verdana" color="#66666" size="1">Processsing Rep:  : </font><font face="Verdana" color="#000000" size="1">084</font></strong><br><strong><font face="Verdana" color="#66666" size="1">Processsing Rep:  : </font><font face="Verdana" color="#000000" size="1">085</font></strong><br><strong><font face="Verdana" color="#66666" size="1">Processsing Rep:  : </font><font face="Verdana" color="#000000" size="1">257</font></strong><br><strong><font face="Verdana" color="#66666" size="1">Processsing Rep:  : </font><font face="Verdana" color="#000000" size="1">281</font></strong><br><strong><font face="Verdana" color="#66666" size="1">Processsing Rep:  : </font><font face="Verdana" color="#000000" size="1">300</font></strong><br><strong><font face="Verdana" color="#66666" size="1">Processsing Rep:  : </font><font face="Verdana" color="#000000" size="1">306</font></strong><br><strong><font face="Verdana" color="#66666" size="1">Processsing Rep:  : </font><font face="Verdana" color="#000000" size="1">309</font></strong><br><strong><font face="Verdana" color="#66666" size="1">Processsing Rep:  : </font><font face="Verdana" color="#000000" size="1">310</font></strong><br> 7.0006709 s. 12.9999807 s.File C:\TRADES.DAT written successfully<br>File C:\COMM.DAT written successfully<br>File C:\COUNT_ACCTS.DAT written successfully<br>

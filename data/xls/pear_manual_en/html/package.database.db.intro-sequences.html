@@ -1,0 +1,376 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - Sequences</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction - Portability"
+HREF="package.database.db.intro-portability.html"><LINK
+REL="NEXT"
+TITLE="DB"
+HREF="package.database.db.db.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.intro-portability.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.intro-sequences">Introduction - Sequences</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN21718"
+></A
+>Introduction - Sequences&nbsp;--&nbsp;Sequences and auto-incrementing</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.intro-sequences.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Sequences are a way of offering unique IDs for data rows. If you
+   do most of your work with e.g. MySQL, think of sequences as
+   another way of doing <B
+CLASS="command"
+>AUTO_INCREMENT</B
+>.
+  </P
+><P
+>&#13;   It's quite simple, first you
+   request an ID, and then you insert that value in the ID field of
+   the new row you're creating. You can have more than one sequence
+   for all your tables, just be sure that you always use the same
+   sequence for any particular table. To get the value of this
+   unique ID use <A
+HREF="package.database.db.db-common.nextid.html"
+>&#13;    <B
+CLASS="function"
+>nextId()</B
+></A
+>, if a sequence doesn't
+   exists, it will be created automatically.
+  </P
+><P
+>&#13;   The sequence is automatically incremented each time
+   <A
+HREF="package.database.db.db-common.nextid.html"
+>&#13;    <B
+CLASS="function"
+>nextId()</B
+></A
+> is called.
+  </P
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21732"><P
+><B
+>Example 33-1. Using a sequence</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$id = $db-&#62;nextId('mySequence');
+if (PEAR::isError($id)) {
+    die($id-&#62;getMessage());
+}
+
+// Use the ID in your INSERT query
+$res =&#38; $db-&#62;query("INSERT INTO myTable (id, text) VALUES ($id, 'foo')");
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.intro-sequences.note"
+></A
+><H2
+>Note</H2
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;    When using PEAR DB's sequence methods, we strongly advise using
+    these methods for all procedures, including the creation of the
+    sequences.  Do not use PEAR DB's methods to access
+    sequences that were created directly in the DBMS.
+   </P
+><P
+>&#13;    If you have a compelling reason to ignore this advice, be aware
+    that the <TT
+CLASS="parameter"
+><I
+>$seq_name</I
+></TT
+> argument given to all of
+    PEAR DB's sequence methods are modified before DB calls the
+    underlying DBMS.
+   </P
+><P
+>&#13;    <TT
+CLASS="parameter"
+><I
+>$seq_name</I
+></TT
+> is passed through PHP's
+    <B
+CLASS="function"
+>sprintf()</B
+> function using the value from the
+    <TT
+CLASS="varname"
+>seqname_format</TT
+> option as
+    <B
+CLASS="function"
+>sprintf()</B
+>'s format argument.
+    The default <TT
+CLASS="varname"
+>seqname_format</TT
+> is
+    <TT
+CLASS="literal"
+>%s_seq</TT
+>. So, for example, if you use
+    <TT
+CLASS="literal"
+>person_id_sequence</TT
+> as the
+    <TT
+CLASS="parameter"
+><I
+>$seq_name</I
+></TT
+>, PEAR DB will change that
+    name to <TT
+CLASS="literal"
+>person_id_sequence_seq</TT
+> when
+    querying the DBMS about creating/accessing/updating the sequence.
+   </P
+><P
+>&#13;    The <TT
+CLASS="varname"
+>seqname_format</TT
+> can be modified when
+    <A
+HREF="package.database.db.db.connect.html"
+>&#13;     <B
+CLASS="function"
+>connect()</B
+></A
+>'ing or via
+    <A
+HREF="package.database.db.db-common.setoption.html"
+>&#13;     <B
+CLASS="function"
+>setOption()</B
+></A
+>.
+   </P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.intro-sequences.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="package.database.db.db-common.createsequence.html"
+>&#13;    <B
+CLASS="function"
+>createSequence()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-common.nextid.html"
+>&#13;    <B
+CLASS="function"
+>nextId()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-common.dropsequence.html"
+>&#13;    <B
+CLASS="function"
+>dropSequence()</B
+></A
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.intro-portability.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.db.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction - Portability</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="classname"
+>DB</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

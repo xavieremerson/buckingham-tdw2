@@ -1,0 +1,433 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - Options</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Console_Getopt"
+HREF="package.console.console-getopt.html"><LINK
+REL="PREVIOUS"
+TITLE="Console_Getopt"
+HREF="package.console.console-getopt.html"><LINK
+REL="NEXT"
+TITLE="Console_Getopt::getopt"
+HREF="package.console.console-getopt.getopt.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.console.console-getopt.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.console.console-getopt.getopt.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.console.console-getopt.intro-options">Introduction - Options</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN20664"
+></A
+>Introduction - Options&nbsp;--&nbsp;Defining and processing options</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.console.console-getopt.intro-options.defining"
+></A
+><H2
+>Defining options</H2
+><P
+>&#13;      <B
+CLASS="function"
+>Getopt()</B
+> supports two types of options: <TT
+CLASS="parameter"
+><I
+>&#13;      short options</I
+></TT
+> and <TT
+CLASS="parameter"
+><I
+>long options</I
+></TT
+>
+      <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN20673"><P
+><B
+>Example 32-1. Calling a script with short and long options</B
+></P
+><P
+>&#13;        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+># Using short options
+<B
+CLASS="command"
+>myphpscript</B
+> <TT
+CLASS="parameter"
+><I
+>-q -l en -o</I
+></TT
+>
+# Using long options instead
+<B
+CLASS="command"
+>myphpscript</B
+> <TT
+CLASS="parameter"
+><I
+>--quite --lang=en --option</I
+></TT
+>
+# Mixing both
+<B
+CLASS="command"
+>myphpscript</B
+> <TT
+CLASS="parameter"
+><I
+>-q --lang=en -o</I
+></TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+        You have to define which options you want to support. The second
+        argument of <B
+CLASS="function"
+>getopt()</B
+> requires a string containing
+        all supported chars. For the example above this would be at least:
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$shortoptions = "qlo";</PRE
+></TD
+></TR
+></TABLE
+>
+        The order of the characters is not important. Often you have
+        to define options with (optional) parameters. To express that
+        a option requires a parameter, you have to add a colon. If the
+        parameter is optional, add a double colon, ie:
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$shortoptions = "ql:o::";</PRE
+></TD
+></TR
+></TABLE
+>
+        this means the following script calls are permitted, ie.
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+><B
+CLASS="command"
+>myphpscript</B
+> <TT
+CLASS="parameter"
+><I
+></I
+></TT
+>
+<B
+CLASS="command"
+>myphpscript</B
+> <TT
+CLASS="parameter"
+><I
+>-q</I
+></TT
+>
+<B
+CLASS="command"
+>myphpscript</B
+> <TT
+CLASS="parameter"
+><I
+>-q -l en </I
+></TT
+>
+<B
+CLASS="command"
+>myphpscript</B
+> <TT
+CLASS="parameter"
+><I
+>-o text </I
+></TT
+>
+<B
+CLASS="command"
+>myphpscript</B
+> <TT
+CLASS="parameter"
+><I
+>-o</I
+></TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+        whilst
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+><B
+CLASS="command"
+>myphpscript</B
+> <TT
+CLASS="parameter"
+><I
+>-l</I
+></TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+        is not permitted. The <TT
+CLASS="parameter"
+><I
+>-l</I
+></TT
+> option
+        requires a parameter, if the option is used.
+       </P
+><P
+>&#13;        The long options work equally, but they have to be defined in
+        an array:
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$longoptions = array("quite", "lang", "option");</PRE
+></TD
+></TR
+></TABLE
+>
+        For defining optional parameters, use <TT
+CLASS="parameter"
+><I
+>'='</I
+></TT
+> and
+        <TT
+CLASS="parameter"
+><I
+>'=='</I
+></TT
+> like the colon in short options.
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$longoptions = array("quite", "lang=", "option==");</PRE
+></TD
+></TR
+></TABLE
+>
+       </P
+></DIV
+></TD
+></TR
+></TABLE
+>
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.console.console-getopt.intro-options.return"
+></A
+><H2
+>The returned options array</H2
+><P
+>&#13;      The return value is an array of two elements: the list of parsed
+      options and the list of non-option command-line arguments. Each entry in
+      the list of parsed options is a pair of elements - the first one
+      specifies the option, and the second one specifies the option argument,
+      if there was one, else the value is <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>.
+     </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.console.console-getopt.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.console.console-getopt.getopt.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Console_Getopt</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.console.console-getopt.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Console_Getopt::getopt</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

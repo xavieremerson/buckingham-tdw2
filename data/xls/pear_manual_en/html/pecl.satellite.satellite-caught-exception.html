@@ -1,0 +1,308 @@
+<HTML
+><HEAD
+><TITLE
+>satellite_caught_exception</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Satellite CORBA client extension"
+HREF="pecl.satellite.html"><LINK
+REL="PREVIOUS"
+TITLE="OrbitStruct"
+HREF="pecl.satellite.orbitstruct.html"><LINK
+REL="NEXT"
+TITLE="satellite_exception_id"
+HREF="pecl.satellite.satellite-exception-id.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="pecl.satellite.orbitstruct.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="pecl.satellite.satellite-exception-id.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="pecl.satellite.satellite-caught-exception">satellite_caught_exception</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN106371"
+></A
+>satellite_caught_exception&nbsp;--&nbsp;
+     See if an exception was caught from the previous function
+    </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN106374"
+></A
+><H2
+>Description</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN106376"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>bool
+       <B
+CLASS="function"
+>satellite_caught_exception</B
+>
+      </CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>This function is
+<SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>EXPERIMENTAL</I
+></SPAN
+>. That means, that the behaviour of this
+function, the function name, in concreto ANYTHING documented here can
+change in a future release of this package WITHOUT NOTICE. Be warned, and
+use this function at your own risk.</P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>&#13;     This function returns <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> if an exception has been caught.
+    </P
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN106387"><P
+><B
+>Example 1. Sample IDL file</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="idl"
+>/* ++?????++ Out of Cheese Error. Redo From Start. */
+exception OutOfCheeseError {
+    int parameter;
+}
+
+interface AnotherInterface {
+    void AskWhy() raises (OutOfCheeseError);
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN106391"><P
+><B
+>Example 2. PHP code for handling CORBA exceptions</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+$obj = new OrbitObject ($ior);
+
+$obj-&#62;AskWhy();
+
+if (satellite_caught_exception()) {
+    if ("IDL:OutOfCheeseError:1.0" == satellite_exception_id()) {
+        $exception = satellite_exception_value();
+        echo $exception-&#62;parameter;
+    }
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="pecl.satellite.orbitstruct.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="pecl.satellite.satellite-exception-id.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>OrbitStruct</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="pecl.satellite.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>satellite_exception_id</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

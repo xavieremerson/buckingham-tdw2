@@ -1,0 +1,753 @@
+<HTML
+><HEAD
+><TITLE
+>Custom Renderers</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Introduction and Features"
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.intro-and-features"><LINK
+REL="PREVIOUS"
+TITLE="Custom DataSources"
+HREF="package.structures.structures-datagrid.custom-datasources.html"><LINK
+REL="NEXT"
+TITLE="Structures_Graph"
+HREF="package.structures.structures-graph.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.custom-datasources.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-graph.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.structures.structures-datagrid.custom-renderers">Custom Renderers</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN94044"
+></A
+>Custom Renderers&nbsp;--&nbsp;
+    How to write your own Rendering driver.
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.custom-renderers.intro"
+></A
+><H2
+>Introduction</H2
+><P
+>Writing your own Renderer allows you to 
+  fine tune every aspect of <B
+CLASS="classname"
+>Structures_DataGrid</B
+>
+  output.</P
+><P
+>You may need to output the datagrid in a completely unsupported
+  format. Then writing your own Renderer is the only
+  option</P
+><P
+>But you may also need a unsupported variant of an existing renderer,
+  say, for example, a very specific HTML output. In this case, you generally
+  have two options : either writing a Rendering driver from scratch, or 
+  customizing (subclassing) an existing one.</P
+><P
+>This document will present you the Rendering driver
+  interface, and how to implement it. You will certainly see how flexible 
+  Structures_DataGrid can become with custom Renderers, but 
+  also how easy we have to tried to make this process.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.custom-renderers.def"
+></A
+><H2
+>Definitions</H2
+><P
+>A <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Rendering driver</I
+></SPAN
+> is a descendent of
+  the <B
+CLASS="classname"
+>Structures_DataGrid_Renderer</B
+> class, which
+  implements the <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Renderer interface</I
+></SPAN
+>.</P
+><P
+><SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Renderer</I
+></SPAN
+> is a synomym for 
+  <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Rendering driver</I
+></SPAN
+>.</P
+><P
+>The <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Renderer interface</I
+></SPAN
+> consists in a
+  set of methods that drivers must or may overload and protected properties 
+  that drivers can use, as well as recommended practices.</P
+><P
+>A <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Rendering container</I
+></SPAN
+> is either an object that
+  contain a sort of rendering engine, or a variable of any type (string, array, 
+  object, etc...) that can contain the output of a <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Renderer</I
+></SPAN
+>.
+  </P
+><P
+>A <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Renderer</I
+></SPAN
+> with <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Container Support</I
+></SPAN
+> 
+  driver is specific to, and knows how to handle, a given 
+  type of <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Rendering container</I
+></SPAN
+>.</P
+><P
+>A driver is said to provide <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Container Support</I
+></SPAN
+> when it
+  is able to handle a given type of <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Rendering
+  container</I
+></SPAN
+>. Drivers with <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Container Support</I
+></SPAN
+> must
+  implement the <B
+CLASS="function"
+>setContainer()</B
+> and
+  <B
+CLASS="function"
+>getContainer()</B
+> public methods. They must be able
+  to use a <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Rendering container</I
+></SPAN
+> provided by the user with
+  <B
+CLASS="function"
+>setContainer()</B
+>. They must also be able to create and intialize
+  a <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Rendering container</I
+></SPAN
+> if the user does not provide
+  any.</P
+><P
+>A driver is said to provide <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Output Buffering</I
+></SPAN
+> when
+  it buffers the output that it generates, implements the
+  <B
+CLASS="function"
+>flatten()</B
+> method and is able to return the generated 
+  output from <B
+CLASS="function"
+>flatten()</B
+>.</P
+><P
+>A <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Direct Rendering</I
+></SPAN
+> driver is the simplest form of
+  Renderer. It directs all of its output to standard output. By definition,
+  a such driver neither provide <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Container support</I
+></SPAN
+> nor 
+  <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Output Buffering</I
+></SPAN
+></P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.custom-renderers.interface"
+></A
+><H2
+>The Renderer interface</H2
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.structures.structures-datagrid.custom-renderers.interface.properties"
+></A
+><H3
+>Protected properties available to drivers</H3
+><P
+>All of the following properties are <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>read-only</I
+></SPAN
+> :
+    drivers can access their content but must not change it directly.</P
+><P
+><TT
+CLASS="parameter"
+><I
+>array $_options</I
+></TT
+> -Common and driver-specific
+    options</P
+><P
+><TT
+CLASS="parameter"
+><I
+>array $_columns</I
+></TT
+> - Columns fields names and
+    labels</P
+><P
+><TT
+CLASS="parameter"
+><I
+>int $_columnsNum</I
+></TT
+> - Number of columns</P
+><P
+><TT
+CLASS="parameter"
+><I
+>array $_records</I
+></TT
+> - Records content</P
+><P
+><TT
+CLASS="parameter"
+><I
+>int $_recordsNum</I
+></TT
+> - Number of records
+    in the current page</P
+><P
+><TT
+CLASS="parameter"
+><I
+>int $_totalRecordsNum</I
+></TT
+> -  Total number of
+    records as reported by the datasource</P
+><P
+><TT
+CLASS="parameter"
+><I
+>int $_firstRecord</I
+></TT
+> - First record number (starting from 1), in the current page</P
+><P
+><TT
+CLASS="parameter"
+><I
+>int $_lastRecord</I
+></TT
+> - Last record number (starting from 1), in the current page</P
+><P
+><TT
+CLASS="parameter"
+><I
+>int $_page</I
+></TT
+> - Current page number (starting
+    from 1)</P
+><P
+><TT
+CLASS="parameter"
+><I
+>int $_pageLimit</I
+></TT
+> - Number of records per page</P
+><P
+><TT
+CLASS="parameter"
+><I
+>int $_pagesNum</I
+></TT
+> - Number of pages</P
+><P
+><TT
+CLASS="parameter"
+><I
+>string $_requestPrefix</I
+></TT
+> - GET/POST/Cookie
+    parameters prefix</P
+><P
+><TT
+CLASS="parameter"
+><I
+>array $_currentSort</I
+></TT
+> - Fields/directions
+    the data is currently sorted by</P
+><P
+><TT
+CLASS="parameter"
+><I
+>array $_sortableFields</I
+></TT
+> - Which fields the
+    datagrid may be sorted by</P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.structures.structures-datagrid.custom-renderers.interface.methods"
+></A
+><H3
+>Methods that must or may be implemented in drivers</H3
+><P
+>All of the following methods are <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>optional</I
+></SPAN
+>.</P
+><P
+>&#13;     <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN94128"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+><B
+CLASS="function"
+>constructor</B
+></CODE
+> (void)</CODE
+></P
+><P
+></P
+></DIV
+>
+     The constructor must set default options via
+     <B
+CLASS="function"
+>_addDefaultOptions()</B
+>, if any, and call the parent
+     constructor.
+     </P
+><P
+>&#13;     <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN94135"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>object <B
+CLASS="function"
+>setContainer</B
+></CODE
+> (mixed container)</CODE
+></P
+><P
+></P
+></DIV
+>
+     <B
+CLASS="function"
+>setContainer()</B
+> is responsible for attaching a rendering
+     <TT
+CLASS="parameter"
+><I
+>container</I
+></TT
+> provided by the user. It must
+     return a <B
+CLASS="classname"
+>PEAR_Error</B
+> object in case of failure.
+     </P
+><P
+>&#13;     <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN94145"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>object <B
+CLASS="function"
+>getContainer</B
+></CODE
+> (void)</CODE
+></P
+><P
+></P
+></DIV
+>
+     <B
+CLASS="function"
+>getContainer()</B
+> must return a reference to the
+     container used by the driver. 
+     It must return a <B
+CLASS="classname"
+>PEAR_Error</B
+> object in case of failure.
+     </P
+><P
+>&#13;     <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN94153"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>init</B
+></CODE
+> (void)</CODE
+></P
+><P
+></P
+></DIV
+>
+     <B
+CLASS="function"
+>init()</B
+> must initialize the rendering process.
+     This method is also responsible for creating the container if it has not 
+     already been provided with <B
+CLASS="function"
+>setContainer()</B
+>.
+     </P
+><P
+>&#13;     <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN94161"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>buildHeader</B
+></CODE
+> (array columns)</CODE
+></P
+><P
+></P
+></DIV
+>
+     <B
+CLASS="function"
+>buildHeader()</B
+> must build the header.
+     <TT
+CLASS="parameter"
+><I
+>$columns</I
+></TT
+> is a convenient reference to the
+     <TT
+CLASS="varname"
+>$_columns</TT
+> property. 
+     </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="package.structures.structures-datagrid.custom-renderers.interface.methods-avail"
+></A
+><H3
+>Protected methods that drivers can use</H3
+><P
+>&#13;     <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN94173"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>_addDefaultOptions</B
+></CODE
+> (array options)</CODE
+></P
+><P
+></P
+></DIV
+>
+     <B
+CLASS="function"
+>_addDefaultOptions()</B
+> is used to declare the
+     driver-specific options, if any, as well as their default values. 
+     It must be called from the constructor.
+     </P
+><P
+>&#13;     <DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN94181"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>setOptions</B
+></CODE
+> (array options)</CODE
+></P
+><P
+></P
+></DIV
+>
+     <B
+CLASS="function"
+>setOptions()</B
+> is a public method used to set
+     options. If they ever need to change options, drivers should use this
+     method. 
+     </P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN94188"
+></A
+><H2
+>A simple driver</H2
+><P
+>Soon</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.custom-renderers.test"
+></A
+><H2
+>Testing your driver</H2
+><P
+>Soon</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.custom-renderers.use"
+></A
+><H2
+>Using your new driver</H2
+><P
+>Soon</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.custom-datasources.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.structures.structures-graph.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Custom DataSources</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.intro-and-features"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Structures_Graph</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

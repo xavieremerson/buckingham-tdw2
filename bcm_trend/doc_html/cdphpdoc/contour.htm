@@ -1,0 +1,89 @@
+<HTML>
+<HEAD>
+<Title>Contour Chart</Title>
+<link type='text/css' rel='Stylesheet' href="maxchartapi.css" />
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 5.0 (PHP Edition)</p>
+<p class="heading1">Contour Chart</p>
+<hr class="separator">
+<div class="content">
+<img src="images/contour.png">
+<br><br>
+This example demonstrates creating a contour chart.<br><br>
+<ul><li> The contour chart is created by adding a contour layer to the chart using <a href="XYChart.addContourLayer.htm">XYChart.addContourLayer</a>.<br><br>
+<li> By default, grid lines are drawn at the background of the plot area and so are behind all chart layers. In this example, <a href="PlotArea.moveGridBefore.htm">PlotArea.moveGridBefore</a> is used to move the grid lines in front of the contour layer.<br><br>
+<li> The color axis (visually represented as the color legend) is positioned vertically to the right of the plot area using <a href="ContourLayer.setColorAxis.htm">ContourLayer.setColorAxis</a>.</ul>
+</div>
+<p class="heading1a">Source Code Listing</p>
+<div class="content">
+<b>[File: phpdemo/contour.php]</b>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc"><pre>&lt;?php
+require_once("../lib/phpchartdir.php");
+
+# The x and y coordinates of the grid
+$dataX = array(-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+    10);
+$dataY = array(-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+    10);
+
+# The values at the grid points. In this example, we will compute the values using
+# the formula z = x * sin(y) + y * sin(x).
+$dataZ = array_pad(array(), count($dataX) * count($dataY), 0);
+for($yIndex = 0; $yIndex &lt; count($dataY); ++$yIndex) {
+    $y = $dataY[$yIndex];
+    for($xIndex = 0; $xIndex &lt; count($dataX); ++$xIndex) {
+        $x = $dataX[$xIndex];
+        $dataZ[$yIndex * count($dataX) + $xIndex] = $x * sin($y) + $y * sin($x);
+    }
+}
+
+# Create a XYChart object of size 600 x 500 pixels
+$c = new XYChart(600, 500);
+
+# Add a title to the chart using 15 points Arial Bold Italic font
+$c-&gt;addTitle("z = x * sin(y) + y * sin(x)      ", "arialbi.ttf", 15);
+
+# Set the plotarea at (75, 40) and of size 400 x 400 pixels. Use semi-transparent
+# black (80000000) dotted lines for both horizontal and vertical grid lines
+$c-&gt;setPlotArea(75, 40, 400, 400, -1, -1, -1, $c-&gt;dashLineColor(0x80000000, DotLine),
+    -1);
+
+# Set x-axis and y-axis title using 12 points Arial Bold Italic font
+$c-&gt;xAxis-&gt;setTitle("X-Axis Title Place Holder", "arialbi.ttf", 12);
+$c-&gt;yAxis-&gt;setTitle("Y-Axis Title Place Holder", "arialbi.ttf", 12);
+
+# Set x-axis and y-axis labels to use Arial Bold font
+$c-&gt;xAxis-&gt;setLabelStyle("arialbd.ttf");
+$c-&gt;yAxis-&gt;setLabelStyle("arialbd.ttf");
+
+# When auto-scaling, use tick spacing of 40 pixels as a guideline
+$c-&gt;yAxis-&gt;setTickDensity(40);
+$c-&gt;xAxis-&gt;setTickDensity(40);
+
+# Add a contour layer using the given data
+$layer = $c-&gt;addContourLayer($dataX, $dataY, $dataZ);
+
+# Move the grid lines in front of the contour layer
+$plotAreaObj = $c-&gt;getPlotArea();
+$plotAreaObj-&gt;moveGridBefore($layer);
+
+# Add a color axis (the legend) in which the top left corner is anchored at (505,
+# 40). Set the length to 400 pixels and the labels on the right side.
+$cAxis = $layer-&gt;setColorAxis(505, 40, TopLeft, 400, Right);
+
+# Add a title to the color axis using 12 points Arial Bold Italic font
+$cAxis-&gt;setTitle("Color Legend Title Place Holder", "arialbi.ttf", 12);
+
+# Set color axis labels to use Arial Bold font
+$cAxis-&gt;setLabelStyle("arialbd.ttf");
+
+# Output the chart
+header("Content-type: image/png");
+print($c-&gt;makeChart2(PNG));
+?&gt;</pre></tr></td></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2008 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

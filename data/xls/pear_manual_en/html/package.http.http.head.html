@@ -1,0 +1,438 @@
+<HTML
+><HEAD
+><TITLE
+>HTTP::head</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTTP"
+HREF="package.http.http.html"><LINK
+REL="PREVIOUS"
+TITLE="HTTP::Date"
+HREF="package.http.http.date.html"><LINK
+REL="NEXT"
+TITLE="HTTP::negotiateLanguage"
+HREF="package.http.http.negotiatelanguage.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.http.http.date.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.http.http.negotiatelanguage.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.http.http.head">HTTP::head</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN73881"
+></A
+>HTTP::head&nbsp;--&nbsp;sends a "HEAD" command</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN73884"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN73885"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTTP.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>HTTP::head</B
+></CODE
+> (string $url)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http.head.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Sends a "HEAD" HTTP command to a server and returns the headers
+     in an associative array. 
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http.head.example"
+></A
+><H2
+>Example</H2
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN73898"><P
+><B
+>Example 42-1. HEAD request to example.com</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "PEAR.php";
+require_once "HTTP.php";
+
+$result = HTTP::head("http://example.com/");
+
+if (PEAR::isError($result)) {
+    echo "Error: " . $result-&#62;getMessage();
+} else {
+    echo "&#60;pre&#62;";
+    print_r($result);
+    echo "&#60;/pre&#62;";
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+     The output of the <B
+CLASS="function"
+>print_r()</B
+> call is shown
+     <A
+HREF="package.http.http.head.html#package.http.http.head.return.example"
+>below</A
+>.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http.head.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $url</I
+></TT
+> - a valid absolute URL
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http.head.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>array</I
+></TT
+> - an array containing the header lines
+     or a <A
+HREF="core.pear.pear-error.html"
+><B
+CLASS="classname"
+>PEAR_Error</B
+></A
+>.
+    </P
+><P
+>&#13;     Example output:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>Array
+(
+    [response_code] =&#62; 200
+    [response] =&#62; HTTP/1.1 200 OK
+    [Date] =&#62; Tue, 25 Nov 2003 22:08:57 GMT
+    [Server] =&#62; Apache/1.3.27 (Unix)  (Red-Hat/Linux)
+    [Last-Modified] =&#62; Wed, 08 Jan 2003 23:11:55 GMT
+    [ETag] =&#62; "3f80f-1b6-3e1cb03b"
+    [Accept-Ranges] =&#62; bytes
+    [Content-Length] =&#62; 438
+    [Connection] =&#62; close
+    [Content-Type] =&#62; text/html
+)</PRE
+></TD
+></TR
+></TABLE
+>        
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http.head.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN73921"><P
+><B
+>Table 42-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"HTTP::head Error <TT
+CLASS="parameter"
+><I
+>$errstr</I
+></TT
+> (<TT
+CLASS="parameter"
+><I
+>$erno</I
+></TT
+>)"</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Connection to server failed
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Check connectivity of your host and the given URL in
+          <TT
+CLASS="parameter"
+><I
+>$url</I
+></TT
+>
+         </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http.head.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.http.http.date.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.http.http.negotiatelanguage.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTTP::Date</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.http.http.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTTP::negotiateLanguage</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,912 @@
+<HTML
+><HEAD
+><TITLE
+>Class Summary HTML_QuickForm_advcheckbox</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Custom elements"
+HREF="package.html.html-quickform.html#package.html.html-quickform.elements.custom"><LINK
+REL="PREVIOUS"
+TITLE="HTML_QuickForm"
+HREF="package.html.html-quickform.html"><LINK
+REL="NEXT"
+TITLE="constructor HTML_QuickForm_advcheckbox()"
+HREF="package.html.html-quickform.html-quickform-advcheckbox.html-quickform-advcheckbox.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-advcheckbox.html-quickform-advcheckbox.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.html-quickform-advcheckbox">Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_advcheckbox</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN59083"
+></A
+>Class Summary <B
+CLASS="classname"
+>HTML_QuickForm_advcheckbox</B
+>&nbsp;--&nbsp;HTML class for an advanced checkbox type field</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN59087"
+></A
+><H2
+>Description</H2
+><P
+>HTML class for an advanced checkbox type field. Basically this fixes a problem that HTML has had  where checkboxes can only pass a single value (the  value of the checkbox when checked).  A value for when  the checkbox is not checked cannot be passed, and  furthermore the checkbox variable doesn't even exist if  the checkbox was submitted unchecked.</P
+><P
+>It works by creating a hidden field with the passed-in name  and creating the checkbox with no name, but with a javascript  onclick which sets the value of the hidden field.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN59091"
+></A
+><H2
+>Class Trees for <B
+CLASS="classname"
+>HTML_QuickForm_advcheckbox</B
+></H2
+><P
+>&#13;    <P
+></P
+><UL
+><LI
+><P
+>&#13;   HTML_Common
+    <P
+></P
+><UL
+><LI
+><P
+>&#13;   <A
+HREF="package.html.html-quickform.html-quickform-element.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_element</B
+></A
+>
+    <P
+></P
+><UL
+><LI
+><P
+>&#13;   <A
+HREF="package.html.html-quickform.html-quickform-input.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_input</B
+></A
+>
+    <P
+></P
+><UL
+><LI
+><P
+>&#13;   <A
+HREF="package.html.html-quickform.html-quickform-checkbox.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_checkbox</B
+></A
+>
+    <P
+></P
+><UL
+><LI
+><P
+>&#13;   HTML_QuickForm_advcheckbox
+      </P
+></LI
+></UL
+>
+    </P
+></LI
+></UL
+>
+    </P
+></LI
+></UL
+>
+    </P
+></LI
+></UL
+>
+    </P
+></LI
+></UL
+>
+   </P
+><P
+>&#13;  <B
+CLASS="classname"
+>HTML_QuickForm_advcheckbox</B
+> Inherited Methods
+ </P
+><P
+>&#13;       <DIV
+CLASS="table"
+><A
+NAME="AEN59119"><P
+><B
+>Table 41-1. Inherited from <A
+HREF="package.html.html-quickform.html-quickform-checkbox.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_checkbox</B
+></A
+></B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Method Name</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Summary</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> Constructor <A
+HREF="package.html.html-quickform.html-quickform-checkbox.html-quickform-checkbox.html"
+><B
+CLASS="function"
+>HTML_QuickForm_checkbox::HTML_QuickForm_checkbox()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Class constructor</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.exportvalue.html"
+><B
+CLASS="function"
+>HTML_QuickForm_checkbox::exportValue()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Return true if the checkbox is checked, null if it is not checked (getValue() returns false)</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-checkbox.getchecked.html"
+><B
+CLASS="function"
+>HTML_QuickForm_checkbox::getChecked()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns whether a checkbox is checked</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.getfrozenhtml.html"
+><B
+CLASS="function"
+>HTML_QuickForm_checkbox::getFrozenHtml()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns the value of field without HTML tags</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-checkbox.gettext.html"
+><B
+CLASS="function"
+>HTML_QuickForm_checkbox::getText()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns the checkbox text</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.getvalue.html"
+><B
+CLASS="function"
+>HTML_QuickForm_checkbox::getValue()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns the value of the form element</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.onquickformevent.html"
+><B
+CLASS="function"
+>HTML_QuickForm_checkbox::onQuickFormEvent()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Called by HTML_QuickForm whenever form event is made on this element</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-checkbox.setchecked.html"
+><B
+CLASS="function"
+>HTML_QuickForm_checkbox::setChecked()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Sets whether a checkbox is checked</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-checkbox.settext.html"
+><B
+CLASS="function"
+>HTML_QuickForm_checkbox::setText()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Sets the checkbox text</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.setvalue.html"
+><B
+CLASS="function"
+>HTML_QuickForm_checkbox::setValue()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Sets the value of the form element</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+       <DIV
+CLASS="table"
+><A
+NAME="AEN59179"><P
+><B
+>Table 41-2. Inherited from <A
+HREF="package.html.html-quickform.html-quickform-input.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_input</B
+></A
+></B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Method Name</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Summary</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> Constructor <A
+HREF="package.html.html-quickform.html-quickform-input.html-quickform-input.html"
+><B
+CLASS="function"
+>HTML_QuickForm_input::HTML_QuickForm_input()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Class constructor</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.exportvalue.html"
+><B
+CLASS="function"
+>HTML_QuickForm_input::exportValue()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>We don't need values from button-type elements (except submit) and files</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.getname.html"
+><B
+CLASS="function"
+>HTML_QuickForm_input::getName()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns the element name</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.getvalue.html"
+><B
+CLASS="function"
+>HTML_QuickForm_input::getValue()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns the value of the form element</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.onquickformevent.html"
+><B
+CLASS="function"
+>HTML_QuickForm_input::onQuickFormEvent()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Called by HTML_QuickForm whenever form event is made on this element</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.setname.html"
+><B
+CLASS="function"
+>HTML_QuickForm_input::setName()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Sets the input field name</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-input.settype.html"
+><B
+CLASS="function"
+>HTML_QuickForm_input::setType()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Sets the element type</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.setvalue.html"
+><B
+CLASS="function"
+>HTML_QuickForm_input::setValue()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Sets the value of the form element</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+       <DIV
+CLASS="table"
+><A
+NAME="AEN59229"><P
+><B
+>Table 41-3. Inherited from <A
+HREF="package.html.html-quickform.html-quickform-element.html"
+><B
+CLASS="classname"
+>HTML_QuickForm_element</B
+></A
+></B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Method Name</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Summary</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> Constructor <A
+HREF="package.html.html-quickform.html-quickform-element.html-quickform-element.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::HTML_QuickForm_element()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Class constructor</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.accept.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::accept()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Accepts a renderer</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.apiversion.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::apiVersion()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns the current API version</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.exportvalue.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::exportValue()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns a 'safe' element's value</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.freeze.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::freeze()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Freeze the element so that only its value is returned</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.getfrozenhtml.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::getFrozenHtml()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns the value of field without HTML tags</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.getlabel.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::getLabel()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns display text for the element</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.getname.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::getName()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns the element name</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.gettype.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::getType()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns element type</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.getvalue.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::getValue()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns the value of the form element</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.isfrozen.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::isFrozen()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Returns whether or not the element is frozen</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.onquickformevent.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::onQuickFormEvent()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Called by HTML_QuickForm whenever form event is made on this element</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.setlabel.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::setLabel()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Sets display text for the element</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.setname.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::setName()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Sets the input field name</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.setpersistantfreeze.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::setPersistantFreeze()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Sets wether an element value should be kept in an hidden field  when the element is frozen or not</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.setvalue.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::setValue()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Sets the value of the form element</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+> <A
+HREF="package.html.html-quickform.html-quickform-element.unfreeze.html"
+><B
+CLASS="function"
+>HTML_QuickForm_element::unfreeze()</B
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Unfreezes the form element</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+      </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-advcheckbox.html-quickform-advcheckbox.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_QuickForm</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.elements.custom"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>constructor HTML_QuickForm_advcheckbox()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

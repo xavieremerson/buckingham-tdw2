@@ -1,0 +1,365 @@
+<HTML
+><HEAD
+><TITLE
+>Getting the manager</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Installation"
+HREF="installation.html"><LINK
+REL="PREVIOUS"
+TITLE="Installation"
+HREF="installation.html"><LINK
+REL="NEXT"
+TITLE="Command line installer"
+HREF="installation.cli.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="installation.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 2. Installation</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="installation.cli.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="installation.getting">Getting the manager</H1
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="AEN316">Unix/Linux/BSD</H2
+><P
+>&#13;     When using PHP &#62;= 4.3.0, the PEAR Package Manager is already 
+     installed unless one has used the <TT
+CLASS="filename"
+>./configure</TT
+> 
+     option <TT
+CLASS="literal"
+>--without-pear</TT
+>.
+    </P
+><P
+>&#13;     If one uses a version of PHP that is supplied by Unix/Linux/BSD 
+     distributors it may be necessary to manually install PEAR.  Users 
+     should consult the documentation for the respective distribution 
+     in this case.
+    </P
+><P
+>&#13;     For all versions prior to 4.3.0 or if you want to re-install the
+     Package Manager, you can use the following provisional way:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="userinput"
+><B
+>&#13;$ lynx -source http://go-pear.org/ | php
+      </B
+></TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+      Some Linux distributions (e.g. Redhat) seem to be using
+      <TT
+CLASS="filename"
+>links</TT
+> instead of <TT
+CLASS="filename"
+>lynx</TT
+>
+      as the name for their command line browser. If this is the case
+      for you, you need to change the above line correspondingly.
+     </P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+      You can also save http://go-pear.org/ as <TT
+CLASS="filename"
+>go-pear.php</TT
+>
+      and run it with:
+      <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="userinput"
+><B
+>&#13;php go-pear.php
+       </B
+></TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+     </P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="AEN334">Windows</H2
+><P
+>&#13;     After you have downloaded and installed PHP, you have to manually
+     execute the batch file located in e.g.
+     <TT
+CLASS="filename"
+>c:\php\go-pear.bat</TT
+>. The setup will ask you
+     some questions and afterwards the PEAR Package Manager will be
+     installed in the path, which you have specific during installation.
+     Finally you have to add that installation path to your 
+     <TT
+CLASS="literal"
+>PATH</TT
+> environment. Either do this manually (Start &#62; 
+     Control Panel &#62; System &#62; Environment) or run (double-click) the 
+     newly generated <TT
+CLASS="filename"
+>PEAR_ENV.reg</TT
+> that's now found in the 
+     PHP source directory. After that you can access the PEAR Package Manager 
+     by running the command <TT
+CLASS="literal"
+>pear</TT
+> in a Windows Command 
+     Prompt.
+    </P
+><P
+>&#13;     To update your PEAR installation from go-pear.org, request
+     http://go-pear.org/ in your browser and save the output to a local
+     file <TT
+CLASS="filename"
+>go-pear.php</TT
+>. You can then run
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="userinput"
+><B
+>&#13;php go-pear.php
+      </B
+></TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+     in a Windows Command Prompt to start the update process.
+    </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="AEN345">PEAR in hosting environments</H2
+><P
+>&#13;     If you are running your site at a web hosting provider with no
+     direct access to the server (via local logins, Telnet or SSH), you
+     can use the PEAR Installer using the Web Frontend.
+    </P
+><P
+>&#13;     Go to http://go-pear.org/ and save as <TT
+CLASS="filename"
+>go-pear.php</TT
+>. Copy 
+     <TT
+CLASS="filename"
+>go-pear.php</TT
+> to
+     your server and open the corresponding URL in your browser, for
+     example http://example.com/pear/go-pear.php.
+    </P
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+><A
+NAME="installation.web.prerequesite">Prerequisites</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;      Do not forget to protect the pear directory if you did not do
+      already before the installation.
+     </P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="installation.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="installation.cli.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Installation</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="installation.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Command line installer</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,227 @@
+<HTML
+><HEAD
+><TITLE
+>Example</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_Parser"
+HREF="package.xml.xml-parser.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.xml.xml-parser.intro.html"><LINK
+REL="NEXT"
+TITLE="Modes"
+HREF="package.xml.xml-parser.modes.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-parser.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-parser.modes.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.xml.xml-parser.example">Example</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN102604"
+></A
+>Example&nbsp;--&nbsp;Example for the usage of XML_Parser</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-parser.example.example1"
+></A
+><H2
+>Basic example</H2
+><P
+>&#13;      This example shows you how to create a very simple parser that
+      handles start, end elements (i.e. opening and closing tags), and
+      character data (the "content" between the tags).
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'XML/Parser.php';
+
+class myParser extends XML_Parser
+{
+  function myParser()
+  {
+    parent::XML_Parser();
+  }
+
+ /**
+  * handle start element
+  *
+  * @access private
+  * @param  resource  xml parser resource
+  * @param  string    name of the element
+  * @param  array     attributes
+  */
+  function startHandler($xp, $name, $attribs)
+  {
+    printf('handle start tag: %s&#60;br /&#62;', $name);
+  }
+
+ /**
+  * handle start element
+  *
+  * @access private
+  * @param  resource  xml parser resource
+  * @param  string    name of the element
+  */
+  function endHandler($xp, $name)
+  {
+    printf('handle end tag: %s&#60;br /&#62;', $name);
+  }
+
+ /**
+  * handle character data
+  *
+  * @access private
+  * @param  resource  xml parser resource
+  * @param  string    character data
+  */
+  function cdataHandler($xp, $cdata)
+  {
+    // does nothing here, but might e.g. print $cdata
+  }
+}
+
+$p = &#38;new myParser();
+
+$result = $p-&#62;setInputFile('xml_parser_file.xml');
+$result = $p-&#62;parse();</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    This parser will just output the names of the opening and closing
+    tags that are found while parsing the document.
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-parser.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-parser.modes.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.xml-parser.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Modes</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

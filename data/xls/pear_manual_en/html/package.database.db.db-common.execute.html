@@ -1,0 +1,673 @@
+<HTML
+><HEAD
+><TITLE
+>DB_common::execute()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="DB_common::escapeSimple()"
+HREF="package.database.db.db-common.escapesimple.html"><LINK
+REL="NEXT"
+TITLE="DB_common::executeMultiple()"
+HREF="package.database.db.db-common.executemultiple.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.escapesimple.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.executemultiple.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.db-common.execute">DB_common::execute()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN22629"
+></A
+>DB_common::execute()&nbsp;--&nbsp;Executes a prepared SQL statment</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN22632"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN22633"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>&#38;execute</B
+></CODE
+> (resource $stmt [, mixed $data = array()])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.execute.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Merges the SQL statment you submitted to
+   <A
+HREF="package.database.db.db-common.prepare.html"
+>&#13;    <B
+CLASS="function"
+>prepare()</B
+></A
+>
+   with the information in <TT
+CLASS="parameter"
+><I
+>$data</I
+></TT
+>
+   and then sends the query to the database.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.execute.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>resource
+      <TT
+CLASS="parameter"
+><I
+>$stmt</I
+></TT
+></DT
+><DD
+><P
+>&#13;       query handle from
+       <A
+HREF="package.database.db.db-common.prepare.html"
+>&#13;        <B
+CLASS="function"
+>prepare()</B
+>
+       </A
+>
+      </P
+></DD
+><DT
+>mixed
+      <TT
+CLASS="parameter"
+><I
+>$data</I
+></TT
+></DT
+><DD
+><P
+>&#13;       array, string or numeric data to be added to the prepared statement.
+       Quantity of items passed must match quantity of placeholders in the
+       prepared statement: meaning 1 placeholder for non-array
+       parameters or 1 placeholder per array element.
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.execute.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   mixed - a new <A
+HREF="package.database.db.db-result.html"
+><B
+CLASS="classname"
+>DB_result</B
+></A
+> object
+   for queries that return results (such as
+   <B
+CLASS="command"
+>SELECT</B
+> queries),
+   <A
+HREF="package.database.db.db-error.html"
+><TT
+CLASS="constant"
+><B
+>DB_OK</B
+></TT
+></A
+> for queries that manipulate data (such as
+   <B
+CLASS="command"
+>INSERT</B
+> queries)
+   or a <A
+HREF="package.database.db.db-error.html"
+><B
+CLASS="classname"
+>DB_Error</B
+></A
+> object on failure
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.execute.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <DIV
+CLASS="table"
+><A
+NAME="AEN22681"><P
+><B
+>Table 33-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_INVALID</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        invalid
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        SQL statment handle is not valid.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check correct processing of the SQL statment with
+        <A
+HREF="package.database.db.db-common.prepare.html"
+>&#13;         <B
+CLASS="function"
+>prepare()</B
+></A
+>. Note that
+        <B
+CLASS="function"
+>execute()</B
+> requires a handle to the statement
+        returned by <A
+HREF="package.database.db.db-common.prepare.html"
+>&#13;         <B
+CLASS="function"
+>prepare()</B
+></A
+>, not the statment itself.
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_MISMATCH</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        mismatch
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Quantity of parameters didn't match quantity of placeholders in
+        the prepared statment.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check that the number of placeholders in the
+        <A
+HREF="package.database.db.db-common.prepare.html"
+>&#13;         <B
+CLASS="function"
+>prepare()</B
+></A
+> statement passed to
+        <TT
+CLASS="parameter"
+><I
+>$query</I
+></TT
+> equals the count of entries
+        passed to <TT
+CLASS="parameter"
+><I
+>$params</I
+></TT
+>.
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_NODBSELECTED</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        no database selected
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        No database was choosen.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check the <A
+HREF="package.database.db.intro-dsn.html"
+>DSN</A
+>
+        in <A
+HREF="package.database.db.db.connect.html"
+>&#13;         <B
+CLASS="function"
+>connect()</B
+></A
+>.
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>every other error code</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Database specific error
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check the database related section of
+        <A
+HREF="http://www.php.net/manual/"
+TARGET="_top"
+>PHP-Manual</A
+>
+        to detect the reason for this error. In the most cases
+        a misformed SQL statment. Ie. using LIMIT in a SQL-Statment
+        for an Oracle database.
+       </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.execute.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;    The values passed in <TT
+CLASS="parameter"
+><I
+>$data</I
+></TT
+> must be literals.
+    Do not submit SQL functions (for example <TT
+CLASS="literal"
+>CURDATE()</TT
+>).
+    SQL functions that should be performed at execution time need
+    to be put in the prepared statement.
+   </P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.execute.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN22736"><P
+><B
+>Example 33-1. Passing a scalar to <B
+CLASS="function"
+>execute()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$sth = $db-&#62;prepare('INSERT INTO numbers (number) VALUES (?)');
+if (PEAR::isError($sth)) {
+    die($sth-&#62;getMessage());
+}
+
+$res =&#38; $db-&#62;execute($sth, 1);
+if (PEAR::isError($res)) {
+    die($res-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN22740"><P
+><B
+>Example 33-2. Passing an array to <B
+CLASS="function"
+>execute()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$sth = $db-&#62;prepare('INSERT INTO numbers VALUES (?, ?, ?)');
+
+$data = array(1, 'one', 'en');
+$db-&#62;execute($sth, $data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.execute.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="package.database.db.intro-execute.html"
+>&#13;    <SPAN
+CLASS="QUOTE"
+>"Intro - Prepare &#38; Execute"</SPAN
+></A
+>,
+   <A
+HREF="package.database.db.intro-auto.html"
+>&#13;    <SPAN
+CLASS="QUOTE"
+>"Intro - autoPrepare &#38; autoExecute"</SPAN
+></A
+>,
+   <A
+HREF="package.database.db.db-common.prepare.html"
+>&#13;    <B
+CLASS="function"
+>prepare()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-common.executemultiple.html"
+>&#13;    <B
+CLASS="function"
+>executeMultiple()</B
+></A
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.escapesimple.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.executemultiple.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>DB_common::escapeSimple()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>DB_common::executeMultiple()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

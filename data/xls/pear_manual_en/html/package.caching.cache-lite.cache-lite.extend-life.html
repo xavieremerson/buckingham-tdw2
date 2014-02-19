@@ -1,0 +1,299 @@
+<HTML
+><HEAD
+><TITLE
+>Cache_Lite::extendLife</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Cache_Lite"
+HREF="package.caching.cache-lite.html"><LINK
+REL="PREVIOUS"
+TITLE="Cache_Lite::raiseError"
+HREF="package.caching.cache-lite.cache-lite.raiseerror.html"><LINK
+REL="NEXT"
+TITLE="constructor Cache_Lite_Output::Cache_Lite_Output"
+HREF="package.default.cache-lite.cache-lite-output.cache-lite-output.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.caching.cache-lite.cache-lite.raiseerror.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.default.cache-lite.cache-lite-output.cache-lite-output.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.caching.cache-lite.cache-lite.extend-life"><B
+CLASS="function"
+>Cache_Lite::extendLife()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN18299"
+></A
+><B
+CLASS="function"
+>Cache_Lite::extendLife()</B
+>&nbsp;--&nbsp;Extend the life of a valid cache file</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN18303"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN18304"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Cache/Lite.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void      <B
+CLASS="function"
+>Cache_Lite::extendLife</B
+></CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.caching.cache-lite.cache-lite.extend-life.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   [since Cache_Lite-1.7.0beta2] Extend the life of an existent cache file. The 
+   cache file is "touched", so it starts a new lifetime period. See 
+   <A
+HREF="http://pear.php.net/bugs/bug.php?id=6681"
+TARGET="_top"
+>this feature request</A
+>
+   for more details.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.caching.cache-lite.cache-lite.extend-life.throws"
+></A
+><H2
+>Throws</H2
+><P
+>No exceptions thrown.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.caching.cache-lite.cache-lite.extend-life.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.caching.cache-lite.cache-lite.extend-life.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN18322"><P
+><B
+>Example 30-1. Classical use</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once "Cache/Lite.php";
+
+$options = array(
+    'cacheDir' =&#62; '/tmp/',
+    'lifeTime' =&#62; 7200,
+    'pearErrorMode' =&#62; CACHE_LITE_ERROR_DIE
+);
+
+$cache = new Cache_Lite($options);
+$id = 'foo';
+if (!($data = $cache-&#62;get($id))) {
+    // the cache is not hit !
+    $data = '123456789';
+    $cache-&#62;save($data);
+} else {
+    // the cache is hit !
+    if (isset($_GET['extend'])) {
+        $cache-&#62;extendLife();
+    }
+}
+echo($data);
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.caching.cache-lite.cache-lite.raiseerror.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.default.cache-lite.cache-lite-output.cache-lite-output.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>Cache_Lite::raiseError()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.caching.cache-lite.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>constructor <B
+CLASS="function"
+>Cache_Lite_Output::Cache_Lite_Output()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

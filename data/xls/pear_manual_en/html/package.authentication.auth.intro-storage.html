@@ -1,0 +1,1063 @@
+<HTML
+><HEAD
+><TITLE
+>Storage drivers</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Auth"
+HREF="package.authentication.auth.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.authentication.auth.intro.html"><LINK
+REL="NEXT"
+TITLE="Auth::Auth()"
+HREF="package.authentication.auth.auth.auth.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.authentication.auth.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.authentication.auth.auth.auth.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.authentication.auth.intro-storage">Storage drivers</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN16334"
+></A
+>Storage drivers&nbsp;--&nbsp;Introduction</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth.intro.storage.overview"
+></A
+><H2
+>Overview</H2
+><P
+>&#13;   <B
+CLASS="classname"
+>PEAR::Auth</B
+> uses a number of so called
+   storage containers to store the login data. The following
+   passages describe all of them. If the containers that come with
+   the package don't fit your needs, it is easy to create custom
+   ones, also.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth.intro-storage.db"
+></A
+><H2
+>Database</H2
+><P
+>&#13;   <B
+CLASS="classname"
+>PEAR::Auth</B
+> uses the 
+   <A
+HREF="package.database.db.html"
+><B
+CLASS="classname"
+>PEAR::DB</B
+></A
+>
+   abstraction layer for database access. That means that you can
+   use all databases that are supported by the DB abstraction layer
+   to store the login data.
+  </P
+><P
+>&#13;   The storage-specific argument for the
+   <A
+HREF="package.authentication.auth.auth.auth.html"
+>&#13;    <B
+CLASS="function"
+>Auth constructor()</B
+>
+   </A
+>
+   is an array.
+   <DIV
+CLASS="table"
+><A
+NAME="AEN16350"><P
+><B
+>Table 28-1. Array keys and values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Key</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Default value</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"dsn"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        A valid and well-formed 
+        <A
+HREF="package.database.db.intro-dsn.html"
+>&#13;         DSN
+        </A
+>.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <SPAN
+CLASS="QUOTE"
+>""</SPAN
+>
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"table"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        The name of the database table, where the 
+        authorization data is stored.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <SPAN
+CLASS="QUOTE"
+>"auth"</SPAN
+>
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"usernamecol"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        The name of the colunm, where the username is stored
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <SPAN
+CLASS="QUOTE"
+>"username"</SPAN
+>
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"passwordcol"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        The name of the colunm, where the MD5-crypted password is stored.
+        Make sure, that the password field can contain at least 32 characters.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <SPAN
+CLASS="QUOTE"
+>"password"</SPAN
+>
+       </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth.intro-storage.file"
+></A
+><H2
+>File</H2
+><P
+>&#13;   The storage-specific argument for the
+   <A
+HREF="package.authentication.auth.auth.auth.html"
+>&#13;    <B
+CLASS="function"
+>Auth constructor()</B
+></A
+>
+   is the file name of the 
+   <A
+HREF="package.fileformats.file-passwd.html#package.fileformats.file-passwd.intro"
+>passwd-style</A
+> file.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth.intro-storage.smbpasswd"
+></A
+><H2
+>SMBPasswd</H2
+><P
+>&#13;   This storage container provides authentication against SAMBA smbpasswd files.
+   The storage-specific argument for the
+   <A
+HREF="package.authentication.auth.auth.auth.html"
+>&#13;    <B
+CLASS="function"
+>Auth constructor()</B
+></A
+>
+   is the file name of the 
+   <A
+HREF="package.filesystem.file-smbpasswd.intro.html"
+>SAMBA passwd-style</A
+> file.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth.intro-storage.imap"
+></A
+><H2
+>IMAP</H2
+><P
+>&#13;   This storage container connects to the specified IMAP server and
+   tries to login there with the specified username/password.
+  </P
+><P
+>&#13;   The storage-specific argument for the
+   <A
+HREF="package.authentication.auth.auth.auth.html"
+>&#13;    <B
+CLASS="function"
+>Auth constructor()</B
+></A
+>
+   is an array.
+   <DIV
+CLASS="table"
+><A
+NAME="AEN16402"><P
+><B
+>Table 28-2. Array keys and values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Key</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Default value</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"host"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        The hostname or the IP address of the IMAP server
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <SPAN
+CLASS="QUOTE"
+>"localhost"</SPAN
+>
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"port"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        The port where the IMAP server is listening
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <SPAN
+CLASS="QUOTE"
+>"143"</SPAN
+>
+       </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth.intro-storage.ldap"
+></A
+><H2
+>LDAP</H2
+><P
+>&#13;   The storage-specific argument for the
+   <A
+HREF="package.authentication.auth.auth.auth.html"
+>&#13;    <B
+CLASS="function"
+>Auth constructor()</B
+></A
+>
+   is an array.
+   <DIV
+CLASS="table"
+><A
+NAME="AEN16428"><P
+><B
+>Table 28-3. Array keys and values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Key</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Default value</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"host"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        The host name or IP-adress to access
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <SPAN
+CLASS="QUOTE"
+>"localhost"</SPAN
+>
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"port"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        The port of the LDAP server to access
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <SPAN
+CLASS="QUOTE"
+>"389"</SPAN
+>
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"basedn"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        The base distinguished name 
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <SPAN
+CLASS="QUOTE"
+>"o=netsols,c=de"</SPAN
+>
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"userattr"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Defines the attributes to request
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <SPAN
+CLASS="QUOTE"
+>"uid"</SPAN
+>
+       </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth.intro-storage.pop3"
+></A
+><H2
+>POP3</H2
+><P
+>&#13;   This storage container connects to the specified POP3 server and
+   tries to login there with the specified username/password.
+  </P
+><P
+>&#13;   The storage-specific argument for the
+   <A
+HREF="package.authentication.auth.auth.auth.html"
+>&#13;    <B
+CLASS="function"
+>Auth constructor()</B
+></A
+>
+   is a string of the form <TT
+CLASS="literal"
+>server:port</TT
+> or just
+   <TT
+CLASS="literal"
+>server</TT
+>.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth.intro-storage.radius"
+></A
+><H2
+>RADIUS</H2
+><P
+>&#13;   You need Auth_RADIUS and the PECL radius in order to get this container to work.
+  </P
+><P
+>&#13;   The storage-specific argument for the
+   <A
+HREF="package.authentication.auth.auth.auth.html"
+>&#13;    <B
+CLASS="function"
+>Auth constructor()</B
+></A
+>
+   is an array.
+   <DIV
+CLASS="table"
+><A
+NAME="AEN16475"><P
+><B
+>Table 28-4. Array keys and values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Key</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Default value</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"servers"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <P
+>&#13;         Array of RADIUS servers, containing: host, port, shared secret, timeout, maxtries.
+        </P
+>
+        <P
+>&#13;         The host parameter specifies the server host, either as a fully
+         qualified domain name or as a dotted-quad IP address in text
+         form. The port parameter specifies the UDP port to contact on
+         the server. If port is given as 0, the library looks up the
+         radius/udp entry in the network services database, and uses 
+         the port found there. If no entry is found, the library uses
+         the standard RADIUS port for authentication (1812). The shared
+         secret for the server host is passed to the secret parameter.
+         The RADIUS protocol ignores all but the leading 128 bytes of
+         the shared secret. The timeout for receiving replies from the
+         server is passed to the timeout parameter, in units of
+         seconds. The maximum number of repeated requests to make
+         before giving up is passed into the maxtries parameter.
+        </P
+>
+        <P
+>&#13;         At most 10 servers may be specified. When multiple servers
+         are given, they are tried in round-robin fashion until a
+         valid response is received, or until each server's maxtries
+         limit has been reached.
+        </P
+>
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        array(<SPAN
+CLASS="QUOTE"
+>"localhost"</SPAN
+>, 0, <SPAN
+CLASS="QUOTE"
+>"testing123"</SPAN
+>, 3, 3)
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"authtype"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <P
+>&#13;         The authentication method for validating the request. Possible
+         values are: PAP, CHAP_MD5, MSCHAPv1, MSCHAPv2.
+        </P
+>
+        <P
+>&#13;         There are dependencies for the different methods. For all
+         authentication methods except PAP you need the Crypt_CHAP
+         package, when you are using MS-CHAP you need also the mhash
+         extension.
+        </P
+>
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        <SPAN
+CLASS="QUOTE"
+>"PAP"</SPAN
+>
+       </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth.intro-storage.soap"
+></A
+><H2
+>SOAP</H2
+><P
+>&#13;   The storage-specific argument for the
+   <A
+HREF="package.authentication.auth.auth.auth.html"
+>&#13;    <B
+CLASS="function"
+>Auth constructor()</B
+></A
+>
+   is an array.
+   <DIV
+CLASS="table"
+><A
+NAME="AEN16507"><P
+><B
+>Table 28-5. Array keys and values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Key</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Default value</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"endpoint"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        The URI where the service is located.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"namespace"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        The namespace of the web service.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"method"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        The SOAP method you wish to call.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"encoding"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        The content encoding that should be used (e.g.
+        <TT
+CLASS="literal"
+>utf8</TT
+>).
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"usernamefield"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        The name of the field where the username is stored.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"passwordfield"</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        The name of the field where the password is stored.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth.intro-storage.vpopmail"
+></A
+><H2
+>vpopmail</H2
+><P
+>&#13;   This container uses an existing vpopmail service to validate the
+   username and the password.
+  </P
+><P
+>&#13;   It does not require any storage-specific argument.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.authentication.auth.intro-storage.custom"
+></A
+><H2
+>Custom Storage Containers</H2
+><P
+>&#13;   Example for using your own storage container
+  </P
+><P
+>&#13;   Here is a skeleton for a custom Auth storage container
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN16555"><P
+><B
+>Example 28-1. CustomAuthContainer.php</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>include_once 'Auth/Container.php';
+
+class CustomAuthContainer extends Auth_Container
+{
+    /**
+     * Constructor
+     */
+    function CustomAuthContainer($params)
+    {
+      // Init Here
+    }
+
+    function fetchData($username, $password)
+    {
+        // Check If valid etc
+        if($isvalid) {
+            // Perform Some Actions
+            return true;
+        }
+        return false;
+    }
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;   And here is how to use it.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN16559"><P
+><B
+>Example 28-2. authcustom.php</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>include_once 'CustomAuthContainer.php';
+include_once 'Auth/Auth.php';
+
+$auth_container = new CustomAuthContainer($params);
+$myauth = new Auth($auth_container);
+
+$myauth-&#62;start();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.authentication.auth.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.authentication.auth.auth.auth.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.authentication.auth.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Auth::Auth()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

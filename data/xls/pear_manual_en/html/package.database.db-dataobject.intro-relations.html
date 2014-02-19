@@ -1,0 +1,354 @@
+<HTML
+><HEAD
+><TITLE
+>Automatic Table Linking and Joins</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB_DataObject"
+HREF="package.database.db-dataobject.html"><LINK
+REL="PREVIOUS"
+TITLE="->groupBy()"
+HREF="package.database.db-dataobject.db-dataobject.groupby.html"><LINK
+REL="NEXT"
+TITLE="->getLink()"
+HREF="package.database.db-dataobject.db-dataobject.getlink.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.groupby.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.getlink.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db-dataobject.intro-relations">Automatic Table Linking and Joins</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN26820"
+></A
+>Automatic Table Linking and Joins&nbsp;--&nbsp;
+       Automatic Table Linking - ::getLink(), ::getLinks(), ::joinAdd(), ::selectAs()
+      </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN26823"
+></A
+><H2
+>Automating the collection of related data</H2
+><P
+>&#13;        When designing a database, often some tables are related to others - a membership table would contain
+        a reference to a person's id and the group id that they are a member of. Using the Link methods, you
+        can automatically fetch objects into the parents variables.
+      </P
+><P
+>&#13;        Automated links are supported by a databasename.links.ini file. which stores the relations ship between tables, maping
+        one tables column to anothers. This databasename.links.ini file is used by the getLinks() and joinAdd() Method, to
+        either retrieve related information of a primary object, or quickly build complex multitable queries.
+      </P
+><P
+>&#13;       The other way of using linking is via the getLink() method, which you can manually use without
+       a database.links.ini file to specify a column, and how it relates to another table and column.
+      </P
+><P
+>&#13;      The goal of getlinks and joinAdd is to make connecting two tables as simple and fast as possible, while
+      still ensuring that the code is reasonably comprehensable. In the example below, It is demostrated how
+      getlinks() can be used to fetch more data about an object after the initial fetch, and it can also be used to
+      test the links file prior to building a full blown join Query.
+
+      <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN26829"><P
+><B
+>Example 33-1.  A simple introduction to links and joins</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// just loop and fetch more information
+
+$person = new DataObjects_Person;
+$person-&#62;eyeColour = 'red';
+$person-&#62;find();
+while ($person-&#62;fetch()) {
+    // this will look up in the cars table for the id matching the person-&#62;car value.
+
+    $car = $person-&#62;getLink('car','cars','id');
+
+    echo "{$person-&#62;name} has red eyes and owns a {$car-&#62;type}\n";
+}
+
+
+
+
+
+// now if you create a database.links.ini file with the car example
+// the example would look like this.
+
+$person = new DataObjects_Person;
+$person-&#62;eyeColour = 'red';
+$person-&#62;find();
+while ($person-&#62;fetch()) {
+
+    // use the links.ini file to automatically load
+    // the car object into $person-&#62;_car
+    $person-&#62;getLinks();
+
+    echo "{$person-&#62;name} has red eyes and owns a {$person-&#62;_car-&#62;type}\n";
+}
+
+
+
+
+
+
+// and finally the most complex, using SQL joins and select as.
+// the example would look like this.
+
+$person = new DataObjects_Person;
+$person-&#62;eyeColour = 'red';
+
+// first, use selectAs as to make the select clauses match the column names.
+$person-&#62;selectAs();
+
+// now lets create the related element
+$car = new DataObjects_Car;
+
+// and for fun.. lets look for red eys and red cars..
+$car-&#62;colour = 'red';
+
+// add them together.
+$person-&#62;joinAdd($car);
+
+// since both tables have the column id in them, we need to reformat the query so
+// that the car columns have a different name.
+
+$person-&#62;selectAs($car,'car_%s');
+
+
+
+
+$person-&#62;find();
+while ($person-&#62;fetch()) {
+
+    echo "{$person-&#62;name} has red eyes and owns a {$person-&#62;car_type}\n";
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+
+      </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN26832"
+></A
+><H2
+>Using link ini files for table links</H2
+><P
+>&#13;        DB_DataObject Version 0.3 introduced the ability to create link ini files so you can map column to other database
+        columns using an ini file this ini file should have the name 'databasename.links.ini', and be placed in the
+        same folder as the database schema ini file 'databasename.ini' file that is created automatically by createTables.php
+      </P
+><P
+>&#13;        The databasename.links.ini file contains a section for each table, then the column 
+	that is linked equal to
+        the table and column that it should locate the column from. It assumes the relationships are non-primary id to primary id,
+        as the example below shows, the person.owner is linked to grp.id. This indicates that running getLinks() on the
+        person object, will fetch a single bit of data from 3 tables - colurs,grp,attachments.
+      </P
+><P
+>&#13;        If you use a 'full stop' in the key (link from column), getLinks()  will
+        look up in the table with the column name matching the string to the left of the 'full stop', and replace the
+        'full stop' with and underscore and assign the object variable to that name. Or you may wish to use the
+        selectAs() method to decide how you want columns from different objects to be returned (when using joinAdd())
+        <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN26837"><P
+><B
+>Example 33-2.  An example databasename.links.ini file</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="ini"
+>;                       for table person
+[person]
+;                       link value of eycolor to table colors, match name column
+eyecolor = colors:name
+;                       link value of owner to table grp, match id column
+owner = grp:id
+;                       link value of picture to table attachments, match id column
+picture = attachments:id
+
+
+;                       for a sales example with multiple links of a single column
+[sales]
+;                       for autoloading the car object into $sales-&#62;_car_id
+car_id = car:id
+;                       for autoloading the part number object into $sales-&#62;_car_id_partnum
+car_id.partnum = part_numbers:car_id</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+      </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.groupby.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.getlink.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>-&#62;groupBy()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>-&#62;getLink()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

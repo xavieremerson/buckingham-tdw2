@@ -1,0 +1,323 @@
+<HTML
+><HEAD
+><TITLE
+>File_HtAccess::setAuthUserFile()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="File_HtAccess"
+HREF="package.filesystem.file-htaccess.html"><LINK
+REL="PREVIOUS"
+TITLE="File_HtAccess::setProperties()"
+HREF="package.filesystem.file-htaccess.setproperties.html"><LINK
+REL="NEXT"
+TITLE="File_HtAccess::setAuthGroupFile()"
+HREF="package.filesystem.file-htaccess.setauthgroupfile.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-htaccess.setproperties.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.filesystem.file-htaccess.setauthgroupfile.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.filesystem.file-htaccess.setauthuserfile">File_HtAccess::setAuthUserFile()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN49177"
+></A
+>File_HtAccess::setAuthUserFile()&nbsp;--&nbsp;set the value of authuserfile property</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN49180"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN49181"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>File_HtAccess::setAuthUserFile</B
+></CODE
+> (string [$file])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-htaccess.setauthuserfile.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;    Sets the value of authuserfile property. AuthUserFile is the password
+    file which contains username:password pairs for Basic authentication. 
+    You must give full path to the password file in order for it to work.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-htaccess.setauthuserfile.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      <TT
+CLASS="parameter"
+><I
+>string $file</I
+></TT
+> - absolute pathname to the
+      password file.
+     </P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-htaccess.setauthuserfile.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;    void
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.file-htaccess.setauthuserfile.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file.file-htaccess.setauthuserfile.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>&#13;     <A
+HREF="package.filesystem.file-htaccess.setauthdigestfile.html"
+>&#13;      <B
+CLASS="function"
+>File_HtAccess::getAuthDigestFile()</B
+>
+     </A
+>
+    </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.filesystem.file-htaccess.setauthuserfile.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN49213"><P
+><B
+>Example 38-1. Using <B
+CLASS="function"
+>File_HtAccess::setAuthUserFile()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once('File/HtAccess.php');
+
+/* set the password file to /etc/htpasswd */
+$fh = new File_HtAccess('.htaccess');
+$fh-&#62;load();
+$fh-&#62;setAuthUserFile('/etc/htpasswd');
+$fh-&#62;save();
+
+/* set the password file to .htpasswd in current working directory */
+$file = getcwd() . '/.htpasswd'; 
+$fh = new File_HtAccess('.htaccess');
+$fh-&#62;load();
+$fh-&#62;setAuthUserFile($file);
+$fh-&#62;save();
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-htaccess.setproperties.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-htaccess.setauthgroupfile.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>File_HtAccess::setProperties()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.filesystem.file-htaccess.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>File_HtAccess::setAuthGroupFile()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

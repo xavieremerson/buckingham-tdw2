@@ -1,0 +1,315 @@
+<HTML
+><HEAD
+><TITLE
+>Event_Dispatcher::removeObserver</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Event_Dispatcher"
+HREF="package.event.event-dispatcher.html"><LINK
+REL="PREVIOUS"
+TITLE="Event_Dispatcher::addObserver"
+HREF="package.event.event-dispatcher.event-dispatcher.addobserver.html"><LINK
+REL="NEXT"
+TITLE="Event_Dispatcher::setNotificationClass"
+HREF="package.event.event-dispatcher.event-dispatcher.setnotificationclass.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.event.event-dispatcher.event-dispatcher.addobserver.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.event.event-dispatcher.event-dispatcher.setnotificationclass.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.event.event-dispatcher.event-dispatcher.removeobserver"><B
+CLASS="function"
+>Event_Dispatcher::removeObserver()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN36082"
+></A
+><B
+CLASS="function"
+>Event_Dispatcher::removeObserver()</B
+>&nbsp;--&nbsp;Remove an observer.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN36086"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN36087"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Event/Dispatcher.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>bool <B
+CLASS="function"
+>Event_Dispatcher::removeObserver</B
+></CODE
+> (mixed $callback [, string $nName = EVENT_DISPATCHER_GLOBAL [, string $class = '']])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.event.event-dispatcher.event-dispatcher.removeobserver.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      Remove an observer from dispatcher.
+     </P
+><P
+>&#13;      To remove an observer, specify the same parameters as used in the call to
+      <B
+CLASS="function"
+>addObserver()</B
+>.
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.event.event-dispatcher.event-dispatcher.removeobserver.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;    <P
+></P
+><UL
+><LI
+><P
+>&#13;       mixed <TT
+CLASS="parameter"
+><I
+>$callback</I
+></TT
+>
+      </P
+><P
+>&#13;       Callback to notity, may either be a string containing the name of a global function
+       or an array containing class or object and the name of the method to call.
+      </P
+></LI
+><LI
+><P
+>&#13;       string <TT
+CLASS="parameter"
+><I
+>$nName = EVENT_DISPATCHER_GLOBAL</I
+></TT
+>
+      </P
+><P
+>&#13;       Acts as a filter: notify the observer only if the notification name matches the name
+       passed in this parameter. Use <TT
+CLASS="constant"
+><B
+>EVENT_DISPATCHER_GLOBAL</B
+></TT
+> if the
+       observer should be notified regardles of the notification name.
+      </P
+></LI
+><LI
+><P
+>&#13;       string <TT
+CLASS="parameter"
+><I
+>$class = ''</I
+></TT
+>
+      </P
+><P
+>&#13;       Acts as a filter: notify the observer only if the sender of the notification matches
+       the class passed in this parameter.
+      </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.event.event-dispatcher.event-dispatcher.removeobserver.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>bool</I
+></SPAN
+> <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> if the observer could be removed, <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> otherwise
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.event.event-dispatcher.event-dispatcher.removeobserver.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.event.event-dispatcher.event-dispatcher.addobserver.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.event.event-dispatcher.event-dispatcher.setnotificationclass.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>Event_Dispatcher::addObserver()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.event.event-dispatcher.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Event_Dispatcher::setNotificationClass()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

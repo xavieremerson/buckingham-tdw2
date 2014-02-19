@@ -1,0 +1,1 @@
+There is no installation required, just open index.htm page.

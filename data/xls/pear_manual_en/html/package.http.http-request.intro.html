@@ -1,0 +1,317 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTTP_Request"
+HREF="package.http.http-request.html"><LINK
+REL="PREVIOUS"
+TITLE="HTTP_Request"
+HREF="package.http.http-request.html"><LINK
+REL="NEXT"
+TITLE="Basic Authentication"
+HREF="package.http.http-request.basic-auth.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.http.http-request.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.http.http-request.basic-auth.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.http.http-request.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN75590"
+></A
+>Introduction&nbsp;--&nbsp;
+   Introduction to <B
+CLASS="classname"
+>HTTP_Request</B
+>
+  </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-request.intro.overview"
+></A
+><H2
+>Overview</H2
+><P
+>&#13;   With this package, one can easily perform HTTP request from within
+   <SPAN
+CLASS="acronym"
+>PHP</SPAN
+> scripts. It support
+   GET/POST/HEAD/TRACE/PUT/DELETE, Basic authentication, Proxy, Proxy
+   Authentication, SSL, file uploads etc.
+  </P
+><P
+>&#13;   Because of the above mentioned features
+   <B
+CLASS="classname"
+>HTTP_Request</B
+> makes it possible to mimic big
+   parts of web browsers such as the widely-known Mozilla browser in PHP
+   applications. Possible application areas are:
+
+   <P
+></P
+><UL
+><LI
+><P
+>&#13;      Checking the validity of WWW links with the help of
+      <B
+CLASS="function"
+><A
+HREF="package.http.http-request.response-eval.html#package.http.http-request.response-eval.codes"
+>getResponseCode</A
+>()</B
+>.
+     </P
+></LI
+><LI
+><P
+>&#13;      Grabbing remote web pages and parsing the result.
+     </P
+></LI
+><LI
+><P
+>&#13;      etc.
+     </P
+></LI
+></UL
+>
+</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-request.intro.examples"
+></A
+><H2
+>A few examples</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN75611"><P
+><B
+>Example 42-1. 
+    Fetches <A
+HREF="http://yahoo.com/"
+TARGET="_top"
+>yahoo.com</A
+> and
+    displays it
+   </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "HTTP/Request.php";
+
+$req =&#38; new HTTP_Request("http://www.yahoo.com/");
+if (!PEAR::isError($req-&#62;sendRequest())) {
+    echo $req-&#62;getResponseBody();
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN75615"><P
+><B
+>Example 42-2. Fetching two website in a row</B
+></P
+><P
+>&#13;    In this example, two websites are fetched and displayed. To the
+    first one a POST parameter is passed. The POST data stack is
+    cleared before the second website is fetched.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "HTTP/Request.php";
+
+$req =&#38; new HTTP_Request("http://www.php.net");
+$req-&#62;setMethod(HTTP_REQUEST_METHOD_POST);
+$req-&#62;addPostData("Foo", "bar");
+if (!PEAR::isError($req-&#62;sendRequest())) {
+     $response1 = $req-&#62;getResponseBody();
+} else {
+     $response1 = "";
+}
+     
+$req-&#62;setMethod(HTTP_REQUEST_METHOD_GET);
+$req-&#62;setURL("http://pear.php.net");
+$req-&#62;clearPostData();
+if (!PEAR::isError($req-&#62;sendRequest())) {
+     $response2 = $req-&#62;getResponseBody();
+} else {
+     $response2 = "";
+}
+
+echo $response1;
+echo $response2;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.http.http-request.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.http.http-request.basic-auth.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTTP_Request</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.http.http-request.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Basic Authentication</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

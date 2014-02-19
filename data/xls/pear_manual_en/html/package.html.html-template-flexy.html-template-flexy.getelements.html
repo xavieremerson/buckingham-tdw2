@@ -1,0 +1,453 @@
+<HTML
+><HEAD
+><TITLE
+>$flexy-&#62;getElements()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_Flexy"
+HREF="package.html.html-template-flexy.html"><LINK
+REL="PREVIOUS"
+TITLE="$flexy->bufferedOutputObject()"
+HREF="package.html.html-template-flexy.html-template-flexy.bufferedoutputobject.html"><LINK
+REL="NEXT"
+TITLE="new  HTML_Template_Flexy_Element"
+HREF="package.html.html-template-flexy.element.html-template-flexy-element.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.bufferedoutputobject.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.element.html-template-flexy-element.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-flexy.html-template-flexy.getelements">$flexy-&#62;getElements()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN68870"
+></A
+>$flexy-&#62;getElements()&nbsp;--&nbsp;Fetch Dynamic HTML Elements from template </DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN68873"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN68874"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array $flexy-&#62;
+     <B
+CLASS="function"
+>getElements</B
+></CODE
+> ()</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.html-template-flexy.getelements.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      All Form elements, FORM, INPUT, SELECT and any HTML tag that includes the attribute flexy:dynamic
+      Is converted into HTML_Template_Flexy_Element's and stored serialized in the same folder as the
+      Compiled flexy template.
+    </P
+><P
+>&#13;      You can use this array to make changes to these elements or find out what form elements
+      exist on a page.
+    </P
+><P
+>&#13;       Note: you should put the modified result as the $elements argument of &#62;outputObject(), you do not however
+       have to fetch the elements to assign them, you can just create blank elements, and merge them.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.html-template-flexy.getelements.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>array</I
+></TT
+> - of Elements contained within the template. (or an empty array if
+     no form/dynamic elements are used)
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.html-template-flexy.getelements.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.html-template-flexy.getelements.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN68893"><P
+><B
+>Example 41-1. Introspecting a template</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$form = new HTML_Template_Flexy();
+$form-&#62;compile('some_file_name');
+print_r($form-&#62;getElements());</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN68896"><P
+><B
+>Example 41-2. template example</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>&#60;BODY&#62;
+  &#60;FORM name="XXXX"&#62;
+    &#60;INPUT name="yyy"&#62;
+    &#60;SELECT name="zzz"&#62;
+       &#60;OPTION value="aaaa"&#62;AAAAA&#60;/OPTION&#62;
+    &#60;/SELECT&#62;
+  &#60;/FORM&#62;
+&#60;/BODY&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN68899"><P
+><B
+>Example 41-3. template compiled</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>&#60;BODY&#62;
+  &#60;?php echo $this-&#62;elements['XXXX']-&#62;toHtmlnoClose();?&#62;
+    &#60;?php echo $this-&#62;elements['yyy']-&#62;toHtml();?&#62;
+    &#60;?php echo $this-&#62;elements['zzz']-&#62;toHtml();?&#62;
+  &#60;/form&#62;
+&#60;/BODY&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN68902"><P
+><B
+>Example 41-4. output from the Introspection</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>Array
+(
+    [XXXX] =&#62; html_template_flexy_element Object
+        (
+            [tag] =&#62; form
+            [attributes] =&#62; Array
+                (
+                    [name] =&#62; XXXX
+                )
+
+            [children] =&#62; Array
+                (
+                )
+
+            [override] =&#62;
+            [prefix] =&#62;
+            [suffix] =&#62;
+            [value] =&#62;
+        )
+
+    [yyy] =&#62; html_template_flexy_element Object
+        (
+            [tag] =&#62; input
+            [attributes] =&#62; Array
+                (
+                    [name] =&#62; yyy
+                )
+
+            [children] =&#62; Array
+                (
+                )
+
+            [override] =&#62;
+            [prefix] =&#62;
+            [suffix] =&#62;
+            [value] =&#62;
+        )
+
+    [zzz] =&#62; html_template_flexy_element Object
+        (
+            [tag] =&#62; select
+            [attributes] =&#62; Array
+                (
+                    [name] =&#62; zzz
+                )
+
+            [children] =&#62; Array
+                (
+                    [0] =&#62;
+
+                    [1] =&#62; html_template_flexy_element Object
+                        (
+                            [tag] =&#62; option
+                            [attributes] =&#62; Array
+                                (
+                                    [value] =&#62; aaaa
+                                )
+
+                            [children] =&#62; Array
+                                (
+                                    [0] =&#62; AAAAA
+                                )
+
+                            [override] =&#62;
+                            [prefix] =&#62;
+                            [suffix] =&#62;
+                            [value] =&#62;
+                        )
+
+                    [2] =&#62;
+
+                )
+
+            [override] =&#62;
+            [prefix] =&#62;
+            [suffix] =&#62;
+            [value] =&#62;
+        )
+
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html-template-flexy.bufferedoutputobject.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.element.html-template-flexy-element.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>$flexy-&#62;bufferedOutputObject()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>new  HTML_Template_Flexy_Element</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

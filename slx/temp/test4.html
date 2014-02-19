@@ -1,0 +1,347 @@
+
+
+<html>
+<head>
+<link REL="SHORTCUT ICON" HREF="favicon.ico"> 
+<title>CompSys v 2.0</title>
+<script language="JavaScript" src="includes/highlight_tables/tigra_tables.js"></script>
+<script language='JavaScript' src='includes/javascript.js'></script>
+<link rel="stylesheet" type="text/css" href="includes/styles.css">
+</head>
+<body text="#330099" leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0">
+<!-- TOP LEVEL TABLE -->
+<table width="100%" height="100%" cellpadding="0" cellspacing="0" border="3" bordercolor="#333333" bordercolordark="#000000" bordercolorlight="#999999">
+	<tr valign="top">
+    <td height="20"> 
+
+<div id="dhtmltooltip"></div>
+<script language='JavaScript' src='includes/tooltip.js'></script>
+
+<table width="100%"  border="0" cellpadding="0" cellspacing="0" background="images/table_bkground_grey.jpg">
+  <tr> 
+    <td width="50" height="50"><img src="images/companylogosmall.gif" ></td>
+    <td align="right" valign="top"> <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td> <table width="100%"  border="0" cellspacing="1" cellpadding="1">
+              <tr> 
+                <td align="left" valign="top"><a class="CompanyName">&nbsp;&nbsp;CenterSys Group, Inc.</a></td>
+                <td align="right" valign="top"><a class="links10">User: System Administrator</a> (<a href="logout.php" class="links10">Logout</a>) </td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+					<td>
+						<table width="100%">
+							<tr>
+          			<td align="left" nowrap><a class="AppName">&nbsp;&nbsp;&nbsp;&nbsp;CompSys v 2.0 (Demo)</a></td>
+								<td align="right" nowrap><a class="links10"> </a></td>
+							</tr>
+						</table>
+					</td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<!-- Menu bar. -->
+    <div class="menuBar" style="width:100%;"> <a class="menuButton"
+    href="welcome.php"
+    onclick="return buttonClick(event, 'homeMenu');"
+    onmouseover="buttonMouseover(event, 'homeMenu');"
+> Home </a> <a class="menuButton"
+    href="welcome.php"
+    onclick="return buttonClick(event, 'tradesMenu');"
+    onmouseover="buttonMouseover(event, 'tradesMenu');"
+> Trades </a> <a class="menuButton"
+    href=""
+    onclick="return buttonClick(event, 'accountsMenu');"
+    onmouseover="buttonMouseover(event, 'accountsMenu');"
+> Accounts </a> <a class="menuButton"
+    href=""
+    onclick="return buttonClick(event, 'stocklistMenu');"
+    onmouseover="buttonMouseover(event, 'stocklistMenu');"
+> Stock Lists </a> <a class="menuButton"
+    href=""
+    onclick="return buttonClick(event, 'reportsMenu');"
+    onmouseover="buttonMouseover(event, 'reportsMenu');"
+> Reports </a> <a class="menuButton"
+    href=""
+    onclick="return buttonClick(event, 'administrationMenu');"
+    onmouseover="buttonMouseover(event, 'administrationMenu');"
+> Administration </a> <a class="menuButton"
+    href=""
+    onclick="return buttonClick(event, 'helpMenu');"
+    onmouseover="buttonMouseover(event, 'helpMenu');"
+> Help </a> </div>
+
+<!-- Main menus. -->
+    <div id="homeMenu" class="menu" onmouseover="menuMouseover(event)"> <a class="menuItem" href="welcome.php">Main 
+      Page</a> </div>
+
+
+    <div id="tradesMenu" class="menu" onmouseover="menuMouseover(event)"> <a class="menuItem" href="view_trades_m.php">View 
+      Trades</a> <a class="menuItem" href="view_trades.php" onMouseover="ddrivetip('This module is to be deactivated/removed. <BR> It contains trades downloaded from RBC Dain. Please use the <b><i>View Trades</i></b> menu instead.','yellow', 300)"; onMouseout="hideddrivetip()">View 
+      Trades (From RBC Dain)</a> </div>
+
+    <div id="accountsMenu" class="menu"> <a class="menuItem" href="accounts.php">View 
+      Accounts</a> <a class="menuItem" href="expempaccts_csv.php">Export Accounts 
+      <B>(Excel/CSV)</B></a> </div>
+
+    <div id="stocklistMenu" class="menu"> <a class="menuItem" href="lists.php?list_type=restricted">Restricted 
+      List</a> <a class="menuItem" href="lists.php?list_type=watch">Watch List</a> 
+      <a class="menuItem" href="lists.php?list_type=gray">Gray List</a> 
+      <div class="menuItemSep"></div>
+      <a class="menuItem" href="es_lists.php?list_type=m">Marketmaker Stock List</a> 
+      <a class="menuItem" href="es_lists.php?list_type=b">Banker Stock List</a> <a class="menuItem" href="es_lists.php?list_type=a">Analyst 
+      Stock List</a> </div>
+
+    <div id="reportsMenu" class="menu"> <a class="menuItem" href="trades_report_m_hist.php">Trades 
+      Report History</a> <a class="menuItem" href="sysmsgmain.php?msgval=_tm_futurerelease&headingval=Info"><font color="#FF0000"><B>&Oslash; 
+      Report (Open)</B></font></a> <a class="menuItem" href="trades_report_m_hist.php">
+      <input class="Text" name="symbol_list" type="text" size="20" maxlength="60">
+      </a> </div>
+
+
+
+
+    <div id="administrationMenu" class="menu"> <a class="menuItem" href="trade_upload.php">Upload 
+      Trade File (.csv)</a> 
+      <div class="menuItemSep"></div>
+      <a class="menuItem" href="myprofile.php">My Profile / Preferences</a> 
+      <div class="menuItemSep"></div>
+      <a class="menuItem" href="sysmsgmain.php?msgval=_tm_underconstruction&headingval=Info"><font color="#FF0000"><B>&Oslash; 
+      System Defaults</B></font></a> <a class="menuItem" href="sysmsgmain.php?msgval=_tm_underconstruction&headingval=Info"><font color="#FF0000"><B>&Oslash; 
+      Look & Feel</B></font></a> <a class="menuItem" href="sysmsgmain.php?msgval=_tm_underconstruction&headingval=Info"><font color="#FF0000"><B>&Oslash; 
+      User Management</B></font></a> </div>
+
+    <div id="helpMenu" class="menu"> <a class="menuItem" href="sysmsgmain.php?msgval=_primarycontact&headingval=Primary Contact Information">Technical 
+      Support</a> <a class="menuItem" href="mailto:support@centersysgroup.com?Subject=Technical Support Request (Client:Tocqueville)&Body=Problem Description:%0D--------------------%0D%0D%0D%0DSeverity:%0D---------%0D%0D%0D%0DMy Contact Information:%0D-----------------------">Email 
+      Technical Support</a> 
+      <div class="menuItemSep"></div>
+      <a class="menuItem" href="about_ly.php">About CompSys 2.0</a> </div>
+
+<!-- End Menu bar -->
+<!--<br><br>-->
+
+	</td>
+</tr>
+<tr valign="top">
+	<td valign="top">
+	
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+
+
+<tr>
+	<td align="right" valign="top">
+	
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="7" height="7" background="images/tables/lt.jpg"></td>
+    <td background="images/tables/ts.jpg"></td>
+    <td width="7" height="7" background="images/tables/rt.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="7" background="images/tables/ls.jpg"></td>
+    <td><img src="images/msg_warning.gif"><a class="links10">&nbsp;&nbsp;Symbols removed from active list successfully!</a></td>
+    <td width="7" background="images/tables/rs.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="7" height="7" background="images/tables/lb.jpg"></td>
+    <td background="images/tables/bs.jpg"></td>
+    <td width="7" height="7" background="images/tables/rb.jpg"></td>
+  </tr>
+	</table>
+	</td>
+</tr>
+
+
+
+<tr>
+	<td align="right" valign="top">
+	
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="7" height="7" background="images/tables/lt.jpg"></td>
+    <td background="images/tables/ts.jpg"></td>
+    <td width="7" height="7" background="images/tables/rt.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="7" background="images/tables/ls.jpg"></td>
+    <td>		<a class="links12">Watch List</a>
+		</td>
+    <td width="7" background="images/tables/rs.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="7" height="7" background="images/tables/lb.jpg"></td>
+    <td background="images/tables/bs.jpg"></td>
+    <td width="7" height="7" background="images/tables/rb.jpg"></td>
+  </tr>
+</table>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="7" height="7" background="images/tables/lt.jpg"></td>
+    <td background="images/tables/ts.jpg"></td>
+    <td width="7" height="7" background="images/tables/rt.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="7" background="images/tables/ls.jpg"></td>
+    <td><!-- class="tablewithdata" -->
+		<table  width="100%"  border="0" cellspacing="0" cellpadding="0">
+			<tr> 
+				<td align="left" valign="middle" class="links12">&nbsp;</td>
+				<td align="left" valign="middle" class="fieldlabel10">Enter single value or comma separated values.</td>
+			</tr>
+			<tr><form action="/dev_demo_compliance/lists.php?list_type=watch&action=add" id="addsymbol" method="post"> 
+				<td align="left" valign="middle" class="links12">ADD Equity Symbol</td>
+				<td><input class="Text" name="symbol_list" type="text" size="60" maxlength="60">&nbsp;&nbsp;<input class="Submit" name="submit1" type="submit" value="  ADD  "></td>
+				</form>
+			</tr>
+		</table>
+		</td>
+    <td width="7" background="images/tables/rs.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="7" height="7" background="images/tables/lb.jpg"></td>
+    <td background="images/tables/bs.jpg"></td>
+    <td width="7" height="7" background="images/tables/rb.jpg"></td>
+  </tr>
+</table>		
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="7" height="7" background="images/tables/lt.jpg"></td>
+    <td background="images/tables/ts.jpg"></td>
+    <td width="7" height="7" background="images/tables/rt.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="7" background="images/tables/ls.jpg"></td>
+    <td>		<table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<tr valign="top">
+				<td>
+							<!-- Table with thin gray cell border -->
+					<table width="100%" cellpadding="1", cellspacing="0" bgcolor="#CCCCCC">
+						<tr>
+							<td>
+								<table class="tablewithdata" id="accounts_table"  width="100%"  border="0" cellspacing="1" cellpadding="1">
+									<tr class="tableheading12"> 
+										<td width="25" height="25" align="center" valign="middle" >&nbsp;</td>
+										<td >Symbol</td>
+										<td >Description</td>
+										<td >Date Added</td>
+										<td >Days on List</td>
+									</tr>
+					
+
+									<tr class="tablerow"> 								
+  									<td><a href="/dev_demo_compliance/lists.php?list_type=watch&action=remove&Name=ASD:AMER STANDARD&ID=51"  onclick="javascript:return confirm('Are you sure you want to remove \nASD\nfrom the list?')"><img src="images/delete.gif" alt="Delete"></a></td>
+										<td>ASD</td>
+										<td>AMER STANDARD</td>
+										<td>2004-05-15 00:00:00</td>
+										<td>3</td>
+									</tr>
+
+									<tr class="tablerow"> 								
+  									<td><a href="/dev_demo_compliance/lists.php?list_type=watch&action=remove&Name=DD:DU PONT CO&ID=63"  onclick="javascript:return confirm('Are you sure you want to remove \nDD\nfrom the list?')"><img src="images/delete.gif" alt="Delete"></a></td>
+										<td>DD</td>
+										<td>DU PONT CO</td>
+										<td>2004-05-17 23:51:34</td>
+										<td>1</td>
+									</tr>
+
+									<tr class="tablerow"> 								
+  									<td><a href="/dev_demo_compliance/lists.php?list_type=watch&action=remove&Name=DF:DEAN FOODS CO&ID=44"  onclick="javascript:return confirm('Are you sure you want to remove \nDF\nfrom the list?')"><img src="images/delete.gif" alt="Delete"></a></td>
+										<td>DF</td>
+										<td>DEAN FOODS CO</td>
+										<td>2004-05-15 00:00:00</td>
+										<td>3</td>
+									</tr>
+
+									<tr class="tablerow"> 								
+  									<td><a href="/dev_demo_compliance/lists.php?list_type=watch&action=remove&Name=DFG:DELPHI FINCL GP&ID=52"  onclick="javascript:return confirm('Are you sure you want to remove \nDFG\nfrom the list?')"><img src="images/delete.gif" alt="Delete"></a></td>
+										<td>DFG</td>
+										<td>DELPHI FINCL GP</td>
+										<td>2004-05-15 00:00:00</td>
+										<td>3</td>
+									</tr>
+
+									<tr class="tablerow"> 								
+  									<td><a href="/dev_demo_compliance/lists.php?list_type=watch&action=remove&Name=FORD:FORWARD INDS&ID=33"  onclick="javascript:return confirm('Are you sure you want to remove \nFORD\nfrom the list?')"><img src="images/delete.gif" alt="Delete"></a></td>
+										<td>FORD</td>
+										<td>FORWARD INDS</td>
+										<td>2004-05-15 00:00:00</td>
+										<td>3</td>
+									</tr>
+
+									<tr class="tablerow"> 								
+  									<td><a href="/dev_demo_compliance/lists.php?list_type=watch&action=remove&Name=HR:HEALTHCARE REAL&ID=61"  onclick="javascript:return confirm('Are you sure you want to remove \nHR\nfrom the list?')"><img src="images/delete.gif" alt="Delete"></a></td>
+										<td>HR</td>
+										<td>HEALTHCARE REAL</td>
+										<td>2004-05-15 00:00:00</td>
+										<td>3</td>
+									</tr>
+
+									<tr class="tablerow"> 								
+  									<td><a href="/dev_demo_compliance/lists.php?list_type=watch&action=remove&Name=LU:LUCENT TECH&ID=60"  onclick="javascript:return confirm('Are you sure you want to remove \nLU\nfrom the list?')"><img src="images/delete.gif" alt="Delete"></a></td>
+										<td>LU</td>
+										<td>LUCENT TECH</td>
+										<td>2004-05-15 00:00:00</td>
+										<td>3</td>
+									</tr>
+
+									<tr class="tablerow"> 								
+  									<td><a href="/dev_demo_compliance/lists.php?list_type=watch&action=remove&Name=MSFT:MICROSOFT CP&ID=28"  onclick="javascript:return confirm('Are you sure you want to remove \nMSFT\nfrom the list?')"><img src="images/delete.gif" alt="Delete"></a></td>
+										<td>MSFT</td>
+										<td>MICROSOFT CP</td>
+										<td>2004-05-15 00:00:00</td>
+										<td>3</td>
+									</tr>
+								</table>
+
+								<script language="JavaScript">
+								<!--
+								//tigra_tables('accounts_table', 3, 1, '#ffffff', '#ffffcc', '#ffcc66', '#cccccc');
+								tigra_tables('accounts_table', 1, 0, '#ffffff', '#F3F1FF', '#B8D6FE', '#cccccc');
+								// -->
+								</script>
+  						</td>
+						</tr>
+					</table>
+					<!--Table with thin cell border ends-->
+			  </td>
+			</tr>
+		</table>
+		</td>
+    <td width="7" background="images/tables/rs.jpg"></td>
+  </tr>
+  <tr> 
+    <td width="7" height="7" background="images/tables/lb.jpg"></td>
+    <td background="images/tables/bs.jpg"></td>
+    <td width="7" height="7" background="images/tables/rb.jpg"></td>
+  </tr>
+</table>	</td>
+</tr>
+
+
+<tr valign="bottom">
+<td>
+	<table width="100%" height="20">
+		<tr valign="top">
+		<td align="center" valign="bottom">
+			<table width="100%" height="20" border="0" cellpadding="0" cellspacing="0">
+				<tr valign="top"> 
+				<td align="center" valign="bottom">
+						<hr align="center" size="1" color="#FF0000" noshade>
+						<center><a class="centersys">&copy; 2002-2004 </a>
+						<a class="centersys" href="http://www.centersysgroup.com" target="_blank">CenterSys Group, Inc.</a></center>
+				</td>
+				</tr>
+			</table>
+		</td>
+		</tr>
+	</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+
+
+

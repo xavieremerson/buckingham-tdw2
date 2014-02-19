@@ -1,0 +1,339 @@
+<HTML
+><HEAD
+><TITLE
+>Net_DNS_Resolver::rawQuery()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_DNS"
+HREF="package.networking.net-dns.html"><LINK
+REL="PREVIOUS"
+TITLE="Net_DNS_Resolver::query()"
+HREF="package.networking.net-dns.net-dns-resolver.query.html"><LINK
+REL="NEXT"
+TITLE="Net_DNS_Resolver::axfr()"
+HREF="package.networking.net-dns.net-dns-resolver.axfr.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-dns.net-dns-resolver.query.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-dns.net-dns-resolver.axfr.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-dns.net-dns-resolver.rawQuery">Net_DNS_Resolver::rawQuery()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN81998"
+></A
+>Net_DNS_Resolver::rawQuery()&nbsp;--&nbsp;Queries a nameserver and returns a response</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN82001"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN82002"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once('Net/DNS.php');</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>Net_DNS_Packet <B
+CLASS="function"
+>Net_DNS_Resolver::rawQuery</B
+></CODE
+> (string $hostname [, string $type = 'A' [, string $class = 'IN']])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-dns.net-dns-resolver.rawQuery.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>hostname</I
+></TT
+> - The name to lookup (eg. www.php.net)</P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>type</I
+></TT
+> - The record type to query</P
+></LI
+><LI
+><P
+><TT
+CLASS="parameter"
+><I
+>class</I
+></TT
+> - The zone class to query</P
+></LI
+></UL
+>
+  </P
+><P
+>&#13;   The <B
+CLASS="function"
+>Net_DNS_Resolver::rawQuery()</B
+>
+   function performs a DNS query similar to the
+   <A
+HREF="package.networking.net-dns.net-dns-resolver.query.html"
+>Net_DNS_Resolver::query()</A
+>
+   function; however, rawQuery() will return any response
+   from the nameserver.  This is useful when the response
+   packet may or may not contain any resource records in the
+   "ANSWER" section.
+  </P
+><P
+>&#13;   rawQuery() uses the same resolver configuration used by
+   <A
+HREF="package.networking.net-dns.net-dns-resolver.query.html"
+>Net_DNS_Resolver::query()</A
+>.
+  </P
+><P
+>&#13;   For a description of the returned RR data object, see
+   <A
+HREF="package.networking.net-dns.net-dns-rr-intro.html"
+>Net_DNS_RR</A
+>.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="packages.networking.net-dns.net-dns-resolver.rawQuery.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN82037"><P
+><B
+>Example 48-1. Using <B
+CLASS="function"
+>Net_DNS_Resolver::rawQuery()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'Net/DNS.php';
+
+$resolver = new Net_DNS_Resolver();
+$response = $resolver-&#62;rawQuery('example.com');
+if ($response) {
+  if (count($response-&#62;answer)) {
+    foreach ($response-&#62;answer as $rr) {
+      $rr-&#62;display();
+    }
+  }
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Output:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>example.com.            129808  IN      A       192.0.34.166</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-dns.net-dns-resolver.rawQuery.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-dns.net-dns-resolver.query.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-dns.net-dns-resolver.axfr.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Net_DNS_Resolver::query()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-dns.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Net_DNS_Resolver::axfr()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

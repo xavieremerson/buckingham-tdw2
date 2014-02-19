@@ -1,0 +1,350 @@
+<HTML
+><HEAD
+><TITLE
+>Pager (v.1.x) vs. Pager_Sliding</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Pager_Sliding"
+HREF="package.html.pager-sliding.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.html.pager-sliding.intro.html"><LINK
+REL="NEXT"
+TITLE="Pager_Sliding::getCurrentPageID"
+HREF="package.html.pager-sliding.getcurrentpageid.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.pager-sliding.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.pager-sliding.getcurrentpageid.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.pager-sliding.compare"><B
+CLASS="classname"
+>Pager</B
+> (v.1.x) vs. <B
+CLASS="classname"
+>Pager_Sliding</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN73394"
+></A
+><B
+CLASS="classname"
+>Pager</B
+> (v.1.x) vs. <B
+CLASS="classname"
+>Pager_Sliding</B
+>&nbsp;--&nbsp;Feature comparison of the two classes</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager-sliding.compare.intro"
+></A
+><H2
+>What are the differences with <B
+CLASS="classname"
+>Pager</B
+>?</H2
+><P
+>&#13;    While <B
+CLASS="classname"
+>Pager</B
+> v.1.x has a "jumping window" style,
+    <B
+CLASS="classname"
+>Pager_Sliding</B
+> has a "sliding window" style.
+    What does that mean? Let's see an example:
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager-sliding.compare.example_pager"
+></A
+><H2
+><B
+CLASS="classname"
+>Pager</B
+> v.1.x logic</H2
+><P
+>&#13;     Let's suppose that the data spans on 15 pages, and the window width is 5 page links.
+     The links are built on "frames" of 5 pages each:  [1-5] [6-10] [11-15]
+     <B
+CLASS="classname"
+>Pager</B
+> v.1.x always shows the same 5 page links while you are
+     on one of these pages.
+     Here's a temporal succession of the links, starting from page 1 and moving forward.
+     There are brakets around current page number to highlight this:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>a)    {1} 2  3  4  5  =&#62;   // first frame: [1-5]
+b) &#60;=  1 {2} 3  4  5  =&#62;
+c) &#60;=  1  2 {3} 4  5  =&#62;
+d) &#60;=  1  2  3 {4} 5  =&#62;
+e) &#60;=  1  2  3  4 {5} =&#62;   // HERE IT JUMPS TO THE NEXT FRAME
+f) &#60;= {6} 7  8  9 10  =&#62;   // second frame: [6-10]
+g) &#60;=  6 {7} 8  9 10  =&#62;
+h) &#60;=  6  7 {8} 9 10  =&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+     and so on. See what a "jumping window" frame is? When you reach a limit (in the
+     example, you go from page 5 to page 6), it "jumps" to next frame
+     (links from page 6 to 10).
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager-sliding.compare.example_pager_sliding"
+></A
+><H2
+><B
+CLASS="classname"
+>Pager_Sliding</B
+> logic</H2
+><P
+>&#13;     Instead of jumping from one frame to the other, with <B
+CLASS="classname"
+>Pager_Sliding</B
+>
+      the change is done smoothly, and the current page is always shown at the center of the
+      "window" (except of course for the first and the last pages):
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>a)       {1} 2  3  4  5  =&#62; [15]
+b) [1] &#60;= 1 {2} 3  4  5  =&#62; [15]
+c) [1] &#60;= 1  2 {3} 4  5  =&#62; [15]  // HERE IT's STARTING WORKING AS DESIGNED
+d) [1] &#60;= 2  3 {4} 5  6  =&#62; [15]  // see: current page number is at the center of the window
+e) [1] &#60;= 3  4 {5} 6  7  =&#62; [15]  // and it stays there...
+f) [1] &#60;= 4  5 {6} 7  8  =&#62; [15]
+g) [1] &#60;= 5  6 {7} 8  9  =&#62; [15]
+h) [1] &#60;= 6  7 {8} 9 10  =&#62; [15]</PRE
+></TD
+></TR
+></TABLE
+>
+     and so on.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager-sliding.compare.other"
+></A
+><H2
+>Other differences</H2
+><P
+>&#13;     Apart from the different "philosophy", <B
+CLASS="classname"
+>Pager_Sliding</B
+>
+     is also designed to be highly customizable.
+    </P
+><P
+>&#13;     <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>UPDATE</I
+></SPAN
+>: since Pager 2.x release, every option once only available
+     in Pager_Sliding is now fully implemented in Pager too, and more. As stated in the
+     Intro, Pager_Sliding is now <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>deprecated</I
+></SPAN
+> in favour of the new     <B
+CLASS="classname"
+>Pager</B
+> v.2.x. You can have both behaviours ("Jumping" and
+     "Sliding") in <B
+CLASS="classname"
+>Pager</B
+> v.2.x, just change the <TT
+CLASS="parameter"
+><I
+>mode</I
+></TT
+>.
+     Please refer to <B
+CLASS="classname"
+>Pager</B
+> docs for more details.
+     <P
+></P
+><UL
+><LI
+><P
+>&#13;       There are *many* options to change the look and feel of the links in your page.
+       They are explained in the constructor docs.
+      </P
+></LI
+><LI
+><P
+>&#13;       It can work with Apache mod_rewrite module too, see the examples for that.
+      </P
+></LI
+><LI
+><P
+>&#13;       It is "template"-friendly, i.e. you can assign the processed links and
+       page numbers to your custom vars and use them to draw your link bar according
+       to your page layout, without worrying about the underlying logic.
+      </P
+></LI
+><LI
+><P
+>&#13;       You can easily extend the class; this is useful if you plan to use the class
+       in many different pages and you don't want to set the same options everytime:
+       just set your preferred default values in your extending class and you're done!
+      </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.pager-sliding.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.pager-sliding.getcurrentpageid.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.pager-sliding.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Pager_Sliding::getCurrentPageID()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

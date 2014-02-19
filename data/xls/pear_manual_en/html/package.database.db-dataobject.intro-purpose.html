@@ -1,0 +1,706 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB_DataObject"
+HREF="package.database.db-dataobject.html"><LINK
+REL="PREVIOUS"
+TITLE="DB_DataObject"
+HREF="package.database.db-dataobject.html"><LINK
+REL="NEXT"
+TITLE="Configuration Options"
+HREF="package.database.db-dataobject.intro-configuration.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.intro-configuration.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db-dataobject.intro-purpose">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN25564"
+></A
+>Introduction&nbsp;--&nbsp;
+        What <B
+CLASS="classname"
+>DB_DataObject</B
+> can do
+      </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN25568"
+></A
+><H2
+>Introduction</H2
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;     Zend Optimizer: due to a bug in the optimizer, you will have to either reduce the
+    optimization level, or define the constant DB_DATAOBJECT_NO_OVERLOAD = 0
+    otherwise PHP may segfault
+   </P
+><P
+>&#13;    Pass by Reference, due to a unfixable bug in PHP4, you can not use overload with pass-by-reference arguments
+    (It works OK in PHP5), If you need pass-by-reference,  define the constant DB_DATAOBJECT_NO_OVERLOAD = 0
+   </P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>&#13;       <B
+CLASS="classname"
+>DB_DataObject</B
+> is a SQL Builder and Data Modeling Layer 
+       built on top of PEAR::<A
+HREF="package.database.db.html"
+><B
+CLASS="classname"
+>DB</B
+></A
+>. Its main purpose is to
+      </P
+><P
+>&#13;        <P
+></P
+><UL
+><LI
+><P
+>Build SQL and execute statements based on the objects variables.</P
+></LI
+><LI
+><P
+>Group source code around the data that they relate to.</P
+></LI
+><LI
+><P
+>Provide a simple consistent API to access and manipulate that data.</P
+></LI
+></UL
+>
+      </P
+><P
+>&#13;       So what does that mean in english? Well, if you look around at some of the better written PHP 
+       applications and frameworks out there, you will notice a common approach to using classes to 
+       wrap access to database tables or groups. The prime example of this is the person object, which would 
+       frequently look something like this.
+       
+         <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN25586"><P
+><B
+>Example 33-1. A Classic Data Object or Container</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>class MyPerson {
+      
+      // gets an array of data about the seleted person
+      function getPerson($id) {
+          global $db;
+          $result = $db-&#62;query("SELECT * FROM person WHERE id=$id");
+          return $result-&#62;fetchRow();
+      }
+      
+      // example of checking a password.
+      function checkPassword($username,$password) {
+          global $db;
+          $result = $db-&#62;query("SELECT username FROM person WHERE username='$username' AND password = '$password'");
+          return $result-&#62;fetchRow();
+      }
+      
+  }
+  
+  // get the persons details..
+  $array = MyPerson::getPerson(12);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+        </P
+><P
+>&#13;      The key benifit of this approach is that you are grouping similar actions on a single table in one place, and are 
+      more likely to spot duplicated code (eg. two methods that do similar things). You will also notice the global $db variable
+      used here - the fact is that most of the time you will use a common database connection for all your classes, so how should this
+      be dealt with?
+      </P
+><P
+>&#13;        The next step on this road is to use the objects variables as a storage mechanism.
+       
+      <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN25591"><P
+><B
+>Example 33-2. A Classic Data Object or Container</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>class MyPerson {
+      
+      var $id;
+      var $name;
+      var $birthDate;
+      
+      
+      // gets an array of data about the seleted person
+      function get($id) {
+          global $db;
+          $result = $db-&#62;query("SELECT * FROM person WHERE id=$id");
+          $array = $result-&#62;fetchRow();
+          foreach($array as $key=&#62;$value) {
+              $this-&#62;$key = $value;
+          }
+      }
+      
+      function getAge() {
+          return date('Y') - date('Y',$this-&#62;birthDate);
+      }
+      
+  }
+  // now get the person and display the age.
+  $person = new MyPerson;
+  $person-&#62;get(12);
+  echo "{$person-&#62;name} is ". $person-&#62;getAge() . " years old";</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+          </P
+><P
+>&#13;      As you can see, the current row of data is now stored in the Data Container, and additional methods can be added to manipulate 
+      the data in the object or even call other related objects (eg. tables relationships in databases)
+        </P
+><P
+>&#13;        As a next step, why not utilize the member variables to perform searches or gets on the database.
+        
+        
+        
+         
+         <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN25596"><P
+><B
+>Example 33-3. A Classic Data Object or Container</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>class MyPerson {
+      
+      var $id;
+      var $name;
+      var $birthDate;
+      
+      
+      // does the query based on the value of $this-&#62;name
+      function find() {
+          global $db;
+          $this-&#62;result = $db-&#62;query("SELECT * FROM person WHERE name={$this-&#62;name}");
+      }
+      
+      // fetches a row of data and sets the object variables to match it.
+      
+      function fetch() {
+          $array = $this-&#62;result-&#62;fetchRow();
+          if (empty($array)) {
+              return false;
+          }
+          foreach($array as $key=&#62;$value) {
+              $this-&#62;$key = $value;
+          }
+      }
+      
+  }
+  // now get the person and display the age.
+  $person = new MyPerson;
+  $person-&#62;name = "John";
+  $person-&#62;find();
+  while ($person-&#62;fetch()) {
+    echo "a {$person-&#62;name} has a birthday on {$person-&#62;birthDate}&#60;BR&#62;";
+  }</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+         </P
+><P
+>&#13;      As you can see, by assigning values to the object before the find method is called, you can set conditions for the query. 
+      <B
+CLASS="classname"
+>DB_DataObject</B
+>s behaves in a similar way to this, however, you can also add more conditions with the whereAdd() method, or 
+      restrict the selection using the selectAdd() method.
+        </P
+><P
+>&#13;      Obviously you can carry on down this road and create lots of little containers for each table in your database,
+      and all the code will nicely relate to each table. However, you can see from the examples above that all classes
+      are likely to end up with a common set of methods.
+      <P
+></P
+><UL
+><LI
+><P
+> to fetch data, like get, find, fetch</P
+></LI
+><LI
+><P
+>  to update, insert and delete from the data store</P
+></LI
+><LI
+><P
+> to automate fetching related objects</P
+></LI
+></UL
+>
+      So to improve on this, <B
+CLASS="classname"
+>DB_DataObject</B
+> was born, it started life as an common answer to the issues above, however as most
+      problems grow in complexity as the problem is examined in finer detail, so has DataObjects. It has grown to include
+          <P
+></P
+><UL
+><LI
+><P
+> A common simple configuration method (for setting database connections)</P
+></LI
+><LI
+><P
+>  A fast and simple store for database descriptions, so primary keys can be used to locate data quickly</P
+></LI
+><LI
+><P
+> a debugger that enables you to see what exactly it is doing.</P
+></LI
+><LI
+><P
+> basic data validation - so the strings and integers can be checked.</P
+></LI
+><LI
+><P
+> Posibility to build complex joins or get related data by secondary calls (links) .</P
+></LI
+><LI
+><P
+> Ability to create and update your Table specific classes with the current database table variables (see autobuilding)</P
+></LI
+><LI
+><P
+> Simple to integrate with other packages, with setFrom() and toArray() methods</P
+></LI
+></UL
+>
+      
+      
+        </P
+><P
+>&#13;       So what do my classes look like?
+        <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN25626"><P
+><B
+>Example 33-4. At last some real DataObject Code..</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// this is the common configuration code - place in a general site wide include file.
+  
+    // this  the code used to load and store DataObjects Configuration. 
+    $options = &#38;PEAR::getStaticProperty('DB_DataObject','options');
+    
+    // the simple examples use parse_ini_file, which is fast and efficient.
+    // however you could as easily use wddx, xml or your own configuration array.
+    $config = parse_ini_file('example.ini',TRUE);
+    
+    // because PEAR::getstaticProperty was called with and &#38; (get by reference)
+    // this will actually set the variable inside that method (a quasi static variable)
+    $options = $config['DB_DataObject'];
+
+
+
+
+     // this is normally contained in your DataObjects file (autogenerated by the generator)
+
+    require_once 'DB/DataObject.php';
+    
+    
+    // by extending the base class DB_DataObject - you inherit all the common methods defined in it.
+    
+    class DataObjects_Person extends  DB_DataObject {
+        
+        var $id; // this is a primary id (it's specified in a config file - explained later)
+        var $name;
+        var $friend;
+        
+        // this is a simple function to get the persons friends..?
+        
+        function getFriends()
+        {
+            
+            $personObject = $this-&#62;factory('person');
+            
+            // look for all people with their friend number matching this persons id.
+            $personObject-&#62;friend = $this-&#62;id;
+            
+            // do the select query.
+            $personObject-&#62;find();
+            $array = array();
+            
+            // fetch the results into the object.
+            while ($personObject-&#62;fetch()) {
+                // use the clone to copy - not really needed but get used to it for PHP5
+
+                $array[] = clone($personObject);
+            }
+            // return the results.
+            return $array;
+            
+        }
+    }
+    
+    
+    
+    // and this goes on your display code 
+    
+    // create a new person class..
+    $person = DB_DataObject::Factory('person');
+    
+    // get the person using the primary key.
+    $person-&#62;get(12);
+    // get the friends.
+    $friends = $person-&#62;getFriends();
+    
+    //  DB_DataObjects is designed to make print_r useable to debug your applications.
+    print_r($friends);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+      
+      </P
+><P
+>&#13;       The above example illustrates the components of the
+       <B
+CLASS="classname"
+>DB_DataObject</B
+>, by setting the options, all
+        the core objects will be able to auto load the data definitions from a generated ini file, and know
+        how to access the database. (multiple databases are supported - see section on configuration)
+      </P
+><P
+>&#13;       The class definition illustrates how you only need to define the data specific code in your class, ignoring 
+       all the common methods, along with showing one of the methods for retrieveing multiple rows of data.
+      </P
+><P
+>&#13;        The later half illustrates how to query and get the result for a
+        single row. The <A
+HREF="package.database.db-dataobject.db-dataobject.get.html"
+><B
+CLASS="function"
+>$person-&#62;get()</B
+></A
+> would connect
+        to the database, perform the query, fetch the result and assign the objects variables to the data returned
+        from the query.
+      </P
+><P
+>&#13;      
+      </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN25636"><P
+><B
+>Example 33-5.   In the above example, this query would be performed.</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>SELECT * FROM person WHERE id=12;
+SELECT * FROM person WHERE friend=12;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN25639"><P
+><B
+>Example 33-6.  To make a change to the Database you would just change the value of the objects variables and call
+        the update method.</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$person = DB_DataObject::factory('person');
+        $person-&#62;get(12);
+        $person-&#62;name = 'Fred';
+        $person-&#62;update();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><P
+>&#13;        As a general rule of thumb method names are usually the same as the SQL statement they relate to.
+      </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.intro-configuration.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>DB_DataObject</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Configuration Options</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

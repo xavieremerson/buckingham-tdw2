@@ -1,0 +1,674 @@
+
+<html>
+<head>
+	<script src="../../runtime/lib/aw.js"></script>
+	<link href="../../runtime/styles/xp/aw.css" rel="stylesheet"></link>
+</head>
+<body>
+<style>
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	C S S
+
+/////////////////////////////////////////////////////////////////////
+********************************************************************/
+
+/********************************************************************
+	Grid
+********************************************************************/
+
+/*	you may skip grid id (#myGrid) in all other rules
+	- if the rule applies to all grids
+	- if you have only one grid on your page */
+
+	#myGrid { width: 400px}
+
+/********************************************************************
+	Rows
+********************************************************************/
+
+	#myGrid .aw-grid-row {height: 20px; border-bottom: 1px solid #ccc}
+/*	#myGrid .aw-row-1 {color: blue} */
+
+	/*	Alternate row colors */
+	#myGrid .aw-alternate-even {background: #fff;}
+	#myGrid .aw-alternate-odd {background: #eee;}
+
+	#myGrid .aw-alternate-even .aw-column-1 {background: #eee;}
+	#myGrid .aw-alternate-odd .aw-column-1 {background: #ddd;}
+
+	/*	Highlight on mouseover, mousedown */
+/*	#myGrid .aw-mouseover-row {background: #ccc;} */
+/*	#myGrid .aw-mousedown-row {background: #999;} */
+
+/*	#myGrid .aw-mouseover-row .aw-column-1 {background: #bbb;} */
+/*	#myGrid .aw-mousedown-row .aw-column-1 {background: #888;} */
+
+	/* Selected rows */
+	#myGrid .aw-rows-selected {background: #316ac5;}
+	#myGrid .aw-rows-selected .aw-column-1 {background: #316ac5;}
+
+
+/********************************************************************
+	Columns
+********************************************************************/
+
+	#myGrid .aw-column-0 {width: 50px; border-right: 1px dotted #ccc;}
+	#myGrid .aw-column-1 {width: 150px; border-right: 1px dotted #ccc;}
+	#myGrid .aw-column-2 {text-align: right}
+	#myGrid .aw-column-3 {text-align: right}
+	#myGrid .aw-column-4 {text-align: right}
+
+/********************************************************************
+	Cells
+********************************************************************/
+
+/*	#myGrid .aw-row-2 .aw-column-1 {color: red; font-style: italic} */
+
+	/*	Highlight on mouseover, mousedown */
+/*	#myGrid .aw-mouseover-cell {color: red;} 		*/
+/*	#myGrid .aw-mousedown-cell {background: #666;}	*/
+
+	/* Selected cells */
+	#myGrid .aw-grid-row .aw-cells-selected {background: #316ac5;}
+
+/********************************************************************
+	Headers
+********************************************************************/
+
+	#myGrid .aw-grid-headers {color: blue}
+	#myGrid .aw-grid-headers .aw-column-1 {font-weight: bold}
+
+	/*	Highlight on mouseover, mousedown */
+	#myGrid .aw-mouseover-header {color: red;}
+	#myGrid .aw-mousedown-header {color: yellow;}
+
+	#myGrid .aw-header-1 {background: #def}
+
+/********************************************************************
+	Row selectors
+********************************************************************/
+
+	#myGrid .aw-row-selector {width: 20px; text-align: center}
+	#myGrid .aw-row-2 .aw-row-selector {font-weight: bold}
+	#myGrid .aw-mouseover-row .aw-row-selector {color: red;}
+
+	/*	Highlight on mouseover, mousedown */
+	#myGrid .aw-mouseover-selector {background: green;}
+	#myGrid .aw-mousedown-selector {background: yellow;}
+
+</style>
+
+<script>
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	D A T A   S O U R C E S
+
+/////////////////////////////////////////////////////////////////////
+********************************************************************/
+
+	var myData = [
+		["MSFT","Microsoft Corporation", "314,571.156", "32,187.000", "55000"],
+		["ORCL", "Oracle Corporation", "62,615.266", "9,519.000", "40650"],
+		["SAP", "SAP AG (ADR)", "40,986.328", "8,296.420", "28961"],
+		["CA", "Computer Associates Inter", "15,606.335", "3,164.000", "16000"],
+		["ERTS", "Electronic Arts Inc.", "14,490.895", "2,503.727", "4000"],
+		["SFTBF", "Softbank Corp. (ADR)", "14,485.840", ".000", "6865"],
+		["VRTS", "Veritas Software Corp.", "14,444.272", "1,578.658", "5647"],
+		["SYMC", "Symantec Corporation", "9,932.483", "1,482.029", "4300"],
+		["INFY", "Infosys Technologies Ltd.", "9,763.851", "830.748", "15400"],
+		["INTU", "Intuit Inc.", "9,702.477", "1,650.743", "6700"],
+		["ADBE", "Adobe Systems Incorporate", "9,533.050", "1,230.817", "3341"],
+		["PSFT", "PeopleSoft, Inc.", "8,246.467", "1,941.167", "8180"],
+		["SEBL", "Siebel Systems, Inc.", "5,434.649", "1,417.952", "5909"],
+		["BEAS", "BEA Systems, Inc.", "5,111.813", "965.694", "3063"],
+		["SNPS", "Synopsys, Inc.", "4,482.535", "1,169.786", "4254"],
+		["CHKP", "Check Point Software Tech", "4,396.853", "424.769", "1203"],
+		["MERQ", "Mercury Interactive Corp.", "4,325.488", "444.063", "1822"],
+		["DOX", "Amdocs Limited", "4,288.017", "1,427.088", "9400"],
+		["CTXS", "Citrix Systems, Inc.", "3,946.485", "554.222", "1670"],
+		["KNM", "Konami Corporation (ADR)", "3,710.784", ".000", "4313"]
+	];
+
+	var myRow = ["MSFT","Microsoft Corporation", "314,571.156", "32,187.000", "55000"]
+
+	var myHeaders = ["Ticker", "Company Name", "Market Cap.", "$ Sales", "Employees"];
+
+</script>
+
+<p style="font:menu">
+	see page source
+</p>
+
+<script>
+
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	Create grid object
+
+	Two options:
+
+	-	AW.UI.Grid (1 header row, 1 footer row, no fixed columns, fast)
+	-	AW.Grid.Extended (multiple header/footer rows, multiple fixed columns)
+
+/////////////////////////////////////////////////////////////////////
+********************************************************************/
+
+//	var obj = new AW.UI.Grid;
+	var obj = new AW.Grid.Extended;
+
+	obj.setId("myGrid");	// necessary for CSS rules
+
+
+/********************************************************************
+	fixed columns (only with AW.Grid.Extended)
+********************************************************************/
+
+//	obj.setFixedLeft(2);	// number of fixed columns on the left side
+//	obj.setFixedRight(1);	// number of fixed columns on the right side
+
+
+/********************************************************************
+	virtual mode
+********************************************************************/
+
+//	obj.setVirtualMode(false);	// disable virtual mode
+
+
+/********************************************************************
+	Size and position
+********************************************************************/
+
+//	obj.setControlSize(500, 300);	// width, height
+//	obj.setControlPosition(100, 50);	// left, top - adds 'position:absolute'
+
+
+
+
+
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	C E L L S
+
+/////////////////////////////////////////////////////////////////////
+*********************************************************************
+	cell text (js array)
+********************************************************************/
+
+	obj.setCellText(myData);	// 2-dimensional js array
+//	obj.setCellText(myRow, 0);	// js array, only one row
+
+
+/********************************************************************
+	cell text (static value)
+********************************************************************/
+
+//	obj.setCellText("text");		// assign the same text to all cells
+//	obj.setCellText("text", 1);		// all cells in the column 1
+//	obj.setCellText("text", 2, 3);	// single cell at column 2, row 3
+
+
+/********************************************************************
+	cell text (function)
+********************************************************************/
+
+//	obj.setCellText(function(col, row){return col + "." + row});	// function for all cells
+//	obj.setCellText(function(col, row){return row}, 1);				// function for the column 1
+//	obj.setCellText(function(col, row){return new Date()}, 2, 3);	// function for the single cell at column 2, row 3
+
+
+/********************************************************************
+	cell text (calculated from other cells)
+********************************************************************/
+
+/*
+	obj.setCellText(function(col, row){return col + "." + row});
+	obj.setCellText(function(col, row){
+		var text0 = this.getCellText(0, row);
+		var text1 = this.getCellText(1, row);
+		return text0 + "-" + text1;
+	}, 2);	// calculate column 2 from columns 0 and 1
+*/
+
+/********************************************************************
+	cell image
+********************************************************************/
+
+//	obj.setCellImage("favorites", 1);
+//	obj.setCellImage("search", 1, 1);
+//	obj.setCellImage(["home", "favorites", "search", "fontsize"], 1);
+
+
+/********************************************************************
+	cell link URL (href)
+********************************************************************/
+
+//	obj.setCellLink("http://www.google.com", 1);	// set data
+//	obj.setCellTemplate(new AW.Templates.Link, 1);	// and template
+
+
+/********************************************************************
+	multi-line text (wrap)
+********************************************************************/
+
+//	obj.getRowTemplate().setClass("text", "normal");	// hide overflow (ellipsis), default
+//	obj.getRowTemplate().setClass("text", "wrap");	// multiline text
+//	obj.setRowHeight(32);
+//	obj.setColumnWidth(100, 1);
+
+
+/********************************************************************
+	assign new cell template
+********************************************************************/
+
+//	obj.setCellTemplate(new AW.Templates.Checkbox);			// all columns
+//	obj.setCellTemplate(new AW.Templates.Checkbox, 1);		// column-1
+//	obj.setCellTemplate(new AW.Templates.Checkbox, 1, 1);	// column-1, row-1
+
+
+/********************************************************************
+	modify cell template
+********************************************************************/
+
+//	obj.getCellTemplate().setStyle("color", "red");			// all columns
+//	obj.getCellTemplate(1).setStyle("color", "green");		// column-1
+//	obj.getCellTemplate(2, 3).setStyle("color", "blue");	// column-2, row-3
+
+
+/********************************************************************
+	cell editor
+********************************************************************/
+
+	obj.setEditorTemplate(new AW.UI.Combo, 1);		// column-1
+
+//	obj.setCellEditable(false);						// disable editing
+
+
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	H E A D E R S
+
+/////////////////////////////////////////////////////////////////////
+*********************************************************************
+	multiple headers (only with AW.Grid.Extended)
+********************************************************************/
+
+	obj.setHeaderCount(2);
+
+
+/********************************************************************
+	header text (js array)
+********************************************************************/
+
+	obj.setHeaderText(myHeaders);	// js array (see top of this page)
+	obj.setHeaderText(["Sub 0", "Sub 1", "Sub 2", "Sub 3", "Sub 4"], 1); // js array for the second row of headers
+
+
+/********************************************************************
+	header text (static value)
+********************************************************************/
+
+//	obj.setHeaderText("text");		// assign the same text to all headers
+//	obj.setHeaderText("text", 1);	// header in the column 1
+//	obj.setHeaderText("text", 1, 1);	// header in the column 1, row 1
+
+
+/********************************************************************
+	header text (function)
+********************************************************************/
+
+//	obj.setHeaderText(function(col){return col});			// function for all headers
+//	obj.setHeaderText(function(){return new Date()}, 1);	// function for the single header in the column 1
+
+
+/********************************************************************
+	header image
+********************************************************************/
+
+//	obj.setHeaderImage("favorites", 1);
+//	obj.setHeaderImage(["home", "favorites", "search", "fontsize"]);
+
+
+/********************************************************************
+	multi-line text (wrap)
+********************************************************************/
+
+//	obj.getHeadersTemplate().setClass("text", "normal");	// hide overflow (ellipsis), default
+//	obj.getHeadersTemplate().setClass("text", "wrap");	// multiline text
+//	obj.setHeaderHeight(32);
+//	obj.setColumnWidth(100, 1);
+
+/********************************************************************
+	header height
+********************************************************************/
+
+//	obj.setHeaderHeight(30);
+//	obj.setHeaderHeight(15, 1); // only second header row
+
+
+
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	F O O T E R S
+
+/////////////////////////////////////////////////////////////////////
+********************************************************************/
+
+//	obj.setFooterVisible(true);									// enable footer
+//	obj.setFooterText(["Total:", "100.00", "200.00", "300.00"]);// same as header
+
+//	obj.setFooterCount(2);
+//	obj.setFooterHeight(30, 0);	// height of the first footer row
+
+
+
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	C O L U M N S
+
+/////////////////////////////////////////////////////////////////////
+*********************************************************************
+	number of columns
+********************************************************************/
+
+	obj.setColumnCount(5);
+
+
+/********************************************************************
+	re-arrange columns
+********************************************************************/
+
+//	obj.setColumnIndices([0, 2, 3, 4]);		// hide column 1
+//	obj.setColumnIndices([4, 3, 2, 1, 0]);	// reverse order
+
+
+/********************************************************************
+	column width
+********************************************************************/
+
+//	obj.setColumnWidth([100, 250, 80, 80, 50]);	// ???? does not work
+//	obj.setColumnWidth(60, 0);	// set width of the column-0 to 60px
+
+
+
+
+
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	R O W S
+
+/////////////////////////////////////////////////////////////////////
+*********************************************************************
+	number of rows
+********************************************************************/
+
+	obj.setRowCount(20);
+
+
+/********************************************************************
+	re-arrange rows
+********************************************************************/
+
+//	obj.setRowIndices([0,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]);	// hide row 1
+//	obj.setRowIndices([19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1,0]);	// reverse order
+
+
+/********************************************************************
+	row height
+********************************************************************/
+
+//	obj.setRowHeight(50);
+
+
+
+
+
+
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	R O W   S E L E C T O R S
+
+/////////////////////////////////////////////////////////////////////
+********************************************************************/
+
+	obj.setSelectorVisible(true);
+//	obj.setSelectorResizable(true);
+//	obj.setSelectorWidth(25);
+	obj.setSelectorText(function(i){return this.getRowPosition(i)+1});
+
+
+
+
+
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	T O P / B O T T O M   L E F T   C O R N E R S
+
+/////////////////////////////////////////////////////////////////////
+********************************************************************/
+
+//	obj.setTopText("ID");
+//	obj.setTopImage("favorites");
+
+
+//	obj.setBottomText("=");			// !!! footer should be visible
+//	obj.setBottomImage("search");
+
+
+
+
+
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	C U R R E N T   C U R S O R   P O S I T I O N
+
+/////////////////////////////////////////////////////////////////////
+********************************************************************/
+
+//	obj.setCurrentColumn(1);
+//	obj.setCurrentRow(1);
+
+
+
+
+
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	S E L E C T I O N S
+
+/////////////////////////////////////////////////////////////////////
+********************************************************************/
+
+//	obj.setSelectionMode("single-cell");	// default
+//	obj.setSelectionMode("single-row");
+
+//	obj.setSelectedColumns([1, 2]);
+//	obj.setSelectedRows([1, 2, 3]);
+
+
+
+
+
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	S C R O L L
+
+/////////////////////////////////////////////////////////////////////
+********************************************************************/
+
+//	obj.setScrollLeft(30);
+//	obj.setScrollTop(50);
+
+
+	document.write(obj);
+</script>
+
+<script>
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	A C T I O N S / E V E N T S
+
+/////////////////////////////////////////////////////////////////////
+********************************************************************/
+
+/********************************************************************
+	mouse
+********************************************************************/
+
+//	obj.onControlClicked		= function(event){ window.status = "Control clicked"};
+//	obj.onControlDoubleClicked	= function(event){ window.status = "Control double clicked"};
+//	obj.onControlMouseOver		= function(event){ window.status = "Control mouse over"};
+//	obj.onControlMouseOut		= function(event){ window.status = "Control mouse out"};
+//	obj.onControlMouseDown		= function(event){ window.status = "Control mouse down"};
+//	obj.onControlMouseUp		= function(event){ window.status = "Control mouse up"};
+
+//	obj.onRowClicked 		= function(event, index){ window.status = "Row " + index + " clicked"};
+//	obj.onRowDoubleClicked	= function(event, index){ window.status = "Row " + index + " double clicked"};
+//	obj.onRowMouseOver		= function(event, index){ window.status = "Row " + index + " mouse over"};
+//	obj.onRowMouseOut		= function(event, index){ window.status = "Row " + index + " mouse out"};
+//	obj.onRowMouseDown		= function(event, index){ window.status = "Row " + index + " mouse down"};
+//	obj.onRowMouseUp		= function(event, index){ window.status = "Row " + index + " mouse up"};
+
+	obj.onCellClicked 		= function(event, column, row){ window.status = "Cell " + column + "." + row + " clicked"};
+	obj.onCellDoubleClicked	= function(event, column, row){ window.status = "Cell " + column + "." + row + " double clicked"};
+	obj.onCellMouseOver		= function(event, column, row){ window.status = "Cell " + column + "." + row + " mouse over"};
+	obj.onCellMouseOut		= function(event, column, row){ window.status = "Cell " + column + "." + row + " mouse out"};
+	obj.onCellMouseDown		= function(event, column, row){ window.status = "Cell " + column + "." + row + " mouse down"};
+	obj.onCellMouseUp		= function(event, column, row){ window.status = "Cell " + column + "." + row + " mouse up"};
+
+	obj.onHeaderClicked 		= function(event, index){ window.status = "Header " + index + " clicked"};
+	obj.onHeaderDoubleClicked	= function(event, index){ window.status = "Header " + index + " double clicked"};
+	obj.onHeaderMouseOver		= function(event, index){ window.status = "Header " + index + " mouse over"};
+	obj.onHeaderMouseOut		= function(event, index){ window.status = "Header " + index + " mouse out"};
+	obj.onHeaderMouseDown		= function(event, index){ window.status = "Header " + index + " mouse down"};
+	obj.onHeaderMouseUp			= function(event, index){ window.status = "Header " + index + " mouse up"};
+
+	obj.onFooterClicked 		= function(event, index){ window.status = "Footer " + index + " clicked"};
+	obj.onFooterDoubleClicked	= function(event, index){ window.status = "Footer " + index + " double clicked"};
+	obj.onFooterMouseOver		= function(event, index){ window.status = "Footer " + index + " mouse over"};
+	obj.onFooterMouseOut		= function(event, index){ window.status = "Footer " + index + " mouse out"};
+	obj.onFooterMouseDown		= function(event, index){ window.status = "Footer " + index + " mouse down"};
+	obj.onFooterMouseUp			= function(event, index){ window.status = "Footer " + index + " mouse up"};
+
+	obj.onSelectorClicked 		= function(event, index){ window.status = "Selector " + index + " clicked"};
+	obj.onSelectorDoubleClicked	= function(event, index){ window.status = "Selector " + index + " double clicked"};
+	obj.onSelectorMouseOver		= function(event, index){ window.status = "Selector " + index + " mouse over"};
+	obj.onSelectorMouseOut		= function(event, index){ window.status = "Selector " + index + " mouse out"};
+	obj.onSelectorMouseDown		= function(event, index){ window.status = "Selector " + index + " mouse down"};
+	obj.onSelectorMouseUp		= function(event, index){ window.status = "Selector " + index + " mouse up"};
+
+
+/********************************************************************
+	current cursor position (focus)
+********************************************************************/
+
+	obj.onCurrentColumnChanged = function(index){ window.status = "current column: " + index };
+//	obj.onCurrentRowChanged = function(index){ window.status = "current row: " + index };
+//	obj.onCurrentChanged = function(){ window.status = "current: " + this.getCurrentColumn() + " " + this.getCurrentRow()};
+
+
+/********************************************************************
+	selection
+********************************************************************/
+
+//	obj.onSelectedColumnsChanged = function(array){ window.status = "selected columns: " + array };
+//	obj.onSelectedRowsChanged = function(array){ window.status = "selected rows: " + array };
+//	obj.onSelectedChanged = function(){ window.status = "selected: " + this.getSelectedColumns() + " " + this.getSelectedRows()};
+
+
+/********************************************************************
+	scroll
+********************************************************************/
+
+//	obj.onScrollLeftChanged = function(value){ window.status = "scroll left: " + value };
+//	obj.onScrollTopChanged = function(value){ window.status = "scroll top: " + value };
+//	obj.onScrollChanged = function(){ window.status = "scroll: " + this.getScrollLeft() + " " + this.getScrollTop()};
+
+/********************************************************************
+	column width
+********************************************************************/
+
+//	obj.onColumnWidthChanged = function(value, index){ window.status = "column-" + index + " width: " + value };
+
+
+</script>
+
+
+<p></p>
+
+<script>
+
+	var button = new AW.UI.Button;
+	button.setControlText("Click me");
+	document.write(button);
+
+	button.onClick = function(){
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	R U N T I M E   D A T A
+
+/////////////////////////////////////////////////////////////////////
+********************************************************************/
+
+
+/********************************************************************
+	current cell, row, column
+********************************************************************/
+
+//	alert("current selection: " + obj.getCurrentSelection());
+//	alert("current column: " + obj.getCurrentColumn());
+//	alert("current row: " + obj.getCurrentRow());
+
+/********************************************************************
+	selections
+********************************************************************/
+
+//	alert("selected columns: " + obj.getSelectedColumns());
+//	alert("selected rows: " + obj.getSelectedRows());
+
+/********************************************************************
+	scroll
+********************************************************************/
+
+//	alert("horizontal scroll: " + obj.getScrollLeft());
+//	alert("vertical scroll: " + obj.getScrollTop());
+
+	obj.setScrollLeft(30);
+	obj.setScrollTop(50);
+
+	}
+
+
+</script>
+</body>
+</html>

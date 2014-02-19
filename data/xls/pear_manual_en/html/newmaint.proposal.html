@@ -1,0 +1,370 @@
+<HTML
+><HEAD
+><TITLE
+>The formal proposal process</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="New Maintainers' Guide"
+HREF="guide-newmaint.html"><LINK
+REL="PREVIOUS"
+TITLE="More written information"
+HREF="newmaint.getting-started.docs.html"><LINK
+REL="NEXT"
+TITLE="Step 2: Initiating a discussion"
+HREF="newmaint.proposal.step2.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="chapter"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="newmaint.getting-started.docs.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="newmaint.proposal.step2.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="chapter"
+><H1
+><A
+NAME="newmaint.proposal"
+>Chapter 10. The formal proposal process</A
+></H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="newmaint.proposal.html#newmaint.proposal.requirements"
+>Step 1: Requirements for a proposal</A
+></DT
+><DT
+><A
+HREF="newmaint.proposal.step2.html"
+>Step 2: Initiating a discussion</A
+></DT
+><DT
+><A
+HREF="newmaint.proposal.step3.html"
+>Step 3: Using PEPr</A
+></DT
+><DT
+><A
+HREF="newmaint.proposal.changing.html"
+>Changing a proposal</A
+></DT
+></DL
+></DIV
+><P
+>&#13;   In the early times of PEAR, all new packages were proposed by an
+   informal email to the <A
+HREF="mailto:pear-dev@lists.php.net"
+TARGET="_top"
+>PEAR
+   developers mailing list</A
+>. Over the time, the number of new
+   proposals increased quite dramatically, making it hard to keep track
+   of all the proposals.
+  </P
+><P
+>&#13;   A web-based proposal handling system was established to solve these
+   problems.  The system is called PEPr.  It is pronounced like the
+   spice and stands for <SPAN
+CLASS="QUOTE"
+>"<SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>PE</I
+></SPAN
+>AR
+   <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Pr</I
+></SPAN
+>oposal system"</SPAN
+>.
+  </P
+><P
+>&#13;   This chapter describes the requirements and the workflow for a
+   PEPr-based proposal. After that we will provide you with information,
+   on how to actually start a proposal. Finally, you will learn what to
+   do once the proposal is finished.
+  </P
+><P
+>&#13;   After reading this chapter, you will will be able to start a proposal
+   for your code right away.
+  </P
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="newmaint.proposal.requirements">Step 1: Requirements for a proposal</H1
+><P
+>&#13;    The following enumeration lists the most important things that need
+    to be done or be made available <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>before</I
+></SPAN
+> starting
+    a new proposal.
+   </P
+><P
+></P
+><UL
+><LI
+><P
+>&#13;      Finding a name for the package
+     </P
+><P
+>&#13;      It is obvious that each package needs to have a unique name. To
+      get a <SPAN
+CLASS="QUOTE"
+>"feeling"</SPAN
+> for proper package names, you should
+      browse the <A
+HREF="http://pear.php.net/packages.php"
+TARGET="_top"
+>list of existing
+      packages</A
+>.
+     </P
+><P
+>&#13;      Choosing a name for the package is an iterative process and it is
+      likely that you will change the name at a later stage of the
+      proposal process.
+     </P
+></LI
+><LI
+><P
+>&#13;      Finding a category for the package
+     </P
+><P
+>&#13;      Similar to each package having a unique name, it has to be placed
+      in one of the categories, which are listed in the <A
+HREF="http://pear.php.net/packages.php"
+TARGET="_top"
+>package browser</A
+> as well.
+     </P
+></LI
+><LI
+><P
+>&#13;      Writing a package description
+     </P
+><P
+>&#13;      For starting the proposal you will need to write a description of
+      the package.  This description does not need to mention every
+      detail of the package, but it should at least outline the basic
+      concept and feature set.  When your package has been accepted, you
+      will have to come up with a single-line summary and a fulltext
+      description.
+     </P
+></LI
+><LI
+><P
+>&#13;      Choosing a license for the package
+     </P
+><P
+>&#13;      Each package has to be licensed under an accepted OpenSource
+      license.  If you are unsure about the license, you should opt for
+      the <A
+HREF="http://www.php.net/license/"
+TARGET="_top"
+>PHP License</A
+>. The PEAR
+      Group has issued a <A
+HREF="http://pear.php.net/group/docs/20040402-la.php"
+TARGET="_top"
+>License
+      Announcement</A
+>, which provides further details concerning
+      this topic.
+     </P
+></LI
+><LI
+><P
+>&#13;      Writing examples and documentation
+     </P
+><P
+>&#13;      Without proper usage examples and documentation, neither will the
+      PEAR developers be able to evaluate your package nor will users be
+      able to make use of your package.
+     </P
+></LI
+><LI
+><P
+>&#13;      Listing dependencies
+     </P
+><P
+>&#13;      Making a list of dependencies basically means that you write down
+      all external entities such as other PEAR packages, certain
+      operating systems or external applications, which are required to
+      use your proposed package.
+     </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN1675"><P
+><B
+>Example 10-1. Example for a dependency list</B
+></P
+><P
+>&#13;       If your package does only work on Linux, requires the DB package,
+       version 1.8.4 or higher of the Log package and at least PHP
+       4.3.0, your dependency list looks like this:
+      </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Linux
+DB
+Log &#62;= 1.8.4
+PHP &#62;= 4.3.0</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></LI
+></UL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="newmaint.getting-started.docs.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="newmaint.proposal.step2.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>More written information</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="guide-newmaint.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Step 2: Initiating a discussion</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,325 @@
+<HTML
+><HEAD
+><TITLE
+>Installation</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Introduction and Features"
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.intro-and-features"><LINK
+REL="PREVIOUS"
+TITLE="FAQ"
+HREF="package.structures.structures-datagrid.faq.html"><LINK
+REL="NEXT"
+TITLE="Constants"
+HREF="packages.structures.structures-datagrid.constants.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.faq.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="packages.structures.structures-datagrid.constants.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.structures.structures-datagrid.installation">Installation</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN93682"
+></A
+>Installation&nbsp;--&nbsp;How to install the core and drivers packages</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN93685"
+></A
+><H2
+>Introduction</H2
+><P
+>If you are not familiar with PEAR, we recommend that you first read
+  the <A
+HREF="installation.html"
+>PEAR general installation instructions</A
+></P
+><P
+>Structures_DataGrid use <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>drivers that are provided
+  separately</I
+></SPAN
+>. It means that installing the core package named
+  <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>Structures_DataGrid</I
+></SPAN
+> is not enough to get something
+  working.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN93692"
+></A
+><H2
+>Installation steps</H2
+><P
+>You will at least need one 
+  <A
+HREF="package.structures.structures-datagrid.datasources.html"
+>&#13;   DataSource driver</A
+>, for handling the input,  
+  and one 
+  <A
+HREF="package.structures.structures-datagrid.rendering.html"
+>&#13;   Rendering driver</A
+> (or Renderer), for the output.</P
+><P
+>The following commands will install the core package, as well
+  as the MDB2 DataSource (for binding SQL queries), HTML_Table
+  Renderer and the Pager renderer (for paging links). That should
+  cover your most common needs.</P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>$ pear install -o Structures_DataGrid
+$ pear install -o Structures_DataGrid_DataSource_MDB2
+$ pear install -o Structures_DataGrid_Renderer_HTMLTable
+$ pear install -o Structures_DataGrid_Renderer_Pager</PRE
+></TD
+></TR
+></TABLE
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+    If you get an error message like <TT
+CLASS="computeroutput"
+>Failed to download
+    pear/Structures_DataGrid within preferred state "stable", latest release is
+    [...]</TT
+>, you can simply append <TT
+CLASS="userinput"
+><B
+>-beta</B
+></TT
+>
+    to the package name, for example:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>$ pear install -o Structures_DataGrid-beta</PRE
+></TD
+></TR
+></TABLE
+></BLOCKQUOTE
+></DIV
+><P
+>Of course, you may want to use other input/output formats, such
+  as XML, MS Excel, DB_DataObject, XUL, etc... Just install the corresponding
+  drivers.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN93705"
+></A
+><H2
+>Advanced installation</H2
+><P
+>&#13;    It is possible to install DataSource drivers or all Renderer drivers at once.
+    The following two commands will install Structures_DataGrid and either all
+    DataSource or all Renderer drivers at once.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>$ pear install Structures_DataGrid#datasources
+$ pear install Structures_DataGrid#renderers</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Please note that the individual drivers will be installed only if the
+    requirements are fulfilled. That means that the MDB2 DataSource won't be
+    installed if don't have MDB2 installed. The same holds for the Excel
+    Renderer if you don't have Spreadsheet_Excel_Writer installed.
+   </P
+><P
+>&#13;    Of course, the same holds for the uninstallation. For example:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>$ pear uninstall Structures_DataGrid#datasources
+$ pear uninstall Structures_DataGrid#renderers</PRE
+></TD
+></TR
+></TABLE
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+     Due to an unresolved bug in the PEAR installer up to version 1.4.11, the
+     uninstallation of one or more drivers may fail with the commands shown
+     above. In this case you need to uninstall the driver manually.
+    </P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.faq.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="packages.structures.structures-datagrid.constants.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>FAQ</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.intro-and-features"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Constants</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

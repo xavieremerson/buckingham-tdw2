@@ -1,0 +1,69 @@
+<HTML>
+<HEAD>
+<Title>Box-Whisker Chart</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">Box-Whisker Chart</p>
+<hr class="separator">
+<div class="content">
+<img src="images/boxwhisker.png">
+<br><br>
+A traditional box-whisker chart represent 5 data series using box-whisker symbols, where the 5 data series are maximum, 3rd quartile, median, 1st quartile and minimum of some quantities. The 3rd and 1st quartile values are represented as a box. The maximum, minimum and median values are represented as horizontal marks. There is a vertical line joining the maximum and minimum marks.<br><br>
+In ChartDirector, you may use any data quantities for the box-whisker layer. Also, the ChartDirector box-whisker layer can support more than 5 data series. Additional data series are represented as marks similar to the median mark. You can also leave out some data series.<br><br>
+For example, to create a floating box chart, you may supply only the 3rd and 1st quartile series and leave out the other three series. Similarly, you can create a chart with only the maximum and minimum marks and the vertical joining line by leaving out the 3rd quartile, median and 1st quartile values. The latter chart is useful to represent error range by inserting it under a line layer.
+</div>
+<p class="heading2">Source Code Listing</p>
+<div class="content">
+[File: phpdemo/boxwhisker.php]<br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp><?php
+include("phpchartdir.php");
+
+#Sample data for the Box-Whisker chart. Represents the minimum, 1st quartile,
+#medium, 3rd quartile and maximum values of some quantities
+$Q0Data = array(40, 45, 40, 30, 20, 50, 25, 44);
+$Q1Data = array(55, 60, 50, 40, 38, 60, 51, 60);
+$Q2Data = array(62, 70, 60, 50, 48, 70, 62, 70);
+$Q3Data = array(70, 80, 65, 60, 53, 78, 69, 76);
+$Q4Data = array(80, 90, 75, 70, 60, 85, 80, 84);
+
+#The labels for the chart
+$labels = array("Group A", "Group B", "Group C", "Group D", "Group E",
+    "Group F", "Group G", "Group H");
+
+#Create a XYChart object of size 550 x 250 pixels
+$c = new XYChart(550, 250);
+
+#Set the plotarea at (50, 25) and of size 450 x 200 pixels. Enable both
+#horizontal and vertical grids by setting their colors to grey (0xc0c0c0)
+$plotAreaObj = $c->setPlotArea(50, 25, 450, 200);
+$plotAreaObj->setGridColor(0xc0c0c0, 0xc0c0c0);
+
+#Add a title to the chart
+$c->addTitle("Computer Vision Test Scores");
+
+#Set the labels on the x axis and the font to Arial Bold
+$labelsObj = $c->xAxis->setLabels($labels);
+$labelsObj->setFontStyle("arialbd.ttf");
+
+#Set the font for the y axis labels to Arial Bold
+$c->yAxis->setLabelStyle("arialbd.ttf");
+
+#Add a Box Whisker layer using light blue 0x9999ff as the fill color and blue
+#(0xcc) as the line color. Set the line width to 2 pixels
+$boxWhiskerLayerObj = $c->addBoxWhiskerLayer($Q1Data, $Q3Data, $Q4Data, $Q0Data,
+    $Q2Data, 0x9999ff, 0xcc);
+$boxWhiskerLayerObj->setLineWidth(2);
+
+#output the chart
+header("Content-type: image/png");
+print($c->makeChart2(PNG));
+?></xmp>
+</td></tr></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div>
+</body>
+</HTML>

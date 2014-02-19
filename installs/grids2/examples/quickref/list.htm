@@ -1,0 +1,284 @@
+
+<html>
+<head>
+	<script src="../../runtime/lib/aw.js"></script>
+	<link href="../../runtime/styles/xp/aw.css" rel="stylesheet"></link>
+</head>
+<body>
+<style>
+
+/********************************************************************
+	List
+********************************************************************/
+
+	#myList {width: 120px; height: 150px;}
+
+/********************************************************************
+	Items
+********************************************************************/
+
+	#myList .aw-list-item {font-style: italic}
+
+
+	/*	Highlight on mouseover, mousedown */
+	#myList .aw-mouseover-item {background: #ccc;}
+	#myList .aw-mousedown-item {background: #999;}
+
+
+	/* Selected items */
+	#myList .aw-items-selected {background: #316ac5;}
+
+/*	each element has unique ID, check with Firefox DOM Inspector :-) */
+	#myList-item-1 {font-weight: bold}
+	#myList-item-2-box-text {border: 2px solid red; padding: 0px 10px}
+
+
+</style>
+
+<p style="font:menu">
+	see page source
+</p>
+
+<script>
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	Create list object
+
+/////////////////////////////////////////////////////////////////////
+********************************************************************/
+
+	var obj = new AW.UI.List;
+
+	obj.setId("myList");	// necessary for CSS rules
+
+
+/********************************************************************
+	List flow
+********************************************************************/
+
+	obj.setClass("flow", "vertical");	// top-to-bottom (default)
+
+//	obj.setClass("flow", "horizontal");	// left-to-right
+//	obj.setControlSize(400, 25);
+
+//	obj.setClass("flow", "inline");	// left-to-right, top-to-bottom
+//	obj.setControlSize(310, 100);
+
+
+
+/********************************************************************
+	Text layout
+********************************************************************/
+
+//	obj.setClass("text", "normal");	// hide overflow (ellipsis), default
+//	obj.setClass("text", "expand");	// expand horizontally to fit text
+//	obj.setClass("text", "wrap");	// multiline text
+
+
+/********************************************************************
+	Size and position
+********************************************************************/
+
+//	obj.setControlSize(100, 30);	// width, height
+//	obj.setControlPosition(10, 100);	// left, top - adds 'position:absolute'
+
+
+
+
+
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	I T E M S
+
+/////////////////////////////////////////////////////////////////////
+*********************************************************************
+	item text (js array)
+********************************************************************/
+
+	obj.setItemText(["Home", "Favorites", "Font size", "Search"]);
+
+
+/********************************************************************
+	item text (static value)
+********************************************************************/
+
+//	obj.setItemText("text");		// assign the same text to all items
+//	obj.setItemText("text", 1);		// item 1
+
+
+/********************************************************************
+	item text (function)
+********************************************************************/
+
+//	obj.setItemText(function(i){return i});				// function for all items
+//	obj.setItemText(function(){return new Date()}, 1);	// function for item 1
+
+
+/********************************************************************
+	item image (js array)
+********************************************************************/
+
+	obj.setItemImage(["home", "favorites", "fontsize", "search"]);
+
+
+/********************************************************************
+	item count
+********************************************************************/
+
+	obj.setItemCount(4);	// same as setViewCount()
+
+
+/********************************************************************
+	item templates
+********************************************************************/
+
+//	obj.setItemTemplate(new AW.Templates.Link);		// hyperlink template
+//	obj.setItemLink("http://www.google.com", 1);	// URL for item 1
+
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	V I E W
+
+/////////////////////////////////////////////////////////////////////
+*********************************************************************
+	View count (same as item count)
+********************************************************************/
+
+//	obj.setViewCount(4);	// by default view/count takes value from item/count
+
+
+/********************************************************************
+	Re-arrange items
+********************************************************************/
+
+//	obj.setViewIndices([0, 2, 3]);		// remove item 1
+//	obj.setViewIndices([3, 2, 1, 0]);	// reverse order
+
+
+
+
+
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	C U R R E N T   C U R S O R   P O S I T I O N
+
+/////////////////////////////////////////////////////////////////////
+********************************************************************/
+
+	obj.setCurrentItem(1);	// moves focus only, does not change selection
+
+
+
+
+
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	S E L E C T I O N S
+
+/////////////////////////////////////////////////////////////////////
+********************************************************************/
+
+//	obj.setSelectionMode("single");	// default
+	obj.setSelectionMode("multi");	// multiple selections
+
+//	obj.setSelectedItems([1, 2]);
+
+
+
+
+
+
+
+	document.write(obj);
+</script>
+
+<script>
+
+/********************************************************************
+/////////////////////////////////////////////////////////////////////
+
+	E V E N T S
+
+/////////////////////////////////////////////////////////////////////
+********************************************************************/
+
+/********************************************************************
+	mouse
+********************************************************************/
+
+//	obj.onControlClicked 		= function(event){ window.status = "Control clicked"};
+//	obj.onControlDoubleClicked 	= function(event){ window.status = "Control double clicked"};
+//	obj.onControlMouseOver 		= function(event){ window.status = "Control mouse over"};
+//	obj.onControlMouseOut 		= function(event){ window.status = "Control mouse out"};
+//	obj.onControlMouseDown 		= function(event){ window.status = "Control mouse down"};
+//	obj.onControlMouseUp 		= function(event){ window.status = "Control mouse up"};
+
+	obj.onItemClicked 		= function(event, index){ window.status = "Item " + index + " clicked"};
+	obj.onItemDoubleClicked	= function(event, index){ window.status = "Item " + index + " double clicked"};
+	obj.onItemMouseOver		= function(event, index){ window.status = "Item " + index + " mouse over"};
+	obj.onItemMouseOut		= function(event, index){ window.status = "Item " + index + " mouse out"};
+	obj.onItemMouseDown		= function(event, index){ window.status = "Item " + index + " mouse down"};
+	obj.onItemMouseUp		= function(event, index){ window.status = "Item " + index + " mouse up"};
+
+
+/********************************************************************
+	data
+********************************************************************/
+
+	obj.onItemTextChanged = function(text, index){ window.status = "item " + index + " text: " + text };
+	obj.onItemImageChanged = function(image, index){ window.status = "item " + index + " image: " + image };
+
+/********************************************************************
+	current cursor position (focus)
+********************************************************************/
+
+//	obj.onCurrentItemChanged = function(index){ window.status = "current item: " + index };
+
+
+/********************************************************************
+	selection
+********************************************************************/
+
+	obj.onSelectedItemsChanged = function(array){ window.status = "selected items: " + array };
+
+
+
+</script>
+
+
+<p></p>
+
+<script>
+
+	var button = new AW.UI.Button;
+	button.setControlText("Click me");
+	document.write(button);
+
+	button.onClick = function(){
+
+/********************************************************************
+	data
+********************************************************************/
+
+	alert("control text: " + obj.getItemText(1));
+	obj.setItemText("Some other text", 1);
+
+
+
+
+	}
+
+
+</script>
+</body>
+</html>

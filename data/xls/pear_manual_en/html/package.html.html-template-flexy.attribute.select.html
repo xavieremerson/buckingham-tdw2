@@ -1,0 +1,363 @@
+<HTML
+><HEAD
+><TITLE
+>&#60;SELECT NAME="name"&#62;</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_Flexy"
+HREF="package.html.html-template-flexy.html"><LINK
+REL="PREVIOUS"
+TITLE='<TEXTAREA NAME="name">'
+HREF="package.html.html-template-flexy.attribute.textarea.html"><LINK
+REL="NEXT"
+TITLE='flexy:if="variable or method()"'
+HREF="package.html.html-template-flexy.attribute.if.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.attribute.textarea.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-flexy.attribute.if.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-flexy.attribute.select">&#60;SELECT NAME="name"&#62;</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN69680"
+></A
+>&#60;SELECT NAME="name"&#62;&nbsp;--&nbsp;creates PHP variable and code for select lists</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN69683"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN69684"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     <B
+CLASS="function"
+>Usage</B
+></CODE
+> (&#60;SELECT NAME="name"&#62;)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.attribute.select.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      fills in the select  values based on the form name and the tag name
+      and adds code to check if the object variable matches them. If flexyignore is 
+      used, it is left alone. If static is set, the currently defined options will be used.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-flexy.attribute.select.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69695"><P
+><B
+>Example 41-1. Using an element to change a template.</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$form = new HTML_Template_Flexy();
+$form-&#62;compile('some_file_name');
+
+// create an instance (note you dont have to specify any details..)
+ 
+// select options
+$elements['test_select'] = new HTML_Template_Flexy_Element;
+$elements['test_select']-&#62;setOptions( array(
+  '123' =&#62; 'a select option',
+  '1234' =&#62; 'another select option'
+));
+$elements['test_select']-&#62;setValue('1234');
+
+ 
+$form-&#62;outputObject(new StdClass, $elements);
+
+// in the example below, the new data you have added is to the existing attributes</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69698"><P
+><B
+>Example 41-2. template example</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>&#60;BODY&#62;
+  &#60;FORM name="theform" flexy:ignoreonly="yes"&#62;
+       &#60;SELECT name="test_select"&#62;&#60;/SELECT&#62;
+   
+    
+  &#60;/FORM&#62;
+&#60;/BODY&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69701"><P
+><B
+>Example 41-3. compiled template</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;BODY&#62;
+  &#60;FORM name="theform"&#62;
+  
+    &#60;?php echo $this-&#62;elements['test_select']-&#62;toHtml();?&#62;
+    
+    
+  &#60;/FORM&#62;
+&#60;/BODY&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN69704"><P
+><B
+>Example 41-4. output from the Template</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>&#60;BODY&#62;
+  &#60;FORM name="theform"&#62;
+  
+    
+    &#60;SELECT name="test_select"&#62;
+      &#60;option value="123"&#62;a selection option&#60;/option&#62;
+      &#60;option value="1234" selected&#62;another selection option&#60;/option&#62;
+      
+    &#60;/SELECT&#62;
+    
+  &#60;/FORM&#62;
+&#60;/BODY&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.attribute.textarea.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.attribute.if.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&#60;TEXTAREA NAME="name"&#62;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-flexy.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>flexy:if="variable or method()"</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

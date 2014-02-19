@@ -1,0 +1,299 @@
+<HTML
+><HEAD
+><TITLE
+>Example</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML_Beautifier"
+HREF="package.xml.xml-beautifier.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.xml.xml-beautifier.intro.html"><LINK
+REL="NEXT"
+TITLE="Options"
+HREF="package.xml.xml-beautifier.options.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-beautifier.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-beautifier.options.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.xml.xml-beautifier.example">Example</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN102204"
+></A
+>Example&nbsp;--&nbsp;Example for the usage of XML_Beautifier</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.xml.xml-beautifier.example.example1"
+></A
+><H2
+>Basic example</H2
+><P
+>&#13;      Let's assume, you've got an XML document
+      that is really badly formatted:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;?xml version="1.0" encoding="ISO-8859-1"?&#62;
+&#60;!DOCTYPE page [
+    &#60;!ENTITY foo SYSTEM "foo.xml"&#62;
+    &#60;!ENTITY bar SYSTEM "bar.xml"&#62;
+]&#62;
+&#60;document title="Current News"&#62;
+&#60;meta project="none" foo="bar"&#62;
+    &#60;keywords/&#62;&#60;description/&#62;
+&#60;author&#62;Stephan Schmidt&#60;/author&#62;
+&#60;getMetaNav/&#62;
+&#60;/meta&#62;
+&#60;page label="PHP Application Tools" sublabel="Current News"&#62;
+&#60;?php
+    for($i = 0; $i &#60; count($_GET); $i++) {
+        echo    $_GET[$i]."&#60;br&#62;";
+    }
+?&#62;
+&#38;foo;&#38;bar;
+&#60;intro&#62;
+   &#60;!-- This Comment
+has more
+    than one line.
+                    --&#62;
+        &#60;introtitle&#62;Welcome to PHP
+Application Tools &#38;amp; PEAR!&#60;/introtitle&#62;
+&#60;para&#62;
+        If you're new to pat, and would like
+        &#60;!-- This is a comment in a single line that contains an &#38;amp; --&#62;
+         to know
+         
+         what we do
+         
+         here, take a look at
+         
+         &#60;link url=
+         "/about/project.xml"&#62;
+         "About Pat"&#60;/link&#62; 
+or
+check out the
+&#60;link url="/about/projectsOverview.xml"&#62;"projects overview"&#60;/link&#62;. Otherwise, you probably know your way 
+around
+the site already &#60;smiley type="smile"/&#62;
+&#60;/para&#62;
+                                            &#60;/intro&#62;
+&#60;/page&#62;
+&#60;/document&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    All you have to do is to use XML_Beautifier, pass the filename
+    of the original file and the filename for the new file:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "XML/Beautifier.php";
+$fmt = new XML_Beautifier();
+$result = $fmt-&#62;formatFile('originalFile.xml', 'beautifiedFile.xml');
+
+if (PEAR::isError($result)) {
+    echo $result-&#62;getMessage();
+    exit();
+}
+echo "File beautified, awaiting orders!&#60;br /&#62;";</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    And voila, your document looks nice:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;?xml version="1.0" encoding="ISO-8859-1"?&#62;
+&#60;!DOCTYPE page [
+    &#60;!ENTITY foo SYSTEM "foo.xml"&#62;
+    &#60;!ENTITY bar SYSTEM "bar.xml"&#62;
+]&#62;
+&#60;document title="Current News"&#62;
+    &#60;meta foo="bar" project="none"&#62;
+        &#60;keywords /&#62;
+        &#60;description /&#62;
+        &#60;author&#62;Stephan Schmidt&#60;/author&#62;
+        &#60;getMetaNav /&#62;
+    &#60;/meta&#62;
+    &#60;page label="PHP Application Tools" sublabel="Current News"&#62;
+        &#60;?php
+        for($i = 0; $i &#60; count($_GET); $i++) {
+                echo    $_GET[$i]."&#60;br&#62;";
+            }
+        ?&#62;
+        &#38;foo;
+        &#38;bar;
+        &#60;intro&#62;
+            &#60;!--
+                This Comment
+                has more
+                than one line.
+            --&#62;
+            &#60;introtitle&#62;Welcome to PHP Application Tools &#38;amp; PEAR!&#60;/introtitle&#62;
+            &#60;para&#62;
+                If you&#38;apos;re new to pat, and would like
+                &#60;!-- This is a comment in a single line that contains an &#38;amp; --&#62;
+                to know what we do here, take a look at
+                &#60;link url="/about/project.xml"&#62;&#38;quot;About Pat&#38;quot;&#60;/link&#62;
+                or check out the
+                &#60;link url="/about/projectsOverview.xml"&#62;&#38;quot;projects overview&#38;quot;&#60;/link&#62;
+                . Otherwise, you probably know your way around the site already
+                &#60;smiley type="smile" /&#62;
+            &#60;/para&#62;
+        &#60;/intro&#62;
+    &#60;/page&#62;
+&#60;/document&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-beautifier.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-beautifier.options.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.xml-beautifier.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Options</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

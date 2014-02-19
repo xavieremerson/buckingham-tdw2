@@ -1,0 +1,316 @@
+<HTML
+><HEAD
+><TITLE
+>Pager::getPageRangeByPageId</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Pager"
+HREF="package.html.pager.html"><LINK
+REL="PREVIOUS"
+TITLE="Pager::getPageIdByOffset"
+HREF="package.html.pager.getpageidbyoffset.html"><LINK
+REL="NEXT"
+TITLE="Pager::getPreviousPageID"
+HREF="package.html.pager.getpreviouspageid.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.pager.getpageidbyoffset.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.pager.getpreviouspageid.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.pager.getpagerangebypageid"><B
+CLASS="function"
+>Pager::getPageRangeByPageId()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN72974"
+></A
+><B
+CLASS="function"
+>Pager::getPageRangeByPageId()</B
+>&nbsp;--&nbsp;Returns offsets for given pageID.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN72978"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN72979"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Pager/Pager.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>Pager::getPageRangeByPageId</B
+></CODE
+> ([integer $pageid = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager.getpagerangebypageid.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      Given a PageId, it returns the limits of the range of pages displayed.
+      While <B
+CLASS="function"
+>getOffsetByPageId()</B
+> returns the offset of the data
+      within the current page, this method returns the offsets of the page numbers
+      interval.
+     </P
+><P
+>&#13;      E.g., in "Jumping" mode, if you have <TT
+CLASS="parameter"
+><I
+>pageId</I
+></TT
+>=3 and
+      <TT
+CLASS="parameter"
+><I
+>delta</I
+></TT
+>=10, it will return (1, 10).
+      <TT
+CLASS="parameter"
+><I
+>pageID</I
+></TT
+>=8 would give you (1, 10) as well, because
+      1 &#60;= 8 &#60;= 10.
+      <TT
+CLASS="parameter"
+><I
+>pageID</I
+></TT
+>=11 would give you (11, 20).
+     </P
+><P
+>&#13;      In "Sliding" mode, if you have <TT
+CLASS="parameter"
+><I
+>pageId</I
+></TT
+>=5 and
+      <TT
+CLASS="parameter"
+><I
+>delta</I
+></TT
+>=2, it will return (3, 7).
+      <TT
+CLASS="parameter"
+><I
+>pageID</I
+></TT
+> of 9 would give you (4, 8).
+     </P
+><P
+>&#13;      if the method is called
+      without parameter, <TT
+CLASS="parameter"
+><I
+>pageID</I
+></TT
+> is set to currentPage number
+     </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager.getpagerangebypageid.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>integer $pageid</I
+></TT
+> - PageID to get offsets for
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager.getpagerangebypageid.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>return</I
+></SPAN
+> array with first and last offsets
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.pager.getpageidbyoffset.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.pager.getpreviouspageid.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>Pager::getPageIdByOffset()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.pager.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>Pager::getPreviousPageID()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

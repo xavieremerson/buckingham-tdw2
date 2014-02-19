@@ -1,0 +1,286 @@
+<HTML
+><HEAD
+><TITLE
+>XML_Util</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="XML"
+HREF="package.xml.html"><LINK
+REL="PREVIOUS"
+TITLE="XML_Tree::registerName"
+HREF="package.xml.xml-tree.xml-tree.registername.html"><LINK
+REL="NEXT"
+TITLE="Introduction"
+HREF="package.xml.xml-util.intro.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-tree.xml-tree.registername.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 61. XML</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.xml.xml-util.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.xml.xml-util">XML_Util</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.xml.xml-util.intro.html"
+>Introduction</A
+>&nbsp;--&nbsp;Introduction to XML_Util</DT
+><DT
+><A
+HREF="package.xml.xml-util.example.html"
+>Example</A
+>&nbsp;--&nbsp;Example for the usage of XML_Util</DT
+><DT
+><A
+HREF="package.xml.xml-util.xml-util.apiversion.html"
+><B
+CLASS="function"
+>XML_Util::apiVersion()</B
+></A
+>&nbsp;--&nbsp;return API version</DT
+><DT
+><A
+HREF="package.xml.xml-util.xml-util.attributestostring.html"
+><B
+CLASS="function"
+>XML_Util::attributesToString()</B
+></A
+>&nbsp;--&nbsp;create XML attribute string</DT
+><DT
+><A
+HREF="package.xml.xml-util.xml-util.collapseemptytags.html"
+><B
+CLASS="function"
+>XML_Util::collapseEmptyTags()</B
+></A
+>&nbsp;--&nbsp;collapse empty XML tags in a string</DT
+><DT
+><A
+HREF="package.xml.xml-util.xml-util.createtag.html"
+><B
+CLASS="function"
+>XML_Util::createTag()</B
+></A
+>&nbsp;--&nbsp;create a tag</DT
+><DT
+><A
+HREF="package.xml.xml-util.xml-util.createtagfromarray.html"
+><B
+CLASS="function"
+>XML_Util::createTagFromArray()</B
+></A
+>&nbsp;--&nbsp;create a tag from an array</DT
+><DT
+><A
+HREF="package.xml.xml-util.xml-util.createstartelement.html"
+><B
+CLASS="function"
+>XML_Util::createStartElement()</B
+></A
+>&nbsp;--&nbsp;create a start element</DT
+><DT
+><A
+HREF="package.xml.xml-util.xml-util.createendelement.html"
+><B
+CLASS="function"
+>XML_Util::createEndElement()</B
+></A
+>&nbsp;--&nbsp;create an end element</DT
+><DT
+><A
+HREF="package.xml.xml-util.xml-util.createcdatasection.html"
+><B
+CLASS="function"
+>XML_Util::createCDataSection()</B
+></A
+>&nbsp;--&nbsp;create a CData section</DT
+><DT
+><A
+HREF="package.xml.xml-util.xml-util.createcomment.html"
+><B
+CLASS="function"
+>XML_Util::createComment()</B
+></A
+>&nbsp;--&nbsp;create an XML comment</DT
+><DT
+><A
+HREF="package.xml.xml-util.xml-util.getdoctypedeclaration.html"
+><B
+CLASS="function"
+>XML_Util::getDocTypeDeclaration()</B
+></A
+>&nbsp;--&nbsp;build a document type declaration</DT
+><DT
+><A
+HREF="package.xml.xml-util.xml-util.getxmldeclaration.html"
+><B
+CLASS="function"
+>XML_Util::getXMLDeclaration()</B
+></A
+>&nbsp;--&nbsp;build an xml declaration</DT
+><DT
+><A
+HREF="package.xml.xml-util.xml-util.isvalidname.html"
+><B
+CLASS="function"
+>XML_Util::isValidName()</B
+></A
+>&nbsp;--&nbsp;verify an XML name</DT
+><DT
+><A
+HREF="package.xml.xml-util.xml-util.replaceentities.html"
+><B
+CLASS="function"
+>XML_Util::replaceEntities()</B
+></A
+>&nbsp;--&nbsp;replace XML entities</DT
+><DT
+><A
+HREF="package.xml.xml-util.xml-util.reverseentities.html"
+><B
+CLASS="function"
+>XML_Util::reverseEntities()</B
+></A
+>&nbsp;--&nbsp;replace XML entities</DT
+><DT
+><A
+HREF="package.xml.xml-util.xml-util.splitqualifiedname.html"
+><B
+CLASS="function"
+>XML_Util::splitQualifiedName()</B
+></A
+>&nbsp;--&nbsp;split qualified name</DT
+></DL
+></DIV
+><P
+>&#13;  Collection of often needed methods that help you creating XML documents.
+ </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.xml.xml-tree.xml-tree.registername.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.xml.xml-util.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>XML_Tree::registerName</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.xml.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

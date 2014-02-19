@@ -1,0 +1,289 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;   PEAR_ErrorStack::setErrorMessageTemplate
+  </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Intelligent Error Handling with PEAR_ErrorStack"
+HREF="core.pear.pear-errorstack.html"><LINK
+REL="PREVIOUS"
+TITLE="
+   PEAR_ErrorStack::setDefaultLogger
+  "
+HREF="core.pear.pear-errorstack.setdefaultlogger.html"><LINK
+REL="NEXT"
+TITLE="
+   PEAR_ErrorStack::setLogger
+  "
+HREF="core.pear.pear-errorstack.setlogger.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.pear.pear-errorstack.setdefaultlogger.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.pear.pear-errorstack.setlogger.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.pear.pear-errorstack.seterrormessagetemplate"><B
+CLASS="function"
+>PEAR_ErrorStack::setErrorMessageTemplate()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN5783"
+></A
+>
+   <B
+CLASS="function"
+>PEAR_ErrorStack::setErrorMessageTemplate()</B
+>
+  &nbsp;--&nbsp;Set the Error Message Template array</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN5787"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN5788"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'PEAR/ErrorStack.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     string      
+     <B
+CLASS="function"
+>PEAR_ErrorStack::setErrorMessageTemplate</B
+>
+    </CODE
+> (mixed 
+     $template)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear-errorstack.seterrormessagetemplate.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   The array format must be:  
+    array(error code =&#62; 'message template',...)
+  </P
+><P
+>&#13;   Error message parameters passed into 
+   <A
+HREF="core.pear.pear-errorstack.push.html"
+>&#13;    <B
+CLASS="function"
+>push()</B
+>
+   </A
+>
+   will be used as input  for the error message.  
+   
+   If the template is 'message %foo% was %bar%', 
+   and the parameters are 
+   array('foo' =&#62; 'one', 
+   'bar' =&#62; 'six'), 
+   the error message returned will  be 
+   'message one was six'
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear-errorstack.seterrormessagetemplate.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>mixed
+      <TT
+CLASS="parameter"
+><I
+>$template</I
+></TT
+></DT
+><DD
+><P
+>&#13;       
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear-errorstack.seterrormessagetemplate.throws"
+></A
+><H2
+>Throws</H2
+><P
+>No exceptions thrown.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear-errorstack.seterrormessagetemplate.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.pear.pear-errorstack.setdefaultlogger.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.pear.pear-errorstack.setlogger.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_ErrorStack::setDefaultLogger()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.pear.pear-errorstack.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_ErrorStack::setLogger()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

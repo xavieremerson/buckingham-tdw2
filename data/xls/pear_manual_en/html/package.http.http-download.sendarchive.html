@@ -1,0 +1,379 @@
+<HTML
+><HEAD
+><TITLE
+>HTTP_Download::sendArchive</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTTP_Download"
+HREF="package.http.http-download.html"><LINK
+REL="PREVIOUS"
+TITLE="HTTP_Download::staticSend"
+HREF="package.http.http-download.staticsend.html"><LINK
+REL="NEXT"
+TITLE="HTTP_Request"
+HREF="package.http.http-request.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.http.http-download.staticsend.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.http.http-request.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.http.http-download.sendarchive"><B
+CLASS="function"
+>HTTP_Download::sendArchive()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN75516"
+></A
+><B
+CLASS="function"
+>HTTP_Download::sendArchive()</B
+>&nbsp;--&nbsp;
+   Send an archive created on the fly
+  </DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN75520"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN75521"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     mixed
+     <B
+CLASS="function"
+>HTTP_Download::sendArchive</B
+>
+    </CODE
+> (string
+     $name, mixed
+     $files, string
+     [$type = HTTP_DOWNLOAD_TGZ], string
+     [$add_path = ''], string
+     [$strip_path = ''])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.sendarchive.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Send an archive created on the fly by 
+   <A
+HREF="package.filesystem.archive-tar.html"
+>&#13;    <B
+CLASS="classname"
+>Archive_Tar</B
+>
+   </A
+> or <B
+CLASS="classname"
+>Archive_Zip</B
+>.
+  </P
+><P
+>&#13;   The parameter <TT
+CLASS="varname"
+>$files</TT
+> can be an array of files/directories
+   or a space separated string of files/directories which should be packed
+   to an archive.
+  </P
+><P
+>&#13;   The parameter <TT
+CLASS="varname"
+>$type</TT
+> can be one of
+   <TT
+CLASS="constant"
+><B
+>HTTP_DOWNLOAD_TAR</B
+></TT
+>,
+   <TT
+CLASS="constant"
+><B
+>HTTP_DOWNLOAD_TGZ</B
+></TT
+>,
+   <TT
+CLASS="constant"
+><B
+>HTTP_DOWNLOAD_BZ2</B
+></TT
+> and
+   <TT
+CLASS="constant"
+><B
+>HTTP_DOWNLOAD_ZIP</B
+></TT
+>.
+  </P
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+    The usage of this method is deprecated.
+
+    Use <B
+CLASS="function"
+>HTTP_Download_Archive::send()</B
+> instead.
+   </P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.sendarchive.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      string 
+      <TT
+CLASS="parameter"
+><I
+>$name</I
+></TT
+>
+      - the name the archive should have
+     </P
+></LI
+><LI
+><P
+>&#13;      mixed
+      <TT
+CLASS="parameter"
+><I
+>$files</I
+></TT
+>
+      - list of files/directories
+     </P
+></LI
+><LI
+><P
+>&#13;      string
+      <TT
+CLASS="parameter"
+><I
+>&#13;       [$type = <TT
+CLASS="constant"
+><B
+>HTTP_DOWNLOAD_TGZ</B
+></TT
+>]
+      </I
+></TT
+>
+      - the format of the archive (TAR, TGZ, BZ2 or ZIP)
+     </P
+></LI
+><LI
+><P
+>&#13;     string
+     <TT
+CLASS="parameter"
+><I
+>&#13;      [$add_path = '']
+     </I
+></TT
+>
+     - path that should be prepended to the files
+     </P
+></LI
+><LI
+><P
+>&#13;     string
+     <TT
+CLASS="parameter"
+><I
+>&#13;      [$strip_path = '']
+     </I
+></TT
+>
+     - path that should be stripped from the files
+     </P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.sendarchive.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   Returns <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> on success,
+<B
+CLASS="classname"
+>PEAR_Error</B
+> on failure.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.http.http-download.sendarchive.note"
+></A
+><H2
+>Note</H2
+><P
+>This function should be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.http.http-download.staticsend.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.http.http-request.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>HTTP_Download::staticSend()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.http.http-download.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTTP_Request</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

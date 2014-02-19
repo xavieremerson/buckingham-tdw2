@@ -1,0 +1,312 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR_PackageUpdate::factory</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR_PackageUpdate"
+HREF="package.pear.pear-packageupdate.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction to PEAR_PackageUpdate"
+HREF="package.pear.pear-packageupdate.pear-packageupdate-summary.html"><LINK
+REL="NEXT"
+TITLE="PEAR_PackageUpdate::isIncludable"
+HREF="package.pear.pear-packageupdate.pear-packageupdate.isincludable.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.pear.pear-packageupdate.pear-packageupdate-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.pear.pear-packageupdate.pear-packageupdate.isincludable.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.pear.pear-packageupdate.pear-packageupdate.factory">PEAR_PackageUpdate::factory</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN92455"
+></A
+>PEAR_PackageUpdate::factory&nbsp;--&nbsp;
+   Factory method for createing PEAR_PackageUpdate frontend instances.
+  </DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN92458"><H2
+>Synopsis</H2
+><FONT
+COLOR="RED"
+><FONT
+COLOR="RED"
+>public</FONT
+>mixed<TT
+CLASS="methodname"
+>PEAR_PackageUpdate::factory</TT
+><FONT
+COLOR="RED"
+>string<TT
+CLASS="parameter"
+><I
+>$driver</I
+></TT
+></FONT
+><FONT
+COLOR="RED"
+>string<TT
+CLASS="parameter"
+><I
+>$packageName</I
+></TT
+></FONT
+><FONT
+COLOR="RED"
+>string<TT
+CLASS="parameter"
+><I
+>$channel</I
+></TT
+></FONT
+></FONT
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packageupdate.pear-packageupdate.factory.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Factory method for creating PEAR_PackageUpdate frontend instances.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packageupdate.pear-packageupdate.factory.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string <TT
+CLASS="parameter"
+><I
+>$driver</I
+></TT
+></DT
+><DD
+><P
+>&#13;       The name of a frontend driver class. Must be one of
+       <TT
+CLASS="literal"
+>Gtk2</TT
+>, <TT
+CLASS="literal"
+>CLI</TT
+>, or
+       <TT
+CLASS="literal"
+>Web</TT
+>.
+      </P
+></DD
+><DT
+>string <TT
+CLASS="parameter"
+><I
+>$packageName</I
+></TT
+></DT
+><DD
+><P
+>&#13;       The name of the package to be updated. Example:
+       <B
+CLASS="classname"
+>PEAR_PackageFileManager_Web</B
+>.
+      </P
+></DD
+><DT
+>string <TT
+CLASS="parameter"
+><I
+>$driver</I
+></TT
+></DT
+><DD
+><P
+>&#13;       The name of the channel <TT
+CLASS="parameter"
+><I
+>$packageName</I
+></TT
+> is hosted
+       on. This may be a fully qualified channel name such as
+       <TT
+CLASS="literal"
+>pear.php.net</TT
+> or a short channel name like
+       <TT
+CLASS="literal"
+>pear</TT
+>.
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packageupdate.pear-packageupdate.factory.note"
+></A
+><H2
+>Note</H2
+><P
+>This function should be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packageupdate.pear-packageupdate.factory.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   mixed - reference to a new object or  <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> when
+   if the object could not be created (i.e. invalid driver name).
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.pear.pear-packageupdate.pear-packageupdate-summary.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.pear.pear-packageupdate.pear-packageupdate.isincludable.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction to <B
+CLASS="classname"
+>PEAR_PackageUpdate</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.pear.pear-packageupdate.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>PEAR_PackageUpdate::isIncludable</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

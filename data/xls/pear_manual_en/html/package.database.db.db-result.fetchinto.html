@@ -1,0 +1,434 @@
+<HTML
+><HEAD
+><TITLE
+>DB_result::fetchInto()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="DB_result"
+HREF="package.database.db.db-result.html"><LINK
+REL="NEXT"
+TITLE="DB_result::fetchRow()"
+HREF="package.database.db.db-result.fetchrow.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-result.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-result.fetchrow.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.db-result.fetchinto">DB_result::fetchInto()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN25213"
+></A
+>DB_result::fetchInto()&nbsp;--&nbsp;Fetches a row of a result set into a variable</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN25216"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN25217"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>integer <B
+CLASS="function"
+>fetchInto</B
+></CODE
+> (array &#38;$arr [, integer $fetchMode =
+      <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_DEFAULT</B
+></TT
+> [, integer $rowNum = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-result.fetchinto.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Places a row of data from a result set
+   into a variable you provide
+   then moves the result pointer to the next row.
+   The data can be formatted as an array or an object.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-result.fetchinto.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>mixed
+      <TT
+CLASS="parameter"
+><I
+>$arr</I
+></TT
+></DT
+><DD
+><P
+>&#13;       reference to a variable
+       to contain the row
+      </P
+></DD
+><DT
+>integer
+      <TT
+CLASS="parameter"
+><I
+>$fetchMode</I
+></TT
+></DT
+><DD
+><P
+>&#13;       the fetch mode to use.
+       The default is <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_DEFAULT</B
+></TT
+>,
+       which tells this method to use DB's current fetch mode.
+       DB's current default fetch mode can be changed using
+       <A
+HREF="package.database.db.db-common.setfetchmode.html"
+>&#13;        <B
+CLASS="function"
+>setFetchMode()</B
+></A
+>.
+       Potential values include:
+       <P
+></P
+><UL
+><LI
+><P
+>&#13;          <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ORDERED</B
+></TT
+>
+         </P
+></LI
+><LI
+><P
+>&#13;          <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ASSOC</B
+></TT
+>
+         </P
+></LI
+><LI
+><P
+>&#13;          <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_OBJECT</B
+></TT
+>
+         </P
+></LI
+></UL
+>
+      </P
+></DD
+><DT
+>integer
+      <TT
+CLASS="parameter"
+><I
+>$rowNum</I
+></TT
+></DT
+><DD
+><P
+>&#13;       the row number to fetch.
+       Note that 0 returns the first row, 1 returns the second row, etc.
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-result.fetchinto.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   integer - <A
+HREF="package.database.db.db-error.html"
+><TT
+CLASS="constant"
+><B
+>DB_OK</B
+></TT
+></A
+> if a row is processed,
+   <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+> when the end of the result set is reached
+   or a <A
+HREF="package.database.db.db-error.html"
+><B
+CLASS="classname"
+>DB_Error</B
+></A
+> object on failure
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-result.fetchinto.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-result.fetchinto.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN25283"><P
+><B
+>Example 33-1. Using <B
+CLASS="function"
+>fetchInto()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$res =&#38; $db-&#62;query('SELECT * FROM mytable');
+while ($res-&#62;fetchInto($row)) {
+    // Assuming DB's default fetchmode is
+    // DB_FETCHMODE_ORDERED
+    echo $row[0] . "\n";
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-result.fetchinto.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="package.database.db.intro-fetch.html"
+>&#13;    <SPAN
+CLASS="QUOTE"
+>"Intro - Results"</SPAN
+></A
+>,
+   <A
+HREF="package.database.db.db-common.setfetchmode.html"
+>&#13;    <B
+CLASS="function"
+>setFetchMode()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-result.fetchrow.html"
+>&#13;    <B
+CLASS="function"
+>fetchRow()</B
+></A
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.db-result.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.db-result.fetchrow.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="classname"
+>DB_result</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>DB_result::fetchRow()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

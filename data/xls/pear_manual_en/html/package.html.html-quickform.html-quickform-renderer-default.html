@@ -1,0 +1,250 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_QuickForm_Renderer_Default</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Basic renderers"
+HREF="package.html.html-quickform.html#package.html.html-quickform.output.basic-renderers"><LINK
+REL="PREVIOUS"
+TITLE="Introduction - renderers"
+HREF="package.html.html-quickform.intro-renderers.html"><LINK
+REL="NEXT"
+TITLE="HTML_QuickForm_Renderer_Default::clearAllTemplates()"
+HREF="package.html.html-quickform.html-quickform-renderer-default.clearalltemplates.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.intro-renderers.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-default.clearalltemplates.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.html-quickform-renderer-default"><B
+CLASS="classname"
+>HTML_QuickForm_Renderer_Default</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN64106"
+></A
+><B
+CLASS="classname"
+>HTML_QuickForm_Renderer_Default</B
+>&nbsp;--&nbsp;Default renderer</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-renderer-default.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;This renderer directly generates and outputs form HTML. It is based on pre-3.0 built-in
+form output logic.
+    </P
+><P
+>&#13;The renderer has built-in templates for elements, their format is similar to that of
+<A
+HREF="package.html.html-template-sigma.intro-syntax.html"
+><B
+CLASS="classname"
+>HTML_Template_Sigma</B
+></A
+>
+or <B
+CLASS="classname"
+>HTML_Template_IT</B
+> (but only placeholders and blocks are supported). When renderer's
+<B
+CLASS="function"
+>renderSomething()</B
+> method is called, it finds the template for the element, makes necessary
+substitutions and appends the result to the form's HTML.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-renderer-default.usage"
+></A
+><H2
+>Usage example</H2
+><P
+>&#13;      It is recommended to use the Default renderer when you are not using any template
+      engine in your application or do not need to do any customization to form output. It is
+      the fastest way to output a form.
+    <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN64121"><P
+><B
+>Example 41-1. Default renderer usage</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'HTML/QuickForm/Renderer/Default.php';
+
+$renderer =&#38; new HTML_QuickForm_Renderer_Default();
+$form-&#62;accept($renderer);
+
+echo $renderer-&#62;toHtml();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    </P
+><DIV
+CLASS="tip"
+><BLOCKQUOTE
+CLASS="tip"
+><P
+><B
+>Tip: </B
+><B
+CLASS="function"
+>HTML_QuickForm::toHtml()</B
+> method uses the Default renderer internally.</P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.intro-renderers.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-renderer-default.clearalltemplates.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction - renderers</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.output.basic-renderers"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_QuickForm_Renderer_Default::clearAllTemplates()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

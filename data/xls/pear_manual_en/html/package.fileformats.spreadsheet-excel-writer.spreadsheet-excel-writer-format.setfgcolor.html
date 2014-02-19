@@ -1,0 +1,452 @@
+<HTML
+><HEAD
+><TITLE
+>Format::setFgColor</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Spreadsheet_Excel_Writer"
+HREF="package.fileformats.spreadsheet-excel-writer.html"><LINK
+REL="PREVIOUS"
+TITLE="Format::setRightColor"
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setrightcolor.html"><LINK
+REL="NEXT"
+TITLE="Format::setBgColor"
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setbgcolor.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setrightcolor.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setbgcolor.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setfgcolor">Format::setFgColor</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN44617"
+></A
+>Format::setFgColor&nbsp;--&nbsp;Sets the cell's foreground color</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN44620"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN44621"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once "Spreadsheet/Excel/Writer.php";</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>Format::setFgColor</B
+></CODE
+> (mixed $color)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setfgcolor.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Sets the cell's <SPAN
+CLASS="QUOTE"
+>"foreground color"</SPAN
+>.
+    </P
+><P
+>&#13;     The term <SPAN
+CLASS="QUOTE"
+>"foreground color"</SPAN
+> is misleading.
+     Here, <SPAN
+CLASS="QUOTE"
+>"foreground"</SPAN
+> means the top layer of a cell's background.
+     To set the color of a cell's contents, use the
+     <A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setcolor.html"
+>&#13;      <B
+CLASS="function"
+>setColor()</B
+></A
+> method.
+    </P
+><P
+>&#13;     The color actually seen may depend on
+     the <A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setpattern.html"
+>&#13;      pattern</A
+> and
+     <A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setbgcolor.html"
+>&#13;      background color</A
+> being used.
+    </P
+><P
+>&#13;     The example entitled
+     <SPAN
+CLASS="QUOTE"
+>"<A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setpattern.html#package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setpattern.example.interact"
+>How
+      background and foreground colors interact with patterns</A
+>"</SPAN
+>
+     is very helpful.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setfgcolor.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>mixed $color</I
+></TT
+> -
+        either a string (like 'blue'), or an integer (range is [8...63]).
+       </P
+><P
+>&#13;        See the <SPAN
+CLASS="QUOTE"
+>"Using colors"</SPAN
+> section,
+        below, for more information.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setfgcolor.colors"
+></A
+><H2
+>Using colors</H2
+><P
+>&#13;      The following colors can be defined by name:
+      <TT
+CLASS="literal"
+>black</TT
+>, <TT
+CLASS="literal"
+>white</TT
+>,
+      <TT
+CLASS="literal"
+>red</TT
+>, <TT
+CLASS="literal"
+>green</TT
+>,
+      <TT
+CLASS="literal"
+>blue</TT
+>, <TT
+CLASS="literal"
+>yellow</TT
+>,
+      <TT
+CLASS="literal"
+>magenta</TT
+> and <TT
+CLASS="literal"
+>cyan</TT
+>.
+    </P
+><P
+>&#13;      To learn what the other indexed colors look like, read
+      <A
+HREF="http://www.mvps.org/dmcritchie/excel/colors.htm"
+TARGET="_top"
+>&#13;       <I
+CLASS="citetitle"
+>Color Palette and the 56 Excel
+       ColorIndex Colors</I
+></A
+>.
+      Beware that the color indexes listed there are displaced by 1
+      with respect to those used by
+      <B
+CLASS="classname"
+>Spreadsheet_Excel_Writer</B
+>.
+    </P
+><P
+>&#13;     If the predifined colors don't meet your requirements,
+     use the <A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-workbook.setcustomcolor.html"
+>&#13;      <B
+CLASS="function"
+>setCustomColor()</B
+></A
+> method.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setfgcolor.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+></P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setfgcolor.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN44679"><P
+><B
+>Example 37-1. Using <B
+CLASS="function"
+>setFgColor()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Spreadsheet/Excel/Writer.php';
+
+$workbook = new Spreadsheet_Excel_Writer();
+$worksheet =&#38; $workbook-&#62;addWorksheet();
+
+// "regular" green
+$format_regular_green =&#38; $workbook-&#62;addFormat();
+$format_regular_green-&#62;setFgColor('green');
+
+// "special" green
+$format_special_green =&#38; $workbook-&#62;addFormat();
+$format_special_green-&#62;setFgColor(11);
+
+// our green (overwriting color on index 12)
+$workbook-&#62;setCustomColor(12, 10, 200, 10);
+$format_our_green =&#38; $workbook-&#62;addFormat();
+$format_our_green-&#62;setFgColor(12);
+
+$worksheet-&#62;setColumn(0, 0, 30);
+
+$worksheet-&#62;write(0, 0, "Regular green", $format_regular_green);
+$worksheet-&#62;write(1, 0, "Special green (index 11)", $format_special_green);
+$worksheet-&#62;write(2, 0, "Our green", $format_our_green);
+
+$workbook-&#62;send('setFgColor.xls');
+$workbook-&#62;close();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setfgcolor.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setbgcolor.html"
+>&#13;    <B
+CLASS="function"
+>setBgColor()</B
+></A
+>,
+   <A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setpattern.html"
+>&#13;    <B
+CLASS="function"
+>setPattern()</B
+></A
+>,
+   <A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setcolor.html"
+>&#13;    <B
+CLASS="function"
+>setColor()</B
+></A
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setrightcolor.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setbgcolor.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Format::setRightColor</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Format::setBgColor</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

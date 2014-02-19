@@ -1,0 +1,327 @@
+<HTML
+><HEAD
+><TITLE
+>Structures_DataGrid_DataSource_MDB2</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DataSource drivers"
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.structures-datagrid-datasource"><LINK
+REL="PREVIOUS"
+TITLE="Structures_DataGrid_DataSource_DBTable"
+HREF="package.structures.structures-datagrid.structures-datagrid-datasource.dbtable.html"><LINK
+REL="NEXT"
+TITLE="Structures_DataGrid_DataSource_RSS"
+HREF="package.structures.structures-datagrid.structures-datagrid-datasource.rss.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-datasource.dbtable.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-datasource.rss.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid-datasource.mdb2">Structures_DataGrid_DataSource_MDB2</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN96238"
+></A
+>Structures_DataGrid_DataSource_MDB2&nbsp;--&nbsp;PEAR::MDB2 SQL Query Data Source Driver</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid-datasource.mdb2.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   This class is a data source driver for the PEAR::MDB2 object
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid-datasource.mdb2.options"
+></A
+><H2
+>Options</H2
+><P
+>&#13;   This driver accepts the following options:
+  </P
+><DIV
+CLASS="table"
+><A
+NAME="AEN96247"><P
+><B
+>Table 55-1. Options for this driver</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Option</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Type</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Default Value</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>dbc</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>object</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>A PEAR::MDB2 instance that will be used by this driver. Either
+       this or the 'dsn' option is required.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>dsn</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>string</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>A PEAR::MDB2 dsn string. The MDB2 connection will be established
+       by this driver. Either this or the 'dbc' option is required.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>fields</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Which data fields to fetch from the datasource. An empty array
+       means: all fields. Form: array(field1, field2, ...)</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array()</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>generate_columns</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>bool</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Generate Structures_DataGrid_Column objects with labels. See the
+       'labels' option.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>false</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>labels</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Data field to column label mapping. Only used when
+       'generate_columns' is true. Form: array(field =&#62; label, ...)</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>array()</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid-datasource.mdb2.notes"
+></A
+><H2
+>General notes</H2
+><P
+>&#13;   You need to specify either a MDB2 instance or a MDB2 compatible dsn string as
+   an option to use this driver.
+  </P
+><P
+>   
+   If you use complex queries (e.g. with complex joins or with aliases),
+   $datagrid-&#62;getRecordCount() might return a wrong result. For the case of
+   GROUP BY or DISTINCT in your queries, this driver already has special
+   handling. However, if you observe wrong record counts, you need to specify
+   a special query that returns only the number of records (e.g. 'SELECT COUNT(*)
+   FROM ...') as an additional option 'count_query' to the bind() call.
+  </P
+><P
+>   
+   You can specify a ORDER BY statement in your query. Please be aware that this
+   sorting statement is then used in *every* query before the sorting options
+   that come from a renderer (e.g. by clicking on the column header when using
+   the HTML_Table renderer which is sent in the HTTP request).
+   If you want to give a default sorting statement that is only used if there is
+   no sorting query in the HTTP request, then use $datagrid-&#62;setDefaultSort().
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-datasource.dbtable.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-datasource.rss.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Structures_DataGrid_DataSource_DBTable</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.structures-datagrid-datasource"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Structures_DataGrid_DataSource_RSS</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

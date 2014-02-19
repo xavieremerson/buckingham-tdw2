@@ -1,0 +1,606 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - autoPrepare &#38; autoExecute</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction - Prepare & Execute"
+HREF="package.database.db.intro-execute.html"><LINK
+REL="NEXT"
+TITLE="Introduction - Portability"
+HREF="package.database.db.intro-portability.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.intro-execute.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.intro-portability.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.intro-auto">Introduction - autoPrepare &#38; autoExecute</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN21525"
+></A
+>Introduction - autoPrepare &#38; autoExecute&nbsp;--&nbsp;Automatically prepare and execute SQL statements</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.intro-auto.desc"
+></A
+><H2
+>Description</H2
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN21530"
+></A
+><H3
+>Purpose</H3
+><P
+>&#13;    <A
+HREF="package.database.db.db-common.autoprepare.html"
+>&#13;    <B
+CLASS="function"
+>autoPrepare()</B
+></A
+> and
+    <A
+HREF="package.database.db.db-common.autoexecute.html"
+>&#13;    <B
+CLASS="function"
+>autoExecute()</B
+></A
+>
+     reduce the need to write boring
+     <B
+CLASS="command"
+>INSERT</B
+> or <B
+CLASS="command"
+>UPDATE</B
+>
+     SQL queries which are difficult to maintain when you
+     add a field for instance.
+   </P
+><P
+>&#13;    Imagine you have a 'user' table with 3 fields
+    (id, name and country).
+    You have to write sql queries like:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>INSERT INTO table (id, name, country) VALUES (?, ?, ?)
+UPDATE table SET id=?, name=?, country=? WHERE ...</PRE
+></TD
+></TR
+></TABLE
+>
+
+    If you add a field ('birthYear' for example), you have to rewrite your
+    queries which is boring and can lead to bugs (if you forget one query for
+    instance).
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN21541"
+></A
+><H3
+>autoPrepare</H3
+><P
+>&#13;    With <A
+HREF="package.database.db.db-common.autoprepare.html"
+>&#13;    <B
+CLASS="function"
+>autoPrepare()</B
+></A
+>, you don't have to write your
+    insert or update queries. For example:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$table_name   = 'user';
+$table_fields = array('id', 'name', 'country');
+
+$sth = $db-&#62;autoPrepare($table_name, $table_fields,
+                        DB_AUTOQUERY_INSERT);
+
+if (PEAR::isError($sth)) {
+    die($sth-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+
+    In this example, <A
+HREF="package.database.db.db-common.autoprepare.html"
+>&#13;    <B
+CLASS="function"
+>autoPrepare()</B
+></A
+> will build the following SQL query:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>INSERT INTO user (id, name, country) VALUES (?, ?, ?)</PRE
+></TD
+></TR
+></TABLE
+>
+
+    And then, it will call <A
+HREF="package.database.db.db-common.prepare.html"
+>&#13;    <B
+CLASS="function"
+>prepare()</B
+></A
+> with it.
+   </P
+><P
+>&#13;    To add records, you have
+    to use <A
+HREF="package.database.db.db-common.execute.html"
+>&#13;     <B
+CLASS="function"
+>execute()</B
+></A
+> or <A
+HREF="package.database.db.db-common.executemultiple.html"
+>&#13;    <B
+CLASS="function"
+>executeMultiple()</B
+></A
+> like:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// ... contining from the example above...
+$table_values = array(1, 'Fabien', 'France');
+
+$res =&#38; $db-&#62;execute($sth, $table_values);
+
+if (PEAR::isError($res)) {
+    die($res-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+
+    So, you don't have to write any SQL <B
+CLASS="command"
+>INSERT</B
+>
+    queries! And it works with <B
+CLASS="command"
+>UPDATE</B
+>
+    queries too. For flexibility reasons, you have only to write
+    the <B
+CLASS="command"
+>WHERE</B
+> clause of the query. For instance:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$table_name   = 'user';
+$table_fields = array('name', 'country');
+$table_values = array('Bob', 'USA');
+
+$sth = $db-&#62;autoPrepare($table_name, $table_fields,
+                        DB_AUTOQUERY_UPDATE, 'id = 1');
+
+if (PEAR::isError($sth)) {
+    die($sth-&#62;getMessage());
+}
+
+$res =&#38; $db-&#62;execute($sth, $table_values);
+
+if (PEAR::isError($res)) {
+    die($res-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+
+    <A
+HREF="package.database.db.db-common.autoprepare.html"
+>&#13;    <B
+CLASS="function"
+>autoPrepare()</B
+></A
+> will build the following query:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>UPDATE user SET name=?, country=? WHERE id=1</PRE
+></TD
+></TR
+></TABLE
+>
+
+    Then, it will call <A
+HREF="package.database.db.db-common.prepare.html"
+>&#13;    <B
+CLASS="function"
+>prepare()</B
+></A
+> with it.
+   </P
+><P
+>&#13;    Be careful, if you don't specify any <B
+CLASS="command"
+>WHERE</B
+>
+    clause, all the records
+    of the table will be updated.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN21569"
+></A
+><H3
+>autoExecute</H3
+><P
+>&#13;    Using <A
+HREF="package.database.db.db-common.autoexecute.html"
+>&#13;    <B
+CLASS="function"
+>autoExecute()</B
+></A
+> is the easiest way
+    to do insert or update queries. It is a mix of <A
+HREF="package.database.db.db-common.autoprepare.html"
+>&#13;     <B
+CLASS="function"
+>autoPrepare()</B
+></A
+> and <A
+HREF="package.database.db.db-common.autoprepare.html"
+>&#13;     <B
+CLASS="function"
+>execute()</B
+></A
+>.
+   </P
+><P
+>&#13;    You only need an associative array (key =&#62; value) where keys are fields
+    names and values are corresponding values of these fields.
+    For instance:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$table_name = 'user';
+
+$fields_values = array(
+    'id'      =&#62; 1,
+    'name'    =&#62; 'Fabien',
+    'country' =&#62; 'France'
+);
+
+$res = $db-&#62;autoExecute($table_name, $fields_values,
+                        DB_AUTOQUERY_INSERT);
+
+if (PEAR::isError($res)) {
+    die($res-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+
+    And that's all! The following query is built and executed:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>INSERT INTO user (id, name, country)
+  VALUES (1, 'Fabien', 'France')</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    And it's the same thing for <B
+CLASS="command"
+>UPDATE</B
+> queries:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$table_name = 'user';
+
+$fields_values = array(
+    'name'    =&#62; 'Fabien',
+    'country' =&#62; 'France'
+);
+
+$res = $db-&#62;autoExecute($table_name, $fields_values,
+                        DB_AUTOQUERY_UPDATE, 'id = 1');
+
+if (PEAR::isError($res)) {
+    die($res-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+
+    which prepares and executes the following query:
+
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="sql"
+>UPDATE user SET name='Fabien', country='France'
+  WHERE id = 1</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    Be careful, if you don't specify any <B
+CLASS="command"
+>WHERE</B
+>
+    statement, all the records
+    of the table will be updated.
+   </P
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;     The values passed in <TT
+CLASS="parameter"
+><I
+>$data</I
+></TT
+> must be literals.
+     Do not submit SQL functions (for example <TT
+CLASS="literal"
+>CURDATE()</TT
+>).
+     SQL functions that should be performed at execution time need
+     to be put in the prepared statement.
+    </P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.intro-execute.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.intro-portability.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction - Prepare &#38; Execute</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction - Portability</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,443 @@
+<HTML
+><HEAD
+><TITLE
+>Translation2</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Internationalization"
+HREF="package.internationalization.html"><LINK
+REL="PREVIOUS"
+TITLE="
+   I18Nv2_Language::isValidCode
+  "
+HREF="package.internationalization.i18nv2.i18nv2-language.isvalidcode.html"><LINK
+REL="NEXT"
+TITLE="
+    Class Summary
+    Translation2
+   "
+HREF="package.internationalization.translation2.translation2-summary.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.internationalization.i18nv2.i18nv2-language.isvalidcode.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 44. Internationalization</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.internationalization.translation2.translation2-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.internationalization.translation2">Translation2</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2-summary.html"
+>Class Summary
+    <B
+CLASS="classname"
+>Translation2</B
+></A
+>&nbsp;--&nbsp;Translation2 class</DT
+><DT
+><A
+HREF="package.internationalization.translation2.intro.html"
+>Introduction</A
+>&nbsp;--&nbsp;Usage of <B
+CLASS="classname"
+>Translation2</B
+></DT
+><DT
+><A
+HREF="package.internationalization.translation2.introadmin.html"
+>Admin Introduction</A
+>&nbsp;--&nbsp;Usage of <B
+CLASS="classname"
+>Translation2_Admin</B
+></DT
+><DT
+><A
+HREF="package.internationalization.translation2.intro-containers.html"
+>Containers Overview</A
+>&nbsp;--&nbsp;Overview of the different <B
+CLASS="classname"
+>Translation2</B
+> containers</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2.translation2.html"
+>constructor <B
+CLASS="function"
+>Translation2::Translation2()</B
+></A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2.factory.html"
+><B
+CLASS="function"
+>Translation2::factory()</B
+></A
+>&nbsp;--&nbsp;Return an instanciated Translation2 object</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2.get.html"
+><B
+CLASS="function"
+>Translation2::get()</B
+></A
+>&nbsp;--&nbsp;Get translated string</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2.getdecorator.html"
+><B
+CLASS="function"
+>Translation2::getDecorator()</B
+></A
+>&nbsp;--&nbsp;Return an instance of a decorator</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2.getlang.html"
+><B
+CLASS="function"
+>Translation2::getLang()</B
+></A
+>&nbsp;--&nbsp;get lang info</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2.getlangs.html"
+><B
+CLASS="function"
+>Translation2::getLangs()</B
+></A
+>&nbsp;--&nbsp;get langs</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2.getpage.html"
+><B
+CLASS="function"
+>Translation2::getPage()</B
+></A
+>&nbsp;--&nbsp;Get an entire group of strings</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2.getraw.html"
+><B
+CLASS="function"
+>Translation2::getRaw()</B
+></A
+>&nbsp;--&nbsp;Get translated string (as-is)</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2.getrawpage.html"
+><B
+CLASS="function"
+>Translation2::getRawPage()</B
+></A
+>&nbsp;--&nbsp;Get the array of strings in a page</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2.getstringid.html"
+><B
+CLASS="function"
+>Translation2::getStringID()</B
+></A
+>&nbsp;--&nbsp;Get the stringID for a given string</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2.setlang.html"
+><B
+CLASS="function"
+>Translation2::setLang()</B
+></A
+>&nbsp;--&nbsp;Set default lang</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2.setpageid.html"
+><B
+CLASS="function"
+>Translation2::setPageID()</B
+></A
+>&nbsp;--&nbsp;Set default page</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2.setparams.html"
+><B
+CLASS="function"
+>Translation2::setParams()</B
+></A
+>&nbsp;--&nbsp;Set parameters for next string</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2-admin-summary.html"
+>Class Summary
+    <B
+CLASS="classname"
+>Translation2_Admin</B
+></A
+>&nbsp;--&nbsp;Administration utilities for translation string management</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2-admin.addlang.html"
+><B
+CLASS="function"
+>Translation2_Admin::addLang()</B
+></A
+>&nbsp;--&nbsp;Prepare the storage container for a new lang.</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2-admin.updatelang.html"
+><B
+CLASS="function"
+>Translation2_Admin::updateLang()</B
+></A
+>&nbsp;--&nbsp;Update the language details.</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2-admin.removelang.html"
+><B
+CLASS="function"
+>Translation2_Admin::removeLang()</B
+></A
+>&nbsp;--&nbsp;Remove the language from the langsAvail table and drop the strings table.</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2-admin.add.html"
+><B
+CLASS="function"
+>Translation2_Admin::add()</B
+></A
+>&nbsp;--&nbsp;add a new translation</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2-admin.remove.html"
+><B
+CLASS="function"
+>Translation2_Admin::remove()</B
+></A
+>&nbsp;--&nbsp;remove a translated string</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2-decorator-summary.html"
+>Class Summary
+    <B
+CLASS="classname"
+>Translation2_Decorator</B
+></A
+>&nbsp;--&nbsp;Decorates a Translation2 class.</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2-decorator-cachelitefunction-summary.html"
+>Class Summary
+    <B
+CLASS="classname"
+>Translation2_Decorator_CacheLiteFunction</B
+></A
+>&nbsp;--&nbsp;Decorator to cache fetched data using <A
+HREF="package.default.cache-lite.cache-lite-function.cache-lite-function.html"
+><B
+CLASS="classname"
+>Cache_Lite_Function</B
+></A
+> class</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2-decorator-cachememory-summary.html"
+>Class Summary
+    <B
+CLASS="classname"
+>Translation2_Decorator_CacheMemory</B
+></A
+>&nbsp;--&nbsp;Decorator to cache fetched data in memory</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2-decorator-defaulttext-summary.html"
+>Class Summary
+    <B
+CLASS="classname"
+>Translation2_Decorator_DefaultText</B
+></A
+>&nbsp;--&nbsp;Decorator to provide a fallback text for empty strings.</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2-decorator-errortext-summary.html"
+>Class Summary
+    <B
+CLASS="classname"
+>Translation2_Decorator_ErrorText</B
+></A
+>&nbsp;--&nbsp;Decorator to provide a fallback error_text message for empty strings.</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2-decorator-lang-summary.html"
+>Class Summary
+    <B
+CLASS="classname"
+>Translation2_Decorator_Lang</B
+></A
+>&nbsp;--&nbsp;Decorator to provide a fallback language for empty strings.</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2-decorator-iconv-summary.html"
+>Class Summary
+    <B
+CLASS="classname"
+>Translation2_Decorator_Iconv</B
+></A
+>&nbsp;--&nbsp;Decorator to switch from/to different encodings.</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2-decorator-specialchars-summary.html"
+>Class Summary
+    <B
+CLASS="classname"
+>Translation2_Decorator_SpecialChars</B
+></A
+>&nbsp;--&nbsp;Decorator to replace special chars with the matching html entities.</DT
+><DT
+><A
+HREF="package.internationalization.translation2.translation2-decorator-utf8-summary.html"
+>Class Summary
+     <B
+CLASS="classname"
+>Translation2_Decorator_UTF8</B
+></A
+>&nbsp;--&nbsp;Decorator to convert UTF-8 strings to ISO-8859-1</DT
+><DT
+><A
+HREF="package.internationalization.translation2.constants.html"
+>Package Translation2 Constants</A
+>&nbsp;--&nbsp;Constants defined in and used by Translation2</DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.internationalization.i18nv2.i18nv2-language.isvalidcode.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.internationalization.translation2.translation2-summary.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>I18Nv2_Language::isValidCode()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.internationalization.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Class Summary
+    <B
+CLASS="classname"
+>Translation2</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

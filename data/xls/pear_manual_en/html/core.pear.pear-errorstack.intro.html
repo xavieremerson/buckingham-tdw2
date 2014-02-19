@@ -1,0 +1,1280 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;   Introduction to using PEAR_ErrorStack for advanced error handling
+  </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Intelligent Error Handling with PEAR_ErrorStack"
+HREF="core.pear.pear-errorstack.html"><LINK
+REL="PREVIOUS"
+TITLE="Intelligent Error Handling with PEAR_ErrorStack"
+HREF="core.pear.pear-errorstack.html"><LINK
+REL="NEXT"
+TITLE="constructor PEAR_ErrorStack::PEAR_ErrorStack"
+HREF="core.pear.pear-errorstack.pear-errorstack.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.pear.pear-errorstack.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.pear.pear-errorstack.pear-errorstack.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.pear.pear-errorstack.intro">Introduction to using PEAR_ErrorStack for advanced error handling</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN4921"
+></A
+>
+   Introduction to using PEAR_ErrorStack for advanced error handling
+  &nbsp;--&nbsp;
+   Using PEAR_ErrorStack to do both simple and advanced error handling
+  </DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN4924"><H2
+>Synopsis</H2
+><P
+>Introduction to the usage of PEAR_ErrorStack</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear-errorstack.intro.intro"
+></A
+><H2
+>Introduction</H2
+><P
+>&#13;   This class is available as part of the
+   <A
+HREF="http://pear.php.net/package/pear"
+TARGET="_top"
+>PEAR package</A
+>.
+   Features include:
+   <P
+></P
+><UL
+><LI
+><P
+>Fully unit-tested and documented</P
+></LI
+><LI
+><P
+>&#13;      blazingly fast - blows PEAR_Error out of the water
+     </P
+></LI
+><LI
+><P
+>Package-specific errors</P
+></LI
+><LI
+><P
+>&#13;      Error levels (notice/warning/error/exception)
+     </P
+></LI
+><LI
+><P
+>&#13;      Error context data is saved separate from error message
+     </P
+></LI
+><LI
+><P
+>&#13;      Error cascading - parent errors can be specified
+     </P
+></LI
+><LI
+><P
+>&#13;      Dynamic error message generation allows generation of multiple
+      and distinct error messages from the same error object
+     </P
+></LI
+><LI
+><P
+>&#13;      Sophisticated callbacks are available for error message generation,
+      error context generation, and error handling functionality,
+      see
+      <A
+HREF="core.pear.pear-errorstack.intro.html#core.pear.pear-errorstack.intro.advanced.context"
+>Error Context Display</A
+>,
+      <A
+HREF="core.pear.pear-errorstack.intro.html#core.pear.pear-errorstack.intro.advanced.message"
+>Custom Error Message Generation</A
+>,
+      and
+      <A
+HREF="core.pear.pear-errorstack.intro.html#core.pear.pear-errorstack.intro.advanced.callback"
+>controlling error generation</A
+>
+     </P
+></LI
+></UL
+>
+  </P
+><P
+>&#13;   PEAR_ErrorStack implements error raising and handling using a stack pattern.
+
+   This has tremendous advantages over the PEAR_Error Implementation.
+
+   PEAR_Error centralizes all error creation and handling in the
+   constructor of the PEAR_Error object.
+
+   Once an object has been created, all handling must have been completed,
+   either through checking the return value of a method,
+   or through a single global callback.
+
+   In addition, it is nearly impossible to determine the source of an error,
+   and the baggage of all of the PEAR base class's bulky,
+   slow methods accompanies every error creation.
+  </P
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// traditional PEAR_Error usage
+require_once 'PEAR.php';
+class myobj
+{
+    // there is no way to know where $err comes from
+    function errorCallback($err)
+    {
+        $this-&#62;display($err-&#62;getMessage());
+        $this-&#62;log($err-&#62;getMessage());
+    }
+
+    function log($msg)
+    {
+        error_log($msg, 3, 'somefile.log')
+    }
+
+    function display($msg)
+    {
+        echo $msg . '&#60;br /&#62;';
+    }
+}
+
+$myobj = new myobj;
+
+// using a callback
+PEAR::setErrorHandling(PEAR_ERROR_CALLBACK, array(&#38;$myobj, 'errorCallback'));
+
+$ret = SomePackage::doSomething();
+if (PEAR::isError($ret)) {
+    // do some handling - this error is also displayed and logged
+}
+PEAR::pushErrorHandling(PEAR_ERROR_RETURN);
+
+$ret = SomePackage::doSomething();
+if (PEAR::isError($ret)) {
+    // do some handling - this error is not displayed or logged
+}
+PEAR::popErrorHandling();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><P
+>&#13;   The PEAR_ErrorStack class has built in knowledge of the
+   <A
+HREF="http://pear.php.net/package/Log"
+TARGET="_top"
+>Log</A
+> package,
+   can easily differentiate and even automatically re-package errors
+   with little to no difficulty.
+  </P
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// PEAR_ErrorStack error handling
+require_once 'PEAR/ErrorStack.php';
+require_once 'Log.php';
+define('MYPACKAGE_ERROR_DBERROR', 1);
+class myobj
+{
+    var $_stack;
+    function myobj()
+    {
+        $this-&#62;_stack = &#38;PEAR_ErrorStack::singleton('MyPackage');
+    }
+
+    function errorCallback($err)
+    {
+        switch($err['package']){
+            case 'MyPackage':
+                // tell the error stack to log the error only
+                // it will not be pushed onto the stack
+                return PEAR_ERRORSTACK_LOG;
+                break;
+            case 'InternalDbPackage':
+                // re-package these errors as a mypackage error fit
+                // for enduser consumption
+                $this-&#62;_stack-&#62;push(MYPACKAGE_ERROR_DBERROR, 'error',
+                    array('dbmessage' =&#62; $err['message'],
+                          'dbcode' =&#62; $err['code'],
+                          'We are having Connection problems, please' .
+                          'try again in a few moments'),
+                    '', $err); // include the error as re-packaged
+                // tell the internal DB error stack to ignore this error,
+                // as if it never happened
+                return PEAR_ERRORSTACK_IGNORE;
+                break;
+        } // switch
+    }
+}
+
+$myobj = &#38;new myobj;
+// separate error stacks for my package, and the internal DB package
+$dbstack = &#38;PEAR_ErrorStack::singleton('InternalDbPackage');
+$mystack = &#38;PEAR_ErrorStack::singleton('MyPackage');
+// set up a file log using PEAR::Log
+$log = &#38;Log::Factory('file', 'somefile.log', 'MyPackage error log');
+$mystack-&#62;setLogger($log);
+// set up a default log to use for all error stacks
+PEAR_ErrorStack::setDefaultLogger($log);
+
+// any errors returned by MyPackage are logged
+$ret = SomePackage::doSomething();
+
+// Note that $ret need not be checked for any error condition - errors are
+// totally separate from code
+if ($dbstack-&#62;hasErrors()) {
+    var_dump($dbstack-&#62;getErrors();
+}
+
+// sets a default callback for all errors
+PEAR_ErrorStack::setDefaultCallback(array(&#38;$myobj, 'errorCallback'));
+
+// any db errors are transparently repackaged as
+// user-friendly MyPackage errors now
+$ret = SomePackage::doSomething();
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><P
+>&#13;   Why write a new error-handling routine when
+   <A
+HREF="core.pear.pear-error.html"
+><B
+CLASS="classname"
+>PEAR_Error</B
+></A
+>
+   already exists?
+
+   There are several problems with <B
+CLASS="classname"
+>PEAR_Error</B
+>.
+
+   Although an error message is present in an error class,
+   processing this error message automatically is excessively
+   difficult for computers.
+
+   In addition, the error message cannot easily be translated once it has been placed into
+   the <B
+CLASS="classname"
+>PEAR_Error</B
+>.
+
+   There is also no standard facility for
+   storing error-related data in the error class.
+
+   On top of error message-related issues,
+   there is no way to automatically determine which package a
+   <B
+CLASS="classname"
+>PEAR_Error</B
+> object comes from,
+   or the severity of an error.
+
+   Fatal
+   errors look exactly the same as non-fatal errors.
+  </P
+><P
+>&#13;   The largest flaw with <B
+CLASS="classname"
+>PEAR_Error</B
+> object is the
+   single-error type design.
+
+   Every <B
+CLASS="classname"
+>PEAR_Error</B
+> object is just a
+   <B
+CLASS="classname"
+>PEAR_Error</B
+> object.
+
+   There is no differentiating between the severity of an error, or its origin.
+
+   The only way to determine the severity is to use
+   PEAR_ERROR_TRIGGER and E_USER_NOTICE/E_USER_WARNING/E_USER_ERROR
+   constants from php's
+   <A
+HREF="http://www.php.net/manual-lookup.php?pattern=trigger_error"
+TARGET="_top"
+>trigger_error</A
+>.
+
+   But using this functionality does not justify 900 lines of
+   code, simply because trigger_error() is built into PHP itself!
+  </P
+><P
+>&#13;   Now, to start using your newly created error objects,
+   change all of your
+   <B
+CLASS="function"
+>PEAR::raiseError()</B
+>
+   or <B
+CLASS="function"
+>PEAR::throwError()</B
+>
+   calls from this...
+  </P
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'PEAR.php';
+// old way:
+$error_specific_info = 'bad';
+$e = PEAR::raiseError("error message - very " . $error_specific_info .
+    " way to do things", MYPACKAGE_ERROR_FOO);
+// another old way:
+$e = PEAR::throwError("error message - very " . $error_specific_info .
+    " way to do things", MYPACKAGE_ERROR_FOO);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><P
+>...to something like this:</P
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'PEAR/ErrorStack.php';
+// new way
+// version 1: stack instance access
+$stack = &#38;PEAR_ErrorStack::singleton('MyPackage');
+$stack-&#62;push(MYPACKAGE_ERROR_DBERROR, 'error',
+    array('query' =&#62; $query, 'dsn' =&#62; $dsn),
+    'Critical Database Error: Contact Administrator immediately');
+// version 2: static singleton access (slightly slower)
+PEAR_ErrorStack::staticPush('MyPackage', MYPACKAGE_ERROR_DBERROR, 'error',
+    array('query' =&#62; $query, 'dsn' =&#62; $dsn),
+    'Critical Database Error: Contact Administrator immediately');
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><P
+>&#13;   For basic use, this is all that is needed to use the
+   PEAR_ErrorStack package in place of PEAR_Error.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear-errorstack.intro.advanced"
+></A
+><H2
+>Advanced Features</H2
+><DIV
+CLASS="refsect2"
+><A
+NAME="core.pear.pear-errorstack.intro.advanced.context"
+></A
+><H3
+>Error Context Display</H3
+><P
+>&#13;    In some cases, you may want to customize error generation.
+    For instance, for many exceptions, it is useful to include file,
+    line number,
+    and class/function context information in order to trace an error.
+
+    A default option is available which will be sufficient for most cases,
+    and that is
+    <A
+HREF="core.pear.pear-errorstack.getfileline.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::getFileLine()</B
+></A
+>.
+   </P
+><P
+>&#13;    Not all package errors occur in the PHP source file.
+
+    For instance, compiling template
+    engines errors can occur in the template source files.
+
+    Database errors can occur in the text of a query,
+    or internal to the database server.
+
+    Internet package errors can occur on another server.
+
+    All of this information can be included in an error
+    message using a context grabbing callback.
+   </P
+><P
+>&#13;    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'PEAR/ErrorStack.php';
+class DatabaseClass
+{
+    var $_dbError;
+    var $_dbErrorMsg;
+    var $_dbQuery;
+    var $_dbPos;
+    /**
+     * Context grabber for the Database package
+     * @param integer Error Code
+     * @param array   Error parameters passed into {@link PEAR_ErrorStack::push()}
+     * @param array   Output of debug_backtrace() (not used in this callback)
+     */
+    function getErrorContext($code, $params, $backtrace)
+    {
+        $context = array(
+            'errorcode' =&#62; $this-&#62;_dbError,
+            'errormsg' =&#62; $this-&#62;_dbErrorMsg,
+            'query' =&#62; $this-&#62;_dbQuery,
+            'pos' =&#62; $this-&#62;_dbPos,
+        );
+        return $context;
+    }
+}
+$db = new DatabaseClass;
+PEAR_ErrorStack::staticSetContextCallback('Database', array(&#38;$db, 'getErrorContext'));
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><P
+>&#13;    The context information is formatted to be easily
+    processed by an external application.
+
+    If you wish context information to be in the error message,
+    the error message callback should be used to add the information
+    in a human-readable format to the error message, as described
+    in the next section.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="core.pear.pear-errorstack.intro.advanced.message"
+></A
+><H3
+>Custom Error Message Generation</H3
+><P
+>&#13;    There are three methods of PEAR_ErrorStack designed for
+    use with generating error messages efficiently.
+
+    To use them, you must do one of three things:
+    <P
+></P
+><UL
+><LI
+><P
+>&#13;       Call
+       <A
+HREF="core.pear.pear-errorstack.seterrormessagetemplate.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::setErrorMessageTemplate()</B
+></A
+>,
+       and set an array mapping error codes to error message templates, like so:
+      </P
+><P
+>&#13;       <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+define('ERROR_ONE', 1);
+define('ERROR_TWO', 2);
+define('ERROR_THREE', 3);
+define('ERROR_FOUR', 4);
+require_once 'PEAR/ErrorStack.php';
+$stack = &#38;PEAR_ErrorStack::singleton('mypackage');
+$messages = array(
+    ERROR_ONE =&#62; 'The gronk number %num% dropped a %thing%',
+    ERROR_TWO =&#62; 'The %list% items were missing',
+    ERROR_THREE =&#62; 'I like chocolate, how about %you%?',
+    ERROR_FOUR =&#62; 'and a %partridge% in a pear %tree%',
+);
+$stack-&#62;setErrorMessageTemplate($messages);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+      </P
+><P
+>&#13;       Substitution is done using
+       <A
+HREF="http://www.php.net/manual-lookup.php?pattern=str_replace"
+TARGET="_top"
+>str_replace</A
+>,
+       and is very simple.
+
+       Basically, if a variable name is enclosed in percent signs (%), it will
+       be replaced with the value passed in the associative array.
+
+       If an array
+      <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>array('varname' =&#62; 'value');</PRE
+></TD
+></TR
+></TABLE
+>
+       is passed to either method, all occurrences of %varname% will be replaced
+       by value.
+      </P
+><P
+>&#13;       In addition, if values are objects, the methods will search for a method
+       named "<B
+CLASS="function"
+>__toString()</B
+>" and if found,
+       will use that to convert the object to a string.
+
+       If an array of strings is passed in, they will be joined by commas.
+       <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+array('varname' =&#62; array('first', 'second', 'third'));
+// this will become 'first, second, third'
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+      </P
+></LI
+><LI
+><P
+>&#13;       Call
+       <A
+HREF="core.pear.pear-errorstack.setmessagecallback.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::setMessageCallback()</B
+></A
+>,
+       and set a custom error message generating function or method.
+
+       This is probably the best option for the majority of complex situations,
+       as it allows users to override or even extend the existing error
+       message callback using
+       <A
+HREF="core.pear.pear-errorstack.getmessagecallback.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::getMessageCallback()</B
+></A
+>.
+
+       For example:
+       <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'PEAR/ErrorStack.php';
+class foo
+{
+    var $_oldcallback;
+    function callback(&#38;$stack, $err)
+    {
+        $message = call_user_func_array($this-&#62;_oldcallback, array(&#38;$stack, $err));
+        $message .= "File " . $err['context']['file'];
+        return $message;
+    }
+}
+$a = new foo;
+$stack = &#38;PEAR_ErrorStack::singleton('otherpackage');
+$a-&#62;_oldcallback = $stack-&#62;getMessageCallback('otherpackage');
+$stack-&#62;setMessageCallback(array(&#38;$a, 'callback'));
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+      </P
+></LI
+><LI
+><P
+>&#13;       Extend PEAR_ErrorStack with your own class, and override
+       <A
+HREF="core.pear.pear-errorstack.geterrormessagetemplate.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::getErrorMessageTemplate()</B
+></A
+>
+       or
+       <A
+HREF="core.pear.pear-errorstack.geterrormessage.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::getErrorMessage()</B
+></A
+>.
+
+       To guarantee that this class will be used by other packages/applications,
+       use this code right after the class declaration:
+      </P
+><P
+>&#13;       <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+PEAR_ErrorStack::singleton('mypackage', false, null, 'MyPEAR_ErrorStack');
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+      </P
+></LI
+></UL
+>
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="core.pear.pear-errorstack.intro.advanced.callback"
+></A
+><H3
+>Controlling error generation</H3
+><P
+>&#13;    There are many scenarios in which fine-grained control over error raising
+    is absolutely necessary.
+
+    A generic error handling callback means that every single error
+    raised will be handled in the same error callback.
+
+    Although PEAR_ErrorStack is designed to operate with independent
+    callbacks for each package, generic error handling is possible through the
+    <A
+HREF="core.pear.pear-errorstack.staticpushcallback.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::staticPushCallback()</B
+></A
+>
+    method.
+
+    This is no different from PEAR_Error's
+    PEAR_ERROR_CALLBACK error handling mode.
+   </P
+><P
+>&#13;    PEAR_ErrorStack's real strength comes from the callback itself.
+
+    PEAR_Error's callback has no actual effect on the error message -
+    all error handling must happen in the callback method or function itself.
+
+    PEAR_ErrorStack's callback can influence the error
+    through the use of three constants:
+    <P
+></P
+><UL
+><LI
+><P
+>&#13;       <A
+HREF="core.pear.pear-errorstack.constants.html#core.pear.pear-errorstack.constants.details.errorstack---php"
+><TT
+CLASS="constant"
+><B
+>PEAR_ERRORSTACK_IGNORE</B
+></TT
+></A
+>
+      </P
+></LI
+><LI
+><P
+>&#13;       <A
+HREF="core.pear.pear-errorstack.constants.html#core.pear.pear-errorstack.constants.details.errorstack---php"
+><TT
+CLASS="constant"
+><B
+>PEAR_ERRORSTACK_PUSH</B
+></TT
+></A
+>
+      </P
+></LI
+><LI
+><P
+>&#13;       <A
+HREF="core.pear.pear-errorstack.constants.html#core.pear.pear-errorstack.constants.details.errorstack---php"
+><TT
+CLASS="constant"
+><B
+>PEAR_ERRORSTACK_LOG</B
+></TT
+></A
+>
+      </P
+></LI
+></UL
+>
+   </P
+><P
+>&#13;    PEAR_ERRORSTACK_IGNORE informs the stack to ignore the error, as if it never occurred.  The error will be
+    neither logged, nor pushed on the stack.  It will, however, be returned from <A
+HREF="core.pear.pear-errorstack.push.html"
+><B
+CLASS="function"
+>PEAR_ErrorStack::push()</B
+></A
+>
+   </P
+><P
+>&#13;    PEAR_ERRORSTACK_PUSH informs the stack to push the error onto the error stack, but not to log the error.
+   </P
+><P
+>&#13;    PEAR_ERRORSTACK_LOG informs the stack not to push the error onto the error stack, but only to log the error.
+   </P
+><P
+>&#13;    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+define('ERROR_CODE_ONE',1);
+define('ERROR_CODE_TWO',2);
+define('ERROR_CODE_THREE',3);
+require_once 'PEAR/ErrorStack.php';
+require_once 'Log.php';
+function somecallback($err)
+{
+    switch($err['code']){
+        case ERROR_CODE_ONE:
+                return PEAR_ERRORSTACK_IGNORE;
+                break;
+        case ERROR_CODE_TWO:
+                return PEAR_ERRORSTACK_PUSH;
+                break;
+        case ERROR_CODE_THREE:
+                return PEAR_ERRORSTACK_LOG;
+                break;
+    } // switch
+}
+$log = &#38;Log::factory('display');
+$stack = &#38;PEAR_ErrorStack::singleton('mypackage');
+$stack-&#62;setLogger($log);
+$stack-&#62;pushCallback('somecallback');
+$stack-&#62;push(ERROR_CODE_ONE);
+$stack-&#62;push(ERROR_CODE_TWO);
+$stack-&#62;push(ERROR_CODE_THREE);
+var_dump(PEAR_ErrorStack::staticGetErrors());
+
+// simulate PEAR_ERROR_CALLBACK, with specific callback for mypackage
+// every other package will only log errors, only mypackage's errors
+// are pushed on the stack, conditionally
+class myclass {
+    function acallback($err)
+    {
+        return PEAR_ERRORSTACK_LOG;
+    }
+}
+$stack2 = PEAR_ErrorStack::singleton('anotherpackage');
+$stack3 = &#38;PEAR_ErrorStack::singleton('thirdpackage');
+PEAR_ErrorStack::setDefaultCallback(array('myclass', 'acallback'));
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+><DIV
+CLASS="refsect3"
+><A
+NAME="core.pear.pear-errorstack.intro.advanced.callback.repackage"
+></A
+><H4
+>Repackaging errors from one package to another</H4
+><P
+>&#13;     The most obvious usage for an error callback involves a common scenario
+     in many user-level applications that use system-level packages.
+
+     If you write a Content Management System (CMS) with the PEAR DB package,
+     it is usually a bad idea to display database-level errors when a user
+     clicks on a link to add a message to a forum.
+
+     PEAR_ErrorStack can be used to repackage this error as a MyPackage error.
+    </P
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+define('MYPACKAGE_ERROR_DBDOWN',1);
+require_once 'PEAR/ErrorStack.php';
+function repackage($err)
+{
+    if ($err['package'] == 'DB') {
+        $mystack = &#38;PEAR_ErrorStack::singleton('mypackage');
+        $mystack-&#62;push(MYPACKAGE_ERROR_DBDOWN, 'error', array('olderror' =&#62; $err));
+        // ignore the DB error, but save it in the mypackage error, for logging
+        return PEAR_ERRORSTACK_IGNORE;
+    }
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect3"
+><A
+NAME="core.pear.pear-errorstack.intro.advanced.callback.silence"
+></A
+><H4
+>Emulating the @ operator</H4
+><P
+>&#13;     One of the difficult-to-use strengths of PEAR_Error involves the
+     <A
+HREF="core.pear.pear.expecterror.html"
+><B
+CLASS="function"
+>PEAR::expectError()</B
+></A
+>
+     method.
+
+     With regular PHP errors, it is possible to silence them using
+     the @ operator like so:
+    </P
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+@file_get_contents();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>&#13;     Emulating this behavior with PEAR_ErrorStack is simple.
+    </P
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+define('ERROR_CODE_SOMETHING', 1);
+require_once 'PEAR/ErrorStack.php';
+function silence($err)
+{
+    // ignore all errors
+    return PEAR_ERRORSTACK_IGNORE;
+}
+$stack = &#38;PEAR_ErrorStack::singleton('mypackage');
+$stack-&#62;pushCallback('silence');
+$stack-&#62;push(ERROR_CODE_SOMETHING);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>&#13;     PEAR_ErrorStack can take this one step further,
+     and only log errors or only put errors on the error stack,
+     using the other two constants.
+
+     Finally, particular errors can be singled out, and all others ignored.
+    </P
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+define('SOMEPACKAGE_ERROR_THING', 1);
+require_once 'PEAR/ErrorStack.php';
+function silenceSome($err)
+{
+    if ($err['package'] != 'somepackage') {
+        // ignore all errors from other packages
+        return PEAR_ERROR_IGNORE;
+    }
+    if ($err['code'] != SOMEPACKAGE_ERROR_THING) {
+        // ignore all other error codes
+        return PEAR_ERRORSTACK_IGNORE;
+    }
+}
+$stack = &#38;PEAR_ErrorStack::singleton('mypackage');
+$stack-&#62;pushCallback('silenceSome');
+$stack-&#62;push(ERROR_CODE_SOMETHING);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.pear.pear-errorstack.intro.merging"
+></A
+><H2
+>&#13;   Backwards compatibility with PEAR_Error,
+   Forward compatibility with PHP 5 Exception
+  </H2
+><P
+>&#13;   <B
+CLASS="classname"
+>PEAR_ErrorStack</B
+>
+   can also be programmed to automatically raise a PEAR_Error using
+   <A
+HREF="core.pear.pear.raiseerror.html"
+><B
+CLASS="function"
+>PEAR::raiseError()</B
+></A
+>,
+   simply pass in true to the PEAR_Error compatibility like so:
+  </P
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'PEAR/ErrorStack.php';
+$stack = &#38;PEAR_ErrorStack::singleton('mypackage', false, false, true);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Backward Compatibility break</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;    As of PEAR 1.3.2, PEAR_ErrorStack-&#62;push()
+    no longer returns an exception class.
+
+    Code that relies on this behavior will not work
+   </P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>&#13;   PEAR_ErrorStack will return an exception automatically in PHP 5.
+
+   You can set the exception class name that will be returned
+   using the following code:
+  </P
+><P
+>&#13;   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'PEAR/ErrorStack.php';
+$stack = &#38;PEAR_ErrorStack::singleton('mypackage', false, null, 'PEAR_ErrorStack', false, 'MyException');
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.pear.pear-errorstack.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.pear.pear-errorstack.pear-errorstack.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Intelligent Error Handling with PEAR_ErrorStack</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.pear.pear-errorstack.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>constructor <B
+CLASS="function"
+>PEAR_ErrorStack::PEAR_ErrorStack()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

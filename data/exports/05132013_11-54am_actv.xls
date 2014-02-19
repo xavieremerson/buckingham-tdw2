@@ -1,0 +1,746 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+				<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+				<body><table width="800" border="1" cellspacing="0" cellpadding="0">
+					<tr>
+						<td width="80"><b>Trade Date</b></td>
+						<td width="250"><b>ADVISOR / CLIENT</b></td>
+						<td width="60"><b>RR #</b></td>
+						<td width="80"><b>Symbol</b></td>
+						<td width="80"><b>B/S</b></td>
+						<td width="80"><b>Shares</b></td>
+						<td width="80"><b>Price</b></td>
+						<td width="100"><b>Commission</b></td>
+						<td width="110"><b>Comm./Shr. ($)</b></td>
+					</tr><tr>
+								<td>04/05/2013</td>
+								<td>CASTLE ARK              </td>
+								<td>031</td>
+								<td>APC</td>
+								<td>B</td>
+								<td>90,890</td>
+								<td>84.66</td>
+								<td>3,635.60</td>
+								<td>0.000</td>
+							</tr><tr>
+								<td>03/26/2013</td>
+								<td>CASTLE ARK              </td>
+								<td>031</td>
+								<td>MON</td>
+								<td>B</td>
+								<td>105,320</td>
+								<td>103.12</td>
+								<td>5,266.00</td>
+								<td>0.000</td>
+							</tr><tr>
+								<td>04/03/2013</td>
+								<td>CASTLE ARK              </td>
+								<td>031</td>
+								<td>MON</td>
+								<td>B</td>
+								<td>85,050</td>
+								<td>104.85</td>
+								<td>3,402.00</td>
+								<td>0.000</td>
+							</tr><tr>
+								<td>04/12/2013</td>
+								<td>ESSENCIAL CAPITAL</td>
+								<td>031</td>
+								<td>GM</td>
+								<td>S</td>
+								<td>5,000</td>
+								<td>29.67</td>
+								<td>150.00</td>
+								<td>0.030</td>
+							</tr><tr>
+								<td>04/02/2013</td>
+								<td>ESSENCIAL CAPITAL</td>
+								<td>031</td>
+								<td>IAG</td>
+								<td>S</td>
+								<td>5,000</td>
+								<td>6.86</td>
+								<td>100.00</td>
+								<td>0.020</td>
+							</tr><tr>
+								<td>04/02/2013</td>
+								<td>ESSENCIAL CAPITAL</td>
+								<td>031</td>
+								<td>MDR</td>
+								<td>S</td>
+								<td>5,000</td>
+								<td>10.56</td>
+								<td>100.00</td>
+								<td>0.020</td>
+							</tr><tr>
+								<td>04/12/2013</td>
+								<td>ESSENCIAL CAPITAL</td>
+								<td>031</td>
+								<td>MDR</td>
+								<td>S</td>
+								<td>5,000</td>
+								<td>10.77</td>
+								<td>150.00</td>
+								<td>0.030</td>
+							</tr><tr>
+								<td>04/23/2013</td>
+								<td>INVESCO</td>
+								<td>031</td>
+								<td>LOW</td>
+								<td>B</td>
+								<td>198,460</td>
+								<td>38.13</td>
+								<td>7,938.40</td>
+								<td>0.000</td>
+							</tr><tr>
+								<td>04/03/2013</td>
+								<td>INVESCO</td>
+								<td>031</td>
+								<td>M</td>
+								<td>S</td>
+								<td>177,700</td>
+								<td>42.22</td>
+								<td>7,108.00</td>
+								<td>0.000</td>
+							</tr><tr>
+								<td>04/18/2013</td>
+								<td>INVESCO</td>
+								<td>031</td>
+								<td>PEP</td>
+								<td>S</td>
+								<td>135,216</td>
+								<td>82.85</td>
+								<td>5,408.64</td>
+								<td>0.000</td>
+							</tr><tr>
+								<td>04/08/2013</td>
+								<td>KLEINHEINZ CAP PART     </td>
+								<td>031</td>
+								<td>AN</td>
+								<td>B</td>
+								<td>75,000</td>
+								<td>42.30</td>
+								<td>3,750.00</td>
+								<td>0.050</td>
+							</tr><tr>
+								<td>04/09/2013</td>
+								<td>KLEINHEINZ CAP PART     </td>
+								<td>031</td>
+								<td>BBRY</td>
+								<td>S</td>
+								<td>100,000</td>
+								<td>14.67</td>
+								<td>5,000.00</td>
+								<td>0.000</td>
+							</tr><tr>
+								<td>04/10/2013</td>
+								<td>KLEINHEINZ CAP PART     </td>
+								<td>031</td>
+								<td>EOG</td>
+								<td>B</td>
+								<td>25,000</td>
+								<td>129.65</td>
+								<td>1,250.00</td>
+								<td>0.050</td>
+							</tr><tr>
+								<td>04/12/2013</td>
+								<td>KLEINHEINZ CAP PART     </td>
+								<td>031</td>
+								<td>GLD</td>
+								<td>SS</td>
+								<td>75,000</td>
+								<td>148.58</td>
+								<td>3,750.00</td>
+								<td>0.050</td>
+							</tr><tr>
+								<td>04/09/2013</td>
+								<td>KLEINHEINZ CAP PART     </td>
+								<td>031</td>
+								<td>MYL</td>
+								<td>B</td>
+								<td>25,000</td>
+								<td>28.58</td>
+								<td>1,250.00</td>
+								<td>0.050</td>
+							</tr><tr>
+								<td>04/23/2013</td>
+								<td>KLEINHEINZ CAP PART     </td>
+								<td>031</td>
+								<td>PBR</td>
+								<td>B</td>
+								<td>175,000</td>
+								<td>17.51</td>
+								<td>8,750.00</td>
+								<td>0.000</td>
+							</tr><tr>
+								<td>04/01/2013</td>
+								<td>NEW VERNON       </td>
+								<td>031</td>
+								<td>EMB</td>
+								<td>B</td>
+								<td>10,000</td>
+								<td>117.29</td>
+								<td>500.00</td>
+								<td>0.050</td>
+							</tr><tr>
+								<td>04/01/2013</td>
+								<td>NEW VERNON       </td>
+								<td>031</td>
+								<td>TLT</td>
+								<td>B</td>
+								<td>10,000</td>
+								<td>118.26</td>
+								<td>500.00</td>
+								<td>0.050</td>
+							</tr><tr>
+								<td>04/02/2013</td>
+								<td>NOKOMIS PARTNERS        </td>
+								<td>031</td>
+								<td>COH</td>
+								<td>SS</td>
+								<td>55,000</td>
+								<td>50.53</td>
+								<td>1,650.00</td>
+								<td>0.000</td>
+							</tr><tr>
+								<td>03/27/2013</td>
+								<td>NOKOMIS PARTNERS        </td>
+								<td>031</td>
+								<td>KSS</td>
+								<td>S</td>
+								<td>12,000</td>
+								<td>46.61</td>
+								<td>360.00</td>
+								<td>0.030</td>
+							</tr><tr>
+								<td>04/03/2013</td>
+								<td>ROARING BLUE LION MGMT  </td>
+								<td>031</td>
+								<td>EXPR</td>
+								<td>B</td>
+								<td>12,130</td>
+								<td>17.39</td>
+								<td>485.20</td>
+								<td>0.040</td>
+							</tr><tr>
+								<td>04/10/2013</td>
+								<td>ROARING BLUE LION MGMT  </td>
+								<td>031</td>
+								<td>EXPR</td>
+								<td>B</td>
+								<td>2,760</td>
+								<td>18.39</td>
+								<td>110.40</td>
+								<td>0.040</td>
+							</tr><tr>
+								<td>04/01/2013</td>
+								<td>ROARING BLUE LION MGMT  </td>
+								<td>031</td>
+								<td>F</td>
+								<td>SS</td>
+								<td>116,700</td>
+								<td>12.96</td>
+								<td>4,668.00</td>
+								<td>0.040</td>
+							</tr><tr>
+								<td>04/04/2013</td>
+								<td>ROARING BLUE LION MGMT  </td>
+								<td>031</td>
+								<td>F</td>
+								<td>SS</td>
+								<td>33,200</td>
+								<td>12.67</td>
+								<td>1,328.00</td>
+								<td>0.040</td>
+							</tr><tr>
+								<td>04/03/2013</td>
+								<td>ROARING BLUE LION MGMT  </td>
+								<td>031</td>
+								<td>FL</td>
+								<td>B</td>
+								<td>5,650</td>
+								<td>33.26</td>
+								<td>226.00</td>
+								<td>0.040</td>
+							</tr><tr>
+								<td>04/03/2013</td>
+								<td>ROARING BLUE LION MGMT  </td>
+								<td>031</td>
+								<td>PLCE</td>
+								<td>B</td>
+								<td>7,710</td>
+								<td>45.92</td>
+								<td>308.40</td>
+								<td>0.040</td>
+							</tr><tr>
+								<td>04/10/2013</td>
+								<td>ROARING BLUE LION MGMT  </td>
+								<td>031</td>
+								<td>PLCE</td>
+								<td>B</td>
+								<td>3,940</td>
+								<td>47.10</td>
+								<td>157.60</td>
+								<td>0.040</td>
+							</tr><tr>
+								<td>04/11/2013</td>
+								<td>ROARING BLUE LION MGMT  </td>
+								<td>031</td>
+								<td>TIF</td>
+								<td>SS</td>
+								<td>27,100</td>
+								<td>73.78</td>
+								<td>1,084.00</td>
+								<td>0.040</td>
+							</tr><tr>
+								<td>04/03/2013</td>
+								<td>ROARING BLUE LION MGMT  </td>
+								<td>031</td>
+								<td>TRLG</td>
+								<td>B</td>
+								<td>19,710</td>
+								<td>25.73</td>
+								<td>788.40</td>
+								<td>0.040</td>
+							</tr><tr>
+								<td>04/10/2013</td>
+								<td>ROARING BLUE LION MGMT  </td>
+								<td>031</td>
+								<td>TRLG</td>
+								<td>B</td>
+								<td>15,320</td>
+								<td>26.57</td>
+								<td>612.80</td>
+								<td>0.040</td>
+							</tr><tr>
+								<td>04/02/2013</td>
+								<td>ROYCE TRADING           </td>
+								<td>031</td>
+								<td>AYI</td>
+								<td>S</td>
+								<td>35,000</td>
+								<td>68.48</td>
+								<td>1,750.00</td>
+								<td>0.000</td>
+							</tr><tr>
+								<td>03/26/2013</td>
+								<td>ROYCE TRADING           </td>
+								<td>031</td>
+								<td>CROX</td>
+								<td>B</td>
+								<td>75,000</td>
+								<td>14.92</td>
+								<td>3,750.00</td>
+								<td>0.000</td>
+							</tr><tr>
+								<td>03/27/2013</td>
+								<td>ROYCE TRADING           </td>
+								<td>031</td>
+								<td>CROX</td>
+								<td>B</td>
+								<td>25,000</td>
+								<td>14.75</td>
+								<td>1,250.00</td>
+								<td>0.000</td>
+							</tr><tr>
+								<td>03/28/2013</td>
+								<td>ROYCE TRADING           </td>
+								<td>031</td>
+								<td>CROX</td>
+								<td>B</td>
+								<td>10,000</td>
+								<td>14.78</td>
+								<td>500.00</td>
+								<td>0.000</td>
+							</tr><tr>
+								<td>04/04/2013</td>
+								<td>ROYCE TRADING           </td>
+								<td>031</td>
+								<td>GNTX</td>
+								<td>B</td>
+								<td>50,000</td>
+								<td>19.44</td>
+								<td>2,500.00</td>
+								<td>0.000</td>
+							</tr><tr>
+								<td>04/03/2013</td>
+								<td>ROYCE TRADING           </td>
+								<td>031</td>
+								<td>MUX</td>
+								<td>S</td>
+								<td>100,000</td>
+								<td>2.59</td>
+								<td>1,000.00</td>
+								<td>0.000</td>
+							</tr><tr>
+								<td>04/09/2013</td>
+								<td>ROYCE TRADING           </td>
+								<td>031</td>
+								<td>TER</td>
+								<td>S</td>
+								<td>77,200</td>
+								<td>15.61</td>
+								<td>3,860.00</td>
+								<td>0.000</td>
+							</tr><tr>
+								<td>03/26/2013</td>
+								<td>ROYCE TRADING           </td>
+								<td>031</td>
+								<td>WOR</td>
+								<td>S</td>
+								<td>25,000</td>
+								<td>30.56</td>
+								<td>1,250.00</td>
+								<td>0.000</td>
+							</tr><tr>
+								<td>04/05/2013</td>
+								<td>ROYCE TRADING           </td>
+								<td>031</td>
+								<td>WOR</td>
+								<td>S</td>
+								<td>25,000</td>
+								<td>29.23</td>
+								<td>1,250.00</td>
+								<td>0.000</td>
+							</tr><tr>
+								<td>04/18/2013</td>
+								<td>SANDLER O'NEILL ASSET   </td>
+								<td>031</td>
+								<td>BAC</td>
+								<td>B</td>
+								<td>50,000</td>
+								<td>11.33</td>
+								<td>2,500.00</td>
+								<td>0.050</td>
+							</tr><tr>
+								<td>04/18/2013</td>
+								<td>SANDLER O'NEILL ASSET   </td>
+								<td>031</td>
+								<td>BK</td>
+								<td>SS</td>
+								<td>25,000</td>
+								<td>27.16</td>
+								<td>1,250.00</td>
+								<td>0.050</td>
+							</tr><tr>
+								<td>03/27/2013</td>
+								<td>SANDLER O'NEILL ASSET   </td>
+								<td>031</td>
+								<td>C</td>
+								<td>B</td>
+								<td>10,000</td>
+								<td>44.49</td>
+								<td>500.00</td>
+								<td>0.050</td>
+							</tr><tr>
+								<td>04/16/2013</td>
+								<td>SANDLER O'NEILL ASSET   </td>
+								<td>031</td>
+								<td>C</td>
+								<td>S</td>
+								<td>25,000</td>
+								<td>46.35</td>
+								<td>1,250.00</td>
+								<td>0.050</td>
+							</tr><tr>
+								<td>04/19/2013</td>
+								<td>SANDLER O'NEILL ASSET   </td>
+								<td>031</td>
+								<td>C</td>
+								<td>S</td>
+								<td>100,000</td>
+								<td>45.02</td>
+								<td>5,000.00</td>
+								<td>0.050</td>
+							</tr><tr>
+								<td>04/23/2013</td>
+								<td>SANDLER O'NEILL ASSET   </td>
+								<td>031</td>
+								<td>C</td>
+								<td>S</td>
+								<td>35,000</td>
+								<td>46.16</td>
+								<td>1,750.00</td>
+								<td>0.050</td>
+							</tr><tr>
+								<td>03/26/2013</td>
+								<td>SANDLER O'NEILL ASSET   </td>
+								<td>031</td>
+								<td>DFS</td>
+								<td>S</td>
+								<td>10,000</td>
+								<td>45.10</td>
+								<td>500.00</td>
+								<td>0.050</td>
+							</tr><tr>
+								<td>04/23/2013</td>
+								<td>SANDLER O'NEILL ASSET   </td>
+								<td>031</td>
+								<td>DFS</td>
+								<td>S</td>
+								<td>700</td>
+								<td>45.00</td>
+								<td>35.00</td>
+								<td>0.050</td>
+							</tr><tr>
+								<td>04/15/2013</td>
+								<td>SANDLER O'NEILL ASSET   </td>
+								<td>031</td>
+								<td>MS</td>
+								<td>S</td>
+								<td>60,000</td>
+								<td>21.56</td>
+								<td>3,000.00</td>
+								<td>0.050</td>
+							</tr><tr>
+								<td>04/05/2013</td>
+								<td>SANDLER O'NEILL ASSET   </td>
+								<td>031</td>
+								<td>STT</td>
+								<td>B</td>
+								<td>13,800</td>
+								<td>57.17</td>
+								<td>690.00</td>
+								<td>0.050</td>
+							</tr><tr>
+								<td>04/22/2013</td>
+								<td>SANDLER O'NEILL ASSET   </td>
+								<td>031</td>
+								<td>STT</td>
+								<td>B</td>
+								<td>15,114</td>
+								<td>56.75</td>
+								<td>755.70</td>
+								<td>0.050</td>
+							</tr><tr>
+								<td>04/23/2013</td>
+								<td>SANDLER O'NEILL ASSET   </td>
+								<td>031</td>
+								<td>STT</td>
+								<td>B</td>
+								<td>9,886</td>
+								<td>57.95</td>
+								<td>494.30</td>
+								<td>0.050</td>
+							</tr><tr>
+								<td>03/27/2013</td>
+								<td>SANDLER O'NEILL ASSET   </td>
+								<td>031</td>
+								<td>STT</td>
+								<td>SS</td>
+								<td>6,800</td>
+								<td>59.06</td>
+								<td>340.00</td>
+								<td>0.050</td>
+							</tr><tr>
+								<td>03/26/2013</td>
+								<td>SHEFFIELD ASSET MGMT    </td>
+								<td>031</td>
+								<td>DLTR</td>
+								<td>S</td>
+								<td>110,100</td>
+								<td>48.05</td>
+								<td>4,404.00</td>
+								<td>0.040</td>
+							</tr><tr>
+								<td>04/01/2013</td>
+								<td>SHEFFIELD ASSET MGMT    </td>
+								<td>031</td>
+								<td>RKT</td>
+								<td>B</td>
+								<td>19,200</td>
+								<td>91.95</td>
+								<td>768.00</td>
+								<td>0.040</td>
+							</tr><tr>
+								<td>04/19/2013</td>
+								<td>SHEFFIELD ASSET MGMT    </td>
+								<td>031</td>
+								<td>RKT</td>
+								<td>B</td>
+								<td>11,000</td>
+								<td>86.42</td>
+								<td>440.00</td>
+								<td>0.040</td>
+							</tr><tr>
+								<td>04/22/2013</td>
+								<td>SHEFFIELD ASSET MGMT    </td>
+								<td>031</td>
+								<td>RKT</td>
+								<td>B</td>
+								<td>10,000</td>
+								<td>86.62</td>
+								<td>400.00</td>
+								<td>0.000</td>
+							</tr><tr>
+								<td>04/19/2013</td>
+								<td>CAISSE DEPOT PLACEMENT Q</td>
+								<td>257</td>
+								<td>ADBE</td>
+								<td>SS</td>
+								<td>15,000</td>
+								<td>44.48</td>
+								<td>450.00</td>
+								<td>0.030</td>
+							</tr><tr>
+								<td>04/10/2013</td>
+								<td>CAISSE DEPOT PLACEMENT Q</td>
+								<td>257</td>
+								<td>ADTN</td>
+								<td>SS</td>
+								<td>55,000</td>
+								<td>22.65</td>
+								<td>1,650.00</td>
+								<td>0.030</td>
+							</tr><tr>
+								<td>04/16/2013</td>
+								<td>CAISSE DEPOT PLACEMENT Q</td>
+								<td>257</td>
+								<td>ALTR</td>
+								<td>SS</td>
+								<td>15,000</td>
+								<td>33.28</td>
+								<td>450.00</td>
+								<td>0.030</td>
+							</tr><tr>
+								<td>04/10/2013</td>
+								<td>CAISSE DEPOT PLACEMENT Q</td>
+								<td>257</td>
+								<td>AWAY</td>
+								<td>SS</td>
+								<td>10,000</td>
+								<td>32.48</td>
+								<td>300.00</td>
+								<td>0.030</td>
+							</tr><tr>
+								<td>04/11/2013</td>
+								<td>CAISSE DEPOT PLACEMENT Q</td>
+								<td>257</td>
+								<td>CVLT</td>
+								<td>B</td>
+								<td>10,000</td>
+								<td>71.46</td>
+								<td>300.00</td>
+								<td>0.030</td>
+							</tr><tr>
+								<td>03/28/2013</td>
+								<td>CAISSE DEPOT PLACEMENT Q</td>
+								<td>257</td>
+								<td>CY</td>
+								<td>B</td>
+								<td>30,000</td>
+								<td>11.11</td>
+								<td>900.00</td>
+								<td>0.030</td>
+							</tr><tr>
+								<td>04/18/2013</td>
+								<td>CAISSE DEPOT PLACEMENT Q</td>
+								<td>257</td>
+								<td>CY</td>
+								<td>B</td>
+								<td>30,000</td>
+								<td>10.00</td>
+								<td>900.00</td>
+								<td>0.030</td>
+							</tr><tr>
+								<td>04/18/2013</td>
+								<td>CAISSE DEPOT PLACEMENT Q</td>
+								<td>257</td>
+								<td>FCS</td>
+								<td>SS</td>
+								<td>150,000</td>
+								<td>13.18</td>
+								<td>4,500.00</td>
+								<td>0.030</td>
+							</tr><tr>
+								<td>04/19/2013</td>
+								<td>CAISSE DEPOT PLACEMENT Q</td>
+								<td>257</td>
+								<td>LSCC</td>
+								<td>B</td>
+								<td>75,000</td>
+								<td>4.80</td>
+								<td>2,250.00</td>
+								<td>0.030</td>
+							</tr><tr>
+								<td>04/10/2013</td>
+								<td>CAISSE DEPOT PLACEMENT Q</td>
+								<td>257</td>
+								<td>MSFT</td>
+								<td>S</td>
+								<td>35,000</td>
+								<td>30.11</td>
+								<td>1,050.00</td>
+								<td>0.030</td>
+							</tr><tr>
+								<td>03/28/2013</td>
+								<td>CAISSE DEPOT PLACEMENT Q</td>
+								<td>257</td>
+								<td>RFMD</td>
+								<td>S</td>
+								<td>75,000</td>
+								<td>5.24</td>
+								<td>2,250.00</td>
+								<td>0.030</td>
+							</tr><tr>
+								<td>04/10/2013</td>
+								<td>CAISSE DEPOT PLACEMENT Q</td>
+								<td>257</td>
+								<td>SWI</td>
+								<td>B</td>
+								<td>9,900</td>
+								<td>53.99</td>
+								<td>297.00</td>
+								<td>0.030</td>
+							</tr><tr>
+								<td>04/15/2013</td>
+								<td>CAISSE DEPOT PLACEMENT Q</td>
+								<td>257</td>
+								<td>TTWO</td>
+								<td>B</td>
+								<td>25,000</td>
+								<td>14.87</td>
+								<td>750.00</td>
+								<td>0.030</td>
+							</tr><tr>
+								<td>04/19/2013</td>
+								<td>CAISSE DEPOT PLACEMENT Q</td>
+								<td>257</td>
+								<td>TXN</td>
+								<td>SS</td>
+								<td>20,000</td>
+								<td>33.72</td>
+								<td>600.00</td>
+								<td>0.030</td>
+							</tr><tr>
+								<td>04/19/2013</td>
+								<td>MOORE CAPITAL           </td>
+								<td>257</td>
+								<td>GCI</td>
+								<td>C</td>
+								<td>25,000</td>
+								<td>20.42</td>
+								<td>750.00</td>
+								<td>0.000</td>
+							</tr><tr>
+								<td>04/15/2013</td>
+								<td>MOORE CAPITAL           </td>
+								<td>257</td>
+								<td>IP</td>
+								<td>B</td>
+								<td>100,000</td>
+								<td>46.75</td>
+								<td>3,000.00</td>
+								<td>0.000</td>
+							</tr><tr>
+								<td>04/11/2013</td>
+								<td>MOORE CAPITAL           </td>
+								<td>257</td>
+								<td>IP</td>
+								<td>S</td>
+								<td>33,000</td>
+								<td>48.83</td>
+								<td>990.00</td>
+								<td>0.000</td>
+							</tr></table>
+	</body>
+</html>

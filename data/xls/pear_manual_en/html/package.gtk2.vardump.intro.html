@@ -1,0 +1,213 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Gtk2_VarDump"
+HREF="package.gtk2.vardump.html"><LINK
+REL="PREVIOUS"
+TITLE="Gtk2_VarDump"
+HREF="package.gtk2.vardump.html"><LINK
+REL="NEXT"
+TITLE="HTML"
+HREF="package.html.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.gtk2.vardump.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.gtk2.vardump.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN50141"
+></A
+>Introduction&nbsp;--&nbsp;About Gtk2_VarDump</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN50144"
+></A
+><H2
+>About Gtk2_VarDump</H2
+><P
+>&#13;   <B
+CLASS="classname"
+>Gtk2_VarDump</B
+> is a simple GUI to examine PHP
+   variables, for example complex arrays or objects.
+   It displays the variable and all sub-variables/array keys/sub-objects
+   in the left pane (a GtkTreeView), and the actual values in a list view
+   on the right side.
+  </P
+><P
+>&#13;   The class is very easy to use: Just include the file,
+   and call the static display method with the variable you want to have
+   dumped.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN50149"><P
+><B
+>Example 40-1. Showing a variable with Gtk2_VarDump</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+//include the file
+require_once 'Gtk2/VarDump.php';
+
+$myvar = array(
+    'hello', 2 =&#62; 'world',
+    array(1, 2, 3, 'blubb')
+);
+
+//graphically dump the variable in an own window
+Gtk2_VarDump::display($myvar, 'variable title');
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.gtk2.vardump.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Gtk2_VarDump</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.gtk2.vardump.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

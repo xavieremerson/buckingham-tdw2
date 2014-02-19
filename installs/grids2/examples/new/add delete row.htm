@@ -1,0 +1,58 @@
+
+<html>
+<head>
+	<script src="../../runtime/lib/aw.js"></script>
+	<link href="../../runtime/styles/xp/aw.css" rel="stylesheet"></link>
+</head>
+<body>
+<style>
+
+</style>
+<script>
+
+	var obj = new AW.UI.Grid;
+//	var obj = new AW.Grid.Extended;
+
+	obj.setSize(600, 250);
+	obj.setCellText(function(i, j){return j + "-" + i});
+	obj.setHeaderText("header");
+
+	obj.setColumnCount(10);
+	obj.setRowCount(100);
+
+	document.write(obj);
+
+
+	obj.onRowAdded = function(row){
+		window.status = "Row added: " + row;
+		this.setCellText("new", 0, row);
+	}
+
+	obj.onRowDeleting = function(row){
+		return !confirm("Delete row " + row + "?");
+	}
+
+	obj.onRowDeleted = function(row){
+		window.status = "Row deleted: " + row;
+	}
+
+
+	// row index
+	var serial = 1000;
+
+	function add(){
+		obj.addRow(serial++);
+	}
+
+	function del(){
+		var i = obj.getCurrentRow();
+		obj.deleteRow(i);
+	}
+
+</script>
+<br>
+<button onclick="add()">add row</button>
+<button onclick="del()">delete row</button>
+
+</body>
+</html>

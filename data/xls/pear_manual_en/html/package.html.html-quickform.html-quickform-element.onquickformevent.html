@@ -1,0 +1,384 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_QuickForm_element::onQuickFormEvent()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Base classes"
+HREF="package.html.html-quickform.html#package.html.html-quickform.elements.base"><LINK
+REL="PREVIOUS"
+TITLE="HTML_QuickForm_element::isFrozen()"
+HREF="package.html.html-quickform.html-quickform-element.isfrozen.html"><LINK
+REL="NEXT"
+TITLE="HTML_QuickForm_element::setLabel()"
+HREF="package.html.html-quickform.html-quickform-element.setlabel.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-element.isfrozen.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-quickform.html-quickform-element.setlabel.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-quickform.html-quickform-element.onquickformevent">HTML_QuickForm_element::onQuickFormEvent()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN54098"
+></A
+>HTML_QuickForm_element::onQuickFormEvent()&nbsp;--&nbsp;Called by <B
+CLASS="classname"
+>HTML_QuickForm</B
+> whenever form event is made on this element (package developer related)</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN54102"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN54103"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/QuickForm/element.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void      <B
+CLASS="function"
+>HTML_QuickForm_element::onQuickFormEvent</B
+></CODE
+> (string $event, mixed $arg, object &#38;$caller)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-element.onquickformevent.desc"
+></A
+><H2
+>Description</H2
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>This method is not intended to be called directly.</P
+></BLOCKQUOTE
+></DIV
+><P
+>&#13;      If you are creating your own element, you should override this method and create handlers for each of available QuickForm events.
+     </P
+><P
+></P
+><DIV
+CLASS="variablelist"
+><P
+><B
+>QuickForm events</B
+></P
+><DL
+><DT
+><TT
+CLASS="literal"
+>'addElement'</TT
+></DT
+><DD
+><P
+>&#13;This event is sent by <A
+HREF="package.html.html-quickform.html-quickform.addelement.html"
+><B
+CLASS="function"
+>HTML_QuickForm::addElement()</B
+></A
+> method when adding a new element to the form. Its handler should usually send <TT
+CLASS="literal"
+>'createElement'</TT
+> and <TT
+CLASS="literal"
+>'updateValue'</TT
+> events.
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'createElement'</TT
+></DT
+><DD
+><P
+>&#13;This event is sent by <A
+HREF="package.html.html-quickform.html-quickform.createelement.html"
+><B
+CLASS="function"
+>HTML_QuickForm::createElement()</B
+></A
+> method after the element object is instantiated. Its handler should usually call class constructor using the contents of <TT
+CLASS="parameter"
+><I
+>$arg</I
+></TT
+> as parameters.
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'setGroupValue'</TT
+></DT
+><DD
+><P
+>&#13;The event is sent by <B
+CLASS="function"
+>HTML_QuickForm_group::setValue()</B
+> method to each of the grouped elements. The handler generally should set the element's value to <TT
+CLASS="parameter"
+><I
+>$arg</I
+></TT
+>.
+    </P
+></DD
+><DT
+><TT
+CLASS="literal"
+>'updateValue'</TT
+></DT
+><DD
+><P
+>&#13;The event is sent by QuickForm when the element is added to the form and when form default and constant values are set. The handler for this event is the most complex one: it should search for element's value within form's constant, submit (if applicable) and default values (in that order) and set the element's value to the found one.
+    </P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-element.onquickformevent.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+                 <TT
+CLASS="parameter"
+><I
+>$event</I
+></TT
+></DT
+><DD
+><P
+>&#13;         Name of event
+        </P
+></DD
+><DT
+>mixed
+                 <TT
+CLASS="parameter"
+><I
+>$arg</I
+></TT
+></DT
+><DD
+><P
+>&#13;         event arguments
+        </P
+></DD
+><DT
+>object
+                 <TT
+CLASS="parameter"
+><I
+>&#38;$caller</I
+></TT
+></DT
+><DD
+><P
+>&#13;         calling object
+        </P
+></DD
+></DL
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-element.onquickformevent.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+> no exceptions thrown
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-quickform.html-quickform-element.onquickformevent.note"
+></A
+><H2
+>Note</H2
+><P
+>&#13;      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>since</I
+></SPAN
+> 1.0
+    </P
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-element.isfrozen.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html-quickform-element.setlabel.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_QuickForm_element::isFrozen()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-quickform.html#package.html.html-quickform.elements.base"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_QuickForm_element::setLabel()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

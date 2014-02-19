@@ -1,0 +1,355 @@
+<HTML
+><HEAD
+><TITLE
+>Format::setAlign</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Spreadsheet_Excel_Writer"
+HREF="package.fileformats.spreadsheet-excel-writer.html"><LINK
+REL="PREVIOUS"
+TITLE="Spreadsheet_Excel_Writer::rowcolToCell"
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer.rowcoltocell.html"><LINK
+REL="NEXT"
+TITLE="Format::setVAlign"
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setvalign.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer.rowcoltocell.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setvalign.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setalign">Format::setAlign</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN44085"
+></A
+>Format::setAlign&nbsp;--&nbsp;Set cell alignment.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN44088"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN44089"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once "Spreadsheet/Excel/Writer.php";</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>Format::setAlign</B
+></CODE
+> (string $location)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setalign.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Set cell alignment.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setalign.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        string
+        <TT
+CLASS="parameter"
+><I
+>$location</I
+></TT
+> -
+        alignment for the cell
+       </P
+><P
+>&#13;        Horizontal Alignments (pick one):
+        <TT
+CLASS="literal"
+>left</TT
+>, <TT
+CLASS="literal"
+>center</TT
+>,
+        <TT
+CLASS="literal"
+>right</TT
+>, <TT
+CLASS="literal"
+>fill</TT
+>,
+        <TT
+CLASS="literal"
+>justify</TT
+>, <TT
+CLASS="literal"
+>merge</TT
+>,
+        <TT
+CLASS="literal"
+>equal_space</TT
+>.
+       </P
+><P
+>&#13;        Vertical Alignments (pick one):
+        <TT
+CLASS="literal"
+>top</TT
+>, <TT
+CLASS="literal"
+>vcenter</TT
+>,
+        <TT
+CLASS="literal"
+>bottom</TT
+>, <TT
+CLASS="literal"
+>vjustify</TT
+>,
+        <TT
+CLASS="literal"
+>vequal_space</TT
+>.
+       </P
+><P
+>&#13;        To implement a combination of Horizontal and Vertical Alignments,
+        call this method two times.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setalign.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setalign.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN44127"><P
+><B
+>Example 37-1. Using <B
+CLASS="function"
+>setAlign()</B
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Spreadsheet/Excel/Writer.php';
+
+$workbook = new Spreadsheet_Excel_Writer();
+$worksheet =&#38; $workbook-&#62;addWorksheet();
+
+// put text at the top
+$format_top =&#38; $workbook-&#62;addFormat();
+$format_top-&#62;setAlign('top');
+$format_top-&#62;setTextWrap(1);
+
+// center the text horizontally
+$format_center =&#38; $workbook-&#62;addFormat();
+$format_center-&#62;setAlign('center');
+
+// put text at the top and center it horizontally
+$format_top_center =&#38; $workbook-&#62;addFormat();
+$format_top_center-&#62;setAlign('top');
+$format_top_center-&#62;setAlign('center');
+
+$worksheet-&#62;write(0, 0, 'On top of the world!',
+                  $format_top);
+$worksheet-&#62;write(1, 0, 'c', $format_center);
+$worksheet-&#62;write(2, 0, 'tc', $format_top_center);
+
+$workbook-&#62;send('align.xls');
+$workbook-&#62;close();</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer.rowcoltocell.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.spreadsheet-excel-writer-format.setvalign.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Spreadsheet_Excel_Writer::rowcolToCell</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.fileformats.spreadsheet-excel-writer.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Format::setVAlign</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,258 @@
+<HTML>
+<HEAD>
+<Title>Database Clickable Charts</Title>
+<link type='text/css' rel='Stylesheet' href="maxchartapi.css" />
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+<p class="heading0">ChartDirector Ver 5.0 (PHP Edition)</p>
+<p class="heading1">Database Clickable Charts</p>
+<hr class="separator">
+<div class="content"><img src="images/dbclickable_doc.png"><br><br>
+In this section, we will present an example that employs both database and image maps.<br><br>
+This example displays a bar chart that shows the revenue for the last 10 years. When the user clicks on a bar, it will "drill down" to another bar chart showing the monthly revenue for the year represented by the bar clicked. All data come from a database.<br><br>
+The code that creates the clickable bar chart for the last 10 years are as follows.<br><br>
+<b>[File: phpdemo/dbdemo3.php]</b>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc"><pre>&lt;?php
+require_once("../lib/phpchartdir.php");
+
+# SQL statement to get the revenue for the 12 years from 1990 to 2001
+$SQL =
+    "Select Sum(Software + Hardware + Services), Year(TimeStamp) From revenue ".
+    "Where Year(TimeStamp) &gt;= 1990 And Year(TimeStamp) &lt;= 2001 Group By ".
+    "Year(TimeStamp) Order By Year(TimeStamp)";
+
+#
+# Connect to database and read the query result into arrays
+#
+mysql_connect("localhost", "test", "test");
+mysql_select_db("sample");
+$result = mysql_query($SQL);
+while ($row = mysql_fetch_row($result)) {
+    $revenue[] = $row[0];
+    $timestamp[] = $row[1];
+}
+
+#
+# Now we have read data into arrays, we can draw the chart using ChartDirector
+#
+
+# Create a XYChart object of size 600 x 360 pixels
+$c = new XYChart(600, 360);
+
+# Set the plotarea at (60, 40) and of size 480 x 280 pixels. Use a vertical gradient
+# color from light blue (eeeeff) to deep blue (0000cc) as background. Set border and
+# grid lines to white (ffffff).
+$c-&gt;setPlotArea(60, 40, 480, 280, $c-&gt;linearGradientColor(60, 40, 60, 280, 0xeeeeff,
+    0x0000cc), -1, 0xffffff, 0xffffff);
+
+# Add a title to the chart using 18pts Times Bold Italic font
+$c-&gt;addTitle("Annual Revenue for Star Tech", "timesbi.ttf", 18);
+
+# Add a multi-color bar chart layer using the supplied data
+$layer = $c-&gt;addBarLayer3($revenue);
+
+# Use glass lighting effect with light direction from the left
+$layer-&gt;setBorderColor(Transparent, glassEffect(NormalGlare, Left));
+
+# Set the x axis labels
+$c-&gt;xAxis-&gt;setLabels($timestamp);
+
+# Set y-axis tick density to 30 pixels. ChartDirector auto-scaling will use this as
+# the guideline when putting ticks on the y-axis.
+$c-&gt;yAxis-&gt;setTickDensity(30);
+
+# Synchronize the left and right y-axes
+$c-&gt;syncYAxis();
+
+# Set the y axes titles with 10pts Arial Bold font
+$c-&gt;yAxis-&gt;setTitle("USD (Millions)", "arialbd.ttf", 10);
+$c-&gt;yAxis2-&gt;setTitle("USD (Millions)", "arialbd.ttf", 10);
+
+# Set all axes to transparent
+$c-&gt;xAxis-&gt;setColors(Transparent);
+$c-&gt;yAxis-&gt;setColors(Transparent);
+$c-&gt;yAxis2-&gt;setColors(Transparent);
+
+# Set the label styles of all axes to 8pt Arial Bold font
+$c-&gt;xAxis-&gt;setLabelStyle("arialbd.ttf", 8);
+$c-&gt;yAxis-&gt;setLabelStyle("arialbd.ttf", 8);
+$c-&gt;yAxis2-&gt;setLabelStyle("arialbd.ttf", 8);
+
+# Create the image
+$chart1URL = $c-&gt;makeSession("chart1");
+
+# Create an image map for the chart
+$imageMap = $c-&gt;getHTMLImageMap("dbdemo3a.php", "",
+    "title='{xLabel}: US\$ {value|0}M'");
+?&gt;
+&lt;html&gt;
+&lt;body style="margin:5px 0px 0px 5px"&gt;
+&lt;div style="font-size:18pt; font-family:verdana; font-weight:bold"&gt;
+    Database Clickable Charts
+&lt;/div&gt;
+&lt;hr style="border:solid 1px #000080" /&gt;
+&lt;div style="font-size:10pt; font-family:verdana; width:600px; margin-bottom:20px"&gt;
+    The example demonstrates creating a clickable chart using data from a database.
+    Click on a bar below to "drill down" onto a particular year.
+&lt;br /&gt;&lt;br /&gt;
+&lt;a href='viewsource.php?file=&lt;?php echo $_SERVER["SCRIPT_NAME"]?&gt;'&gt;
+    View source code
+&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;img src="getchart.php?&lt;?php echo $chart1URL?&gt;" border="0" usemap="#map1"&gt;
+&lt;map name="map1"&gt;
+&lt;?php echo $imageMap?&gt;
+&lt;/map&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre></tr></td></table><br>
+The above code first performs a database query and read the data into arrays. It then uses the data to create a bar chart. The chart is saved in a session variable using <a href="BaseChart.makeSession.htm">BaseChart.makeSession</a>.  An &lt;IMG&gt; tag is used to retrieve the chart with as the URL. "getchart.php" is a simple utility that comes with ChartDirector for retrieving images from session variables. The image map for the chart is created using <a href="BaseChart.getHTMLImageMap.htm">BaseChart.getHTMLImageMap</a> with "dbdemo3a.php" as the handler.<br><br>
+<div style="background-color:#cccccc;width:99%;padding:10px">
+<b><font color="#FF0000">NOTE:</font></b> This sample script uses "getchart.php" and assumes it is in the same directory as the script. When developing your own script using this sample script as a template, please ensure you copy "getchart.php" to the same directory as your script. If you put "getchart.php" in other directory, please adjust the paths in your script accordingly.
+</div><br>
+When the user clicks on the bar chart, "dbdemo3a.php" will be invoked with a number of HTTP query parameters to indicate which bar the user has clicked. In particular, the xLabel parameter will contain the x-axis label for the bar clicked. With this parameter, "dbdemo3a.php" can determine which year the user has clicked. It can then query the database for the data in that year, and produces the bar chart for that year.<br><br>
+In this example, "dbdemo3a.php" will produce another clickable chart using "xystub.php" as the handler.<br><br>
+<b>[File: phpdemo/dbdemo3a.php]</b>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc"><pre>&lt;?php
+require_once("../lib/phpchartdir.php");
+
+#
+# Displays the monthly revenue for the selected year. The selected year should be
+# passed in as a query parameter called "xLabel"
+#
+if (isset($_GET["xLabel"]))
+    $selectedYear = $_GET["xLabel"];
+else
+    $selectedYear = 2001;
+
+# SQL statement to get the monthly revenues for the selected year.
+$SQL =
+    "Select Software, Hardware, Services From revenue Where Year(TimeStamp) = ".
+    "$selectedYear Order By TimeStamp";
+
+#
+# Connect to database and read the query result into arrays
+#
+
+mysql_connect("localhost", "test", "test");
+mysql_select_db("sample");
+$result = mysql_query($SQL);
+
+while ($row = mysql_fetch_row($result)) {
+    $software[] = $row[0];
+    $hardware[] = $row[1];
+    $services[] = $row[2];
+}
+
+#
+# Now we have read data into arrays, we can draw the chart using ChartDirector
+#
+
+# Create a XYChart object of size 600 x 360 pixels
+$c = new XYChart(600, 360);
+
+# Set the plotarea at (60, 50) and of size 480 x 270 pixels. Use a vertical gradient
+# color from light blue (eeeeff) to deep blue (0000cc) as background. Set border and
+# grid lines to white (ffffff).
+$c-&gt;setPlotArea(60, 50, 480, 270, $c-&gt;linearGradientColor(60, 50, 60, 270, 0xeeeeff,
+    0x0000cc), -1, 0xffffff, 0xffffff);
+
+# Add a title to the chart using 15pts Times Bold Italic font
+$c-&gt;addTitle("Global Revenue for Year $selectedYear", "timesbi.ttf", 18);
+
+# Add a legend box at (60, 25) (top of the plotarea) with 9pts Arial Bold font
+$legendObj = $c-&gt;addLegend(60, 25, false, "arialbd.ttf", 9);
+$legendObj-&gt;setBackground(Transparent);
+
+# Add a line chart layer using the supplied data
+$layer = $c-&gt;addLineLayer2();
+$dataSetObj = $layer-&gt;addDataSet($software, 0xffaa00, "Software");
+$dataSetObj-&gt;setDataSymbol(CircleShape, 9);
+$dataSetObj = $layer-&gt;addDataSet($hardware, 0x00ff00, "Hardware");
+$dataSetObj-&gt;setDataSymbol(DiamondShape, 11);
+$dataSetObj = $layer-&gt;addDataSet($services, 0xff0000, "Services");
+$dataSetObj-&gt;setDataSymbol(Cross2Shape(), 11);
+
+# Set the line width to 3 pixels
+$layer-&gt;setLineWidth(3);
+
+# Set the x axis labels. In this example, the labels must be Jan - Dec.
+$labels = array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept",
+    "Oct", "Nov", "Dec");
+$c-&gt;xAxis-&gt;setLabels($labels);
+
+# Set y-axis tick density to 30 pixels. ChartDirector auto-scaling will use this as
+# the guideline when putting ticks on the y-axis.
+$c-&gt;yAxis-&gt;setTickDensity(30);
+
+# Synchronize the left and right y-axes
+$c-&gt;syncYAxis();
+
+# Set the y axes titles with 10pts Arial Bold font
+$c-&gt;yAxis-&gt;setTitle("USD (Millions)", "arialbd.ttf", 10);
+$c-&gt;yAxis2-&gt;setTitle("USD (Millions)", "arialbd.ttf", 10);
+
+# Set all axes to transparent
+$c-&gt;xAxis-&gt;setColors(Transparent);
+$c-&gt;yAxis-&gt;setColors(Transparent);
+$c-&gt;yAxis2-&gt;setColors(Transparent);
+
+# Set the label styles of all axes to 8pt Arial Bold font
+$c-&gt;xAxis-&gt;setLabelStyle("arialbd.ttf", 8);
+$c-&gt;yAxis-&gt;setLabelStyle("arialbd.ttf", 8);
+$c-&gt;yAxis2-&gt;setLabelStyle("arialbd.ttf", 8);
+
+# Create the image and save it in a temporary location
+$chart1URL = $c-&gt;makeSession("chart1");
+
+# Create an image map for the chart
+$imageMap = $c-&gt;getHTMLImageMap("xystub.php", "",
+    "title='{dataSetName} @ {xLabel} = USD {value|0}M'");
+?&gt;
+&lt;html&gt;
+&lt;body style="margin:5px 0px 0px 5px"&gt;
+&lt;div style="font-size:18pt; font-family:verdana; font-weight:bold"&gt;
+    Database Clickable Charts
+&lt;/div&gt;
+&lt;hr style="border:solid 1px #000080" /&gt;
+&lt;div style="font-size:10pt; font-family:verdana; width:600px; margin-bottom:20px"&gt;
+    You have click the bar for the year &lt;?php echo $selectedYear?&gt;.
+    Below is the "drill-down" chart showing the monthly details.
+&lt;br /&gt;&lt;br /&gt;
+&lt;a href='viewsource.php?file=&lt;?php echo $_SERVER["SCRIPT_NAME"]?&gt;'&gt;
+    View source code
+&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;img src="getchart.php?&lt;?php echo $chart1URL?&gt;" border="0" usemap="#map1"&gt;
+&lt;map name="map1"&gt;
+&lt;?php echo $imageMap?&gt;
+&lt;/map&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre></tr></td></table><br>
+For demo purpose, "xystub.php" simply displays information on what is clicked. It's source code is as follows.<br><br>
+<b>[File: phpdemo/xystub.php]</b>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc"><pre>&lt;html&gt;
+&lt;body style="margin:5px 0px 0px 5px"&gt;
+&lt;div style="font-size:18pt; font-family:verdana; font-weight:bold"&gt;
+    Simple Clickable XY Chart Handler
+&lt;/div&gt;
+&lt;hr style="border:solid 1px #000080" /&gt;
+&lt;div style="font-size:10pt; font-family:verdana; margin-bottom:20"&gt;
+    &lt;a href="viewsource.php?file=&lt;?php echo $_SERVER["SCRIPT_NAME"]?&gt;"&gt;View Source Code&lt;/a&gt;
+&lt;/div&gt;
+&lt;div style="font-size:10pt; font-family:verdana;"&gt;
+&lt;b&gt;You have clicked on the following chart element :&lt;/b&gt;&lt;br /&gt;
+&lt;ul&gt;
+    &lt;li&gt;Data Set : &lt;?php echo $_REQUEST["dataSetName"]?&gt;&lt;/li&gt;
+    &lt;li&gt;X Position : &lt;?php echo $_REQUEST["x"]?&gt;&lt;/li&gt;
+    &lt;li&gt;X Label : &lt;?php echo $_REQUEST["xLabel"]?&gt;&lt;/li&gt;
+    &lt;li&gt;Data Value : &lt;?php echo $_REQUEST["value"]?&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre></tr></td></table></div><br>
+<hr class="separator"><div class="copyright">&copy; 2008 Advanced Software Engineering Limited. All rights reserved.</div></body>
+</HTML>

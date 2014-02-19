@@ -1,0 +1,241 @@
+<HTML
+><HEAD
+><TITLE
+>PEAR_PackageUpdate::getPackagePreferences</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR_PackageUpdate"
+HREF="package.pear.pear-packageupdate.html"><LINK
+REL="PREVIOUS"
+TITLE="PEAR_PackageUpdate::getPackageInfo"
+HREF="package.pear.pear-packageupdate.pear-packageupdate.getpackageinfo.html"><LINK
+REL="NEXT"
+TITLE="PHP"
+HREF="package.php.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.pear.pear-packageupdate.pear-packageupdate.getpackageinfo.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.php.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.pear.pear-packageupdate.pear-packageupdate.getpackagepreferences">PEAR_PackageUpdate::getPackagePreferences</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN92638"
+></A
+>PEAR_PackageUpdate::getPackagePreferences&nbsp;--&nbsp;
+   Returns the update preferences for the current package.
+  </DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN92641"><H2
+>Synopsis</H2
+><FONT
+COLOR="RED"
+><FONT
+COLOR="RED"
+>public</FONT
+>array<TT
+CLASS="methodname"
+>PEAR_PackageUpdate::getPackagePreferences</TT
+></FONT
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packageupdate.pear-packageupdate.getpackagepreferences.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Returns an array of update preferences for the current package. This method
+   is used to ensure that users are not asked about updates they do not want
+   to be asked about.
+  </P
+><P
+>&#13;   The array returned may have up to four elements:
+   <P
+></P
+><UL
+><LI
+><P
+>&#13;      PEAR_PACKAGEUPDATE_PREF_NOUPDATES - if <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> the user does not want to
+      know about any new updates.
+     </P
+></LI
+><LI
+><P
+>&#13;      PEAR_PACKAGEUPDATE_PREF_NEXTRELEASE - if set, the user does not want to
+      be asked until a version greater than the value of this element has been
+      released.
+     </P
+></LI
+><LI
+><P
+>&#13;      PEAR_PACKAGEUPDATE_PREF_TYPE - if set, the user does not want to be
+      notified unless the release is at least the given type (one of
+      PEAR_PACKAGEUPDATE_TYPE_BUG, PEAR_PACKAGEUPDATE_TYPE_MINOR,
+      PEAR_PACKAGEUPDATE_MAJOR).
+     </P
+></LI
+><LI
+><P
+>&#13;      PEAR_PACKAGEUPDATE_PREF_STATE - if set, the user does not want to be
+      notified unless the release has at least the given state (one of
+      PEAR_PACKAGEUPDATE_PREF_STATE_DEVEL, PEAR_PACKAGEUPDATE_PREF_STATE_ALPHA, 
+      PEAR_PACKAGEUPDATE_PREF_STATE_BETA,
+      PEAR_PACKAGEUPDATE_PREF_STATE_STABLE).
+     </P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packageupdate.pear-packageupdate.getpackagepreferences.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.pear.pear-packageupdate.pear-packageupdate.getpackagepreferences.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   array - an array of user preferences.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.pear.pear-packageupdate.pear-packageupdate.getpackageinfo.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.php.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>PEAR_PackageUpdate::getPackageInfo</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.pear.pear-packageupdate.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>PHP</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,882 @@
+<HTML
+><HEAD
+><TITLE
+>DB_common::setFetchMode()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="DB_common::rollback()"
+HREF="package.database.db.db-common.rollback.html"><LINK
+REL="NEXT"
+TITLE="DB_common::setOption()"
+HREF="package.database.db.db-common.setoption.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.rollback.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.setoption.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.db-common.setfetchmode">DB_common::setFetchMode()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN24776"
+></A
+>DB_common::setFetchMode()&nbsp;--&nbsp;Sets the default fetch mode</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN24779"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN24780"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>setFetchMode</B
+></CODE
+> (integer $fetchmode [, string $object_class = stdClass])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.setfetchmode.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Sets the default fetch mode used by
+   <B
+CLASS="function"
+>fetch*()</B
+> and <B
+CLASS="function"
+>get*()</B
+>
+   methods.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.setfetchmode.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>integer
+      <TT
+CLASS="parameter"
+><I
+>$fetchmode</I
+></TT
+></DT
+><DD
+><P
+>&#13;       <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ORDERED</B
+></TT
+>,
+       <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ASSOC</B
+></TT
+> or
+       <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_OBJECT</B
+></TT
+>.
+      </P
+><P
+>&#13;       See the
+       <A
+HREF="package.database.db.db-common.setfetchmode.html#package.database.db.db-common.setfetchmode.example"
+>&#13;        Examples section</A
+>, below, for more information.
+      </P
+></DD
+><DT
+>string
+      <TT
+CLASS="parameter"
+><I
+>$object_class</I
+></TT
+></DT
+><DD
+><P
+>&#13;       This parameter is for use when
+       <TT
+CLASS="parameter"
+><I
+>$fetchmode</I
+></TT
+> is set to
+       <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_OBJECT</B
+></TT
+>.
+      </P
+><P
+>&#13;       You can set this parameter to <TT
+CLASS="literal"
+>DB_row</TT
+>,
+       which then causes the resulting data to populate a
+       new instance of a <B
+CLASS="classname"
+>DB_row</B
+> object.
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.setfetchmode.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   void - nothing is returned on success
+   or a <A
+HREF="package.database.db.db-error.html"
+><B
+CLASS="classname"
+>DB_Error</B
+></A
+> object on failure
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.setfetchmode.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <DIV
+CLASS="table"
+><A
+NAME="AEN24829"><P
+><B
+>Table 33-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        invalid fetchmode mode
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        The given fetch mode does not exists or is not
+        implement in your <A
+HREF="package.database.db.html"
+><B
+CLASS="classname"
+>DB</B
+></A
+> version.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check writing of the argument and your used version of
+        <A
+HREF="package.database.db.html"
+><B
+CLASS="classname"
+>DB</B
+></A
+>.
+       </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.setfetchmode.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.setfetchmode.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.database.db.db-common.setfetchmode.example.ordered"><P
+><B
+>Example 33-1. 
+    <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ORDERED</B
+></TT
+> (default)
+   </B
+></P
+><P
+>&#13;    Causes ordered arrays to be returned.
+    The order is taken from the select statement.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$db-&#62;setFetchMode(DB_FETCHMODE_ORDERED);
+
+$res =&#38; $db-&#62;query('SELECT a, b FROM phptest WHERE a = 28');
+$row =&#38; $res-&#62;fetchRow();
+
+print_r($row);
+echo 'Column a is ' . $row[0];
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Output:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [0] =&#62; 28
+    [1] =&#62; hi
+)
+Column a is 28</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.database.db.db-common.setfetchmode.example.assoc"><P
+><B
+>Example 33-2. 
+    <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ASSOC</B
+></TT
+>
+   </B
+></P
+><P
+>&#13;    Makes associative arrays, with the column
+    names as the array keys.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$db-&#62;setFetchMode(DB_FETCHMODE_ASSOC);
+
+$res =&#38; $db-&#62;query('SELECT a, b FROM phptest WHERE a = 28');
+$row =&#38; $res-&#62;fetchRow();
+
+print_r($row);
+echo 'Column a is ' . $row['a'];
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Output:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [a] =&#62; 28
+    [b] =&#62; hi
+)
+Column a is 28</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.database.db.db-common.setfetchmode.example.object"><P
+><B
+>Example 33-3. 
+    <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_OBJECT</B
+></TT
+>
+   </B
+></P
+><P
+>&#13;    Returns objects with column names as properties.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$db-&#62;setFetchMode(DB_FETCHMODE_OBJECT);
+
+$res =&#38; $db-&#62;query('SELECT a, b FROM phptest WHERE a = 28');
+$row =&#38; $res-&#62;fetchRow();
+
+print_r($row);
+echo 'Column a is ' . $row-&#62;a;
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Output:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>stdClass Object
+(
+    [a] =&#62; 28
+    [b] =&#62; hi
+)
+Column a is 28</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.database.db.db-common.setfetchmode.example.objectdbrow"><P
+><B
+>Example 33-4. 
+    <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_OBJECT</B
+></TT
+> and <B
+CLASS="classname"
+>DB_row</B
+>
+   </B
+></P
+><P
+>&#13;    If <B
+CLASS="function"
+>setFetchMode()</B
+>'s optional
+    <TT
+CLASS="parameter"
+><I
+>$object_class</I
+></TT
+> parameter
+    is set to <TT
+CLASS="literal"
+>DB_row</TT
+>, <B
+CLASS="classname"
+>DB_row</B
+>
+    objects are returned.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$db-&#62;setFetchMode(DB_FETCHMODE_OBJECT, 'DB_row');
+
+$res =&#38; $db-&#62;query('SELECT a, b FROM phptest WHERE a = 28');
+$row =&#38; $res-&#62;fetchRow();
+
+print_r($row);
+echo 'Column a is ' . $row-&#62;a;
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Output:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>db_row Object
+(
+    [a] =&#62; 28
+    [b] =&#62; hi
+)
+Column a is 28</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.database.db.db-common.setfetchmode.example.object4"><P
+><B
+>Example 33-5. 
+    <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_OBJECT</B
+></TT
+> with your own object in PHP 4
+   </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+
+class SomeResult {
+    function SomeResult($data) {
+        foreach ($data as $key =&#62; $value) {
+            $this-&#62;$key = $data[$key];
+        }
+    }
+}
+
+$db-&#62;setFetchMode(DB_FETCHMODE_OBJECT, 'SomeResult');
+
+$res =&#38; $db-&#62;query('SELECT a, b FROM phptest WHERE a = 28');
+$row =&#38; $res-&#62;fetchRow();
+
+print_r($row);
+echo 'Column a is ' . $row-&#62;a;
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Output:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>SomeResult Object
+(
+    [a] =&#62; 28
+    [b] =&#62; hi
+)
+Column a is 28</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="package.database.db.db-common.setfetchmode.example.object5"><P
+><B
+>Example 33-6. 
+    <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_OBJECT</B
+></TT
+> with your own object in PHP 5
+   </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+
+class SomeResult {
+    public $row_data;
+    function __construct($data) {
+        $this-&#62;row_data = $data;
+    }
+    function __get($variable) {
+        return $this-&#62;row_data[$variable];
+    }
+}
+
+$db-&#62;setFetchMode(DB_FETCHMODE_OBJECT, 'SomeResult');
+
+$res =&#38; $db-&#62;query('SELECT a, b FROM phptest WHERE a = 28');
+$row =&#38; $res-&#62;fetchRow();
+
+print_r($row);
+echo 'Column a is ' . $row-&#62;a;
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Output:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>SomeResult Object
+(
+    [a] =&#62; 28
+    [b] =&#62; hi
+)
+Column a is 28</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.rollback.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.setoption.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>DB_common::rollback()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>DB_common::setOption()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

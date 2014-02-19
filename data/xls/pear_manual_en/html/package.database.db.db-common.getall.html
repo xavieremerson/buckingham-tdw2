@@ -1,0 +1,1216 @@
+<HTML
+><HEAD
+><TITLE
+>DB_common::getAll()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="DB_common::freePrepared()"
+HREF="package.database.db.db-common.freeprepared.html"><LINK
+REL="NEXT"
+TITLE="DB_common::getAssoc()"
+HREF="package.database.db.db-common.getassoc.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.freeprepared.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.db-common.getassoc.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.db-common.getall">DB_common::getAll()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN22944"
+></A
+>DB_common::getAll()&nbsp;--&nbsp;Runs a query and returns all the data as an array</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN22947"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN22948"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>&#38;getAll</B
+></CODE
+> (string $query [, array $params = array() [, integer $fetchmode =
+      <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_DEFAULT</B
+></TT
+>]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.getall.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Runs the query provided and puts the
+   entire result set into a nested array
+   then frees the result set.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.getall.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>string
+      <TT
+CLASS="parameter"
+><I
+>$query</I
+></TT
+></DT
+><DD
+><P
+>&#13;       the SQL query or the statement to prepare
+      </P
+></DD
+><DT
+>array
+      <TT
+CLASS="parameter"
+><I
+>$params</I
+></TT
+></DT
+><DD
+><P
+>&#13;       array to be used in execution of the statement.
+       Quantity of array elements must match quantity
+       of placeholders in query.
+      </P
+><P
+>&#13;       If supplied,
+       <A
+HREF="package.database.db.intro-execute.html"
+>&#13;        <B
+CLASS="function"
+>prepare()</B
+>/
+        <B
+CLASS="function"
+>execute()</B
+></A
+> is used.
+      </P
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;        This method does not allow scalars to be used
+        for this argument.
+       </P
+></TD
+></TR
+></TABLE
+></DIV
+></DD
+><DT
+>integer
+      <TT
+CLASS="parameter"
+><I
+>$fetchmode</I
+></TT
+></DT
+><DD
+><P
+>&#13;       the fetch mode to use.
+       The default is <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_DEFAULT</B
+></TT
+>,
+       which tells this method to use DB's current fetch mode.
+       The current fetch mode can be changed using
+       <A
+HREF="package.database.db.db-common.setfetchmode.html"
+>&#13;        <B
+CLASS="function"
+>setFetchMode()</B
+></A
+>.
+       Potential values include:
+       <P
+></P
+><UL
+><LI
+><P
+>&#13;          <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ORDERED</B
+></TT
+>
+         </P
+></LI
+><LI
+><P
+>&#13;          <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ASSOC</B
+></TT
+>
+         </P
+></LI
+><LI
+><P
+>&#13;          <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_OBJECT</B
+></TT
+>
+         </P
+></LI
+><LI
+><P
+>&#13;          <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ORDERED</B
+></TT
+> |
+          <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_FLIPPED</B
+></TT
+>
+         </P
+></LI
+><LI
+><P
+>&#13;          <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_ASSOC</B
+></TT
+> |
+          <TT
+CLASS="constant"
+><B
+>DB_FETCHMODE_FLIPPED</B
+></TT
+>
+         </P
+></LI
+></UL
+>
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.getall.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;   array - a nested array
+   or a <A
+HREF="package.database.db.db-error.html"
+><B
+CLASS="classname"
+>DB_Error</B
+></A
+> on failure
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.getall.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <DIV
+CLASS="table"
+><A
+NAME="AEN23022"><P
+><B
+>Table 33-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_INVALID</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        invalid
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        SQL statment for preparing is not valid.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        See the <A
+HREF="package.database.db.db-common.prepare.html"
+>&#13;         <B
+CLASS="function"
+>prepare()</B
+> documentation</A
+>,
+        if you want to use a SQL statemt using placeholders.
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_MISMATCH</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        mismatch
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Quantity of parameters didn't match quantity of placeholders in
+        the prepared statment.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check that the number of placeholders in the
+        <A
+HREF="package.database.db.db-common.prepare.html"
+>&#13;         <B
+CLASS="function"
+>prepare()</B
+></A
+> statement passed to
+        <TT
+CLASS="parameter"
+><I
+>$query</I
+></TT
+> equals the count of entries
+        passed to <TT
+CLASS="parameter"
+><I
+>$params</I
+></TT
+>.
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>DB_ERROR_NODBSELECTED</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        no database selected
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        No database was choosen.
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check the <A
+HREF="package.database.db.intro-dsn.html"
+>DSN</A
+>
+        in <A
+HREF="package.database.db.db.connect.html"
+>&#13;         <B
+CLASS="function"
+>connect()</B
+></A
+>.
+       </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>every other error code</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Database specific error
+       </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;        Check the database related section of
+        <A
+HREF="http://www.php.net/manual/"
+TARGET="_top"
+>PHP-Manual</A
+>
+        to detect the reason for this error. In the most cases
+        a misformed SQL statment. Ie. using LIMIT in a SQL-Statment
+        for an Oracle database.
+       </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.getall.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.getall.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23070"><P
+><B
+>Example 33-1. 
+    Using <B
+CLASS="function"
+>getAll()</B
+> to return an
+    associative array
+    by setting the default fetch mode first
+   </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$db-&#62;setFetchMode(DB_FETCHMODE_ASSOC);
+$data =&#38; $db-&#62;getAll('SELECT cf, nf, df FROM foo');
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+
+print_r($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Output:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [0] =&#62; Array
+        (
+            [cf] =&#62; Juan
+            [nf] =&#62; 5
+            [df] =&#62; 1991-01-11 21:31:41
+        )
+    [1] =&#62; Array
+        (
+            [cf] =&#62; Kyu
+            [nf] =&#62; 10
+            [df] =&#62; 1992-02-12 22:32:42
+        )
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23076"><P
+><B
+>Example 33-2. 
+    Using <B
+CLASS="function"
+>getAll()</B
+> to return an
+    ordered array
+   </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data =&#38; $db-&#62;getAll('SELECT cf, nf, df FROM foo',
+        array(), DB_FETCHMODE_ORDERED);
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+
+print_r($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Output:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [0] =&#62; Array
+        (
+            [0] =&#62; Juan
+            [1] =&#62; 5
+            [2] =&#62; 1991-01-11 21:31:41
+        )
+    [1] =&#62; Array
+        (
+            [0] =&#62; Kyu
+            [1] =&#62; 10
+            [2] =&#62; 1992-02-12 22:32:42
+        )
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23082"><P
+><B
+>Example 33-3. 
+    Using <B
+CLASS="function"
+>getAll()</B
+> to return a
+    flipped ordered array
+   </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data =&#38; $db-&#62;getAll('SELECT cf, nf, df FROM foo',
+        array(), DB_FETCHMODE_ORDERED | DB_FETCHMODE_FLIPPED);
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+
+print_r($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Output:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [0] =&#62; Array
+        (
+            [0] =&#62; Juan
+            [1] =&#62; Kyu
+        )
+    [1] =&#62; Array
+        (
+            [0] =&#62; 5
+            [1] =&#62; 10
+        )
+    [2] =&#62; Array
+        (
+            [0] =&#62; 1991-01-11 21:31:41
+            [1] =&#62; 1992-02-12 22:32:42
+        )
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23088"><P
+><B
+>Example 33-4. 
+    Using <B
+CLASS="function"
+>getAll()</B
+> to return an
+    associative array
+   </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data =&#38; $db-&#62;getAll('SELECT cf, nf, df FROM foo',
+        array(), DB_FETCHMODE_ASSOC);
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+
+print_r($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Output:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [0] =&#62; Array
+        (
+            [cf] =&#62; Juan
+            [nf] =&#62; 5
+            [df] =&#62; 1991-01-11 21:31:41
+        )
+    [1] =&#62; Array
+        (
+            [cf] =&#62; Kyu
+            [nf] =&#62; 10
+            [df] =&#62; 1992-02-12 22:32:42
+        )
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23094"><P
+><B
+>Example 33-5. 
+    Using <B
+CLASS="function"
+>getAll()</B
+> to return a
+    flipped associative array
+   </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data =&#38; $db-&#62;getAll('SELECT cf, nf, df FROM foo',
+        array(), DB_FETCHMODE_ASSOC | DB_FETCHMODE_FLIPPED);
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+
+print_r($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Output:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [cf] =&#62; Array
+        (
+            [0] =&#62; Juan
+            [1] =&#62; Kyu
+        )
+    [nf] =&#62; Array
+        (
+            [0] =&#62; 5
+            [1] =&#62; 10
+        )
+    [df] =&#62; Array
+        (
+            [0] =&#62; 1991-01-11 21:31:41
+            [1] =&#62; 1992-02-12 22:32:42
+        )
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23100"><P
+><B
+>Example 33-6. 
+    Using <B
+CLASS="function"
+>getAll()</B
+> to return an
+    array of objects
+   </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data =&#38; $db-&#62;getAll('SELECT cf, nf, df FROM foo',
+        array(), DB_FETCHMODE_OBJECT);
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+
+print_r($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Output:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [0] =&#62; stdClass Object
+        (
+            [cf] =&#62; Juan
+            [nf] =&#62; 5
+            [df] =&#62; 1991-01-11 21:31:41
+        )
+    [1] =&#62; stdClass Object
+        (
+            [cf] =&#62; Kyu
+            [nf] =&#62; 10
+            [df] =&#62; 1992-02-12 22:32:42
+        )
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN23106"><P
+><B
+>Example 33-7. 
+    Using <B
+CLASS="function"
+>getAll()</B
+> in prepare/execute mode
+    to return an associative array
+   </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid DB object named $db...
+$data =&#38; $db-&#62;getAll('SELECT cf, nf, df FROM foo WHERE nf = ?',
+        array(5), DB_FETCHMODE_ASSOC);
+
+if (PEAR::isError($data)) {
+    die($data-&#62;getMessage());
+}
+
+print_r($data);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    Output:
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+>Array
+(
+    [0] =&#62; Array
+        (
+            [cf] =&#62; Juan
+            [nf] =&#62; 5
+            [df] =&#62; 1991-01-11 21:31:41
+        )
+)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.db-common.getall.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="package.database.db.db-common.setfetchmode.html"
+>&#13;    <B
+CLASS="function"
+>setFetchMode()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-common.getone.html"
+>&#13;    <B
+CLASS="function"
+>getOne()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-common.getrow.html"
+>&#13;    <B
+CLASS="function"
+>getRow()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-common.getcol.html"
+>&#13;    <B
+CLASS="function"
+>getCol()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-common.getassoc.html"
+>&#13;    <B
+CLASS="function"
+>getAssoc()</B
+></A
+>,
+   <A
+HREF="package.database.db.db-common.query.html"
+>&#13;    <B
+CLASS="function"
+>query()</B
+></A
+>,
+   <A
+HREF="package.database.db.intro-execute.html"
+>&#13;    <SPAN
+CLASS="QUOTE"
+>"Intro - Prepare &#38; Execute"</SPAN
+></A
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.freeprepared.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.db-common.getassoc.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>DB_common::freePrepared()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>DB_common::getAssoc()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

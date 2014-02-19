@@ -1,0 +1,1 @@
+htmldoc --bottom 0.5in --top 0.5in --format pdf14 --left 0.5in --no-title --landscape --right 0.5in --size letter --top 0.5in --webpage -f D:\tdw\tdw\data\prnt\%1 d:\tdw\tdw\data\prnt\%2

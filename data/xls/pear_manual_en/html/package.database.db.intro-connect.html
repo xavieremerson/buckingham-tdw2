@@ -1,0 +1,536 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - Connect</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB"
+HREF="package.database.db.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction - DSN"
+HREF="package.database.db.intro-dsn.html"><LINK
+REL="NEXT"
+TITLE="Introduction - Query"
+HREF="package.database.db.intro-query.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db.intro-dsn.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db.intro-query.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db.intro-connect">Introduction - Connect</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN21218"
+></A
+>Introduction - Connect&nbsp;--&nbsp;Connecting and disconnecting a database</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.intro-connect.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   To connect to a database you have to use the function
+   <A
+HREF="package.database.db.db.connect.html"
+>&#13;    <B
+CLASS="function"
+>connect()</B
+></A
+>, which requires a valid
+   <A
+HREF="package.database.db.intro-dsn.html"
+>DSN</A
+>
+   as the first parameter. This parameter can either be a string
+   or an array. If using an array, the array used gets merged with the
+   default information:
+   <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="configuration"
+>$dsn = array(
+    'phptype'  =&#62; false,
+    'dbsyntax' =&#62; false,
+    'username' =&#62; false,
+    'password' =&#62; false,
+    'protocol' =&#62; false,
+    'hostspec' =&#62; false,
+    'port'     =&#62; false,
+    'socket'   =&#62; false,
+    'database' =&#62; false,
+);</PRE
+></TD
+></TR
+></TABLE
+>
+   Any elements you set override the defaults and the remainder stay at
+   their defaults.
+  </P
+><P
+>&#13;   The second parameter is the optional <TT
+CLASS="parameter"
+><I
+>$options</I
+></TT
+>
+   array that can contain runtime configuration settings for this package.
+   See <A
+HREF="package.database.db.db-common.setoption.html"
+>&#13;    <B
+CLASS="function"
+>setOption()</B
+></A
+> for more information on the
+   available settings.
+  </P
+><P
+>&#13;   In case of success you get a new instance of the database class.
+   It is strongly recommened to
+   check this return value with <A
+HREF="package.database.db.db.iserror.html"
+>&#13;    <B
+CLASS="function"
+>isError()</B
+></A
+>.
+  </P
+><P
+>&#13;   To disconnect use the method <A
+HREF="package.database.db.db-common.disconnect.html"
+>&#13;    <B
+CLASS="function"
+>disconnect()</B
+></A
+>
+   from your database class instance.
+  </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21238"><P
+><B
+>Example 33-1. Connect and disconnect</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'DB.php';
+
+$dsn = 'pgsql://someuser:apasswd@localhost/thedb';
+$options = array(
+    'debug'       =&#62; 2,
+    'portability' =&#62; DB_PORTABILITY_ALL,
+);
+
+$db =&#38; DB::connect($dsn, $options);
+if (PEAR::isError($db)) {
+    die($db-&#62;getMessage());
+}
+
+// ...
+
+$db-&#62;disconnect();
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21241"><P
+><B
+>Example 33-2. Connect using an array for the DSN information</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'DB.php';
+
+$dsn = array(
+    'phptype'  =&#62; 'pgsql',
+    'username' =&#62; 'someuser',
+    'password' =&#62; 'apasswd',
+    'hostspec' =&#62; 'localhost',
+    'database' =&#62; 'thedb',
+);
+
+$options = array(
+    'debug'       =&#62; 2,
+    'portability' =&#62; DB_PORTABILITY_ALL,
+);
+
+$db =&#38; DB::connect($dsn, $options);
+if (PEAR::isError($db)) {
+    die($db-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;    When connecting to SQLite using a DSN array, the value
+    of the <TT
+CLASS="varname"
+>mode</TT
+> element must be a string:
+    <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+$dsn = array(
+    'phptype'  =&#62; 'sqlite',
+    'database' =&#62; 'thedb',
+    'mode'     =&#62; '0644',
+);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+   </P
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21247"><P
+><B
+>Example 33-3. 
+    Connect to MySQLi via SSL
+    using an array for the DSN information
+   </B
+></P
+><P
+>&#13;    The <TT
+CLASS="varname"
+>ssl</TT
+> element of the
+    <TT
+CLASS="parameter"
+><I
+>$options</I
+></TT
+> array must be set to
+    <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> in order for SSL to work. Each of the extra
+    elements in the <TT
+CLASS="parameter"
+><I
+>$dsn</I
+></TT
+> array
+    (<TT
+CLASS="varname"
+>key</TT
+> through <TT
+CLASS="varname"
+>cipher</TT
+>
+    in the example below) are optional.
+   </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'DB.php';
+
+$dsn = array(
+    'phptype'  =&#62; 'mysqli',
+    'username' =&#62; 'someuser',
+    'password' =&#62; 'apasswd',
+    'hostspec' =&#62; 'localhost',
+    'database' =&#62; 'thedb',
+    'key'      =&#62; 'client-key.pem',
+    'cert'     =&#62; 'client-cert.pem',
+    'ca'       =&#62; 'cacert.pem',
+    'capath'   =&#62; '/path/to/ca/dir',
+    'cipher'   =&#62; 'AES',
+);
+
+$options = array(
+    'ssl' =&#62; true,
+);
+
+$db =&#38; DB::connect($dsn, $options);
+if (PEAR::isError($db)) {
+    die($db-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN21257"><P
+><B
+>Example 33-4. Connect to a PostgreSQL database via a socket</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'DB.php';
+
+$dsn = 'pgsql://someuser:apasswd@unix(/tmp)/thedb';
+$options = array(
+    'debug'       =&#62; 2,
+    'portability' =&#62; DB_PORTABILITY_ALL,
+);
+
+$db =&#38; DB::connect($dsn, $options);
+if (PEAR::isError($db)) {
+    die($db-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db.intro-connect.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;   <A
+HREF="package.database.db.db-error.html"
+><B
+CLASS="classname"
+>DB_Error</B
+></A
+>,
+   <A
+HREF="package.database.db.db-common.setoption.html"
+>&#13;    <B
+CLASS="function"
+>setOption()</B
+></A
+>,
+   <A
+HREF="package.database.db.intro-portability.html"
+>&#13;    <SPAN
+CLASS="QUOTE"
+>"Intro - Portability"</SPAN
+></A
+>
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db.intro-dsn.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db.intro-query.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction - DSN</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction - Query</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

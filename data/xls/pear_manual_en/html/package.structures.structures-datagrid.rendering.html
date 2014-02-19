@@ -1,0 +1,273 @@
+<HTML
+><HEAD
+><TITLE
+>Rendering the output</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Introduction and Features"
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.intro-and-features"><LINK
+REL="PREVIOUS"
+TITLE="DataSources"
+HREF="package.structures.structures-datagrid.datasources.html"><LINK
+REL="NEXT"
+TITLE="Column Formatter"
+HREF="package.structures.structures-datagrid.formatter.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.datasources.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-datagrid.formatter.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.structures.structures-datagrid.rendering">Rendering the output</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN93829"
+></A
+>Rendering the output&nbsp;--&nbsp;What formats can I render the output?</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN93832"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      The DataGrid offers the ability to build out your data in a grid format
+      in an HTML table, which is the most common method due to the nature of
+      PHP.  However, the DataGrid offers many other ways of outputting the
+      tabular data structure such as an Excel Spreadsheet or an XML document.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN93835"
+></A
+><H2
+>How do I change the renderer?</H2
+><P
+>&#13;      To use a different renderer other than the HTML Table, you can simply
+      change the renderer by either defining the renderer in the Constructor
+      method or by using the setrenderer method.  The parameter for defining
+      the renderer is specified by one of the renderer constants.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN93838"
+></A
+><H2
+>Currently Available Renderers</H2
+><P
+>&#13;      The following listed are the renderers that are available in the
+      DataGrid package.
+    </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN93841"
+></A
+><H3
+>HTML Table (Default)</H3
+><P
+>&#13;        This renderer uses the PEAR::HTML_Table package to create an HTML table
+        of the data.
+      </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN93844"
+></A
+><H3
+>XML</H3
+><P
+>&#13;        This will allow you to render the datagrid as an XML document.
+      </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN93847"
+></A
+><H3
+>Excel Spreadsheet</H3
+><P
+>&#13;        This renderer uses the PEAR::Spreadsheet_Excel_Writer package to create
+        an Excel Spreadsheet.
+      </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN93850"
+></A
+><H3
+>XUL</H3
+><P
+>&#13;        XUL is a language developed by the Mozilla Foundation for creating rich
+        user-interfaces.  One component of XUL is a DataGrid like structure.
+        With this renderer you can easily add an XUL listbox to you XUL
+        application.
+      </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN93853"
+></A
+><H3
+>Console</H3
+><P
+>&#13;        This renderer uses the PEAR::Console_Table package and will allow you
+        to create a console table very easily.
+      </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN93856"
+></A
+><H3
+>Smarty</H3
+><P
+>&#13;        With the use of the Smarty renderer you can add a DataGrid to your
+        Smarty template.
+      </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="AEN93859"
+></A
+><H3
+>CSV</H3
+><P
+>&#13;        With this renderer you can convert the format of your data.  With this
+        option you can, for example, input an XML file into the datagrid,
+        present it via HTML and then allow the end-user to download it via a
+        CSV file.  This can lead to countless ways for converting data formats.
+      </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.datasources.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.formatter.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>DataSources</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.structures.structures-datagrid.html#package.structures.structures-datagrid.intro-and-features"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Column Formatter</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,456 @@
+<HTML>
+<HEAD>
+<Title>Parameter Substitution and Formatting</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">Parameter Substitution and Formatting</p>
+<hr class="separator">
+<div class="content">
+ChartDirector charts often contain a lot of text strings. For example, sector labels
+in pie charts, axis labels for x and y axes, data labels for the data points, HTML
+image maps, etc, are all text strings.
+<br><br>
+ChartDirector uses parameter substitution to allow you to configure precisely
+the information contained in the text and their format.
+<br><br>
+For example, when drawing a pie chart with side label layout, the default sector
+label format is:
+<br><br>
+<div style="margin-left:25">"{label} ({percent}%)"</div><br>
+In drawing the sector labels, ChartDirector will replace "{label}" with the
+sector name, and "{percent}" with the sector percentage. So the above label
+format will result is a sector label similar to <nobr>"ABC (34.56%)"</nobr>.
+<br><br>
+If you want to change the sector label format by changing the format string.
+For example, you can change it to:
+<br><br>
+<div style="margin-left:25">"{label}: US${value}K ({percent}%)"</div><br>
+The sector value will then become something like <nobr>"ABC: US$123 (35.56%)"</nobr>.
+<br><br>
+In general, in ChartDirector parameter substitution, fields enclosed by curly
+brackets will be substituted with its actual value when creating the text.
+<br><br>
+For fields that are numbers or <a href="dateformat.htm">dates/times</a>, ChartDirector
+supports a special syntax in parameter substution to allow formatting for these values.
+Please refer to the <b>Number Formatting</b> and <b>Date/Time Formatting</b> sections
+below for details.
+<br><br>
+The following tables descirbe the fields available for various chart objects.
+</div>
+<p class="heading2">Parameters for Pie Charts</p>
+<div class="content">
+<table width="98%" border="1" cellpadding="5" cellspacing="0">
+<tr><th width="19%">Parameter</th><th width="79%">Description</th></tr>
+<tr><td>
+sector
+</td><td>
+The sector number. The first sector is 0, while the nth sector is (n-1).
+</td></tr><tr><td>
+dataSet
+</td><td>
+Same as {sector}. See above.
+</td></tr><tr><td>
+label
+</td><td>
+The text label of the sector.
+</td></tr><tr><td>
+dataSetName
+</td><td>
+Same as {label}. See above.
+</td></tr><tr><td>
+value
+</td><td>
+The data value of the sector.
+</td></tr><tr><td>
+percent
+</td><td>
+The percentage value of the sector.
+</td></tr><tr><td>
+field{N}<br>
+</td><td>
+The (N + 1)th extra field (the first extra field is field0).
+</td></tr></table>
+</div>
+<p class="heading2">Parameters for All XY Chart Layers</p>
+<div class="content">
+The followings are parameters that are apply to all XY Chart layers in general.
+Some layer types may have additional parameters (see below).
+<br><br>
+Note that certain parameters are inapplicable in some context. For example, when
+specifying the aggregate label of a stacked bar chart, the {dataSetName}
+parameter is inapplicable. It is because a stacked bar is composed of multiple
+data sets. It does not belong to any particular data set and hence does not have
+a data set name.
+<br><br>
+<table width="98%" border="1" cellpadding="5" cellspacing="0">
+<tr><th width="19%">Parameter</th><th width="79%">Description</th></tr>
+<tr><td>
+x
+</td><td>
+The x value of the data point. For an enumerated x-axis (see <a href="Axis.setLabels.htm">Axis.setLabels</a>
+on what is an enumerated axis), the first data point is 0, and the nth data
+point is (n-1).
+</td></tr><tr><td>
+xLabel
+</td><td>
+The bottom x-axis label of the data point.
+</td></tr><tr><td>
+x2Label
+</td><td>
+The top x-axis label of the data point.
+</td></tr><tr><td>
+value
+</td><td>
+The value of the data point.
+</td></tr><tr><td>
+accValue
+</td><td>
+The accumulative value of the data point. This is useful for stacked charts,
+such as stacked bar chart and stacked area chart.
+</td></tr><tr><td>
+totalValue
+</td><td>
+The total value of all data points. This is useful for stacked charts, such
+as stacked bar chart and stacked area chart.
+</td></tr><tr><td>
+percent
+</td><td>
+The percentage of the data point based on the total value of all data points.
+</td></tr><tr><td>
+accPercent
+</td><td>
+The accumulated percentage of the data point based on the total value of
+all data points. This is useful for stacked charts, such as stacked bar chart
+and stacked area chart.
+</td></tr><tr><td>
+dataSet
+</td><td>
+The data set number to which the data point belongs. The first data set
+is 0. The nth data set is (n-1).
+</td></tr><tr><td>
+dataSetName
+</td><td>
+The name of the data set to which the data point belongs.
+</td></tr><tr><td>
+dataItem
+</td><td>
+The data point number within the data set. The first data point is 0.
+The nth data point is (n-1).
+</td></tr><tr><td>
+dataGroup
+</td><td>
+The data group number to which the data point belongs. The first data group is 0.
+The nth data group is (n-1).
+</td></tr><tr><td>
+dataGroupName
+</td><td>
+The name of the data group to which the data point belongs.
+</td></tr><tr><td>
+layerId
+</td><td>
+The layer number to which the data point belongs. The first layer is 0.
+The nth layer is (n-1).
+</td></tr><tr><td>
+field{N}
+</td><td>
+The (N + 1)th extra field (the first extra field is field0), assuming the
+extra field is associated with data items. In other words, the Pth data
+item corresponds to the Pth element of the extra field.
+</td></tr><tr><td>
+diField{N}
+</td><td>
+Same as field{N}. See above.
+</td></tr><tr><td>
+dsField{N}
+</td><td>
+The (N + 1)th extra field (the 1st extra field is dsField0), assuming
+the extra field is associated with data sets. In other words, the Pth data
+set corresponds to the Pth element of the extra field.
+</td></tr><tr><td>
+dsdiField{N}
+</td><td>
+Expand to an extra field element, assuming the extra fields are indexed
+by both the data set and data item. The Pth data item of the Qth data set
+will corresponds to the Pth element of the (N + Q)th extra field.
+</td></tr></table>
+</div>
+<p class="heading2">Additional Parameters for HLOC and CandleStick Layers</p>
+<div class="content">
+The followings are parameters that are in additional to the parameters for all XY Chart layers.
+<br><br>
+<table width="98%" border="1" cellpadding="5" cellspacing="0">
+<tr><th width="19%">Parameter</th><th width="79%">Description</th></tr>
+<tr><td>
+high
+</td><td>
+The high value of the data representation.
+</td></tr><tr><td>
+low
+</td><td>
+The low value of the data representation.
+</td></tr><tr><td>
+open
+</td><td>
+The open value of the data representation.
+</td></tr><tr><td>
+close
+</td><td>
+The close value of the data representation.
+</td></tr></table>
+</div>
+<p class="heading2">Additional Parameters for Box-Whisker Layers</p>
+<div class="content">
+The followings are parameters that are in additional to the parameters for all XY Chart layers.
+<br><br>
+<table width="98%" border="1" cellpadding="5" cellspacing="0">
+<tr><th width="19%">Parameter</th><th width="79%">Description</th></tr>
+<tr><td>
+top
+</td><td>
+The value of the top edge of the box-whisker symbol.
+</td></tr><tr><td>
+bottom
+</td><td>
+The value of the bottom edge of the box-whisker symbol.
+</td></tr><tr><td>
+max
+</td><td>
+The value of the maximum mark of the box-whisker symbol.
+</td></tr><tr><td>
+min
+</td><td>
+The value of the minimum mark of the box-whisker symbol.
+</td></tr><tr><td>
+med
+</td><td>
+The value of the median mark of the box-whisker symbol.
+</td></tr></table>
+</div>
+<p class="heading2">Additional Parameters for Trend Layers</p>
+<div class="content">
+The followings are parameters that are in additional to the parameters for all XY Chart layers.
+<br><br>
+<table width="98%" border="1" cellpadding="5" cellspacing="0">
+<tr><th width="19%">Parameter</th><th width="79%">Description</th></tr>
+<tr><td>
+slope
+</td><td>
+The slope of the trend line.
+</td></tr><tr><td>
+intercept
+</td><td>
+The y-intercept of the trend line.
+</td></tr><tr><td>
+corr
+</td><td>
+The correlation coefficient in linear regression analysis.
+</td></tr><tr><td>
+stderr
+</td><td>
+The standard error in linear regression analysis.
+</td></tr></table>
+</div>
+<p class="heading2">Parameters for Polar Charts</p>
+<div class="content">
+<table width="98%" border="1" cellpadding="5" cellspacing="0">
+<tr><th width="19%">Parameter</th><th width="79%">Description</th></tr>
+<tr><td>
+radius
+</td><td>
+The radial value of the data point.
+</td></tr><tr><td>
+value
+</td><td>
+Same as {radius}. See above.
+</td></tr><tr><td>
+angle
+</td><td>
+The angular value of the data point.
+</td></tr><tr><td>
+x
+</td><td>
+Same as {angle}. See above.
+</td></tr><tr><td>
+label
+</td><td>
+The angular label of the data point.
+</td></tr><tr><td>
+xLabel
+</td><td>
+Same as {label}. See above.
+</td></tr><tr><td>
+name
+</td><td>
+The name of the layer to which the data point belongs.
+</td></tr><tr><td>
+dataSetName
+</td><td>
+Same as {name}. See above.
+</td></tr><tr><td>
+i
+</td><td>
+The data point number. The first data point is 0. The nth data point is (n-1).
+</td></tr><tr><td>
+dataItem
+</td><td>
+Same as {i}. See above.
+</td></tr></table>
+</div>
+<p class="heading2">Parameters for Axis</p>
+<div class="content">
+<table width="98%" border="1" cellpadding="5" cellspacing="0">
+<tr><th width="19%">Parameter</th><th width="79%">Description</th></tr>
+<tr><td>
+value
+</td><td>
+The axis value at the tick position.
+</td></tr>
+</table>
+</div>
+<p class="heading2">Number Formatting</p>
+<div class="content">
+For parameters that are numbers, ChartDirector supports a number of formatting
+options in parameter substitution.
+<br><br>
+For example, if you want a numeric field <i>{value}</i> to have a precision of
+two digits to the right of the decimal point, use ',' (comma) as the thousand
+separator, and use '.' (dot) as the decimal point, and you may use
+<i>{value|2,.}</i>. The number <i>123456.789</i> will then be displayed as
+<i>123,456.79</i>.
+<br><br>
+For numbers, the formatting options are specified using the following syntax:
+<br><br>
+<div style="margin-left:25">{[param]|[a][b][c][d]}</div><br>
+where:
+<br><br>
+<table width="98%" border="1" cellpadding="5" cellspacing="0">
+<tr><th width="19%">Parameter</th><th width="79%">Description</th></tr>
+<tr><td>
+[param]
+</td><td>
+The name of the parameter
+</td></tr><tr><td>
+[a]
+</td><td>
+An integer specifying the number of digits to the right of the decimal point.
+The default is automatic. To use the default, simply skip this parameter.
+</td></tr><tr><td>
+[b]
+</td><td>
+The thousand separator. Should be a non-alphanumeric character (not 0-9, A-Z, a-z).
+Use '~' for no thousand separater. The default is '~', which can be modified using
+<a href="BaseChart.setNumberFormat.htm">BaseChart.setNumberFormat</a>.
+</td></tr><tr><td>
+[c]
+</td><td>
+The decimal point character. The default is '.', which can be modified using
+<a href="BaseChart.setNumberFormat.htm">BaseChart.setNumberFormat</a>.
+</td></tr><tr><td>
+[d]
+</td><td>
+The negative sign character. Use '~' for no negative sign character. The
+default is '-', which can be modified using <a href="BaseChart.setNumberFormat.htm">BaseChart.setNumberFormat</a>.
+</td></tr>
+</table><br>
+You may skip the trailing formatting options if they are needed. For example,
+<i>{value|2}</i> means formatting the value with two digits to the right, where
+the thousand separator, decimail point character, and negative sign character
+are all using the default settings of the chart.
+</div>
+<p class="heading2">Date/Time Formatting</p>
+<div class="content">
+For parameters that are <a href="dateformat.htm">dates/times</a>, the formatting
+options can be specified using the following syntax:
+<br><br>
+<div style="margin-left:25">{[param]|[datetime_format_string]}</div><br>
+where [datetime_format_string] must start with an english character
+(A-Z or a-z), and may contain any characters except '}'. Certain characters are
+substituted according to the following table:
+<br><br>
+<table width="98%" border="1" cellpadding="5" cellspacing="0">
+<tr><th width="19%">Parameter</th><th width="79%">Description</th></tr>
+<tr><td>
+yyyy
+</td><td>
+The year in 4 digits (e.g. 2002)
+</td></tr><tr><td>
+yyy
+</td><td>
+The year showing only the least significant 3 digits (e.g. <i>002</i> for the year 2002)
+</td></tr><tr><td>
+yy
+</td><td>
+The year showing only the least significant 2 digits (e.g. <i>02</i> for the year 2002)
+</td></tr><tr><td>
+y
+</td><td>
+The year showing only the least significant 1 digits (e.g. <i>2</i> for the year 2002)
+</td></tr><tr><td>
+mmm
+</td><td>
+The month formatted as its name. The default is to use the first 3 characters of the
+english month name (Jan, Feb, Mar ...). The names can be configured using
+<a href="BaseChart.setMonthNames.htm">BaseChart.setMonthNames</a>.
+</td></tr><tr><td>
+mm
+</td><td>
+The month formatted as 2 digits from 01 - 12, adding leading zero if necessary.
+</td></tr><tr><td>
+m
+</td><td>
+The month formatted using the minimum number of digits from 1 - 12.
+</td></tr><tr><td>
+dd
+</td><td>
+The day of month formatted as 2 digits from 01 - 31, adding leading zero if necessary.
+</td></tr><tr><td>
+d
+</td><td>
+The day of month formatted using the minimum number of digits from 1 - 31.
+</td></tr><tr><td>
+w
+</td><td>
+The name of the day of week. The default is to use the first 3 characters of the
+english day of week name (Sun, Mon, Tue ...). The names can be configured using
+<a href="BaseChart.setWeekDayNames.htm">BaseChart.setWeekDayNames</a>.
+</td></tr><tr><td>
+hh
+</td><td>
+The hour of day formatted as 2 digits, adding leading zero if necessary. The 2 digits will be
+00 - 23 if the 'a' option (see below) is not specified, otherwise it will be 00 - 12.
+</td></tr><tr><td>
+h
+</td><td>
+The hour of day formatted using the minimum number of digits. The digits will be
+0 - 23 if the 'a' option (see below) is not specified, otherwise it will be 0 - 12.
+</td></tr><tr><td>
+nn
+</td><td>
+The minute formatted as 2 digits from 00 - 59, adding leading zero if necessary.
+</td></tr><tr><td>
+n
+</td><td>
+The minute formatted using the minimum number of digits from 00 - 59.
+</td></tr><tr><td>
+ss
+</td><td>
+The second formatted as 2 digits from 00 - 59, adding leading zero if necessary.
+</td></tr><tr><td>
+s
+</td><td>
+The second formatted using the minimum number of digits from 00 - 59.
+</td></tr><tr><td>
+a
+</td><td>
+Display either 'am' or 'pm', depending on whether the time is in the morning or afternoon. The
+text 'am' and 'pm' can be modified using <a href="BaseChart.setAMPM.htm">BaseChart.setAMPM</a>.
+</td></tr>
+</table><br>
+For example, a parameter substitution format of <i>{value|mm-dd-yyyy}</i> will
+display a date as something similar to <i>09-15-2002</i>. A format of <i>{value|dd/mm/yy hh:nn:ss a}</i>
+will display a date as something similar to <i>15/09/02 03:04:05 pm</i>.
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div></body>
+</HTML>

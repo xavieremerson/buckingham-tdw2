@@ -1,0 +1,1494 @@
+<HTML
+><HEAD
+><TITLE
+>The package definition file package.xml</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Developer Guide"
+HREF="guide-developers.html"><LINK
+REL="PREVIOUS"
+TITLE="How to document code in practice"
+HREF="developers.contributing.docs.html"><LINK
+REL="NEXT"
+TITLE="The package definition file package.xml, version 2.0"
+HREF="guide.developers.package2.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="chapter"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="developers.contributing.docs.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="guide.developers.package2.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="chapter"
+><H1
+><A
+NAME="developers.packagedef"
+>Chapter 15. The package definition file <TT
+CLASS="filename"
+>package.xml</TT
+></A
+></H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="developers.packagedef.html#developers.packagedef.intro"
+>Introduction to the package definition file <TT
+CLASS="filename"
+>package.xml</TT
+></A
+></DT
+></DL
+></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="developers.packagedef.intro">Introduction to the package definition file <TT
+CLASS="filename"
+>package.xml</TT
+></H1
+><P
+>&#13;    The package definition file <TT
+CLASS="filename"
+>package.xml</TT
+> is,
+    as the name already implies, a well-formed XML file that contains
+    all information about a PEAR package.
+   </P
+><P
+>&#13;    This chapter will describe the allowed elements of the package
+    definition file and it will discuss how to create such a file for
+    your package.
+   </P
+><P
+>&#13;   The <A
+HREF="package.pear.pear-packagefilemanager.html"
+>PEAR_PackageFileManager</A
+>
+   package simplifies the creation of package.xml.
+   You can install PEAR_PackageFileManager via the usual command
+   </P
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="userinput"
+><B
+>&#13;$ pear install PEAR_PackageFileManager
+      </B
+></TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="developers.packagedef.elements">Allowed elements</H2
+><P
+>&#13;     The toplevel element in <TT
+CLASS="filename"
+>package.xml</TT
+> is the
+     element <TT
+CLASS="literal"
+>&#60;package version="1.0"&#62;</TT
+>. The
+     allowed sub elements are:
+    </P
+><P
+></P
+><UL
+><LI
+><P
+>&#13;       <TT
+CLASS="literal"
+>&#60;name&#62;</TT
+>: The name of the package.
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="literal"
+>&#60;summary&#62;</TT
+>: Short summary of the
+       package's description.
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="literal"
+>&#60;description&#62;</TT
+>: Full length description
+       of the package.
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="literal"
+>&#60;license&#62;</TT
+>: The license of the package
+       (LGPL, PHP License etc.).
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="literal"
+>&#60;maintainers&#62;</TT
+>: Information about the
+       maintainers of the package.
+       <P
+></P
+><UL
+><LI
+><P
+>&#13;          maintainer: Information about a single maintainer. (May be used
+          multiple times.)
+          <P
+></P
+><UL
+><LI
+><P
+>&#13;             <TT
+CLASS="literal"
+>&#60;user&#62;</TT
+>: The account name of the user.
+            </P
+></LI
+><LI
+><P
+>&#13;             <TT
+CLASS="literal"
+>&#60;role&#62;</TT
+>: The role the user has
+             during package development. (Can be either lead, developer,
+             helper.)</P
+></LI
+><LI
+><P
+>&#13;             <TT
+CLASS="literal"
+>&#60;name&#62;</TT
+>: The realname of the user.
+            </P
+></LI
+><LI
+><P
+>&#13;             <TT
+CLASS="literal"
+>&#60;email&#62;</TT
+>: The email address of the user.
+            </P
+></LI
+></UL
+>
+         </P
+></LI
+></UL
+>
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="literal"
+>&#60;release&#62;</TT
+>: Information about the current
+       release.
+       <P
+></P
+><UL
+><LI
+><P
+>&#13;          <TT
+CLASS="literal"
+>&#60;version&#62;</TT
+>: The version number of
+          the release.
+         </P
+></LI
+><LI
+><P
+>&#13;          <TT
+CLASS="literal"
+>&#60;state&#62;</TT
+>: The state of the release.
+          (Can be one of stable, beta, alpha, devel, or snapshot.)
+         </P
+></LI
+><LI
+><P
+>&#13;          <TT
+CLASS="literal"
+>&#60;date&#62;</TT
+>: The date when the release has
+          been rolled.
+         </P
+></LI
+><LI
+><P
+>&#13;          <TT
+CLASS="literal"
+>&#60;license&#62;</TT
+>: The <A
+HREF="faq.licenses.html"
+>license</A
+> 
+          under which the code is available.
+         </P
+></LI
+><LI
+><P
+>&#13;          <TT
+CLASS="literal"
+>&#60;notes&#62;</TT
+>: Releasenotes
+         </P
+></LI
+><LI
+><P
+>&#13;          <TT
+CLASS="literal"
+>&#60;filelist&#62;</TT
+>
+          <P
+></P
+><UL
+><LI
+><P
+><TT
+CLASS="literal"
+>&#60;file name="xxx" role="xxx" /&#62;</TT
+>: Filename</P
+></LI
+><LI
+><P
+>&#13;             <TT
+CLASS="literal"
+>&#60;dir name="xxx" [role="xxx"]&#62;</TT
+>: Name
+             of a subdirectory. This subdirectory can again contain
+             <TT
+CLASS="literal"
+>&#60;file role="xxx"&#62;</TT
+> entries.
+            </P
+></LI
+></UL
+>
+         </P
+></LI
+><LI
+><P
+>&#13;          <TT
+CLASS="literal"
+>&#60;deps&#62;</TT
+>: List of dependencies of the
+          package.
+          <P
+></P
+><UL
+><LI
+><P
+>&#13;             <TT
+CLASS="literal"
+>&#13;              &#60;dep type="xxx" rel="yyy" optional="yes"&#62;name&#60;/dep&#62;
+             </TT
+>: For more information about dependencies, please
+             see
+             <A
+HREF="developers.packagedef.html#guide.developers.packagedef.deps"
+>below</A
+>.
+            </P
+></LI
+></UL
+>
+          </P
+></LI
+></UL
+>
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="literal"
+>&#60;changelog&#62;</TT
+>: Changelog-like information
+       about the package.
+       <P
+></P
+><UL
+><LI
+><P
+>&#13;          <TT
+CLASS="literal"
+>&#60;release&#62;</TT
+>
+          <P
+></P
+><UL
+><LI
+><P
+>&#13;             <TT
+CLASS="literal"
+>&#60;version&#62;</TT
+>: Version of the
+             specific release.
+            </P
+></LI
+><LI
+><P
+>&#13;             <TT
+CLASS="literal"
+>&#60;state&#62;</TT
+>: State of the specific
+             release.
+            </P
+></LI
+><LI
+><P
+>&#13;             <TT
+CLASS="literal"
+>&#60;date&#62;</TT
+>: Date when the specific
+             release has been rolled.
+            </P
+></LI
+><LI
+><P
+>&#13;             <TT
+CLASS="literal"
+>&#60;notes&#62;</TT
+>: Changelog information
+            </P
+></LI
+></UL
+>
+         </P
+></LI
+></UL
+>
+      </P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="developers.packagedef.characters">Allowed characters</H2
+><P
+>&#13;     The letters allowed inside elements are A-Z and a-z.
+     Other characters, such as <TT
+CLASS="literal"
+>é</TT
+>
+     must use entities
+     (in this case: <TT
+CLASS="literal"
+>&#38;eacute;</TT
+>).
+    </P
+><P
+>&#13;     If you create your package.xml files using the
+     PEAR_PackageFileManager, upgrade your PEAR installation
+     to version 1.4.0a2 or greater and you won't have
+     to worry about this because the file manager takes care
+     of this automatically.
+    </P
+><P
+>&#13;     If you write your package.xml files manually, you will
+     need to enter the entities yourself.
+     A list of the  most common entities can be found at:
+     <A
+HREF="http://www.evolt.org/article/A_Simple_Character_Entity_Chart/17/21234/"
+TARGET="_top"
+>&#13;      http://www.evolt.org/article/A_Simple_Character_Entity_Chart/17/21234/</A
+>
+     If the characters you need aren't in that list, go to
+     <A
+HREF="http://www.oasis-open.org/docbook/xmlcharent/0.1/index.shtml"
+TARGET="_top"
+>&#13;      http://www.oasis-open.org/docbook/xmlcharent/0.1/index.shtml</A
+>
+     and look at the other entity lists.
+    </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="developers.packagedef.validating">Validing</H2
+><P
+>&#13;       In order to validate <TT
+CLASS="filename"
+>package.xml</TT
+> files one 
+       can use the <B
+CLASS="command"
+>xmllint</B
+> tool that comes with
+       <A
+HREF="http://www.xmlsoft.org/"
+TARGET="_top"
+>libxml2</A
+>.
+     </P
+><P
+>&#13;       <B
+CLASS="command"
+>&#13;         <TT
+CLASS="userinput"
+><B
+>&#13;           xmllint --dtdvalid http://pear.php.net/dtd/package-1.0 --noout package.xml
+         </B
+></TT
+>
+       </B
+>
+     </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="developers.packagedef.creating">Creating a package definition file</H2
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN2063"><P
+><B
+>Example 15-1. Basic <TT
+CLASS="filename"
+>package.xml</TT
+></B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;?xml version="1.0" encoding="ISO-8859-1" ?&#62;
+&#60;package version="1.0"&#62;
+ &#60;name&#62;Money_Fast&#60;/name&#62;
+ &#60;summary&#62;Make money fast.&#60;/summary&#62;
+ &#60;description&#62;
+  This package helps you to make money pretty fast.
+ &#60;/description&#62;
+ &#60;license&#62;PHP License&#60;/license&#62;
+ &#60;maintainers&#62;
+  &#60;maintainer&#62;
+   &#60;user&#62;foo&#60;/user&#62;
+   &#60;name&#62;Joe Foo&#60;/name&#62;
+   &#60;email&#62;foo@example.com&#60;/email&#62;
+   &#60;role&#62;lead&#60;/role&#62;
+  &#60;/maintainer&#62;
+ &#60;/maintainers&#62;
+
+ &#60;release&#62;
+  &#60;version&#62;1.0&#60;/version&#62;
+  &#60;date&#62;2002-05-27&#60;/date&#62;
+  &#60;state&#62;stable&#60;/state&#62;
+  &#60;notes&#62;
+   This is the first release.
+  &#60;/notes&#62;
+  &#60;filelist&#62;
+   &#60;dir name="/" baseinstalldir="Money"&#62;
+    &#60;file role="php"&#62;Fast.php&#60;/file&#62;
+   &#60;/dir&#62;
+  &#60;/filelist&#62;
+ &#60;/release&#62;
+&#60;/package&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>&#13;     This <TT
+CLASS="filename"
+>package.xml</TT
+> can serve as a template for
+     you as it already contains all necessary elements. In most cases
+     you only need to change the character data between the tags in order
+     to use the example in your package.
+    </P
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN2070"><P
+><B
+>Example 15-2. Example for nested directories</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;?xml version="1.0" encoding="ISO-8859-1" ?&#62;
+
+[...]
+
+ &#60;release&#62;
+  &#60;version&#62;1.0&#60;/version&#62;
+  &#60;date&#62;2002-07-23&#60;/date&#62;
+  &#60;state&#62;stable&#60;/state&#62;
+  &#60;notes&#62;
+   This is the first release.
+  &#60;/notes&#62;
+  &#60;filelist&#62;
+   &#60;dir name="/" baseinstalldir="Money"&#62;
+    &#60;file role="php"&#62;Fast.php&#60;/file&#62;
+    &#60;dir name="Calculator" role="php"&#62;
+     &#60;file&#62;Calculator.php&#60;/file&#62;
+     &#60;file&#62;Currency.php&#60;/file&#62;
+     &#60;file&#62;Stocks.php&#60;/file&#62;
+    &#60;/dir&#62;
+    &#60;dir name="docs" role="doc"&#62;
+     &#60;file&#62;README.txt&#60;/file&#62;
+     &#60;file&#62;tutorial.txt&#60;/file&#62;
+     &#60;dir name="examples" role="doc"&#62;
+      &#60;file role="php"&#62;NASDAQ.php&#60;/file&#62;
+      &#60;file role="php"&#62;DAX.php&#60;/file&#62;
+     &#60;/dir&#62;
+    &#60;/dir&#62;
+   &#60;/dir&#62;
+  &#60;/filelist&#62;
+ &#60;/release&#62;
+&#60;/package&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>&#13;     In this example you get to know a very handy feature: When you
+     have a directory in your package that only contains files of
+     the same type, you can add to role attribute even to the
+     <TT
+CLASS="literal"
+>&#60;dir&#62;</TT
+> tag instead of adding it to every
+     single <TT
+CLASS="literal"
+>&#60;file&#62;</TT
+> tag.
+    </P
+><P
+>&#13;     With the knowledge you aquired during this chapter you should now
+     be able to produce a package definition file for your own package.
+     If you still have questions concerning the topic, don't hesitate
+     to ask on the <A
+HREF="mailto:pear-general@lists.php.net"
+TARGET="_top"
+>mailinglist</A
+>.
+    </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="developers.packagedef.roles">The file roles</H2
+><P
+>&#13;     The <TT
+CLASS="literal"
+>role</TT
+>-attribute in the &#60;file&#62; tag
+     defines what type the file has and in which location it should
+     be installed.
+     <DIV
+CLASS="table"
+><A
+NAME="AEN2082"><P
+><B
+>Table 15-1. Possible values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Value</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Destination dir</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>php</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>PHP source file</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>the directory is determined by the package name</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>ext</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Extension, dynamically loadable library</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>the PHP extension directory or
+          <TT
+CLASS="constant"
+><B
+>PHP_PEAR_EXTENSION_DIR</B
+></TT
+>
+          if defined</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>doc</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Documentation file</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>{PEAR_documentation_dir}/Package_Name/</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>data</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Package related data files (graphics, data tables etc)</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>{PEAR_data_dir}/Package_Name/</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>test</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Package related test files (unit-tests etc)</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>{PEAR_test_dir}/Package_Name/</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>script</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Package related shell scripts</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>the PHP binary directory or
+          <TT
+CLASS="constant"
+><B
+>PHP_PEAR_BIN_DIR</B
+></TT
+>
+          if defined</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>src and extsrc</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>C or C++ source code</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>not copied directly - used to build a
+         extension</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="guide.developers.packagedef.deps">Defining Dependencies</H2
+><P
+>&#13;     The PEAR Package Manager supports checking for
+     different system capabilities. You define those
+     dependencies with the <TT
+CLASS="literal"
+>&#60;dep&#62;</TT
+> tag:
+     <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN2125"><P
+><B
+>Example 15-3. <TT
+CLASS="filename"
+>package.xml</TT
+> with dependencies</B
+></P
+><P
+>&#13;       The following example shows how to specificy dependencies for
+       PHP 4.3.0 or better and <B
+CLASS="classname"
+>XML_Parser</B
+> 1.0.
+      </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="xml"
+>&#60;?xml version="1.0" encoding="ISO-8859-1" ?&#62;
+
+[...]
+ &#60;/release&#62;
+ &#60;deps&#62;
+  &#60;dep type="php" rel="ge" version="4.3.0" /&#62;
+  &#60;dep type="pkg" rel="has" version="1.0"&#62;XML_Parser&#60;/dep&#62;
+ &#60;/deps&#62;
+&#60;/package&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+    </P
+><DIV
+CLASS="sect3"
+><H3
+CLASS="sect3"
+><A
+NAME="AEN2131">The <TT
+CLASS="literal"
+>type</TT
+>-attribute</H3
+><P
+>&#13;      The following <TT
+CLASS="literal"
+>type</TT
+>s are supported:
+     <DIV
+CLASS="table"
+><A
+NAME="AEN2136"><P
+><B
+>Table 15-2. type values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Value</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Meaning</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Example</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>pkg</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Package</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>depends on a certain Package</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"HTML_Flexy"</SPAN
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>ext</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Extension</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>depends on a certain PHP extension</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"curl"</SPAN
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>php</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>PHP</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>depends on a certain PHP version</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"4.2"</SPAN
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>prog</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Program</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          depends on a certain Program available in the
+          system path.  This is not supported in the PEAR installer.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"latex"</SPAN
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>os</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Operating System</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>depends on a certain OS version</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"Linux"</SPAN
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>sapi</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Server API</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>depends on a certain Server API.  This is not supported in the PEAR installer.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"Apache"</SPAN
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>zend</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Zend</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>depends on a certain version of the Zend API.
+          This is not supported in the PEAR installer.</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><SPAN
+CLASS="QUOTE"
+>"2"</SPAN
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+
+    </P
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>&#13;      The DTD for the package definition file supports
+      further types, but those are not supported yet.
+     </P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="sect3"
+><H3
+CLASS="sect3"
+><A
+NAME="AEN2190">The <TT
+CLASS="literal"
+>rel</TT
+>-attribute</H3
+><P
+>&#13;     The <TT
+CLASS="literal"
+>rel</TT
+>-attribute
+     defines the relationship between the existing
+     capability and the required.
+    </P
+><DIV
+CLASS="table"
+><A
+NAME="AEN2195"><P
+><B
+>Table 15-3. rel values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Value</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&nbsp;</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Meaning</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Can be used with</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>has</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>has</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          the existing capability must have the
+          requirement - version-attribute is
+          ignored
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>pkg, ext, php, prog, os, sapi, zend</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>eq</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>equal</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          the the existing capability must exactly match the
+          version value
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>pkg, ext, php, prog, os, sapi, zend</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>lt</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>less than</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          the existing capability must be less than the version value
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>pkg, ext, php, zend</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>le</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>less than or equal</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          the existing capability must be less than or equal to the
+          version value
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>pkg, ext, php, zend</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>gt</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>greater than</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          the existing capability must be greater than the version
+          value
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>pkg, ext, php, zend</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>ge</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>greater than or equal</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          the existing capability must greater than or equal to the
+          version value
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>pkg, ext, php, zend</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>not</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>conflicting dependency</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          the dependency conflicts with the package, the two cannot co-exist.
+          version is ignored.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>ext, php</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>&#13;      <TT
+CLASS="literal"
+>Has</TT
+> will be used if no other value has been
+      defined.  Note that rel is required in PEAR 1.4.0 and newer.
+     </P
+></DIV
+><DIV
+CLASS="sect3"
+><H3
+CLASS="sect3"
+><A
+NAME="AEN2242">The <TT
+CLASS="literal"
+>version</TT
+>-attribute</H3
+><P
+>&#13;      The attribute <TT
+CLASS="literal"
+>version</TT
+> defines the version
+      that is used to compare.
+     </P
+></DIV
+><DIV
+CLASS="sect3"
+><H3
+CLASS="sect3"
+><A
+NAME="AEN2247">The <TT
+CLASS="literal"
+>optional</TT
+>-attribute</H3
+><P
+>&#13;      The attribute <TT
+CLASS="literal"
+>optional</TT
+> can be used when
+      a dependency is not required but having the package installed
+      can bring enhanced functionalities.  The only legal values are "yes"
+      and "no".  If the optional attribute is not present, a dependency is 
+      required.
+      When <TT
+CLASS="literal"
+>optional="yes"</TT
+> is used, this attribute
+      will result in installation messages similar to the following messages:
+     </P
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="screen"
+><TT
+CLASS="userinput"
+><B
+>&#13;$ pear install &#60;package&#62;
+Optional dependencies:
+Package `XML_Tree' is recommended to utilize some features.
+Package `MDB' is recommended to utilize some features.
+      </B
+></TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="developers.contributing.docs.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>How to document code in practice</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="guide-developers.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>The package definition file <TT
+CLASS="filename"
+>package.xml</TT
+>, version 2.0</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

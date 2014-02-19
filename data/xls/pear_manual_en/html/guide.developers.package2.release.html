@@ -1,0 +1,294 @@
+<HTML
+><HEAD
+><TITLE
+>&#60;phprelease&#62;, &#60;extbinrelease&#62;, &#60;extsrcrelease&#62;, &#60;bundle&#62;</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Detailed Tag Reference for package.xml version 2.0"
+HREF="guide.developers.package2.tags.html"><LINK
+REL="PREVIOUS"
+TITLE="<usestask>"
+HREF="guide.developers.package2.usestask.html"><LINK
+REL="NEXT"
+TITLE="Releasing A Package"
+HREF="developers.release.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="guide.developers.package2.usestask.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="developers.release.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="guide.developers.package2.release">&#60;phprelease&#62;, &#60;extbinrelease&#62;, &#60;extsrcrelease&#62;, &#60;bundle&#62;</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN2802"
+></A
+>&#60;phprelease&#62;, &#60;extbinrelease&#62;, &#60;extsrcrelease&#62;, &#60;bundle&#62;&nbsp;--&nbsp;specifying the content type of a release</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="guide.developers.package2.release.purpose"
+></A
+><H2
+>Documenting release type</H2
+><P
+>&#13;   In package.xml 1.0, there was one release type.  package.xml 2.0 provides much finer
+   control over the kind of release in order to provide three new release types: extension
+   binary release, extension source release, and package bundle release.
+  </P
+><P
+>&#13;   All of the normal release tags (phprelease, extsrcrelease, extbinrelease) may contain
+   two optional sections, &#60;installconditions&#62; and &#60;filelist&#62;.  The purpose of these
+   sections is to allow specification of different file install groups based on the target OS
+   for installation, or other common install conditions.
+  </P
+><P
+>&#13;   To be clear: in package.xml, there was 1 &#60;release&#62; tag.  package.xml 2.0 allows
+   several adjacent release tags, each specifying a different install set.  This actually
+   simplifies complex installation filesets by separating the contents listing of the tarball
+   from how the installer should manipulate this listing.  Debugging installation file sets
+   should be much simpler with this change.
+  </P
+><P
+>&#13;   The &#60;filelist&#62; tag can contain only two possible tags, &#60;install&#62; and &#60;ignore&#62;.
+   install has two required attributes, "name" and "as".  The install tag is used
+   in the same manner as package.xml's install-as attribute for the &#60;file&#62;, to specify a new
+   installation location for a file in the contents list.  The ignore tag is used to completely
+   ignore a file.
+  </P
+><P
+>&#13;   The &#60;installconditions&#62; tag can contain 4 tags whose format can be found in the
+   &#60;dependencies&#62; section: &#60;php&#62;, &#60;extension&#62;, &#60;os&#62;, and &#60;arch&#62;.
+   Each tag can appear exactly once except for the extension tag, which can appear limitless times.
+  </P
+><P
+>&#13;   The php tag is used to specify a php version or range of versions that an install set should
+   be valid with.
+  </P
+><P
+>&#13;   The extension tag is used to specify extensions that must be present for an install set to
+   be valid.
+  </P
+><P
+>&#13;   The os tag is used to specify an OS that must be present for an install set to be valid.  Note
+   that unix can be used to match all flavors, and linux can be used to match all linux-based OSes.
+   Darwin should be used for Mac OS X, and * can be used to match all operating systems.
+  </P
+><P
+>&#13;   The arch tag is used to specify a uname string or portion of a uname string that must match
+   in order for the install set to be valid.
+  </P
+><DIV
+CLASS="refsect2"
+><A
+NAME="guide.developers.package2.release.phprelease"
+></A
+><H3
+>&#60;phprelease&#62;</H3
+><P
+>&#13;    The phprelease release type is designed for PEAR-style PHP script package releases.
+    It causes a few specific validation changes.  First of all,
+    the <A
+HREF="guide.developers.package2.contents.html"
+>&#60;contents&#62;</A
+> tag must
+    contain &#60;file&#62; and &#60;dir&#62; tags.  The only valid roles for files are role="php",
+    role="data", role="doc", and role="test" plus any custom roles
+    that the user has installed for use in php releases.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="guide.developers.package2.release.extsrcrelease"
+></A
+><H3
+>&#60;extsrcrelease&#62;</H3
+><P
+>&#13;    The extsrcrelease release type is for PECL-style PHP extension releases that must be compiled
+    in order to be useable.  It causes a few specific validation changes.  First of all,
+    the <A
+HREF="guide.developers.package2.contents.html"
+>&#60;contents&#62;</A
+> tag must
+    contain &#60;file&#62; and &#60;dir&#62; tags.  The only valid roles for files are role="src",
+    role="data", role="doc", and role="test" plus any custom roles
+    that the user has installed for use in extension source releases.
+   </P
+><P
+>&#13;    In addition, the &#60;providesextension&#62; tag must be present in order to document the name of
+    the extension this package provides must be in the package.xml as well.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="guide.developers.package2.release.extbinrelease"
+></A
+><H3
+>&#60;extbinrelease&#62;</H3
+><P
+>&#13;    The extbinrelease release type is for PECL-style PHP Extension binary releases that are pre-compiled.
+    It causes a few specific validation changes.  First of all,
+    the <A
+HREF="guide.developers.package2.contents.html"
+>&#60;contents&#62;</A
+> tag must
+    contain &#60;file&#62; and &#60;dir&#62; tags.  The only valid roles for files are role="ext",
+    role="data", role="doc", and role="test" plus any custom roles
+    that the user has installed for use in extension binary releases.
+   </P
+><P
+>&#13;    In addition, the &#60;srcpackage&#62; or &#60;srcuri&#62; and the &#60;providesextension&#62; tags
+    must be present in order to document the package that provides extension source for this
+    binary release, and the name of the extension this package provides must be in the package.xml as
+    well.
+   </P
+></DIV
+><DIV
+CLASS="refsect2"
+><A
+NAME="guide.developers.package2.release.bundle"
+></A
+><H3
+>&#60;bundle&#62;</H3
+><P
+>&#13;    The bundle release type is designed to allow packaging several other package releases into a
+    single bundle of packages that will all be installed at the same time.  This can be used to
+    distribute a complete application as one tarball, or to distribute a library of packages in a
+    single tarball.
+   </P
+><P
+>&#13;    Unlike the other release types, a bundle release's
+    <A
+HREF="guide.developers.package2.contents.html"
+>&#60;contents&#62;</A
+> tag must contain
+    only the &#60;bundledpackage&#62; tag.  The contents of the bundledpackage should be release names
+    like "Foo-1.2.3.tgz"
+   </P
+><P
+>&#13;    In addition, the &#60;bundle/&#62; tag must be empty.
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.usestask.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="developers.release.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&#60;usestask&#62;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.tags.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Releasing A Package</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

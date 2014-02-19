@@ -1,0 +1,252 @@
+<HTML>
+<HEAD>
+<Title>Custom Clickable Objects</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">Custom Clickable Objects</p>
+<hr class="separator">
+<div class="content">
+<img src="images/customclickable_doc.png">
+<br><br>
+In this example, a clickable line chart will be created with legend keys, a
+title box, a vertical mark with label, and a custom text box. All these objects
+will be clickable in addition to the chart data contents (that is, the lines in
+the line chart).
+<br><br>
+This example also demostrate how to use client side Javascript as the click
+handler.
+<br><br>
+The code for this example is listed below.
+<br><br>
+[The following is available as "phpdemo/customclick.php".]
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc"><xmp><?php
+include("phpchartdir.php");
+
+#The data for the line chart
+$data0 = array(50, 55, 47, 36, 42, 49, 63, 62, 73, 59, 56, 50, 64, 60, 67, 67,
+    58, 59, 73, 77, 84, 82, 80, 84);
+$data1 = array(36, 28, 25, 33, 38, 20, 22, 30, 25, 33, 30, 24, 28, 36, 30, 45,
+    46, 42, 48, 45, 43, 52, 64, 70);
+
+#The labels for the line chart
+$labels = array("Jan-00", "Feb-00", "Mar-00", "Apr-00", "May-00", "Jun-00",
+    "Jul-00", "Aug-00", "Sep-00", "Oct-00", "Nov-00", "Dec-00", "Jan-01",
+    "Feb-01", "Mar-01", "Apr-01", "May-01", "Jun-01", "Jul-01", "Aug-01",
+    "Sep-01", "Oct-01", "Nov-01", "Dec-01");
+
+#Create a XYChart object of size 500 x 300 pixels
+$c = new XYChart(500, 300);
+
+#Use a pale yellow background (0xffff80) with a black (0x0) edge and a 1 pixel
+#3D border
+$c->setBackground(0xffff80, 0x0, 1);
+
+#Set plotarea at (55, 45) with size of 420 x 200 pixels. Use white (0xffffff)
+#background. Enable both horizontal and vertical grid by setting their colors to
+#light grey (0xc0c0c0)
+$plotAreaObj = $c->setPlotArea(55, 45, 420, 200, 0xffffff);
+$plotAreaObj->setGridColor(0xc0c0c0, 0xc0c0c0);
+
+#Add a legend box at (55, 45) (top of plot area) using 8 pts Arial Bold font
+#with horizontal layout Set border and background colors of the legend box to
+#Transparent
+$legendBox = $c->addLegend(55, 45, false, "arialbd.ttf", 8);
+$legendBox->setBackground(Transparent);
+
+#Reserve 10% margin at the top of the plot area during auto-scaling to leave
+#space for the legends.
+$c->yAxis->setAutoScale(0.1);
+
+#Add a title to the chart using 11 pts Arial Bold Italic font. The text is white
+#0xffffff on a dark red 0x800000 background.
+$title = $c->addTitle("Monthly Revenue for Year 2000/2001", "arialbi.ttf", 11,
+    0xffffff);
+$title->setBackground(0x800000, -1, 1);
+
+#Add a title to the y axis
+$c->yAxis->setTitle("Month Revenue (USD millions)");
+
+#Set the labels on the x axis. Draw the labels vertical (angle = 90)
+$labelsObj = $c->xAxis->setLabels($labels);
+$labelsObj->setFontAngle(90);
+
+#Add a vertical mark at x = 17 using a semi-transparent purple (0x809933ff)
+#color and Arial Bold font. Attached the mark (and therefore its label) to the
+#top x axis.
+$xAxis2Obj = $c->xAxis2();
+$mark = $xAxis2Obj->addMark(17, 0x809933ff, "Merge with Star Tech",
+    "arialbd.ttf");
+
+#Set the mark line width to 2 pixels
+$mark->setLineWidth(2);
+
+#Set the mark label font color to purple (0x9933ff)
+$mark->setFontColor(0x9933ff);
+
+#Add a copyright message at (475, 240) (bottom right of plot area) using Arial
+#Bold font
+$copyRight = $c->addText(475, 240, "(c) Copyright Space Travel Ltd.",
+    "arialbd.ttf");
+$copyRight->setAlignment(BottomRight);
+
+#Add a line layer to the chart
+$layer = $c->addLineLayer();
+
+#Set the default line width to 3 pixels
+$layer->setLineWidth(3);
+
+#Add the data sets to the line layer
+$layer->addDataSet($data0, -1, "Enterprise");
+$layer->addDataSet($data1, -1, "Consumer");
+
+#Create the image and save it in a temporary location
+$chart1URL = $c->makeSession("chart1");
+
+#Create an image map for the chart
+$chartImageMap = $c->getHTMLImageMap("xystub.php", "",
+    "title='{dataSetName} @ {xLabel} = USD {value|0} millions'");
+
+#Create an image map for the legend box
+$legendImageMap = $legendBox->getHTMLImageMap("javascript:doSomething();", " ",
+    "title='This legend key is clickable!'");
+
+#Obtain the image map coordinates for the title, mark, and copyright message.
+#These will be used to define the image map inline. (See HTML code below.)
+$titleCoor = $title->getImageCoor();
+$markCoor = $mark->getImageCoor();
+$copyRightCoor = $copyRight->getImageCoor();
+?>
+<html>
+<body>
+<h1>Custom Clickable Objects</h1>
+<p><a href="viewsource.php?file=<?php echo $HTTP_SERVER_VARS["SCRIPT_NAME"]?>">
+View Source Code
+</a></p>
+
+<p style="width:500px">
+In the following chart, the lines, legend keys, title, copyright,
+and the "Merge with Star Tech" text are all clickable!
+</p>
+
+<img src="myimage.php?<?php echo $chart1URL?>" border="0" usemap="#map1">
+<map name="map1">
+<?php echo $chartImageMap?>
+<?php echo $legendImageMap?>
+<area <?php echo $titleCoor?>  href='javascript:doSomething();'
+    title='The title is clickable!'>
+<area <?php echo $markCoor?> href='javascript:doSomething();'
+    title='The "Merge with Star Tech" text is clickable!'>
+<area <?php echo $copyRightCoor?> href='javascript:doSomething();'
+    title='The copyright text is clickable!'>
+</map>
+
+<SCRIPT>
+function doSomething() {
+    alert("This is suppose to do something meaningful, but for demo " +
+          "purposes, we just pop up this message box to prove that " +
+          "the object can response to mouse clicks.");
+}
+</SCRIPT>
+</body>
+</html></xmp></tr></td></table><br>
+In the above code, the chart is created and saved in a session
+variable using <a href="BaseChart.makeSession.htm">BaseChart.makeSession</a>
+. An &lt;IMG&gt; tag is used to retrieve the chart with
+"myimage.php?&lt;?php echo $chart1URL?&gt;" as the URL. "myimage.php" is a simple utility that
+comes with ChartDirector for retrieving images from session variables.
+<br><br>
+The image map in this example, however, consists of multiple parts. The part for
+the line chart is produced using <a href="BaseChart.getHTMLImageMap.htm">BaseChart.getHTMLImageMap</a> with "xystub.php"
+as the handler:
+<br><br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp>
+$chartImageMap = $c->getHTMLImageMap("xystub.php", "",
+    "title='{dataSetName} @ {xLabel} = USD {value|0} millions'");</xmp></td></tr></table>
+<br>
+For demo purpose, the handler "xystub.php" simply displays what is clicked.
+<br><br>
+[The following is available as "phpdemo/xystub.php".]
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc"><xmp>
+<html>
+<body>
+<h1>Simple Clickable XY Chart Handler</h1>
+<p><a href="viewsource.php?file=<?php echo $HTTP_SERVER_VARS["SCRIPT_NAME"]?>">
+View Source Code
+</a></p>
+
+<p><b>You have clicked on the following chart element :</b></p>
+<ul>
+    <li>Data Set : <?php echo $HTTP_GET_VARS["dataSetName"]?></li>
+    <li>X Position : <?php echo $HTTP_GET_VARS["x"]?></li>
+    <li>X Label : <?php echo $HTTP_GET_VARS["xLabel"]?></li>
+    <li>Data Value : <?php echo $HTTP_GET_VARS["value"]?></li>
+</ul>
+</body>
+</html></xmp></tr></td></table><br>
+The image map for the legend keys is produced using <a href="LegendBox.getHTMLImageMap.htm">LegendBox.getHTMLImageMap</a>.
+In this example, a client side Javascript will be executed when the user clicks
+on the legend key.
+<br><br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp>
+$legendImageMap = $legendBox->getHTMLImageMap("javascript:doSomething();", " ",
+    "title='This legend key is clickable!'");</xmp></td></tr></table>
+<br>
+As shown above, the "javascript:doSomething();" is used as the handler.
+ChartDirector will put the handler as the "href" attribute of the &lt;area&gt;
+tags. In HTML, if the "href" attribute of an &lt;area&gt; tag starts with
+"javascript:", the browser will interpret it as a client side Javascript
+statement to be executed when the &lt;area&gt; tag is clicked.
+<br><br>
+Note that the second argument to the getHTMLImageMap method is set to a space
+character. It controls what HTTP query parameters get passed to the handler. If
+this argument is an empty string, default query parameters will be used. In this
+example, since the handler is a client side Javascript, no HTTP query parameter
+is necessary. So a space character is used.
+<br><br>
+The client side Javascript executed in this example is a function called
+"doSomething();". In this example, this just pops up a message.
+<br><br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp><SCRIPT>
+function doSomething() {
+    alert("This is suppose to do something meaningful, but for demo " +
+          "purposes, we just pop up this message box to prove that " +
+          "the object can response to mouse clicks.");
+}
+</SCRIPT></xmp></td></tr></table>
+<br>
+Most text messages in ChartDirector are represented as <a href="TextBox.htm">TextBox</a> objects, and
+their image map coordinates can be retrieved using <a href="Box.getImageCoor.htm">Box.getImageCoor</a>. This
+allows &lt;area&gt; tags for TextBox objects be created easily.
+<br><br>
+(For TextBox, there is no "getHTMLImageMap" method. It is because each TextBox
+object only needs one &lt;area&gt; tag. It is more convenient to enter the
+handler URL and tool tip text directly into the &lt;area&gt; tag, rather than
+generating them using getHTMLImageMap.)
+<br><br>
+In this example, the image map coordinates of the chart title, vertical mark
+label, and the copyright message are obtained using <a href="Box.getImageCoor.htm">Box.getImageCoor</a> as
+follows:
+<br><br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp>
+$titleCoor = $title->getImageCoor();
+$markCoor = $mark->getImageCoor();
+$copyRightCoor = $copyRight->getImageCoor();</xmp></td></tr></table>
+<br>
+The image map coordinates are then used to make &lt;area&gt; tags as follows:
+<br><br>
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc">
+<xmp><area <%=titleCoor%>  href='javascript:doSomething();'
+    title='The title is clickable!'>
+<area <%=markCoor%> href='javascript:doSomething();'
+    title='The "Merge with Star Tech" text is clickable!'>
+<area <%=copyRightCoor%> href='javascript:doSomething();'
+    title='The copyright text is clickable!'></xmp></td></tr></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div></body>
+</HTML>

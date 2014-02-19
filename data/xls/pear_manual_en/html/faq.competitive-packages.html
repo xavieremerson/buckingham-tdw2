@@ -1,0 +1,196 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;    Are different packages or classes with similar features allowed?
+   </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="FAQ - Frequently Asked Questions"
+HREF="faq.html"><LINK
+REL="PREVIOUS"
+TITLE="
+    Am I expected to add examples and/or test files to my package and
+    where to store them?
+   "
+HREF="faq.add-examples.html"><LINK
+REL="NEXT"
+TITLE="
+    I have a question about PEAR. Where should I ask?
+   "
+HREF="faq.question.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="faq.add-examples.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 6. FAQ - Frequently Asked Questions</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="faq.question.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="faq.competitive-packages">Are different packages or classes with similar features allowed?</H1
+><P
+>&#13;    There is no problem with competitive packages, but we want to
+    avoid pollution with 10 template classes, 7 different mail classes,
+    and 3 different layers for databases doing the same only with
+    different function names.
+   </P
+><P
+>&#13;    First of all, do a reality check: Why do I want to commit a new
+    package? Really bad answers are <SPAN
+CLASS="QUOTE"
+>"To see my name in
+    PEAR"</SPAN
+> or <SPAN
+CLASS="QUOTE"
+>"I didn't understand the API of the existing
+    class"</SPAN
+>.
+   </P
+><P
+>&#13;    A good reason for a new class is often, that you are missing a
+    function, behaviour or speed in an existing implementation. In
+    this case, you  should take a look at this class, if it possible
+    to extend this class. If not, then you have a good reason to
+    commit a new class. <SPAN
+CLASS="QUOTE"
+>"If not"</SPAN
+> means, it isn't possible
+    to add the required functionality without changing the basics of
+    this class.
+   </P
+><P
+>&#13;    If you write a new class, try to keep API compatibility with
+    existing classes as far as possible! If it isn't  possible to keep
+    the class compatible himself, try to create a wrapper class to
+    keep compatibility. Don't care, if this wrapper needs a lot of
+    time or memory, a wrapper class only has to keep compatibility and
+    make migration easier.
+   </P
+><P
+>&#13;    Committing a competitive class has to be announced on the <A
+HREF="mailto:pear-dev@lists.php.net"
+TARGET="_top"
+>PEAR developers mailinglist</A
+>!
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="faq.add-examples.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="faq.question.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Am I expected to add examples and/or test files to my package and
+    where to store them?</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="faq.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>I have a question about PEAR. Where should I ask?</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

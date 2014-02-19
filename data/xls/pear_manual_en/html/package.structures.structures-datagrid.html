@@ -1,0 +1,748 @@
+<HTML
+><HEAD
+><TITLE
+>Structures_DataGrid</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Structures"
+HREF="package.structures.html"><LINK
+REL="PREVIOUS"
+TITLE="Miscellaneous"
+HREF="package.structures.structures-bibtex.misc.html"><LINK
+REL="NEXT"
+TITLE="Structures_Graph"
+HREF="package.structures.structures-graph.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-bibtex.misc.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 55. Structures</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.structures.structures-graph.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.structures.structures-datagrid">Structures_DataGrid</H1
+><P
+>&#13;  <B
+CLASS="classname"
+>Structures_DataGrid</B
+> is a class for building, 
+  manipulating and rendering a tabular structure of data. 
+
+  It has the ability to allow you to render a datagrid in HTML format 
+  as well as many other formats such as an XML Document, 
+  an Excel Spreadsheet, an XUL Document and more.
+ </P
+><P
+>&#13;  It also offers paging and sorting functionality to limit the data that is
+  presented. 
+
+  This concept is based on the .NET Framework
+  <A
+HREF="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemWebUIWebControlsDataGridClassTopic.asp"
+TARGET="_top"
+>DataGrid control</A
+>
+  and works very well with database and XML result sets.
+ </P
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.structures.structures-datagrid.intro-and-features">Introduction and Features</H2
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.intro.html"
+>Introduction</A
+>&nbsp;--&nbsp;What can I do with Structures_DataGrid?</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.faq.html"
+>FAQ</A
+>&nbsp;--&nbsp;Answers to most Frequently Asked Questions</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.installation.html"
+>Installation</A
+>&nbsp;--&nbsp;How to install the core and drivers packages</DT
+><DT
+><A
+HREF="packages.structures.structures-datagrid.constants.html"
+>Constants</A
+>&nbsp;--&nbsp;Predefined Constants</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.datasources.html"
+>DataSources</A
+>&nbsp;--&nbsp;What is a DataSource Driver?</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.rendering.html"
+>Rendering the output</A
+>&nbsp;--&nbsp;What formats can I render the output?</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.formatter.html"
+>Column Formatter</A
+>&nbsp;--&nbsp;What can I do with the column formatter?</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.example-simple.html"
+>Example - Quick</A
+>&nbsp;--&nbsp;Quickly retrieve data from a database table</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.example-advanced.html"
+>Example - Complex</A
+>&nbsp;--&nbsp;How to build a datagrid using many of the features</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.custom-datasources.html"
+>Custom DataSources</A
+>&nbsp;--&nbsp;
+    How to write your own DataSource driver.
+  </DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.custom-renderers.html"
+>Custom Renderers</A
+>&nbsp;--&nbsp;
+    How to write your own Rendering driver.
+  </DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.structures.structures-datagrid.class-structures-datagrid">Class Structures_DataGrid</H2
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.structures-datagrid.html"
+>constructor <B
+CLASS="function"
+>Structures_DataGrid::Structures_DataGrid()</B
+></A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.addcolumn.html"
+><B
+CLASS="function"
+>Structures_DataGrid::addColumn()</B
+></A
+>&nbsp;--&nbsp;Add a column, with optional position</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.attachrenderer.html"
+><B
+CLASS="function"
+>Structures_DataGrid::attachRenderer()</B
+></A
+>&nbsp;--&nbsp;Attach an already instantiated Rendering driver</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.bind.html"
+><B
+CLASS="function"
+>Structures_DataGrid::bind()</B
+></A
+>&nbsp;--&nbsp;A simple way to add a record set to the datagrid</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.binddatasource.html"
+><B
+CLASS="function"
+>Structures_DataGrid::bindDataSource()</B
+></A
+>&nbsp;--&nbsp;Bind an already instantiated DataSource driver</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.build.html"
+><B
+CLASS="function"
+>Structures_DataGrid::build()</B
+></A
+>&nbsp;--&nbsp;Build the datagrid</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.datasourcefactory.html"
+><B
+CLASS="function"
+>Structures_DataGrid::dataSourceFactory()</B
+></A
+>&nbsp;--&nbsp;Datasource driver Factory</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.fill.html"
+><B
+CLASS="function"
+>Structures_DataGrid::fill()</B
+></A
+>&nbsp;--&nbsp;Fill a rendering container with data</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.getcolumnbyfield.html"
+><B
+CLASS="function"
+>Structures_DataGrid::getColumnByField()</B
+></A
+>&nbsp;--&nbsp;Find a column by field name</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.getcolumnbyname.html"
+><B
+CLASS="function"
+>Structures_DataGrid::getColumnByName()</B
+></A
+>&nbsp;--&nbsp;Find a column by name (label)</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.getcolumncount.html"
+><B
+CLASS="function"
+>Structures_DataGrid::getColumnCount()</B
+></A
+>&nbsp;--&nbsp;Returns the number of columns</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.getcurrentpage.html"
+><B
+CLASS="function"
+>Structures_DataGrid::getCurrentPage()</B
+></A
+>&nbsp;--&nbsp;Retrieves the current page number when paging is implemented</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.getcurrentrecordnumberend.html"
+><B
+CLASS="function"
+>Structures_DataGrid::getCurrentRecordNumberEnd()</B
+></A
+>&nbsp;--&nbsp;Returns the number of the last record of the current page</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.getcurrentrecordnumberstart.html"
+><B
+CLASS="function"
+>Structures_DataGrid::getCurrentRecordNumberStart()</B
+></A
+>&nbsp;--&nbsp;Returns the number of the first record of the current page</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.getdatasource.html"
+><B
+CLASS="function"
+>Structures_DataGrid::getDataSource()</B
+></A
+>&nbsp;--&nbsp;Get the currently loaded DataSource driver</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.getoutput.html"
+><B
+CLASS="function"
+>Structures_DataGrid::getOutput()</B
+></A
+>&nbsp;--&nbsp;Return the datagrid output</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.getpagecount.html"
+><B
+CLASS="function"
+>Structures_DataGrid::getPageCount()</B
+></A
+>&nbsp;--&nbsp;Returns the total number of pages</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.getrecordcount.html"
+><B
+CLASS="function"
+>Structures_DataGrid::getRecordCount()</B
+></A
+>&nbsp;--&nbsp;Returns the total number of records</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.getrenderer.html"
+><B
+CLASS="function"
+>Structures_DataGrid::getRenderer()</B
+></A
+>&nbsp;--&nbsp;Get the current or default Rendering driver</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.removecolumn.html"
+><B
+CLASS="function"
+>Structures_DataGrid::removeColumn()</B
+></A
+>&nbsp;--&nbsp;Remove a column</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.render.html"
+><B
+CLASS="function"
+>Structures_DataGrid::render()</B
+></A
+>&nbsp;--&nbsp;Render the datagrid</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.setcurrentpage.html"
+><B
+CLASS="function"
+>Structures_DataGrid::setCurrentPage()</B
+></A
+>&nbsp;--&nbsp;Define the current page number.</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.setdatasourceoption.html"
+><B
+CLASS="function"
+>Structures_DataGrid::setDataSourceOption()</B
+></A
+>&nbsp;--&nbsp;Set a single datasource option</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.setdatasourceoptions.html"
+><B
+CLASS="function"
+>Structures_DataGrid::setDataSourceOptions()</B
+></A
+>&nbsp;--&nbsp;Set multiple datasource options</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.setdefaultsort.html"
+><B
+CLASS="function"
+>Structures_DataGrid::setDefaultSort()</B
+></A
+>&nbsp;--&nbsp;Set default sorting specification</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.setrenderer.html"
+><B
+CLASS="function"
+>Structures_DataGrid::setRenderer()</B
+></A
+>&nbsp;--&nbsp;Set Renderer</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.setrendereroption.html"
+><B
+CLASS="function"
+>Structures_DataGrid::setRendererOption()</B
+></A
+>&nbsp;--&nbsp;Set a single renderer option</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.setrendereroptions.html"
+><B
+CLASS="function"
+>Structures_DataGrid::setRendererOptions()</B
+></A
+>&nbsp;--&nbsp;Set multiple renderer options</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.setrequestprefix.html"
+><B
+CLASS="function"
+>Structures_DataGrid::setRequestPrefix()</B
+></A
+>&nbsp;--&nbsp;Set the global GET/POST variables prefix</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid.sortrecordset.html"
+><B
+CLASS="function"
+>Structures_DataGrid::sortRecordSet()</B
+></A
+>&nbsp;--&nbsp;Sorts the records by the defined field.</DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.structures.structures-datagrid.class-structures-datagrid-column">Class Structures_DataGrid_Column</H2
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-column-summary.html"
+>Class Summary <B
+CLASS="classname"
+>Structures_DataGrid_Column</B
+></A
+>&nbsp;--&nbsp;Structures_DataGrid_Column Class</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-column.structures-datagrid-column.html"
+>constructor <B
+CLASS="function"
+>Structures_DataGrid_Column::Structures_DataGrid_Column()</B
+></A
+>&nbsp;--&nbsp;Constructor</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-column.formatter.html"
+><B
+CLASS="function"
+>Structures_DataGrid_Column::formatter()</B
+></A
+>&nbsp;--&nbsp;Formatter</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-column.getattributes.html"
+><B
+CLASS="function"
+>Structures_DataGrid_Column::getAttributes()</B
+></A
+>&nbsp;--&nbsp;Get the column XML/HTML attributes</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-column.getautofillvalue.html"
+><B
+CLASS="function"
+>Structures_DataGrid_Column::getAutoFillValue()</B
+></A
+>&nbsp;--&nbsp;Get auto fill value</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-column.getfield.html"
+><B
+CLASS="function"
+>Structures_DataGrid_Column::getField()</B
+></A
+>&nbsp;--&nbsp;Get name of the field for the column to be mapped to</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-column.getlabel.html"
+><B
+CLASS="function"
+>Structures_DataGrid_Column::getLabel()</B
+></A
+>&nbsp;--&nbsp;Get column label</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-column.getorderby.html"
+><B
+CLASS="function"
+>Structures_DataGrid_Column::getOrderBy()</B
+></A
+>&nbsp;--&nbsp;Get the field name or the expression to order the data by</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-column.setattributes.html"
+><B
+CLASS="function"
+>Structures_DataGrid_Column::setAttributes()</B
+></A
+>&nbsp;--&nbsp;Set the column XML/HTML attributes</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-column.setautofillvalue.html"
+><B
+CLASS="function"
+>Structures_DataGrid_Column::setAutoFillValue()</B
+></A
+>&nbsp;--&nbsp;Set auto fill value</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-column.setfield.html"
+><B
+CLASS="function"
+>Structures_DataGrid_Column::setField()</B
+></A
+>&nbsp;--&nbsp;Set name of the field for the column to be mapped to</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-column.setformatter.html"
+><B
+CLASS="function"
+>Structures_DataGrid_Column::setFormatter()</B
+></A
+>&nbsp;--&nbsp;Set Formatter</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-column.setlabel.html"
+><B
+CLASS="function"
+>Structures_DataGrid_Column::setLabel()</B
+></A
+>&nbsp;--&nbsp;Set column label</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-column.setorderby.html"
+><B
+CLASS="function"
+>Structures_DataGrid_Column::setOrderBy()</B
+></A
+>&nbsp;--&nbsp;Set the field name or the expression to order the data by</DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid-datasource">DataSource drivers</H2
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-datasource.array.html"
+>Structures_DataGrid_DataSource_Array</A
+>&nbsp;--&nbsp;Array Data Source Driver</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-datasource.csv.html"
+>Structures_DataGrid_DataSource_CSV</A
+>&nbsp;--&nbsp;Comma Seperated Value (CSV) Data Source Driver</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-datasource.dataobject.html"
+>Structures_DataGrid_DataSource_DataObject</A
+>&nbsp;--&nbsp;PEAR::DB_DataObject Data Source Driver</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-datasource.db.html"
+>Structures_DataGrid_DataSource_DB</A
+>&nbsp;--&nbsp;PEAR::DB Data Source Driver</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-datasource.dbquery.html"
+>Structures_DataGrid_DataSource_DBQuery</A
+>&nbsp;--&nbsp;PEAR::DB SQL Query Data Source Driver</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-datasource.dbtable.html"
+>Structures_DataGrid_DataSource_DBTable</A
+>&nbsp;--&nbsp;PEAR::DB_Table Data Source Driver</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-datasource.mdb2.html"
+>Structures_DataGrid_DataSource_MDB2</A
+>&nbsp;--&nbsp;PEAR::MDB2 SQL Query Data Source Driver</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-datasource.rss.html"
+>Structures_DataGrid_DataSource_RSS</A
+>&nbsp;--&nbsp;RSS data source driver</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-datasource.xml.html"
+>Structures_DataGrid_DataSource_XML</A
+>&nbsp;--&nbsp;XML data source driver</DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.structures.structures-datagrid.structures-datagrid-renderer">Renderer drivers</H2
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-renderer.console.html"
+>Structures_DataGrid_Renderer_Console</A
+>&nbsp;--&nbsp;Console Table Rendering Driver</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-renderer.csv.html"
+>Structures_DataGrid_Renderer_CSV</A
+>&nbsp;--&nbsp;CSV Rendering Driver</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-renderer.htmlsortform.html"
+>Structures_DataGrid_Renderer_HTMLSortForm</A
+>&nbsp;--&nbsp;Multiple fields sorting form rendering driver</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-renderer.htmltable.html"
+>Structures_DataGrid_Renderer_HTMLTable</A
+>&nbsp;--&nbsp;HTML Table Rendering Driver</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-renderer.pager.html"
+>Structures_DataGrid_Renderer_Pager</A
+>&nbsp;--&nbsp;Pager rendering driver</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-renderer.smarty.html"
+>Structures_DataGrid_Renderer_Smarty</A
+>&nbsp;--&nbsp;Smarty Rendering Driver</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-renderer.xls.html"
+>Structures_DataGrid_Renderer_XLS</A
+>&nbsp;--&nbsp;Excel Spreadsheet Rendering Driver</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-renderer.xml.html"
+>Structures_DataGrid_Renderer_XML</A
+>&nbsp;--&nbsp;XML Rendering Driver</DT
+><DT
+><A
+HREF="package.structures.structures-datagrid.structures-datagrid-renderer.xul.html"
+>Structures_DataGrid_Renderer_XUL</A
+>&nbsp;--&nbsp;XUL Rendering Driver</DT
+></DL
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.structures.structures-bibtex.misc.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.structures.structures-graph.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Miscellaneous</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.structures.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Structures_Graph</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

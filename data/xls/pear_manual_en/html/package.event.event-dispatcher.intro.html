@@ -1,0 +1,171 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Event_Dispatcher"
+HREF="package.event.event-dispatcher.html"><LINK
+REL="PREVIOUS"
+TITLE="Event_Dispatcher"
+HREF="package.event.event-dispatcher.html"><LINK
+REL="NEXT"
+TITLE="Examples"
+HREF="package.event.event-dispatcher.example.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.event.event-dispatcher.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.event.event-dispatcher.example.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.event.event-dispatcher.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN35941"
+></A
+>Introduction&nbsp;--&nbsp;Introduction to Event_Dispatcher</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.event.event-dispatcher.intro.refsect1"
+></A
+><H2
+>Introduction to Event_Dispatcher</H2
+><P
+>&#13;    Event_Dispatcher acts as a notification dispatch table.
+    It is used to notify other objects of interesting things.
+    This information is encapsulated in Event_Notification objects. 
+   </P
+><P
+>&#13;    Client objects register themselves with the Event_Dispatcher as observers of
+    specific notifications posted by other objects. When an event occurs,
+    an object posts an appropriate notification to the Event_Dispatcher.
+    The Event_Dispatcher dispatches a message to each registered
+    observer, passing the notification as the sole argument.
+   </P
+><P
+>&#13;    Event_Dispatchers allows you to use event bubbling similar to JavaScript's
+    event management. If an event is not handled by the dispatcher that triggered
+    the event, it may bubble up to the next dispatcher.
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.event.event-dispatcher.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.event.event-dispatcher.example.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Event_Dispatcher</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.event.event-dispatcher.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Examples</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

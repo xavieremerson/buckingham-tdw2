@@ -1,0 +1,471 @@
+<HTML
+><HEAD
+><TITLE
+>-&#62;joinAdd()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="DB_DataObject"
+HREF="package.database.db-dataobject.html"><LINK
+REL="PREVIOUS"
+TITLE="->selectAs()"
+HREF="package.database.db-dataobject.db-dataobject.selectas.html"><LINK
+REL="NEXT"
+TITLE="->set*() and ->get*()"
+HREF="package.database.db-dataobject.db-dataobject.settersgetters.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.selectas.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.db-dataobject.db-dataobject.settersgetters.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.db-dataobject.db-dataobject.joinadd">-&#62;joinAdd()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN27000"
+></A
+>-&#62;joinAdd()&nbsp;--&nbsp;add another dataobject to build a create join query</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN27003"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN27004"><P
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void <B
+CLASS="function"
+>$DB_DataObject-&#62;joinAdd</B
+></CODE
+> ([object $dataobject [, string $joinType [, string $joinAs [, string $joinCol]]]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.joinadd.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Builds a Join Query, by adding another dataobject to this one. Be careful when using this,
+     raw queries may be clearer than using joinAdd. 
+    </P
+><P
+>&#13;     Thanks to Stijn de Reede for the implementation of this.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.joinadd.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>object $obj</I
+></TT
+> - joining object (no value resets the join)
+       </P
+></LI
+><LI
+><P
+>&#13;         <TT
+CLASS="parameter"
+><I
+>string $joinType</I
+></TT
+> - "LEFT" | "INNER " | "RIGHT" | "" 
+       </P
+><P
+>&#13;         INNER is default, "" indicates
+         just select ... from a,b,c with no join and
+         links are added as where items. 
+       </P
+><P
+>&#13;         Note: 'LEFT' is the same as LEFT OUTER.
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $joinAs</I
+></TT
+> - if you want to select the table as anther name
+                        useful when you want to select multiple columns from a secondary table.
+                        
+       </P
+></LI
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>string $joinCol</I
+></TT
+> - The column on This objects table to match,needed
+                                               if this table links to the child object in
+                                              multiple places eg.
+                                              
+                                               <TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN27042"><P
+><B
+>Example 33-1.  using specific join Columns </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="ini"
+>user-&#62;friend (is a id of a person)
+user-&#62;mother (is a id of another person)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+>
+                                            
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.joinadd.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+><P
+>The Examples below are not tested, use DB_DataObject::debugLevel(1), to see what
+    exactly is going on when you use this, and send the author some better examples..</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.db-dataobject.db-dataobject.joinadd.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN27051"><P
+><B
+>Example 33-2. Simple simple Join</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// (requires links.ini to be set up correctly)
+// get all the images for product 24
+
+$i = new DataObject_Image();
+$pi = new DataObjects_Product_image();
+$pi-&#62;product_id = 24; // set the product id to 24
+$i-&#62;joinAdd($pi); // add the product_image connectoin
+$i-&#62;find();
+while ($i-&#62;fetch()) {
+// do stuff
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN27054"><P
+><B
+>Example 33-3. Resulting SQL</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>SELECT * FROM image,product_image 
+  LEFT JOIN image ON product_image 
+  WHERE product_image.id = 24 
+    AND product_image.pid = product.id</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN27057"><P
+><B
+>Example 33-4. More Complex Join query</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>// an example with 2 joins
+// get all the images linked with products or productgroups
+$i = new DataObject_Image();
+$pi = new DataObject_Product_image();
+$pgi = new DataObject_Productgroup_image();
+$i-&#62;joinAdd($pi);
+$i-&#62;joinAdd($pgi);
+$i-&#62;find();
+while ($i-&#62;fetch()) {
+// do stuff
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN27060"><P
+><B
+>Example 33-5. Resulting SQL</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>SELECT * FROM image,product_image 
+  LEFT JOIN image ON product_image 
+  LEFT JOIN image ON productgroup_image 
+  WHERE product
+    AND product.id = product_image.pid      
+    AND product.id = productgroup_image.pid</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.selectas.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.db-dataobject.settersgetters.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>-&#62;selectAs()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.db-dataobject.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>-&#62;set*() and -&#62;get*()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

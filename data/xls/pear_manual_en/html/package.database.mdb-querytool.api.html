@@ -1,0 +1,777 @@
+<HTML
+><HEAD
+><TITLE
+>Quick API reference</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="MDB_QueryTool"
+HREF="package.database.mdb-querytool.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="package.database.mdb-querytool.intro.html"><LINK
+REL="NEXT"
+TITLE="Date and Time"
+HREF="package.datetime.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb-querytool.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.datetime.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.mdb-querytool.api">Quick API reference</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN31985"
+></A
+>Quick API reference&nbsp;--&nbsp;
+	   A quick overview of the available methods. Please refer to the full
+       API docs for a detailed documentation.
+      </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb-querytool.api.methodlist"
+></A
+><H2
+><B
+CLASS="classname"
+>MDB_QueryTool</B
+> available methods</H2
+><P
+>&#13;     <B
+CLASS="classname"
+>MDB_QueryTool</B
+> provides the following methods:
+     <P
+></P
+><UL
+><LI
+><P
+>autoJoin($tables)</P
+><P
+>&#13;       Join the given tables, using the column names, to find out how to join
+       the tables; i.e., if table1 has a column named "table2_id",
+       this method will join "WHERE table1.table2_id=table2.id".
+       All joins made here are only concatenated via AND.
+      </P
+></LI
+><LI
+><P
+>getDbInstance</P
+><P
+>Return a PEAR::DB object</P
+></LI
+><LI
+><P
+>setDbInstance</P
+><P
+>Pass an existing PEAR::DB object to <B
+CLASS="classname"
+>MDB_QueryTool</B
+></P
+></LI
+><LI
+><P
+>get($id, $column)</P
+><P
+>&#13;        Get the data of a single entry. If the second parameter is only one column,
+        the result will be returned directly, not as an array!
+      </P
+></LI
+><LI
+><P
+>getMultiple($ids, $column)</P
+><P
+>&#13;        Same as <B
+CLASS="function"
+>get()</B
+>, but for all the elements in the $ids array.
+      </P
+></LI
+><LI
+><P
+>getAll()</P
+><P
+>Get all the entries from the db.</P
+></LI
+><LI
+><P
+>getCol($column)</P
+><P
+>&#13;        This method only returns one column, so the result will be a one dimensional array.
+        This does also mean that using <B
+CLASS="function"
+>setSelect()</B
+> should be set
+        to *one* column, the one you want to have returned.
+        A common use case for this could be:
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$table-&#62;setSelect('id');
+$ids = $table-&#62;getCol();
+//OR
+$ids = $table-&#62;getCol('id');</PRE
+></TD
+></TR
+></TABLE
+>
+        so ids will be an array with all the id's.
+      </P
+></LI
+><LI
+><P
+>getCount()</P
+><P
+>Get the number of entries.</P
+></LI
+><LI
+><P
+>getDefaultValues()</P
+><P
+>&#13;        return an empty element where all the array elements do already exist
+        corresponding to the columns in the DB
+      </P
+></LI
+><LI
+><P
+>getQueryString()</P
+><P
+>Render the current query and return it as a string.</P
+></LI
+><LI
+><P
+>save($data)</P
+><P
+>&#13;        Save data, calls either <B
+CLASS="function"
+>update()</B
+> or <B
+CLASS="function"
+>add()</B
+>.
+        If the primaryCol is given in the data this method knows that the
+        data passed to it are meant to be updated (call <B
+CLASS="function"
+>update()</B
+>),
+        otherwise it will call the method <B
+CLASS="function"
+>add()</B
+>.
+        If you dont like this behaviour simply stick with the methods
+        <B
+CLASS="function"
+>add()</B
+> and <B
+CLASS="function"
+>update()</B
+> and ignore this one here.
+        This method is very useful when you have validation checks that have to
+        be done for both adding and updating, then you can simply overwrite this
+        method and do the checks in here, and both cases will be validated first.
+      </P
+></LI
+><LI
+><P
+>update($data)</P
+><P
+>Update the member data of a data set.</P
+></LI
+><LI
+><P
+>add($data)</P
+><P
+>Add a new member in the db.</P
+></LI
+><LI
+><P
+>addMultiple($data)</P
+><P
+>Adds multiple new members in the db.</P
+></LI
+><LI
+><P
+>remove($data, $whereCol)</P
+><P
+>&#13;        Removes a member from the db.
+        <TT
+CLASS="parameter"
+><I
+>data</I
+></TT
+> is the value of the column that shall be removed
+        (integer/string); if an array is used, it must contain multiple columns
+        that shall be matched (in this case, the second parameter will be ignored);
+        <TT
+CLASS="parameter"
+><I
+>$whereCol</I
+></TT
+>: the column to match the data against,
+        only if <TT
+CLASS="parameter"
+><I
+>data</I
+></TT
+> is not an array
+      </P
+></LI
+><LI
+><P
+>removeAll()</P
+><P
+>Empty a table.</P
+></LI
+><LI
+><P
+>removeMultiple($ids, $colName)</P
+><P
+>&#13;        Remove the datasets with the given ids. If <TT
+CLASS="parameter"
+><I
+>colName</I
+></TT
+>
+        is set, it is used as the primary key column name.
+      </P
+></LI
+><LI
+><P
+>removePrimary($ids, $colName, $atLeastOneObject)</P
+><P
+>&#13;        Removes a member from the db and calls the <B
+CLASS="function"
+>remove()</B
+>
+        methods of the given objects so all rows in another table that refer
+        to this table are erased too.
+      </P
+></LI
+><LI
+><P
+>setLimit($from=0, $count=0)</P
+><P
+>Set the limits for the following query.</P
+></LI
+><LI
+><P
+>getLimit()</P
+><P
+>Get the limits for the following query.</P
+></LI
+><LI
+><P
+>setWhere($whereCondition)</P
+><P
+>Sets the where condition which is used for the current instance.</P
+></LI
+><LI
+><P
+>getWhere()</P
+><P
+>Gets the where condition which is used for the current instance.</P
+></LI
+><LI
+><P
+>addWhere($whereCondition, $condition)</P
+><P
+>Adds a string to the where clause. The default <TT
+CLASS="parameter"
+><I
+>condition</I
+></TT
+> is AND.</P
+></LI
+><LI
+><P
+>addWhereSearch($column, $stringToSearch, $condition)</P
+><P
+>&#13;        Add a where-like clause which works like a search for the given string;
+        i.e. calling it like this:
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$this-&#62;addWhereSearch('name', 'otto hans')</PRE
+></TD
+></TR
+></TABLE
+>
+        produces a where clause like this one
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>UPPER(name) LIKE "%OTTO%HANS%"</PRE
+></TD
+></TR
+></TABLE
+>
+        so the search finds the given string.
+      </P
+></LI
+><LI
+><P
+>setOrder($orderCondition, $desc=<TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>)</P
+><P
+>Sets the order condition which is used for the current instance.</P
+></LI
+><LI
+><P
+>getOrder()</P
+><P
+>Gets the order condition which is used for the current instance.</P
+></LI
+><LI
+><P
+>addOrder($orderCondition, $desc=<TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>)</P
+><P
+>Adds an order parameter to the query.</P
+></LI
+><LI
+><P
+>setHaving($havingCondition)</P
+><P
+>Sets the having condition which is used for the current instance.</P
+></LI
+><LI
+><P
+>getHaving()</P
+><P
+>Gets the having condition which is used for the current instance.</P
+></LI
+><LI
+><P
+>addHaving($what, $connectString)</P
+><P
+>Adds an having parameter to the query.</P
+></LI
+><LI
+><P
+>setJoin($table, $where, $joinType)</P
+><P
+>Sets the join condition which is used for the current instance.</P
+></LI
+><LI
+><P
+>setLeftJoin($table, $where)</P
+><P
+>Sets a left join on $this-&#62;table.</P
+></LI
+><LI
+><P
+>addLeftJoin($table, $where, $type)</P
+><P
+>Adds a left join to the query.</P
+></LI
+><LI
+><P
+>setRightJoin($table, $where)</P
+><P
+>Sets a right join on $this-&#62;table.</P
+></LI
+><LI
+><P
+>getJoin($what)</P
+><P
+>Gets the join-condition.</P
+></LI
+><LI
+><P
+>addJoin($table, $where, $type)</P
+><P
+>&#13;        adds a table and a where clause that shall be used for the join
+        instead of calling
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>setJoin(array(table1, table2), '&#60;where clause1&#62; AND &#60;where clause2&#62;');</PRE
+></TD
+></TR
+></TABLE
+>
+        you can also call
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>setJoin(table1,'&#60;where clause1&#62;');
+addJoin(table2,'&#60;where clause2&#62;');</PRE
+></TD
+></TR
+></TABLE
+>
+      </P
+></LI
+><LI
+><P
+>setTable($table)</P
+><P
+>Sets the table this class is currently working on.</P
+></LI
+><LI
+><P
+>getTable()</P
+><P
+>Gets the table this class is currently working on.</P
+></LI
+><LI
+><P
+>setGroup($group)</P
+><P
+>Sets the group-by condition.</P
+></LI
+><LI
+><P
+>getGroup()</P
+><P
+>Gets the group-by condition.</P
+></LI
+><LI
+><P
+>setSelect($what)</P
+><P
+>Limit the result to return only the columns given in <TT
+CLASS="parameter"
+><I
+>what</I
+></TT
+>.</P
+></LI
+><LI
+><P
+>addSelect($what, $connectString)</P
+><P
+>&#13;        Add a string to the select-part of the query and connects it to an existing
+        string using the <TT
+CLASS="parameter"
+><I
+>connectString</I
+></TT
+>, which by default is a comma.
+       ("SELECT xxx FROM..."    xxx is the select-part of a query)
+      </P
+></LI
+><LI
+><P
+>getSelect()</P
+><P
+>Gets the select-part of the query.</P
+></LI
+><LI
+><P
+>setDontSelect($what)</P
+><P
+>Exclude some columns from the resultset.</P
+></LI
+><LI
+><P
+>getDontSelect()</P
+><P
+>Gets the columns excluded from the resultset.</P
+></LI
+><LI
+><P
+>reset($what)</P
+><P
+>Reset all the set* settings, with no parameter given it resets them all.</P
+></LI
+><LI
+><P
+>setOption($option, $value)</P
+><P
+>&#13;        Set mode the class shall work in. The 'raw' mode does not quote the data
+        before building the query
+      </P
+></LI
+><LI
+><P
+>getOption($option)</P
+><P
+>Get the given option.</P
+></LI
+><LI
+><P
+>debug($string)</P
+><P
+>override this method and i.e. print the queryString to see the final query.</P
+></LI
+><LI
+><P
+>getTableShortName($table)</P
+><P
+>Gets the short name for a table.</P
+></LI
+><LI
+><P
+>execute($query, $method)</P
+><P
+>&#13;        Execute a query (the current query is executed when <TT
+CLASS="parameter"
+><I
+>query</I
+></TT
+>
+        is null.
+      </P
+></LI
+><LI
+><P
+>writeLog($text)</P
+><P
+>&#13;        Write events to the logfile. It does some additional work,
+        like time measuring etc. to see some additional info.
+      </P
+></LI
+><LI
+><P
+>returnResult($result)</P
+><P
+>&#13;        Return the chosen result type
+      </P
+></LI
+><LI
+><P
+>setIndex($key)</P
+><P
+>&#13;        Format the result to be indexed by <TT
+CLASS="parameter"
+><I
+>key</I
+></TT
+>.
+        NOTE: be careful, when using this you should be aware, that if you
+        use an index which's value appears multiple times you may loose data
+        since a key can't exist multiple times!
+        The result for a result to be indexed by a key(=columnName)
+        (i.e. 'relationtoMe') which's values are 'brother'
+        and 'sister' or alike normally returns this:
+        <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$res['brother'] = array('name' =&#62; 'xxx');
+$res['sister']  = array('name' =&#62; 'xxx');</PRE
+></TD
+></TR
+></TABLE
+>
+        but if the column 'relationtoMe' contains multiple entries for
+        'brother' then the returned dataset will only contain one brother,
+        since the value from the column 'relationtoMe' is used
+        and which 'brother' you get depends on a lot of things,
+        like the sort order, how the db saves the data, and whatever else.
+        You can also set indexes which depend on 2 columns, simply pass the parameters
+        like 'table1.id,table2.id' it will be used as a string for indexing
+        the result and the index will be built using the 2 values given, so a possible
+        index might be '1,2' or '2108,29389' this way you can access
+        data which have 2 primary keys. Be sure to remember that the index is a string!
+      </P
+></LI
+><LI
+><P
+>getIndex()</P
+><P
+>Gets the index.</P
+></LI
+><LI
+><P
+>useResult($type)</P
+><P
+>&#13;        Choose the type of the returned result
+        ('array', 'object', 'none')
+      </P
+></LI
+><LI
+><P
+>setErrorCallback($param)</P
+><P
+>Set both callbacks.</P
+></LI
+><LI
+><P
+>setErrorLogCallback($param)</P
+><P
+>Set the error log callback.</P
+></LI
+><LI
+><P
+>setErrorSetCallback($param)</P
+><P
+>Set the error set callback.</P
+></LI
+></UL
+>
+     
+     
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.mdb-querytool.intro.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.datetime.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.mdb-querytool.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Date and Time</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

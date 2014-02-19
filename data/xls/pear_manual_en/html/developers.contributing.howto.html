@@ -1,0 +1,448 @@
+<HTML
+><HEAD
+><TITLE
+>How to contribute code in practice</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Contributing your own code"
+HREF="developers.contributing.html"><LINK
+REL="PREVIOUS"
+TITLE="Contributing your own code"
+HREF="developers.contributing.html"><LINK
+REL="NEXT"
+TITLE="How to document code in practice"
+HREF="developers.contributing.docs.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="developers.contributing.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 14. Contributing your own code</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="developers.contributing.docs.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="developers.contributing.howto">How to contribute code in practice</H1
+><P
+>&#13;    <P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>Finding an appropriate package name</P
+><P
+>&#13;       One of the most important tasks while contributing a new package
+       to PEAR is finding an appropriate name for your package.
+      </P
+><P
+>&#13;       The general syntax for package names is
+       <TT
+CLASS="literal"
+>&#60;Category&#62;_&#60;Name&#62;</TT
+>. The value for
+       <TT
+CLASS="literal"
+>&#60;Category&#62;</TT
+> should be chosen from a
+       predefined list of categories that are available in PEAR (e.g.
+       <SPAN
+CLASS="QUOTE"
+>"HTTP"</SPAN
+>, <SPAN
+CLASS="QUOTE"
+>"Net"</SPAN
+>, <SPAN
+CLASS="QUOTE"
+>"HTML"</SPAN
+>).
+       The second part is the name of the package (like
+       <SPAN
+CLASS="QUOTE"
+>"Upload"</SPAN
+>, <SPAN
+CLASS="QUOTE"
+>"Portscan"</SPAN
+>, <SPAN
+CLASS="QUOTE"
+>"Table"</SPAN
+>).
+      </P
+><P
+>&#13;       The categories that are currently available in PEAR are
+       represented by the bold headings at the
+       <A
+HREF="http://pear.php.net/packages.php"
+TARGET="_top"
+>Package
+       Browser</A
+>. If you think that your package does not fit in
+       any of the existing categories, you can ask the on the mailing
+       list to create a new category. (PEAR is usually reluctant to do
+       that.)
+      </P
+><P
+>&#13;       Apart from this general syntax, the package names can also contain
+       more than one category name. An example for this is
+       <TT
+CLASS="literal"
+>HTML_Template_PHPLIB</TT
+>: The multiple categories indicate
+       that the package <TT
+CLASS="literal"
+>PHPLIB</TT
+> is part of the category
+       <TT
+CLASS="literal"
+>Template</TT
+>, that again is part of the <TT
+CLASS="literal"
+>HTML</TT
+>
+       category. This naming scheme is necessary here since it's possible
+       that there are Template systems in PEAR that don't work with HTML but
+       with another technology. (The cases where more than one
+       <SPAN
+CLASS="QUOTE"
+>"category"</SPAN
+> is used are pretty rare.)
+      </P
+><P
+>&#13;       If you need further advice or help for finding a name for your
+       package, you should ask on the <A
+HREF="mailto:pear-dev@lists.php.net"
+TARGET="_top"
+>&#13;       developers mailing list</A
+>.
+      </P
+></LI
+><LI
+><P
+>Announcing to the PEAR developers</P
+><P
+>&#13;       The second step while contributing is to announce your package in
+       <A
+HREF="http://pear.php.net/pepr/"
+TARGET="_top"
+>PEPr</A
+>.
+       Usually this announcement will spawn some discussion. After one week
+       you may call for votes with PEPr and the developers will then
+       start to vote for or against your proposal. (You are of course
+       urged to join the upcoming discussion.) Announcing a package does of
+       course not mean that it is already accepted! That will still take
+       some time and likely some more efforts from your side.
+      </P
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+        The following passages are taken from the administrative
+        document <A
+HREF="http://pear.php.net/group/docs/20040402-la.php"
+TARGET="_top"
+>Handling
+        Package Proposals</A
+>, which describes proposing new
+        packages in more details. Reading this document should be a
+        mandatory step for PEAR newbies.
+       </P
+></BLOCKQUOTE
+></DIV
+><P
+>&#13;       Only the votes of active members of the PEAR community (must have
+       a PEAR web account, however the proposer himself is not counted)
+       are counted, however anyone may vote. Votes require that a final
+       choiceof package name is specified.
+      </P
+><P
+>&#13;       The votes are added up, which means that one -1 offsets a
+       +1. However -1 vote should always be considered to be serious and
+       may lead to decisions being made on a case by case basis by the
+       <A
+HREF="http://pear.php.net/group/"
+TARGET="_top"
+>PEAR Group</A
+> who reserves a
+       veto (it is intended that in the future the PEAR QA team will
+       assist the PEAR Group in such situations). Therefore a -1 vote
+       *must* contain a comment explaining that decision, it is
+       desirable that votes in favour (+1) should also be accompanied
+       with an explanation when appropriate.
+      </P
+><P
+>&#13;       A vote is accepted if the total of all votes exceeds +5.
+      </P
+><P
+>&#13;       In case the proposal is not accepted the package can be further
+       discussed on the list and the proposer may attempt to make
+       another "call for vote" (it is expected that this is only done
+       for sensible reasons).
+      </P
+></LI
+><LI
+><A
+NAME="developers.contributing.accounts"><P
+>&#13;       Getting the necessary accounts
+      </P
+><P
+>&#13;       Right now one can distinguish between two types of accounts
+       related to PEAR:
+
+       <P
+></P
+><OL
+TYPE="a"
+><LI
+><P
+>Pear.php.net account</P
+><P
+>&#13;          This account is always necessary for you, if you want to release
+          your package through PEAR. With this account you have access
+          to the necessary infrastructure on
+          <A
+HREF="http://pear.php.net/"
+TARGET="_top"
+>pear.php.net</A
+> in order
+          to propose, upload and roll new releases. The PEAR Group manages
+          PEAR accounts and pearweb karma levels (i.e.: karma to
+          use the web site to maintain packages).</P
+></LI
+><LI
+><P
+>PHP CVS account</P
+><P
+>&#13;          If you want to administrate your code via
+          <A
+HREF="http://www.cvshome.org/"
+TARGET="_top"
+>CVS</A
+> , you can also
+          apply for a CVS account to have access to the pear
+          <SPAN
+CLASS="abbrev"
+>CVS</SPAN
+> module on <A
+HREF="http://cvs.php.net/"
+TARGET="_top"
+>&#13;          cvs.php.net</A
+>. This makes it easier for other users
+          to contribute to your code. The PHP Group (group@php.net) manage
+          the PHP CVS server, which is used for maintaining PEAR packages.
+          If you already have a PHP CVS account you will ask the
+          PEAR Group for Karma for a given package or set of packages.
+          Please send an email to <A
+HREF="mailto:pear-group@php.net"
+TARGET="_top"
+>&#13;          pear-group@php.net</A
+> specifying what packages you need
+          commit access along with credentials (e.g.: the package "lead"
+          email giving you his go or a QA member email announcing you are
+          to be given access).
+         </P
+><P
+>&#13;          If you already have a CVS repository somewhere else (e.g. on
+          <A
+HREF="http://www.sourceforge.net/"
+TARGET="_top"
+>SourceForge</A
+>),
+          or if you don't want to maintain your code via CVS, you don't
+          need the PHP CVS account.  It is highly recommended to use some kind
+          of public repository, so that users can try out any
+          bug fixes you apply to the code, before a new release is
+          rolled.
+         </P
+></LI
+></OL
+>
+      </P
+><P
+>&#13;       To sign up for your pear.php.net account, go to the
+       <A
+HREF="http://pear.php.net/account-request.php"
+TARGET="_top"
+>PEAR account
+       request page</A
+> and fill out the form there. The <A
+HREF="http://pear.php.net/group/"
+TARGET="_top"
+>PEAR Group</A
+> will then receive your
+       request and someone will open your account, if the request sounds
+       reasonable. You will be notified about that via email. Please
+       note that you do NOT need a pear.php.net account to download
+       packages from there.
+      </P
+><P
+>&#13;       To get a PHP CVS account, go
+       <A
+HREF="http://www.php.net/cvs-php.php"
+TARGET="_top"
+>here</A
+> to sign
+       up for it. The PHP CVS account has to be approved by the PHP
+       Group.
+      </P
+></LI
+><LI
+><P
+>Registering the package</P
+><P
+>&#13;       Once you successfully went through the contribution procedure and
+       got your pear.php.net account, you finish with registering your
+       package. Registering does not mean that you are going to release
+       a first version of your package. It just means that some basic
+       information about the package will be added to the PEAR package
+       database.
+      </P
+><P
+>&#13;       The registration process is quite straightforward: Fill out the
+       form on <A
+HREF="http://pear.php.net/package-new.php"
+TARGET="_top"
+>this site</A
+> and
+       submit the information. After you have done that, the <A
+HREF="http://pear.php.net/group/"
+TARGET="_top"
+>PEAR Group</A
+> has to finally approve
+       your submission. This usually happens in a few hours and you will
+       be notified about it via email.
+      </P
+><P
+>&#13;       After having registered your package, you can create a first
+       release, which is described <A
+HREF="developers.release.html"
+>here</A
+>.
+      </P
+></LI
+></OL
+>
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="developers.contributing.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="developers.contributing.docs.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Contributing your own code</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="developers.contributing.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>How to document code in practice</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

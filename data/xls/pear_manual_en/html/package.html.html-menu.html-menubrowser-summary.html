@@ -1,0 +1,199 @@
+<HTML
+><HEAD
+><TITLE
+>Class Summary HTML_MenuBrowser</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Menu"
+HREF="package.html.html-menu.html"><LINK
+REL="PREVIOUS"
+TITLE="constructor HTML_Menu_SigmaTreeRenderer()"
+HREF="package.html.html-menu.html-menu-sigmatreerenderer.html-menu-sigmatreerenderer.html"><LINK
+REL="NEXT"
+TITLE="constructor HTML_MenuBrowser::HTML_MenuBrowser()"
+HREF="package.html.html-menu.html-menubrowser.html-menubrowser.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-menu.html-menu-sigmatreerenderer.html-menu-sigmatreerenderer.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-menu.html-menubrowser.html-menubrowser.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-menu.html-menubrowser-summary">Class Summary <B
+CLASS="classname"
+>HTML_MenuBrowser</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN51918"
+></A
+>Class Summary <B
+CLASS="classname"
+>HTML_MenuBrowser</B
+>&nbsp;--&nbsp;Simple filesystem browser that can be used to generated menu (3) hashes
+based on the directory structure.</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN51922"
+></A
+><H2
+>Simple filesystem browser that can be used to generated menu (3) hashes
+based on the directory structure.</H2
+><P
+>Together with menu (3) and the (userland) cache you can use this  browser to generate simple fusebox like applications / content systems.</P
+><P
+>Let the menubrowser scan your document root and generate a menu (3) structure  hash which maps the directory structure, pass it to menu's setMethod() and optionally  wrap the cache around all this to save script runs. If you do so, it looks  like this:</P
+><P
+>// document root directory  define('DOC_ROOT', '/home/server/www.example.com/');</P
+><P
+>// instantiate the menubrowser  $browser = new menubrowser(DOC_ROOT);</P
+><P
+>// instantiate menu (3)  $menu = new menu($browser-&#62;getMenu());</P
+><P
+>// output the sitemap  $menu-&#62;show('sitemap');</P
+><P
+>Now, use e.g. simple XML files to store your content and additional menu informations  (title!). Subclass exploreFile() depending on your file format.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN51931"
+></A
+><H2
+>Class Trees for <B
+CLASS="classname"
+>HTML_MenuBrowser</B
+></H2
+><P
+>&#13;    <P
+></P
+><UL
+><LI
+><P
+>&#13;   HTML_MenuBrowser
+      </P
+></LI
+></UL
+>
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-menu.html-menu-sigmatreerenderer.html-menu-sigmatreerenderer.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-menu.html-menubrowser.html-menubrowser.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>constructor HTML_Menu_SigmaTreeRenderer()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-menu.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>constructor HTML_MenuBrowser::HTML_MenuBrowser()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

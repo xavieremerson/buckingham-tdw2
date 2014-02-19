@@ -1,0 +1,660 @@
+<HTML
+><HEAD
+><TITLE
+>Mail_mimeDecode::decode()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Mail_Mime"
+HREF="package.mail.mail-mime.html"><LINK
+REL="PREVIOUS"
+TITLE="Mail_mimeDecode::Mail_mimeDecode()"
+HREF="package.mail.mail-mimedecode.mail-mimedecode.html"><LINK
+REL="NEXT"
+TITLE="Mail_mimeDecode::uudecode()"
+HREF="package.mail.mail-mimedecode.uudecode.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-mimedecode.mail-mimedecode.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-mimedecode.uudecode.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.mail.mail-mimedecode.decode">Mail_mimeDecode::decode()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN81119"
+></A
+>Mail_mimeDecode::decode()&nbsp;--&nbsp;perform decoding</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN81122"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN81123"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Mail/mimeDecode.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>object <B
+CLASS="function"
+>decode</B
+></CODE
+> (array [$args = <TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mimedecode.decode.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     This function performs the decoding and returns a structure containing 
+     the message data.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mimedecode.decode.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>array $args</I
+></TT
+> - 
+        an array with the function arguments
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>boolean $args['include_bodies']</I
+></TT
+> -
+           whether to include the bodies in the returned structure. 
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>boolean $args['decode_bodies']</I
+></TT
+> -
+           whether to decode the returned bodies.            
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>boolean $args['decode_headers']</I
+></TT
+> -
+           whether to decode the headers 
+           (<A
+HREF="http://www.faqs.org/rfcs/rfc2047"
+TARGET="_top"
+>RFC2047</A
+>). 
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>string $args['input']</I
+></TT
+> -
+           if and only if called statically, this should be used to specify 
+           the input to be decoded. 
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>string $args['crlf']</I
+></TT
+> -
+           if and only if called statically, this should be used to specify 
+           the line ending type. 
+          </P
+></LI
+></UL
+>
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mimedecode.decode.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>object</I
+></TT
+> - 
+        <P
+></P
+><UL
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>array $return-&#62;headers</I
+></TT
+> - 
+           an associative array of the headers. The keys of the array
+           are the header names (lowercased) whilst the values are the
+           header values (original case). If there are multiple headers
+           with the same name (eg. <TT
+CLASS="parameter"
+><I
+>Received:</I
+></TT
+> ) 
+           then the value is a
+           numerically indexed array of each of the header values.
+           If the parameter <TT
+CLASS="parameter"
+><I
+>decode_headers</I
+></TT
+> 
+           is specified as <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, the headers will be decoded 
+           according to <A
+HREF="http://www.faqs.org/rfcs/rfc2047"
+TARGET="_top"
+>RFC 2047</A
+>.
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>string $return-&#62;ctype_primary</I
+></TT
+> - 
+           the first part of the content type (ie. before the forward slash).
+           Eg. if the content type is 
+           <TT
+CLASS="parameter"
+><I
+>multipart/mixed</I
+></TT
+>, ctype_primary would
+           be <TT
+CLASS="parameter"
+><I
+>"multipart"</I
+></TT
+>. 
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>string $return-&#62;ctype_secondary</I
+></TT
+> - 
+           the second part of the content type. Eg. If the content type is
+           <TT
+CLASS="parameter"
+><I
+>multipart/mixed</I
+></TT
+>, ctype_secondary would 
+           be <TT
+CLASS="parameter"
+><I
+>"mixed"</I
+></TT
+>. 
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>array $return-&#62;ctype_parameters</I
+></TT
+> - 
+           if the content type header has any parameters 
+           (eg. <TT
+CLASS="parameter"
+><I
+>boundary="=_hudfhdsalfhds8fy8329hfj</I
+></TT
+>")
+           then 
+           they will be in this associative array. Keys are the parameter
+           name (eg. <TT
+CLASS="parameter"
+><I
+>boundary</I
+></TT
+>) whilst the values 
+           are the parameter
+           values (eg. =<TT
+CLASS="parameter"
+><I
+>_hudfhdsalfhds8fy8329hfj</I
+></TT
+>). 
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>string $return-&#62;disposition</I
+></TT
+> - 
+           if the Content-Disposition header is present, its value
+           will be given here. This is usually either
+           <TT
+CLASS="parameter"
+><I
+>"inline"</I
+></TT
+> or
+           <TT
+CLASS="parameter"
+><I
+>"attachment"</I
+></TT
+>. 
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>array $return-&#62;d_parameters</I
+></TT
+> - 
+           if any parameters are given with the Content-Disposition header,
+           they will be given here in an associative array, keys being the 
+           parameter names and values being the parameter values. 
+           <TT
+CLASS="parameter"
+><I
+>"name"</I
+></TT
+> and <TT
+CLASS="parameter"
+><I
+>"filename"</I
+></TT
+>
+           are two common examples here. 
+          </P
+></LI
+><LI
+><P
+>&#13;           <TT
+CLASS="parameter"
+><I
+>array $return-&#62;body</I
+></TT
+> - 
+           if the <TT
+CLASS="parameter"
+><I
+>include_bodies</I
+></TT
+> parameter is given 
+           when instanciating the class, (either statically or via a
+           concrete instance), then this will be present if the part
+           in question has a body. 
+           MIME parts with content type <TT
+CLASS="parameter"
+><I
+>multipart/*</I
+></TT
+>
+           generally do not not have bodies, instead consisting of 
+           subparts. If the parameter <TT
+CLASS="parameter"
+><I
+>decode_bodies</I
+></TT
+>
+           is specified as <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> then the body will 
+           be decoded. 
+          </P
+></LI
+><LI
+><P
+>&#13;          <TT
+CLASS="parameter"
+><I
+>array $return-&#62;parts</I
+></TT
+> - 
+          if a MIME part consists of subparts, then this array will be 
+          present consisting of objects with the same properties as 
+          described here. 
+         </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mimedecode.decode.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN81210"><P
+><B
+>Table 46-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"
+           Called statically and no input given
+          "</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          You called the function statically and forgot 
+          to fill <TT
+CLASS="parameter"
+><I
+>$args['input']</I
+></TT
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Fill <TT
+CLASS="parameter"
+><I
+>$args['input']</I
+></TT
+> with the
+          content to decode or do not call the function
+          statically.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          every other
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          See the error message.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          The input or parts of the input
+          does not complies to the MIME standard.
+         </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail-mimedecode.decode.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mimedecode.mail-mimedecode.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mimedecode.uudecode.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Mail_mimeDecode::Mail_mimeDecode()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.mail.mail-mime.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Mail_mimeDecode::uudecode()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

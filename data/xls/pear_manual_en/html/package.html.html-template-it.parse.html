@@ -1,0 +1,491 @@
+<HTML
+><HEAD
+><TITLE
+>HTML_Template_IT::parse()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="HTML_Template_IT"
+HREF="package.html.html-template-it.html"><LINK
+REL="PREVIOUS"
+TITLE="HTML_Template_IT::loadTemplatefile()"
+HREF="package.html.html-template-it.loadtemplatefile.html"><LINK
+REL="NEXT"
+TITLE="HTML_Template_IT::parseCurrentBlock()"
+HREF="package.html.html-template-it.parsecurrentblock.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-it.loadtemplatefile.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.html-template-it.parsecurrentblock.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.html-template-it.parse">HTML_Template_IT::parse()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN70133"
+></A
+>HTML_Template_IT::parse()&nbsp;--&nbsp;parse a block</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN70136"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN70137"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'HTML/Template/IT.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void
+      <B
+CLASS="function"
+>HTML_Template_IT::parse</B
+></CODE
+> ([string 
+       $block = "__global__" [, boolean 
+       $flag_recursion = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>]])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.parse.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Parses the defined block, performs all substitutions and appends
+the result to already parsed blocks. 
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.parse.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>string $block</I
+></TT
+> - 
+       block to parse. When not set the complete template is used.
+      </P
+></LI
+><LI
+><P
+>&#13;       <TT
+CLASS="parameter"
+><I
+>boolean $flag_recursion</I
+></TT
+> - 
+       Used internally. Can be ignored
+      </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.parse.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>boolean</I
+></TT
+> -
+     Returns <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> if there was no placeholder to substitute, otherwise <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> or IT_Error.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.parse.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN70170"><P
+><B
+>Example 41-1. The template cvsnames.tpl.htm</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="html"
+>&#60;html&#62;
+ &#60;table&#62;
+&#60;!-- BEGIN row --&#62;
+  &#60;tr&#62;
+   &#60;td&#62;
+    {CVS_USERNAME}
+   &#60;/td&#62;
+   &#60;td&#62; 
+    {REALNAME}
+   &#60;/td&#62;
+  &#60;/tr&#62;
+&#60;!-- END row --&#62;
+ &#60;/table&#62;
+&#60;/html&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN70173"><P
+><B
+>Example 41-2. The script</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+  require_once "HTML/Template/IT.php";
+
+  $data = array
+  (
+    "0" =&#62; array("cvs_username" =&#62; "pajoye", 
+                 "realname" =&#62; "Pierre-Alain Joye"),
+    "1" =&#62; array("cvs_username" =&#62; "dsp",
+                 "realname" =&#62; "David Soria Parra")
+  );
+
+  $tpl = new HTML_Template_IT("./templates");
+
+  $tpl-&#62;loadTemplatefile("cvsnames.tpl.htm", true, true);
+
+  foreach($data as $name) {
+
+     $tpl-&#62;setVariable("CVS_USERNAME", $name["cvs_username"]);
+     $tpl-&#62;setVariable("REALNAME", $name["realname"]);
+
+     $tpl-&#62;parse("row");
+  }
+
+  // show() parses the __global__ block and
+  // print the output
+  $tpl-&#62;show();
+
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.parse.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN70179"><P
+><B
+>Table 41-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>IT_BLOCK_NOT_FOUND</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"
+           Cannot find this block <TT
+CLASS="parameter"
+><I
+>block</I
+></TT
+>
+          "</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          The given block does not exists.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Check for typing mistakes in the argument.
+         </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.parse.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.html-template-it.parse.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;    <A
+HREF="package.html.html-template-it.parsecurrentblock.html"
+>&#13;     <B
+CLASS="function"
+>HTML_Template_it::parseCurrentBlock()</B
+></A
+>
+   </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.html-template-it.loadtemplatefile.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.html-template-it.parsecurrentblock.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>HTML_Template_IT::loadTemplatefile()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.html-template-it.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>HTML_Template_IT::parseCurrentBlock()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

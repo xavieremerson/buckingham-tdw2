@@ -1,0 +1,243 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction to PEAR_PackageUpdate</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR_PackageUpdate"
+HREF="package.pear.pear-packageupdate.html"><LINK
+REL="PREVIOUS"
+TITLE="PEAR_PackageUpdate"
+HREF="package.pear.pear-packageupdate.html"><LINK
+REL="NEXT"
+TITLE="PEAR_PackageUpdate::factory"
+HREF="package.pear.pear-packageupdate.pear-packageupdate.factory.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.pear.pear-packageupdate.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.pear.pear-packageupdate.pear-packageupdate.factory.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.pear.pear-packageupdate.pear-packageupdate-summary">Introduction to <B
+CLASS="classname"
+>PEAR_PackageUpdate</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN92441"
+></A
+>Introduction to <B
+CLASS="classname"
+>PEAR_PackageUpdate</B
+>&nbsp;--&nbsp;
+  A package to make adding self updating functionality to other packages or
+  applications easy.
+ </DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN92445"
+></A
+><H2
+>&#13;  About PEAR::PackageUpdate
+ </H2
+><P
+>&#13;  PEAR::PackageUpdate gives other packages or applications the ability to
+  automatically keep themselves up-to-date by checking their channel server
+  for the latest release and self-updating with the user's permission.
+  Auto-update features help developers by reducing the number of different
+  versions of a package which are currently used. This reduces the likely hood
+  of bugs related to outdated versions being reported. 
+ </P
+><P
+>&#13;  This package automates the update process but still allows the user to
+  remain in control of their computer. PEAR::PackageUpdate respects a user's
+  preferences and allows the user to decide not only if the package should be
+  updated but also when to be alerted to new updates. The user can decide to
+  only be notified when a new release has a certain state or release type (bug
+  fix, feature enhancment, or major version). The user can even turn off the
+  updating features. All of these settings are on a package-by-package basis.
+ </P
+><P
+>&#13;  PEAR::PackageUpdate is designed to be a backend for other packages which
+  provide different interface types. For example, this package can be used to
+  drive a PHP-GTK 2, CLI or HTML frontend. 
+ </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN92450"
+></A
+><H2
+>&#13;  Usage Example
+ </H2
+><P
+>&#13;  <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php-highlighted"
+>&#60;?php
+class Foo {
+    function __construct()
+    {
+        // Try to update the package if needed.
+        require_once 'PEAR/PackageUpdate.php';
+        // Load the PHP-GTK 2 driver to check for updates for pear://Foo
+        $ppu = PEAR_PackageUpdate::factory('Gtk2', 'Foo', 'pear');
+        
+        // Check for trouble loading the driver.
+        if ($ppu !== false) {
+
+            // See if a new version is available (respects user prefs).
+            if ($ppu-&#62;checkUpdate()) {
+
+                // Ask for permission to update.
+                if ($ppu-&#62;presentUpdate()) {
+
+                    if ($ppu-&#62;update()) {
+
+                        // The update was a success. The app must be
+                        // restarted.
+                        $ppu-&#62;forceRestart();
+                    }
+                }
+            }
+        }
+        // ...
+    }
+    // ...
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+>
+ </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.pear.pear-packageupdate.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.pear.pear-packageupdate.pear-packageupdate.factory.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>PEAR_PackageUpdate</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.pear.pear-packageupdate.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>PEAR_PackageUpdate::factory</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

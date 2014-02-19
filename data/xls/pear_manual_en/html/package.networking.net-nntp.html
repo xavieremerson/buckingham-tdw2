@@ -1,0 +1,681 @@
+<HTML
+><HEAD
+><TITLE
+>Net_NNTP</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Networking"
+HREF="package.networking.html"><LINK
+REL="PREVIOUS"
+TITLE="Net_IPv6::splitV64()"
+HREF="package.networking.net-ipv6.splitv64.html"><LINK
+REL="NEXT"
+TITLE="Net_Ping"
+HREF="package.networking.net-ping.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-ipv6.splitv64.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 48. Networking</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-ping.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="package.networking.net-nntp">Net_NNTP</H1
+><P
+>&#13;  Implementation of the NNTP protocol
+ </P
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+   The Net_NNTP class is considered deprecated as of v0.10.x; Net_NNTP_Client should be used instead in new applications. 
+   A 'backport' of Net_NNTP_Client has replaced Net_NNTP to maintain backward compatibility, 
+   but this is temporary and will only last for some time.
+  </P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.networking.net-nntp.client">Net_NNTP_Client</H2
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.constants.html"
+>Constants</A
+>&nbsp;--&nbsp;predefined constants</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.authenticate.html"
+><B
+CLASS="classname"
+>Net_NNTP_Client</B
+>::<TT
+CLASS="methodname"
+>authenticate</TT
+>()</A
+>&nbsp;--&nbsp;Authenticate</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.connect.html"
+>Net_NNTP_Client::connect()</A
+>&nbsp;--&nbsp;Connects to a NNTP-server</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.connectauthenticated.html"
+>Net_NNTP_Client::connectAuthenticated()</A
+>&nbsp;--&nbsp;Connect and authenticate to a NNTP-server</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.count.html"
+><B
+CLASS="classname"
+>Net_NNTP_Client</B
+>::<TT
+CLASS="methodname"
+>count</TT
+>()</A
+>&nbsp;--&nbsp;Get the number of articles in the current newsgroup</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.getdescriptions.html"
+><B
+CLASS="classname"
+>Net_NNTP_Client</B
+>::<TT
+CLASS="methodname"
+>getDescriptions</TT
+>()</A
+>&nbsp;--&nbsp;</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.first.html"
+><B
+CLASS="classname"
+>Net_NNTP_Client</B
+>::<TT
+CLASS="methodname"
+>first</TT
+>()</A
+>&nbsp;--&nbsp;Get the number of the first article in the current newsgroup</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.getarticle.html"
+>Net_NNTP_Client::getArticle()</A
+>&nbsp;--&nbsp;Fetch an article from the NNTP-server</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.getarticleraw.html"
+>Net_NNTP_Client::getArticleRaw()</A
+>&nbsp;--&nbsp;Fetch an article from the NNTP-server</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.getgrouparticles.html"
+><B
+CLASS="classname"
+>Net_NNTP_Client</B
+>::<TT
+CLASS="methodname"
+>getGroupArticles</TT
+>()</A
+>&nbsp;--&nbsp;</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.getbodyraw.html"
+>Net_NNTP_Client::getBodyRaw()</A
+>&nbsp;--&nbsp;Fetch the body of an article from the NNTP-server</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.getdate.html"
+>Net_NNTP_Client::getDate()</A
+>&nbsp;--&nbsp;Get date from NNTP-server</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.getgroups.html"
+>Net_NNTP_Client::getGroups()</A
+>&nbsp;--&nbsp;Fetch list of avaible newsgroups</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.getheader.html"
+>Net_NNTP_Client::getHeader()</A
+>&nbsp;--&nbsp;Fetch the header of an article from the NNTP-server</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.getheaderraw.html"
+>Net_NNTP_Client::getHeaderRaw()</A
+>&nbsp;--&nbsp;fetch message header</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.getnewgroups.html"
+><B
+CLASS="classname"
+>Net_NNTP_Client</B
+>::<TT
+CLASS="methodname"
+>getNewGroups</TT
+>()</A
+>&nbsp;--&nbsp;</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.getnewnews.html"
+><B
+CLASS="classname"
+>Net_NNTP_Client</B
+>::<TT
+CLASS="methodname"
+>getNewNews</TT
+>()</A
+>&nbsp;--&nbsp;</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.getoverview.html"
+>Net_NNTP_Client::getOverview()</A
+>&nbsp;--&nbsp;Fetch newsgroup overview</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.getreferencesoverview.html"
+><B
+CLASS="classname"
+>Net_NNTP_Client</B
+>::<TT
+CLASS="methodname"
+>getReferencesOverview</TT
+>()</A
+>&nbsp;--&nbsp;</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.group.html"
+><B
+CLASS="classname"
+>Net_NNTP_Client</B
+>::<TT
+CLASS="methodname"
+>group</TT
+>()</A
+>&nbsp;--&nbsp;</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.isconnected.html"
+><B
+CLASS="classname"
+>Net_NNTP_Client</B
+>::<TT
+CLASS="methodname"
+>isConnected</TT
+>()</A
+>&nbsp;--&nbsp;Connected?</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.last.html"
+><B
+CLASS="classname"
+>Net_NNTP_Client</B
+>::<TT
+CLASS="methodname"
+>last</TT
+>()</A
+>&nbsp;--&nbsp;Get the number of the last article in the current newsgroup</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.post.html"
+><B
+CLASS="classname"
+>Net_NNTP_Client</B
+>::<TT
+CLASS="methodname"
+>post</TT
+>()</A
+>&nbsp;--&nbsp;</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.quit.html"
+><B
+CLASS="classname"
+>Net_NNTP_Client</B
+>::<TT
+CLASS="methodname"
+>quit</TT
+>()</A
+>&nbsp;--&nbsp;Close the connection to the NNTP-server</DT
+><DT
+><A
+HREF="package.networking.net-nntp.client.selectgroup.html"
+>Net_NNTP_Client::selectGroup()</A
+>&nbsp;--&nbsp;select a newsgroup</DT
+></DL
+></DIV
+><P
+>&#13;  NNTP client implementation
+ </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.networking.net-nntp.ancient">Net_NNTP</H2
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.constants.html"
+>Constants</A
+>&nbsp;--&nbsp;predefined constants</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.command.html"
+>Net_NNTP::command()</A
+>&nbsp;--&nbsp;send a command to a newsserver</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.connect.html"
+>Net_NNTP::connect()</A
+>&nbsp;--&nbsp;Connects to a newsserver</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.connectauthenticated.html"
+>Net_NNTP::connectAuthenticated()</A
+>&nbsp;--&nbsp;Connects and authenticates to a newsserver</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.date.html"
+>Net_NNTP::date()</A
+>&nbsp;--&nbsp;get date from news server</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.first.html"
+>Net_NNTP::first()</A
+>&nbsp;--&nbsp;get lowest message number</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.getarticle.html"
+>Net_NNTP::getArticle()</A
+>&nbsp;--&nbsp;fetch an article from a new server</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.getarticleraw.html"
+>Net_NNTP::getArticleRaw()</A
+>&nbsp;--&nbsp;fetch an article from a new server</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.getbody.html"
+>Net_NNTP::getBody()</A
+>&nbsp;--&nbsp;fetch the body of an article</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.getbodyraw.html"
+>Net_NNTP::getBodyRaw()</A
+>&nbsp;--&nbsp;fetch the body of an article</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.getdate.html"
+>Net_NNTP::getDate()</A
+>&nbsp;--&nbsp;get date from news server</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.getgroups.html"
+>Net_NNTP::getGroups()</A
+>&nbsp;--&nbsp;fetch list of avaible newsgroups</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.getheaderraw.html"
+>Net_NNTP::getHeaderRaw()</A
+>&nbsp;--&nbsp;fetch message header</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.getheaders.html"
+>Net_NNTP::getHeaders()</A
+>&nbsp;--&nbsp;fetch message headers</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.getoverview.html"
+>Net_NNTP::getOverview()</A
+>&nbsp;--&nbsp;fetch a number of message headers</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.getoverviewfmt.html"
+>Net_NNTP::getOverviewFmt()</A
+>&nbsp;--&nbsp;fetch the name of message headers</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.getoverviewformat.html"
+>Net_NNTP::getOverviewFormat()</A
+>&nbsp;--&nbsp;fetch the name of message headers</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.isconnected.html"
+>Net_NNTP::isConnected()</A
+>&nbsp;--&nbsp;check connection status</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.last.html"
+>Net_NNTP::last()</A
+>&nbsp;--&nbsp;get highest message number</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.max.html"
+>Net_NNTP::max()</A
+>&nbsp;--&nbsp;get highest message number</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.min.html"
+>Net_NNTP::min()</A
+>&nbsp;--&nbsp;get lowest message number</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.post.html"
+>Net_NNTP::post()</A
+>&nbsp;--&nbsp;post a message</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.prepareconnection.html"
+>Net_NNTP::prepareConnection()</A
+>&nbsp;--&nbsp;connects to a newsgroup on a newsserver</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.quit.html"
+>Net_NNTP::quit()</A
+>&nbsp;--&nbsp;disconnect from a newsserver</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.selectgroup.html"
+>Net_NNTP::selectGroup()</A
+>&nbsp;--&nbsp;select a newsgroup</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.setdebug.html"
+>Net_NNTP::setDebug()</A
+>&nbsp;--&nbsp;setting debug mode</DT
+><DT
+><A
+HREF="package.networking.net-nntp.ancient.splitheaders.html"
+>Net_NNTP::splitHeaders()</A
+>&nbsp;--&nbsp;fetch message headers into in array</DT
+></DL
+></DIV
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>This function is
+<SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>deprecated</I
+></SPAN
+>. That means that future versions of
+this package may not support it anymore.</P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>&#13;  The historical Net_NNTP class
+ </P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.networking.net-nntp.header">Net_NNTP_Header</H2
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>This module is
+<SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>EXPERIMENTAL</I
+></SPAN
+>. That means that the behaviour of these
+functions, these function names, in concreto ANYTHING documented here can
+change in a future release of this package WITHOUT NOTICE. Be warned, and
+use this module at your own risk.</P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>This package is not documented yet.</P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.networking.net-nntp.message">Net_NNTP_Message</H2
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Warning</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>This module is
+<SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>EXPERIMENTAL</I
+></SPAN
+>. That means that the behaviour of these
+functions, these function names, in concreto ANYTHING documented here can
+change in a future release of this package WITHOUT NOTICE. Be warned, and
+use this module at your own risk.</P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>This package is not documented yet.</P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="package.networking.net-nntp.protocol.client">Net_NNTP_Protocol_Client</H2
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="package.networking.net-nntp-protocol.client.constants.html"
+>Constants</A
+>&nbsp;--&nbsp;predefined constants</DT
+></DL
+></DIV
+><P
+>&#13;  Low level NNTP client implementation.
+ </P
+><P
+>This package is not documented yet.</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-ipv6.splitv64.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-ping.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Net_IPv6::splitV64()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Net_Ping</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

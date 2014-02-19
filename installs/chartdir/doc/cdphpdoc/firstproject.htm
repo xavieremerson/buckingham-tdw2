@@ -1,0 +1,130 @@
+<HTML>
+<HEAD>
+<Title>The First Project</Title>
+<link type='text/css' rel='Stylesheet' href='maxchartapi.css'/>
+</HEAD>
+<body bgcolor="#FFFFFF" text="#000000" topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+<p class="heading0">ChartDirector Ver 3.0 (PHP Edition)</p>
+<p class="heading1">The First Project</p>
+<hr class="separator">
+<div class="content">
+<img src="images/simplebar.png">
+<br><br>
+To get a feeling of the ChartDirector, and to verify the ChartDirector
+development environment is set up properly, we will begin by building a very
+simple bar chart.
+<br><br>
+If you have not yet installed the sample programs, it is highly recommended
+you install them now. Please refer to the <a href="install.htm">Installation</a>
+section for details. They are very useful for exploring and testing the features
+of ChartDirector.
+<br><br>
+[The following is available as "phpdemo/simplebar.php".]
+<table width="98%" border="0" cellpadding="10"><tr><td bgcolor="#cccccc"><xmp><?php
+include("phpchartdir.php");
+
+#The data for the bar chart
+$data = array(85, 156, 179.5, 211, 123);
+
+#The labels for the bar chart
+$labels = array("Mon", "Tue", "Wed", "Thu", "Fri");
+
+#Create a XYChart object of size 250 x 250 pixels
+$c = new XYChart(250, 250);
+
+#Set the plotarea at (30, 20) and of size 200 x 200 pixels
+$c->setPlotArea(30, 20, 200, 200);
+
+#Add a bar chart layer using the given data
+$c->addBarLayer($data);
+
+#Set the x axis labels using the given labels
+$c->xAxis->setLabels($labels);
+
+#output the chart
+header("Content-type: image/png");
+print($c->makeChart2(PNG));
+?></xmp></tr></td></table><br>
+The code is explained below:
+<br><br>
+<ul>
+<li><nobr>include("phpchartdir.php");</nobr>
+<br><br>
+This line imports the ChartDirector for PHP module so that you can use it.
+<br><br>
+<li>
+<nobr>$c = new <a href="XYChart.XYChart.htm">XYChart</a>(250, 250);</nobr>
+<br><br>
+The first step in creating any chart in ChartDirector is to create the
+appropriate chart object. In this example, an <a href="XYChart.htm">XYChart</a> object of size 250 x 250
+pixels is created. In ChartDirector, the XYChart object is for any chart that
+has x-axis and y-axis, including the bar chart that we are drawing.
+<br><br>
+<li>
+<nobr>$c-&gt;<a href="XYChart.setPlotArea.htm">setPlotArea</a>(30, 20, 200, 200);</nobr>
+<br><br>
+The second step in creating a bar chart is to specify where should we draw the
+bar chart. This is by specifying the rectangle that contains the bar chart. The
+rectangle is specified by using the (x, y) coordinates of its top-left corner,
+together with its width and height.
+<br><br>
+For this simple bar chart, we will use the majority of the chart area to draw
+the bar chart. We will leave some margin to allow for the text labels on the
+axis. In the above code, the top-left corner is set to (30, 30), and both the
+width and height is set to 200 pixels. Since the entire chart is 250 x 250 in
+size, there will be 20 to 30 pixels margin for the text labels.
+<br><br>
+Note that all ChartDirector charts use a coordinate system that is customary on
+computer screen. The x pixel coordinate is increasing from left to right. The y
+pixel coordinate is increasing from top to bottom. The origin (0, 0) is at the
+top-left corner.
+<br><br>
+For more complex charts which may contain titles, legend box and other things,
+we can use this method (and other methods) to design the exact layout of the
+entire chart.
+<br><br>
+<li>
+<nobr>$c-&gt;<a href="XYChart.addBarLayer.htm">addBarLayer</a>($data);</nobr>
+<br><br>
+The above code adds a bar layer to the XYChart. In ChartDirector, any chart type
+that has x-axis and y-axis is represented as a layer in the XYChart. An XYChart
+can contain multiple layers. This allows "combination charts" to be created
+easily by combining different layers on the same chart (eg., a chart containing
+a line layer on top of a bar layer) .
+<br><br>
+In the above line of code, the argument is an array of numbers representing the
+values of the data points.
+<br><br>
+<li>
+<nobr>$c-&gt;<a href="XYChart.xAxis.htm">xAxis</a>-&gt;<a href="Axis.setLabels.htm">setLabels</a>($labels);</nobr>
+<br><br>
+The above code sets the labels on the x-axis. The first method <a href="XYChart.xAxis.htm">XYChart.xAxis</a>
+retrieves the <a href="Axis.htm">Axis</a> object that represents the x-axis. The second method
+<a href="Axis.setLabels.htm">Axis.setLabels</a> binds the text labels to the x-axis. The argument to the
+setLabels method is an array of text string.
+<br><br>
+<li>
+<nobr>header("Content-type: image/png");</nobr><br>
+<nobr>print($c-><a href="BaseChart.makeChart2.htm">makeChart2</a>(<a href="BaseChart.makeChart2.htm">PNG</a>));</nobr>
+<br><br>
+The above code outputs the chart directly to the browser as a PNG image stream.
+No intermediate file is needed.
+<br><br>
+For the image format, in addition to PNG, ChartDirector supports JPG,
+alternative GIF, BMP and WBMP.
+</ul><table width="98%" cellpadding="5"><tr><td bgcolor="#c0c0c0">
+<b>Note:</b> If you are running ChartDirector on Linux/FreeBSD/Solaris, the
+charts produced may be slightly different from the chart samples in this
+documentation, which are produced under Windows. This is because of the
+different fonts available on Windows and Linux/FreeBSD/Solaris. Please refer
+to <a href="fontspec.htm">Font Specification</a> on why you may want to
+download Windows fonts to be used on Linux/FreeBSD/Solaris.
+</td></tr></table><br>
+<table width="98%" cellpadding="5"><tr><td bgcolor="#c0c0c0">
+<b>Note:</b> The trial version of ChartDirector will include small
+yellow banners at the bottom of the charts it produces. These banners
+will disappear in the licensed version of ChartDirector.
+</td></tr></table>
+</div>
+<br><hr class="separator"><div class="copyright">&copy; 2003 Advanced Software Engineering Limited. All rights reserved.</div></body>
+</HTML>

@@ -1,0 +1,968 @@
+<HTML
+><HEAD
+><TITLE
+>Mail::send()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Mail"
+HREF="package.mail.mail.html"><LINK
+REL="PREVIOUS"
+TITLE="Mail::factory()"
+HREF="package.mail.mail.factory.html"><LINK
+REL="NEXT"
+TITLE="RFC822 - Introduction"
+HREF="package.mail.mail-rfc822.intro.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail.factory.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.mail.mail-rfc822.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.mail.mail.send">Mail::send()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN79705"
+></A
+>Mail::send()&nbsp;--&nbsp;sends a mail</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN79708"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN79709"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once 'Mail.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>mixed <B
+CLASS="function"
+>send</B
+></CODE
+> (mixed $recipients, array $headers, string $body)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail.send.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;     Sends a mail. The <B
+CLASS="function"
+>send()</B
+>-function is
+     provided by the object returned from 
+     <A
+HREF="package.mail.mail.factory.html"
+><B
+CLASS="function"
+>factory()</B
+>
+     </A
+>     
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail.send.parameter"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;     <P
+></P
+><UL
+><LI
+><P
+>&#13;        <TT
+CLASS="parameter"
+><I
+>mixed $recipients</I
+></TT
+> - an array or a 
+        string with comma separated recipients. 
+       </P
+></LI
+><LI
+><P
+>&#13;         <TT
+CLASS="parameter"
+><I
+>array $headers</I
+></TT
+> - 
+         an associative array of headers. The header name is used as key and 
+       	 the header value as value.
+       </P
+></LI
+><LI
+><P
+>&#13;         <TT
+CLASS="parameter"
+><I
+>string $body</I
+></TT
+> - 
+         the body of the email.
+       </P
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail.send.return"
+></A
+><H2
+>Return value</H2
+><P
+>&#13;     <TT
+CLASS="parameter"
+><I
+>boolean</I
+></TT
+> - <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> or
+    	a <A
+HREF="core.pear.pear-error.html"
+><B
+CLASS="classname"
+>PEAR_Error</B
+></A
+> object, if fails
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail.send.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;     <DIV
+CLASS="table"
+><A
+NAME="AEN79749"><P
+><B
+>Table 46-1. Possible PEAR_Error values</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Mailer driver</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error code</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Error message</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Reason</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Solution</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>sendmail</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"No from address given."</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          The <TT
+CLASS="parameter"
+><I
+>$headers</I
+></TT
+> array requires
+          at least a <TT
+CLASS="parameter"
+><I
+>from</I
+></TT
+> entry.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Add a <TT
+CLASS="literal"
+>From</TT
+> header: 
+          <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$headers['From'] = 'mymail@example.com';</PRE
+></TD
+></TR
+></TABLE
+>
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>sendmail</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"From address specified with dangerous characters."</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          The from entry in the <TT
+CLASS="parameter"
+><I
+>$headers</I
+></TT
+> array
+          contains one ore more characters which could be non-RFC compliant
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Check the given from address for characters like: spaces or
+          <TT
+CLASS="literal"
+>;</TT
+> or <TT
+CLASS="literal"
+>&#38;</TT
+> or
+          <TT
+CLASS="literal"
+>`</TT
+> (backtick)
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>sendmail</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"sendmail [<TT
+CLASS="parameter"
+><I
+>path to sendmail</I
+></TT
+>] 
+           not executable"</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          The path to sendmail program is not correct. No sendmail
+          executable found there.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Check the <TT
+CLASS="parameter"
+><I
+>$param['sendmail_path']</I
+></TT
+> entry
+          in your <A
+HREF="package.mail.mail.factory.html"
+>&#13;           <B
+CLASS="function"
+>Mail::factory()</B
+></A
+> call. If you use
+          another mailer then sendmail, ie. qmail, 
+          check installation of the mailer. Normally it should includes
+          a sendmail wrapper.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>sendmail</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="constant"
+><B
+>NULL</B
+></TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"sendmail returned error code 
+           <TT
+CLASS="parameter"
+><I
+>code</I
+></TT
+>"</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Sendmail returns a error, which must be handled by use.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          See the documention of your mailer programm.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>smtp</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="literal"
+>PEAR_MAIL_SMTP_ERROR_CREATE</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"Failed to create a Net_SMTP object"</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Failure in class creation
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Reinstall/update the <B
+CLASS="classname"
+>Net_SMTP</B
+> package.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>smtp</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="literal"
+>PEAR_MAIL_SMTP_ERROR_CONNECT</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"Failed to connect to
+           <TT
+CLASS="parameter"
+><I
+>host:port</I
+></TT
+>"</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Connect to SMTP server failed
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Check <TT
+CLASS="parameter"
+><I
+>$param['port']</I
+></TT
+> and 
+          <TT
+CLASS="parameter"
+><I
+>$param['host']</I
+></TT
+> entries
+          in your <A
+HREF="package.mail.mail.factory.html"
+>&#13;           <B
+CLASS="function"
+>Mail::factory()</B
+></A
+> call.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>smtp</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="literal"
+>PEAR_MAIL_SMTP_ERROR_AUTH</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"<TT
+CLASS="parameter"
+><I
+>method</I
+></TT
+> authentication failure"</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Authentication failed
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Check <TT
+CLASS="parameter"
+><I
+>$param['auth']</I
+></TT
+>,
+          <TT
+CLASS="parameter"
+><I
+>$param['username']</I
+></TT
+> and 
+          <TT
+CLASS="parameter"
+><I
+>$param['password']</I
+></TT
+> entries
+          in your <A
+HREF="package.mail.mail.factory.html"
+>&#13;           <B
+CLASS="function"
+>Mail::factory()</B
+></A
+> call.
+          Ensure to use the correct authentication method 
+          for the SMTP server.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>smtp</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="literal"
+>PEAR_MAIL_SMTP_ERROR_FROM</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"No From: address has been provided"</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          The <TT
+CLASS="parameter"
+><I
+>$headers</I
+></TT
+> array requires
+          at least a <TT
+CLASS="parameter"
+><I
+>from</I
+></TT
+> entry.
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Add a <TT
+CLASS="literal"
+>From</TT
+> header: 
+          <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$headers['From'] = 'mymail@example.com';</PRE
+></TD
+></TR
+></TABLE
+>
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>smtp</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="literal"
+>PEAR_MAIL_SMTP_ERROR_SENDER</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"Failed to set sender: <TT
+CLASS="parameter"
+><I
+>from</I
+></TT
+>"</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Setting the sender address failed
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Check the RFC-compliances of the sender address and the server
+          connnectivity.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>smtp</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="literal"
+>PEAR_MAIL_SMTP_ERROR_RECIPIENT</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"Failed to add recipient: <TT
+CLASS="parameter"
+><I
+>recipient</I
+></TT
+>
+          "</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Sending of recipient address failed
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Check the RFC-compliances of the recipient address and the server
+          connnectivity.
+         </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>smtp</TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="literal"
+>PEAR_MAIL_SMTP_ERROR_DATA</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          <SPAN
+CLASS="QUOTE"
+>"Failed to send data"</SPAN
+>
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Body of the mail message could not send
+         </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;          Check the RFC-compliances of the message body and the server
+          connnectivity.
+         </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail.send.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail.send.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+include('Mail.php');
+
+$recipients = 'joe@example.com';
+
+$headers['From']    = 'richard@example.com';
+$headers['To']      = 'joe@example.com';
+$headers['Subject'] = 'Test message';
+
+$body = 'Test message';
+
+$params['sendmail_path'] = '/usr/lib/sendmail';
+
+// Create the mail object using the Mail::factory method
+$mail_object =&#38; Mail::factory('sendmail', $params);
+
+$mail_object-&#62;send($recipients, $headers, $body);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+>&#13;      If one wishes to specify recipients for <TT
+CLASS="literal"
+>Bcc:</TT
+>,
+      the variable <TT
+CLASS="varname"
+>recipients</TT
+> must be an associative
+      array:
+    </P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+include('Mail.php');
+
+$recipients = array('To' =&#62; 'joe@example.com,franck@example.com',
+                    'Bcc' =&#62; 'jane@example.com');
+
+$headers['From']    = 'richard@example.com';
+$headers['To']      = 'joe@example.com';
+$headers['Subject'] = 'Test message';
+
+$body = 'Test message';
+
+$params['sendmail_path'] = '/usr/lib/sendmail';
+
+// Create the mail object using the Mail::factory method
+$mail_object =&#38; Mail::factory('sendmail', $params);
+
+$mail_object-&#62;send($recipients, $headers, $body);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.mail.mail.send.see"
+></A
+><H2
+>See</H2
+><P
+>&#13;     <A
+HREF="package.mail.mail.factory.html"
+>&#13;      <B
+CLASS="function"
+>Mail::factory()</B
+>
+     </A
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.mail.mail.factory.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.mail.mail-rfc822.intro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Mail::factory()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.mail.mail.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>RFC822 - Introduction</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

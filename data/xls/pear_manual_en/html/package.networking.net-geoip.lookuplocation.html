@@ -1,0 +1,304 @@
+<HTML
+><HEAD
+><TITLE
+>Net_GeoIP::lookupLocation()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_GeoIP"
+HREF="package.networking.net-geoip.html"><LINK
+REL="PREVIOUS"
+TITLE="Net_GeoIP::lookupRegion()"
+HREF="package.networking.net-geoip.lookupregion.html"><LINK
+REL="NEXT"
+TITLE="Net_GeoIP::lookupOrg()"
+HREF="package.networking.net-geoip.lookuporg.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-geoip.lookupregion.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-geoip.lookuporg.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-geoip.lookuplocation">Net_GeoIP::lookupLocation()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN83661"
+></A
+>Net_GeoIP::lookupLocation()&nbsp;--&nbsp;
+      returns the location record for specified IP address
+    </DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN83664"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN83665"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once "Net/GeoIP.php";</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>object <B
+CLASS="function"
+>lookupLocation()</B
+></CODE
+> (string $addr)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-geoip.lookuplocation.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      This method returns an instance of <B
+CLASS="classname"
+>Net_GeoIP_Location</B
+>
+      for the specified IP address.  It works only with a non-free City
+      database.
+    </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN83676"><P
+><B
+>Example 48-1. 
+        Looking up the location record
+      </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "Net/GeoIP.php";
+
+$geoip = Net_GeoIP::getInstance("/path/to/geoipdb.dat");
+
+try {
+    $location = $geoip-&#62;lookupLocation($_SERVER['REMOTE_ADDR']);
+
+    var_dump($location);
+
+    printf("City: %s, %s\nLatitude: %s, Longitude: %s\n",
+           $location-&#62;city, $location-&#62;region,
+           $location-&#62;latitude, $location-&#62;longitude);
+
+} catch (Exception $e) {
+    // Handle exception
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-geoip.lookuplocation.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;      <P
+></P
+><UL
+><LI
+><P
+>&#13;            <TT
+CLASS="parameter"
+><I
+>string $addr</I
+></TT
+> - IP address
+          </P
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+              Hostnames are not supported.
+              <A
+HREF="package.networking.net-geoip.lookupcountryname.html#package.networking.net-geoip.hostnames"
+>More information</A
+>.
+            </P
+></BLOCKQUOTE
+></DIV
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-geoip.lookuplocation.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      This method throws an exception if the IP address is invalid.
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-geoip.lookupregion.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-geoip.lookuporg.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Net_GeoIP::lookupRegion()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-geoip.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Net_GeoIP::lookupOrg()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

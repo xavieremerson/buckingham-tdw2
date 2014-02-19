@@ -1,0 +1,203 @@
+<HTML
+><HEAD
+><TITLE
+>&#60;file&#62;</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Detailed Tag Reference for package.xml version 2.0"
+HREF="guide.developers.package2.tags.html"><LINK
+REL="PREVIOUS"
+TITLE="<dir>"
+HREF="guide.developers.package2.dir.html"><LINK
+REL="NEXT"
+TITLE="tasks for <file>s"
+HREF="guide.developers.package2.tasks.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="guide.developers.package2.dir.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="guide.developers.package2.tasks.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="guide.developers.package2.file">&#60;file&#62;</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN2438"
+></A
+>&#60;file&#62;&nbsp;--&nbsp;documenting a file in the &#60;contents&#62; tag</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="guide.developers.package2.file.purpose"
+></A
+><H2
+>Documenting files</H2
+><P
+>&#13;   The &#60;file&#62; tag is almost identical to package.xml 1.0.  Required 
+   attributes are name and <A
+HREF="developers.packagedef.html#developers.packagedef.roles"
+>role</A
+>.  
+   Optional attributes are baseinstalldir and md5sum.  Optional attributes
+   platform and install-as have been replaced by the 
+   <A
+HREF="guide.developers.package2.release.html#guide.developers.package2.release.purpose"
+>release tags</A
+>.  
+   Specifically, &#60;install&#62; is used to specify install-as, and the
+   &#60;ignore&#62; tag can be used in conjunction with &#60;installconditions&#62; 
+   to exclude packages from being installed on particular platforms.
+  </P
+><P
+>&#13;   For those familiar with the platform attribute, the way to handle this example:
+  </P
+><P
+>&#13;   &#60;file name="scripts/foo.bat" role="script" install-as="foo.bat" platform="windows"&#62;
+  </P
+><P
+>&#13;   is to in fact create two release sections.  The file tag would then look like:
+  </P
+><P
+>&#13;   &#60;file name="scripts/foo.bat" role="script"&#62;
+  </P
+><P
+>&#13;   and the release section would look like this:
+  </P
+><P
+>&#13;   
+&#60;phprelease&#62;
+ &#60;installconditions&#62;
+  &#60;os&#62;windows&#60;/os&#62;
+ &#60;/installconditions&#62;
+ &#60;install name="scripts/foo.bat" as="foo.bat"/&#62;
+&#60;/phprelease&#62;
+&#60;phprelease&#62;
+ &#60;ignore name="scripts/foo.bat"/&#62;
+&#60;/phprelease&#62;
+   
+  </P
+><P
+>&#13;   Note that the second &#60;phprelease&#62; tag could just as easily have had an &#60;installconditions&#62;
+   tag containing &#60;os&#62;unix&#60;/os&#62;, but this is unnecessary, as the second release will be
+   processed on any system that is not a windows system.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.dir.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.tasks.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&#60;dir&#62;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="guide.developers.package2.tags.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>tasks for &#60;file&#62;s</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

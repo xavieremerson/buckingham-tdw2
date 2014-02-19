@@ -1,0 +1,294 @@
+<HTML
+><HEAD
+><TITLE
+>Net_GeoIP::lookupRegion()</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Net_GeoIP"
+HREF="package.networking.net-geoip.html"><LINK
+REL="PREVIOUS"
+TITLE="Net_GeoIP::lookupCountryCode()"
+HREF="package.networking.net-geoip.lookupcountrycode.html"><LINK
+REL="NEXT"
+TITLE="Net_GeoIP::lookupLocation()"
+HREF="package.networking.net-geoip.lookuplocation.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-geoip.lookupcountrycode.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.networking.net-geoip.lookuplocation.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.networking.net-geoip.lookupregion">Net_GeoIP::lookupRegion()</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN83630"
+></A
+>Net_GeoIP::lookupRegion()&nbsp;--&nbsp;
+      returns the region for given IP address.
+    </DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN83633"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN83634"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once "Net/GeoIP.php";</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>array <B
+CLASS="function"
+>lookupRegion()</B
+></CODE
+> (string $addr)</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-geoip.lookupregion.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;      This method returns an array containing the country code and the
+      region for the specified IP address.  It works only with a
+      non-free Region database.
+    </P
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN83644"><P
+><B
+>Example 48-1. 
+        Looking up the region
+      </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once "Net/GeoIP.php";
+
+$geoip = Net_GeoIP::getInstance("/path/to/geoipdb.dat");
+
+try {
+    list($country_code, $region) = $geoip-&#62;lookupRegion($_SERVER['REMOTE_ADDR']);
+} catch (Exception $e) {
+    // Handle exception
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-geoip.lookupregion.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;      <P
+></P
+><UL
+><LI
+><P
+>&#13;            <TT
+CLASS="parameter"
+><I
+>string $addr</I
+></TT
+> - IP address
+          </P
+><DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>
+              Hostnames are not supported.
+              <A
+HREF="package.networking.net-geoip.lookupcountryname.html#package.networking.net-geoip.hostnames"
+>More information</A
+>.
+            </P
+></BLOCKQUOTE
+></DIV
+></LI
+></UL
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.networking.net-geoip.lookupregion.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;      This method throws an exception if the IP address is invalid.
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.networking.net-geoip.lookupcountrycode.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.networking.net-geoip.lookuplocation.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Net_GeoIP::lookupCountryCode()</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.networking.net-geoip.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Net_GeoIP::lookupLocation()</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,503 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Pager"
+HREF="package.html.pager.html"><LINK
+REL="PREVIOUS"
+TITLE="Pager"
+HREF="package.html.pager.html"><LINK
+REL="NEXT"
+TITLE='Pager "Jumping" vs. "Sliding"'
+HREF="package.html.pager.compare.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.html.pager.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.html.pager.compare.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.html.pager.intro">Introduction</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN72529"
+></A
+>Introduction&nbsp;--&nbsp;Usage of <B
+CLASS="classname"
+>Pager</B
+> 2.x</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager.intro.whatis"
+></A
+><H2
+>What is Pager?</H2
+><P
+>&#13;    <B
+CLASS="classname"
+>Pager</B
+> is a class to page an array of data.
+    It is taken as input and it is paged according to various parameters.
+    <B
+CLASS="classname"
+>Pager</B
+> also builds links within a specified range,
+    and allows complete customization of the output (it even works with mod_rewrite).
+    It is compatible with <B
+CLASS="classname"
+>Pager</B
+> v.1.x and
+    <B
+CLASS="classname"
+>Pager_Sliding</B
+> API
+   </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager.intro.example1"
+></A
+><H2
+>Example 1</H2
+><P
+>&#13;     This simple example will page the array of alphabetical letters, giving back
+     pages with 3 letters per page, and links to the previous two / next two pages:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Pager/Pager.php';
+$params = array(
+    'mode'       =&#62; 'Jumping',
+    'perPage'    =&#62; 3,
+    'delta'      =&#62; 2,
+    'itemData'   =&#62; array('a','b','c','d','e',[...omissis...],'z')
+);
+$pager = &#38; Pager::factory($params);
+$data  = $pager-&#62;getPageData();
+$links = $pager-&#62;getLinks();
+//$links is an ordered+associative array with 'back'/'pages'/'next'/'first'/'last'/'all' links.
+//NB: $links['all'] is the same as $pager-&#62;links;
+
+//echo links to other pages:
+echo $links['all'];
+
+//Pager can also generate &#60;link rel="first|prev|next|last"&#62; tags
+echo $pager-&#62;linkTags;
+
+//Show data for current page:
+echo 'PAGED DATA: ' ; print_r($data);
+
+//Results from methods:
+echo 'getCurrentPageID()...: '; var_dump($pager-&#62;getCurrentPageID());
+echo 'getNextPageID()......: '; var_dump($pager-&#62;getNextPageID());
+echo 'getPreviousPageID()..: '; var_dump($pager-&#62;getPreviousPageID());
+echo 'numItems()...........: '; var_dump($pager-&#62;numItems());
+echo 'numPages()...........: '; var_dump($pager-&#62;numPages());
+echo 'isFirstPage()........: '; var_dump($pager-&#62;isFirstPage());
+echo 'isLastPage().........: '; var_dump($pager-&#62;isLastPage());
+echo 'isLastPageComplete().: '; var_dump($pager-&#62;isLastPageComplete());
+echo '$pager-&#62;range........: '; var_dump($pager-&#62;range);</PRE
+></TD
+></TR
+></TABLE
+>
+     In case you're wondering, $pager-&#62;range is a numeric array; its keys are the numbers of
+     the pages in the current range, and the matching values are booleans (<TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+> if its key
+     represents currentPage, <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+> otherwise). This array can be useful to build the links
+     manually, e.g. when using a template engine.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager.intro.example2"
+></A
+><H2
+>Example 2</H2
+><P
+>&#13;     This example shows how you can use this class with mod_rewite.
+     Let's suppose we have a .htaccess like this:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>---------
+RewriteEngine on
+#Options FollowSymlinks
+
+RewriteBase /
+RewriteRule ^articles/([a-z]{1,12})/art([0-9]{1,4})\.html$ /article.php?num=$2&#38;amp;month=$1 [L]
+---------</PRE
+></TD
+></TR
+></TABLE
+>
+     It should transform an url like "/articles/march/art15.html"
+     into "/article.php?num=15&#38;month=march"
+    </P
+><P
+>&#13;     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Pager/Pager.php';
+
+$month = 'september';
+$params = array(
+    'mode'      =&#62; 'Sliding',
+    'append'    =&#62; false,
+    'urlVar'    =&#62; 'num',
+    'path'      =&#62; 'http://myserver.com/articles/' . $month,
+    'fileName'  =&#62; 'art%d.html',  //Pager replaces "%d" with page number...
+    'itemData'  =&#62; array('a','b','c',[...omissis...],'z'),
+    'perPage'   =&#62; 3
+);
+$pager = &#38; Pager::factory($params);
+
+$data  = $pager-&#62;getPageData();
+echo $pager-&#62;links;
+echo 'Data for current page: '; print_r($data);</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager.intro.morepagers"
+></A
+><H2
+>More pagers in a single page</H2
+><P
+>&#13;     Using more than one pager in a single page is as simple as using a different
+     <TT
+CLASS="parameter"
+><I
+>urlVar</I
+></TT
+> for each pager:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Pager/Pager.php';
+
+//first pager
+$params1 = array(
+    'perPage'    =&#62; 3,
+    'urlVar'     =&#62; pageID_articles,  //1st identifier
+    'itemData'   =&#62; $someArray
+);
+$pager1 = &#38; Pager::factory($params1);
+$data1  = $pager1-&#62;getPageData();
+$links1 = $pager1-&#62;getLinks();
+
+//second pager
+$params2 = array(
+    'perPage'    =&#62; 8,
+    'urlVar'     =&#62; pageID_news,      //2nd identifier
+    'itemData'   =&#62; $someOtherArray
+);
+$pager2 = &#38; Pager::factory($params2);
+$data2  = $pager2-&#62;getPageData();
+$links2 = $pager2-&#62;getLinks();</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager.intro.db"
+></A
+><H2
+>Pager and big db resultsets</H2
+><P
+>&#13;     If you want to paginate db resultsets, fetching them all into an
+     array and passing it to <B
+CLASS="classname"
+>Pager</B
+> might not be the
+     best option. You can still leverage <B
+CLASS="classname"
+>Pager</B
+> and
+     have good performances using a wrapper. There is a sample wrapper for
+     each one of the PEAR db abstraction systems in the /docs/examples/ dir
+     of the package. You may use it as-is or customize it to your needs.
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager.intro.extravars"
+></A
+><H2
+>Adding extra variables to the querystring</H2
+><P
+>&#13;     If you need to add some extra variables to the querystring,
+     use the <TT
+CLASS="parameter"
+><I
+>extraVars</I
+></TT
+> parameter:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>$params = array(
+    'extraVars' =&#62; array(
+        'firstKey'  =&#62; 'firstValue',
+        'secondKey' =&#62; 'secondValue',
+        //...
+    ),
+    //...
+);
+$pager1 = &#38; Pager::factory($params);</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.html.pager.intro.php5"
+></A
+><H2
+>Important note for PHP 5 users</H2
+><P
+>&#13;     Since version 2.2.1, <B
+CLASS="classname"
+>Pager</B
+> works with PHP 5 too,
+     but you must use the <B
+CLASS="function"
+>factory()</B
+> method
+     instead of the constructor (which is deprecated):
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>require_once 'Pager/Pager.php';
+
+//wrong: 
+//$pager =&#38; new Pager($params);
+
+//right
+$pager =&#38; Pager::factory($params);
+
+//continue as you did before</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+><P
+>&#13;     If you are using a previous revision and cannot update, you must write
+     the following code on PHP 5:
+     <TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>//chose your preferred mode [Jumping | Sliding]:
+
+//require_once 'Pager/Jumping.php';
+require_once 'Pager/Sliding.php';
+
+//$pager =&#38; new Pager_Jumping($params);
+$pager =&#38; new Pager_Sliding($params);
+
+//continue as you did before</PRE
+></TD
+></TR
+></TABLE
+>
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.html.pager.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.html.pager.compare.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Pager</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.html.pager.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="classname"
+>Pager</B
+> "Jumping" vs. "Sliding"</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

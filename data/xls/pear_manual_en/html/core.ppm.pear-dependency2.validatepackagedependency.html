@@ -1,0 +1,389 @@
+<HTML
+><HEAD
+><TITLE
+>&#13;   PEAR_Dependency2::validatePackageDependency
+  </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PEAR_Dependency2"
+HREF="core.ppm.pear-dependency2.html"><LINK
+REL="PREVIOUS"
+TITLE="
+   PEAR_Dependency2::validatePackage
+  "
+HREF="core.ppm.pear-dependency2.validatepackage.html"><LINK
+REL="NEXT"
+TITLE="
+   PEAR_Dependency2::validatePackageUninstall
+  "
+HREF="core.ppm.pear-dependency2.validatepackageuninstall.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-dependency2.validatepackage.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="core.ppm.pear-dependency2.validatepackageuninstall.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="core.ppm.pear-dependency2.validatepackagedependency"><B
+CLASS="function"
+>PEAR_Dependency2::validatePackageDependency()</B
+></H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN12291"
+></A
+>
+   <B
+CLASS="function"
+>PEAR_Dependency2::validatePackageDependency()</B
+>
+  &nbsp;--&nbsp;validatePackageDependency</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN12295"><H2
+>Synopsis</H2
+><DIV
+CLASS="funcsynopsis"
+><A
+NAME="AEN12296"><P
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="funcsynopsisinfo"
+>require_once '/Dependency2.php';</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>&#13;     array|true|PEAR_Error
+     <B
+CLASS="function"
+>PEAR_Dependency2::validatePackageDependency</B
+>
+    </CODE
+> (array
+     $dep, boolean
+     $required, array
+     $params, bool
+     [$depv1 = <TT
+CLASS="constant"
+><B
+>FALSE</B
+></TT
+>])</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-dependency2.validatepackagedependency.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Validate a package-style dependency.  Validation is performed in this sequence:
+  </P
+><P
+>&#13;   <P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>&#13;      If the dependency package provides an extension through the &#60;providesextension&#62;
+      tag, then see if it passes the extension validation test first and return if so.
+     </P
+></LI
+><LI
+><P
+>&#13;      If the list of packages to be installed contains a match for the dependency, use that
+      to validate the dependency and return.
+     </P
+></LI
+><LI
+><P
+>&#13;      If the dependency package is already installed, make sure the installed version
+      passes the conditions.
+     </P
+></LI
+><LI
+><P
+>&#13;      At this point, the dependency has failed.  If the dependency is required,
+      return a PEAR_Error containing the failure error message, otherwise return
+      an array containing the error message.
+     </P
+></LI
+></OL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-dependency2.validatepackagedependency.param"
+></A
+><H2
+>Parameter</H2
+><P
+>&#13;   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array
+      <TT
+CLASS="parameter"
+><I
+>$dep</I
+></TT
+></DT
+><DD
+><P
+>&#13;       dependency array as defined by package.xml 2.0
+      </P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>boolean
+      <TT
+CLASS="parameter"
+><I
+>$required</I
+></TT
+></DT
+><DD
+><P
+>&#13;       whether this is a required or optional dependency
+      </P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>array
+      <TT
+CLASS="parameter"
+><I
+>$params</I
+></TT
+></DT
+><DD
+><P
+>&#13;       array of PEAR_Downloader_Package objects representing packages to be
+       downloaded that can be used to validate dependencies
+      </P
+></DD
+></DL
+></DIV
+>
+   <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>boolean
+      <TT
+CLASS="parameter"
+><I
+>$depv1</I
+></TT
+></DT
+><DD
+><P
+>&#13;       if <TT
+CLASS="constant"
+><B
+>TRUE</B
+></TT
+>, then deps on pear.php.net that fail will also check
+       against pecl.php.net packages to accomodate extensions that have
+       moved to pecl.php.net from pear.php.net
+      </P
+></DD
+></DL
+></DIV
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-dependency2.validatepackagedependency.throws"
+></A
+><H2
+>Throws</H2
+><P
+>&#13;   <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>throws</I
+></SPAN
+>
+   no exceptions thrown
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="core.ppm.pear-dependency2.validatepackagedependency.note"
+></A
+><H2
+>Note</H2
+><P
+>This function can not be called
+statically.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-dependency2.validatepackage.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-dependency2.validatepackageuninstall.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Dependency2::validatePackage()</B
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="core.ppm.pear-dependency2.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PEAR_Dependency2::validatePackageUninstall()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

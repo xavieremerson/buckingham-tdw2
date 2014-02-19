@@ -1,0 +1,200 @@
+<HTML
+><HEAD
+><TITLE
+>Advanced usage</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="PHP_Compat"
+HREF="package.php.php-compat.html"><LINK
+REL="PREVIOUS"
+TITLE="Components"
+HREF="package.php.php-compat.components.html"><LINK
+REL="NEXT"
+TITLE="PHP_Compat::loadFunction"
+HREF="package.php.php-compat.php-compat.loadfunction.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.php.php-compat.components.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.php.php-compat.php-compat.loadfunction.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.php.php-compat.usage">Advanced usage</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN93039"
+></A
+>Advanced usage&nbsp;--&nbsp;Describe techniques for advanced usage</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN93042"
+></A
+><H2
+>Advanced usage</H2
+><P
+>&#13;   In order to create portable code, it's best to assume all the
+   native functions already exist. Littering a script with
+   calls to PHP_Compat can become messy, and increase the work
+   required to port the code.
+  </P
+><P
+>&#13;   To solve this there are a number of approaches. The first would
+   be adding the load statements to a file which is included at the
+   top of every document. The second, and prefered method is to make
+   use of <TT
+CLASS="literal"
+>php_auto_append</TT
+> <TT
+CLASS="filename"
+>php.ini</TT
+>
+   value. This can be set in a <TT
+CLASS="filename"
+>.htaccess</TT
+> file,
+   and no modifications to the actual code are required.
+  </P
+><P
+>&#13;   If <TT
+CLASS="filename"
+>phpcompat.php</TT
+> was the name of the file, an
+   example entry in a <TT
+CLASS="filename"
+>.htaccess</TT
+> could be
+   <TT
+CLASS="literal"
+>php_value php_auto_append phpcompat.php</TT
+>.
+   The <TT
+CLASS="filename"
+>phpcompat.php</TT
+> file would make use of either the
+   loadVersion or loadFunction/loadConstant methods discussed in the next
+   page.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.php.php-compat.components.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.php.php-compat.php-compat.loadfunction.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Components</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.php.php-compat.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><B
+CLASS="function"
+>PHP_Compat::loadFunction()</B
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

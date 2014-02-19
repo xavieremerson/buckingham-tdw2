@@ -1,0 +1,613 @@
+<HTML
+><HEAD
+><TITLE
+>Introduction - Portability</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="PEAR Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="MDB2"
+HREF="package.database.mdb2.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction - autoPrepare & autoExecute"
+HREF="package.database.mdb2.intro-auto.html"><LINK
+REL="NEXT"
+TITLE="Introduction - Sequences"
+HREF="package.database.mdb2.intro-sequences.html"><META
+HTTP-EQUIV="Content-type"
+CONTENT="text/html; charset=ISO-8859-1"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PEAR Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb2.intro-auto.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="package.database.mdb2.intro-sequences.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="package.database.mdb2.intro-portability">Introduction - Portability</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN31791"
+></A
+>Introduction - Portability&nbsp;--&nbsp;Database portability features</DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb2.intro-portability.desc"
+></A
+><H2
+>Description</H2
+><P
+>&#13;   Each database management system (DBMS) has it's own behaviors.
+   For example, some databases capitalize field names in their output,
+   some lowercase them, while others leave them alone. These quirks
+   make it difficult to port your scripts over to another server type.
+   PEAR MDB2 strives to overcome these differences so your program can
+   switch between DBMS's without any changes.
+  </P
+><P
+>&#13;   You control which portability modes are enabled by using
+   the <TT
+CLASS="varname"
+>portability</TT
+> configuration option.
+   Configuration options are set via
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2.html#methodfactory"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>factory()</B
+></A
+> and
+   <A
+HREF="http://pear.php.net/package/MDB2/docs/latest/MDB2/MDB2_Driver_Common.html#methodsetOption"
+TARGET="_top"
+>&#13;    <B
+CLASS="function"
+>setOption()</B
+></A
+>.
+  </P
+><P
+>&#13;   The portability modes are bitwised, so they can be combined using
+   <TT
+CLASS="literal"
+>|</TT
+> and removed using <TT
+CLASS="literal"
+>^</TT
+>.
+   See the examples section below on how to do this.
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb2.intro-portability.constants"
+></A
+><H2
+>Portability Mode Constants</H2
+><P
+>&#13;   <P
+></P
+><UL
+><LI
+><P
+>&#13;      <TT
+CLASS="constant"
+><B
+>MDB2_PORTABILITY_ALL</B
+></TT
+> (default)
+     </P
+><P
+>&#13;      turn on all portability features. this is the default setting.
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="constant"
+><B
+>MDB2_PORTABILITY_DELETE_COUNT</B
+></TT
+>
+     </P
+><P
+>&#13;      Force reporting the number of rows deleted.
+      Some DBMS's don't count the number of rows deleted when performing
+      simple <TT
+CLASS="userinput"
+><B
+>DELETE FROM tablename</B
+></TT
+> queries. This mode
+      tricks such DBMS's into telling the count by adding
+      <TT
+CLASS="userinput"
+><B
+>WHERE 1=1</B
+></TT
+> to the end of <B
+CLASS="command"
+>DELETE</B
+>
+      queries.
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="constant"
+><B
+>MDB2_PORTABILITY_EMPTY_TO_NULL</B
+></TT
+>
+     </P
+><P
+>&#13;      Convert empty strings values to null in data in and output.
+      Needed because Oracle considers empty strings to be null,
+      while most other DBMS's know the difference between empty and null.
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="constant"
+><B
+>MDB2_PORTABILITY_ERRORS</B
+></TT
+>
+     </P
+><P
+>&#13;      Makes certain error messages in certain drivers compatible
+      with those from other DBMS's
+     </P
+><P
+>&#13;
+      <DIV
+CLASS="table"
+><A
+NAME="AEN31830"><P
+><B
+>Table 33-1. Error Code Re-mappings</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Driver</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Description</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Old Constant</TH
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>New Constant</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           mysql, mysqli
+          </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           unique and primary key constraints
+          </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           <TT
+CLASS="constant"
+><B
+>MDB2_ERROR_ALREADY_EXISTS</B
+></TT
+>
+          </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           <TT
+CLASS="constant"
+><B
+>MDB2_ERROR_CONSTRAINT</B
+></TT
+>
+          </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           mysql, mysqli
+          </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           not-null constraints
+          </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           <TT
+CLASS="constant"
+><B
+>MDB2_ERROR_CONSTRAINT</B
+></TT
+>
+          </TD
+><TD
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>&#13;           <TT
+CLASS="constant"
+><B
+>MDB2_ERROR_CONSTRAINT_NOT_NULL</B
+></TT
+>
+          </TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="constant"
+><B
+>MDB2_PORTABILITY_FIX_ASSOC_FIELD_NAMES</B
+></TT
+>
+     </P
+><P
+>&#13;      This removes any qualifiers from keys in associative fetches. some
+      RDBMS , like for example SQLite, will be default use the fully qualified
+      name for a column in assoc fetches if it is qualified in a query.
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="constant"
+><B
+>MDB2_PORTABILITY_FIX_CASE</B
+></TT
+>
+     </P
+><P
+>&#13;      Convert names of tables and fields to lower or upper case in all methods.
+      The case depends on the 'field_case' option that may be set to either
+      <TT
+CLASS="constant"
+><B
+>CASE_LOWER</B
+></TT
+> (default) or <TT
+CLASS="constant"
+><B
+>CASE_UPPER</B
+></TT
+>
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="constant"
+><B
+>MDB2_PORTABILITY_NONE</B
+></TT
+>
+     </P
+><P
+>&#13;      Turn off all portability features
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="constant"
+><B
+>MDB2_PORTABILITY_NUMROWS</B
+></TT
+>
+     </P
+><P
+>&#13;      Enable hack that makes <B
+CLASS="function"
+>numRows()</B
+> work in Oracle
+     </P
+></LI
+><LI
+><P
+>&#13;      <TT
+CLASS="constant"
+><B
+>MDB2_PORTABILITY_RTRIM</B
+></TT
+>
+     </P
+><P
+>&#13;      Right trim the data output for all data fetches. This not applied in drivers
+      for RDBMS that automatically right trim values of fixed length character values,
+      even if they do not right trim value of variable length character values.
+     </P
+></LI
+></UL
+>
+  </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="package.database.mdb2.intro-portability.example"
+></A
+><H2
+>Example</H2
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31879"><P
+><B
+>Example 33-1. Disabling all portability options while connecting</B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+require_once 'MDB2.php';
+
+$dsn = 'mysql://user:password@host/database'
+$options = array(
+    'debug'       =&#62; 2,
+    'portability' =&#62; MDB2_PORTABILITY_NONE,
+);
+
+$mdb2 =&#38; MDB2::connect($dsn, $options);
+if (PEAR::isError($mdb2)) {
+    die($mdb2-&#62;getMessage());
+}
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31882"><P
+><B
+>Example 33-2. 
+    Using <B
+CLASS="function"
+>setOption()</B
+> to enable portability
+    for lowercasing and trimming
+   </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$mdb2-&#62;setOption('field_case', CASE_LOWER);
+$mdb2-&#62;setOption('portability',
+        MDB2_PORTABILITY_FIX_CASE | MDB2_PORTABILITY_RTRIM);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+CLASS="EXAMPLE"
+><TR
+><TD
+><DIV
+CLASS="example"
+><A
+NAME="AEN31886"><P
+><B
+>Example 33-3. 
+    Using <B
+CLASS="function"
+>setOption()</B
+> to enable all portability
+    options except trimming
+   </B
+></P
+><TABLE
+WIDTH="100%"
+CELLSPACING="0"
+CELLPADDING="0"
+BORDER="0"
+BGCOLOR="#EEEEEE"
+><TR
+><TD
+><PRE
+CLASS="php"
+>&#60;?php
+// Once you have a valid MDB2 object named $mdb2...
+$mdb2-&#62;setOption('portability',
+        MDB2_PORTABILITY_ALL ^ MDB2_PORTABILITY_RTRIM);
+?&#62;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.intro-auto.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.intro-sequences.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction - autoPrepare &#38; autoExecute</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="package.database.mdb2.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction - Sequences</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>
